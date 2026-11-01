@@ -237,7 +237,11 @@ mod tests {
         assert!(!job.contains_pid(external.0.id()).unwrap());
         job.terminate().unwrap();
         let stopped = Instant::now();
-        while !job.is_empty().unwrap() && stopped.elapsed() < Duration::from_secs(3) { thread::sleep(Duration::from_millis(10)); }
+        while stopped.elapsed() < Duration::from_secs(3)
+            && (!job.is_empty().unwrap() || child.try_wait().unwrap().is_none())
+        {
+            thread::sleep(Duration::from_millis(10));
+        }
         assert!(job.is_empty().unwrap(), "owned Job must be empty, not only root exited");
         assert!(child.try_wait().unwrap().is_some());
         assert!(external.0.try_wait().unwrap().is_none(), "unrelated owned control must survive this Job termination");

@@ -1,0 +1,49 @@
+{
+  "prepared_at_utc": "2026-11-01T17:58:18.678517+00:00",
+  "status": "PREPARED_ONLY_NOT_APPLIED",
+  "baseline_commit": "e1035b6405f8a5ba8be83893b74243ad4358d68f",
+  "failed_run": 41332498997,
+  "failed_job": 124925359174,
+  "files": [
+    {
+      "path": "apps/desktop/src-tauri/src/windows_process.rs",
+      "before_sha256": "27fba9ee23a762aeacf833b0c5ed67078f741988877989f58bd8980f49697928",
+      "after_sha256": "d55f37009c32c87e6cdb99cf06f902dd7d52f558b5e3f61b7d1d365453e4ab7e",
+      "live_matches_before": true
+    }
+  ],
+  "patch_sha256": "056d534aee4e3f8ef7cb2d43ce3d4427b4240516afadad2c43210c901ede9164",
+  "only_change": "test polling condition waits within the existing 3-second deadline for both owned Job empty and actual Child exit; original final assertions preserved",
+  "production_helper_unchanged": true,
+  "native_test_rerun": "not run; next Windows CI required",
+  "local_compile": false,
+  "product_modified": false,
+  "remote_mutations": false,
+  "evidence": {
+    "job_log": "job.log",
+    "final_steps": "final-jobs.json",
+    "job_log_sha256": "1ce7e0ad3d94ea23e50698c15f669fe2f20c46d481f4a57d3be39bd8322d3eba",
+    "failure": "1 actual test failed at windows_process.rs:242; Job-empty assertion passed but immediate Child.try_wait returned None",
+    "successful_native_steps": [
+      "notices: 192 npm / 344 Cargo / missingNotices=0",
+      "native sidecars/main EXE and NSIS/MSI build",
+      "both installer collection",
+      "ripgrep/Git JSON sidecar smoke",
+      "QuickJS healthy integration test: 1 passed"
+    ],
+    "skipped_after_failure": [
+      "Windows storage roundtrip",
+      "Pi four boundary tests",
+      "managed Pi chat",
+      "main-process startup observation",
+      "automatic Publish"
+    ],
+    "artifact": {
+      "id": 13094530668,
+      "bytes": 23679459,
+      "url": "https://github.com/chenachen/horizon-workbench/actions/runs/41332498997/artifacts/13094530668",
+      "release_published": false
+    }
+  },
+  "related_read_only_audit": "ProcessSol confirmed normal production callers also await real Child terminal; separate Drop/error-path boundary remains for Root review, no production change in this candidate."
+}

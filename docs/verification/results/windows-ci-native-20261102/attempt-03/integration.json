@@ -1,0 +1,19 @@
+{
+  "integratedAt": "2026-11-01T18:00:40.856239+00:00",
+  "failedRun": 41332498997,
+  "failedJob": 124925359174,
+  "changes": [
+    {
+      "path": "apps/desktop/src-tauri/src/windows_process.rs",
+      "before_sha256": "27fba9ee23a762aeacf833b0c5ed67078f741988877989f58bd8980f49697928",
+      "after_sha256": "d55f37009c32c87e6cdb99cf06f902dd7d52f558b5e3f61b7d1d365453e4ab7e",
+      "live_matches_before": true
+    }
+  ],
+  "review": "Read complete test delta and actual Windows panic. Existing 3s deadline now waits for both Job ActiveProcesses zero and actual Child terminal; all final ownership/descendant/external-control assertions retained. No production helper changes. Actual Windows rerun remains pending.",
+  "localCompile": false,
+  "reason": "macOS plugin native lease ongoing; Windows-only test needs native CI",
+  "sourceChecks": {
+    "apps/desktop/src-tauri/src/windows_process.rs": true
+  }
+}
