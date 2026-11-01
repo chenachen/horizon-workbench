@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-01T20:05:02.039667+00:00",
+  "status": "APPLIED_NOT_NATIVE_TESTED",
+  "source": {
+    "path": "apps/desktop/src-tauri/src/processes.rs",
+    "before_sha256": "cb5f3b30e614c265c8b774e54393a0650846ca1255d9a789fb4ef50da4300d34",
+    "after_sha256": "8d77f3038014a29ee1a22cda53f23cca2a9926e7bae79749677a455b373ee9d2",
+    "live_matches_before": true
+  },
+  "review": "Full candidate delta and existing Windows ConPTY test read; only actual-query-triggered CPR writes, shared across both waits; production prefix unchanged. Archive all9 sha/bytes verified.",
+  "archiveSha256": "10971a9dbb9406f119b66afb00fce6d81610fa7cab9da268e88b61d374c03afb",
+  "checks": "No local test or compilation. Next exact Windows CI validates client handshake and original Chinese/resize/Stop assertions."
+}

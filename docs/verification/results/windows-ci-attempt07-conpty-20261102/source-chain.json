@@ -1,0 +1,35 @@
+{
+  "checked_at_utc": "2026-11-01T20:03:55.022455+00:00",
+  "scope": "read-only actual locked source chain; no mirror test or local runtime",
+  "vendor": {
+    "path": "apps/desktop/src-tauri/vendor/portable-pty/src/win/psuedocon.rs",
+    "sha256": "f9af06eef1915b2ba7202d403c01efe28ac22c425d9b2467acdc1bc8d57f6f3d",
+    "lines": "83-89",
+    "fact": "CreatePseudoConsole uses INHERIT_CURSOR"
+  },
+  "xterm": {
+    "version": "6.0.0",
+    "input_handler_sha256": "b03afd5d38dd708440699e81135f1735626d55ffdf24621fbd54cfbc41320925",
+    "input_handler_lines": "2653-2666",
+    "fact": "CSI6n -> coreService.triggerDataEvent CSI(y+1);(x+1)R; fresh buffer is1;1",
+    "core_terminal_sha256": "538d1740cb2c1e1d1af7b58aac3518dba5c29ea83b4dad60b41a05333b7ca749",
+    "core_terminal_line": 131,
+    "forwarding": "coreService.onData forwarded to public onData"
+  },
+  "frontend": {
+    "path": "apps/desktop/src/features/processes/index.tsx",
+    "sha256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+    "lines": "504-515,540-552",
+    "fact": "terminal.write parses real output; terminal.onData forwards reply via project-scoped terminal_input"
+  },
+  "backend": {
+    "path": "apps/desktop/src-tauri/src/processes.rs",
+    "lines": "2512-2528",
+    "fact": "terminal_input clones real writer, releases process lock, serializes actual input bytes and flushes"
+  },
+  "official_docs": [
+    "https://learn.microsoft.com/en-us/windows/console/createpseudoconsole#remarks",
+    "https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences"
+  ],
+  "responsibility": "The old headless test only read output and omitted the required terminal-client response. Candidate supplies only a single actual CPR response on the input pipe when the query is observed."
+}

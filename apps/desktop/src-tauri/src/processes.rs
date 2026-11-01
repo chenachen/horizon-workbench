@@ -3823,7 +3823,7 @@ mod windows_tests {
         }
     }
 
-    fn wait_for_output(process: &Arc<Mutex<Process>>, expected: &str, timeout: Duration) {
+    fn wait_for_output(process: &Arc<Mutex<Process>>, expected: &str, timeout: Duration, cursor_replied: &mut bool) {
         let started = Instant::now();
         loop {
             let (state, bytes) = {
@@ -3831,6 +3831,18 @@ mod windows_tests {
                 (process.state.clone(), process.output.read(0, 64 * 1024))
             };
             let text = String::from_utf8_lossy(&bytes);
+            // INHERIT_CURSOR asks the terminal client for its initial position.
+            // Like a fresh xterm, reply at 1;1 on the real input stream once;
+            // the ring retains the query across both output waits.
+            if !*cursor_replied && text.contains("\x1b[6n") {
+                let writer = process.lock().unwrap().writer.as_ref().cloned()
+                    .expect("ConPTY cursor query requires a live input writer");
+                let mut writer = writer.lock().unwrap();
+                writer.write_all(b"\x1b[1;1R").unwrap();
+                writer.flush().unwrap();
+                *cursor_replied = true;
+                println!("Answered ConPTY initial cursor query at 1;1");
+            }
             if text.contains(expected) { return; }
             assert!(state != "exited" && started.elapsed() < timeout,
                 "expected {expected:?}, state={state}, output={:?}", text.chars().take(2000).collect::<String>());
@@ -3876,7 +3888,8 @@ while ($true) {
         let job = job.expect("production ConPTY spawn must retain its owned Job");
         assert_eq!(job.root_pid(), pid);
         assert!(job.contains_pid(pid).unwrap());
-        wait_for_output(&process, "HORIZON_CONPTY_中文输出", Duration::from_secs(10));
+        let mut cursor_replied = false;
+        wait_for_output(&process, "HORIZON_CONPTY_中文输出", Duration::from_secs(10), &mut cursor_replied);
 
         // The library's get_size alone may reflect cached dimensions. Require
         // the attached PowerShell's real Console API report after the resize.
@@ -3889,7 +3902,7 @@ while ($true) {
             }
         }.unwrap();
         assert_eq!((resized.cols, resized.rows), (120, 40));
-        wait_for_output(&process, "HORIZON_CONPTY_SIZE=120x40", Duration::from_secs(5));
+        wait_for_output(&process, "HORIZON_CONPTY_SIZE=120x40", Duration::from_secs(5), &mut cursor_replied);
 
         let stopped = stop_process(&process, false, None).unwrap();
         assert_eq!(stopped["exited"], true);

@@ -1,0 +1,47 @@
+{
+  "commit": "fcaeada6f414c0d762cc93df656677a36f2d2919",
+  "run_id": 41342731739,
+  "job_id": 124955986359,
+  "conclusion": "failure",
+  "actual_passed_tests": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    }
+  ],
+  "loader_issue": "Host EXE now loads; exact owned Job test really executed and passed in0.06s",
+  "conpty": {
+    "name": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+    "running_tests": 1,
+    "passed": 0,
+    "failed": 1,
+    "duration_seconds": 12.55,
+    "observed_state": "running",
+    "observed_only_output": "ESC[6n",
+    "chinese_output_deadline_seconds": 10,
+    "resize_reached": false,
+    "cleanup_error": "TIMEOUT: 自有 Windows Job/进程停止尚未确认，请重试强制结束",
+    "cleanup_confirmed": false
+  },
+  "later_storage_Pi_startup_publish": "skipped",
+  "exact_failure_lines": [
+    "2026-11-01T19:55:28.0203691Z thread 'processes::windows_tests::owned_conpty_chinese_resize_and_stop' (7976) panicked at src\\processes.rs:3835:13:",
+    "2026-11-01T19:55:28.0211008Z expected \"HORIZON_CONPTY_中文输出\", state=running, output=\"\\u{1b}[6n\"",
+    "2026-11-01T19:55:30.5299879Z owned Windows ConPTY cleanup remains unconfirmed: HostError { code: \"TIMEOUT\", message: \"自有 Windows Job/进程停止尚未确认，请重试强制结束\", retryable: false, operation_id: None, details: None, recovery: None }",
+    "2026-11-01T19:55:30.5311085Z test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 12.55s"
+  ],
+  "artifact_log_lines": [
+    "2026-11-01T19:55:33.8220764Z Artifact horizon-windows-x64-fcaeada6f414c0d762cc93df656677a36f2d2919 has been successfully uploaded! Final size is 23700595 bytes. Artifact ID is 13098582363",
+    "2026-11-01T19:55:33.8228898Z Artifact download URL: https://github.com/chenachen/horizon-workbench/actions/runs/41342731739/artifacts/13098582363"
+  ],
+  "job_log_sha256": "78b8c1b99ec4bd10badd4a25a621fdc68d12fddc029e2bfc2b33db6fd6469369",
+  "retest_after_candidate": "not run"
+}
