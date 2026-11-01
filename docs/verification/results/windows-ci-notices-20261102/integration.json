@@ -1,0 +1,12 @@
+{
+  "integratedAt": "2026-11-01T17:26:42.532396+00:00",
+  "failedRun": 41330852712,
+  "failedJob": 124920445880,
+  "failedCommit": "0127990d57141a67a7247c897b0a1b0190bad389",
+  "failure": "Windows Git checkout converted pinned upstream license bytes from LF to CRLF before checksum validation.",
+  "fix": ".gitattributes scopes -text to licenses/third-party/upstream/**; original checksum pins and archive script unchanged.",
+  "realReproduction": "Production supplemental_sources reproduced failure with Git core.autocrlf=true, then verified 13/13 pinned files with the attribute.",
+  "file": ".gitattributes",
+  "sha256": "d553d5894313a77b4d6856c66c177afbea8bc3160fa5f85457f3028c79c70bb0",
+  "windowsRerun": "pending new push"
+}

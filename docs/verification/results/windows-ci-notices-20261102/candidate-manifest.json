@@ -1,0 +1,39 @@
+{
+  "prepared_at_utc": "2026-11-01T17:25:29.925085+00:00",
+  "status": "PREPARED_ONLY_NOT_APPLIED",
+  "baseline_commit": "0127990d57141a67a7247c897b0a1b0190bad389",
+  "failed_ci_commit": "0127990d57141a67a7247c897b0a1b0190bad389",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "before_exists": false,
+      "before_sha256": null,
+      "after_sha256": "d553d5894313a77b4d6856c66c177afbea8bc3160fa5f85457f3028c79c70bb0",
+      "bytes": 95
+    }
+  ],
+  "patch_sha256": "ae30151546f44447b28d2b40f99dc1891cd88519155d736d4e9ae52f019c3fb0",
+  "unchanged_inputs": [
+    {
+      "path": "scripts/archive-licenses.py",
+      "sha256": "6f27ea725cdb45f970b3397ce8994006d8719df884c80c5215bb60e47b9fc8d1"
+    },
+    {
+      "path": ".github/workflows/windows-release.yml",
+      "sha256": "b821332793a5142eda740844b320c8226783edc3b9e8aa8e8486e0251124c868"
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.lock",
+      "sha256": "81c687d99c52ffa962fbd0b4583cb47ca26b829be6b49c0a3c9c3442c232bbd3"
+    },
+    {
+      "path": "apps/git-service/Cargo.lock",
+      "sha256": "b93fca517e25233948941492be861cc70b7ef41a89df616cef35a749df0c1449"
+    }
+  ],
+  "validation": "real Git core.autocrlf=true checkout of committed license blobs: same checksum error before; real supplemental_sources validates all 13 pins after scoped -text",
+  "reproduction_receipt": "newline-repro/result.json",
+  "native_windows_rerun": "pending Root integration/push; not executed here",
+  "product_modified": false,
+  "remote_mutations": false
+}

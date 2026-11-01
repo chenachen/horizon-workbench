@@ -1,0 +1,113 @@
+{
+  "checked_utc": "2026-11-01T17:23:46.828671+00:00",
+  "scope": "owned Git checkout fixture only; real committed blobs + real supplemental_sources; no product/app/Windows process/build",
+  "commit": "0127990d57141a67a7247c897b0a1b0190bad389",
+  "archive_script_sha256": "6f27ea725cdb45f970b3397ce8994006d8719df884c80c5215bb60e47b9fc8d1",
+  "before_autocrlf_true": {
+    "sha256": "32303ab887b8c90b6e6fe49e2f031ca01b23b5190e236447d94e1944684dc769",
+    "bytes": 1096,
+    "crlf": 18,
+    "lf": 18,
+    "actual_function_error": "Missing or changed upstream license: /Users/chenpengxiang/Desktop/Horizon/.work/windows-ci-notices-20261102/newline-repro/repo/licenses/third-party/upstream/spdx/MIT.txt"
+  },
+  "after_scoped_minus_text_attribute": {
+    "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5",
+    "bytes": 1078,
+    "crlf": 0,
+    "lf": 18,
+    "actual_function_verified_files": 13
+  },
+  "commands": [
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "git",
+        "init",
+        "--quiet",
+        ".work/windows-ci-notices-20261102/newline-repro/repo"
+      ],
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "git",
+        "-c",
+        "core.autocrlf=true",
+        "add",
+        "--all"
+      ],
+      "cwd": ".work/windows-ci-notices-20261102/newline-repro/repo",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'licenses/third-party/upstream/SOURCES.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/alloc-stdlib-0.3.0/LICENSE', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/cordis-4.0.0-rc.12/LICENSE', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/objc2-7b1abfd750a2cacaea71d6a56ecfb83cb7de560b/LICENSE.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/objc2-8852b424193ca41602281b3d7540d7c8ed51e49a/LICENSE.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/objc2-8d214f5477365ffcbcbb7de058c86ed9a518efb7/LICENSE.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/objc2-b4167b582b2f75f9a1be75495c41b765344fd03c/LICENSE.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/objc2-d7d2fa23ceaa5e6096c923b081040e5d81b3b9df/LICENSE.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/spdx/Apache-2.0.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/spdx/MIT.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/spdx/MPL-2.0.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/spdx/Zlib.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/tauri-plugin-2.7.2/LICENSE-APACHE-2.0', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'licenses/third-party/upstream/tauri-plugin-2.7.2/LICENSE-MIT', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "git",
+        "-c",
+        "core.autocrlf=true",
+        "checkout-index",
+        "--force",
+        "--all"
+      ],
+      "cwd": ".work/windows-ci-notices-20261102/newline-repro/repo",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "git",
+        "-c",
+        "core.autocrlf=true",
+        "add",
+        ".gitattributes"
+      ],
+      "cwd": ".work/windows-ci-notices-20261102/newline-repro/repo",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of '.gitattributes', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "git",
+        "-c",
+        "core.autocrlf=true",
+        "checkout-index",
+        "--force",
+        "--all"
+      ],
+      "cwd": ".work/windows-ci-notices-20261102/newline-repro/repo",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "git",
+        "check-attr",
+        "text",
+        "--",
+        "licenses/third-party/upstream/spdx/MIT.txt"
+      ],
+      "cwd": ".work/windows-ci-notices-20261102/newline-repro/repo",
+      "exit_code": 0,
+      "stdout": "licenses/third-party/upstream/spdx/MIT.txt: text: unset\n",
+      "stderr": ""
+    }
+  ]
+}
