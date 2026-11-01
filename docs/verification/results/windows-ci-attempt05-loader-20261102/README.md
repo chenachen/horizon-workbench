@@ -1,0 +1,9 @@
+# Native Windows attempt 05 — test EXE loader failure
+
+Commit bbb71f9/run 41336124428/job 124936213859 completed FAILURE. Native build, two-installer collection, sidecar versions/Git JSON and QuickJS healthy protocol succeeded. QuickJS ran exactly 1 passing test. The host --lib executable horizon_host-87f8b8873e9a6b51.exe exited on loading with 0xc0000139 STATUS_ENTRYPOINT_NOT_FOUND, before any host test body or running-1-test output. The ConPTY step never began. Later storage/Pi/main checks and Publish were skipped. Original decoded job.log, final-jobs.json and exact failure lines/result are preserved.
+
+Source comparison shows helper367 added standard kernel32 DuplicateHandle/GetCurrentProcess; the new ConPTY test reaches production spawn_process/emit paths; vendor ConPTY APIs use shared_library delayed loading. These observations do not establish which imported symbol/DLL is missing. Current uploaded artifact does not contain the host test EXE, so no PE import table has been inspected. No dependency or platform workaround is proposed from the status code alone.
+
+loader-diagnostics/source.patch is the sole workflow candidate: add an id to the existing failed host step, then a failure-only step that records OS build registry fields and exact host test EXE path/size/SHA, preserves that EXE and uses installed MSVC dumpbin /IMPORTS via vswhere. Original failure, test commands and automatic Publish conditions remain. No test rerun, local compile, app/service/GUI launch, live source change or remote mutation occurred.
+
+Primary tool references: [Microsoft vswhere VC discovery](https://github.com/microsoft/vswhere/wiki/Find-VC), [Microsoft dumpbin /IMPORTS](https://learn.microsoft.com/en-us/cpp/build/reference/imports-dumpbin?view=msvc-170). The next necessary Windows CI supplies the missing PE evidence; Root owns integration/push.

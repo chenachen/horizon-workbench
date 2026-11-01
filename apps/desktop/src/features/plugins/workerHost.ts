@@ -39,7 +39,7 @@ async function runQuickJs(manifest: PluginManifest, context: ActivationContext) 
     return listenerCleanup ?? Promise.resolve();
   };
   const dispose = async () => {
-    const results = await Promise.allSettled([cleanupUi(), call('extension_runtime_stop', { extensionId: id, activationId: context.activationId }, context.projectId)]);
+    const results = await Promise.allSettled([cleanupUi(), call('extension_runtime_stop', { extensionId: id, projectId: context.projectId ?? null, activationId: context.activationId })]);
     const failures = results.flatMap(result => result.status === 'rejected' ? [result.reason] : []);
     if (failures.length) throw new AggregateError(failures, '扩展部分资源清理失败');
   };

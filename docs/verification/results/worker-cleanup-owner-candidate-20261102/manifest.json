@@ -1,0 +1,214 @@
+{
+  "status": "PREPARED_NOT_APPLIED_NOT_COMPILED_TESTS_NOT_RUN",
+  "preparedAt": "2026-11-01T18:41:17.903620+00:00",
+  "changes": [
+    {
+      "path": "apps/desktop/src/features/plugins/workerHost.ts",
+      "beforeSHA256": "782aa3e9b765d33bda3c7ffa6edd21c6e9acb541b26bc7fccddbc8f63293cf76",
+      "afterSHA256": "47eca2b4a5e5dfd62cd9cb53648a9b7729514186c0c5454344614e5666c68b58"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/workerHost.test.ts",
+      "beforeSHA256": "6457f5b56fa28f10dc79afe3b1e2fc6e34c73a4cc2dcb32487adacd8f2cc2eaa",
+      "afterSHA256": "a0a84949e184e596bb41ac32719920730e8574f8eec428e7100be2532d5c3205"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/extension_host.rs",
+      "beforeSHA256": "562771dc1a1a29ec22c7260666778b2d00f90cced8be37e55c9718fb2ae4f37e",
+      "afterSHA256": "d1e1aebe69355c92f1da26a43e1462f7ce3d8182d4c8bb3fb1c268a75c10476f"
+    }
+  ],
+  "patchSHA256": "e446cddfffaf54ee11dab1445aa4c6581dc1df4844a2ca2200b9b6f77dfa547f",
+  "contractSearch": {
+    "actualStopCallers": [
+      "apps/desktop/src/features/plugins/workerHost.ts:42"
+    ],
+    "testReference": [
+      "apps/desktop/src/features/plugins/workerHost.test.ts:75"
+    ],
+    "otherMatches": "Only archived source snapshots under docs/verification/results; extension_smoke has activate/execute only, no stop RPC"
+  },
+  "causalAssessment": {
+    "confirmedSourceChain": [
+      "Sleep stops native project session before invalidating epoch and notifying the UI.",
+      "Old workerHost disposer calls extension_runtime_stop with context.projectId project scope.",
+      "lib validates current scope before dispatch, so an old epoch or absent project can reject before the idempotent stop branch.",
+      "PluginRuntime retains failed disposal promises and ownedInstances until successful cleanup; no runtime failure-retention changes proposed."
+    ],
+    "currentObservedTwoDisposing": "Plausible causal mechanism, not yet tied to the current two disposing instances; awaits the next already-planned diagnostic/log evidence.",
+    "installedSourceCorrespondence": "Root reports these inspected lifecycle sources match f544 source-change SHA; this candidate did not operate or reproduce the native app."
+  },
+  "behavior": [
+    "Only cleanup RPC becomes app-scoped; owner extension/project/activation remains explicit.",
+    "projectId null matches only an app instance, never all projects.",
+    "Exact extensionId/projectId/activationId session selection; missing or superseded old session is idempotent success.",
+    "Native stop failures still propagate; stop_sessions and Arc::ptr_eq registry removal protection unchanged.",
+    "activate/execute project gates, runtime ownedInstances/disposing failure accounting, and Windows CI source remain unchanged."
+  ],
+  "validation": {
+    "patchCheck": {
+      "command": "rtk git apply --check .work/worker-cleanup-owner-20261102/source.patch",
+      "exitCode": 0
+    },
+    "staticPreservation": {
+      "stopSessionsAndPublicStopsByteUnchanged": true,
+      "activateBranchByteUnchanged": true,
+      "executeBranchByteUnchanged": true,
+      "runtimeByteUnchanged": true
+    },
+    "productSourceChecks": [
+      {
+        "path": "apps/desktop/src/features/plugins/workerHost.ts",
+        "sourceSHA256": "782aa3e9b765d33bda3c7ffa6edd21c6e9acb541b26bc7fccddbc8f63293cf76",
+        "currentSHA256": "782aa3e9b765d33bda3c7ffa6edd21c6e9acb541b26bc7fccddbc8f63293cf76",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/plugins/workerHost.test.ts",
+        "sourceSHA256": "6457f5b56fa28f10dc79afe3b1e2fc6e34c73a4cc2dcb32487adacd8f2cc2eaa",
+        "currentSHA256": "6457f5b56fa28f10dc79afe3b1e2fc6e34c73a4cc2dcb32487adacd8f2cc2eaa",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/extension_host.rs",
+        "sourceSHA256": "562771dc1a1a29ec22c7260666778b2d00f90cced8be37e55c9718fb2ae4f37e",
+        "currentSHA256": "562771dc1a1a29ec22c7260666778b2d00f90cced8be37e55c9718fb2ae4f37e",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/lib.rs",
+        "sourceSHA256": "fcd30ba2a5e942bfed365913a96b06d8e2dda9be324ae61f2f5ebfdb208acb1e",
+        "currentSHA256": "fcd30ba2a5e942bfed365913a96b06d8e2dda9be324ae61f2f5ebfdb208acb1e",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/state.rs",
+        "sourceSHA256": "c3f4b2cbb1aecc3dd60fcba6167bd5841837488f8d82cbd8431deae0f77cfe05",
+        "currentSHA256": "c3f4b2cbb1aecc3dd60fcba6167bd5841837488f8d82cbd8431deae0f77cfe05",
+        "unchanged": true
+      },
+      {
+        "path": "packages/plugins/src/runtime.ts",
+        "sourceSHA256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+        "currentSHA256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/bridge.ts",
+        "sourceSHA256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667",
+        "currentSHA256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/plugins/service.ts",
+        "sourceSHA256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+        "currentSHA256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/protocol.rs",
+        "sourceSHA256": "6538a60bc19bd08318328a83f7631e7608d2b2332384c02b4ca435655bac6b03",
+        "currentSHA256": "6538a60bc19bd08318328a83f7631e7608d2b2332384c02b4ca435655bac6b03",
+        "unchanged": true
+      }
+    ],
+    "productSourcesUnchanged": true,
+    "frontendTests": {
+      "status": "PREPARED_NOT_RUN",
+      "path": "after/apps/desktop/src/features/plugins/workerHost.test.ts",
+      "existing": 4,
+      "added": 4,
+      "scope": "Real workerHost calling contract/abort path and real rejection propagation; no mock Rust matcher"
+    },
+    "backendTests": {
+      "status": "PREPARED_NOT_RUN",
+      "module": "cleanup_owner_tests",
+      "added": 3,
+      "scope": "Real state.validate_scope plus actual stop_activation; Unix actual QuickJS session fixture for isolation/failure; not executed"
+    },
+    "typeScript": "NOT_RUN",
+    "rustCompilation": "NOT_RUN",
+    "nativeLifecycle": "NOT_RUN"
+  },
+  "pending": [
+    "Root review/integration, later authorized safe-window frontend checks, Rust tests, and actual sleep/remove lifecycle evidence.",
+    "Current native two disposing attribution remains unresolved; no diagnostic counters have been changed or cleared."
+  ],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "d39091378c68458ddac023cf721ef4ea7f7d2ae57c36a6128d47f6517fe5ab8e",
+      "bytes": 3171
+    },
+    {
+      "path": "after/apps/desktop/src/features/plugins/workerHost.test.ts",
+      "sha256": "a0a84949e184e596bb41ac32719920730e8574f8eec428e7100be2532d5c3205",
+      "bytes": 9466
+    },
+    {
+      "path": "after/apps/desktop/src/features/plugins/workerHost.ts",
+      "sha256": "47eca2b4a5e5dfd62cd9cb53648a9b7729514186c0c5454344614e5666c68b58",
+      "bytes": 6217
+    },
+    {
+      "path": "after/apps/desktop/src-tauri/src/extension_host.rs",
+      "sha256": "d1e1aebe69355c92f1da26a43e1462f7ce3d8182d4c8bb3fb1c268a75c10476f",
+      "bytes": 36989
+    },
+    {
+      "path": "before/apps/desktop/src/features/plugins/workerHost.test.ts",
+      "sha256": "6457f5b56fa28f10dc79afe3b1e2fc6e34c73a4cc2dcb32487adacd8f2cc2eaa",
+      "bytes": 5877
+    },
+    {
+      "path": "before/apps/desktop/src/features/plugins/workerHost.ts",
+      "sha256": "782aa3e9b765d33bda3c7ffa6edd21c6e9acb541b26bc7fccddbc8f63293cf76",
+      "bytes": 6198
+    },
+    {
+      "path": "before/apps/desktop/src-tauri/src/extension_host.rs",
+      "sha256": "562771dc1a1a29ec22c7260666778b2d00f90cced8be37e55c9718fb2ae4f37e",
+      "bytes": 31856
+    },
+    {
+      "path": "source/apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667",
+      "bytes": 6902
+    },
+    {
+      "path": "source/apps/desktop/src/features/plugins/service.ts",
+      "sha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+      "bytes": 4957
+    },
+    {
+      "path": "source/apps/desktop/src-tauri/src/lib.rs",
+      "sha256": "fcd30ba2a5e942bfed365913a96b06d8e2dda9be324ae61f2f5ebfdb208acb1e",
+      "bytes": 29634
+    },
+    {
+      "path": "source/apps/desktop/src-tauri/src/protocol.rs",
+      "sha256": "6538a60bc19bd08318328a83f7631e7608d2b2332384c02b4ca435655bac6b03",
+      "bytes": 3217
+    },
+    {
+      "path": "source/apps/desktop/src-tauri/src/state.rs",
+      "sha256": "c3f4b2cbb1aecc3dd60fcba6167bd5841837488f8d82cbd8431deae0f77cfe05",
+      "bytes": 28411
+    },
+    {
+      "path": "source/packages/plugins/src/runtime.ts",
+      "sha256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+      "bytes": 11469
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "f2c68d52abc9b8c11c88b3df629c98029575ac5c641a2ef01c634dd2a3da96bf",
+      "bytes": 2609
+    },
+    {
+      "path": "source.patch",
+      "sha256": "e446cddfffaf54ee11dab1445aa4c6581dc1df4844a2ca2200b9b6f77dfa547f",
+      "bytes": 12300
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "preparedAt": "2026-11-01T18:42:19.233356+00:00",
+  "status": "FROZEN NARROW WINDOWS CLOSE CANDIDATE; root review pending; not live/compiled/run",
+  "owner": "/root/process_sol",
+  "destination": "apps/desktop/src-tauri/src/processes.rs",
+  "beforeSha256": "6759891cacc59b51f9d8663882dc88bd81262a39bbc3965c85a423eb98aa0ae0",
+  "candidateSha256": "cb5f3b30e614c265c8b774e54393a0650846ca1255d9a789fb4ef50da4300d34",
+  "candidate": ".work/windows-conpty-close-20261102/src/processes.rs",
+  "sourcePatch": ".work/windows-conpty-close-20261102/source.patch",
+  "sourcePatchSha256": "1d6d6cb546a6140aba5dd36dc42dae44726e5b3e1a9b1f46b6ec129200f43802",
+  "onlyNewField": "cfg(windows) Process.exit_finalizing:bool",
+  "semantics": [
+    "One Process mutex claim prevents concurrent exit finalizers; Job cleanup failure clears flag and retains stopping/I/O for retry",
+    "After Job/root confirmed, take writer/master under Process mutex with state stopping; drop writer then master outside Process and registry locks, allowing output reader to drain",
+    "Only after actual I/O drops complete mark exited for unchanged extension resource scan; keep exit_finalizing true through unchanged direct lease release",
+    "Existing release_process_lease success/Err restoration remains exact; clear finalizer flag afterward without overwriting its state or error outcome",
+    "Windows stop success additionally requires !exit_finalizing; stop entry/timeout cannot downgrade state during finalization; retry callback only while !exited&&!finalizing"
+  ],
+  "preserved": {
+    "unixOriginalFinalizationBlock": true,
+    "allExistingTestsIncludingConptyExactByteForByte": true,
+    "releaseProcessLeaseFunctionByteForByte": true,
+    "vendorAndDependenciesUnchanged": true,
+    "publicApiUnchanged": true
+  },
+  "validation": "Static source transform/review only; currentbbb CI loader error is separate and not attributed to this lock ring",
+  "reuseExactCommand": "cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib processes::windows_tests::owned_conpty_chinese_resize_and_stop -- --exact --nocapture",
+  "noNewScenario": true,
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/console/closepseudoconsole",
+    "https://learn.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session"
+  ],
+  "frozenAt": "2026-11-01T18:43:10.819818+00:00",
+  "allTestTailSha256Unchanged": "d8b2a873618f96708bb034b7f0b1a86ce998649a14184f0db2ff5403b204093f",
+  "publicFunctionDeclarationsIdentical": true
+}

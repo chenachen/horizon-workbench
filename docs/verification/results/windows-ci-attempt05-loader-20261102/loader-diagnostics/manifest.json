@@ -1,0 +1,23 @@
+{
+  "prepared_at_utc": "2026-11-01T18:45:47.228704+00:00",
+  "status": "PREPARED_ONLY_NOT_APPLIED",
+  "files": [
+    {
+      "path": ".github/workflows/windows-release.yml",
+      "before_sha256": "b8a2a8f510678a6f6d929fe93e0971e4e5c016d14eae50dbfabd01eb34b60724",
+      "after_sha256": "0075ff699e829d06cf857ecb37ea5cdc45bf58b8a9c343e88dff49ae563b153a",
+      "live_matches_before": true
+    }
+  ],
+  "patch_sha256": "683d49f98b8726f150ba45dec3049d58b42995a76a85bbf9009f8fccd35c9821",
+  "only_change": "one failure-only diagnostics step after existing host Job test + step id; preserve all original tests/outcomes/publication gates",
+  "diagnostics": [
+    "exact fresh-run horizon_host test EXE + SHA/size/path",
+    "dumpbin /IMPORTS using installed MSVC via vswhere",
+    "read-only OS build registry fields"
+  ],
+  "test_execution_changes": false,
+  "local_execution_or_compile": false,
+  "product_modified": false,
+  "remote_mutations": false
+}

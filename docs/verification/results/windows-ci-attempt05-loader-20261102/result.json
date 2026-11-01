@@ -1,0 +1,49 @@
+{
+  "at_utc": "2026-11-01T18:45:47.225508+00:00",
+  "commit": "bbb71f9fc0ac039aa31d169e78c3b99b0ea5183b",
+  "run_id": 41336124428,
+  "job_id": 124936213859,
+  "conclusion": "failure",
+  "failed_step": "Check native owned Job descendant lifecycle",
+  "failure_kind": "test executable loader exit before any host test body",
+  "exit_code_hex": "0xc0000139",
+  "windows_status": "STATUS_ENTRYPOINT_NOT_FOUND",
+  "actual_test_executable": "horizon_host-87f8b8873e9a6b51.exe",
+  "actual_nonzero_tests": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    }
+  ],
+  "host_test_bodies_executed": 0,
+  "conpty_step_started": false,
+  "successful_steps": [
+    "notices",
+    "native main/sidecar + NSIS/MSI build",
+    "two-installer collection",
+    "sidecar versions/Git JSON",
+    "QuickJS healthy protocol"
+  ],
+  "later_host_checks_and_startup_publish": "skipped",
+  "missing_entrypoint_or_DLL": "not established by existing artifact; no import guess used as root cause",
+  "source_differences_found": [
+    "helper367 adds only standard kernel32 DuplicateHandle/GetCurrentProcess; WaitForSingleObject already used",
+    "new ConPTY test reaches production spawn_process and emit chain",
+    "vendor Create/Resize/ClosePseudoConsole are loaded through shared_library, not new static ConPTY imports"
+  ],
+  "exact_log_lines": [
+    "2026-11-01T18:20:39.7553674Z Version: 20261021.618",
+    "2026-11-01T18:20:39.7558394Z ##[group]Operating System",
+    "2026-11-01T18:20:39.7559009Z Microsoft Windows Server 2022",
+    "2026-11-01T18:20:39.7560027Z Datacenter",
+    "2026-11-01T18:20:39.7561591Z Image: windows-2022",
+    "2026-11-01T18:20:39.7562083Z Version: 20261025.346.1",
+    "2026-11-01T18:33:09.1428246Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s",
+    "2026-11-01T18:37:50.6999522Z   process didn't exit successfully: `D:\\a\\horizon-workbench\\horizon-workbench\\apps\\desktop\\src-tauri\\target\\release\\deps\\horizon_host-87f8b8873e9a6b51.exe windows_process::tests::owned_job_stops_descendants_and_preserves_external --exact --nocapture` (exit code: 0xc0000139, STATUS_ENTRYPOINT_NOT_FOUND)",
+    "2026-11-01T18:37:54.0515627Z Artifact horizon-windows-x64-bbb71f9fc0ac039aa31d169e78c3b99b0ea5183b has been successfully uploaded! Final size is 23696636 bytes. Artifact ID is 13096175988",
+    "2026-11-01T18:37:54.0523111Z Artifact download URL: https://github.com/chenachen/horizon-workbench/actions/runs/41336124428/artifacts/13096175988"
+  ],
+  "job_log_sha256": "5042e4f9d2f5a2ae0d412d2fff50fc4309dc54308b80c9ad894aa4d288d09005"
+}

@@ -1,0 +1,37 @@
+diff --git a/.github/workflows/windows-release.yml b/.github/workflows/windows-release.yml
+--- a/.github/workflows/windows-release.yml
++++ b/.github/workflows/windows-release.yml
+@@ -87,9 +87,33 @@
+           cargo test --locked --release --manifest-path apps/extension-host/Cargo.toml --test isolation async_broker_wait_does_not_spend_cpu_budget -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/extension-smoke.log
+           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+       - name: Check native owned Job descendant lifecycle
++        id: windows_job_test
+         run: |
+           cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib windows_process::tests::owned_job_stops_descendants_and_preserves_external -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-job.log
+           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
++      - name: Preserve Windows host-test loader diagnostics
++        if: ${{ failure() && steps.windows_job_test.outcome == 'failure' }}
++        run: |
++          $output = 'artifacts/windows/loader-diagnostics'
++          New-Item -ItemType Directory -Force $output | Out-Null
++          Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' |
++            Select-Object ProductName, DisplayVersion, CurrentBuildNumber, UBR, BuildLabEx |
++            ConvertTo-Json | Set-Content "$output/os-build.json"
++          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release/deps/horizon_host-*.exe' -File -ErrorAction SilentlyContinue)
++          @($binaries | ForEach-Object {
++            @{ path = $_.FullName; bytes = $_.Length; sha256 = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
++          }) | ConvertTo-Json -Depth 4 | Set-Content "$output/test-executables.json"
++          $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe'
++          $dumpbin = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -find 'VC\Tools\MSVC\**\bin\Hostx64\x64\dumpbin.exe' |
++            Sort-Object | Select-Object -Last 1
++          foreach ($binary in $binaries) {
++            Copy-Item -LiteralPath $binary.FullName -Destination $output
++            if ($dumpbin) {
++              & $dumpbin /IMPORTS $binary.FullName 2>&1 | Set-Content "$output/$($binary.BaseName)-imports.txt"
++            } else {
++              Write-Warning 'dumpbin unavailable; exact test executable is preserved for PE inspection.'
++            }
++          }
+       - name: Check native Windows ConPTY output, resize and stop
+         run: |
+           cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib processes::windows_tests::owned_conpty_chinese_resize_and_stop -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-conpty.log

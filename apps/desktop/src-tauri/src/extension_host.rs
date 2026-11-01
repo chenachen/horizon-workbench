@@ -570,6 +570,30 @@ pub fn resources(project: Option<&str>) -> Vec<Value> {
     sessions().lock().unwrap().values().filter(|session|project.is_none_or(|project|session.project_id.as_deref()==Some(project))&&!session.closed.load(Ordering::Acquire)).map(|session|json!({"resourceId":format!("extension-runtime:{}",session.activation_id),"ownerExtensionId":session.extension_id,"activationId":session.activation_id,"projectId":session.project_id,"kind":"extensionRuntime","state":if session.stopping.load(Ordering::Acquire){"stopping"}else{"running"},"pid":session.child.lock().unwrap().id(),"actions":["stop"],"label":format!("{} · QuickJS",session.extension_id)})).collect()
 }
 
+async fn stop_activation(call: &Call) -> Response {
+    if call.scope["kind"] != "app" {
+        return Err(HostError::new("PERMISSION_DENIED", "扩展实例清理需应用作用域"));
+    }
+    crate::protocol::allowed(&call.params, &["extensionId", "projectId", "activationId"])?;
+    let id = string(&call.params, "extensionId")?;
+    let activation = string(&call.params, "activationId")?;
+    let project = match call.params.get("projectId") {
+        Some(Value::Null) => None,
+        Some(Value::String(project)) if !project.is_empty() => Some(project.as_str()),
+        _ => return Err(HostError::new("INVALID_ARGUMENT", "清理需明确实例所属项目，应用实例使用 null")),
+    };
+    let session = sessions()
+        .lock()
+        .unwrap()
+        .get(&key(id, project))
+        .filter(|session| session.extension_id == id && session.project_id.as_deref() == project && session.activation_id == activation)
+        .cloned();
+    if let Some(session) = session {
+        stop_sessions(vec![session]).await?;
+    }
+    Ok(json!({"stopped":true}))
+}
+
 pub async fn dispatch(
     state: Arc<HostState>,
     app: AppHandle,
@@ -639,19 +663,7 @@ pub async fn dispatch(
             }
             result
         }
-        "extension_runtime_stop" => {
-            let activation = string(&call.params, "activationId")?;
-            let session = sessions()
-                .lock()
-                .unwrap()
-                .get(&key(id, project))
-                .filter(|session| session.activation_id == activation)
-                .cloned();
-            if let Some(session) = session {
-                stop_sessions(vec![session]).await?;
-            }
-            Ok(json!({"stopped":true}))
-        }
+        "extension_runtime_stop" => stop_activation(&call).await,
         _ => Err(HostError::new("NOT_FOUND", "未知扩展宿主方法")),
     }
 }
@@ -761,5 +773,89 @@ pub(crate) mod test_support {
                 registry.remove(&session_key);
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod cleanup_owner_tests {
+    use super::*;
+
+    fn stop_call(id: &str, project: Option<&str>, activation: &str) -> Call {
+        Call {
+            protocol_version: 1,
+            request_id: uuid::Uuid::new_v4().to_string(),
+            method: "extension_runtime_stop".into(),
+            scope: json!({"kind":"app"}),
+            params: json!({"extensionId":id,"projectId":project,"activationId":activation}),
+            idempotency_key: Some(uuid::Uuid::new_v4().to_string()),
+        }
+    }
+
+    #[tokio::test]
+    async fn cleanup_remains_valid_after_project_epoch_change_and_removal() {
+        let directory = tempfile::tempdir().unwrap();
+        let state = HostState::new(directory.path().join("data")).unwrap();
+        let project = "cleanup-epoch-project";
+        state.registry.lock().unwrap().roots.insert(project.into(), crate::state::native_encode(directory.path()));
+        state.epochs.lock().unwrap().insert(project.into(), 2);
+        let idle_since = std::time::Instant::now();
+        state.last_activity.lock().unwrap().insert(project.into(), idle_since);
+        let id = format!("local.cleanup.absent.{}", uuid::Uuid::new_v4());
+        let call = stop_call(&id, Some(project), "old-activation");
+        let mut stale = call.clone(); stale.scope = json!({"kind":"project","projectId":project,"projectEpoch":1});
+        assert_eq!(state.validate_scope(&stale).unwrap_err().code, "STALE_SCOPE");
+        state.validate_scope(&call).unwrap();
+        assert_eq!(stop_activation(&call).await.unwrap(), json!({"stopped":true}));
+        state.registry.lock().unwrap().roots.remove(project);
+        assert_eq!(state.validate_scope(&stale).unwrap_err().code, "NOT_FOUND");
+        state.validate_scope(&call).unwrap();
+        assert_eq!(stop_activation(&call).await.unwrap(), json!({"stopped":true}));
+        assert_eq!(state.last_activity.lock().unwrap().get(project).copied(), Some(idle_since));
+    }
+
+    #[tokio::test]
+    async fn cleanup_requires_app_scope_and_explicit_owner_project() {
+        let mut call = stop_call("local.cleanup.contract", Some("A"), "activation-a");
+        call.scope = json!({"kind":"project","projectId":"A","projectEpoch":1});
+        assert_eq!(stop_activation(&call).await.unwrap_err().code, "PERMISSION_DENIED");
+        call.scope = json!({"kind":"app"});
+        call.params.as_object_mut().unwrap().remove("projectId");
+        assert_eq!(stop_activation(&call).await.unwrap_err().code, "INVALID_ARGUMENT");
+        for project in [json!(""), json!(17), json!(true), json!([])] {
+            call.params["projectId"] = project;
+            assert_eq!(stop_activation(&call).await.unwrap_err().code, "INVALID_ARGUMENT");
+        }
+    }
+
+    #[cfg(unix)]
+    #[tokio::test]
+    async fn exact_cleanup_preserves_new_activation_and_other_project_and_propagates_stop_failure() {
+        use super::test_support::StalledDeactivateSession;
+        let id = format!("local.cleanup.exact.{}", uuid::Uuid::new_v4());
+        let manifest = json!({"id":id,"version":"0.1.0","runtime":{"kind":"quickjs"},"capabilities":[],"contributes":{}});
+        let a = StalledDeactivateSession::start(&id, "new-a", "A", manifest.clone()).unwrap();
+        let b = StalledDeactivateSession::start(&id, "new-b", "B", manifest).unwrap();
+        for call in [
+            stop_call(&id, Some("A"), "old-a"),
+            stop_call(&id, Some("B"), "new-a"),
+            stop_call(&format!("{id}.other"), Some("A"), "new-a"),
+            stop_call(&id, None, "new-b"),
+        ] {
+            assert_eq!(stop_activation(&call).await.unwrap(), json!({"stopped":true}));
+            assert!(a.is_alive()); assert!(b.is_alive());
+            assert_eq!(resource_count(&id, Some("A")), 1);
+            assert_eq!(resource_count(&id, Some("B")), 1);
+        }
+        let owned_a = stop_call(&id, Some("A"), "new-a");
+        a.fail_next_terminate();
+        assert_eq!(stop_activation(&owned_a).await.unwrap_err().code, "CLEANUP_FAILED");
+        assert!(a.is_alive()); assert!(b.is_alive());
+        assert_eq!(resource_count(&id, Some("A")), 1);
+        assert_eq!(stop_activation(&owned_a).await.unwrap(), json!({"stopped":true}));
+        assert!(!a.is_alive()); assert!(b.is_alive());
+        assert_eq!(resource_count(&id, Some("A")), 0);
+        assert_eq!(resource_count(&id, Some("B")), 1);
+        assert_eq!(stop_activation(&owned_a).await.unwrap(), json!({"stopped":true}));
+        assert!(b.is_alive());
     }
 }

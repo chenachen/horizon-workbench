@@ -1,0 +1,12 @@
+{
+  "integratedAt": "2026-11-01T18:44:29.729320+00:00",
+  "status": "SOURCE_INTEGRATED_NOT_COMPILED_OR_RUN",
+  "destination": "apps/desktop/src-tauri/src/processes.rs",
+  "beforeSHA256": "6759891cacc59b51f9d8663882dc88bd81262a39bbc3965c85a423eb98aa0ae0",
+  "afterSHA256": "cb5f3b30e614c265c8b774e54393a0650846ca1255d9a789fb4ef50da4300d34",
+  "rootReview": "Full patch plus production process_exited/read_output/stop_process/release_process_lease/spawn_process and vendored ConPTY master ownership reviewed. Confirmed destructor ran under Process lock while reader takes the same lock; moved Windows writer/master drop out of lock, finalizing flag held through existing lease release. Unix path and test tail unchanged.",
+  "reason": "Windows ClosePseudoConsole on older versions can synchronously drain output; holding Process mutex obstructs read_output. Source-confirmed lock dependency; not claimed as the CI loader failure cause.",
+  "primaryReference": "https://learn.microsoft.com/en-us/windows/console/closepseudoconsole",
+  "validation": "Static source review only; existing Windows exact ConPTY runtime test awaits CI.",
+  "installedMac": "f544 unchanged"
+}

@@ -1,0 +1,26 @@
+{
+  "integratedAt": "2026-11-01T18:43:47.813436+00:00",
+  "status": "SOURCE_INTEGRATED_REVIEWED_NOT_BUILT_OR_NATIVE_VERIFIED",
+  "changes": [
+    {
+      "path": "apps/desktop/src/features/plugins/workerHost.ts",
+      "beforeSHA256": "782aa3e9b765d33bda3c7ffa6edd21c6e9acb541b26bc7fccddbc8f63293cf76",
+      "afterSHA256": "47eca2b4a5e5dfd62cd9cb53648a9b7729514186c0c5454344614e5666c68b58"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/workerHost.test.ts",
+      "beforeSHA256": "6457f5b56fa28f10dc79afe3b1e2fc6e34c73a4cc2dcb32487adacd8f2cc2eaa",
+      "afterSHA256": "a0a84949e184e596bb41ac32719920730e8574f8eec428e7100be2532d5c3205"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/extension_host.rs",
+      "beforeSHA256": "562771dc1a1a29ec22c7260666778b2d00f90cced8be37e55c9718fb2ae4f37e",
+      "afterSHA256": "d1e1aebe69355c92f1da26a43e1462f7ce3d8182d4c8bb3fb1c268a75c10476f"
+    }
+  ],
+  "review": "Root read full production patch, all added tests, workerHost/bridge request semantics, lib validation/dispatch, HostState scope validation, exact session selection and stop_sessions. App scope retains explicit extension/project/activation ownership; native stop errors and pointer identity removal remain unchanged.",
+  "sourceFinding": "Old project-scoped cleanup can be rejected after project epoch change/removal before idempotent session cleanup.",
+  "observedDisposingAttribution": "Current native disposing=2 not yet directly attributed; original evidence retained.",
+  "validation": "Candidate git apply check passed before integration; focused tests pending safe window.",
+  "installedBuild": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc; unchanged"
+}

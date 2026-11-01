@@ -72,6 +72,58 @@ describe('worker ownership diagnostics', () => {
     const rejected = expect(disposing).rejects.toThrow('扩展部分资源清理失败');
     await Promise.resolve(); expect(settled).toBe(false);
     rejectOff(new Error('native unlisten rejected')); await rejected;
-    expect(mocks.call).toHaveBeenCalledWith('extension_runtime_stop', { extensionId: manifest.id, activationId: 'activation-a' }, 'A');
+    expect(mocks.call).toHaveBeenCalledWith('extension_runtime_stop', { extensionId: manifest.id, projectId: 'A', activationId: 'activation-a' });
+  });
+
+  it('keeps activation and command execution project-scoped, but cleans the exact owner through app scope after epoch invalidation', async () => {
+    const { worker, lifecycle } = await prepare();
+    const cleanup = await lifecycle.activate!(context(new AbortController()));
+    expect(mocks.call).toHaveBeenCalledWith('extension_runtime_activate', { extensionId: manifest.id, activationId: 'activation-a' }, 'A');
+    emit('command', { id: 'local.metrics.command' }); worker.getWorkerCommands()[0].execute();
+    expect(mocks.call).toHaveBeenCalledWith('extension_runtime_execute', { extensionId: manifest.id, activationId: 'activation-a', commandId: 'local.metrics.command' }, 'A');
+    mocks.call.mockImplementation(async (method, _params, projectId) => {
+      if (method === 'extension_runtime_stop' && projectId !== undefined) throw new Error('STALE_SCOPE');
+      return { stopped: true };
+    });
+    if (typeof cleanup !== 'function') throw new Error('Expected activation disposer');
+    await cleanup();
+    expect(mocks.call.mock.calls.filter(([method]) => method === 'extension_runtime_stop')).toEqual([
+      ['extension_runtime_stop', { extensionId: manifest.id, projectId: 'A', activationId: 'activation-a' }],
+    ]);
+  });
+
+  it('abort cleanup carries the original owner without depending on a project that has been removed', async () => {
+    const { worker, lifecycle } = await prepare(); const controller = new AbortController();
+    const cleanup = await lifecycle.activate!(context(controller));
+    mocks.call.mockImplementation(async (method, _params, projectId) => {
+      if (method === 'extension_runtime_stop' && projectId !== undefined) throw new Error('NOT_FOUND');
+      return { stopped: true };
+    });
+    controller.abort();
+    await vi.waitFor(() => expect(mocks.call).toHaveBeenCalledWith('extension_runtime_stop', { extensionId: manifest.id, projectId: 'A', activationId: 'activation-a' }));
+    expect(worker.getWorkerDiagnostics().workerAbortListeners).toBe(0);
+    if (typeof cleanup !== 'function') throw new Error('Expected activation disposer');
+    await cleanup(); expect(mocks.off).toHaveBeenCalledTimes(1);
+    expect(mocks.call.mock.calls.filter(([method]) => method === 'extension_runtime_stop').every(call => call.length === 2)).toBe(true);
+  });
+
+  it('names an app-owned activation with explicit null project identity', async () => {
+    const { lifecycle } = await prepare();
+    const cleanup = await lifecycle.activate!({ ...context(new AbortController()), projectId: undefined });
+    if (typeof cleanup !== 'function') throw new Error('Expected activation disposer');
+    await cleanup();
+    expect(mocks.call).toHaveBeenCalledWith('extension_runtime_stop', { extensionId: manifest.id, projectId: null, activationId: 'activation-a' });
+  });
+
+  it('propagates a genuine native stop failure rather than treating cleanup as complete', async () => {
+    const { lifecycle } = await prepare(); const cleanup = await lifecycle.activate!(context(new AbortController()));
+    const failure = new Error('CLEANUP_FAILED: fixture process remains alive');
+    mocks.call.mockImplementation(async method => { if (method === 'extension_runtime_stop') throw failure; return {}; });
+    if (typeof cleanup !== 'function') throw new Error('Expected activation disposer');
+    let caught: unknown;
+    try { await cleanup(); } catch (error) { caught = error; }
+    expect(caught).toBeInstanceOf(AggregateError);
+    expect((caught as AggregateError).errors).toContain(failure);
+    expect(mocks.off).toHaveBeenCalledTimes(1);
   });
 });

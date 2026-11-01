@@ -1,0 +1,121 @@
+--- a/apps/desktop/src-tauri/src/processes.rs
++++ b/apps/desktop/src-tauri/src/processes.rs
+@@ -215,6 +215,8 @@
+     activation_id: String,
+     direct_lease: Option<DirectLease>,
+     lease_releasing: bool,
++    #[cfg(windows)]
++    exit_finalizing: bool,
+     run: Option<String>,
+     step: Option<String>,
+     title: String,
+@@ -904,7 +906,12 @@
+ fn process_exited(process: &Arc<Mutex<Process>>, code: i32, app: &Option<AppHandle>) {
+     #[cfg(windows)]
+     {
+-        let job = process.lock().unwrap().job.clone();
++        let job = {
++            let mut p = process.lock().unwrap();
++            if p.exit_finalizing { return; }
++            p.exit_finalizing = true;
++            p.job.clone()
++        };
+         if let Some(job) = job {
+             let settled = (|| -> std::io::Result<bool> {
+                 job.terminate()?;
+@@ -914,12 +921,14 @@
+             })();
+             if !matches!(settled, Ok(true)) {
+                 let mut p = process.lock().unwrap(); p.exit = Some(code); p.state = "stopping".into(); p.revision += 1;
++                p.exit_finalizing = false;
+                 p.output.push(b"\r\n[Horizon] Windows owned child cleanup remains unconfirmed.\r\n");
+                 if let Some(app) = app { let _ = app.emit(EVENT_PROCESS, p.value()); }
+                 return;
+             }
+         }
+     }
++    #[cfg(not(windows))]
+     let (run, step) = {
+         let mut p = process.lock().unwrap();
+         p.state = "exited".into();
+@@ -929,7 +938,31 @@
+         p.master = None;
+         (p.run.clone(), p.step.clone())
+     };
++    #[cfg(windows)]
++    let (run, step) = {
++        let (run, step, writer, master) = {
++            let mut p = process.lock().unwrap();
++            p.state = "stopping".into();
++            p.revision += 1;
++            p.exit = Some(code);
++            (p.run.clone(), p.step.clone(), p.writer.take(), p.master.take())
++        };
++        // ClosePseudoConsole may synchronously flush a final output frame on
++        // older Windows. Keep Process unlocked so read_output can keep draining.
++        drop(writer);
++        drop(master);
++        {
++            let mut p = process.lock().unwrap();
++            // Lease release must see this resource as exited, while stop callers
++            // still wait on exit_finalizing until lease completion is known.
++            p.state = "exited".into();
++            p.revision += 1;
++        }
++        (run, step)
++    };
+     let _ = release_process_lease(process, app.as_ref());
++    #[cfg(windows)]
++    { process.lock().unwrap().exit_finalizing = false; }
+     if let Some(app) = app {
+         let _ = app.emit(EVENT_PROCESS, process.lock().unwrap().value());
+     }
+@@ -1050,6 +1083,8 @@
+         activation_id: identity.activation_id,
+         direct_lease: identity.lease,
+         lease_releasing: false,
++        #[cfg(windows)]
++        exit_finalizing: false,
+         run: run.map(str::to_owned),
+         step: run.map(|_| resolved.step.step_id.clone()),
+         title: resolved.step.title.clone(),
+@@ -1312,11 +1347,13 @@
+ fn stop_process(process: &Arc<Mutex<Process>>, force: bool, app: Option<&AppHandle>) -> Result<Value> {
+     let job = {
+         let mut p = process.lock().unwrap();
+-        if p.state == "exited" && !p.lease_releasing && p.job.as_ref().is_none_or(|job| job.is_empty().unwrap_or(false)) {
++        if p.state == "exited" && !p.exit_finalizing && !p.lease_releasing && p.job.as_ref().is_none_or(|job| job.is_empty().unwrap_or(false)) {
+             return Ok(json!({"exited":true,"forced":false,"exitCode":p.exit}));
+         }
+-        p.state = "stopping".into(); p.revision += 1;
+-        if let Some(app) = app { let _ = app.emit(EVENT_PROCESS, p.value()); }
++        if !p.exit_finalizing {
++            p.state = "stopping".into(); p.revision += 1;
++            if let Some(app) = app { let _ = app.emit(EVENT_PROCESS, p.value()); }
++        }
+         p.job.clone()
+     };
+     if let Some(job) = &job { job.terminate().map_err(io)?; }
+@@ -1324,17 +1361,18 @@
+     let started = Instant::now();
+     while started.elapsed() < Duration::from_millis(if force { 2500 } else { 2700 }) {
+         let empty = job.as_ref().is_none_or(|job| job.is_empty().unwrap_or(false));
+-        let (root_exit, exited) = { let p = process.lock().unwrap(); (p.exit, p.state == "exited") };
++        let (root_exit, exited, finalizing) = { let p = process.lock().unwrap(); (p.exit, p.state == "exited", p.exit_finalizing) };
+         if empty {
+-            if let Some(code) = root_exit.filter(|_| !exited) { process_exited(process, code, &app.cloned()); }
++            if let Some(code) = root_exit.filter(|_| !exited && !finalizing) { process_exited(process, code, &app.cloned()); }
+             let p = process.lock().unwrap();
+-            if p.state == "exited" && !p.lease_releasing {
++            if p.state == "exited" && !p.exit_finalizing && !p.lease_releasing {
+                 return Ok(json!({"exited":true,"forced":true,"exitCode":p.exit}));
+             }
+         }
+         thread::sleep(Duration::from_millis(25));
+     }
+-    let mut p = process.lock().unwrap(); p.state = "stopping".into(); p.revision += 1;
++    let mut p = process.lock().unwrap();
++    if !p.exit_finalizing { p.state = "stopping".into(); p.revision += 1; }
+     Err(err("TIMEOUT", "自有 Windows Job/进程停止尚未确认，请重试强制结束"))
+ }
+ fn process_snapshot(project_id: Option<&str>, active_only: bool) -> Value {
