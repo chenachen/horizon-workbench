@@ -1,0 +1,46 @@
+{
+  "reviewed_at": "2026-10-30T18:23:40.958069+00:00",
+  "producer": "native_core agent",
+  "reviewer": "verification agent",
+  "command": "~/.cargo/bin/cargo test --lib --test files_workflow --test search_workflow -- --test-threads=1",
+  "working_directory": "apps/desktop/src-tauri",
+  "log_sha256": "a0e6be6e2703d17ebd9de75d296f31589bb5366c1872ff5830672481087dad77",
+  "reported_results": {
+    "unit": {
+      "passed": 31,
+      "failed": 0,
+      "ignored": 2,
+      "duration_seconds": 5.43
+    },
+    "files_workflow": {
+      "passed": 13,
+      "failed": 0,
+      "duration_seconds": 7.38
+    },
+    "search_workflow": {
+      "passed": 6,
+      "failed": 0,
+      "duration_seconds": 0.22
+    }
+  },
+  "review_scope": "Independently read full files_workflow and search_workflow tests plus search child kill/wait ownership. Unit log retained but not all unit assertions reviewed in this record. No second test execution claimed.",
+  "ignored": [
+    "agent::tests::real_pi_broker_review_and_secret_isolation (separate controlled Pi integration evidence)",
+    "processes::tests::http_fixture_server (child fixture invoked by parent test)"
+  ],
+  "source_sha256": {
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "be4d825e8543f8cd1f05424ca97c9ba02748a84e4056f981f91b69977764daac",
+    "apps/desktop/src-tauri/tests/search_workflow.rs": "afb55b41bb0a0add226ee17843128d0be2d1cc1601a63dbbe854322921a334bb",
+    "apps/desktop/src-tauri/src/files.rs": "e80d499540910270a252e343038614a027edc4854b64761350fafde4944cb3f7",
+    "apps/desktop/src-tauri/src/search.rs": "954098c64aa0a63733210f73a66b8b9c26dbc6f7b97b5744706ab4e5668cef59",
+    "apps/desktop/src-tauri/src/projects.rs": "5e14dba2f3999af75ab7c84774fb1514041cbfe0e967a765fc67ebcac36aaa96",
+    "apps/desktop/src-tauri/src/settings.rs": "8cf7b5c225243d382bc85a5c2cd297e7b4e9dcbc6a5e537817b1df22e6e1635d",
+    "apps/desktop/src-tauri/src/state.rs": "d05354b963ee8c72296f8adc7797c3e0709620fcfd0fa8eb8f57996a5d68a597"
+  },
+  "limits": [
+    "Native test profile/service calls, not packaged release/native GUI.",
+    "APFS rejects non-UTF8 filename with EILSEQ: test returns after lossless codec roundtrip; real invalid-byte file operation and later cross-project assertion are not exercised in that branch.",
+    "125-match configurable truncation test does not measure 10,000-match GUI behavior.",
+    "Recovery restarts HostState in-process; does not kill/relaunch the actual app or establish timed recovery cadence."
+  ]
+}

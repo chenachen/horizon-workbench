@@ -1,0 +1,111 @@
+{
+  "recordedAt": "2026-11-01T05:13:01.313629+00:00",
+  "method": "Independent PID/start check against prior native identity snapshot after operator reported actual Process and Quit; no kill/sampler",
+  "baselineArtifact": "docs/verification/results/editor-recovery-release-20261101/independent-bundle-audit.json",
+  "operatorQuitImage": "019-normal-quit-clean-plan.jpg",
+  "allKnownIdentitiesGone": true,
+  "knownIdentityCount": 7,
+  "checks": [
+    {
+      "expected": {
+        "pid": 40972,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:07:34 2026",
+        "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+        "group": "horizon",
+        "reason": "root PID",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 41043,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:07:36 2026",
+        "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+        "group": "horizon",
+        "reason": "macOS responsibility SPI → 40972",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 41044,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:07:36 2026",
+        "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+        "group": "horizon",
+        "reason": "macOS responsibility SPI → 40972",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 41045,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:07:36 2026",
+        "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+        "group": "horizon",
+        "reason": "macOS responsibility SPI → 40972",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 41046,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:07:36 2026",
+        "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+        "group": "horizon",
+        "reason": "macOS responsibility SPI → 40972",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 41047,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:07:37 2026",
+        "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+        "group": "horizon",
+        "reason": "macOS responsibility SPI → 40972",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 42372,
+        "ppid": 1,
+        "uid": 501,
+        "start": "Sun Nov 1 13:08:17 2026",
+        "executable": "/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+        "group": "horizon",
+        "reason": "macOS responsibility SPI → 40972",
+        "responsiblePid": 40972
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    }
+  ],
+  "rawPsSha256": "75a4bb8221195aacbb56768a972c92dd343165e196e023758bcf4c05b1cef422",
+  "limit": "Seven previously observed identities checked; no continuous process inventory was collected during this targeted GUI run.",
+  "operatorQuitAX": "019-normal-quit-clean-plan.txt"
+}

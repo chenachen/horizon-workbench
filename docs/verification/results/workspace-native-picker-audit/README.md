@@ -1,0 +1,11 @@
+# Workspace recovery and removal audit
+
+Nineteen original native JPEGs and their full AX captures were independently reviewed. The permission dialog now gives Retry/Relocate; Retry after restoring the task-owned directory to 0700 opens the correct file. The absent-directory dialog uses different wording; actual Relocate restores the same project identity and its existing `keep.txt` session. Together with the earlier native canonical-alias and read-only/non-Git cases, this closes WS002.
+
+While the inactive project root remained missing, main-window CmdQ opened the protected exit plan. Cancel restored the five reading tabs; the later normal quit completed. Independent process inspection found all six retained parent/helper identities absent. This supersedes only the old missing-root shutdown failure. Exit with dirty documents and active Pi, terminal and launcher resources remains separate.
+
+Display rename and pinning preserved the project root. Removing the dirty project first supported Cancel, then Retain Recovery. The project association disappeared; the original source remains exactly 32 bytes with its original SHA-256. The saved recovery contains the complete 56-byte edited text and the same project/base-disk identity. F09 can display the removed project's draft and preview cleanup of only that selected item. The confirmation was cancelled, so actual history deletion and removal with active services remain unverified.
+
+The nested project directory displayed explicit parent-repository protection. The parent root and linked worktree were added independently and showed `main` and `qa-worktree`; their original HEADs and clean working trees were independently confirmed. Production writes enter `mutate → expected → status → check_root`, which compares canonical Git top-level and selected project root before mutation. This closes WS006's single-root and separate-worktree scope. The PRD excludes scanning or aggregating nested repositories, and this audit makes no such claim.
+
+`audit.json` contains original hashes, source excerpts, the current task-project registry projection and the precise scope of each observation. `retained-source-keep.txt` and `removed-project-own-recovery.json` preserve the source/recovery distinction. Functional screenshots do not establish visual fidelity across eight layouts.

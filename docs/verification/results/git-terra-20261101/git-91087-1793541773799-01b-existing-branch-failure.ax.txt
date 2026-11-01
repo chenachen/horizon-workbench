@@ -1,0 +1,73 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 分支与同步
+				4 container
+					5 heading 分支与同步, Value: 2
+						6 text 分支与同步
+					7 button 关闭分支与同步
+				8 container
+					9 text Git 命令未完成，请展开查看原因。
+					10 container (expanded) Secondary Actions: Collapse
+						11 summary 查看 Git 详情, Value: on
+							12 text 查看 Git 详情
+						13 text fatal: a branch named 'gui/existing' already exists
+				14 container
+					15 text 查找分支
+					16 text field (settable) 查找分支, Placeholder: 分支名称
+				17 text gui/existing
+				18 text 本地分支
+				19 button 切换
+				20 text gui/no-upstream
+				21 text 本地分支
+				22 button 切换
+				23 text history/earlier
+				24 text 本地分支
+				25 button 切换
+				26 text main
+				27 text 当前分支 · 跟踪 origin/main
+				28 text origin/history/earlier
+				29 text 远端分支
+				30 text origin/main
+				31 text 远端分支
+				32 container (expanded) Secondary Actions: Collapse
+					33 summary 新建分支, Value: on
+						34 text 新建分支
+					35 container
+						36 text 新分支名
+						37 text field (settable) 新分支名, Value: gui/existing
+						38 text 起点
+						39 text field (settable) 起点, Value: HEAD
+						40 checkbox 创建后切换, Value: 0
+						41 text 创建后切换
+						42 button 创建分支
+				43 heading 远端同步, Value: 3
+					44 text 远端同步
+				45 container
+					46 text origin/main  · 领先  1  / 落后  1
+				47 container
+					48 text 远端
+					49 pop up button 远端, Value: origin
+				50 container
+					51 text 目标分支
+					52 text field (settable) 目标分支, Value: main
+				53 button 获取
+				54 button 仅快进拉取
+				55 button 推送 main
+				56 container
+					57 text 目标： origin  /  main 。推送不强制覆盖历史。
+				58 summary 比较两个引用, Value: off
+					59 text 比较两个引用
+	60 close button
+	61 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	62 minimize button
+63 menu bar
+	64 Horizon
+	65 File
+	66 Edit
+	67 View
+	68 Window
+	69 Help
+
+The focused UI element is 11 summary 查看 Git 详情, Value: on

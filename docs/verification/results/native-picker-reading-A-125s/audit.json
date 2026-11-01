@@ -1,0 +1,121 @@
+{
+  "auditedAt": "2026-11-01T03:55:57.349783+00:00",
+  "actualExitCode": 0,
+  "rootPid": 88219,
+  "binaryShaAtStartAndEnd": "d77ced715ee3c3b78d87e552138fc37d33ad9f70027423c0368bdff1c6a53d20",
+  "observedDurationSeconds": 125.0053,
+  "samples": 117,
+  "missingRootRows": 0,
+  "identities": [
+    {
+      "pid": 88219,
+      "start": "Sun Nov 1 11:51:37 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "samples": 117
+    },
+    {
+      "pid": 88286,
+      "start": "Sun Nov 1 11:51:39 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "samples": 117
+    },
+    {
+      "pid": 88287,
+      "start": "Sun Nov 1 11:51:39 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "samples": 117
+    },
+    {
+      "pid": 88288,
+      "start": "Sun Nov 1 11:51:39 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "samples": 117
+    },
+    {
+      "pid": 88289,
+      "start": "Sun Nov 1 11:51:39 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "samples": 117
+    },
+    {
+      "pid": 88290,
+      "start": "Sun Nov 1 11:51:39 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "samples": 117
+    }
+  ],
+  "foreignWebKitCandidates": [
+    {
+      "pid": 863,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 891,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 909,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 929,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1364,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1365,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1427,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1517,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    }
+  ],
+  "stableFootprintMeanMBDecimal": 144.2908886557377,
+  "stableFootprintP95MBDecimal": 144.592784,
+  "stableCpuMeanPercentOneCore": 0.36026318824254583,
+  "conditionCorrection": {
+    "initialMetadataDisplayName": "圆角表达 (obsolete name supplied by verifier)",
+    "actualCurrentDisplayName": "卡片分区",
+    "unchangedExactLayoutId": "horizon.layout.iris",
+    "source": "packages/plugins/builtins/horizon.layout.iris/manifest.json",
+    "sameTheme": "horizon.theme.mist light",
+    "effect": "Displaynameonly,nophysicalscenechange;originalmetadataretained,currentaccurateconditionsincontrols/scene-a.json"
+  },
+  "limits": [
+    "Readingbeforeanypicker only; Bafterrealpickerpending.",
+    "Noall-feature-offorfullNFR/lifecycleclaim.",
+    "After60svalidwindow64.5849sec61samples;CPUmean/individualspikes separately retained."
+  ],
+  "foreignWebKitAttribution": {
+    "observedAt": "2026-11-01T03:56:58.447587+00:00",
+    "responsibleProcesses": "  645     1 Sat Oct 31 17:30:08 2026     /Applications/CC Switch.app/Contents/MacOS/cc-switch\n  732     1 Sat Oct 31 17:30:11 2026     /System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/MacOS/Safari\n",
+    "conclusion": "All8candidatesresponsibleforCCSwitch645orSafari732,notHorizon88219. All6Horizonroot/helperscountedinall117samples."
+  },
+  "nativeSceneReview": {
+    "before": "native-scene/reading-a-before.jpg",
+    "after": "native-scene/reading-a-after.jpg",
+    "independentlyViewed": true,
+    "observation": "Same1280×800card(iris)+Mistlight,hot4active,fivecleanhotTS tabs,tree/branchmain; no dialogs/pickers in eitherendpoint",
+    "endpointHashes": {
+      "reading-a-before.jpg": "68bdd5fde224e629866f65d4b7c813aa7604de20df2182969e42e19191af2678",
+      "reading-a-after.jpg": "9cc9e15040474f22b5ee14d44987f168c56502ece5783032830159fd4ab86d71"
+    },
+    "operatorFreeze": "Root reportedallGUI/build/tests frozen from readythroughactualcollectorcompletion;before/afterendpointimages do not independently prove everyinstant"
+  }
+}

@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-30T21:07:19.311574+00:00",
+  "build": "candidate6 release 25e407375f1f112e4d111d5b088065af3034cefb9ce9b4e087c805e6e0b288b5",
+  "method": "Independent16original screenshot review (JPEG bytes misnamed PNG); native operator JSON; actual HTTP requests, current fixture/review files, raw long message, state, process absence and external binary SHA checks. No GUI input by verifier.",
+  "checks": {
+    "fixedConnectionTestOnly": true,
+    "guiChatToolCountsZero": true,
+    "guiTaskToolCountFour": true,
+    "bufferSnapshotPresent": true,
+    "unattachedExampleAbsentFromContextChat": true,
+    "contextDiskOriginalHash": true,
+    "exampleSavedExactly42Bytes": true,
+    "indexEmptyAndBranchMain": true,
+    "longBodyExact327680Bytes": true,
+    "externalPiHashUnchanged": true,
+    "nineDormantSessions": true,
+    "ownedPiProcessesAbsent": true
+  },
+  "fixtures": {
+    "context.ts": {
+      "bytes": 50,
+      "sha256": "b7eba5172863b82a73918cc6bfdc4e2bbd4de08e8719b47a4650911c79ec0cd7",
+      "text": "export const greeting = \"地平线 Pi 上下文\";\n"
+    },
+    "example.txt": {
+      "bytes": 42,
+      "sha256": "f142b7fd157d1f4550ccdbd55f7453c5278a6f0d28d195ab8e9052f9c25fa3b0",
+      "text": "changed by real Pi through Horizon broker\n"
+    },
+    "git": {
+      "branch": "main",
+      "cachedNumstat": ""
+    }
+  },
+  "requestSummary": [
+    {
+      "line": 3,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "Reply with exactly: Horizon connection verified. This is a connectivity test; no project content is included."
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 4,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_VISUAL：请解释项目会话如何保存与恢复。"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 5,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "核对本次未保存上下文：不要执行工具。\n\nAttached context (source=\"buffer\", file=\"context.ts\", SHA256=\"3fadc5ea6d5531eb7f5a77aee2b2b62eb2d63ccff28fc279f2d0afd2fa6404d7\"):\nexport const greeting = \"未保存中文快照🙂\";\n"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 6,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_RESOURCE_STREAM"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 7,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_RESOURCE_STREAM"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 8,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_WRITE：仅在任务副本修改 example.txt，等待授权。"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 9,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_WRITE：仅在任务副本修改 example.txt，等待授权。"
+        }
+      ],
+      "toolResults": [
+        "操作被拒绝、已取消或授权已过期"
+      ]
+    },
+    {
+      "line": 10,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_WRITE：允许后修改任务副本。"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 11,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_WRITE：允许后修改任务副本。"
+        }
+      ],
+      "toolResults": [
+        "Written to the task copy. Original project unchanged."
+      ]
+    },
+    {
+      "line": 12,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_WRITE：等待授权期间取消。"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 13,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_EXEC：核对受控命令环境。"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 14,
+      "path": "/v1/chat/completions",
+      "toolCount": 4,
+      "toolNames": [
+        "horizon_read",
+        "horizon_list",
+        "horizon_write",
+        "horizon_exec"
+      ],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_EXEC：核对受控命令环境。"
+        }
+      ],
+      "toolResults": [
+        "Exit code: Some(0)\nHOME=/Users/chenpengxiang\nLANG=en_US.UTF-8\nPATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin\nTMPDIR=/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/\n\n"
+      ]
+    },
+    {
+      "line": 15,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_LONG_MESSAGE"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 16,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "# Conversation\n[User]: HORIZON_TEST_LONG_MESSAGE\n\n# Instructions\nThe messages above are earlier context from an ongoing conversation. Later messages are stored separately and do not need to be reconstructed.\n\nCreate a concise checkpoint of the user's request and the progress shown above. This checkpoint will be placed before the later messages so the conversation can continue with the necessary context.\n\n## Original Request\n[What did the user ask for?]\n\n## Progress So Far\n- [Key decisions and work completed in these messages]\n\n## Context Needed to Continue\n- [Information from these messages needed to understand the later work]\n\nOnly summarize information explicitly present above. Do not infer or recreate later messages."
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 17,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "HORIZON_TEST_AUTH_FAILURE：保留问题和附件。\n\nAttached context (source=\"buffer\", file=\"context.ts\", SHA256=\"3fadc5ea6d5531eb7f5a77aee2b2b62eb2d63ccff28fc279f2d0afd2fa6404d7\"):\nexport const greeting = \"未保存中文快照🙂\";\n"
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 18,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "Reply with exactly: Horizon connection verified. This is a connectivity test; no project content is included."
+        }
+      ],
+      "toolResults": []
+    },
+    {
+      "line": 19,
+      "path": "/v1/chat/completions",
+      "toolCount": 0,
+      "toolNames": [],
+      "latestUser": [
+        {
+          "type": "text",
+          "text": "Reply with exactly: Horizon connection verified. This is a connectivity test; no project content is included."
+        }
+      ],
+      "toolResults": []
+    }
+  ],
+  "requestLog": {
+    "path": "provider-requests.jsonl",
+    "sha256": "553456ecc8d69ec809729428b0bd16ddb64af6aa42cfa6fc1fa330c0c2b738a8",
+    "totalLines": 19,
+    "guiStartsAtLine": 3,
+    "firstTwo": "Earlier protocol/unit fixture work; excluded from GUI claims"
+  },
+  "longMessage": {
+    "bytes": 327680,
+    "sha256": "63d18a6d135b8dcb10ececc549fbb4100097343d1acbad47a482ade7aef85472",
+    "sourceSession": "436b6ad1-5f1e-42b2-8159-5f8116b6456b",
+    "matchesRepeatedFixture": true,
+    "artifact": "long-unicode-message.txt"
+  },
+  "reviews": [
+    {
+      "reviewId": "2921960b-9b40-4633-956e-cc9868bc5900",
+      "completed": false,
+      "applied": [],
+      "copyExists": true,
+      "copyText": "changed by real Pi through Horizon broker\n"
+    },
+    {
+      "reviewId": "473522a5-78fd-4274-af23-320e995b30f0",
+      "completed": false,
+      "applied": [],
+      "copyExists": true,
+      "copyText": "original GUI task baseline\n"
+    },
+    {
+      "reviewId": "8762e5e1-0d06-4f50-a701-f4a0fd54c639",
+      "completed": true,
+      "applied": [
+        "example.txt"
+      ],
+      "copyExists": true,
+      "copyText": "changed by real Pi through Horizon broker\n"
+    },
+    {
+      "reviewId": "ab68cb53-8e15-4afe-b66c-e657dd9b59bc",
+      "completed": false,
+      "applied": [],
+      "copyExists": true,
+      "copyText": "changed by real Pi through Horizon broker\n"
+    }
+  ],
+  "externalBinary": {
+    "path": "/tmp/horizon-pi/pi/pi",
+    "sha256": "b4d93b78e542ca8d1792242cf6c1a875ef4e6fb644141fb4cf67ec7c81ef9b14",
+    "unchanged": true
+  },
+  "ownedPiProcesses": [],
+  "screenshots": [
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/01-D01-empty.png",
+      "sha256": "bf39848c46e54b43461fc2c6b49a01074bc37ac10fd777f4c3423c0e2489dc76",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/02-external-runtime-ownership.png",
+      "sha256": "efca8fd309e0d553c18786eece5c79d9f156f981e027ffbc1e18199e30970ee1",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/03-F06-add-connection.png",
+      "sha256": "1936b8974cfca9faed433c50eb8984f3aa1a9dbb9eb9e826cbf74f0f7e90ee78",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/04-F05-verified-inherited.png",
+      "sha256": "7fd247fcb43522c244ac781a79acfb6bf1c7a11c99d28c4ee3e2037917673256",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/05-D02-chat.png",
+      "sha256": "62ca614a40b56794b51e2fd867f6c9c5bdc77d083b1fe41501604b75fdbe2026",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/06-D03-context-buffer.png",
+      "sha256": "a8789a2b095bdac6a6178c2e7656f2f005b7d75a3c6f27be7fcaa28eef93309b",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/07-D04-streaming.png",
+      "sha256": "9d25dae9752717e8ce81489ba8efc188c52aa9986a785d8ad706d89ec3c0dfc2",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/08-D05-write-permission.png",
+      "sha256": "4bdf0f4f749b3aa070e42297741cf3af73e74af275075a80f890d5d505bb7adb",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/09-D06-review-before.png",
+      "sha256": "475ee971c2380f63d3a6bdafa391b86f7d0d5fd479c429927ddd4b248f149cb5",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/10-runtime-active-removal-blocked.png",
+      "sha256": "cbf64d2f54f40616b95ced8fa14d5f8f5376f0f788a6be63a234c74378e6b3c5",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/11-D05-exec-permission.png",
+      "sha256": "938bbc6b1d101c849042100cb6e2f111cc2418dbea6ff33cefd3ad0b73f0753c",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/12-long-message-page-2.png",
+      "sha256": "28fd09f543ec9ee225609bb68d5ad297bb534092c93e544e012eb24aa70d3793",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/13-project-return-draft.png",
+      "sha256": "bc03640abc807fcc20c5b9b74ef158cc0baa4303b9e38996165974f1a0ad829a",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/14-D07-auth-error-before.png",
+      "sha256": "f903285703d8202f295806be36fced6451a7fe9e36cbf3dbc780f5db38d0e686",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/15-connection-remove-impact.png",
+      "sha256": "c8256c4a4fb17977e91dd02cdd7f1bf3813925ec84c1991d09278ccd8afb3fca",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    },
+    {
+      "path": "docs/verification/screenshots/pi-native-gui/16-F05-settings-ai.png",
+      "sha256": "6418fd39d807c8c17ec573c83b6a169cdb47ce5404e11014558d60ec32a05781",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true,
+      "formalPngVisualIndexEligible": false
+    }
+  ],
+  "operatorArtifacts": {
+    "docs/verification/results/pi-native-gui/actions.jsonl": "3734c24eb75b7d58531fdcabfd47fbc8a073a0c7a35eafabc3f4f38f4b8a8189",
+    "docs/verification/results/pi-native-gui/agent-state-after-config.json": "602a75843ae33dcfdd0e960ac8324d908f9160abb65d406dfc449c01ae3f84cc",
+    "docs/verification/results/pi-native-gui/applied-editor-before-save.json": "95c77361da6d1a240a73080f5326d9dc1010aaa63f2dd10e2da7fc935e6e71d5",
+    "docs/verification/results/pi-native-gui/auth-failure.json": "e09220259f262c5050f6b862779bddb863a95bfdbb6ad71880e7a2ea544b9edc",
+    "docs/verification/results/pi-native-gui/before.json": "3e41067d4319c87dc3f0eb9fc876fd4c2661e70742ffad990551fd059465865f",
+    "docs/verification/results/pi-native-gui/context-snapshot.json": "8c43e208b234276470f733595a9c663dfd62cd770a4b5f917a2b91d9fa70327d",
+    "docs/verification/results/pi-native-gui/diagnostics-after-pi.json": "7f7d6144eeb5256bc391185f13c3cecf787a369cf5fbc940afbf073747701741",
+    "docs/verification/results/pi-native-gui/exec-environment.json": "b6c7aa9ceb3306cf987ec3d6b09ba79f6a3f1ee6949056af19047fe53da54ddc",
+    "docs/verification/results/pi-native-gui/history-after.json": "c6d19af73e00e41475dbbd90b1c61869aef078241303b40f4a5abfb2ecbb2159",
+    "docs/verification/results/pi-native-gui/history-before.json": "a7579d2b77292d1d6078f912b97eddc33653729bf21cb426072a0535856094d1",
+    "docs/verification/results/pi-native-gui/pending-cancel.json": "80f90d46e5439b98f8c9af2133d1111f6eb984b2bde0b15ce2e43a48b91eae69",
+    "docs/verification/results/pi-native-gui/plugin-policy-after.json": "73bd2939dfac69f480b0b0d4ab52f7632b93731a89c42df73aae97266ecc66cd",
+    "docs/verification/results/pi-native-gui/project-connection-inherit.json": "97cb37108c99fb18155e9acbbf0260ab36ef8a5d00403e973cfeb2078e991c12",
+    "docs/verification/results/pi-native-gui/project-connection-override.json": "f1177c18ddf2fbcc1434288e2159800e232b3faeeff5a42e7549aec4bf23ace3",
+    "docs/verification/results/pi-native-gui/qa-owned-resources.json": "6af793348a395f8e63e22ded45c61245e405c56c3225f418e69956d992d83da9",
+    "docs/verification/results/pi-native-gui/review-undo-redo-save.json": "cb0922c54d25372eae182bf9c58026978768752ae74dd688d4ee7dd7b6a763a0",
+    "docs/verification/results/pi-native-gui/runtime-before.json": "82a978a3558054d64a7acef4512dc69fab4b64683ce4a0bcad3a4511cd599b0a",
+    "docs/verification/results/pi-native-gui/runtime-reinstalled.json": "c3c38ba7bb9ddc897ac34534f369b01a3a94c09258907802333e3a8a56355078",
+    "docs/verification/results/pi-native-gui/runtime-uninstalled.json": "2fece1163cdf1ff23c229cb2329bf313d4804e2f3514423485d141bd9b0e0f47",
+    "docs/verification/results/pi-native-gui/stream-stop.json": "4c782eb63f42b49794908f4e2a720885c6747b0529b205b0b804b7a634c36904",
+    "docs/verification/results/pi-native-gui/write-allowed-before-apply.json": "b47a94c7620c3b1aeece86175a4e37d6c90ab2044fe2677a6de8d5140395ba28",
+    "docs/verification/results/pi-native-gui/write-denied.json": "827f11567cd083fe2ccb7fcaebc8a20d132be987ec5a66579664cec4aa5e56e4"
+  },
+  "limitations": [
+    "All model responses came from controlled local HTTP protocol service; actual official Pi executes protocol/tools. No remote vendor inference or actual API-key GUI credential flow.",
+    "All16screenshots are original JPEG/JFIF bytes with .png names. Kept unchanged as functional/structural evidence, rejected from formal PNG visual matrix; no transcoding.",
+    "Snapshots record actual operator observations, but independent disk checks occur after actions. They corroborate final state rather than pretending to observe every intermediate click.",
+    "History before/after request counts16 and no Pi are retained operator measurements; app restart history retention remains separate.",
+    "D02 paragraph gaps, D05 primary style, D06 modal/plain-text diff, D07 raw JSON/missing direct retry remain visual issues for candidate7. D04 screenshot is chat stream, not task-progress reference state.",
+    "Native runtime remove was correctly blocked while active; screenshot10 contains an empty confirmation shell after error, reported for UI correction.",
+    "Plugin project-enable escalation is a distinct retained failure; it is not counted as valid scope override.",
+    "Final20:58:54 diagnostics are after30minute collector; do not inject them into earlier sampling rows."
+  ]
+}

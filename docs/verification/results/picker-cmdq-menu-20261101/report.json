@@ -1,0 +1,64 @@
+{
+  "recordedAt": "2026-11-01T04:06:15.458483+00:00",
+  "status": "Swift compile/signature checks passed; native CmdQ behavior pending next centrally rebuilt bundle.",
+  "change": "Replace helper local keyDown monitor with NSApp.mainMenu Quit item, explicit command-q and delegate target; existing requestQuit/cancel/reply/host close path unchanged.",
+  "sourceBeforeSha256": "82eb1c02ab81ecddbd191536e66cb466f680774ed0520cfea52d2020bff1f71d",
+  "sourceSha256": "a3948865cb106a70f009a7da60bb0b427153b8f0ecafe585ca36b4ca8d6ebceb",
+  "generatedHelperSha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101",
+  "generatedHelperBytes": 166816,
+  "commands": [
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-swift-version",
+        "5",
+        "-parse-as-library",
+        "-O",
+        "-target",
+        "arm64-apple-macosx12.0",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/Picker.swift",
+        "-o",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app/Contents/MacOS/HorizonPicker"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app: replacing existing signature\n"
+    },
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "runningBundleHelper": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+    "sha256Before": "1fcf424a0bde9cf1eeba84c42f5a3035913b0644fcf26d502725f7ab350dc178",
+    "sha256After": "1fcf424a0bde9cf1eeba84c42f5a3035913b0644fcf26d502725f7ab350dc178",
+    "unchanged": true
+  },
+  "rustChanged": false,
+  "fullBuildRun": false,
+  "guiRun": false,
+  "nativePending": true,
+  "rootCause": "Unconfirmed; absence of standard menu is corrected, but event monitor delivery versus cancellation completion has not been instrumented."
+}

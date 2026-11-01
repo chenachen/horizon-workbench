@@ -1,0 +1,156 @@
+{
+  "auditedAt": "2026-11-01T05:48:43.190555+00:00",
+  "method": "Independent production harness/source/virtual-before-diff and raw retained JSON/stdout/exit/time audit; no test rerun",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "695ac932d3706f1e4cbab35db065e8f29e39aa08e51cd84bfa60b2e87aa51e1c",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/tests/chunked-wake.mjs",
+      "sha256": "6e986552e28fc79357f8575f130055ebce383b26fe8e4c57513eebb529b62b27",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "beforeExecution": {
+    "startedAt": "2026-11-01T05:47:25.752799+00:00",
+    "command": [
+      "node",
+      ".work/chunked-wake-before.mjs",
+      "docs/verification/results/editor-chunked-mount-component-20261101/before.json"
+    ],
+    "sourceHashes": {
+      "apps/desktop/src/features/editor/EditorWorkbench.tsx": "695ac932d3706f1e4cbab35db065e8f29e39aa08e51cd84bfa60b2e87aa51e1c",
+      "packages/editor/src/store.ts": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "packages/editor/tests/chunked-wake.mjs": "6e986552e28fc79357f8575f130055ebce383b26fe8e4c57513eebb529b62b27"
+    },
+    "sourceVariant": "In-memory remove only chunked !buffer.evicted render guard; production unchanged",
+    "endedAt": "2026-11-01T05:47:28.455624+00:00",
+    "exitCode": 1,
+    "stdout": "before.stdout.txt",
+    "stderr": "before.stderr.txt"
+  },
+  "afterExecution": {
+    "startedAt": "2026-11-01T05:47:28.455888+00:00",
+    "command": [
+      "node",
+      "packages/editor/tests/chunked-wake.mjs",
+      "docs/verification/results/editor-chunked-mount-component-20261101/after.json"
+    ],
+    "sourceHashes": {
+      "apps/desktop/src/features/editor/EditorWorkbench.tsx": "695ac932d3706f1e4cbab35db065e8f29e39aa08e51cd84bfa60b2e87aa51e1c",
+      "packages/editor/src/store.ts": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "packages/editor/tests/chunked-wake.mjs": "6e986552e28fc79357f8575f130055ebce383b26fe8e4c57513eebb529b62b27"
+    },
+    "sourceVariant": "Current production source",
+    "endedAt": "2026-11-01T05:47:29.171283+00:00",
+    "exitCode": 0,
+    "stdout": "after.stdout.txt",
+    "stderr": "after.stderr.txt"
+  },
+  "beforeScope": "Current production with only the chunked !buffer.evicted rendering guard removed in-memory. Not the complete historical d709 binary/source. The original local variant was independently diffed against final harness and archived.",
+  "actualBefore": {
+    "initialPassPhases": 1,
+    "passed": false,
+    "pendingLargeFileCount": 1,
+    "freshSameFileCursor": "reader-2",
+    "freshBodyEmpty": true,
+    "chunkCallCount": 1,
+    "failure": "1500ms wait for automatic reader2 text timed out; native-like same-file effect missed."
+  },
+  "actualAfter": {
+    "passed": true,
+    "phaseCount": 2,
+    "evictedLargeFileCount": 0,
+    "evictedShowsLoading": true,
+    "automaticCursorSequence": [
+      "reader-1",
+      "reader-2"
+    ],
+    "freshBody": "automatic first chunk from reader-2",
+    "range": [
+      "0",
+      "262144"
+    ],
+    "nextButtonClicked": false
+  },
+  "sourceConclusion": "With the old evicted buffer mounted as LargeFile, its one-time fileId effect calls loadChunk too soon and then misses replacement by a fresh buffer with samefileId. Hiding LargeFile during eviction remounts it once readable and starts the initial read; placeholder represents the pending read.",
+  "artifacts": [
+    {
+      "name": "EditorWorkbench.tsx",
+      "bytes": 21286,
+      "sha256": "695ac932d3706f1e4cbab35db065e8f29e39aa08e51cd84bfa60b2e87aa51e1c"
+    },
+    {
+      "name": "after-run.json",
+      "bytes": 763,
+      "sha256": "cef5c31f2336e3f02825d40f4cf00c99d9c46314c85c93b63f027829fb22e3c1"
+    },
+    {
+      "name": "after.json",
+      "bytes": 2053,
+      "sha256": "214cffac94cf1b6582a5190305f5ec0429b9f8b5497a16cb550758817c4392fa"
+    },
+    {
+      "name": "after.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after.stdout.txt",
+      "bytes": 115,
+      "sha256": "5663ff5b8977e89bd2eda4adcc5cd7fdc5ed6f358e5dc73038f584777186c378"
+    },
+    {
+      "name": "before-run.json",
+      "bytes": 812,
+      "sha256": "b82180d3068b76e5ab98c27ab55f5f2ebcdb589e74c3d96963510d780c649a72"
+    },
+    {
+      "name": "before.json",
+      "bytes": 1717,
+      "sha256": "8316131039adeb5e1fe277154724a796f0436b7d2b6ce833681c6dbc07e4d4be"
+    },
+    {
+      "name": "before.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "before.stdout.txt",
+      "bytes": 312,
+      "sha256": "4233cdc53c6a296e60cebd1d5dccd7e30c1b0f9857d6b39b0348755bb5edf3c9"
+    },
+    {
+      "name": "chunked-wake-before.mjs",
+      "bytes": 7377,
+      "sha256": "da416d9cd785277474751222e1274e9dd6c3f8196e5b7f7aab268f7a5ace588c"
+    },
+    {
+      "name": "chunked-wake.mjs",
+      "bytes": 7116,
+      "sha256": "6e986552e28fc79357f8575f130055ebce383b26fe8e4c57513eebb529b62b27"
+    },
+    {
+      "name": "receipt.json",
+      "bytes": 1892,
+      "sha256": "3b2567233feef98fcdf04e0ab85ccb076d1fac63d44885cf7158126777fc2857"
+    },
+    {
+      "name": "store.ts",
+      "bytes": 39376,
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+    }
+  ],
+  "limits": [
+    "Real React Workbench/LargeFile and EditorStore execute in headless Chromium; RPC results and outer plugin/settings providers are controlled fixtures. No native application screenshot or macOS process performance is claimed.",
+    "The before variant changes one rendering guard against current source; it does not replay the fullhistorical bundle.",
+    "Actual d709 native011/012blank0..0 failure remains active until next bundle automatically loads the first chunk without Next."
+  ]
+}

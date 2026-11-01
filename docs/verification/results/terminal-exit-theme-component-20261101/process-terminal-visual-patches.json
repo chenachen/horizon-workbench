@@ -1,0 +1,31 @@
+{
+  "preparedOnly": true,
+  "sourceWritten": false,
+  "testsRun": false,
+  "applyOrder": [
+    ".work/process-terminal-exit-fix.patch",
+    ".work/process-terminal-theme-visible-fix.patch",
+    ".work/process-terminal-join-fix.patch"
+  ],
+  "themePatch": {
+    "indexBaseAfterExitSha256": "ca8317bb0b21d73c0573b12694b4aeb37c765cfe9b140d175ddef742e6a9b176",
+    "indexAfterBothSha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25",
+    "cssBeforeSha256": "88cea9523dac0c08bd5d6f4c444a1dff7449695db3024770a77944c907234245",
+    "cssAfterSha256": "c0b89c416297f401048e0c4bd79ff4afcc1991bef838cb48e8d6664b7848c358",
+    "changes": [
+      "Visible sendResize rereads computed theme before fit, preserving instance and closed-history fit without resize RPC.",
+      "Terminal-specific CSS and xterm background use --h-low with original --surface and color fallback."
+    ]
+  },
+  "joinPatch": {
+    "stylesBeforeSha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138",
+    "stylesAfterSha256": "bc362ca80c570824642d9149b956455df43f7f16c111df42a1d29e0ac1652a46",
+    "selector": ".horizon-app.terminal-open:not(.focus-mode) > .editor-region",
+    "specificity": "0,4,0 versus drawer/expressive/dock layout selectors 0,3,0; no !important.",
+    "changes": [
+      "Remove bottom gap and bottom rounding only while terminal visible and focus mode off.",
+      "Preserve top corners, top margin, horizontal geometry, hidden/focus presentation."
+    ]
+  },
+  "diagnosisBoundary": "Hidden-node timing is an inference; observed same-PTY stale colors are real. No polling, remount, lifecycle or native contract change."
+}

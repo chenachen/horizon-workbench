@@ -1,0 +1,23 @@
+{
+  "reviewed_at": "2026-10-30T18:25:52.130329+00:00",
+  "producer": "git agent",
+  "review_scope": "Retained 18-test output plus complete six newly added integration tests, previous twelve reviewed earlier; benchmark.py measurement and assertions reviewed. No second execution.",
+  "binary_hash_matches_report": true,
+  "current_binary_sha256": "e7a37feb1c0e7176bfeeb72116bcabb777e955bc4dada9535fcb13a1cba75206",
+  "artifacts_sha256": {
+    "test-report.json": "ff00dd689b4072dbf5596053abd6cacd9aa4a627459727721594bfb24fd61910",
+    "benchmark-macos.json": "70398d6007cacfd173eb5dcac12ac027fd7097dbc32c49788e047c8e7a27466b",
+    "benchmark-macos-before.json": "8afb73831839cfe59fc5e231be90ce81241a9873ef35ca2cd77fa03057cf0c1b"
+  },
+  "source_sha256": {
+    "apps/git-service/tests/workflow.rs": "7e7f2794c7dbbb270f5e2a83b8774b2489b6e1891dfea62c07b31d1abc2ca38b",
+    "apps/git-service/tests/benchmark.py": "1b6c4a350f20f6b4cc5e2e92ef82099d8768650b3cf8aac9cddedc226d176e3d"
+  },
+  "measurement_limits": [
+    "One sample per size; no percentile or whole-app memory conclusion.",
+    "RSS sums only sidecar process group, not physical footprint/desktop/WebView.",
+    "durationMs includes requested 20ms sampling sleep and ps overhead.",
+    "Cancel case starts timing before launch, sends SIGTERM after approximately 350ms, then records whole request duration 412.82ms; exact cancellation latency is not measured.",
+    "Before sample does not retain prior binary hash; conditions/load are not matched sufficiently for a causal or stable speedup claim."
+  ]
+}

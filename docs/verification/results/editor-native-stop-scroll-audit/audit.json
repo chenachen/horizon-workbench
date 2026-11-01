@@ -1,0 +1,175 @@
+{
+  "auditedAt": "2026-11-01T04:27:55.813137+00:00",
+  "method": "Independent eight original nativeJPEG and fullAX review; operator actions kept separately from measured observations",
+  "build": {
+    "rootPid": 21917,
+    "mainSha256": "abc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+    "executablePayloadSha256": "12bafafe210039aab2ba8d9802071d4a645d7b3f7dc5f8ef9fc6e445908e0388"
+  },
+  "originals": [
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/001-no-match-stop-visible.jpg",
+      "imageSha256": "7a68a265e5b617ec8fcbd85fd5f45b98c7c72de9e3f4bb27480e8317e17f8d97",
+      "ax": "docs/verification/results/editor-native-picker-20261101/001-no-match-stop-visible.txt",
+      "axSha256": "707db2afc2a309aac94bc474cb852d99565da68bfaa1cc1102e997dbe32e2565",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/002-no-match-cancelled-query-retained.jpg",
+      "imageSha256": "d536ff4aadd83a78f6b80eafc4e85e8adea285cfabfacb7db980f83333a776b6",
+      "ax": "docs/verification/results/editor-native-picker-20261101/002-no-match-cancelled-query-retained.txt",
+      "axSha256": "c1e9b9662249422a20627f274bcf41319af60d910530b4e2afbc8fa494b95e92",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/009-C-session-tree-selection-before.jpg",
+      "imageSha256": "6266d3b7745099648ce23a95f9ff205af37943569015c69f4ebe89e571f9799e",
+      "ax": "docs/verification/results/editor-native-picker-20261101/009-C-session-tree-selection-before.txt",
+      "axSha256": "cf6640a99ef424284e39ca9940a4a69939c14acfe65aa605121c4d9e4aa3352d",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/018-C-session-tree-return.jpg",
+      "imageSha256": "a6c11b9a7a0d3dc75c54040d7030cdf02bbd0a748688aafdf929c542466d04db",
+      "ax": "docs/verification/results/editor-native-picker-20261101/018-C-session-tree-return.txt",
+      "axSha256": "60d2428d0639b5e96580677798e76fca141188ffb0305b15a8862bf2ba50dab0",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/011-B-session-tree-selection-before.jpg",
+      "imageSha256": "a8af5b99cad6a5d40702d3b30ea626c9a013e221e257f9c72401fb016ebdd56d",
+      "ax": "docs/verification/results/editor-native-picker-20261101/011-B-session-tree-selection-before.txt",
+      "axSha256": "3dc08ced14c8e823bdfa5bba6121b99d5981e29fa9fbec8eb1e952a10a064666",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/016-B-session-tree-return.jpg",
+      "imageSha256": "092e1bf015672d6b83620f4afa3d9d3558f9f5da6c59807915dd9568e8d989a5",
+      "ax": "docs/verification/results/editor-native-picker-20261101/016-B-session-tree-return.txt",
+      "axSha256": "3cb09a719f976added3ceb72d9d2258f1b813c73e1e1b72203f2228d4438dc47",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/013-A-session-tree-selection-before.jpg",
+      "imageSha256": "5e1ef1c48ced27db4a63d08227df746a81ea5318b50944cffe2cb418189fdaa4",
+      "ax": "docs/verification/results/editor-native-picker-20261101/013-A-session-tree-selection-before.txt",
+      "axSha256": "d191fcbf4b440cd524349e58217cecfb62e4ed0d5eac6261c31385b65eda4f91",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/020-A-session-tree-return.jpg",
+      "imageSha256": "16793686b77133e6cf4e82e4128e85cff1d582d0eeee5ff05f256b7b96ed2d72",
+      "ax": "docs/verification/results/editor-native-picker-20261101/020-A-session-tree-return.txt",
+      "axSha256": "b97ed24e2cc365b1b4a4b9db859b1ff63e634b79c2d6fba9584b913395c7d84b",
+      "independentlyViewed": true
+    }
+  ],
+  "operatorActions": [
+    {
+      "at": "2026-11-01T04:18:13.499Z",
+      "name": "001-no-match-stop-visible",
+      "condition": "native pending no-match search has Stop"
+    },
+    {
+      "at": "2026-11-01T04:18:39.929Z",
+      "name": "002-no-match-cancelled-query-retained",
+      "stopClicks": 1,
+      "outcome": "已取消，保留已有结果；query unchanged",
+      "firstAttempt": "original001 control visible; first click stale AX after capture and search completed; restarted then one actual Stop click"
+    },
+    {
+      "at": "2026-11-01T04:23:31.733Z",
+      "name": "009-C-session-tree-selection-before",
+      "expectedCaret": "70:31",
+      "selected": "projectC SESSION_1101 line 070",
+      "tree": "session-next expanded",
+      "tabs": [
+        "same-name.txt",
+        "state.txt"
+      ]
+    },
+    {
+      "at": "2026-11-01T04:23:56.299Z",
+      "name": "011-B-session-tree-selection-before",
+      "caret": "40:31",
+      "selected": "projectB SESSION_1101 line 040",
+      "tabs": [
+        "same-name.txt",
+        "state.txt"
+      ]
+    },
+    {
+      "at": "2026-11-01T04:24:17.696Z",
+      "name": "013-A-session-tree-selection-before",
+      "caret": "20:25",
+      "selected": "qa SESSION_1101 line 020",
+      "dirty": "A_DIRTY_SESSION_1101 appended",
+      "tabs": [
+        "clean-01.txt",
+        "state.txt"
+      ]
+    },
+    {
+      "at": "2026-11-01T04:24:32.375Z",
+      "name": "016-B-session-tree-return",
+      "expectedTree": "session-next expanded",
+      "expectedSelection": "projectB SESSION_1101 line 040"
+    },
+    {
+      "at": "2026-11-01T04:24:33.841Z",
+      "name": "018-C-session-tree-return",
+      "expectedTree": "session-next expanded",
+      "expectedSelection": "projectC SESSION_1101 line 070"
+    },
+    {
+      "at": "2026-11-01T04:24:35.439Z",
+      "name": "020-A-session-tree-return",
+      "expectedTree": "session-next expanded",
+      "expectedSelection": "qa SESSION_1101 line 020"
+    }
+  ],
+  "nativeSearchStop": {
+    "queryBeforeAndAfter": "HORIZON_NO_MATCH_CANCEL_NATIVE_20261101",
+    "visiblePendingStop": true,
+    "actualRestartedRunStopClicks": 1,
+    "actualCancelledTerminalText": "已取消，保留已有结果。",
+    "firstAttemptCorrection": "After001capture the initial click used staleAX and search completed naturally; it is not cancellation evidence. Operator restarted samequery and002records actualStop click/terminal.",
+    "coverage": "Real zero-match native pendingStop and actualcancel/query preservation; complements existing production component test, not a fullSTATE003 pass."
+  },
+  "scrollComparisons": [
+    {
+      "project": "C",
+      "before": "009-C-session-tree-selection-before",
+      "after": "018-C-session-tree-return",
+      "firstVisibleLineBefore": 58,
+      "firstVisibleLineAfter": 78,
+      "caretBeforeAndAfter": "70:31",
+      "axCaret": "行 70，列 31"
+    },
+    {
+      "project": "B",
+      "before": "011-B-session-tree-selection-before",
+      "after": "016-B-session-tree-return",
+      "firstVisibleLineBefore": 28,
+      "firstVisibleLineAfter": 1,
+      "caretBeforeAndAfter": "40:31",
+      "axCaret": "行 40，列 31"
+    },
+    {
+      "project": "A",
+      "before": "013-A-session-tree-selection-before",
+      "after": "020-A-session-tree-return",
+      "firstVisibleLineBefore": 8,
+      "firstVisibleLineAfter": 14,
+      "caretBeforeAndAfter": "20:25",
+      "axCaret": "行 20，列 25"
+    }
+  ],
+  "scrollFinding": "All three returned nativeviewports differ from their original scroll position despite retainedcaret coordinates. Tabs/content and expandedtree persist; A remains visiblydirty. Onlyscroll restoration is markedfailed; expected fields in operatoraction records are not pass observations.",
+  "limits": [
+    "Full text-selection ranges are not inferred from caret status alone.",
+    "NoFILE003failure is inferred: this experiment did not close a clean tab and then inspect otherprojects.",
+    "Searchquery/Gitdraft/chat isolation and complete three-project state still need their own evidence.",
+    "No newbuild, test, GUI or filewrite by verifier; currentresourcecollector remains separate and running."
+  ]
+}

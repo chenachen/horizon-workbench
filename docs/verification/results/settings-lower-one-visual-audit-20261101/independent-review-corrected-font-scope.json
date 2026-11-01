@@ -1,0 +1,4292 @@
+{
+  "reviewer": "/root/git_resume",
+  "reviewedAt": "2026-11-01T06:50:28.550341+00:00",
+  "scope": "Independent read-only F08/F09/F10/F11 ×8 visual review; no product source, GUI, build or canonical matrix edits",
+  "appBuildSHA256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+  "pid": 40426,
+  "personalInspection": "Every one of 32 primary native JPEGs, 32 indexed reference PNGs and 8 F10 lower supplemental JPEGs was personally viewed as the original file through view_image. Related AX files were read directly and summarized by per-file named controls/values; no screenshot was generated or transformed.",
+  "counts": {
+    "cases": 32,
+    "primaryNativeViewed": 32,
+    "referenceViewed": 32,
+    "supplementalNativeViewed": 8,
+    "differences": 27,
+    "conditionsMismatch": 5,
+    "verified": 0
+  },
+  "artifactAudit": "artifact-audit.json",
+  "allImageAndAXHashesMatch": true,
+  "newUpperFilesPresentAtReport": [],
+  "correctionsPolicy": "Preserve captureOriginal; effectiveConditions applies metadata-corrections, specifically Iris spacious and Aurora comfortable. Original images unchanged.",
+  "findings": [
+    {
+      "id": "SL-01",
+      "severity": "minor",
+      "status": "prepared-unapplied",
+      "cases": [
+        "F08"
+      ],
+      "observation": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+      "minimalFix": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+      "source": "apps/desktop/src/features/settings/settings.css:34,159,160; design/source/base.css:142,180",
+      "patch": ".work/settings-lower-visual-prepared/settings-lower.patch"
+    },
+    {
+      "id": "SL-02",
+      "severity": "moderate",
+      "status": "open",
+      "cases": [
+        "F09"
+      ],
+      "observation": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+      "minimalFix": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+      "preparedPatch": ".work/settings-lower-visual-prepared/settings-lower.patch",
+      "nativeRetest": "pending"
+    },
+    {
+      "id": "SL-03",
+      "severity": "moderate",
+      "status": "open",
+      "cases": [
+        "F10",
+        "F11"
+      ],
+      "observation": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+      "minimalFix": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+      "preparedPatch": ".work/settings-lower-visual-prepared/settings-lower.patch",
+      "nativeRetest": "pending"
+    },
+    {
+      "id": "SL-04",
+      "severity": "moderate",
+      "status": "open",
+      "cases": [
+        "F11"
+      ],
+      "observation": "参考首屏完整显示12%可见度与85%遮罩；本轮八张原生首屏的85%数字框下缘被固定footer裁住，Iris尤其明显。空态块原生y≈272而参考y≈263，随后行间距累计下移。",
+      "minimalFix": "在批准的四页签结构内收紧heading/页签到预览块及预览后行的冗余间距，保证1280×800时两个主要数值框完整可见；不取消滚动，不撤回四页签。",
+      "preparedPatch": ".work/settings-lower-visual-prepared/settings-lower.patch",
+      "nativeRetest": "pending"
+    },
+    {
+      "id": "SL-05",
+      "severity": "minor",
+      "status": "open",
+      "cases": [
+        "F11"
+      ],
+      "observation": "原生空态图片图标约24px，参考约16px；内卡原生约150px高、参考约144px，主提示字重也较轻。",
+      "minimalFix": "恢复空态图标16px及内卡内容节奏；保持文件格式/20MiB实际限制和图片选择handler。",
+      "preparedPatch": ".work/settings-lower-visual-prepared/settings-lower.patch",
+      "nativeRetest": "pending"
+    },
+    {
+      "id": "SL-06",
+      "severity": "minor",
+      "status": "prepared-unapplied",
+      "cases": [
+        "F08",
+        "F09",
+        "F10",
+        "F11"
+      ],
+      "observation": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+      "minimalFix": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+      "sourceEvidence": ".work/settings-lower-visual-prepared/backdrop-evidence.json",
+      "preciseSourceDifference": "Product #172b4538 / blur2; reference light #20162b40 and dark #07030b80 / blur3; no backdrop change prepared.",
+      "preparedPatch": ".work/modal-backdrop-prepared/source.patch (root-owned)",
+      "nativeRetest": "pending"
+    },
+    {
+      "id": "SL-07",
+      "severity": "minor",
+      "status": "open-ax-only",
+      "cases": [
+        "F11"
+      ],
+      "observation": "八份F11 AX均同时出现空态“选择一张喜欢的图片”、禁用“关闭背景/移除图片资产”和尾注“图片已复制到应用资产目录”。该尾注不在本轮首屏图可见范围，不能标为已目视验证。",
+      "minimalFix": "按是否存在背景资产显示已复制说明，或空态改为“导入后会复制到应用资产目录”；下区原图仍待覆盖。",
+      "preparedPatch": ".work/settings-lower-visual-prepared/settings-lower.patch",
+      "nativeRetest": "pending"
+    }
+  ],
+  "cases": [
+    {
+      "case": "mist/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "b5b15b016d4e710fed039896adc011e86bc49a08f946039bbb25f0fe62380ca5",
+        "axSha256": "b84bfc64188f97c6907c8b1871df4fe166f842ece7f7f9af249751b8e99d66f5",
+        "capturedAt": "2026-11-01T06:06:30.270Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "全局快捷键页首屏，默认快捷键；功能录入/冲突将在固定循环后另验。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-mist.jpg",
+        "sha256": "b5b15b016d4e710fed039896adc011e86bc49a08f946039bbb25f0fe62380ca5",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F08-settings-keys.png",
+        "sha256": "3c986e07fed317c79b7ed07fa56c6214870b922f84033390395fcdedc28b663e",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "mist/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-mist.ax.txt",
+        "sha256": "b84bfc64188f97c6907c8b1871df4fe166f842ece7f7f9af249751b8e99d66f5",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        },
+        {
+          "kind": "capture-focus-state",
+          "reason": "键盘焦点可视化属于真实可访问性状态，不能为匹配无焦点参考移除focus样式。",
+          "observation": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "mist/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "78e1d76fe1867e530b4fd2724938072f2a6ddbc635d1cedd0e10c4fc5b82cd46",
+        "axSha256": "0834de7f778e10b54193c5373040bf344f80a7ae1909dd280db02d5bb7d6eedf",
+        "capturedAt": "2026-11-01T06:06:25.407Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "真实数据与隐私页；刚实际导出diagnostics基线，未清理；原生目录选择返回成功。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-mist.jpg",
+        "sha256": "78e1d76fe1867e530b4fd2724938072f2a6ddbc635d1cedd0e10c4fc5b82cd46",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F09-settings-data.png",
+        "sha256": "552a5044004c10d76d1d1a06dac1d9fb5506b1a24b86c89b743e77bcec64515d",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "mist/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-mist.ax.txt",
+        "sha256": "0834de7f778e10b54193c5373040bf344f80a7ae1909dd280db02d5bb7d6eedf",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        },
+        {
+          "kind": "capture-focus-state",
+          "reason": "键盘焦点可视化属于真实可访问性状态，不能为匹配无焦点参考移除focus样式。",
+          "observation": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "mist/F10",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。 主图确实展示文件侧栏240与顶部56等首部行，可与lower组合，未借AX补齐目视。",
+      "captureOriginal": {
+        "name": "F10-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "73c0c9ed47053efe1e107a008f9399eea312356773c19e7a9003a29dd4529dab",
+        "axSha256": "30ca2133a24afdaaa099f697b5497c6cb9ad8ca425ba3def73db720db3363cbb",
+        "capturedAt": "2026-11-01T06:07:24.063Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "区域尺寸展开；经典侧栏默认侧栏240、导航64、顶部56、标签40、最小标签120；下半区另附。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-mist.jpg",
+        "sha256": "73c0c9ed47053efe1e107a008f9399eea312356773c19e7a9003a29dd4529dab",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F10-settings-sizes.png",
+        "sha256": "4111c21f85da1519053f8dce876630100357335c466cd7945733d4d4ec875164",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "mist/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-mist.ax.txt",
+        "sha256": "30ca2133a24afdaaa099f697b5497c6cb9ad8ca425ba3def73db720db3363cbb",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示",
+        "区域尺寸上区由主图覆盖"
+      ],
+      "notCovered": [],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-mist-lower.jpg",
+          "sha256": "45745e65cfc63ff6f28ceea96b19711126ba9c7d72858d46c7ca41cc4fdbc2ab",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-mist-lower.ax.txt",
+          "sha256": "30ca2133a24afdaaa099f697b5497c6cb9ad8ca425ba3def73db720db3363cbb",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 项目导航, Value: 64",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "mist/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "55ba8bdd4e7187c7fc5b74176228287801215541a7a56d5a97ba03b6847cd631",
+        "axSha256": "ac02758ac96176fd299301168d6d2827b23e6be69f761388ee3b1c751b726608",
+        "capturedAt": "2026-11-01T06:07:55.093Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景未选择图片，与原参考同空态；全局整个工作台/fill/12%可见度/85%遮罩。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-mist.jpg",
+        "sha256": "55ba8bdd4e7187c7fc5b74176228287801215541a7a56d5a97ba03b6847cd631",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F11-settings-background.png",
+        "sha256": "107292272e69245144e2b419ae537530f2c2dadd8c661fd53e10add0313754ad",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "mist/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-mist.ax.txt",
+        "sha256": "ac02758ac96176fd299301168d6d2827b23e6be69f761388ee3b1c751b726608",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "paper/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "3ee90e4e08be231c53e78965982809875b6bc6ec0136e02d31f03fb773c712bb",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:16:38.864Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "真实全局快捷键列表首屏，默认值。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-paper.jpg",
+        "sha256": "3ee90e4e08be231c53e78965982809875b6bc6ec0136e02d31f03fb773c712bb",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F08-settings-keys.png",
+        "sha256": "f23b39493c03ccb084dcace00130125a9054741f39e121a6413ef4fe4e20c6b9",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "paper/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-paper.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "paper/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "6ca1f1cc12a8e3a6954df6ff4b24d0fd261a6331b31a4d622b29626d6e1e8ac7",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:16:39.451Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "真实数据隐私页，有本轮未保存恢复稿，不清理。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-paper.jpg",
+        "sha256": "6ca1f1cc12a8e3a6954df6ff4b24d0fd261a6331b31a4d622b29626d6e1e8ac7",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F09-settings-data.png",
+        "sha256": "5711d4fd8b3ee3d586353ac8a16abe482eec57874c9a072cc87be1dbc949df01",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "paper/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-paper.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "paper/F10",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。 主图确实展示文件侧栏240与顶部56等首部行，可与lower组合，未借AX补齐目视。",
+      "captureOriginal": {
+        "name": "F10-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "28cd3cc65c1e38b268694b345be827b3e2967c0e99c1617314a70cf5c28db381",
+        "axSha256": "cab4a0781b2147e7309302f8afc420845ac59313588d3cd88ec2ba7f9ddc79fc",
+        "capturedAt": "2026-11-01T06:17:06.372Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "一体侧栏区域尺寸展开，上区；支持字段与默认值见原生AX。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-paper.jpg",
+        "sha256": "28cd3cc65c1e38b268694b345be827b3e2967c0e99c1617314a70cf5c28db381",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F10-settings-sizes.png",
+        "sha256": "ebe27f338be92cba6e1d5a31f7e5240e2215a548e3d46a3807e099aa7ab48721",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "paper/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-paper.ax.txt",
+        "sha256": "cab4a0781b2147e7309302f8afc420845ac59313588d3cd88ec2ba7f9ddc79fc",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示",
+        "区域尺寸上区由主图覆盖"
+      ],
+      "notCovered": [],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-paper-lower.jpg",
+          "sha256": "03e6900b0760902e3891fa6e2752cfb889e3c31d56a5ddfb8fcced3d2a32c22c",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-paper-lower.ax.txt",
+          "sha256": "cab4a0781b2147e7309302f8afc420845ac59313588d3cd88ec2ba7f9ddc79fc",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "paper/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "e5c641daeb2892b9c4b8a87d23ce889668b118fe53cdf692492d511216778415",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:17:08.475Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景空态，整个工作台/fill/12%/85%；用户批准全局四页签。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-paper.jpg",
+        "sha256": "e5c641daeb2892b9c4b8a87d23ce889668b118fe53cdf692492d511216778415",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F11-settings-background.png",
+        "sha256": "090395c941551a61ead72f89f4d83af4d1c3c7b38f51a8c269dc8ca531782a66",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "paper/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-paper.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "orbit/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "5175e18b5ba448f88c271f6dcdec94d433eca7593518d883b6b1f44420f7ffae",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:18:09.796Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "真实快捷键首屏，全局默认对象；本轮未清理或修改行为。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-orbit.jpg",
+        "sha256": "5175e18b5ba448f88c271f6dcdec94d433eca7593518d883b6b1f44420f7ffae",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F08-settings-keys.png",
+        "sha256": "72d2190239e5cc8e31fbb5bd14adf62d446a735e0d70e6ff2e1168b13a494b7d",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "orbit/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-orbit.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "orbit/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "868e07a0f3a1b7a2b284b1ffefd2e75e7f972739a6c3f1f90da2b4e04240ca5f",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:18:10.366Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "真实数据与隐私首屏，全局默认对象；本轮未清理或修改行为。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-orbit.jpg",
+        "sha256": "868e07a0f3a1b7a2b284b1ffefd2e75e7f972739a6c3f1f90da2b4e04240ca5f",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F09-settings-data.png",
+        "sha256": "38eebade11bfe334328bb9fe25af3c1d920e35e8d43dc2f1592d34aee34c34c0",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "orbit/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-orbit.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "orbit/F10",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。 主图确实展示文件侧栏240与顶部56等首部行，可与lower组合，未借AX补齐目视。",
+      "captureOriginal": {
+        "name": "F10-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "0148786a1eb12e23bcfc2dee549c4f448ec20f69330d0e577e545e10e0bd7b7b",
+        "axSha256": "6d623f186e1b39d1bdad0be41fc654ab2bb732b2cada50b70266d110ed750b5a",
+        "capturedAt": "2026-11-01T06:18:32.178Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "顶部标签尺寸展开上区；实际支持字段见AX。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-orbit.jpg",
+        "sha256": "0148786a1eb12e23bcfc2dee549c4f448ec20f69330d0e577e545e10e0bd7b7b",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F10-settings-sizes.png",
+        "sha256": "feb9e26a0483035cd8b11490ead1ab06914ed2b5efa1427014f026ce3305b04c",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "orbit/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-orbit.ax.txt",
+        "sha256": "6d623f186e1b39d1bdad0be41fc654ab2bb732b2cada50b70266d110ed750b5a",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示",
+        "区域尺寸上区由主图覆盖"
+      ],
+      "notCovered": [],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-orbit-lower.jpg",
+          "sha256": "42cdbe9e9535f8c60d57408a0a624372f5161444661b50a62a7d2e354e5485c0",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-orbit-lower.ax.txt",
+          "sha256": "6d623f186e1b39d1bdad0be41fc654ab2bb732b2cada50b70266d110ed750b5a",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "orbit/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "8c8204d2f4b0ba1c94cce377daa3f2d4ee7d81f70b3b9cba252aa0d7c761baae",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:18:34.286Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景空态；全局整个工作台/fill/12%/85%。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-orbit.jpg",
+        "sha256": "8c8204d2f4b0ba1c94cce377daa3f2d4ee7d81f70b3b9cba252aa0d7c761baae",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F11-settings-background.png",
+        "sha256": "5bcbc9193332acd2c0ebf3c4aa91d9b8243ccac73d8cdbe42c932bc93cd1154b",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "orbit/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-orbit.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "graphite/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "1ffb986e405bf2e4e1591a84646ea593f23163bbc9c258516d19a56aa4e7c91e",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:19:32.351Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "真实快捷键首屏；全局默认对象，未改行为或清理。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-graphite.jpg",
+        "sha256": "1ffb986e405bf2e4e1591a84646ea593f23163bbc9c258516d19a56aa4e7c91e",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F08-settings-keys.png",
+        "sha256": "4973ce05bc0d12a2b397dd5b2d9febb60d20701f3158ccc6a8b22939b1b38626",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "graphite/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-graphite.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "graphite/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "dd4fd98fa70c3a5b24b40e00c7fce47cb09772ab06d9a472adb127edc42c7db8",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:19:32.953Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "真实数据与隐私首屏；全局默认对象，未改行为或清理。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-graphite.jpg",
+        "sha256": "dd4fd98fa70c3a5b24b40e00c7fce47cb09772ab06d9a472adb127edc42c7db8",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F09-settings-data.png",
+        "sha256": "e4dc5d85367cc0cb85f21770c689f10d4410572da6f73cd635c0a0906edb5dbc",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "graphite/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-graphite.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "graphite/F10",
+      "status": "conditions-mismatch",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。",
+      "captureOriginal": {
+        "name": "F10-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "759984291a3f0d0a564c52b1a1e14e1749ada2935040ad8b4746bf09756c5167",
+        "axSha256": "1b25bc32581f5f4a10b2a872daabe776153adc7b7341fe29b9663b19d878241d",
+        "capturedAt": "2026-11-01T06:21:57.730Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "区域尺寸展开；记录实际可见上区。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-graphite.jpg",
+        "sha256": "759984291a3f0d0a564c52b1a1e14e1749ada2935040ad8b4746bf09756c5167",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F10-settings-sizes.png",
+        "sha256": "3a404aeaf420459298cb6f0eeb4ed09deeed31a56255cc31d13474344a7e5257",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "graphite/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-graphite.ax.txt",
+        "sha256": "1b25bc32581f5f4a10b2a872daabe776153adc7b7341fe29b9663b19d878241d",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示"
+      ],
+      "notCovered": [
+        "区域尺寸标题/当前布局说明",
+        "文件侧栏与顶部区域的目视排版",
+        "项目导航尺寸的目视排版"
+      ],
+      "conditionIssues": [
+        {
+          "status": "pending-upper-capture",
+          "reason": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+          "observation": "F10-graphite.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+        },
+        {
+          "status": "value-difference-unresolved",
+          "reason": "当前AX项目导航值与参考不同，原生上区尚未看见，不能直接接受为批准修订。",
+          "observation": "AX项目导航为55px，参考图64px；需与已批准布局几何规范核对后定性，不要求盲改为64。"
+        }
+      ],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-graphite-lower.jpg",
+          "sha256": "97fc12d75b6b7672970ca37fabed8cd1a083aa46c4d27933a1b20aa2f2ac4b12",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-graphite-lower.ax.txt",
+          "sha256": "1b25bc32581f5f4a10b2a872daabe776153adc7b7341fe29b9663b19d878241d",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 项目导航, Value: 55",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "graphite/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "f274cabf4b32ab1714775795a74ec7697a4adbca7b241579cf564f5045951567",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:21:59.987Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景图片页当前未启用，实际控件与说明。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-graphite.jpg",
+        "sha256": "f274cabf4b32ab1714775795a74ec7697a4adbca7b241579cf564f5045951567",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F11-settings-background.png",
+        "sha256": "f429e269f314be2390fec48a661faa78f3feedbd05bf775a2f843adac853558c",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "graphite/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-graphite.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "celadon/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "82a71b7d82705dc02bc54c68bf291fb9dcc886ccacd93833246185d6d7d84f66",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:25:20.839Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "快捷键设置列表。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-celadon.jpg",
+        "sha256": "82a71b7d82705dc02bc54c68bf291fb9dcc886ccacd93833246185d6d7d84f66",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F08-settings-keys.png",
+        "sha256": "776851f991053f15f557b2cc610e1268f6ec74f4a88b404591fd6825db48250c",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "celadon/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-celadon.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "celadon/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "e184d5a63d974f320d5d1073cf2cf4367b87c05669d5b583be2399fbe6fd088e",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:25:21.442Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "导出、缓存、QA恢复草稿与空凭据列表。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-celadon.jpg",
+        "sha256": "e184d5a63d974f320d5d1073cf2cf4367b87c05669d5b583be2399fbe6fd088e",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F09-settings-data.png",
+        "sha256": "ab5f1c98c8da3ba3a32b2a174a8e4d634c40184d2fdd74e72c709df092494479",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "celadon/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-celadon.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "celadon/F10",
+      "status": "conditions-mismatch",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。",
+      "captureOriginal": {
+        "name": "F10-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "fde7906f73d463d4f18f617203ced00b50e5faf692a96014b513f01b4dd5dda7",
+        "axSha256": "ca8b9c3e7b0f9d11f3cdfd4080cb110f76a6ead14d87cc9985d63075b2445bce",
+        "capturedAt": "2026-11-01T06:25:44.193Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "尺寸上区。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-celadon.jpg",
+        "sha256": "fde7906f73d463d4f18f617203ced00b50e5faf692a96014b513f01b4dd5dda7",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F10-settings-sizes.png",
+        "sha256": "b2b31411005248a3744dc4eb07a8435f4b79e90ef200977dc90df70e219891de",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "celadon/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-celadon.ax.txt",
+        "sha256": "ca8b9c3e7b0f9d11f3cdfd4080cb110f76a6ead14d87cc9985d63075b2445bce",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示"
+      ],
+      "notCovered": [
+        "区域尺寸标题/当前布局说明",
+        "文件侧栏与顶部区域的目视排版"
+      ],
+      "conditionIssues": [
+        {
+          "status": "pending-upper-capture",
+          "reason": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+          "observation": "F10-celadon.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+        }
+      ],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-celadon-lower.jpg",
+          "sha256": "060b3ad6491c254f58ec317cc923b9873862d3616cbe218e3068deb112e34a4e",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-celadon-lower.ax.txt",
+          "sha256": "ca8b9c3e7b0f9d11f3cdfd4080cb110f76a6ead14d87cc9985d63075b2445bce",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "celadon/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "c7736623046c51df9409c6880abb3edcc81ad50b47cb06c6c32e0315b8493614",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:25:45.362Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景设置未启用状态。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-celadon.jpg",
+        "sha256": "c7736623046c51df9409c6880abb3edcc81ad50b47cb06c6c32e0315b8493614",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F11-settings-background.png",
+        "sha256": "19394e185a8be3938b9cb661a97f69d3b5efc72c0b9dcddd69e197b82ec53e70",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "celadon/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-celadon.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "iris/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "b8b0665eb87249b3100056ae59f7e594c2ebc8cb526f8503e8daf24a9fd96380",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:27:18.429Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "快捷键列表与修改入口。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F08-iris.jpg",
+            "recorded": "comfortable (follow theme)",
+            "actual": "spacious (follow theme)",
+            "themeId": "iris",
+            "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-iris.jpg",
+        "sha256": "b8b0665eb87249b3100056ae59f7e594c2ebc8cb526f8503e8daf24a9fd96380",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F08-settings-keys.png",
+        "sha256": "52bd1c18a4473cc25392fd3c3ddcf945bab02c443bce77d2e0edd19ad7aec056",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "iris/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-iris.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "iris/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "799e02c2ff63c93b54a71dbc7e34cd924ef4527a067c50ffa187441987307cfe",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:27:19.001Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "导出与QA恢复草稿实际状态。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F09-iris.jpg",
+            "recorded": "comfortable (follow theme)",
+            "actual": "spacious (follow theme)",
+            "themeId": "iris",
+            "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-iris.jpg",
+        "sha256": "799e02c2ff63c93b54a71dbc7e34cd924ef4527a067c50ffa187441987307cfe",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F09-settings-data.png",
+        "sha256": "97e7740c4fe3cc88061a3dff33c361c0ba7464f56b182b8eade9e24af2aba053",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "iris/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-iris.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "iris/F10",
+      "status": "conditions-mismatch",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。",
+      "captureOriginal": {
+        "name": "F10-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "a1b4d98e6e265e1c1286c8ecbd13cdfa6a3130a7fb78fc3a9d1ee1d892aba1f2",
+        "axSha256": "9f2b396c44b4d59fd15458c88f6286d08a0ae936d6340f4fc3bcd6e2186ea17c",
+        "capturedAt": "2026-11-01T06:27:25.031Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "尺寸上区。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F10-iris.jpg",
+            "recorded": "comfortable (follow theme)",
+            "actual": "spacious (follow theme)",
+            "themeId": "iris",
+            "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-iris.jpg",
+        "sha256": "a1b4d98e6e265e1c1286c8ecbd13cdfa6a3130a7fb78fc3a9d1ee1d892aba1f2",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F10-settings-sizes.png",
+        "sha256": "5f1044e41bc8ba8087e845900ac5970982c04b54dadd9a812db75210a69f5661",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "iris/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-iris.ax.txt",
+        "sha256": "9f2b396c44b4d59fd15458c88f6286d08a0ae936d6340f4fc3bcd6e2186ea17c",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示"
+      ],
+      "notCovered": [
+        "区域尺寸标题/当前布局说明",
+        "文件侧栏与顶部区域的目视排版",
+        "项目导航尺寸的目视排版"
+      ],
+      "conditionIssues": [
+        {
+          "status": "pending-upper-capture",
+          "reason": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+          "observation": "F10-iris.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+        },
+        {
+          "status": "value-difference-unresolved",
+          "reason": "当前AX项目导航值与参考不同，原生上区尚未看见，不能直接接受为批准修订。",
+          "observation": "AX项目导航为94px，参考图64px；需与已批准布局几何规范核对后定性，不要求盲改为64。"
+        }
+      ],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-iris-lower.jpg",
+          "sha256": "3414d2b9826876c63f00327fb5311699cd9d511e18bc859152624749a024fff4",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-iris-lower.ax.txt",
+          "sha256": "9f2b396c44b4d59fd15458c88f6286d08a0ae936d6340f4fc3bcd6e2186ea17c",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "spacious (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 项目导航, Value: 94",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "iris/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "516c9ffaa3109b6d552c98235514a5ddfef4d3843e857f045268d3e2c0fb0f68",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:27:26.239Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景设置未启用。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F11-iris.jpg",
+            "recorded": "comfortable (follow theme)",
+            "actual": "spacious (follow theme)",
+            "themeId": "iris",
+            "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-iris.jpg",
+        "sha256": "516c9ffaa3109b6d552c98235514a5ddfef4d3843e857f045268d3e2c0fb0f68",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F11-settings-background.png",
+        "sha256": "714accde2df57d749a71a79116faeffc4d0fab9fffe0c668600cbb1489696bcd",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "iris/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-iris.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "sand/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "c4da4025fe37b2408952344d4df88922746b1226bc77eac18984f1ddebb0d00a",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:28:46.555Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "快捷键列表。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-sand.jpg",
+        "sha256": "c4da4025fe37b2408952344d4df88922746b1226bc77eac18984f1ddebb0d00a",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F08-settings-keys.png",
+        "sha256": "96089be704242880cce46591d431bc9794ed1cb28d6d371fa6aa7a9d98b73cd6",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "sand/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-sand.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "sand/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "b1d19986360a71ea273ae12a7fa917ae64f3a6c6496f7c03773bd9ce4a82b560",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:28:47.125Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "数据隐私与QA恢复草稿。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-sand.jpg",
+        "sha256": "b1d19986360a71ea273ae12a7fa917ae64f3a6c6496f7c03773bd9ce4a82b560",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F09-settings-data.png",
+        "sha256": "fdb5f79237b6305626062a547f9ed66e5a75c669d5c60bd5647bc99fce4420f1",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "sand/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-sand.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "sand/F10",
+      "status": "conditions-mismatch",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。",
+      "captureOriginal": {
+        "name": "F10-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "51dff4720182aacb8d2f9e1938169e180470a9fb3bccc1c0ac6952dd215c42c8",
+        "axSha256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7",
+        "capturedAt": "2026-11-01T06:28:53.073Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "尺寸上区。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-sand.jpg",
+        "sha256": "51dff4720182aacb8d2f9e1938169e180470a9fb3bccc1c0ac6952dd215c42c8",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F10-settings-sizes.png",
+        "sha256": "27514e79281c99ba704adea700eb3b59107c7d42321f06d82489ec20c53d4526",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "sand/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-sand.ax.txt",
+        "sha256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示"
+      ],
+      "notCovered": [
+        "区域尺寸标题/当前布局说明",
+        "文件侧栏与顶部区域的目视排版",
+        "项目导航尺寸的目视排版"
+      ],
+      "conditionIssues": [
+        {
+          "status": "pending-upper-capture",
+          "reason": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+          "observation": "F10-sand.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+        }
+      ],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-sand-lower.jpg",
+          "sha256": "69a96774a27c66dc84444a376f6439a0ca1ea4b0e22c727f8ff409bedc260ec7",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-sand-lower.ax.txt",
+          "sha256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 项目导航, Value: 180",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "sand/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "91e910f54771d220f4fa14b1c4828f5636bc646c432d36335ab3f19f12a0a669",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:28:54.249Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景设置未启用。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-sand.jpg",
+        "sha256": "91e910f54771d220f4fa14b1c4828f5636bc646c432d36335ab3f19f12a0a669",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F11-settings-background.png",
+        "sha256": "fcc33f8c0cd4e39d0e08aa654bacdda20d9b04d88856bb9e5c5f2e88a7165114",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "sand/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-sand.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    },
+    {
+      "case": "aurora/F08",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "captureOriginal": {
+        "name": "F08-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "d2f4538ce4359ffc363dba34aa9056ce24cf2f93be03726b0725e63e2ed19a23",
+        "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "capturedAt": "2026-11-01T06:30:03.670Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F08"
+        },
+        "notes": "快捷键列表。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F08"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F08-aurora.jpg",
+            "recorded": "compact (follow theme)",
+            "actual": "comfortable (follow theme)",
+            "themeId": "aurora",
+            "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-aurora.jpg",
+        "sha256": "d2f4538ce4359ffc363dba34aa9056ce24cf2f93be03726b0725e63e2ed19a23",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F08-settings-keys.png",
+        "sha256": "e2283b759377bfdeb355362635658ff3ca9389e26be3cc87320a13b7063ad531",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "aurora/F08",
+        "title": "快捷键"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F08-aurora.ax.txt",
+        "sha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "快捷键首屏",
+        "搜索框",
+        "可见行按钮与footer"
+      ],
+      "notCovered": [
+        "滚动后末四条命令的目视排版",
+        "录入/冲突/保存/取消状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-01",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "aurora/F09",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "captureOriginal": {
+        "name": "F09-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "85930628f27d38dc19d7f8b3148f9f8cef3f5ed80546f75747b53e4f267633da",
+        "axSha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "capturedAt": "2026-11-01T06:30:04.231Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F09"
+        },
+        "notes": "数据隐私与QA恢复草稿。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F09"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F09-aurora.jpg",
+            "recorded": "compact (follow theme)",
+            "actual": "comfortable (follow theme)",
+            "themeId": "aurora",
+            "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-aurora.jpg",
+        "sha256": "85930628f27d38dc19d7f8b3148f9f8cef3f5ed80546f75747b53e4f267633da",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F09-settings-data.png",
+        "sha256": "3aab402ea54a8e30e72e4d3dace906b026dfd687bf3ea55311c2df6b2cd7f1db",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "aurora/F09",
+        "title": "数据与隐私"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F09-aurora.ax.txt",
+        "sha256": "be921b3f416fbf6b09dbea187858363761e6ccef63670e38f5f674e537be085f",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "隐私首屏",
+        "实际恢复稿首行",
+        "上区动作"
+      ],
+      "notCovered": [
+        "凭据清理区与原目录说明的目视排版",
+        "导出预览/清理确认及执行结果"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-02",
+        "SL-06"
+      ]
+    },
+    {
+      "case": "aurora/F10",
+      "status": "conditions-mismatch",
+      "personallyViewed": true,
+      "observation": "原生与lower补图的可见下区均有40/120/320/220/26、逐项恢复默认、重置本布局尺寸及窄窗说明；白椭圆滑块与数字stepper差异明确。",
+      "captureOriginal": {
+        "name": "F10-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "cc508b574e97426affeafb61112f5a045ea92ee6b81682f6e5547c630f7f4467",
+        "axSha256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd",
+        "capturedAt": "2026-11-01T06:30:10.143Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        },
+        "notes": "尺寸上区。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F10"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F10-aurora.jpg",
+            "recorded": "compact (follow theme)",
+            "actual": "comfortable (follow theme)",
+            "themeId": "aurora",
+            "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-aurora.jpg",
+        "sha256": "cc508b574e97426affeafb61112f5a045ea92ee6b81682f6e5547c630f7f4467",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F10-settings-sizes.png",
+        "sha256": "f4d3ab71e4dcb15f7fdf397f3c07e25ee874f07b05db6cbaeab8660ef48980fc",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "aurora/F10",
+        "title": "区域尺寸"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-aurora.ax.txt",
+        "sha256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "区域尺寸下区",
+        "下区数值、重置及提示"
+      ],
+      "notCovered": [
+        "区域尺寸标题/当前布局说明",
+        "文件侧栏与顶部区域的目视排版"
+      ],
+      "conditionIssues": [
+        {
+          "status": "pending-upper-capture",
+          "reason": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+          "observation": "F10-aurora.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+        }
+      ],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+          "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-06"
+      ],
+      "supplementalNative": {
+        "actual": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-aurora-lower.jpg",
+          "sha256": "6701ecafd1e25ce27c3c1534072eef0c2934ad0ffb288ee378c64a0efe213d69",
+          "matchesCaptureHash": true,
+          "dimensions": [
+            1280,
+            800
+          ]
+        },
+        "ax": {
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-aurora-lower.ax.txt",
+          "sha256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd",
+          "matchesCaptureHash": true
+        },
+        "effectiveConditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F10"
+        }
+      },
+      "axValuesNotVisualProof": [
+        "slider (settable, float) 文件侧栏, Value: 240",
+        "slider (settable, float) 顶部区域, Value: 56",
+        "slider (settable, float) 文件标签高度, Value: 40",
+        "slider (settable, float) 文件标签最小宽, Value: 120",
+        "slider (settable, float) 辅助面板, Value: 320",
+        "slider (settable, float) 底部面板, Value: 220",
+        "slider (settable, float) 状态栏, Value: 26"
+      ]
+    },
+    {
+      "case": "aurora/F11",
+      "status": "differences",
+      "personallyViewed": true,
+      "observation": "背景空态同参考；原生图片图标较大、可见度白椭圆thumb/数字stepper不同，85%遮罩框下缘被footer裁住。",
+      "captureOriginal": {
+        "name": "F11-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "ef869c3911418766306f4a0e547bbaf0adf88f4cf7a7913ad969ad00e46d08d9",
+        "axSha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "capturedAt": "2026-11-01T06:30:11.313Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F11"
+        },
+        "notes": "背景设置未启用。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F11"
+      },
+      "metadataCorrectionsApplied": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "F11-aurora.jpg",
+            "recorded": "compact (follow theme)",
+            "actual": "comfortable (follow theme)",
+            "themeId": "aurora",
+            "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-aurora.jpg",
+        "sha256": "ef869c3911418766306f4a0e547bbaf0adf88f4cf7a7913ad969ad00e46d08d9",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F11-settings-background.png",
+        "sha256": "ff70a0665f707cc2289df9f4399791074a9344f5c61b80d9e0c00fa5feaf45ea",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "indexId": "aurora/F11",
+        "title": "背景图片"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F11-aurora.ax.txt",
+        "sha256": "b67948f490399b8c8462650c9141f947560bbb791c37bcfdd6bc047faebd0018",
+        "matchesCaptureHash": true
+      },
+      "axInspected": true,
+      "visibleCoverage": [
+        "空态图",
+        "区域和适应方式",
+        "12%主控制",
+        "85%控制上半部"
+      ],
+      "notCovered": [
+        "85%数字框下边完整外观",
+        "水平/垂直位置及关闭/移除/恢复默认区域",
+        "末尾复制资产说明的目视状态"
+      ],
+      "conditionIssues": [],
+      "acceptedDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F11 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。"
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F11 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。"
+        },
+        {
+          "kind": "approved-interaction",
+          "reason": "背景全局共用且纳入外观四页签；旧项目范围与恢复继承不再适用。",
+          "observation": "原生背景图片页签选中；同参考为空资产、整个工作台、填满、12%可见度/85%遮罩。AX水平/垂直50属于附加真实控制，未由首屏图验证其排版。"
+        }
+      ],
+      "openFindingIds": [
+        "SL-03",
+        "SL-04",
+        "SL-05",
+        "SL-06",
+        "SL-07"
+      ]
+    }
+  ],
+  "minimalFixOrder": [
+    "Shared custom-range native appearance and numeric field geometry (SL-03).",
+    "F11 vertical spacing to expose full85% row, then empty image icon size (SL-04/05).",
+    "F09 existing export/cache action icons and theme-appropriate shape (SL-02).",
+    "Shortcut search-field height only (SL-01); body type size/weight unchanged.",
+    "Shared backdrop check across light/dark (SL-06); background actual data not overwritten.",
+    "Conditional empty-background copy after own lower-area capture (SL-07)."
+  ],
+  "pending": [
+    "F10-upper captures for graphite/celadon/iris/sand/aurora; keep pending even though AX values exist.",
+    "No dark/light cross combinations or narrow/200% states covered by these matched same-name images.",
+    "No behavior acceptance inferred from visuals; all open differences remain open until native retest."
+  ],
+  "preparedPatch": ".work/settings-lower-visual-prepared/settings-lower.patch (unapplied; SL01 search only); .work/settings-lower-visual-prepared/backdrop-evidence.json (source evidence); root owns .work/modal-backdrop-prepared/source.patch (unapplied). Existing A05 patch still unapplied.",
+  "reviewCorrections": [
+    {
+      "at": "2026-11-01T06:57:39.693742+00:00",
+      "finding": "SL-01",
+      "previous": {
+        "id": "SL-01",
+        "severity": "minor",
+        "status": "open",
+        "cases": [
+          "F08",
+          "F09"
+        ],
+        "observation": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+        "minimalFix": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+        "source": "apps/desktop/src/features/settings/settings.css:34,160"
+      },
+      "correction": "Reference source explicitly sets both row types12px. Withdraw13px reference claim. Does not change32case statuses; F09 still hasSL02/06."
+    },
+    {
+      "at": "2026-11-01T06:58:04.117595+00:00",
+      "finding": "SL-01",
+      "ownerDecision": "Root同意撤回F08/F09主体字号/字重缺陷；prepared13px hunk已删除，仅保搜索框40px。"
+    }
+  ]
+}

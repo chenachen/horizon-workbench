@@ -1,0 +1,28 @@
+{
+  "reviewedAt": "2026-10-30T18:51:20.722172+00:00",
+  "method": "Independent new raw report and complete new driver assertion review, retaining earlier reviewed lifecycle scope",
+  "producer": "extension_host",
+  "rawSha256": "a2c6de6b0411618f4ecc30b176de2cd85d26ef536d3607c1a4494dcbb48f9793",
+  "sourceSha256": {
+    "apps/desktop/src-tauri/examples/extension_smoke.rs": "5144ab2357862777ccbec2634bad7185ce2707ff20721d0fda2cf67be2f38eeb",
+    "apps/desktop/src-tauri/src/extensions.rs": "e55069a45253f2c2c7d24764f1dd88b3c74f353f71f747e3aa2d0625cd751361",
+    "apps/desktop/src-tauri/src/extension_host.rs": "1e5039b37dbd15d3261194fbd4fac711cf62060f6e3d0cddf4abf86332e35072"
+  },
+  "passedPhases": 14,
+  "durationMs": 2261,
+  "newAssertions": [
+    "Production ZIP dependency fixture genuinely activates editor dependent process",
+    "stopDependents=false with discard decision returns DEPENDENCY_UNAVAILABLE; entire A/B open document metadata, checkpoint bytes and source bytes unchanged; dependent command still alive",
+    "Injected B discard decision returns PERMISSION_DENIED; exact A/B snapshots unchanged",
+    "Edit+newcheckpoint after prepare makes earlier plan fail STALE_VERSION even though checkpoint is up to date; current snapshot unchanged",
+    "Fresh valid retainCheckpoint closes A, preserves exact latest revision-2 checkpoint and original source, leaves B exact snapshot unchanged and reaps dependent process"
+  ],
+  "limits": [
+    "HostState/registry reinitialization occurs inside one smoke process; not OS app quit/relaunch",
+    "Event listener is native AppHandle; no WebView view rendering, browser subscriptions or visible command lifecycle proved",
+    "177 ms includes failure command, cleanup wait, B echo/refresh and reporting; single sample, not isolated cancellation latency/P95",
+    "Git wrapper injects 20-second status delay then delegates to real system Git",
+    "Failure isolation proves other QuickJS project and Git call survive; independent native file/editor GUI responsiveness remains untested",
+    "Source hash records reviewed version; native report does not bind exact executable hash"
+  ]
+}

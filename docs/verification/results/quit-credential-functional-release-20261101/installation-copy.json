@@ -1,0 +1,37 @@
+{
+  "observedAt": "2026-11-01T13:06:41.475133+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "mainSha256": "a78cfd8a5523562d6252de96e7ddbaf4af56bdd1c4b46f1eddfbf4bad4365d27",
+  "bytes": 19894288,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": false,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-quit-credential-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-quit-credential-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "nativeLaunchIdentity": "installed-native-identity.json",
+  "nativeStartupObservation": "Actual installed app launched as PID91087; initial native AX restored the registered ProcessQA project and clean guard; no terminal or launch process was started."
+}

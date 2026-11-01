@@ -1,0 +1,147 @@
+{
+  "checkedAt": "2026-11-01T11:24:27.201210+00:00",
+  "phase": "08b preciseowned Bchat external exit",
+  "status": "08 COMPLETE / AUTH FAILURE READY",
+  "checks": {
+    "exactBChatSession": true,
+    "sameOwnedConnection": true,
+    "exactManagedExecutable": true,
+    "exactAppParentAndStart": true,
+    "exactBChatCwd": true,
+    "exactSessionArgv": true,
+    "oneEighthModelRequest": true,
+    "exactI2Prompt": true,
+    "chatToolsEmpty": true,
+    "notWriteOrSuspended": true
+  },
+  "sessionId": "9448e8ab-8cf0-498b-901b-441d07b3a4da",
+  "sessionPiFile": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/9448e8ab-8cf0-498b-901b-441d07b3a4da/session.jsonl",
+  "piBefore": {
+    "pid": 88987,
+    "ppid": 8737,
+    "start": "Sun Nov  1 19:23:24 2026",
+    "args": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/9448e8ab-8cf0-498b-901b-441d07b3a4da/session.jsonl --no-tools",
+    "comm": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi",
+    "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-B-unborn",
+    "stat": "S"
+  },
+  "httpBefore": {
+    "fixture": true,
+    "requests": 8
+  },
+  "requestRowSHA": "745c36a8c6dc0703c6fad2cc6a2063c17b9aa03200705e991d19abc373627919",
+  "requestBody": {
+    "model": "horizon-fixture",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-B-unborn\n</cwd>"
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "HORIZON_TEST_RESOURCE_STREAM I2 disconnected-chat"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "store": false,
+    "max_completion_tokens": 4096
+  },
+  "nativeAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08a-unborn-chat-running.ax.txt",
+  "authorization": "Root continuous08b lease: SIGKILL only exact independent owned Bchat after GUI DISCONNECT READY. Does not assert protocol abort acknowledgment or provideroffline.",
+  "injection": {
+    "at": "2026-11-01T11:24:27.210514+00:00",
+    "signal": "SIGKILL",
+    "pid": 88987,
+    "psAfter": ""
+  },
+  "afterNoAction": {
+    "checkedAt": "2026-11-01T11:26:16.394207+00:00",
+    "elapsedSinceInjectionSeconds": 109.183693,
+    "checks": {
+      "piZeroNoRestart": true,
+      "httpStillEightNoReplay": true,
+      "elapsedAtLeast6Seconds": true,
+      "actualExternalExitError": true,
+      "partialTextRetained": true,
+      "sameBSessionRetained": true
+    },
+    "http": {
+      "fixture": true,
+      "requests": 8
+    },
+    "piPids": [],
+    "ax": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08b-disconnect-error.ax.txt",
+    "axSHA": "78e8506323e0531a2394413ca37388b3b6ef1882f99e0922508ebdddb187356c",
+    "session": {
+      "sessionId": "9448e8ab-8cf0-498b-901b-441d07b3a4da",
+      "projectId": "13eb772b-a7f7-43ca-87ea-c04de5858859",
+      "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+      "profile": "chat",
+      "instanceEpoch": 1,
+      "reviewId": null
+    }
+  },
+  "manualContinue": {
+    "checkedAt": "2026-11-01T11:28:49.513133+00:00",
+    "checks": {
+      "onlyOneManualRequest": true,
+      "exactManualPrompt": true,
+      "sameBChat": true,
+      "piExited": true,
+      "chatToolsEmpty": true,
+      "nativeComplete": true,
+      "nativePriorPartialRetained": true
+    },
+    "http": {
+      "fixture": true,
+      "requests": 9
+    },
+    "piPids": [],
+    "sessionId": "9448e8ab-8cf0-498b-901b-441d07b3a4da",
+    "instanceEpoch": 2,
+    "requestRowSHA": "0eff32219b6d60f06ae886efc16f7c64d84169cd998d933f8c9629acea4855f7",
+    "requestBody": {
+      "model": "horizon-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-B-unborn\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "HORIZON_TEST_RESOURCE_STREAM I2 disconnected-chat"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "HORIZON_TEST_VISUAL 手动继续原会话。"
+            }
+          ]
+        }
+      ],
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "store": false,
+      "max_completion_tokens": 4096
+    },
+    "nativeAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08b-manual-continue-complete.ax.txt",
+    "nativeAXSHA": "e8eb24d6dc99bdf50acdbc9100c7d89f1fcc4d1371a74e9b120917c67671413d"
+  }
+}

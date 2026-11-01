@@ -1,0 +1,282 @@
+{
+  "status": "PREPARED_COMPONENT_VERIFIED_NOT_NATIVE",
+  "patch": {
+    "path": "source.patch",
+    "sha256": "a4655c2d1ce788fdf7e0959f7b0526e75e7967c8dbf7a2f0eaa086b2fb430a81",
+    "files": 1
+  },
+  "sources": {
+    "preparedOnly": true,
+    "change": {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "beforeSha256": "ab271f73782e932ca32df660e8904ff414076721cce0a58b4c5a0cbab70f44f6",
+      "afterSha256": "0cc887995a50b6f1abb0a09d0356dc27b4957972bc52802648dce8d8d8558955"
+    },
+    "support": [
+      {
+        "path": "apps/desktop/src/features/git/types.ts",
+        "sha256": "0d941be9717ac507e394b065a6ece3f3d146fd4c111671425f7f9826384d9b72"
+      },
+      {
+        "path": "apps/desktop/src/features/git/Modal.tsx",
+        "sha256": "3d110a81c3be6fd4d09d3b2fad4683603e1a6267d6d0786c78b154a1891e2bac"
+      },
+      {
+        "path": "apps/desktop/src/bridge.ts",
+        "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+      },
+      {
+        "path": "apps/git-service/src/lib.rs",
+        "sha256": "e6a808b785c582aed913a6d2ce7b0d27f165d353f498dcfa25bea8aa820e3051"
+      }
+    ]
+  },
+  "productAndSupportSourceUnchanged": [
+    {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/git/types.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/git/Modal.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/git-service/src/lib.rs",
+      "unchanged": true
+    }
+  ],
+  "preservedExistingBehaviorBySource": {
+    "mutationLogicIdenticalExceptBranchSequenceInvalidation": true,
+    "commitExactSourceUnchanged": true,
+    "openDiffExactSourceUnchanged": true,
+    "stagingActionExactSourceUnchanged": true
+  },
+  "runs": [
+    {
+      "id": "01",
+      "command": "rtk proxy node .work/git-branch-refresh-20261101/run.mjs",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exitCode": 1,
+      "startedAt": "2026-11-01T15:04:40.578Z",
+      "completedAt": "2026-11-01T15:04:47.100Z",
+      "durationMs": 6522,
+      "rawReport": "attempt-01/result.json",
+      "rawScript": "attempt-01/run.mjs",
+      "rawEntry": "attempt-01/entry.tsx",
+      "sha256": {
+        "result.json": "f3e0506c9cb3cba4b08c507faf94725289aa8f4b8e0ce05be6010ffa031c56bc",
+        "run.mjs": "0cf2749110207dfd47d1b3c18788d635e9c0264a8dcf908410267f9d63093a08",
+        "entry.tsx": "84783f5bac951c7c8789f8a34b92d46e6292e9850ec29c175ddc89dfcab0c7e1",
+        "source-sha.json": "18a125ef3d42fd259878e3b0720147b6d48cdb3830de7f8365e4468562644b21"
+      },
+      "passed": false,
+      "states": [
+        {
+          "variant": "before",
+          "kind": "cached-current",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "refs-remotes-drafts",
+          "passed": false
+        }
+      ],
+      "rawError": "TimeoutError: locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('dialog.git-modal[open]').getByLabel('远端', { exact: true })\u001b[22m\n",
+      "classification": "fixture exact label selector; candidate unchanged"
+    },
+    {
+      "id": "02",
+      "command": "rtk proxy node .work/git-branch-refresh-20261101/run.mjs --resume-fixture",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T15:05:54.437Z",
+      "completedAt": "2026-11-01T15:06:00.379Z",
+      "durationMs": 5942,
+      "rawReport": "result.json",
+      "rawScript": "run.mjs",
+      "rawEntry": "entry.tsx",
+      "sha256": {
+        "result.json": "9b164701cff992d7ea462d25ee125b2b251c61c2e5f3a28e908a40c8551a376c",
+        "run.mjs": "56e27bc6ab195934bebf9016953614b18a9b7b3cd6f94f990592708db7797f6a",
+        "entry.tsx": "84783f5bac951c7c8789f8a34b92d46e6292e9850ec29c175ddc89dfcab0c7e1",
+        "source-sha.json": "18a125ef3d42fd259878e3b0720147b6d48cdb3830de7f8365e4468562644b21"
+      },
+      "passed": true,
+      "states": [
+        {
+          "variant": "before",
+          "kind": "refs-remotes-drafts",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "late-success",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "late-rejection",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "project-boundary",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "token-mismatch-recovery",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "cached-current",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "refs-remotes-drafts",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "late-success",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "late-rejection",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "project-boundary",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "token-mismatch-recovery",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "cached-current",
+      "before": {
+        "variant": "before",
+        "kind": "cached-current",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "variant": "after",
+        "kind": "cached-current",
+        "run": "02",
+        "report": "result.json"
+      }
+    },
+    {
+      "kind": "refs-remotes-drafts",
+      "before": {
+        "variant": "before",
+        "kind": "refs-remotes-drafts",
+        "run": "02",
+        "report": "result.json"
+      },
+      "after": {
+        "variant": "after",
+        "kind": "refs-remotes-drafts",
+        "run": "02",
+        "report": "result.json"
+      }
+    },
+    {
+      "kind": "late-success",
+      "before": {
+        "variant": "before",
+        "kind": "late-success",
+        "run": "02",
+        "report": "result.json"
+      },
+      "after": {
+        "variant": "after",
+        "kind": "late-success",
+        "run": "02",
+        "report": "result.json"
+      }
+    },
+    {
+      "kind": "late-rejection",
+      "before": {
+        "variant": "before",
+        "kind": "late-rejection",
+        "run": "02",
+        "report": "result.json"
+      },
+      "after": {
+        "variant": "after",
+        "kind": "late-rejection",
+        "run": "02",
+        "report": "result.json"
+      }
+    },
+    {
+      "kind": "project-boundary",
+      "before": {
+        "variant": "before",
+        "kind": "project-boundary",
+        "run": "02",
+        "report": "result.json"
+      },
+      "after": {
+        "variant": "after",
+        "kind": "project-boundary",
+        "run": "02",
+        "report": "result.json"
+      }
+    },
+    {
+      "kind": "token-mismatch-recovery",
+      "before": {
+        "variant": "before",
+        "kind": "token-mismatch-recovery",
+        "run": "02",
+        "report": "result.json"
+      },
+      "after": {
+        "variant": "after",
+        "kind": "token-mismatch-recovery",
+        "run": "02",
+        "report": "result.json"
+      }
+    }
+  ],
+  "beforePassedMeaning": "expected old behavior observed; not old product acceptance",
+  "afterPassedMeaning": "real GitPanel/GitModal/bridge component boundary assertions; not native acceptance",
+  "real": [
+    "GitPanel",
+    "GitModal",
+    "bridge"
+  ],
+  "controlled": [
+    "Tauri read/task/subscribe transport",
+    "plugin enabled",
+    "editor store",
+    "unrelated DiffViewer/ConflictViewer content"
+  ],
+  "noRealRepositoryMutation": true,
+  "noNativeGuiOrProductBuild": true,
+  "modelAndServiceRequests": 0,
+  "componentProcessesCompleted": true
+}

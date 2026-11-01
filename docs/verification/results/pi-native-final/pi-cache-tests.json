@@ -1,0 +1,19 @@
+{
+  "reportedAt": "2026-10-30T18:55:09.472454+00:00",
+  "command": "cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml agent::tests -- --test-threads=1",
+  "result": "4 passed, 1 ignored, 77 filtered out, 0.16s",
+  "checks": [
+    "path boundary rejects escape and symlinks",
+    "327680-byte Unicode message paginates losslessly with 32KiB chunks; 206-message history windows",
+    "cancelled stdout poll preserves partial UTF-8 record; >4MiB record rejected before buffer exceeds cap",
+    "32MiB session budget rejects append while preserving existing history"
+  ],
+  "scope": "Native unit tests, not GUI acceptance",
+  "sourceSha256": {
+    "apps/desktop/src-tauri/src/agent.rs": "334d4a369797615eedca173ac7b36ffb5f76d9164d5ebd0caf0a291179d37c01",
+    "apps/desktop/src/features/agent/store.ts": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+    "apps/desktop/src/features/agent/AgentPanel.tsx": "aee56eda1a4a13b7360eb5bb99d39fd28703123aec2d15143f47fd082aaf4626",
+    "apps/desktop/src/features/agent/AgentSettings.tsx": "2100bd000c3b8cf41cc135ea92b2f7df43a30b76d4b207d33e2411ef8827436e",
+    "packages/pi-policy/horizon-policy.ts": "3eb79c2578c8e1376698d496da9164df52de3bde3a7758b6364b3ba9e37d45d6"
+  }
+}

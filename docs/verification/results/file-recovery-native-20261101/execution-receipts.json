@@ -1,0 +1,35 @@
+{
+  "archivedAt": "2026-11-01T05:06:17.187541+00:00",
+  "capture": "Exact RTK stdout and completed write_stdin tool results retained from the existing executions. No test was rerun.",
+  "timing": "testDurationSeconds is the test-suite time printed by RTK. Completion receipt wall_time_seconds is the poll call duration, not compilation or full command duration. Absolute command start/completion times were not retained and are not inferred.",
+  "unfilteredCargoOutput": "Not retained; the archived stdout is the RTK output actually returned, not a reconstructed Cargo log.",
+  "receipts": [
+    {
+      "command": "rtk cargo test --locked --offline --test file_recovery",
+      "execSession": 78780,
+      "stdoutFile": "file-recovery-10.rtk.stdout.txt",
+      "completionReceipt": "file-recovery-10.completion.json",
+      "testDurationSeconds": 1.2,
+      "startedAt": null,
+      "completedAt": null
+    },
+    {
+      "command": "rtk cargo test --locked --offline --test files_workflow",
+      "execSession": 73895,
+      "stdoutFile": "files-workflow-33.rtk.stdout.txt",
+      "completionReceipt": "files-workflow-33.completion.json",
+      "testDurationSeconds": 7.11,
+      "startedAt": null,
+      "completedAt": null
+    },
+    {
+      "command": "rtk cargo test --locked --offline --test file_recovery relocation_",
+      "execSession": 66936,
+      "stdoutFile": "relocation-7.rtk.stdout.txt",
+      "completionReceipt": "relocation-7.completion.json",
+      "testDurationSeconds": 0.71,
+      "startedAt": null,
+      "completedAt": null
+    }
+  ]
+}

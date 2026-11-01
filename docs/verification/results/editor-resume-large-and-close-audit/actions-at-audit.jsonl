@@ -1,0 +1,75 @@
+{"at":"2026-11-01T02:51:08.850Z","action":"workspace-fixture-registered","screenshot":"001-workspace-fixture-registered.jpg","pid":34128,"build":"settings-project-20261031-125801","workspace":"macOS 完整验收 1101"}
+{"at":"2026-11-01T02:51:38.653Z","action":"diagnostic-baseline-exported","screenshot":"002-diagnostic-baseline-exported.jpg","exportedFile":"/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/editor-resume-20261101/export-before/horizon-diagnostics.json"}
+{"at":"2026-11-01T02:52:03.369Z","action":"checkpoint-before-sleep","screenshot":"003-checkpoint-before-sleep.jpg","observed":"footer recovery saved, editor dirty; disk baseline"}
+{"at":"2026-11-01T02:52:11.077Z","action":"sleep-retain-checkpoint","screenshot":"004-sleep-retain-checkpoint.jpg","choice":"保留恢复草稿，稍后继续"}
+{"at":"2026-11-01T02:52:30.336Z","action":"sleep-to-new-project-isolated","screenshot":"005-sleep-to-new-project-isolated.jpg","observed":"Project B new empty editor, no stale scope error"}
+{"at":"2026-11-01T02:52:47.424Z","action":"wake-retained-draft-before-save","screenshot":"006-wake-retained-draft-before-save.jpg","observed":"full dirty draft reopened; check recovery banner"}
+{"at":"2026-11-01T02:52:52.870Z","action":"wake-save-no-stale-recovery","screenshot":"007-wake-save-no-stale-recovery.jpg","disk":"recovery baseline\ndraft-before-sleep-1101"}
+{"at":"2026-11-01T02:52:53.490Z","action":"three-project-B-retains-dirty","screenshot":"008-three-project-B-retains-dirty.jpg"}
+{"at":"2026-11-01T02:53:14.383Z","action":"file-create-save","screenshot":"009-file-create-save.jpg","disk":"文件操作保存 1101\n"}
+{"at":"2026-11-01T02:53:31.762Z","action":"file-create-collision","screenshot":"010-file-create-collision.jpg","created":"文件操作保存 1101\n","occupied":"occupied baseline\n"}
+{"at":"2026-11-01T02:53:53.047Z","action":"rename-collision-preserves-both","screenshot":"011-rename-collision-preserves-both.jpg","created":"文件操作保存 1101\n","occupied":"occupied baseline\n"}
+{"at":"2026-11-01T02:54:01.220Z","action":"rename-success-updates-tab","screenshot":"012-rename-success-updates-tab.jpg","files":["occupied.txt","renamed.txt"]}
+{"at":"2026-11-01T02:54:09.398Z","action":"native-trash-result","screenshot":"013-native-trash-result.jpg","remaining":["occupied.txt"],"trashNames":["renamed.txt"]}
+{"at":"2026-11-01T02:54:26.540Z","action":"trash-bytes-readback","text":"文件操作保存 1101\n"}
+{"at":"2026-11-01T02:54:52.483Z","action":"autosave-enable-keeps-existing-dirty","screenshot":"014-autosave-enable-keeps-existing-dirty.jpg","disk":"autosave baseline\n"}
+{"at":"2026-11-01T02:55:03.456Z","action":"autosave-after-delay","screenshot":"015-autosave-after-delay.jpg","disk":"autosave baseline\nold-dirty-before-enable-new-edit"}
+{"at":"2026-11-01T02:55:21.491Z","action":"autosave-on-focus-change","screenshot":"016-autosave-on-focus-change.jpg","disk":"autosave baseline\nold-dirty-before-enable-new-edit-focus-change"}
+{"at":"2026-11-01T02:55:37.992Z","action":"clean-external-refresh","screenshot":"017-clean-external-refresh.jpg","disk":"external-clean: changed\nshared: unchanged\n"}
+{"at":"2026-11-01T02:55:43.318Z","action":"dirty-conflict-save-refused","screenshot":"018-dirty-conflict-save-refused.jpg","disk":"external-dirty: changed\nshared: unchanged\n"}
+{"at":"2026-11-01T02:55:50.521Z","action":"conflict-comparison-both-sides","screenshot":"019-conflict-comparison-both-sides.jpg"}
+{"at":"2026-11-01T02:55:52.228Z","action":"conflict-pauses-focus-autosave","screenshot":"020-conflict-pauses-focus-autosave.jpg","disk":"external-dirty: changed\nshared: unchanged\n"}
+{"at":"2026-11-01T02:55:56.974Z","action":"failed-save-keeps-close-dialog-and-draft","screenshot":"021-failed-save-keeps-close-dialog-and-draft.jpg"}
+{"at":"2026-11-01T02:56:09.288Z","action":"conflict-copy-preserves-original","screenshot":"022-conflict-copy-preserves-original.jpg","original":"external-dirty: changed\nshared: unchanged\n","copy":"external-clean: changed\nshared: unchanged\nlocal-dirty-retained"}
+{"at":"2026-11-01T02:56:36.030Z","action":"explicit-reload-restores-disk","screenshot":"023-explicit-reload-restores-disk.jpg"}
+{"at":"2026-11-01T02:56:50.959Z","action":"save-then-immediate-input","screenshot":"024-save-then-immediate-input.jpg","issuedAt":"2026-11-01T02:56:50.268Z","diskPrefix":"SAVE_A_1101\n// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n/","diskBytes":9437196,"overlap":"native sequential key events; saving overlap must not be inferred if not observed"}
+{"at":"2026-11-01T02:56:57.315Z","action":"repeat-save-keeps-new-input","screenshot":"025-repeat-save-keeps-new-input.jpg","diskPrefix":"SAVE_A_1101\n// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n/","diskBytes":9437196}
+{"at":"2026-11-01T02:56:58.898Z","action":"external-deletion-retains-open-text","screenshot":"026-external-deletion-retains-open-text.jpg"}
+{"at":"2026-11-01T02:57:32.412Z","action":"correction-024-026","invalidated":["repeat-save-keeps-new-input","external-deletion-retains-open-text"],"observed":"1ms physical key chords appended bsspa to save-race; quick-open did not open. Save overlap unproven; deletion file was moved only on disk, not opened in editor. Native snapshots preserved; no product pass inferred."}
+{"at":"2026-11-01T02:57:48.872Z","action":"native-save-immediate-paste-retained","screenshot":"027-native-save-immediate-paste-retained.jpg","diskPrefix":"SAVE_C_1101\nSAVE_A_1101\nbsspa// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n// h","overlap":"unproven; actual native edit immediately after save retained dirty"}
+{"at":"2026-11-01T02:57:50.132Z","action":"repeat-save-final-bytes","screenshot":"028-repeat-save-final-bytes.jpg","diskPrefix":"SAVE_C_1101\nPASTE_AFTER_SAVE_1101\nSAVE_A_1101\nbsspa// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fi"}
+{"at":"2026-11-01T02:58:22.642Z","action":"opened-file-external-delete-retains-text","screenshot":"029-opened-file-external-delete-retains-text.jpg","removedPath":"/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/src/delete-open.txt","actual":"was open before rename, text remains"}
+{"at":"2026-11-01T02:58:25.599Z","action":"no-final-newline-preserved","screenshot":"030-no-final-newline-preserved.jpg","hex":"66697273740a6c6173742d656469746564"}
+{"at":"2026-11-01T02:58:26.987Z","action":"unsupported-encoding-readonly","screenshot":"031-unsupported-encoding-readonly.jpg"}
+{"at":"2026-11-01T02:58:46.824Z","action":"find-replace-case-wholeword","screenshot":"032-find-replace-case-wholeword.jpg"}
+{"at":"2026-11-01T02:58:49.423Z","action":"unknown-extension-plain-text","screenshot":"033-unknown-extension-plain-text.jpg"}
+{"at":"2026-11-01T02:59:15.472Z","action":"search-10000-cap","screenshot":"034-search-10000-cap.jpg","query":"EDITOR_QA_SEARCH_NEEDLE","fixtureMatches":20000,"uiLines":["\t\t\t\t\t\t48 text 10000 处匹配 · 5000 个文件  · 已达到上限，请缩小范围。"]}
+{"at":"2026-11-01T02:59:36.083Z","action":"search-case-insensitive-wholeword-path","screenshot":"035-search-case-insensitive-wholeword-path.jpg"}
+{"at":"2026-11-01T02:59:45.872Z","action":"search-case-sensitive-no-results-keeps-query","screenshot":"036-search-case-sensitive-no-results-keeps-query.jpg"}
+{"at":"2026-11-01T02:59:48.176Z","action":"search-regex-path-two-lines","screenshot":"037-search-regex-path-two-lines.jpg"}
+{"at":"2026-11-01T03:00:13.967Z","action":"search-result-line-two-navigation","screenshot":"038-search-result-line-two-navigation.jpg"}
+{"at":"2026-11-01T03:00:15.908Z","action":"limit-single-line-99999-txt","screenshot":"039-limit-single-line-99999-txt.jpg","notice":["\t\t\t\t\t105 button (disabled) 保存文件, Help: 保存 ⌘S"]}
+{"at":"2026-11-01T03:00:17.296Z","action":"limit-single-line-100000-txt","screenshot":"040-limit-single-line-100000-txt.jpg","notice":["\t\t\t\t\t107 button (disabled) 保存文件, Help: 当前文件只读","\t\t\t\t\t\t112 text 只读： 文件较大或包含超长行，已切换为简化阅读。","\t\t\t\t\t\t115 text 简化阅读 ·  97.7 KiB ：大文件或超长行，已关闭语法分析与折叠。 当前只读。"]}
+{"at":"2026-11-01T03:00:18.662Z","action":"limit-single-line-100001-txt","screenshot":"041-limit-single-line-100001-txt.jpg","notice":["\t\t\t\t\t109 button (disabled) 保存文件, Help: 当前文件只读","\t\t\t\t\t\t114 text 只读： 文件较大或包含超长行，已切换为简化阅读。","\t\t\t\t\t\t117 text 简化阅读 ·  97.7 KiB ：大文件或超长行，已关闭语法分析与折叠。 当前只读。"]}
+{"at":"2026-11-01T03:00:20.018Z","action":"limit-text-101MiB-txt","screenshot":"042-limit-text-101MiB-txt.jpg","notice":["\t\t\t\t\t109 button (disabled) 保存文件, Help: 当前文件只读","\t\t\t\t\t\t114 text 只读： 文件较大或包含超长行，已切换为简化阅读。","\t\t\t\t\t\t117 text 简化阅读 ·  97.7 KiB ：大文件或超长行，已关闭语法分析与折叠。 当前只读。"]}
+{"at":"2026-11-01T03:00:21.368Z","action":"limit-binary-bin","screenshot":"043-limit-binary-bin.jpg","notice":["\t\t\t\t\t\t105 tab (selectable) text-101MiB.txt, Help: limits/text-101MiB.txt","\t\t\t\t\t\t106 button 关闭 limits/text-101MiB.txt","\t\t\t\t\t113 button (disabled) 保存文件, Help: 当前内容不支持编辑","\t\t\t\t\t\t118 heading 不支持此文件编码, Value: 2","\t\t\t\t\t\t\t119 text 不支持此文件编码","\t\t\t\t\t\t121 button 用系统应用打开"]}
+{"at":"2026-11-01T03:01:06.101Z","action":"101MiB-chunked-final-and-background-sleep","screenshot":"044-101MiB-chunked-final-and-background-sleep.jpg","observed":"101.0 MiB; first256KiB readonly; B and C moon icons visible; no manual sleeps of B/C"}
+{"at":"2026-11-01T03:01:06.102Z","action":"correction-042-loading","note":"042 snapshot captured while prior100001-line view still switching. 044 is final101MiB state: chunked readonly; not refusal."}
+{"at":"2026-11-01T03:01:07.122Z","action":"101MiB-next-chunk-save-disabled","screenshot":"045-101MiB-next-chunk-save-disabled.jpg"}
+{"at":"2026-11-01T03:01:43.302Z","action":"binary-system-open","observed":"macOS Archive Utility launched for .bin; synthetic binary unsupported archive; Horizon correctly delegated open","screenshot":"046-binary-system-archive-result.jpg"}
+{"at":"2026-11-01T03:02:15.635Z","action":"preview-reuse-edit-pins-tab","screenshot":"046-preview-reuse-edit-pins-tab.jpg","tabCount":[20,20,21],"tabsAfter":["\t\t\t\t\t\t184 tab (selectable) clean-01.txt 未保存, Help: cache/clean-01.txt · 未保存","\t\t\t\t\t\t186 tab (selected) clean-02.txt, Help: cache/clean-02.txt"]}
+{"at":"2026-11-01T03:02:43.677Z","action":"native-cache-open","file":"clean-03.txt","visible":true}
+{"at":"2026-11-01T03:02:45.054Z","action":"native-cache-open","file":"clean-04.txt","visible":true}
+{"at":"2026-11-01T03:02:46.370Z","action":"native-cache-open","file":"clean-05.txt","visible":true}
+{"at":"2026-11-01T03:02:47.810Z","action":"native-cache-open","file":"clean-06.txt","visible":true}
+{"at":"2026-11-01T03:02:49.141Z","action":"native-cache-open","file":"clean-07.txt","visible":true}
+{"at":"2026-11-01T03:02:50.465Z","action":"native-cache-open","file":"clean-08.txt","visible":true}
+{"at":"2026-11-01T03:02:51.775Z","action":"native-cache-open","file":"clean-09.txt","visible":true}
+{"at":"2026-11-01T03:02:53.190Z","action":"native-cache-open","file":"clean-10.txt","visible":true}
+{"at":"2026-11-01T03:02:54.546Z","action":"native-cache-open","file":"clean-11.txt","visible":true}
+{"at":"2026-11-01T03:02:55.864Z","action":"native-cache-open","file":"clean-12.txt","visible":true}
+{"at":"2026-11-01T03:02:57.176Z","action":"native-cache-open","file":"clean-13.txt","visible":true}
+{"at":"2026-11-01T03:02:58.495Z","action":"native-cache-open","file":"clean-14.txt","visible":true}
+{"at":"2026-11-01T03:02:59.825Z","action":"native-cache-open","file":"clean-15.txt","visible":true}
+{"at":"2026-11-01T03:03:01.133Z","action":"native-cache-open","file":"clean-16.txt","visible":true}
+{"at":"2026-11-01T03:03:02.485Z","action":"native-cache-open","file":"clean-17.txt","visible":true}
+{"at":"2026-11-01T03:03:03.830Z","action":"native-cache-open","file":"clean-18.txt","visible":true}
+{"at":"2026-11-01T03:03:05.153Z","action":"native-cache-open","file":"clean-19.txt","visible":true}
+{"at":"2026-11-01T03:03:06.560Z","action":"native-cache-open","file":"clean-20.txt","visible":true}
+{"at":"2026-11-01T03:03:07.897Z","action":"native-cache-open","file":"clean-21.txt","visible":true}
+{"at":"2026-11-01T03:03:09.232Z","action":"native-cache-open","file":"clean-22.txt","visible":true}
+{"at":"2026-11-01T03:03:10.581Z","action":"native-cache-open","file":"clean-23.txt","visible":true}
+{"at":"2026-11-01T03:03:11.872Z","action":"native-cache-open","file":"clean-24.txt","visible":true}
+{"at":"2026-11-01T03:03:13.374Z","action":"cache-over20-clean-with-dirty-retained","screenshot":"047-cache-over20-clean-with-dirty-retained.jpg"}
+{"at":"2026-11-01T03:03:38.011Z","action":"dirty-buffer-survives-clean-eviction","screenshot":"048-dirty-buffer-survives-clean-eviction.jpg","disk":"clean cache 1\n"}
+{"at":"2026-11-01T03:03:45.716Z","action":"export-cache","exportedAt":"2026-11-01T03:03:39.125029+00:00","file":"/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/editor-resume-20261101/export-cache/horizon-diagnostics.json"}

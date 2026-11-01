@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-11-01T02:38:28Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/\n?? vendor/",
+  "python": "3.14.3",
+  "scenario": "settings-project-panel-B-welcome-after-openpanel",
+  "build": "release",
+  "build_id": "settings-project-95deaa5bb3d6",
+  "root_executables": {
+    "34128": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "capturedAt": "2026-11-01T02:38:28.731271+00:00",
+    "method": "Root native GUI observation and ps handoff; collector has not issued GUI input",
+    "buildLabel": "settings-project",
+    "binarySha256": "95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6",
+    "rootPid": 34128,
+    "rootStartLocal": "Sun Nov 1 10:33:56 2026",
+    "window": {
+      "width": 1280,
+      "height": 800
+    },
+    "scene": "welcome; no active project",
+    "layout": "卡片分区",
+    "theme": "雾蓝",
+    "mode": "light",
+    "project": null,
+    "terminal": "none observed by root",
+    "pi": "none observed by root",
+    "pluginPolicy": "existing policy retained; not all feature extensions disabled",
+    "pickerHistory": "Actual F09 preview -> native NSOpenPanel directory selection -> successful export -> same welcome; initial historical server-code directory then GoTo empty destination",
+    "resources": ".work/resume-panel-perf/diagnostics-b-snapshot.json",
+    "resourcesNote": "Actual single diagnostic export snapshot; not live per-second counts",
+    "beforeEvidence": [
+      ".work/resume-panel-perf/scene-b.txt",
+      ".work/resume-panel-perf/scene-b.jpg"
+    ],
+    "limits": [
+      "Panel CPU A/B/C comparison only; not all-features-off empty-host budget",
+      "Operator scene observation; process attribution and usage recorded independently by collector"
+    ],
+    "nativeActionEvidence": [
+      ".work/resume-panel-perf/export-preview.txt",
+      ".work/resume-panel-perf/export-completed.txt",
+      ".work/resume-panel-perf/export-receipt.json"
+    ],
+    "selectedDirectory": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-chooser-20261101-a5jv2_ha/openpanel-b",
+    "exportBytes": 1876,
+    "exportSha256": "d315a30080c69d952ef9983b2777ee150c62b1fda18d3e86992e46d2935603b8"
+  },
+  "root_pids": [
+    34128
+  ],
+  "cache_condition": "OS cache retained; same welcome scene; actual F09 OpenPanel export completed; no concurrent builds",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "none; passive sampling only",
+  "activity_log": null,
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ]
+}

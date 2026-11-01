@@ -1,0 +1,19 @@
+{
+  "reviewed_at": "2026-10-30T18:37:07.033370+00:00",
+  "producer": "plugin_runtime agent",
+  "method": "Independent raw-output and complete TS/native policy assertion review; ZIP test list and assertions reviewed",
+  "counts": {
+    "frontend_runtime": 6,
+    "native_policy": 12,
+    "zip_package": 4
+  },
+  "source_sha256": {
+    "packages/plugins/tests/runtime.test.ts": "1c530a93a2b0e64f1a585c6d2a68cf2419afcd6a2b68842289c8f1e249d7daad",
+    "apps/desktop/src-tauri/tests/extensions_policy.rs": "7858d756af27140a4888237e0220012d59129cc14a303902fe96373206cf4cd1",
+    "apps/desktop/src-tauri/src/extensions.rs": "ac338bc0d79cd4f1bf64869a283f8d0d3a42415ed90cd84f24c63cd2c1edf93b"
+  },
+  "limitations": [
+    "Native policy tests directly populate registry fixtures; not installation through desktop AppHandle.",
+    "Cordis lifecycle tests use explicit hook fixtures; not native GUI lifecycle."
+  ]
+}

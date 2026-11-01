@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-30T19:48:32.063081+00:00",
+  "build": "candidate5; main SHA2568265d62143a81c380acd350dc8c261685f241a2bc3fd0cfbece65c81073b00b2",
+  "appPid": 91978,
+  "operator": "processes",
+  "screenshot": "docs/verification/screenshots/processes/001-project-context-expired.png",
+  "screenshotSHA256": "c970daeec26e9268df0de73e2a7b996a1f15ce332255ceffd0ebfa34af38e1be",
+  "nativeObserved": [
+    "Root previously manually slept UI Kit and returned to Welcome",
+    "Processes operator opened /tmp/horizon-processes-gui.XifnCp via native project picker",
+    "Before opening any file, new project empty-editor view shows red 项目上下文已过期 banner",
+    "Plugin center roundtrip did not clear banner",
+    "Opening package.json succeeded, readable body appeared and banner cleared"
+  ],
+  "ownerDiagnosis": "Sleeping project hostClosedProject marks active buffer evicted; while root awaits refresh before clearProject, mounted EditorWorkbench evicted effect issues automatic reopen with old epoch. Error remains in global store and becomes visible in next project.",
+  "fixStatus": "Editor owner reports detached-autoopen guard and explicit activation reattach; browser/unit regression passes but change not in running candidate5",
+  "limitations": [
+    "Screenshot proves stale banner at new project empty state, not failure to read that project file",
+    "Verifier inspected originalPNG and operator/owner reports; no GUI mutation issued",
+    "Do not supersede until new packaged build repeats sleep→Welcome→newproject without stale error"
+  ]
+}

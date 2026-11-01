@@ -1,0 +1,33 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.13s
+     Running unittests src/lib.rs (apps/desktop/src-tauri/target/debug/deps/horizon_host-75c8e9d043c0aa41)
+
+running 25 tests
+test processes::tests::authorization_snapshot_rejects_changed_script_and_missing_approval ... ok
+test processes::tests::automatic_url_uses_saved_ready_snapshot_once_and_never_log_urls ... ok
+test processes::tests::background_service_exit_stops_siblings_and_releases_lease ... ok
+test processes::tests::bounded_bytes_keep_utf8_raw ... ok
+test processes::tests::cancellation_stops_owned_run_even_when_failure_policy_keeps_processes ... ok
+test processes::tests::credential_redaction_handles_split_output ... ok
+test processes::tests::cwd_rejects_escape ... ok
+test processes::tests::direct_terminal_lease_releases_after_natural_exit ... ok
+test processes::tests::discovery_reads_nested_scripts_without_executing ... ok
+test processes::tests::hidden_output_is_continuously_consumed_with_bounded_history ... ok
+test processes::tests::http_fixture_server ... ignored, child process fixture, invoked by owned_http_readiness
+test processes::tests::interactive_pty_accepts_chinese_input_and_applies_actual_size ... ok
+test processes::tests::launch_failure_and_timeout_stop_only_owned_run ... ok
+test processes::tests::launch_lease_uses_actual_activation_and_releases_its_origin ... ok
+test processes::tests::launch_waits_for_dependencies_and_stops_in_reverse_order ... ok
+test processes::tests::owned_http_readiness_and_restart_preflight_accept_only_owned_port ... ok
+test processes::tests::owned_pty_handles_chinese_resize_and_stop ... ok
+test processes::tests::port_preflight_leaves_external_listener_alive ... ok
+test processes::tests::preflight_program_errors_identify_missing_and_foreign_paths ... ok
+test processes::tests::profile_export_omits_secrets_and_local_authorization ... ok
+test processes::tests::rejects_cycles_and_unknown_dependencies ... ok
+test processes::tests::saved_changes_do_not_mutate_live_snapshot_and_delete_requires_confirmed_stop ... ok
+test processes::tests::stopping_terminal_releases_pty_dependencies_and_preserves_other_project ... ok
+test processes::tests::tauri_app_handle_delivers_process_transport_events ... ok
+test processes::tests::terminal_input_backpressure_does_not_block_stop ... ok
+
+test result: ok. 24 passed; 0 failed; 1 ignored; 0 measured; 32 filtered out; finished in 6.08s
+

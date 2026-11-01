@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-11-01T09:55:52.821407+00:00",
+  "card": "04a",
+  "status": "CONTEXT SEND READY",
+  "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+  "projectName": "PiQA A · 20261101",
+  "contextFile": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/context.ts",
+  "expectedSelectedLine": "export const selected = \"只附此行中文\";",
+  "expectedUtf16Range": {
+    "fromUtf16": 38,
+    "toUtf16": 71,
+    "endExclusive": true
+  },
+  "fileHashesBefore": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004",
+    "removed-context.txt": "baee02f7fc4fb66628abddb36335935e17e9279a5001a3510667f142c2b19b3e"
+  },
+  "indexHashBefore": "26be14d07f0d84225c7a871266648b4475058a419819c8a7ed7f4236f44b9bb2",
+  "gitHead": "f938a066156ac3d3738ca1f1ae7b4dcc2bccad3d",
+  "gitDiffBefore": "diff --git a/example.txt b/example.txt\nindex cf52603..d8de38f 100644\n--- a/example.txt\n+++ b/example.txt\n@@ -1 +1 @@\n-original Pi resume fixture baseline\n+disk change for frozen Git context 20261101\n",
+  "httpBeforeAttachmentOrChat": 1,
+  "expectedKeptAttachments": [
+    "context.ts line2 frozen buffer selection",
+    "example.txt original Git label direction/index→worktree frozen diff"
+  ],
+  "expectedRemovedMarker": "REMOVED_ATTACHMENT_MARKER_20261101",
+  "mustNotSendMarkers": [
+    "A_UNSELECTED_MARKER",
+    "REMOVED_ATTACHMENT_MARKER_20261101",
+    "PI_B_MUST_NOT_LEAK_20261101"
+  ],
+  "limits": "These are owner source expectations before UI, not evidence of actual frozen selection/diff IDs. Actual UI04a and HTTP04b still required.",
+  "preparedCheckedAt": "2026-11-01T10:01:28.564287+00:00",
+  "preparedChecks": {
+    "visibleCurrentProject": true,
+    "twoExactKeptAttachments": true,
+    "frozenGitLabelDirection": true,
+    "selectionLineAndSavedSource": true,
+    "removedAttachmentAbsent": true,
+    "originalFilesIndexDiffUnchanged": true,
+    "providerStillOnePriorTestRequest": true,
+    "piZeroBeforeChat": true
+  },
+  "actualVisibleKeptLabels": [
+    "example.txt · 暂存区 → 磁盘文件",
+    "context.ts"
+  ],
+  "guiAX": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-04a-context-prepared.ax.txt",
+  "editorSelectionEvidence": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-04a-context-selected-editor.ax.txt",
+  "actualSelectionBasis": "Terra reports exact highlighted full line2; picker shows frozen line2 and saved buffer source. UTF16[38,71) remains owner expected range until actual payload comparison; no product state injection or opaque-ID parsing.",
+  "ownerDataComparisonAt": "2026-11-01 afterCONTEXT PREPARED; file/index/diff against before matched; health1/Pi0",
+  "sendAuthorization": "Root preauthorized one HORIZON_TEST_VISUAL chat with these two QA attachments only; actual HTTP still to be checked."
+}

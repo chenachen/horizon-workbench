@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-01T12:44:50.852158+00:00",
+  "phase": "Q1 sameinstalledpackage freshreopen before anyrefill/Test/Send",
+  "status": "REOPEN IDENTITY PASS / UI EXPIRY PENDING",
+  "checks": {
+    "newAppExactInstalledRun": true,
+    "piZeroNoAutorun": true,
+    "sameExternalProviderAlive": true,
+    "logStillSeventeenNoReplay": true,
+    "sameOwnedRefSessionIndexScope": true,
+    "noOtherCredentialItems": true,
+    "ownSystemFallbackAbsent": true
+  },
+  "app": {
+    "pid": 42567,
+    "ppid": 1,
+    "start": "Sun Nov 1 20:42:31 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "args": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "mainSHA256RootRecomputed": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "provider": {
+    "pid": 2344,
+    "ppid": 2338,
+    "start": "Sun Nov 1 17:47:30 2026",
+    "executable": "node",
+    "args": "node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs"
+  },
+  "piPids": [],
+  "modelRequestLogCount": 17,
+  "fakeCredentialIndexItem": [
+    {
+      "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+      "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66",
+      "persistence": "session"
+    }
+  ],
+  "fakeConnection": {
+    "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+    "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66",
+    "authOwner": "horizon",
+    "authState": "configured",
+    "revision": 2
+  },
+  "keychainOwnMetadataOnly": {
+    "exitCode": 44,
+    "noSecretValueRead": true
+  },
+  "limitation": "Indexsession persistence alone does not prove currentmemoryconfigured=false; wait realnativeUI expired/unconfigured observation. No auth.json/realcredentials/Test/Send/refill/cleanup."
+}

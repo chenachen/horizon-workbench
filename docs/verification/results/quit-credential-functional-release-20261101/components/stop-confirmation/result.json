@@ -1,0 +1,1115 @@
+{
+  "kind": "actual App/StopConfirmation/Modal/ErrorNotice; controlled editor save and stop RPC boundaries",
+  "startedAt": "2026-11-01T12:52:08.642Z",
+  "sources": {
+    "preparedOnly": true,
+    "change": {
+      "path": "apps/desktop/src/App.tsx",
+      "beforeSha256": "bcf6aff0d18437d32371012a925cb7b531ec70a2fb55a45a97c5a92eb204429d",
+      "preparedAfterSha256": "b84605a820ee1d2c3746b953f40f7d773c479213622bb295dc45f6aa74ad91c6"
+    },
+    "support": [
+      {
+        "path": "packages/editor/src/store.ts",
+        "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+      },
+      {
+        "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+        "sha256": "695ac932d3706f1e4cbab35db065e8f29e39aa08e51cd84bfa60b2e87aa51e1c"
+      }
+    ]
+  },
+  "variants": [
+    {
+      "variant": "before",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "phases": [
+        {
+          "name": "failure locality; retry clears only operation error; fresh plan remount; Cancel preserves per-file/unrelated errors",
+          "failed": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 1,
+            "planCounter": 1,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "retryPending": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 2,
+            "planCounter": 1,
+            "pendingSave": true,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "newPlan": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 2,
+            "planCounter": 2,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "cancelled": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": false,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 3,
+            "planCounter": 2,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "passed": true
+        },
+        {
+          "name": "modal close/unmount resets local operation error without clearing file/global errors",
+          "reopened": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 3,
+            "planCounter": 3,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "closed": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": false,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 4,
+            "planCounter": 3,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "passed": true
+        },
+        {
+          "name": "recovered clean plan cannot inherit prior save failure; stop-apply RPC failure remains dialog-local",
+          "recovered": {
+            "local": "",
+            "global": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "dialogOpen": true,
+            "cleanPlan": "没有未保存文档",
+            "dirty": false,
+            "fileError": "",
+            "saveCount": 4,
+            "planCounter": 4,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "rpcFailed": {
+            "local": "",
+            "global": "受控退出操作失败",
+            "dialogOpen": true,
+            "cleanPlan": "没有未保存文档",
+            "dirty": false,
+            "fileError": "",
+            "saveCount": 5,
+            "planCounter": 5,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_apply",
+                "params": {
+                  "planId": "plan-5",
+                  "planDigest": "owned-digest",
+                  "decisions": []
+                }
+              }
+            ]
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "variant": "after",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "phases": [
+        {
+          "name": "failure locality; retry clears only operation error; fresh plan remount; Cancel preserves per-file/unrelated errors",
+          "failed": {
+            "local": "仍有文档未保存成功。请先处理保存错误，再继续。",
+            "global": "其他独立操作错误",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 1,
+            "planCounter": 1,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "retryPending": {
+            "local": "",
+            "global": "其他独立操作错误",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 2,
+            "planCounter": 1,
+            "pendingSave": true,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "newPlan": {
+            "local": "",
+            "global": "其他独立操作错误",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 2,
+            "planCounter": 2,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "cancelled": {
+            "local": "",
+            "global": "其他独立操作错误",
+            "dialogOpen": false,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 3,
+            "planCounter": 2,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "passed": true
+        },
+        {
+          "name": "modal close/unmount resets local operation error without clearing file/global errors",
+          "reopened": {
+            "local": "",
+            "global": "其他独立操作错误",
+            "dialogOpen": true,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 3,
+            "planCounter": 3,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "closed": {
+            "local": "",
+            "global": "其他独立操作错误",
+            "dialogOpen": false,
+            "cleanPlan": "",
+            "dirty": true,
+            "fileError": "每文件保存错误：权限拒绝",
+            "saveCount": 4,
+            "planCounter": 3,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "passed": true
+        },
+        {
+          "name": "recovered clean plan cannot inherit prior save failure; stop-apply RPC failure remains dialog-local",
+          "recovered": {
+            "local": "",
+            "global": "其他独立操作错误",
+            "dialogOpen": true,
+            "cleanPlan": "没有未保存文档",
+            "dirty": false,
+            "fileError": "",
+            "saveCount": 4,
+            "planCounter": 4,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              }
+            ]
+          },
+          "rpcFailed": {
+            "local": "受控退出操作失败",
+            "global": "其他独立操作错误",
+            "dialogOpen": true,
+            "cleanPlan": "没有未保存文档",
+            "dirty": false,
+            "fileError": "",
+            "saveCount": 5,
+            "planCounter": 5,
+            "pendingSave": false,
+            "calls": [
+              {
+                "method": "resource_list",
+                "params": {}
+              },
+              {
+                "method": "app_bootstrap",
+                "params": {
+                  "clientVersion": "0.1.0",
+                  "protocolVersion": 1
+                }
+              },
+              {
+                "method": "project_activate",
+                "params": {
+                  "projectId": "owned"
+                }
+              },
+              {
+                "method": "session_update",
+                "params": {
+                  "layout": {
+                    "panels": {
+                      "primarySidebar": {
+                        "visible": false,
+                        "activeViewId": "files"
+                      },
+                      "auxiliary": {
+                        "visible": false,
+                        "activeViewId": "agent"
+                      },
+                      "bottom": {
+                        "visible": false,
+                        "activeViewId": "terminal"
+                      }
+                    },
+                    "focusMode": false,
+                    "focusRestore": null
+                  }
+                }
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_plan",
+                "params": {}
+              },
+              {
+                "method": "app_exit_apply",
+                "params": {
+                  "planId": "plan-5",
+                  "planDigest": "owned-digest",
+                  "decisions": []
+                }
+              }
+            ]
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T12:52:11.185Z",
+  "durationMs": 2543
+}

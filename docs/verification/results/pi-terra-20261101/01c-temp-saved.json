@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-11-01T09:37:19.922273+00:00",
+  "card": "01c-temp-save",
+  "status": "DELETE TEMP READY",
+  "connectionId": "ed3385cc-ac72-45ce-b04d-8abb5cc7f334",
+  "safeConfiguration": {
+    "label": "PiQA 刷新验收1101",
+    "runtime": {
+      "source": "managed",
+      "version": "1.4.0"
+    },
+    "provider": {
+      "id": "horizon-fixture",
+      "api": "openai-completions",
+      "endpoint": "http://127.0.0.1:18763/v1",
+      "model": "horizon-fixture",
+      "credentialRef": null
+    },
+    "authOwner": "external",
+    "authState": "configured",
+    "revision": 1
+  },
+  "checks": {
+    "uniqueOnlyConnection": true,
+    "managedFixedRuntime": true,
+    "safeProvider": true,
+    "externalNoKey": true,
+    "configuredUnverified": true,
+    "zeroSessionRefs": true,
+    "zeroProjectDefaults": true,
+    "oldSessionSetUnchanged": true,
+    "qaProjectsStillZeroSessions": true,
+    "piZero": true,
+    "providerOff": true,
+    "newLogAbsent": true,
+    "controlLogAbsent": true,
+    "newAppPresent": true
+  },
+  "sessionRefs": [],
+  "projectDefaultRefs": [],
+  "projectIds": {
+    "A": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "B": "13eb772b-a7f7-43ca-87ea-c04de5858859"
+  },
+  "appOs": "75147 Sun Nov  1 17:34:01 2026     /Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+  "appSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+  "guiReceipt": "docs/verification/results/pi-terra-20261101/01c-1793525687778-manifest.jsonl",
+  "deleteCondition": "Root preauthorized only this exact owned ID, and actual UI preview must also show0project defaults/0history sessions/no key clearing. Then confirm once, close main settings and remain same A; no switch/refresh/send."
+}

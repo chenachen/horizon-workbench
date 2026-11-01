@@ -1,0 +1,164 @@
+{
+  "preparedAt": "2026-11-01T13:06:54.784289+00:00",
+  "phase": "Offline readonlyplan after old42567Quit, before repairednewPID/nativelease",
+  "status": "STATIC CLEANUP SCOPE READY",
+  "checks": {
+    "oldNineExactRetained": true,
+    "q1IncludedInA": true,
+    "QAExactCounts": true,
+    "onlyOwnedCredentialIndex": true,
+    "onlyOwnedQAConnections": true
+  },
+  "projectScope": {
+    "A": {
+      "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+      "sessionIds": [
+        "10ab47ff-3a4d-46d7-9b6e-e9dc4417ea9e",
+        "24c70f13-c6a0-4588-a7c4-6904a217a82b",
+        "74a54d50-466a-412f-88aa-55c9e8329f30",
+        "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+        "a95b2fcb-b4bd-4ccf-8c7b-266729199cc0",
+        "c74fd8c9-6593-44e0-86f9-97e5d27d0f3e",
+        "da0fb7c2-ff35-4874-8890-22c568b10c41",
+        "fa1b3910-5ce4-4e24-8591-269fba0867f4"
+      ],
+      "count": 8
+    },
+    "B": {
+      "projectId": "13eb772b-a7f7-43ca-87ea-c04de5858859",
+      "sessionIds": [
+        "9448e8ab-8cf0-498b-901b-441d07b3a4da",
+        "dc7175e5-956d-4fe8-9569-06140a21578e"
+      ],
+      "count": 2
+    }
+  },
+  "preserveOldNineSessionIds": [
+    "346e59a9-9596-4f44-a64a-774b2f1a2246",
+    "436b6ad1-5f1e-42b2-8159-5f8116b6456b",
+    "44ba66cc-50f7-446e-babf-57f7ffdd8a49",
+    "5f78fbf8-2d46-4b7d-91bf-b0a67799237f",
+    "6878d80d-958a-48e0-b96b-cdc16bb798a6",
+    "84e566d5-7069-4724-b883-911ff122fcb0",
+    "cbc22afb-6c3a-4e08-b953-04702366585e",
+    "d475ea29-72de-49e0-9fe8-36d1197f34b2",
+    "e6f3e8e7-09f2-4109-a552-ab0ff06512f5"
+  ],
+  "credentialScope": {
+    "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+    "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66",
+    "owner": "horizon",
+    "persistence": "session",
+    "currentlyExpired": "Observed on old42567; after newPID rootnative expirycheck then knownsamefake sessionrefill needed before clearing."
+  },
+  "qaConnectionsToPreviewThenRemove": [
+    {
+      "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+      "authOwner": "horizon",
+      "revision": 2,
+      "authState": "configured",
+      "label": "PiQA 假凭据 1101",
+      "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66"
+    },
+    {
+      "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+      "authOwner": "external",
+      "revision": 1,
+      "authState": "verified",
+      "label": "PiQA 协议服务 1101",
+      "credentialRef": null
+    }
+  ],
+  "scopeRules": [
+    "No refill/clear/delete before rootnewPID+nativelease",
+    "Refill onlysamefake/session once; no Test/Send",
+    "Only exactref validitemclear after real1-itempreview",
+    "A/B each actualproject-scoped historypreview/clear once, neverglobalall",
+    "Preserve alloldnine/sourcefiles/index/recoverydrafts/externalPi auth/managedruntime",
+    "QAconnections only after actualpreviewmatches remainingdefaults/history, providerstoplast"
+  ],
+  "sourceFiles": {
+    "agentState": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/state.json",
+    "credentialIndex": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/credential-index.json",
+    "oldNineBaseline": "/Users/chenpengxiang/Desktop/Horizon/.work/pi-old-qa-connection-before.json"
+  },
+  "newModelRequestCountBaseline": 17,
+  "pendingReviewPrecondition": {
+    "preparedAt": "2026-11-01T13:10:24.214113+00:00",
+    "sourceHash": {
+      "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004",
+      "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+      ".git/index": "26be14d07f0d84225c7a871266648b4475058a419819c8a7ed7f4236f44b9bb2"
+    },
+    "sourceAndIndexUnchangedFromFrozenBaseline": true,
+    "blockers": [
+      {
+        "reviewId": "3f42cedd-c2d4-48c6-a1f0-4e40f048a016",
+        "sessionId": "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+        "uiShortSessionId": "9d735921",
+        "profile": "task",
+        "createdAtMs": 1793527485019,
+        "createdLocal": "2026-11-01T18:04:45.019000+08:00",
+        "firstUserText": "HORIZON_TEST_RESOURCE_STREAM I1 active-project",
+        "transcriptSource": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/transcripts/9d735921-dee5-45a3-aa6f-27a6ed40741f.jsonl",
+        "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/3f42cedd-c2d4-48c6-a1f0-4e40f048a016/worktree",
+        "copyFileHashes": {
+          "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004",
+          "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776"
+        },
+        "completed": false,
+        "discarded": false,
+        "checks": {
+          "exactOwnedATask": true,
+          "exactOwnedCopyPath": true,
+          "pendingNotDiscarded": true,
+          "copyUnwrittenFromSource": true
+        },
+        "taskRunId": null,
+        "taskRunIdBasis": "PrivateRPCtask/runId not exposed in disk/AX; exacttask-session/review association is frozen.",
+        "actualHistoryButtonMatch": "任务 / 9d735921",
+        "historyLocatorBasis": "AgentPanel59 nativehistorybutton displays profile+8charsessionId only, no timestamp/prompt; createdLocal/firstUserText are frozenmetadata crosschecks, not claimedUIlabels."
+      },
+      {
+        "reviewId": "de22d942-2dd4-4496-94d1-3c34020b7559",
+        "sessionId": "24c70f13-c6a0-4588-a7c4-6904a217a82b",
+        "uiShortSessionId": "24c70f13",
+        "profile": "task",
+        "createdAtMs": 1793530338164,
+        "createdLocal": "2026-11-01T18:52:18.164000+08:00",
+        "firstUserText": "HORIZON_TEST_WRITE_STREAM_REVIEW I1 review",
+        "transcriptSource": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/transcripts/24c70f13-c6a0-4588-a7c4-6904a217a82b.jsonl",
+        "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/de22d942-2dd4-4496-94d1-3c34020b7559/worktree",
+        "copyFileHashes": {
+          "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004",
+          "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776"
+        },
+        "completed": false,
+        "discarded": false,
+        "checks": {
+          "exactOwnedATask": true,
+          "exactOwnedCopyPath": true,
+          "pendingNotDiscarded": true,
+          "copyUnwrittenFromSource": true
+        },
+        "taskRunId": null,
+        "taskRunIdBasis": "PrivateRPCtask/runId not exposed in disk/AX; exacttask-session/review association is frozen.",
+        "actualHistoryButtonMatch": "任务 / 24c70f13",
+        "historyLocatorBasis": "AgentPanel59 nativehistorybutton displays profile+8charsessionId only, no timestamp/prompt; createdLocal/firstUserText are frozenmetadata crosschecks, not claimedUIlabels."
+      }
+    ],
+    "expectedHistoryBeforeDiscard": {
+      "AEligible": 6,
+      "ABlocked": 2,
+      "BEligible": 2,
+      "BBlocked": 0
+    },
+    "authorization": "Root allows only these two ownedpendingcopies UI discard before oneA8/B2 clear; neverApply/newSend/oldnine deletion. Evidence frozen before discard.",
+    "afterDiscardExpected": {
+      "AEligible": 8,
+      "ABlocked": 0,
+      "BEligible": 2,
+      "BBlocked": 0
+    }
+  }
+}

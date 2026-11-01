@@ -1,0 +1,23 @@
+Source: cua.rewriteDocumentation() tool output; returned undefined, so relevant verbatim excerpts transcribed from the emitted documentation.
+
+type ObservationOptions = { emit?: boolean };
+type StateOptions = ObservationOptions & { disableDiffing?: boolean };
+type PressKeyOptions = { durationMs?: number };
+
+interface Target<ScreenshotResult = Uint8Array | ScreenshotRegion[]> {
+  getAXState(options?: StateOptions): Promise<string>;
+  getScreenshot(options?: ObservationOptions): Promise<ScreenshotResult>;
+  getAXStateAndScreenshot(options?: StateOptions): Promise<StateAndScreenshot>;
+  click(target: number | Vec2, options?: ClickOptions): Promise<void>;
+}
+
+interface App extends Target {
+  click(target: number | Vec2, options?: AppClickOptions): Promise<void>;
+  paste(text: string, options?: PasteOptions): Promise<void>;
+  pressKey(key: string, options?: PressKeyOptions): Promise<void>;
+}
+
+After performing one or more UI actions, call `getAXState()` before deciding what to do next. This keeps you in the current UI state and forces you to re-derive fresh element indices from the latest accessibility text instead of reusing stale ones.
+For token efficiency, when appropriate, the accessibility tree will be returned as a diff from the most previous accessibility tree, listing only the elements that were removed, added, or changed. Prefer this default diff output; pass `{ disableDiffing: true }` only when you need a fresh full accessibility tree. After a screenshot-only observation, request a full tree before relying on accessibility indexes again.
+
+- `pressKey()` presses a key or key combination, including modifier and navigation keys. It supports xdotool-style key syntax. Examples: `"a"`, `"Return"`, `"Tab"`, `"super+c"`, `"Up"`, and `"KP_0"` for numpad `0`.

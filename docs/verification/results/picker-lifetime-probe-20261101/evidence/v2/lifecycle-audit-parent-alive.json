@@ -1,0 +1,463 @@
+{
+  "auditedAt": "2026-11-01T03:34:13.904568+00:00",
+  "scope": "Isolated AppKit parent/short-lived picker child lifecycle experiment; not Horizon product integration or final resource budget",
+  "parentPid": 38330,
+  "parentAliveAtLatest": true,
+  "parentObservedPresentEverySample": true,
+  "parentBinarySha256": "5c2a6ff23ec5c9f503ddcda4cea4247f4cb328b9ce6fbf05d9d0672678322add",
+  "parentBinaryBytes": 112624,
+  "normalNativeCases": [
+    {
+      "mode": "folder",
+      "childPid": 44794,
+      "nativeStartedAt": "2026-11-01T03:29:52Z",
+      "nativeExitedAt": "2026-11-01T03:30:05Z",
+      "exitCode": 0,
+      "status": "selected",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/fixture",
+      "postExitFrontmostPid": 742,
+      "childAndNewServices": [
+        44794,
+        44796,
+        44797,
+        44865
+      ],
+      "allThoseIdentitiesAbsentAtLatest": true
+    },
+    {
+      "mode": "folder",
+      "childPid": 48031,
+      "nativeStartedAt": "2026-11-01T03:31:31Z",
+      "nativeExitedAt": "2026-11-01T03:31:39Z",
+      "exitCode": 0,
+      "status": "cancelled",
+      "path": null,
+      "postExitFrontmostPid": 742,
+      "childAndNewServices": [
+        48031,
+        48032,
+        48033,
+        48103
+      ],
+      "allThoseIdentitiesAbsentAtLatest": true
+    },
+    {
+      "mode": "save",
+      "childPid": 48689,
+      "nativeStartedAt": "2026-11-01T03:31:50Z",
+      "nativeExitedAt": "2026-11-01T03:32:04Z",
+      "exitCode": 0,
+      "status": "selected",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/fixture/probe-selected.txt",
+      "postExitFrontmostPid": -1,
+      "childAndNewServices": [
+        48689,
+        48690,
+        48691,
+        48693
+      ],
+      "allThoseIdentitiesAbsentAtLatest": true
+    },
+    {
+      "mode": "save",
+      "childPid": 49682,
+      "nativeStartedAt": "2026-11-01T03:32:18Z",
+      "nativeExitedAt": "2026-11-01T03:32:25Z",
+      "exitCode": 0,
+      "status": "cancelled",
+      "path": null,
+      "postExitFrontmostPid": 742,
+      "childAndNewServices": [
+        49682,
+        49683,
+        49684,
+        49735
+      ],
+      "allThoseIdentitiesAbsentAtLatest": true
+    }
+  ],
+  "probeProcessIdentities": [
+    {
+      "pid": 38330,
+      "start": "Sun Nov 1 11:26:31 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/PanelLifetimeProbe.app/Contents/MacOS/PanelLifetimeProbe",
+      "firstObservedAt": "2026-11-01T03:27:07.322159+00:00",
+      "lastObservedAt": "2026-11-01T03:34:13.504256+00:00",
+      "observedSamples": 391,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": null,
+      "presentAtLatest": true
+    },
+    {
+      "pid": 38331,
+      "start": "Sun Nov 1 11:26:32 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "firstObservedAt": "2026-11-01T03:27:07.322159+00:00",
+      "lastObservedAt": "2026-11-01T03:34:13.504256+00:00",
+      "observedSamples": 391,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": null,
+      "presentAtLatest": true
+    },
+    {
+      "pid": 44794,
+      "start": "Sun Nov 1 11:29:52 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/PanelLifetimeChild.app/Contents/MacOS/PanelLifetimeProbe",
+      "firstObservedAt": "2026-11-01T03:29:53.039314+00:00",
+      "lastObservedAt": "2026-11-01T03:30:04.895961+00:00",
+      "observedSamples": 12,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:30:05.952661+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 44796,
+      "start": "Sun Nov 1 11:29:53 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "firstObservedAt": "2026-11-01T03:29:54.117130+00:00",
+      "lastObservedAt": "2026-11-01T03:30:04.895961+00:00",
+      "observedSamples": 11,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:30:05.952661+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 44797,
+      "start": "Sun Nov 1 11:29:53 2026",
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "firstObservedAt": "2026-11-01T03:29:54.117130+00:00",
+      "lastObservedAt": "2026-11-01T03:30:04.895961+00:00",
+      "observedSamples": 11,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:30:05.952661+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 44865,
+      "start": "Sun Nov 1 11:29:54 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "firstObservedAt": "2026-11-01T03:29:55.200848+00:00",
+      "lastObservedAt": "2026-11-01T03:30:04.895961+00:00",
+      "observedSamples": 10,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:30:05.952661+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48031,
+      "start": "Sun Nov 1 11:31:31 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/PanelLifetimeChild.app/Contents/MacOS/PanelLifetimeProbe",
+      "firstObservedAt": "2026-11-01T03:31:32.431402+00:00",
+      "lastObservedAt": "2026-11-01T03:31:38.920865+00:00",
+      "observedSamples": 7,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:31:40.001285+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48032,
+      "start": "Sun Nov 1 11:31:31 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "firstObservedAt": "2026-11-01T03:31:32.431402+00:00",
+      "lastObservedAt": "2026-11-01T03:31:38.920865+00:00",
+      "observedSamples": 7,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:31:40.001285+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48033,
+      "start": "Sun Nov 1 11:31:31 2026",
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "firstObservedAt": "2026-11-01T03:31:32.431402+00:00",
+      "lastObservedAt": "2026-11-01T03:31:38.920865+00:00",
+      "observedSamples": 7,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:31:40.001285+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48103,
+      "start": "Sun Nov 1 11:31:32 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "firstObservedAt": "2026-11-01T03:31:33.519475+00:00",
+      "lastObservedAt": "2026-11-01T03:31:38.920865+00:00",
+      "observedSamples": 6,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:31:40.001285+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48689,
+      "start": "Sun Nov 1 11:31:50 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/PanelLifetimeChild.app/Contents/MacOS/PanelLifetimeProbe",
+      "firstObservedAt": "2026-11-01T03:31:50.825942+00:00",
+      "lastObservedAt": "2026-11-01T03:32:03.802480+00:00",
+      "observedSamples": 13,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:04.879105+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48690,
+      "start": "Sun Nov 1 11:31:50 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "firstObservedAt": "2026-11-01T03:31:50.825942+00:00",
+      "lastObservedAt": "2026-11-01T03:32:03.802480+00:00",
+      "observedSamples": 13,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:04.879105+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48691,
+      "start": "Sun Nov 1 11:31:50 2026",
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "firstObservedAt": "2026-11-01T03:31:50.825942+00:00",
+      "lastObservedAt": "2026-11-01T03:32:03.802480+00:00",
+      "observedSamples": 13,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:04.879105+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 48693,
+      "start": "Sun Nov 1 11:31:50 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "firstObservedAt": "2026-11-01T03:31:51.912534+00:00",
+      "lastObservedAt": "2026-11-01T03:32:03.802480+00:00",
+      "observedSamples": 12,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:04.879105+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 49682,
+      "start": "Sun Nov 1 11:32:18 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/PanelLifetimeChild.app/Contents/MacOS/PanelLifetimeProbe",
+      "firstObservedAt": "2026-11-01T03:32:18.895012+00:00",
+      "lastObservedAt": "2026-11-01T03:32:24.336670+00:00",
+      "observedSamples": 6,
+      "responsiblePids": [
+        38330
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:25.399801+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 49683,
+      "start": "Sun Nov 1 11:32:18 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "firstObservedAt": "2026-11-01T03:32:18.895012+00:00",
+      "lastObservedAt": "2026-11-01T03:32:25.399801+00:00",
+      "observedSamples": 7,
+      "responsiblePids": [
+        38330,
+        null
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:26.486221+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 49684,
+      "start": "Sun Nov 1 11:32:18 2026",
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "firstObservedAt": "2026-11-01T03:32:18.895012+00:00",
+      "lastObservedAt": "2026-11-01T03:32:25.399801+00:00",
+      "observedSamples": 7,
+      "responsiblePids": [
+        38330,
+        null
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:26.486221+00:00",
+      "presentAtLatest": false
+    },
+    {
+      "pid": 49735,
+      "start": "Sun Nov 1 11:32:19 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "firstObservedAt": "2026-11-01T03:32:19.986673+00:00",
+      "lastObservedAt": "2026-11-01T03:32:25.399801+00:00",
+      "observedSamples": 6,
+      "responsiblePids": [
+        38330,
+        null
+      ],
+      "firstObservedAbsentAt": "2026-11-01T03:32:26.486221+00:00",
+      "presentAtLatest": false
+    }
+  ],
+  "presentProbeIdentitiesAtLatest": [
+    38330,
+    38331
+  ],
+  "lastNativeChildExitMinimumObservedSeconds": 107.504256,
+  "lastObservedAt": "2026-11-01T03:34:13.504256+00:00",
+  "segments": [
+    {
+      "path": ".work/picker-lifetime-probe/evidence/v2/identity-observation.jsonl",
+      "samples": 279,
+      "first": "2026-11-01T03:27:07.322159+00:00",
+      "last": "2026-11-01T03:32:08.072317+00:00",
+      "sha256AtAudit": "994b7c9503234652894a976a154581f3846c0a2c7d0a771ca3f59f335156abcd"
+    },
+    {
+      "path": ".work/picker-lifetime-probe/evidence/v2/continued/identity-observation.jsonl",
+      "samples": 112,
+      "first": "2026-11-01T03:32:13.485138+00:00",
+      "last": "2026-11-01T03:34:13.504256+00:00",
+      "sha256AtAudit": "05d97ece387615c0f346a67d37541d4ace074fa7bc75c2f15bd4255cd79c3e1d"
+    }
+  ],
+  "segmentBoundaryGapSeconds": 5.412821,
+  "gapInterpretation": "5.41s recorder handoff gap falls after third child and its services were already absent, before fourth child started. All four child intervals and corresponding new services were observed. Gap is retained, not interpolated.",
+  "accounting": "First segment tracked all target OpenSavePanel/QuickLook/SafariPlatform services, probe descendants/responsibility and old Horizon root. Continuation additionally records full old Horizon responsibility group separately. No whole-desktop CPU budget inferred from target-only segment.",
+  "latestOldHorizonIdentities": [
+    {
+      "pid": 34128,
+      "start": "Sun Nov 1 10:33:56 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 34195,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 34196,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 34197,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 34198,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 34199,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 40868,
+      "start": "Sun Nov 1 10:37:22 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 40869,
+      "start": "Sun Nov 1 10:37:22 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 40938,
+      "start": "Sun Nov 1 10:37:24 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 66058,
+      "start": "Sun Nov 1 10:49:57 2026",
+      "responsible_pid": 34128
+    },
+    {
+      "pid": 68509,
+      "start": "Sun Nov 1 10:51:08 2026",
+      "responsible_pid": 34128
+    }
+  ],
+  "conclusion": "Four normal selected/cancelled results and child exit0; all 16 child/new picker service identities absent while parent and its ThemeWidget stay alive. Resource-lifetime benefit demonstrated for this isolated probe. CPU benefit is inferred only from terminated identities having no future CPU, not a measured final application budget.",
+  "remainingUX": [
+    "Separate child cannot attach a sheet to parent NSWindow across processes.",
+    "Post-exit frontmost PID742 or-1 is not parent38330; parent focus return not established.",
+    "Save selection returns path only; probe does not write export data.",
+    "Production signing/packaging, focus/modal coordination and native end-to-end behavior still require implementation/acceptance.",
+    "Successful cases used a distinct child bundle identifier. Same-bundle normal picker completion was not measured; invalid routing case cannot prove equivalence."
+  ],
+  "invalidFirstCase": "Same-bundle routing case childSIGTERM15+parentclose remains invalid, stored separately and excluded from normal cases.",
+  "archivedAt": "2026-11-01T03:36:11.131622+00:00",
+  "finalCollectorCompletions": [
+    {
+      "session": 97837,
+      "exitCode": 0,
+      "samples": 279,
+      "observedSeconds": 300.7996262500019
+    },
+    {
+      "session": 34920,
+      "exitCode": 0,
+      "samples": 156,
+      "observedSeconds": 167.81422266699883
+    }
+  ],
+  "finalArtifacts": [
+    {
+      "path": "evidence/v2/identity-observation.jsonl",
+      "bytes": 2331382,
+      "sha256": "994b7c9503234652894a976a154581f3846c0a2c7d0a771ca3f59f335156abcd"
+    },
+    {
+      "path": "evidence/v2/continued/identity-observation.jsonl",
+      "bytes": 1995115,
+      "sha256": "8e54054bb4c0ea11b42d0855956ff2e94efd0984be9dd22c66368d026a53b86b"
+    },
+    {
+      "path": "evidence/v2/post-parent-native-close.json",
+      "bytes": 15601,
+      "sha256": "00e5c35e791621a2a87fad9ccf0173f1b70ad55f9e892dd58920fe4563d99512"
+    },
+    {
+      "path": "native-actions.jsonl",
+      "bytes": 2453,
+      "sha256": "02c534ecc3eaad81d30ea323545b3f97f89a61d8299398f96fc17fa1eb8805fc"
+    },
+    {
+      "path": "source/PanelLifetimeProbe.swift",
+      "bytes": 6547,
+      "sha256": "fe5a130c528b56fab8344ce317ad8fbf93ad3d1eca153014f794546e692445b1"
+    }
+  ],
+  "postParentClose": "After primary parent-alive evidence, root closed parent through native close button; final read-only snapshot shows all probe identities absent and all11 oldHorizon identities stillpresent. This post-parent snapshot is supplemental only.",
+  "independentlyViewedNativeImages": [
+    "folder-opened.jpg: actual NSOpenPanel at own fixture directory with Open/Cancel",
+    "save-opened.jpg: actual NSSavePanel with child48689 and probe-selected filename",
+    "parent-after-four.jpg: parent38330 reports child49682 exited0/cancelled and remains running"
+  ],
+  "savePathWriteCheck": {
+    "checkedAt": "2026-11-01T03:36:32.806228+00:00",
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-lifetime-probe/fixture/probe-selected.txt",
+    "exists": false,
+    "interpretation": "Selection-only probe; no exported file content produced."
+  }
+}

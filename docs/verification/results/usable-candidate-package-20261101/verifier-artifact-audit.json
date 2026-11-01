@@ -1,0 +1,43 @@
+{
+  "auditedAt": "2026-11-01T09:53:34.066885+00:00",
+  "reviewer": "/root/verification_sol",
+  "scope": "Read-only artifact hash/ZIP entry verification only. No install/launch/mount/build/test. Candidate remains under functional acceptance.",
+  "receiptSha256": "f9f34e3b13db9a61433f574c4442fe4b2105278185a6481cc737c9cb0c118242",
+  "sourceMainSha256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+  "artifacts": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg",
+      "bytes": 19919210,
+      "sha256": "f4d647e04d742529283a1d04d687c38a1587e28010b7e2db76b9f891e425c764",
+      "matchesReceipt": true
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+      "bytes": 15859414,
+      "sha256": "37d1e04a9e3a9c805b0dbdb9404565a3faf75f89c758e5d3633e01707ea05ab4",
+      "matchesReceipt": true
+    }
+  ],
+  "zipEntryChecks": [
+    {
+      "zipEntry": "Horizon.app/Contents/MacOS/horizon-desktop",
+      "bytes": 19877872,
+      "sha256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+      "matchesOriginal495Bundle": true
+    },
+    {
+      "zipEntry": "Horizon.app/Contents/Info.plist",
+      "bytes": 969,
+      "sha256": "b1bd88caab2f71c8944e2cdf5491f422c5060013a3abad24c00201c1ebe5495a",
+      "matchesOriginal495Bundle": true
+    },
+    {
+      "zipEntry": "Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+      "bytes": 166816,
+      "sha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101",
+      "matchesOriginal495Bundle": true
+    }
+  ],
+  "dmgMountedOrInstalled": false,
+  "finalGoalAcceptanceClaimed": false
+}

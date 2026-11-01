@@ -1,0 +1,45 @@
+{
+  "startedAt": "2026-11-01T09:52:12.146377+00:00",
+  "archiveReceipt": "receipt.json",
+  "temporaryDirectory": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-candidate-verify-8vulkkop",
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/hdiutil",
+        "verify",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg"
+      ],
+      "exitCode": 0,
+      "stdout": "正在检查“Protective Master Boot Record（MBR：0）”的校验和…\nProtective Master Boot Record（MBR：0）：已验证CRC32 $8B71FFD8\n正在检查“GPT Header（Primary GPT Header：1）”的校验和…\n    GPT Header（Primary GPT Header：1）：已验证CRC32 $EF3A68CD\n正在检查“GPT Partition Data（Primary GPT Table：2）”的校验和…\nGPT Partition Data（Primary GPT Table：已验证CRC32 $E499DDE9\n正在检查“（Apple_Free：3）”的校验和…\n                      （Apple_Free：3）：已验证CRC32 $00000000\n正在检查“disk image（Apple_APFS：4）”的校验和…\n            disk image（Apple_APFS：4）：已验证CRC32 $6203D1B3\n正在检查“（Apple_Free：5）”的校验和…\n                      （Apple_Free：5）：已验证CRC32 $00000000\n正在检查“GPT Partition Data（Backup GPT Table：6）”的校验和…\nGPT Partition Data（Backup GPT Table：：已验证CRC32 $E499DDE9\n正在检查“GPT Header（Backup GPT Header：7）”的校验和…\n     GPT Header（Backup GPT Header：7）：已验证CRC32 $D17A20A5\n已验证CRC32 $6E3E6D65\n",
+      "stderr": "hdiutil: verify: checksum of \"/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg\" is VALID\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "-x",
+        "-k",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-candidate-verify-8vulkkop"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-candidate-verify-8vulkkop/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "launched": false,
+  "extractedMainSha256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+  "passed": true,
+  "completedAt": "2026-11-01T09:52:15.699417+00:00"
+}

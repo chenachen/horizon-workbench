@@ -1,0 +1,138 @@
+{
+  "reviewedAt": "2026-11-01T10:26:55.039225+00:00",
+  "kind": "Actual native failure plus frozen-cache/source causal audit; no new GUI/tests/process sampling",
+  "native": {
+    "label": "06a-send-observation",
+    "time": "2026-11-01T10:14:25.798Z",
+    "pid": 75147,
+    "pidStart": "2026-11-01 17:34:01 +0800",
+    "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+    "window": "Horizon 1280×800",
+    "zoom": "100%",
+    "style": "底部导航 / 极光 / 深色",
+    "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-06a-send-observation.jpg",
+    "imageSHA256": "951b7a045057bd9c348405d5f4f5f88fc6886d72dca7eac91e1feae8cdc2283b",
+    "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-send-observation.ax.txt",
+    "axSHA256": "ad08b6221514bca3c36a02f6e4c1ab95ac7a7c1e0a26810dee53f76ae7926254",
+    "note": "已点击发送一次；当前显示就绪、请求仍在输入框，未见等待授权"
+  },
+  "clickRecord": {
+    "recordedTime": "2026-11-01T10:16:14.991Z",
+    "actionTime": "未单独记录，无法从既有工具返回精确取得",
+    "preSend": [
+      "\t\t\t\t\t\t\t100 text (settable) HORIZON_TEST_WRITE_STREAM_REVIEW I1 review",
+      "\t\t\t\t\t\t101 pop up button 当前模型连接, Value: PiQA 协议服务 1101",
+      "\t\t\t\t\t\t102 button 发送给 Pi"
+    ],
+    "action": "await appR.click(102)",
+    "actionReturn": "已正常返回（void），未抛错",
+    "immediateAfter": [
+      "\t\t\t\t\t\t93 text 就绪",
+      "\t\t\t\t\t\t\t102 text (settable) HORIZON_TEST_WRITE_STREAM_REVIEW I1 review",
+      "\t\t\t\t\t\t104 button 发送给 Pi"
+    ],
+    "preAX": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-presend-remembered.ax.txt",
+    "postAX": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-immediate-postclick-remembered.ax.txt"
+  },
+  "ownerObservation": {
+    "checkedAt": "2026-11-01T10:16:01.497346+00:00",
+    "card": "06a",
+    "status": "HOLD — native send produced no permission/message; no retry",
+    "observedNative": "Terra replaced full draft with exactWRITE_STREAM_REVIEW and clicked fresh send once; UI returnsready/input retained/end-session visible; no authorization shown.",
+    "health": {
+      "fixture": true,
+      "requests": 3
+    },
+    "modelLogLines": 3,
+    "piPids": "",
+    "piZero": true,
+    "appOs": "75147 Sun Nov  1 17:34:01 2026     /Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+    "aSessions": [
+      {
+        "sessionId": "10ab47ff-3a4d-46d7-9b6e-e9dc4417ea9e",
+        "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+        "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+        "profile": "chat",
+        "state": "dormant",
+        "instanceId": null,
+        "instanceEpoch": 1,
+        "reviewId": null,
+        "piFile": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/10ab47ff-3a4d-46d7-9b6e-e9dc4417ea9e/session.jsonl"
+      },
+      {
+        "sessionId": "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+        "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+        "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+        "profile": "task",
+        "state": "dormant",
+        "instanceId": null,
+        "instanceEpoch": 1,
+        "reviewId": "3f42cedd-c2d4-48c6-a1f0-4e40f048a016",
+        "piFile": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/9d735921-dee5-45a3-aa6f-27a6ed40741f/session.jsonl"
+      },
+      {
+        "sessionId": "a95b2fcb-b4bd-4ccf-8c7b-266729199cc0",
+        "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+        "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+        "profile": "task",
+        "state": "dormant",
+        "instanceId": null,
+        "instanceEpoch": 0,
+        "reviewId": null,
+        "piFile": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/a95b2fcb-b4bd-4ccf-8c7b-266729199cc0/session.jsonl"
+      }
+    ],
+    "aReviews": [
+      {
+        "reviewId": "3f42cedd-c2d4-48c6-a1f0-4e40f048a016",
+        "sessionId": "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+        "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/3f42cedd-c2d4-48c6-a1f0-4e40f048a016/worktree",
+        "completed": false,
+        "discarded": false
+      }
+    ],
+    "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-send-observation.ax.txt",
+    "uiReady": true,
+    "uiRequestInDraft": true,
+    "uiVisibleErrorTerms": [],
+    "next": "Report to root for functional failure judgment; do not retry/send/clear attachments or create another session until root directs. No120s authorization window observed."
+  },
+  "originalImagePersonallyViewed": true,
+  "completeObservationAXRead": true,
+  "rememberedAXReview": {
+    "preToPostCompleteDiff": "--- preSend\n\n+++ postClick\n\n@@ -108,5 +108,7 @@\n\n \t\t\t\t\t\t# text 让 Pi 完成一项任务\n \t\t\t\t\t# text 在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n-\t\t\t\t\t# text 就绪\n+\t\t\t\t\t# container\n+\t\t\t\t\t\t# text 就绪\n+\t\t\t\t\t\t# button 结束会话\n \t\t\t\t\t# container\n \t\t\t\t\t\t# text example.txt · 暂存区 → 磁盘文件\n@@ -141,3 +143,3 @@\n\n \t# Help\n \n-The focused UI element is 99 text entry area (settable) 描述 Pi 任务, Value: [text entry area: 描述 Pi 任务], Placeholder: 描述要在副本中完成的任务…\n+The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost",
+    "postClickByteIdenticalToObservation": true,
+    "timingLimit": "Remembered AX was archived later; precise click timestamp was not recorded."
+  },
+  "artifactSHA256": {
+    "docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-click-record.json": "923b95e6156dd7ba3da63161163969371871524e874ed0177f4ca15e71dc63bf",
+    "docs/verification/results/pi-terra-20261101/06a-send-observation.json": "2f5a14d749557602b4172d09203cd2d1c99d2121a395f1fe5ec09b6ebb833eab",
+    "docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-presend-remembered.ax.txt": "8fdc30c713dd91d72ec9a2234d85afbc770cdb5b9045a86e69f639372fc14949",
+    "docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-immediate-postclick-remembered.ax.txt": "ad08b6221514bca3c36a02f6e4c1ab95ac7a7c1e0a26810dee53f76ae7926254",
+    ".work/pi-agent-recovery-20261101/cache-proof.json": "1a3481eeb2586b1559a6b03f0ab208cee472888ed3ac5ff00b9196e0fdd96e02",
+    ".work/pi-agent-recovery-20261101/expired-diff-cache.json": "dc1f748e6c65753b9e0f38d88ae7c85da37aa7ec9eec7cf670b42c3979fc13d8"
+  },
+  "sourceSHA256Matches495": {
+    "apps/desktop/src/features/agent/store.ts": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+    "apps/desktop/src-tauri/src/agent.rs": "fe5998312c193cd5775f7e379d3d6956fe14be411958bd7dca0ab1e56964ecdc",
+    "apps/desktop/src-tauri/src/git.rs": "51399e7460810d502176c0b258541f990f620c6ecf9e9c9cf740315a1e913209"
+  },
+  "cacheBinding": {
+    "rawSHA256": "dc1f748e6c65753b9e0f38d88ae7c85da37aa7ec9eec7cf670b42c3979fc13d8",
+    "repoRootDigestMatches": true,
+    "patchSHA256": "ec0554a439514069cf842fcf1edb59fb427d95198c12a8051dbb0402ae91897f",
+    "sameExactActualHTTP04bPatch": true,
+    "originalMtimeReceipt": "2026-11-01T09:56:58.409207+00:00",
+    "ageSecondsFromOwnerRecordedMtime": {
+      "earliest06AttemptAfterPreviousTerminalUtc": 718.494793,
+      "first06ObservationUtc": 1047.388793
+    }
+  },
+  "causalConclusion": "Exact A inherited Git attachment cache is already >600 whole seconds even at conservative before06 bound. Frozen495 git503 deterministically returns STALE_CURSOR; context_prepare invokes this before submit/Pi. Frozen495 sendAgent92 sets failed/error then passive loadAgent26 selects empty session; selectSession33 clears error/status toidle. Native UI matches this silent-reset outcome.",
+  "limits": [
+    "The swallowed native error reply itself was not logged. Cause is source/cache/actual-HTTP inference, explicitly distinguished from a captured internal reply.",
+    "No exact click time or10minute synthetic wait claimed; actual recorded previous terminal gives conservative expiry bound.",
+    "No120s permission window/newPi/newreview was reached; input and two attachments remained. This is error-recovery failure, not an unauthorized write/tool side effect.",
+    "Later repair must combine retained native expiredDiff failure +same-error actual-component before/after +new native stale-buffer refusal/recovery; do not claim it replayed the sameexpired cache."
+  ]
+}

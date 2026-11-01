@@ -1,0 +1,43 @@
+{
+  "kind": "native-functional-failure-branch-list-cache",
+  "recordedAt": "2026-11-01T15:45:02.325007+00:00",
+  "status": "OPEN_A78C_NATIVE_FAILURE",
+  "rawCapture": {
+    "label": "03-no-upstream-list-mismatch",
+    "time": "2026-11-01T14:47:23.574Z",
+    "pid": 91087,
+    "pidStart": "2026-11-01 21:07:16 +0800",
+    "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+    "mainSHA256": "a78cfd8a5523562d6252de96e7ddbaf4af56bdd1c4b46f1eddfbf4bad4365d27",
+    "imageDimensions": {
+      "height": 800,
+      "width": 1280,
+      "ext": "jpg"
+    },
+    "zoom": "100% inherited",
+    "layout": "底部导航",
+    "theme": "极光",
+    "mode": "深色",
+    "density": "跟随",
+    "font": "inherited",
+    "project": "01-Git补验",
+    "note": "After owner branch switch and one refresh, sync says no upstream and push gui/no-upstream but branch list labels main current",
+    "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/git-terra-20261101/git-91087-1793541773799-03-no-upstream-list-mismatch.jpg",
+    "imageSHA256": "3722b0310f5c81c076bc7d55eb57edbe76d3458db97178d3671db2294ecdc546",
+    "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/git-terra-20261101/git-91087-1793541773799-03-no-upstream-list-mismatch.ax.txt",
+    "axSHA256": "6e3e9b9ae73636a2c3b87a0bb8080566ed13f3ad9fb127691bb5c24190e67c90"
+  },
+  "actualDisk": "03-switch-to-no-upstream.json: attached gui/no-upstream; main and gui/no-upstream sameOID25e954; index/disk unchanged",
+  "actualUI": "Refreshed bottom/head/push source gui/no-upstream/no upstream, but branch list main current/tracking origin-main and gui/no-upstream ordinary local",
+  "sameHeadOIDAcrossBranchChange": true,
+  "source": {
+    "path": "apps/desktop/src/features/git/GitPanel.tsx",
+    "sha256": "ab271f73782e932ca32df660e8904ff414076721cce0a58b4c5a0cbab70f44f6",
+    "cause": "refresh59–65 updates snapshot only; branches cache cleared by successful run89, loadBranches109 guarded only by project generation, effect110 keyed repoId and !branches; same repoId/sameOID external branch-name switch leaves cache old",
+    "necessaryScope": "Invalidate/reload cache using actual refs/head identity including branch NAME, not onlyOID; preserve user remote/target inputs; no backend rewrite"
+  },
+  "owner": "root/navigation_sol candidate; product not applied",
+  "selectorNotContinued": true,
+  "restoredMainForIndependentCommit": "03-switch-back-main.json;8true",
+  "failureNotOverwrittenByNormalMainScene": true
+}

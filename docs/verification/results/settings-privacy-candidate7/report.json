@@ -1,0 +1,114 @@
+{
+  "evidenceId": "MAC-SETTINGS-PRIVACY-CANDIDATE7",
+  "recordedAt": "2026-10-30T21:04:52.343066+00:00",
+  "sourceFrozen": true,
+  "requirements": [
+    "REQ-NFR-005",
+    "REQ-SET-008",
+    "REQ-AI-013"
+  ],
+  "behavior": {
+    "exportPreview": {
+      "methods": [
+        "data_export_preview",
+        "data_export_discard",
+        "data_export"
+      ],
+      "scope": "app",
+      "snapshot": "pretty JSON frozen when preview is created; plan export writes those exact bytes",
+      "ttlSeconds": 300,
+      "maximumPlans": 4,
+      "maximumSnapshotBytes": 1048576,
+      "failedWrites": "retain plan for retry without replacing an existing destination",
+      "legacyCategoriesExport": "retained for compatibility; uses same projection"
+    },
+    "configurationProjection": {
+      "settings": "Known setting keys and validated primitive values only; shortcuts limited to recognized commands/key syntax; absolute paths excluded, including embedded obvious Unix/Windows drive/UNC paths in free text.",
+      "legacyConnections": "Omitted from defaults/effective settings, rejected by settings_patch, stripped from loaded global/project objects and subsequent settings writes.",
+      "appearance": "Known layout/theme/mode/geometry/color/background/preset/asset fields only; unknown nested fields excluded; preset names containing recognizable absolute paths omitted.",
+      "credentials": "No credential index, secrets, agent connection records, document bodies or arbitrary source strings are read into export."
+    },
+    "frontendRuntimeDiagnostics": {
+      "schemaVersion": 1,
+      "fieldCount": 15,
+      "values": "Complete nonnegative safe-integer counter set; no identifiers/text/paths; kept separate from native subscription counts."
+    },
+    "credentials": {
+      "read": "credential-index.json persistence is authoritative. session reads memory only and expires after HostState restart. Missing/unregistered refs are unavailable.",
+      "systemToSession": "Stage index first; read/delete only the same Horizon Keyring ref, then atomically commit session index and update memory. Delete failure preserves old index/memory; commit failure restores old system key; restoration failure is explicitly OUTCOME_UNKNOWN.",
+      "systemSave": "Stage changed index before writing system credential; failed index commit deletes newly written system key and reports any cleanup failure as OUTCOME_UNKNOWN. Existing session memory changes only after index commit.",
+      "remove": "Touches only indexed Horizon ref. Keeps memory until system deletion and index write succeed.",
+      "plaintextPersistence": "Only metadata/reference/persistence written in credential-index.json; key values are not serialized."
+    }
+  },
+  "checks": [
+    {
+      "command": "cargo test --test files_workflow --test credentials_workflow -- --nocapture",
+      "result": "29 passed, 1 explicitly ignored real Keyring case",
+      "log": "native-regressions.log",
+      "note": "Before final path-pattern correction; affected export cases rerun after correction."
+    },
+    {
+      "command": "cargo test --lib settings::tests -- --nocapture",
+      "result": "2 passed",
+      "log": "settings-unit.log"
+    },
+    {
+      "command": "cargo test --test credentials_workflow real_macos_keyring -- --ignored --nocapture",
+      "result": "1 passed",
+      "log": "keyring-real.log",
+      "noInteraction": "SecKeychainSetUserInteractionAllowed(false) in isolated test process prevents OS prompts",
+      "coverage": [
+        "Fake system key save/read/restart",
+        "System to session removes prior key",
+        "Session restart unavailable",
+        "Legacy residual key ignored",
+        "Selected-ref deletion preserves second fake ref",
+        "Read-only app-data failure preserves session and creates no key",
+        "Both random fake refs deleted after test; no personal entries accessed"
+      ]
+    },
+    {
+      "command": "cargo test --test files_workflow export_preview -- --nocapture",
+      "result": "3 passed after final correction",
+      "log": "export-preview-final.log",
+      "coverage": [
+        "Explicit projections remove unknown/legacy/nested data",
+        "Unix/Windows drive/UNC path-like free text excluded",
+        "Exact frozen bytes remain after changing settings",
+        "4-plan capacity and discard",
+        "Expired plan cannot write",
+        "Existing destination preserved and retry allowed",
+        "Snapshot over 1 MiB rejected before plan allocation"
+      ]
+    }
+  ],
+  "pickerReadOnlyCheck": {
+    "pid": 35619,
+    "observedCpuPercent": 0.0,
+    "observedParentPid": 1,
+    "hostPath": "project_pick_directory -> spawn_blocking -> tauri_plugin_dialog blocking_pick_folder; result converted to PathBuf, selections hold path/time only",
+    "dependencyPath": "rfd macOS ModalFuture completion calls state.modal.take() to drop dialog and state.waker.take() to release waiter",
+    "conclusion": "No host-held panel handle found. Does not establish cause of earlier XPC CPU activity. No process killed or UI operated."
+  },
+  "limits": [
+    "These are native tests and source checks; F09 visible GUI preview awaits candidate7 GUI acceptance.",
+    "Keyring fault tests use an intentionally unavailable keyring builder; the real Keyring test covers normal system APIs and a real filesystem write failure.",
+    "Dual storage rollback failures are reported explicitly; they were not induced against the OS Keychain."
+  ],
+  "sourceHashes": {
+    "apps/desktop/src-tauri/src/settings.rs": "9be35a41259d6fbaa1df853599f4424cd89e3e90dca21fc1ea402daf1a35cd7e",
+    "apps/desktop/src-tauri/src/state.rs": "19975a801e2269383b7ebd52e21a88dd4719234619cda171f6e7fc8ff384951f",
+    "apps/desktop/src-tauri/src/lib.rs": "03bacc9bb96010b4fd20eae66c09f5052dbf13735d1bde22a0e312443ddc3750",
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "0a97fa6d2f5c6d372a4c7becc315d83a5fb600ed079beb61877fe7ccc03957bb",
+    "apps/desktop/src-tauri/tests/credentials_workflow.rs": "9302788f82579a1923bb6b48964945b3ccdc937ed9c8ca3858e3b2d6deb5f68e"
+  },
+  "logHashes": {
+    "files-workflow.log": "c6416e505eace92ba6e9237684ac8d189aefad7b6bda7f460bafebee2d10944f",
+    "native-regressions.log": "88b926a71d44a69b080821f560b35bfbd051162eade98de687e7816c17c1b4c3",
+    "keyring-real.log": "7a8a2e2a1d9ec13e96a454fcd2f84acbd2cd674e0572b801126f0be6131e802d",
+    "settings-unit.log": "093362fbbd34c112181257adc587578bfc3b0ea88115097decc05c80fbd9da79",
+    "keyring-failures.log": "9d9016f2b494561aa3beab97a82d48715f2c371a70265c28dcdfacaffc45e161",
+    "export-preview-final.log": "8dbedc0b8f86ce8d31b36d5bb3664787b3aa5d5f3d989176c800df36452bb058"
+  }
+}

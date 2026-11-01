@@ -1,0 +1,115 @@
+[
+  {
+    "platform": "macOS26.3.1arm64 native release",
+    "build": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87;PID40426",
+    "method": "Independent original nativeJPEG/AX/action/source/byte audit;53 original images viewed once,106 hashes and53 capturebindings checked. Existing named evidence reused explicitly; no GUI or product test rerun.",
+    "tasks": [],
+    "coverage": "partial",
+    "outcome": "pass",
+    "implementation": [
+      "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "apps/desktop/src-tauri/src/appearance.rs"
+    ],
+    "artifacts": [
+      "docs/verification/results/appearance-functional-native-audit-20261101/additional-audit.json",
+      "docs/verification/results/appearance-functional-native-audit-20261101/owner-summary-final.json"
+    ],
+    "limitations": [
+      "Exactrequirement globalindent2to4 whileAoverride8 thenresetA4 remains untested; this4vs2sequence doesnot substitute.",
+      "Projectwrap override and everyautosave/IMEcondition are not claimed here."
+    ],
+    "id": "MAC-APPEARANCE-GLOBAL-FONTS-PROJECT-BEHAVIOR-NATIVE-001",
+    "requirements": [
+      "REQ-SET-001",
+      "REQ-SET-003",
+      "REQ-SET-002"
+    ],
+    "observed": "Aurora项目缩进覆盖4、ProjectB继承2同时存在，来源及使用全局设置可见，Aurora重置回2。UI15/紧凑、系统等宽16、Mist260在两项目共用。",
+    "steps": [
+      "InspectactualAuroraoverride4",
+      "InspectProjectBglobalfonts16/UI15/compact/260andindent2",
+      "ReturnAuroraandUseGlobalto2"
+    ]
+  },
+  {
+    "platform": "macOS26.3.1 arm64 native1280×800; retained production service/source evidence separately labeled",
+    "build": "settings-project95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6 root34128",
+    "method": "Independent24original nativeJPEG, actual existing file/Trash bytes,100000-path count and narrow source/retained-test audit; no GUI/test rerun",
+    "tasks": [],
+    "outcome": "pass",
+    "id": "MAC-EDITOR-AUTOSAVE-AUTOSLEEP-RESUME-001",
+    "requirements": [
+      "REQ-SET-003",
+      "REQ-RUN-003"
+    ],
+    "coverage": "partial",
+    "implementation": [
+      "apps/desktop/src/features/editor/CodeSurface.tsx",
+      "apps/desktop/src-tauri/src/settings.rs",
+      "apps/desktop/src-tauri/src/lib.rs"
+    ],
+    "steps": [
+      "Enable afterDelay with existing dirty buffer; original disk remains",
+      "Next edit saves; focuschange saves; externalconflict separately pauses",
+      "Observe B/C automatic sleeping icons after background5min with default policy"
+    ],
+    "artifacts": [
+      "docs/verification/results/editor-resume-e1-e2-audit/audit.json",
+      "docs/verification/results/editor-resume-e1-e2-audit/owner-evidence-map.md",
+      "docs/verification/results/editor-resume-e1-e2-audit/root-resource-policy.json",
+      "docs/verification/results/editor-resume-20261101/014-autosave-enable-keeps-existing-dirty.jpg",
+      "docs/verification/results/editor-resume-20261101/015-autosave-after-delay.jpg",
+      "docs/verification/results/editor-resume-20261101/016-autosave-on-focus-change.jpg",
+      "docs/verification/results/editor-resume-20261101/020-conflict-pauses-focus-autosave.jpg",
+      "docs/verification/results/editor-resume-20261101/044-101MiB-chunked-final-and-background-sleep.jpg"
+    ],
+    "observed": "开启延迟保存不立即写已有dirty；下一编辑及离焦分别实际写入，最终63B与记录吻合。B/C无手动sleep、继承5分钟/keepRunningfalse；044确有睡眠图标。B在自动sleep前已显式保存，不把其当成未落盘阻止条件。",
+    "limitations": [
+      "Native IME-autosave composition pause remains.",
+      "Sleep icons do not prove listener/scan/process cleanup.",
+      "B/C wake after automatic sleep, active-resource/undurable-draft blockers and manual-pause preservation remain."
+    ]
+  },
+  {
+    "platform": "macOS26.3.1 arm64 native1280x800",
+    "build": "native-picker-menu mainabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b root21917; priorretainedGUI/service evidence labeledseparately",
+    "method": "Independent24 original nativeJPEG/fullAX, actualownedfile bytes, historicalreceipt hash and narrowproductionsource audit; no newGUI/test execution",
+    "tasks": [],
+    "outcome": "pass",
+    "coverage": "partial",
+    "id": "MAC-IME-AUTOSAVE-PAUSE-NATIVE-REMAINDER-001",
+    "requirements": [
+      "REQ-SET-003"
+    ],
+    "implementation": [
+      "apps/desktop/src/features/editor/CodeSurface.tsx",
+      "packages/editor/src/store.ts"
+    ],
+    "steps": [
+      "ProjectafterDelay1000ms",
+      "PhysicalPinyinmarkedcompositionwaitbeyonddelay",
+      "Verifyunchanged34B/hash/mtime",
+      "Commit中文andobserveautomatic40Bclean",
+      "Removeprojectoverridestorestoreinheritedoff"
+    ],
+    "artifacts": [
+      "docs/verification/results/editor-native-remainder-audit/audit.json",
+      "docs/verification/results/editor-candidate7-ime-audit/audit.json",
+      "docs/verification/results/editor-resume-e1-e2-audit/audit.json",
+      "docs/verification/results/editor-native-picker-20261101/032-native-text-copy-paste.jpg",
+      "docs/verification/results/editor-native-picker-20261101/033-native-copy-undo.jpg",
+      "docs/verification/results/editor-native-picker-20261101/034-native-copy-redo-save.jpg",
+      "docs/verification/results/editor-native-picker-20261101/036-ime-marked-with-afterdelay.jpg",
+      "docs/verification/results/editor-native-picker-20261101/038-ime-auto-saved-clean.jpg",
+      "docs/verification/results/editor-native-picker-20261101/ime-before-composition.json",
+      "docs/verification/results/editor-native-picker-20261101/ime-during-composition.json",
+      "docs/verification/results/editor-native-picker-20261101/ime-after-commit.json"
+    ],
+    "observed": "真实marked Pinyin至少4.553237s期间自动保存暂停，原34B/hash/mtime均不变；Space提交后实际40B自动保存且clean。功能汇总确认项目override移除、输入源原SCIMPinyin未改。",
+    "limitations": [
+      "OnlyIME/automatic-savepause clause;globalfontandprojectindent/wrapremainappearanceGUIwork.",
+      "Earlierfocus.tsobservationpreserved;noattributionclaim."
+    ]
+  }
+]

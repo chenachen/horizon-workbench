@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-10-30T18:42:26.487730+00:00",
+  "method": "Independent retained-output and assertion review; no repeated execution",
+  "producer": "native_core",
+  "rawLogSha256": "0ce0900e492d81ae57fed2dd7abf429418c620ce72d86a359ab77f63e3c3ebc4",
+  "passing": {
+    "unit": 40,
+    "filesWorkflow": 18,
+    "searchWorkflow": 7
+  },
+  "ignored": [
+    "Official Pi broker fixture requires explicit runner",
+    "HTTP server child fixture invoked by parent test"
+  ],
+  "sourceSha256": {
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "1cc18c67ca807e97274935151de9dbadfe759c9ee0257d6d7694ed22b104fab4",
+    "apps/desktop/src-tauri/tests/search_workflow.rs": "86f38a238f0307ef0c38da2e4de227140a28e7125ceb3ce2bfe70285b66e111c",
+    "apps/desktop/src-tauri/src/files.rs": "60bab34b58c7307af183f81ac04c89ea898340a2807a7e19ff9711b157ac6304",
+    "apps/desktop/src-tauri/src/state.rs": "61b1c8c79e5a8b757b22be5f80f610de744650349f8a4d64a976031f27feb301",
+    "apps/desktop/src-tauri/src/projects.rs": "62472a31698da4f0cda86f0992620bd45b0495bf00eb37a22be4d7d55b3225ea",
+    "apps/desktop/src-tauri/src/search.rs": "a586666a139bec092b1fceb69a7272292ebe17a423c00f3cbe0d0fffe2ec4857"
+  },
+  "newAssertions": [
+    "Marking clean removes stale checkpoint, preserves base revision/disk, rejects older checkpoint",
+    "Close plan rejects unknown resource, requires latest retained checkpoint, releases only its project",
+    "Empty workspace selection survives HostState recreation; moving active project changes active workspace in current state",
+    "Image 9000x1 rejected, 16x8 returns actual PNG metadata",
+    "Explicit scope invalidation rejects old epoch before and after activation",
+    "Eight completed searches retain four result sets; eight synthetic project path caches retain four; 40 completed tasks trim to 32 while active task remains"
+  ],
+  "limits": [
+    "Native/service tests; no WebView or real input/close confirmation",
+    "Epoch test directly invokes invalidate_project_scope; it does not run five-minute auto-sleep",
+    "Workspace move checks current registry; only empty-workspace selection is explicitly reread from new HostState",
+    "APFS invalid-byte filename early-return limitation from previous audit remains",
+    "GUI undo-dirty and close-cancel-focus failures remain active until actual new-bundle retest"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "kind": "retained execution tool results; no rerun",
+  "command": {
+    "tool": "tools.exec_command",
+    "input": {
+      "cmd": "rtk proxy node .work/navigation-activation-component.mjs",
+      "workdir": "/Users/chenpengxiang/Desktop/Horizon",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "47a804",
+      "wall_time_seconds": 1.001226625,
+      "session_id": 10799,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "tool": "tools.write_stdin",
+    "input": {
+      "session_id": 10799,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2500
+    },
+    "result": {
+      "chunk_id": "cc8175",
+      "wall_time_seconds": 6.5e-06,
+      "exit_code": 0,
+      "original_token_count": 61,
+      "output": "{\"passed\":true,\"scenarios\":[{\"variant\":\"before\",\"passed\":true},{\"variant\":\"after\",\"passed\":true}],\"sourcesUnchanged\":true,\"durationMs\":1417,\"resultPath\":\"/Users/chenpengxiang/Desktop/Horizon/.work/navigation-activation-component-result.json\"}\n"
+    }
+  },
+  "harnessReported": {
+    "startedAt": "2026-11-01T07:54:28.943Z",
+    "completedAt": "2026-11-01T07:54:30.360Z",
+    "durationMs": 1417
+  },
+  "timeProvenance": "UTC timestamps and duration above come from the harness report; no separate OS process start/end timestamps were collected.",
+  "initialAttempt": "attempt-01.json retains the first fixture initialization timeout. Its exec session/result metadata was not retained; none is reconstructed.",
+  "scope": "Real App/DesktopShell, LauncherToolbar/useLauncher and bridge; appearance/editor/plugin modules controlled. No native GUI, product build, app-data write or native request trace.",
+  "outputProvenance": "tool-output.log is the retained completion tool output. The exec tool did not expose separate stdout/stderr; no independent stderr capture is claimed."
+}

@@ -1,0 +1,1038 @@
+{
+  "kind": "React + real CodeMirror browser regression",
+  "phases": [
+    {
+      "name": "initial mount",
+      "editors": 1,
+      "text": "content for a",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 1,
+        "destroyedViews": 0,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dispose then reactivate while React stays mounted",
+      "editors": 1,
+      "text": "content for a retained draft",
+      "status": "Esc 后按 Tab 离开编辑器恢复稿已存行 1，列 29TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 2,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "project B uses its own document",
+      "editors": 1,
+      "text": "content for b",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 2,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "late project A disposal leaves project B readable",
+      "editors": 1,
+      "text": "content for b",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 2,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "duplicate disposal then reactivation",
+      "editors": 1,
+      "text": "content for b",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scroll-a opened",
+      "editors": 1,
+      "text": "scroll-a line 1scroll-a line 2scroll-a line 3scroll-a line 4scroll-a line 5scroll-a line 6scroll-a line 7scroll-a line 8scroll-a line 9scroll-a line 10scroll-a line 11scroll-a line 12scroll-a line 13scroll-a line 14scroll-a line 15scroll-a line 16scroll-a line 17scroll-a line 18scroll-a line 19scroll-a line 20scroll-a line 21scroll-a line 22scroll-a line 23scroll-a line 24scroll-a line 25scroll-a line 26scroll-a line 27scroll-a line 28scroll-a line 29scroll-a line 30scroll-a line 31scroll-a line 32scroll-a line 33scroll-a line 34scroll-a line 35scroll-a line 36",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scroll-b opened",
+      "editors": 1,
+      "text": "scroll-b line 1scroll-b line 2scroll-b line 3scroll-b line 4scroll-b line 5scroll-b line 6scroll-b line 7scroll-b line 8scroll-b line 9scroll-b line 10scroll-b line 11scroll-b line 12scroll-b line 13scroll-b line 14scroll-b line 15scroll-b line 16scroll-b line 17scroll-b line 18scroll-b line 19scroll-b line 20scroll-b line 21scroll-b line 22scroll-b line 23scroll-b line 24scroll-b line 25scroll-b line 26scroll-b line 27scroll-b line 28scroll-b line 29scroll-b line 30scroll-b line 31scroll-b line 32scroll-b line 33scroll-b line 34scroll-b line 35scroll-b line 36",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 6,
+            "projectId": "scroll-b",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.681Z",
+            "languageReadyMs": 3.5,
+            "durationMs": 7.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scroll-c opened",
+      "editors": 1,
+      "text": "scroll-c line 1scroll-c line 2scroll-c line 3scroll-c line 4scroll-c line 5scroll-c line 6scroll-c line 7scroll-c line 8scroll-c line 9scroll-c line 10scroll-c line 11scroll-c line 12scroll-c line 13scroll-c line 14scroll-c line 15scroll-c line 16scroll-c line 17scroll-c line 18scroll-c line 19scroll-c line 20scroll-c line 21scroll-c line 22scroll-c line 23scroll-c line 24scroll-c line 25scroll-c line 26scroll-c line 27scroll-c line 28scroll-c line 29scroll-c line 30scroll-c line 31scroll-c line 32scroll-c line 33scroll-c line 34scroll-c line 35scroll-c line 36",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 6,
+            "projectId": "scroll-b",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.681Z",
+            "languageReadyMs": 3.5,
+            "durationMs": 7.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 7,
+            "projectId": "scroll-c",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.946Z",
+            "languageReadyMs": 3.7999999970197678,
+            "durationMs": 8.099999997764826,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scroll-a restored",
+      "editors": 1,
+      "text": "scroll-a line 1scroll-a line 8scroll-a line 9scroll-a line 10scroll-a line 11scroll-a line 12scroll-a line 13scroll-a line 14scroll-a line 15scroll-a line 16scroll-a line 17scroll-a line 18scroll-a line 19scroll-a line 20scroll-a line 21scroll-a line 22scroll-a line 23scroll-a line 24scroll-a line 25scroll-a line 26scroll-a line 27scroll-a line 28scroll-a line 29scroll-a line 30scroll-a line 31scroll-a line 32scroll-a line 33scroll-a line 34scroll-a line 35scroll-a line 36scroll-a line 37scroll-a line 38scroll-a line 39scroll-a line 40scroll-a line 41scroll-a line 42scroll-a line 43scroll-a line 44scroll-a line 45scroll-a line 46scroll-a line 47scroll-a line 48scroll-a line 49scroll-a line 50scroll-a line 51scroll-a line 52scroll-a line 53scroll-a line 54scroll-a line 55scroll-a line 56scroll-a line 57scroll-a line 58scroll-a line 59scroll-a line 60scroll-a line 61scroll-a line 62scroll-a line 63scroll-a line 64scroll-a line 65scroll-a line 66scroll-a line 67",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 6,
+            "projectId": "scroll-b",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.681Z",
+            "languageReadyMs": 3.5,
+            "durationMs": 7.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 7,
+            "projectId": "scroll-c",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.946Z",
+            "languageReadyMs": 3.7999999970197678,
+            "durationMs": 8.099999997764826,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scroll-b restored",
+      "editors": 1,
+      "text": "scroll-b line 1scroll-b line 22scroll-b line 23scroll-b line 24scroll-b line 25scroll-b line 26scroll-b line 27scroll-b line 28scroll-b line 29scroll-b line 30scroll-b line 31scroll-b line 32scroll-b line 33scroll-b line 34scroll-b line 35scroll-b line 36scroll-b line 37scroll-b line 38scroll-b line 39scroll-b line 40scroll-b line 41scroll-b line 42scroll-b line 43scroll-b line 44scroll-b line 45scroll-b line 46scroll-b line 47scroll-b line 48scroll-b line 49scroll-b line 50scroll-b line 51scroll-b line 52scroll-b line 53scroll-b line 54scroll-b line 55scroll-b line 56scroll-b line 57scroll-b line 58scroll-b line 59scroll-b line 60scroll-b line 61scroll-b line 62scroll-b line 63scroll-b line 64scroll-b line 65scroll-b line 66scroll-b line 67scroll-b line 68scroll-b line 69scroll-b line 70scroll-b line 71scroll-b line 72scroll-b line 73scroll-b line 74scroll-b line 75scroll-b line 76scroll-b line 77scroll-b line 78scroll-b line 79scroll-b line 80scroll-b line 81scroll-b line 82scroll-b line 83scroll-b line 84scroll-b line 85scroll-b line 86scroll-b line 87scroll-b line 88scroll-b line 89scroll-b line 90scroll-b line 91scroll-b line 92scroll-b line 93",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 6,
+            "projectId": "scroll-b",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.681Z",
+            "languageReadyMs": 3.5,
+            "durationMs": 7.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 7,
+            "projectId": "scroll-c",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.946Z",
+            "languageReadyMs": 3.7999999970197678,
+            "durationMs": 8.099999997764826,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scroll-c restored",
+      "editors": 1,
+      "text": "scroll-c line 1scroll-c line 56scroll-c line 57scroll-c line 58scroll-c line 59scroll-c line 60scroll-c line 61scroll-c line 62scroll-c line 63scroll-c line 64scroll-c line 65scroll-c line 66scroll-c line 67scroll-c line 68scroll-c line 69scroll-c line 70scroll-c line 71scroll-c line 72scroll-c line 73scroll-c line 74scroll-c line 75scroll-c line 76scroll-c line 77scroll-c line 78scroll-c line 79scroll-c line 80scroll-c line 81scroll-c line 82scroll-c line 83scroll-c line 84scroll-c line 85scroll-c line 86scroll-c line 87scroll-c line 88scroll-c line 89scroll-c line 90scroll-c line 91scroll-c line 92scroll-c line 93scroll-c line 94scroll-c line 95scroll-c line 96scroll-c line 97scroll-c line 98scroll-c line 99scroll-c line 100scroll-c line 101scroll-c line 102scroll-c line 103scroll-c line 104scroll-c line 105scroll-c line 106scroll-c line 107scroll-c line 108scroll-c line 109scroll-c line 110scroll-c line 111scroll-c line 112scroll-c line 113scroll-c line 114scroll-c line 115scroll-c line 116scroll-c line 117scroll-c line 118scroll-c line 119scroll-c line 120scroll-c line 121scroll-c line 122scroll-c line 123scroll-c line 124scroll-c line 125scroll-c line 126scroll-c line 127",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 6,
+            "projectId": "scroll-b",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.681Z",
+            "languageReadyMs": 3.5,
+            "durationMs": 7.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 7,
+            "projectId": "scroll-c",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.946Z",
+            "languageReadyMs": 3.7999999970197678,
+            "durationMs": 8.099999997764826,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "three project viewport restoration",
+      "before": [
+        {
+          "projectId": "scroll-a",
+          "top": 700,
+          "savedTop": 700,
+          "selection": {
+            "anchor": 0,
+            "head": 0
+          }
+        },
+        {
+          "projectId": "scroll-b",
+          "top": 1450,
+          "savedTop": 1450,
+          "selection": {
+            "anchor": 0,
+            "head": 0
+          }
+        },
+        {
+          "projectId": "scroll-c",
+          "top": 2300,
+          "savedTop": 2300,
+          "selection": {
+            "anchor": 0,
+            "head": 0
+          }
+        }
+      ],
+      "after": [
+        {
+          "projectId": "scroll-a",
+          "top": 700,
+          "savedTop": 700,
+          "selection": {
+            "anchor": 0,
+            "head": 0
+          }
+        },
+        {
+          "projectId": "scroll-b",
+          "top": 1450,
+          "savedTop": 1450,
+          "selection": {
+            "anchor": 0,
+            "head": 0
+          }
+        },
+        {
+          "projectId": "scroll-c",
+          "top": 2300,
+          "savedTop": 2300,
+          "selection": {
+            "anchor": 0,
+            "head": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "persisted session creates a fresh editor state",
+      "editors": 1,
+      "text": "restored line 13restored line 109restored line 110restored line 111restored line 112restored line 113restored line 114restored line 115restored line 116restored line 117restored line 118restored line 119restored line 120restored line 121restored line 122restored line 123restored line 124restored line 125restored line 126restored line 127restored line 128restored line 129restored line 130restored line 131restored line 132restored line 133restored line 134restored line 135restored line 136restored line 137restored line 138restored line 139restored line 140restored line 141restored line 142restored line 143restored line 144restored line 145restored line 146restored line 147restored line 148restored line 149restored line 150restored line 151restored line 152restored line 153restored line 154restored line 155restored line 156restored line 157restored line 158restored line 159restored line 160restored line 161restored line 162restored line 163restored line 164restored line 165restored line 166restored line 167restored line 168",
+      "status": "Esc 后按 Tab 离开编辑器行 13，列 11TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.791Z",
+            "languageReadyMs": 31.700000002980232,
+            "durationMs": 36.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:13.978Z",
+            "languageReadyMs": 1.699999999254942,
+            "durationMs": 11.799999997019768,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.064Z",
+            "languageReadyMs": 2.699999999254942,
+            "durationMs": 12.399999998509884,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.235Z",
+            "languageReadyMs": 3,
+            "durationMs": 4.900000002235174,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 5,
+            "projectId": "scroll-a",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.409Z",
+            "languageReadyMs": 4.800000000745058,
+            "durationMs": 9.5,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 6,
+            "projectId": "scroll-b",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.681Z",
+            "languageReadyMs": 3.5,
+            "durationMs": 7.600000001490116,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 7,
+            "projectId": "scroll-c",
+            "fileId": "long",
+            "cache": "cold",
+            "startedAt": "2026-11-01T04:34:14.946Z",
+            "languageReadyMs": 3.7999999970197678,
+            "durationMs": 8.099999997764826,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          },
+          {
+            "id": 8,
+            "projectId": "restored-scroll",
+            "fileId": "long",
+            "cache": "warm",
+            "startedAt": "2026-11-01T04:34:15.391Z",
+            "languageReadyMs": 3.899999998509884,
+            "durationMs": 9.299999997019768,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "persisted session viewport restoration",
+      "expected": 1800,
+      "top": 3243,
+      "selection": {
+        "anchor": 200,
+        "head": 205
+      }
+    }
+  ],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: persisted session: restored viewport offset",
+  "pageErrors": []
+}

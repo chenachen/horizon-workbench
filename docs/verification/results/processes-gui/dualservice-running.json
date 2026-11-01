@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-30T19:50:39.174365+00:00",
+  "actor": "processes",
+  "action": "native imported and saved dualservice; approved; API http then Web tcp both ready; duplicate start button disabled",
+  "pids": {
+    "api": 5987,
+    "web": 5992,
+    "child": 5988
+  },
+  "ps": "  PID  PPID  PGID STAT COMMAND\n 5987 91978  5987 S    /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node api.mjs\n 5988  5987  5987 S    /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node child.mjs\n 5992 91978  5992 S    /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node web.mjs\n",
+  "ports": "COMMAND  PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    5987 chenpengxiang   21u  IPv4 0x3a07c7e90f3879a6      0t0  TCP 127.0.0.1:59130 (LISTEN)\nnode    5992 chenpengxiang   22u  IPv4 0xead1913adad65f82      0t0  TCP 127.0.0.1:59131 (LISTEN)\n"
+}

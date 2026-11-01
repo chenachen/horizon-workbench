@@ -1,0 +1,62 @@
+{
+  "kind": "Production ResizeHandle + AppearanceProvider controlled component regression",
+  "scope": "Real production React components, applyAppearance, layouts and themes. Only bridge RPC/events replaced with deferred host fixture. Headless Chromium; no Horizon/native GUI; no desktop build.",
+  "startedAt": "2026-11-01T07:07:54.363Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/components/ResizeHandle.tsx",
+      "sha256": "e4cf4e7909e27c6524c6910e94b1a48235461078442ad2d1b67294993459e097",
+      "bytes": 4050
+    },
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "sha256": "1443e94e1100b027ab1b3e5e28e4c1bab820ec720c850628198f18955b2ef719",
+      "bytes": 9674
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "2f2f56b8eb55007a433e808e13516428ba52fdef5c01621d7eb7216104233185",
+      "bytes": 72550
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "sha256": "57e135d0818a7cb0d231f2b720ee246125b2c41f2e3bb9bd4b35f86fb53ac8a8",
+      "bytes": 7368
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "sha256": "07093d9e4e619f1f9d1ad98a196076f23465213b4d9df7c38de1cbb17c62a1cb",
+      "bytes": 2033
+    }
+  ],
+  "phases": [],
+  "passed": false,
+  "error": "Error: Build failed with 1 error:\n<stdin>:87:15: ERROR: The JSX syntax extension is not currently enabled",
+  "stack": "Error: Build failed with 1 error:\n<stdin>:87:15: ERROR: The JSX syntax extension is not currently enabled\n    at failureErrorWithLog (/Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:1752:15)\n    at /Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:1211:25\n    at runOnEndCallbacks (/Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:1592:45)\n    at buildResponseToResult (/Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:1209:7)\n    at /Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:1236:16\n    at responseCallbacks.<computed> (/Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:886:9)\n    at handleIncomingPacket (/Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:941:12)\n    at Socket.readFromStdout (/Users/chenpengxiang/Desktop/Horizon/node_modules/esbuild/lib/main.js:864:7)\n    at Socket.emit (node:events:507:28)\n    at addChunk (node:internal/streams/readable:559:12)",
+  "browserErrors": [],
+  "consoleErrors": [],
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/components/ResizeHandle.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T07:07:54.427Z",
+  "durationMs": 64
+}

@@ -1,0 +1,112 @@
+{
+  "reviewedAt": "2026-10-30T21:10:18.850997+00:00",
+  "method": "Independent raw test-output and complete credential/preview assertions review; no rerun, no GUI or keychain access by verifier",
+  "rawLogHashes": {
+    "files-workflow.log": "c6416e505eace92ba6e9237684ac8d189aefad7b6bda7f460bafebee2d10944f",
+    "native-regressions.log": "88b926a71d44a69b080821f560b35bfbd051162eade98de687e7816c17c1b4c3",
+    "keyring-real.log": "7a8a2e2a1d9ec13e96a454fcd2f84acbd2cd674e0572b801126f0be6131e802d",
+    "settings-unit.log": "093362fbbd34c112181257adc587578bfc3b0ea88115097decc05c80fbd9da79",
+    "keyring-failures.log": "9d9016f2b494561aa3beab97a82d48715f2c371a70265c28dcdfacaffc45e161",
+    "export-preview-final.log": "8dbedc0b8f86ce8d31b36d5bb3664787b3aa5d5f3d989176c800df36452bb058"
+  },
+  "sourceHashes": {
+    "apps/desktop/src-tauri/tests/credentials_workflow.rs": "9302788f82579a1923bb6b48964945b3ccdc937ed9c8ca3858e3b2d6deb5f68e",
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "0a97fa6d2f5c6d372a4c7becc315d83a5fb600ed079beb61877fe7ccc03957bb",
+    "apps/desktop/src-tauri/src/settings.rs": "9be35a41259d6fbaa1df853599f4424cd89e3e90dca21fc1ea402daf1a35cd7e",
+    "apps/desktop/src-tauri/src/state.rs": "19975a801e2269383b7ebd52e21a88dd4719234619cda171f6e7fc8ff384951f"
+  },
+  "executions": [
+    {
+      "name": "real macOS keychain",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.83,
+      "raw": "keyring-real.log",
+      "scope": "Dedicated two random fake entries only, UI interaction disabled by Security API, production credential_set/get/remove routes"
+    },
+    {
+      "name": "unavailable keyring",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 1,
+      "seconds": 0.12,
+      "raw": "keyring-failures.log",
+      "scope": "Injected unavailable backend; ignored real test executed separately above"
+    },
+    {
+      "name": "files_workflow",
+      "passed": 28,
+      "failed": 0,
+      "seconds": 7.02,
+      "raw": "files-workflow.log",
+      "scope": "Includes5anonymous diagnostic tests and3frozen export-preview tests plus existing file/project tests"
+    },
+    {
+      "name": "final targeted export preview",
+      "passed": 3,
+      "failed": 0,
+      "seconds": 0.88,
+      "raw": "export-preview-final.log",
+      "scope": "Final narrower repeat after source adjustment; not counted as additional distinct coverage"
+    }
+  ],
+  "closedSubconditions": [
+    {
+      "requirement": "REQ-NFR-005 /REQ-AI-013",
+      "condition": "System fake-key store/read/restart retrieval/delete; session expiration cannot revive old system key",
+      "assertions": [
+        "system A survives HostState recreation",
+        "system A→session B deletes only A; B reads in current host",
+        "next HostState session credential unavailable",
+        "manually retained legacy A still ignored when persistence=session",
+        "reference removal deletes its key while unrelated fake key remains",
+        "both fake keys removed and index has no fake secret strings"
+      ]
+    },
+    {
+      "requirement": "REQ-NFR-005 /REQ-AI-013",
+      "condition": "Secure-store failure preserves prior valid state and does not write plaintext fallback",
+      "assertions": [
+        "unavailable system set/remove leaves prior session/index unchanged",
+        "system→session deletion failure does not switch mode",
+        "read-only app-data failure occurs before new system write and preserves sessionB",
+        "unknown unregistered reference removal returnsfalse"
+      ]
+    },
+    {
+      "requirement": "REQ-NFR-005 /REQ-SET-008",
+      "condition": "Projected export contains no injected fake token/body/absolute paths and writes same frozen preview bytes",
+      "assertions": [
+        "allowlisted settings/appearance keep valid fields, discard fake token/body/path/unknown fields and malformed names/shortcuts",
+        "settings mutation after preview does not alter exported snapshot",
+        "four plan cap, explicit discard,5min expiry,1MiB size guard before allocation",
+        "existing destination is preserved and failed plan can retry",
+        "legacy arbitrary connections settings removed and new updates rejected"
+      ]
+    },
+    {
+      "requirement": "REQ-NFR-005 /REQ-NFR-004",
+      "condition": "Anonymous runtime counters are separate from native subscriptions and reject wrong fields",
+      "assertions": [
+        "15whitelisted numeric runtime fields exported separately",
+        "reject missing/unknown/id/path/text/noninteger/unsafe values before write"
+      ]
+    }
+  ],
+  "limitations": [
+    "Native integration is debug test executable against real macOS Keychain; candidate7 packaged GUI is not yet exercised.",
+    "No real provider secret used; all fake keychain entries are owned by test and cleanup is asserted.",
+    "APFS non-Unicode path test reports EILSEQ and checks lossless codec only;28test count is not proof of an on-disk invalid-name file.",
+    "F09 visible preview/save/cancel, selective cache/history/draft/credential cleanup and QuickJS visible error logging still require targeted native evidence.",
+    "Existing source-network audit closes no-default-upload/telemetry at source level; no packet capture is claimed."
+  ],
+  "peerSourceAuditFollowup": {
+    "peer": "../privacy-network-source-audit/candidate7-review.json",
+    "hashDrift": [
+      "apps/desktop/src/features/agent/AgentPanel.tsx"
+    ],
+    "currentSha256": "03e7cd7b5ef2428012acf115aee8dff4c05e24d92c2ff1be6ed6198fe9146958",
+    "narrowRecheck": "Current MessageItem still uses Markdown skipHtml and renders links/images as span text. Later paragraph/empty-message UI edits do not enable fetching. Other32peer hashes matched at independent check."
+  }
+}

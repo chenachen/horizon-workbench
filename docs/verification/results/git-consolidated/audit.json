@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-30T21:36:52.249456+00:00",
+  "method": "Per-clause combination of candidate6nativeGUI, independentraw/filecomparisons, retained18nativeintegrations and narrowread-onlysourceinvariants; no newtestsrun",
+  "buildBoundary": "GUIcandidate6. Source snapshot duringcandidate7narrowrepairs; historyshallowdataflowandstagehandlers unchangedinsemantics. Not candidate7packagedGUIvalidation.",
+  "sourceSnapshots": {
+    "apps/git-service/src/lib.rs": {
+      "snapshot": "docs/verification/results/git-consolidated/git-service.source.rs",
+      "sha256": "e6a808b785c582aed913a6d2ce7b0d27f165d353f498dcfa25bea8aa820e3051"
+    },
+    "apps/desktop/src/features/git/GitPanel.tsx": {
+      "snapshot": "docs/verification/results/git-consolidated/GitPanel.source.tsx",
+      "sha256": "e5702348f86f0c5d4cc164b39760450c75d47bad2a6aed8ed032193655e69b60"
+    },
+    "apps/git-service/tests/workflow.rs": {
+      "snapshot": "docs/verification/results/git-consolidated/workflow.source.rs",
+      "sha256": "8cf51b75b7686869bf4cf6d1df564926d8bb305c5625e24294a77240e638f6ce"
+    }
+  },
+  "requirements": [
+    {
+      "requirement": "REQ-GIT-003",
+      "decision": "full-functional-combination",
+      "clauses": [
+        {
+          "condition": "Stage reads disk only",
+          "evidence": "Native screenshot25 retainsdirtyD; snapshot21 indexequalsC anddiskunchanged; snapshot22 onlyafterexplicitSaveThenStage index/diskbecomeD.",
+          "kind": "nativeGUI+independentdisk"
+        },
+        {
+          "condition": "Dirtybuffer offersSaveThenStage/DiskOnly/Cancel",
+          "evidence": "Screenshot03 all3controls, operatorfirstCancel retainedD; laterDiskOnlyandSaveThenStage verifiedbymatching snapshots21/22.",
+          "kind": "nativeGUI+disk"
+        },
+        {
+          "condition": "Unstage doesnotchange disk",
+          "evidence": "Snapshots16→17 rename old/newpathsand18→19unborn; allfilesexactlyequalbeforeafter, stagedindexcleared.",
+          "kind": "nativeGUI+disk"
+        },
+        {
+          "condition": "Firstunborn stage canunstage",
+          "evidence": "18stageAfirst.txt,19indexempty/headunborn/disk55Bsame; screenshot20showsuntrackedfirst.txt.",
+          "kind": "nativeGUI+disk"
+        },
+        {
+          "condition": "Existingpartiallystagedcontent preserved accurately",
+          "evidence": "ActualinitialHEAD A/indexB/diskC/bufferD independentlyseparate; Cancel leavesB, index-onlycommitHEAD B leavesdiskC. Native18test staged_and_disk_are_separate_and_commit_uses_only_index assertsA/B/Csamepath. NoautomaticstagebufferD.",
+          "kind": "nativeGUI+nativeintegration"
+        }
+      ],
+      "limits": [
+        "Full here covers file-levelstage/unstagesemantics, not line/hunkstaging(v0.2), allGitUX, or visualfidelity.",
+        "SaveThenStage screenshot26showsoldrecoverybanner; dirty/file/indexresultisindependentlyverified but bannercleanupisfollowup."
+      ]
+    },
+    {
+      "requirement": "REQ-GIT-005",
+      "decision": "full-functional-combination",
+      "clauses": [
+        {
+          "condition": "Pagedhistory/detail/parentdiff",
+          "evidence": "Actual37commitsfirst30then7; screenshot15selecteddeletedfileparentdiff,16rootcommitfilechips; native merge_history_uses_first_parent_and_old_cursor_expires testsfirst-parentmergeandstale-cursorrefusal.",
+          "kind": "nativeGUI+nativeintegration"
+        },
+        {
+          "condition": "Shallowhistory communicateslocalrange",
+          "evidence": "Sourcepath Repo::status uses git rev-parse --is-shallow-repository→history returns sameboolean→GitPanel renderedhistory includes explicit 浅克隆：只显示本地已有历史. Actualnormalhistory proves thiscomponentandpayloadpath; the simpleconditionalbranchisindependentlysource-reviewed.",
+          "kind": "sourceinvariantcombinedwithactualnormalhistory",
+          "notClaimed": "No actual shallow-cloneGUI screenshot or command execution in this acceptance run."
+        },
+        {
+          "condition": "Readinghistory doesnotmutatebranch/buffer/index",
+          "evidence": "ActualhistoryprojectHEAD/branch/index/alltrackedfixturefilesbefore01andafter22exactlyequal. Project01dirtyD+commitdraftstillpresentafterroundtrip(screenshot25). History/compare dispatchonlyreadlog/show/diff and readonlyUI.",
+          "kind": "nativeGUI+independentdisk+source"
+        }
+      ],
+      "limits": [
+        "Shallowhistorylabelclosedbytransparentproductiondataflow/conditionalsourceevidence, notrepresented as actualshallowGUItest.",
+        "Longsubjecthorizontaloverflowisrealvisual/accessibilityfollowup; basicread/pagination/diffsemanticsremainproved.",
+        "ArbitraryrefnestedmodalAXfailureseparatelyrecordedUI004; directhistoryselectionworks."
+      ]
+    }
+  ],
+  "support": [
+    "docs/verification/results/git-gui-candidate6-audit/final-audit.json",
+    "docs/verification/results/git-gui-candidate6-audit/initial-audit.json",
+    "docs/verification/results/git-gui-candidate6-audit/current-readonly.json",
+    "docs/verification/results/git-integration-final/test-report.json"
+  ]
+}

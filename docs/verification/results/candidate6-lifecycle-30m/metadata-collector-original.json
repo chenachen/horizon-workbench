@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-30T20:16:43Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/",
+  "python": "3.14.3",
+  "scenario": "candidate6-native-processes-pi-git-editor-lifecycle",
+  "build": "release",
+  "build_id": "candidate6",
+  "root_executables": {
+    "33304": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "25e407375f1f112e4d111d5b088065af3034cefb9ce9b4e087c805e6e0b288b5"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "capturedAt": "2026-10-30T20:16:43.189861+00:00",
+    "build": "candidate6",
+    "pid": 33304,
+    "windowId": 14467,
+    "nativeGuiOwner": "processes",
+    "runtimeState": {
+      "window": [
+        1280,
+        800
+      ],
+      "method": "root native CUA exact bundle launched; initial emptyeditor/emptyterminal; actual read-only registry snapshot",
+      "activeProjectId": null,
+      "activeWorkspaceId": null
+    },
+    "diagnosticCounts": null,
+    "extensionRegistrySnapshot": ".work/candidate6-cycle/extensions-initial.json"
+  },
+  "root_pids": [
+    33304
+  ],
+  "cache_condition": "OS cache unchanged; no cache purge",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "manual log",
+  "activity_log": ".work/candidate6-cycle/actions.jsonl",
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ]
+}

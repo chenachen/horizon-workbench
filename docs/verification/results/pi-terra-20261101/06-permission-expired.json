@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-11-01T11:00:32.426338+00:00",
+  "phase": "06 genuine permission expiry without click",
+  "status": "WRITE RETRY READY",
+  "classification": "Real expiry/denial and unwritten result; not a product bug and not normalWRITE success",
+  "checks": {
+    "piExited": true,
+    "originalFilesUnwritten": true,
+    "originalIndexUnchanged": true,
+    "taskCopyUnwritten": true,
+    "actualDeniedToolReply": true,
+    "exactFiveModelRequests": true,
+    "noControlledWriteStream": true,
+    "sameMainVerified": true
+  },
+  "expiredSessionId": "24c70f13-c6a0-4588-a7c4-6904a217a82b",
+  "expiredReviewId": "de22d942-2dd4-4496-94d1-3c34020b7559",
+  "expiredPiId": 38117,
+  "toolResult": {
+    "role": "tool",
+    "content": "操作被拒绝、已取消或授权已过期",
+    "tool_call_id": "tool-4"
+  },
+  "http": {
+    "fixture": true,
+    "requests": 5
+  },
+  "streams": {
+    "fixture": true,
+    "streams": []
+  },
+  "originalHashes": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004"
+  },
+  "copyHashes": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004"
+  },
+  "sessionAfter": {
+    "state": "dormant",
+    "instanceId": null,
+    "instanceEpoch": 1,
+    "reviewId": "de22d942-2dd4-4496-94d1-3c34020b7559"
+  },
+  "guiAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06b-permission-expired.ax.txt",
+  "rootRetryAuthorization": {
+    "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+    "prompt": "HORIZON_TEST_WRITE_STREAM_REVIEW I1 review",
+    "profile": "task",
+    "target": "example.txt",
+    "bytes": 42,
+    "scope": "task copy only",
+    "action": "one new independentWRITE attempt; afterSend, Terra immediatelyallowOnce only if actualvalidUI exactly matches sourcePi/example.txt42B/taskcopy. No crossagentwait inside120s; unmatched/originalprojectwrite stops."
+  }
+}

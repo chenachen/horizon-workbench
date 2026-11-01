@@ -1,0 +1,38 @@
+{
+  "id": "horizon.files",
+  "name": "文件树",
+  "version": "0.1.0",
+  "description": "浏览项目目录，创建、重命名和管理本地文件。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.files.view",
+    "onCommand:horizon.files.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "project.read"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.files.view",
+        "slot": "primarySidebar",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.files.open",
+        "title": "打开文件树"
+      }
+    ]
+  }
+}

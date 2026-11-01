@@ -1,0 +1,124 @@
+{
+  "capturedAt": "2026-11-01T05:48:58.330275+00:00",
+  "method": "Single read-only fullprocess/responsibility snapshot before operator normalquit; no sampler",
+  "rootPid": 8305,
+  "binarySha256": "d70952fe156c6f2027ab0eb184846db3ced7ef634548a83d3ad19155f9464645",
+  "binaryBytes": 19860880,
+  "identities": [
+    {
+      "pid": 8305,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:41:36 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "group": "horizon",
+      "reason": "root PID",
+      "responsiblePid": 8305
+    },
+    {
+      "pid": 8372,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:41:38 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 8305",
+      "responsiblePid": 8305
+    },
+    {
+      "pid": 8373,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:41:38 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 8305",
+      "responsiblePid": 8305
+    },
+    {
+      "pid": 8374,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:41:38 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 8305",
+      "responsiblePid": 8305
+    },
+    {
+      "pid": 8375,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:41:38 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 8305",
+      "responsiblePid": 8305
+    },
+    {
+      "pid": 8376,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:41:38 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 8305",
+      "responsiblePid": 8305
+    },
+    {
+      "pid": 10517,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:42:43 2026",
+      "executable": "/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 8305",
+      "responsiblePid": 8305
+    }
+  ],
+  "foreignWebKitCandidates": [
+    {
+      "pid": 863,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 891,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 909,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 929,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1364,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1365,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1427,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1517,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    }
+  ],
+  "limits": [
+    "No continuous collector during targetednative; this snapshot cannot enumerate already-exited transient helpers."
+  ]
+}

@@ -1,0 +1,37 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 添加模型连接
+				4 container
+					5 heading 添加模型连接, Value: 2
+						6 text 添加模型连接
+					7 button 关闭弹窗
+				8 container
+					9 text 由 Pi 使用这个连接。选择与你的服务一致的 API 协议。 连接名称
+					10 text field (settable) 连接名称, Value: PiQA 刷新验收1101, Placeholder: 例如：开发助手
+					11 text 提供商 ID
+					12 text field (settable) 提供商 ID, Value: horizon-fixture
+					13 text API 协议
+					14 pop up button API 协议, Value: OpenAI Chat Completions
+					15 text 服务地址
+					16 URL field (settable) 服务地址 本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。, Value: http://127.0.0.1:18763/v1, Placeholder: http://127.0.0.1:11434/v1
+					17 text 本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。 模型 ID
+					18 text field (settable) 模型 ID, Value: horizon-fixture, Placeholder: 服务提供的精确模型 ID
+					19 text 认证归属
+					20 pop up button 认证归属, Value: 本地服务 / 外部认证
+					21 text 无认证的本机服务无需密钥。外部服务仍须自身提供访问控制。
+					22 button 取消
+					23 button 保存连接
+	24 close button
+	25 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	26 minimize button
+27 menu bar
+	28 Horizon
+	29 File
+	30 Edit
+	31 View
+	32 Window
+	33 Help
+
+The focused UI element is 20 pop up button 认证归属, Value: 本地服务 / 外部认证

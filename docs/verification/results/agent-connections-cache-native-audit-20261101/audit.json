@@ -1,0 +1,832 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-01T09:50:20.630767+00:00",
+  "reviewer": "/root/verification_sol",
+  "scope": "Functional connection-cache defect and exact same-project main-settings save/delete retest only; D01 visual fidelity deferred by latest user.",
+  "nativeChecks": [
+    {
+      "capture": {
+        "label": "handoff-A",
+        "time": "2026-11-01T09:24:18.969Z",
+        "pid": 25623,
+        "pidStart": "2026-11-01 17:08:44 +0800",
+        "mainSHA256": "8124d09f55051290d86609dd4762af18e363a0e4ee6ab55e8b1644baec4b863b",
+        "window": "Horizon 1280x800",
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/00-1793524858412-handoff-A.jpg",
+        "imageSHA256": "2227c9c154200c791b62b246b960860b58c7128d457985602316031f42e3f894",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/00-1793524858412-handoff-A.ax.txt",
+        "axSHA256": "b2631e5b0579123a689cfbcd40c979e184fc2f2dbc5b2747913f707510b95561",
+        "note": "PiQA A · 20261101；context.ts 与 example.txt 均打开；AI 展开，聊天就绪、现有协议验证服务；无输入或发送"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "01a-old-qa-removal-preview",
+        "time": "2026-11-01T09:25:42.482Z",
+        "pid": 25623,
+        "pidStart": "2026-11-01 17:08:44 +0800",
+        "mainSHA256": "8124d09f55051290d86609dd4762af18e363a0e4ee6ab55e8b1644baec4b863b",
+        "window": "Horizon 1280x800",
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/00-1793524858412-01a-old-qa-removal-preview.jpg",
+        "imageSHA256": "4cff803c4f13c014e1fa4e257881224699f370569d4d5d0badd7f10ecc32c108",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/00-1793524858412-01a-old-qa-removal-preview.ax.txt",
+        "axSHA256": "bffd8fca05030ee92c7b6986effee495103194ce2be7932cb33c7e1bb56d800e",
+        "note": "PiQA A；仅预览删除协议验证服务，未确认删除"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "01b-after-main-settings-close",
+        "time": "2026-11-01T09:27:00.670Z",
+        "pid": 25623,
+        "pidStart": "2026-11-01 17:08:44 +0800",
+        "mainSHA256": "8124d09f55051290d86609dd4762af18e363a0e4ee6ab55e8b1644baec4b863b",
+        "window": "Horizon 1280x800",
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/00-1793524858412-01b-after-main-settings-close.jpg",
+        "imageSHA256": "75e8424cef2da0ef39168ba812a3ea50a9fe5d66f3ed11a1f5d037d43e000a43",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/00-1793524858412-01b-after-main-settings-close.ax.txt",
+        "axSHA256": "b2631e5b0579123a689cfbcd40c979e184fc2f2dbc5b2747913f707510b95561",
+        "note": "删除后关闭主设置；同 A AI 面板仍显示从一个问题开始与协议验证服务；未刷新、未发送"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "startup-D01",
+        "time": "2026-11-01T09:34:47.843Z",
+        "pid": 75147,
+        "pidStart": "2026-11-01 17:34:01 +0800",
+        "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+        "window": "Horizon 1280×800",
+        "zoom": "100%",
+        "style": "底部导航 / 极光 / 深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-startup-D01.jpg",
+        "imageSHA256": "432535d422b856fbdc2dfc0d914cbf3c07158ca0c0cf2b846099f22d0301be9c",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-startup-D01.ax.txt",
+        "axSHA256": "bb594eeff3ab08d2fdbfee53f0a9906357d5daf46950f2a08a6c293362326cd9",
+        "note": "重启后初始无连接，仅基线"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "temporary-connection-form",
+        "time": "2026-11-01T09:36:05.772Z",
+        "pid": 75147,
+        "pidStart": "2026-11-01 17:34:01 +0800",
+        "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+        "window": "Horizon 1280×800",
+        "zoom": "100%",
+        "style": "底部导航 / 极光 / 深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-temporary-connection-form.jpg",
+        "imageSHA256": "8de4cb9da6c9951940927ba08d271a9d419768e7273329819559d4f28c9ce654",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-temporary-connection-form.ax.txt",
+        "axSHA256": "3fdaa0f7879ecd4ee7017b5799af635663bfdfff0f70ce5241840b2073c928aa",
+        "note": "指定 loopback、OpenAI Chat Completions、本地服务外部认证、无 key；保存前"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "temporary-saved-unverified",
+        "time": "2026-11-01T09:36:19.954Z",
+        "pid": 75147,
+        "pidStart": "2026-11-01 17:34:01 +0800",
+        "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+        "window": "Horizon 1280×800",
+        "zoom": "100%",
+        "style": "底部导航 / 极光 / 深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-temporary-saved-unverified.jpg",
+        "imageSHA256": "ebacb7468f1cf706ae562f2e530d517bcb3512db32775484eb2c721f3ebcb067",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-temporary-saved-unverified.ax.txt",
+        "axSHA256": "228341884810237c90f5551b6fc55e424dd00cc95c1b669e8d77225dec11eef7",
+        "note": "PiQA 刷新验收1101 已配置 · 未验证，未测试"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "same-A-temporary-visible",
+        "time": "2026-11-01T09:36:32.110Z",
+        "pid": 75147,
+        "pidStart": "2026-11-01 17:34:01 +0800",
+        "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+        "window": "Horizon 1280×800",
+        "zoom": "100%",
+        "style": "底部导航 / 极光 / 深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-same-A-temporary-visible.jpg",
+        "imageSHA256": "5f7ba0079be674101c6f550a3a41451720eea6c98bc7c3ae14233352aede4eee",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-same-A-temporary-visible.ax.txt",
+        "axSHA256": "47aeacedc534067120d3451e7f7d443d4d59c1808de9cbe98d8d5af770900eef",
+        "note": "主设置关闭后同 A 即显示新连接；未发送"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "temporary-delete-preview",
+        "time": "2026-11-01T09:38:39.971Z",
+        "pid": 75147,
+        "pidStart": "2026-11-01 17:34:01 +0800",
+        "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+        "window": "Horizon 1280×800",
+        "zoom": "100%",
+        "style": "底部导航 / 极光 / 深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-temporary-delete-preview.jpg",
+        "imageSHA256": "11666b588b6df9ad94ae68ce43e6d606f16476b2a7e483e7b62eb3abb5beccf6",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-temporary-delete-preview.ax.txt",
+        "axSHA256": "df66e4c10151b6f63a6ffc95c6968def366a2cc44d5ae252106adb7405d8bb39",
+        "note": "PiQA 刷新验收1101；0 项目默认引用、0 历史会话，Pi 自有认证与外部安装不删除"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    },
+    {
+      "capture": {
+        "label": "aurora-D01-after-delete",
+        "time": "2026-11-01T09:39:01.454Z",
+        "pid": 75147,
+        "pidStart": "2026-11-01 17:34:01 +0800",
+        "mainSHA256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+        "window": "Horizon 1280×800",
+        "zoom": "100%",
+        "style": "底部导航 / 极光 / 深色",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/01c-1793525687778-aurora-D01-after-delete.jpg",
+        "imageSHA256": "d5fe93fac15d5b73eb29a2c4402b49851e3c23a61dc8cd2fe0adeba1bfd32615",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/01c-1793525687778-aurora-D01-after-delete.ax.txt",
+        "axSHA256": "bb594eeff3ab08d2fdbfee53f0a9906357d5daf46950f2a08a6c293362326cd9",
+        "note": "同 A 主设置删除临时连接并关闭，直接出现未连接引导"
+      },
+      "imageAxHashesAndDimensionsVerified": true,
+      "personallyViewedForFunction": true
+    }
+  ],
+  "originalsViewedForFunction": 9,
+  "completeAXReviewed": 9,
+  "beforeAXByteIdenticalHash": "b2631e5b0579123a689cfbcd40c979e184fc2f2dbc5b2747913f707510b95561",
+  "beforeBackendRemovedDespiteStalePanel": true,
+  "beforeBuild": "8124d09f55051290d86609dd4762af18e363a0e4ee6ab55e8b1644baec4b863b",
+  "afterBuild": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+  "startupD01ExcludedAsRepairProof": true,
+  "exactRepairFlow": [
+    "Same PiQA A, main Settings create unique owned no-key temp connection",
+    "Close main Settings and observe actual new name immediately in same A",
+    "Main Settings remove same temp after actual0project/0history preview",
+    "Close main Settings and observe genuine unconnected guide immediately, no switch/hide/refresh/send"
+  ],
+  "nativeConfiguredNotVerified": true,
+  "backendChecks": [
+    {
+      "path": "docs/verification/results/pi-terra-20261101/01a-old-qa-removal-review.json",
+      "sha256": "c51f399febd476c51e7ba3273bbfb9dd39fdff9818b27d61dde6a1a8598b1aa5"
+    },
+    {
+      "path": "docs/verification/results/pi-terra-20261101/01b-removal-after.json",
+      "sha256": "17683e73764750a383ba57081ae666f7907bae7728cdba61cccc98460fe74d7a"
+    },
+    {
+      "path": "docs/verification/results/pi-terra-20261101/01c-temp-saved.json",
+      "sha256": "0c2accf0a956dbe8f02899c084379bd6106983d011f70e9f7eafd73710b5e958"
+    },
+    {
+      "path": "docs/verification/results/pi-terra-20261101/01c-temp-removed.json",
+      "sha256": "afc30d6a664bc850857b03861227b2d204acd0c96762a297ef048b2b24fbe8ff"
+    }
+  ],
+  "oldNineSessionIdsPreservedThroughBothRemovals": true,
+  "noNewPiOrProviderRequest": "Owner retained data projections show Pi0/provideroff/no request logs; verifier did not run new sampling.",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "bcf6aff0d18437d32371012a925cb7b531ec70a2fb55a45a97c5a92eb204429d",
+      "matchesNative8124Source": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "sha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "matchesNative8124Source": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/ContextPicker.tsx",
+      "sha256": "c3691678859b33fba683eb7f04814fc08600a599a7560b66e4ffd506e6c18229",
+      "matchesNative8124Source": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "5043312479ef41069ae3da248211848ec97b0d71478f6fc9b3a083df92bbab45",
+      "matchesNative8124Source": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/store.ts",
+      "sha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "matchesNative8124Source": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667",
+      "matchesNative8124Source": true
+    }
+  ],
+  "onlyChangedSource": [
+    "apps/desktop/src/features/agent/AgentSettings.tsx"
+  ],
+  "testedAfterBodyMatchesRelease": true,
+  "componentChecks": [
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/run.mjs",
+      "sha256": "09a8f1472e17d967ab88e1767940abfbc357c59701facff4802aca82f92ffbc6",
+      "bytes": 16754
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/result.json",
+      "sha256": "3e419267cee0d758f0aa801747b96eb65b87da3619147a307c004672ce9c1204",
+      "bytes": 110740
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source.patch",
+      "sha256": "3c23b8edbb614264e288b740f7f348b3fdcde90d62332388d90572da0045b59f",
+      "bytes": 9292
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/attempt-02.json",
+      "sha256": "af2bc9c08ed364355826b2f449a2e2461a15f706e2cfa69b87f93ca7cc64b053",
+      "bytes": 17273
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source-sha.json",
+      "sha256": "d5adb4ab35af5224d4a6cf05a78a2b216c787705e5a4cb10d69645901eb9d14b",
+      "bytes": 1233
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/attempt-02-run.mjs",
+      "sha256": "50c5f528bad1fa043abc7e692f71deafaf7604a72e101703c8da7404fbf286e7",
+      "bytes": 16790
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/attempt-01.json",
+      "sha256": "bc0f75725f7b0e46087939b1b6c27aa332b73d9e4b586ce675d13951351847e4",
+      "bytes": 19180
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/attempt-01-run.mjs",
+      "sha256": "786b459db1395961b99258b6bed5400271e1f6c7fdff292bf94c836914655eca",
+      "bytes": 16773
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/after/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "e475a8c3370da9c9c9cb6841c63a1b72195bdbf20a2a11b7a1dd26b7d24a1621",
+      "bytes": 17769
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/before/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "5043312479ef41069ae3da248211848ec97b0d71478f6fc9b3a083df92bbab45",
+      "bytes": 17608
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source/apps/desktop/src/App.tsx",
+      "sha256": "bcf6aff0d18437d32371012a925cb7b531ec70a2fb55a45a97c5a92eb204429d",
+      "bytes": 72619
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source/apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667",
+      "bytes": 6902
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source/apps/desktop/src/features/agent/AgentPanel.tsx",
+      "sha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bytes": 16335
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source/apps/desktop/src/features/agent/ContextPicker.tsx",
+      "sha256": "c3691678859b33fba683eb7f04814fc08600a599a7560b66e4ffd506e6c18229",
+      "bytes": 6345
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "5043312479ef41069ae3da248211848ec97b0d71478f6fc9b3a083df92bbab45",
+      "bytes": 17608
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/source/apps/desktop/src/features/agent/store.ts",
+      "sha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "bytes": 11924
+    }
+  ],
+  "componentScenarios": [
+    {
+      "variant": "before",
+      "kind": "add",
+      "expectedObservationPassed": true,
+      "hostAndViewConnectionsEqual": false,
+      "runningTaskDraftContextSessionToolsAndSelectedConnectionPreserved": true,
+      "modelSubmitContextPrepareSessionCreateCancelCalls": 0,
+      "actualPhaseCalls": [
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_connection_save",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "expectedRevision": 0,
+            "connection": {
+              "connectionId": "14b288eb-0c33-456d-abcb-cc91256ef298",
+              "adapterId": "pi",
+              "runtime": {
+                "source": "managed",
+                "version": "1.4.0"
+              },
+              "provider": {
+                "id": "horizon-openai",
+                "api": "openai-completions",
+                "endpoint": "http://127.0.0.1:1/v1",
+                "model": "owned-new-model",
+                "label": "Owned new"
+              },
+              "authOwner": "external"
+            }
+          }
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_detect",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "adapterId": "pi"
+          }
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        }
+      ],
+      "interpretation": "Before success means expected defect reproduction, not a product success."
+    },
+    {
+      "variant": "before",
+      "kind": "verify",
+      "expectedObservationPassed": true,
+      "hostAndViewConnectionsEqual": false,
+      "runningTaskDraftContextSessionToolsAndSelectedConnectionPreserved": true,
+      "modelSubmitContextPrepareSessionCreateCancelCalls": 0,
+      "actualPhaseCalls": [
+        {
+          "phase": "verify",
+          "command": "horizon_start",
+          "method": "agent_connection_test",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {
+            "connectionId": "owned-base",
+            "expectedRevision": 1
+          }
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "stream_ack",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {
+            "taskId": "owned-test-task",
+            "throughSeq": 1
+          }
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_detect",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "adapterId": "pi"
+          }
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        }
+      ],
+      "interpretation": "Before success means expected defect reproduction, not a product success."
+    },
+    {
+      "variant": "before",
+      "kind": "delete",
+      "expectedObservationPassed": true,
+      "hostAndViewConnectionsEqual": false,
+      "runningTaskDraftContextSessionToolsAndSelectedConnectionPreserved": true,
+      "modelSubmitContextPrepareSessionCreateCancelCalls": 0,
+      "actualPhaseCalls": [
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connection_remove_preview",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "connectionId": "owned-extra"
+          }
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connection_remove",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "connectionId": "owned-extra",
+            "impactDigest": "owned-impact"
+          }
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_detect",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "adapterId": "pi"
+          }
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_preferences_get",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        }
+      ],
+      "interpretation": "Before success means expected defect reproduction, not a product success."
+    },
+    {
+      "variant": "after",
+      "kind": "add",
+      "expectedObservationPassed": true,
+      "hostAndViewConnectionsEqual": true,
+      "runningTaskDraftContextSessionToolsAndSelectedConnectionPreserved": true,
+      "modelSubmitContextPrepareSessionCreateCancelCalls": 0,
+      "actualPhaseCalls": [
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_connection_save",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "expectedRevision": 0,
+            "connection": {
+              "connectionId": "c0fcdb1a-7575-4620-bd66-f8042afc5ae1",
+              "adapterId": "pi",
+              "runtime": {
+                "source": "managed",
+                "version": "1.4.0"
+              },
+              "provider": {
+                "id": "horizon-openai",
+                "api": "openai-completions",
+                "endpoint": "http://127.0.0.1:1/v1",
+                "model": "owned-new-model",
+                "label": "Owned new"
+              },
+              "authOwner": "external"
+            }
+          }
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_sessions_list",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {}
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_preferences_get",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {}
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_detect",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "adapterId": "pi"
+          }
+        },
+        {
+          "phase": "add",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        }
+      ],
+      "interpretation": "After real AgentSettings/store synchronization correct.",
+      "detectOnlyDoesNotRefreshAgentView": true
+    },
+    {
+      "variant": "after",
+      "kind": "verify",
+      "expectedObservationPassed": true,
+      "hostAndViewConnectionsEqual": true,
+      "runningTaskDraftContextSessionToolsAndSelectedConnectionPreserved": true,
+      "modelSubmitContextPrepareSessionCreateCancelCalls": 0,
+      "actualPhaseCalls": [
+        {
+          "phase": "verify",
+          "command": "horizon_start",
+          "method": "agent_connection_test",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {
+            "connectionId": "owned-base",
+            "expectedRevision": 1
+          }
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "stream_ack",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {
+            "taskId": "owned-test-task",
+            "throughSeq": 1
+          }
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_detect",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "adapterId": "pi"
+          }
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_sessions_list",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {}
+        },
+        {
+          "phase": "verify",
+          "command": "horizon_call",
+          "method": "agent_preferences_get",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {}
+        }
+      ],
+      "interpretation": "After real AgentSettings/store synchronization correct."
+    },
+    {
+      "variant": "after",
+      "kind": "delete",
+      "expectedObservationPassed": true,
+      "hostAndViewConnectionsEqual": true,
+      "runningTaskDraftContextSessionToolsAndSelectedConnectionPreserved": true,
+      "modelSubmitContextPrepareSessionCreateCancelCalls": 0,
+      "actualPhaseCalls": [
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connection_remove_preview",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "connectionId": "owned-extra"
+          }
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connection_remove",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "connectionId": "owned-extra",
+            "impactDigest": "owned-impact"
+          }
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_sessions_list",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {}
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_preferences_get",
+          "scope": {
+            "kind": "project",
+            "projectId": "owned-project",
+            "projectEpoch": 1
+          },
+          "params": {}
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_detect",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {
+            "adapterId": "pi"
+          }
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_connections_list",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        },
+        {
+          "phase": "delete",
+          "command": "horizon_call",
+          "method": "agent_preferences_get",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {}
+        }
+      ],
+      "interpretation": "After real AgentSettings/store synchronization correct."
+    }
+  ],
+  "componentDurationMsHarnessReported": 12349,
+  "componentBoundary": {
+    "real": [
+      "App main settings route/close",
+      "AgentSettings",
+      "AgentPanel",
+      "agent store",
+      "bridge"
+    ],
+    "controlled": [
+      "AppearanceProvider",
+      "plugin/editor unrelated surfaces",
+      "main SettingsPanel layout shell delegating actualAgentSettings/onClose",
+      "Tauri replies/task event",
+      "owned running task identity fixture"
+    ],
+    "noNativePiOrModelExecution": true,
+    "independentExecCompletionReceiptAvailable": false
+  },
+  "fixtureAttempts": [
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/attempt-01.json",
+      "error": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '添加模型连接', exact: true }).getByLabel('服务地址', { exact: true })\u001b[22m\n",
+      "classification": "Fixture exact-label locator mismatch; no completed product observation. Final harness prefix-label correction reviewed."
+    },
+    {
+      "path": "docs/verification/results/agent-connections-refresh-release-20261101/component-evidence/attempt-02.json",
+      "error": "TimeoutError: locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '添加模型连接', exact: true }).getByLabel('认证归属', { exact: true })\u001b[22m\n",
+      "classification": "Fixture exact-label locator mismatch; no completed product observation. Final harness prefix-label correction reviewed."
+    }
+  ],
+  "buildAndDeepCodesignPass": true,
+  "newEvidenceIds": [
+    "MAC-MAIN-SETTINGS-CONNECTION-DELETE-STALE-PANEL-NATIVE-FAIL-001",
+    "MAC-MAIN-SETTINGS-CONNECTION-CACHE-COMPONENT-RETEST-001",
+    "MAC-MAIN-SETTINGS-CONNECTION-CACHE-NATIVE-RETEST-001"
+  ],
+  "visualRecordsAdded": 0,
+  "eightD01VisualReviewStoppedByLatestUserPriority": true
+}

@@ -1,0 +1,323 @@
+{
+  "status": "PREPARED_COMPONENT_VERIFIED_NOT_NATIVE",
+  "scope": "single GitPanel; same-renderer per-project write lifecycle; no product/backend/real repository mutation",
+  "sources": {
+    "preparedOnly": true,
+    "change": {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "baseCandidateSha256": "0cc887995a50b6f1abb0a09d0356dc27b4957972bc52802648dce8d8d8558955",
+      "productBeforeSha256": "ab271f73782e932ca32df660e8904ff414076721cce0a58b4c5a0cbab70f44f6",
+      "afterSha256": "d9a891307d13240fa629335d002e0594b4237b92505d8eb1e194ac63260dab21"
+    },
+    "support": [
+      {
+        "path": "apps/desktop/src/bridge.ts",
+        "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+      },
+      {
+        "path": "apps/desktop/src/features/git/Modal.tsx",
+        "sha256": "3d110a81c3be6fd4d09d3b2fad4683603e1a6267d6d0786c78b154a1891e2bac"
+      },
+      {
+        "path": "apps/desktop/src/features/git/types.ts",
+        "sha256": "0d941be9717ac507e394b065a6ece3f3d146fd4c111671425f7f9826384d9b72"
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/lib.rs",
+        "sha256": "b6d5f56707efe9b4adb6831c24179e54878ddd0085fa0f5c10cf23013d541740"
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/state.rs",
+        "sha256": "b37d373a02f174d36bf1966f0d40b897dedb94ca90f89e56e80c6a8acf09ad7a"
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/git.rs",
+        "sha256": "51399e7460810d502176c0b258541f990f620c6ecf9e9c9cf740315a1e913209"
+      }
+    ]
+  },
+  "integrationPatch": {
+    "path": "source.patch",
+    "from": "frozen product ab271f73",
+    "sha256": "78a39033dfdfdf9482a2ba0310e60b800182d1ee45709f65bc04c32ef2de376f"
+  },
+  "deltaFromAcceptedBranchCandidate": {
+    "path": "delta-from-branch-refresh.patch",
+    "from": "0cc88799",
+    "sha256": "3cc1b2b62774cc0fb23a7b573f6fbb10636aabdb7443529a6642ca01d4291875"
+  },
+  "oldBranchEvidenceFrozen": {
+    "path": ".work/git-branch-refresh-20261101",
+    "afterSHA256": "0cc887995a50b6f1abb0a09d0356dc27b4957972bc52802648dce8d8d8558955",
+    "patchSHA256": "a4655c2d1ce788fdf7e0959f7b0526e75e7967c8dbf7a2f0eaa086b2fb430a81",
+    "manifestSHA256": "329430375a903828fcdf9dab8d97d49c02411e27445cf3cfe4b9b725f10c8a9d"
+  },
+  "runs": [
+    {
+      "id": "write-lifecycle",
+      "command": "rtk proxy node .work/git-write-task-recovery-20261101/run.mjs",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T15:36:52.187Z",
+      "completedAt": "2026-11-01T15:36:59.340Z",
+      "durationMs": 7153,
+      "report": "result.json",
+      "script": "run.mjs",
+      "entry": "entry.tsx",
+      "sha256": {
+        "result.json": "e1f977d2d0d4bbc01daa16bc9738c870df6a0d8804f7ddebd54815d697f9e474",
+        "run.mjs": "feace760c2b68ba1a8e82d9b420efdfb327a218661b57046a086931b7120cfbb",
+        "entry.tsx": "293e0ce122c8de21b11ed3d4ae35b522d53667eaa4286053cfcfb0df6c4b1b6b",
+        "source-sha.json": "14dc3300e5671e294e2288eee486326d533404a994917b7985dedcd75c3213c0"
+      },
+      "states": [
+        {
+          "variant": "before",
+          "kind": "pending-return-stop",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "pending-ack-return",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "hidden-success",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "newer-draft",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "hidden-failure",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "history-split",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "late-status",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "pending-return-stop",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "pending-ack-return",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "hidden-success",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "newer-draft",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "hidden-failure",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "history-split",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "late-status",
+          "passed": true
+        }
+      ],
+      "productAndSupportSourceUnchanged": [
+        {
+          "path": "apps/desktop/src/features/git/GitPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/bridge.ts",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/git/Modal.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/git/types.ts",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src-tauri/src/lib.rs",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src-tauri/src/state.rs",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src-tauri/src/git.rs",
+          "unchanged": true
+        }
+      ]
+    },
+    {
+      "id": "branch-related",
+      "command": "rtk proxy node .work/git-write-task-recovery-20261101/run-branch-subset.mjs",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T15:38:52.032Z",
+      "completedAt": "2026-11-01T15:38:53.151Z",
+      "durationMs": 1119,
+      "report": "branch-subset-result.json",
+      "script": "run-branch-subset.mjs",
+      "entry": "branch-entry.tsx",
+      "sha256": {
+        "branch-subset-result.json": "dcafaf8a9f79abfa47a0a577b416d992fb54b393b227e279801f98f5d2d33a0f",
+        "run-branch-subset.mjs": "80dc68147d566c4ed5d5d1b63a5bef3ed8e9b00fc3ee9d5ab47e4a3e9aa32e36",
+        "branch-entry.tsx": "84783f5bac951c7c8789f8a34b92d46e6292e9850ec29c175ddc89dfcab0c7e1",
+        "source-sha.json": "14dc3300e5671e294e2288eee486326d533404a994917b7985dedcd75c3213c0"
+      },
+      "states": [
+        {
+          "variant": "after",
+          "kind": "cached-current",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "late-success",
+          "passed": true
+        }
+      ],
+      "productAndSupportSourceUnchanged": [
+        {
+          "path": "apps/desktop/src/features/git/GitPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/bridge.ts",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/git/Modal.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/git/types.ts",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src-tauri/src/lib.rs",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src-tauri/src/state.rs",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src-tauri/src/git.rs",
+          "unchanged": true
+        }
+      ]
+    }
+  ],
+  "candidateSourceSameForBothRuns": true,
+  "existingPathsPreservedBySource": {
+    "loadBranchesExactSourceUnchangedFromAccepted0cc": true,
+    "commitEntryExactSourceUnchanged": true,
+    "stagingActionExactSourceUnchanged": true,
+    "openDiffExactSourceUnchanged": true
+  },
+  "branchEvidenceReuse": {
+    "directFinalAfter": [
+      "cached-current",
+      "late-success"
+    ],
+    "inherited": [
+      "refs-remotes-drafts",
+      "late-rejection",
+      "project-boundary",
+      "token-mismatch-recovery"
+    ],
+    "basis": "loadBranches, form touched handlers and remote gating unchanged; only branch effect separated from history and guarded by active write busy. Read-only paths have no write record; two final after paths directly retested. Prior 0cc raw evidence remains frozen."
+  },
+  "historyCorrection": {
+    "before": "combined effect uses snapshot object; two successful same-repo status refreshes create 3 pending history requests",
+    "after": "history effect uses repoId/history/busy; same trace retains 1 request"
+  },
+  "taskOwnership": {
+    "startLockBeforeAwait": true,
+    "cancelUsesOriginalHandleAndCapturedProject": true,
+    "currentProjectEpochUsedByRealBridge": true,
+    "cancelAcknowledgementDoesNotReleaseWrite": true,
+    "oldViewThenGuards": [
+      "projectId",
+      "generation",
+      "record token"
+    ],
+    "hiddenTerminalRecord": "no base or result snapshot; task null; outcome/draft association only",
+    "release": "after visible terminal consumption/fresh status; no history cache"
+  },
+  "draftContract": "only confirmed successful commit with still-matching message clears once via existing persistDraft; failures/unknown/new A/B drafts retained",
+  "boundaries": {
+    "real": [
+      "GitPanel",
+      "GitModal",
+      "bridge"
+    ],
+    "controlled": [
+      "Tauri task/status/branch/history/subscribe transport",
+      "plugin enabled",
+      "editor store",
+      "unrelated DiffViewer/ConflictViewer content"
+    ],
+    "noRealGitOrNativeGUI": true,
+    "productBuildOrInstall": false
+  },
+  "productAndSupportSourceUnchanged": [
+    {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/git/Modal.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/git/types.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/state.rs",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/git.rs",
+      "unchanged": true
+    }
+  ],
+  "componentProcessesCompleted": true,
+  "beforePassedMeaning": "expected behavior of accepted branch candidate 0cc observed; not old native/product acceptance",
+  "afterPassedMeaning": "controlled component assertions only; native Stop/OS process clearance not rerun"
+}

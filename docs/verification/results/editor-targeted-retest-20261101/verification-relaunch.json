@@ -1,0 +1,80 @@
+{
+  "observedAt": "2026-11-01T05:13:46.741946+00:00",
+  "method": "Single independent post-relaunch process identity/responsibility and bundle SHA snapshot; no performance sampler",
+  "binarySha256": "df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+  "bytes": 19860880,
+  "newRootPid": 52226,
+  "previousRootKnownIdentitiesGone": true,
+  "previousQuitArtifact": "verification-postquit-identities.json",
+  "identities": [
+    {
+      "pid": 52226,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:13:15 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "group": "horizon",
+      "reason": "root PID",
+      "responsiblePid": 52226
+    },
+    {
+      "pid": 52227,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:13:15 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 52226",
+      "responsiblePid": 52226
+    },
+    {
+      "pid": 52228,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:13:15 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 52226",
+      "responsiblePid": 52226
+    },
+    {
+      "pid": 52229,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:13:15 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 52226",
+      "responsiblePid": 52226
+    },
+    {
+      "pid": 52230,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:13:15 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 52226",
+      "responsiblePid": 52226
+    },
+    {
+      "pid": 52297,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:13:16 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 52226",
+      "responsiblePid": 52226
+    }
+  ],
+  "operatorReceipt": {
+    "capturedAt": "2026-11-01T05:13:22.737295+00:00",
+    "processes": [
+      "52226     1 Sun Nov  1 13:13:15 2026     /Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop"
+    ],
+    "binarySha256": "df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+    "binaryBytes": 19860880,
+    "launchMethod": "CUA getApp after verifier confirmed all seven prior known identities gone"
+  }
+}

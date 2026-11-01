@@ -1,0 +1,132 @@
+{
+  "recordedAt": "2026-11-01T03:46:49.328020+00:00",
+  "status": "Compile and non-GUI unit checks passed; integrated native GUI and fixed-scene performance pending root build.",
+  "commands": [
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-swift-version",
+        "5",
+        "-parse-as-library",
+        "-O",
+        "-target",
+        "arm64-apple-macosx12.0",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/Picker.swift",
+        "-o",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app/Contents/MacOS/HorizonPicker"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app: replacing existing signature\n"
+    },
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "plutil",
+        "-lint",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/Info.plist"
+      ],
+      "exitCode": 0,
+      "stdout": "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/Info.plist: OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "scripts/desktop-run.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app/Contents/MacOS/HorizonPicker"
+      ],
+      "input": "invalid request\\n",
+      "exitCode": 0,
+      "stdout": "{\"status\":\"error\",\"message\":\"文件选择请求无效\"}\n",
+      "stderr": "",
+      "appKitStarted": false
+    }
+  ],
+  "cargoToolResults": [
+    {
+      "command": "cargo check --manifest-path apps/desktop/src-tauri/Cargo.toml --locked --offline",
+      "exitCode": 0
+    },
+    {
+      "command": "cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml --locked --offline --lib picker::implementation::tests -- --test-threads=1",
+      "exitCode": 0,
+      "passed": 4,
+      "filtered": 61,
+      "durationSeconds": 5.59
+    },
+    {
+      "command": "cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml --locked --offline --test files_workflow project_ -- --test-threads=1",
+      "exitCode": 0,
+      "passed": 9,
+      "filtered": 23,
+      "durationSeconds": 0.33
+    }
+  ],
+  "sourceHashes": {
+    "apps/picker-service/Picker.swift": "82eb1c02ab81ecddbd191536e66cb466f680774ed0520cfea52d2020bff1f71d",
+    "apps/picker-service/Info.plist": "c6e53094611aec4ef8f02bfd7d2b9e886f74bd3f53aff7ef1bc5e83594d92d60",
+    "apps/desktop/src-tauri/src/picker.rs": "9d57e50bae903f117bb996090810913a12641aaf39fd500baae1b2aa4e3afe4d",
+    "apps/desktop/src-tauri/src/lib.rs": "fef82cd3ccf85898e1ac15575e6a6d1d85d45b3a9c627d44e1361302f293332e",
+    "apps/desktop/src-tauri/src/macos.rs": "d037c62305f1e585b747b7e713fbee78b26b2f9f765d178fb17faadc1988e4a2",
+    "apps/desktop/src-tauri/src/appearance.rs": "f8f60416d1e4a7615080c69c66c6b8642524145df890a53b5e0c8fa457320eb6",
+    "apps/desktop/src-tauri/src/extensions.rs": "65fd0d71cc943133739643a030fddaeef61618e5d94bba294930c51d1f6c9bf7",
+    "apps/desktop/src-tauri/src/processes.rs": "76c3b7832f98b900a54a947b3127e82a9db7f3a7d3a4f12d4ecdb420a0c045ad",
+    "scripts/desktop-run.mjs": "592385b3b761cf34d13ae470e647a9ce7d3fcb41a8fa3d0d0ee7315e0db54333",
+    "apps/desktop/src-tauri/tauri.conf.json": "da6b81c55e3b4a166067a5a9c6d6e0d1a49d91896abd7e0249f57c3602769107"
+  },
+  "helperBinary": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+    "sha256": "1fcf424a0bde9cf1eeba84c42f5a3035913b0644fcf26d502725f7ab350dc178",
+    "bytes": 167456
+  },
+  "testsScope": [
+    "unicode selected path / quit reply and waitpid ECHILD",
+    "nonzero exit and malformed reply still reaped",
+    "cancel closes stdin / suppresses racing selected path",
+    "unresponsive direct child reaches 3s cancel timeout then own-child kill+wait"
+  ],
+  "runtimeUntouched": {
+    "releaseBuild": false,
+    "horizonRestart": false,
+    "guiActions": false,
+    "systemHelperTermination": false
+  },
+  "remaining": [
+    "Root build packages helper under Contents/Helpers/HorizonPicker.app",
+    "Native selection/cancel, host modality/focus, CmdQ, host exit/abnormal EOF and filters",
+    "Post-dismissal fixed-scene responsible process CPU/footprint"
+  ]
+}

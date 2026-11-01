@@ -1,0 +1,275 @@
+{
+  "auditedAt": "2026-11-01T02:42:39.915065+00:00",
+  "buildLabel": "settings-project (not original candidate8)",
+  "rootExecutable": {
+    "34128": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6"
+    }
+  },
+  "sampleCount": 117,
+  "allRootPresent": true,
+  "identities": [
+    {
+      "pid": 34128,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:33:56 2026",
+      "start_abstime": 480600382768,
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "group": "horizon",
+      "reason": "root PID",
+      "samples": 117
+    },
+    {
+      "pid": 34195,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "start_abstime": 480604878906,
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 34196,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "start_abstime": 480605224974,
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 34197,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "start_abstime": 480605288287,
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 34198,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "start_abstime": 480615570242,
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 34199,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "start_abstime": 480620496293,
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 40868,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:37:22 2026",
+      "start_abstime": 485539723294,
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 40869,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:37:22 2026",
+      "start_abstime": 485542395771,
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    },
+    {
+      "pid": 40938,
+      "ppid": 1,
+      "start": "Sun Nov 1 10:37:24 2026",
+      "start_abstime": 485575542620,
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 34128",
+      "samples": 117
+    }
+  ],
+  "processCounts": {
+    "9": 117
+  },
+  "after60": {
+    "sampleCount": 61,
+    "elapsedFirst": 60.4536,
+    "elapsedLast": 125.0051,
+    "spanSeconds": 64.5515,
+    "validTotalCPUCount": 61,
+    "validTotalFootprintCount": 61,
+    "cpu": {
+      "count": 61,
+      "median": 0.35868577614972685,
+      "p95": 18.056552509274276,
+      "max": 20.59774846340134,
+      "mean": 3.4249339322659282
+    },
+    "footprint": {
+      "count": 61,
+      "median": 168695304,
+      "p95": 168826376,
+      "max": 168842760,
+      "mean": 168645883.40983605
+    },
+    "processContributionsSameValidTotalRows": [
+      {
+        "pid": 40868,
+        "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+        "sampleCount": 61,
+        "cpuMean": 3.190866940270098
+      },
+      {
+        "pid": 34197,
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+        "sampleCount": 61,
+        "cpuMean": 0.1241199114409107
+      },
+      {
+        "pid": 34128,
+        "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+        "sampleCount": 61,
+        "cpuMean": 0.10773404153902667
+      },
+      {
+        "pid": 34195,
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+        "sampleCount": 61,
+        "cpuMean": 0.002213039015892607
+      },
+      {
+        "pid": 34196,
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+        "sampleCount": 61,
+        "cpuMean": 0.0
+      },
+      {
+        "pid": 34198,
+        "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+        "sampleCount": 61,
+        "cpuMean": 0.0
+      },
+      {
+        "pid": 34199,
+        "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+        "sampleCount": 61,
+        "cpuMean": 0.0
+      },
+      {
+        "pid": 40869,
+        "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+        "sampleCount": 61,
+        "cpuMean": 0.0
+      },
+      {
+        "pid": 40938,
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+        "sampleCount": 61,
+        "cpuMean": 0.0
+      }
+    ]
+  },
+  "versusA": {
+    "cpuMeanDelta": 3.203110916925405,
+    "footprintMeanDeltaBytes": 70231144.52459015
+  },
+  "diagnosticSnapshot": {
+    "exportedAt": "2026-11-01T02:37:19.994006+00:00",
+    "bytes": 1876,
+    "sha256": "d315a30080c69d952ef9983b2777ee150c62b1fda18d3e86992e46d2935603b8",
+    "timing": "F09 preview creates snapshot before opening native picker; not after-picker/live per-second counters"
+  },
+  "unassignedWebKit": [
+    {
+      "pid": 863,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 891,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 909,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 929,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1364,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1365,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1427,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1517,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    }
+  ],
+  "unassignedOwnerAudit": "Same foreign CC Switch645 and Safari732 identities as A; no Horizon unassigned WebKit candidate.",
+  "nativeBeforeImageInspected": true,
+  "nativeBeforeMatchesA": "Same 1280x800 welcome scene; pointer differs",
+  "nativeAfterPending": false,
+  "claim": "Actual OpenPanel close followed by all-responsibility idle CPU 3.4249339322659282%, above 1% suggestion; patch not validated as fixing panel idle cost",
+  "limitations": [
+    "No helper terminated or excluded. All nine identities remain in every sample.",
+    "Initial picker path was existing server-code historical directory; root navigated to initially empty dedicated destination before successful export. Directory enumeration source is not identified.",
+    "Earlier 13% candidate6/candidate7 failures retained. Different welcome scene prevents numerical regression claim against those Git scenes.",
+    "B is OpenPanel, C actual SavePanel still pending.",
+    "Native JPEG original bytes preserved and actual scenes manually compared; no design-reference comparison performed for these captures."
+  ],
+  "copiedOriginals": {
+    "summary.json": {
+      "sha256": "6c35f960e6e0753e46e3633b880a0b4a32bc10f9f9a66f1bcb6724dba849baaa",
+      "sourceMatches": true
+    },
+    "metadata.json": {
+      "sha256": "d3fc93269b09aca803a2fb64d4c90c71ea42776ea2581acd71f9acd86b8f4e32",
+      "sourceMatches": true
+    },
+    "cycle-output.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMatches": true
+    },
+    "samples.jsonl": {
+      "sha256": "1eb3713f030debed14e6eab4ff6f0a091c9c71b6d7581aace8205e0c4cf33238",
+      "sourceMatches": true
+    }
+  },
+  "nativeAfterImageInspected": true,
+  "nativeBeforeAfterMatch": "Same 1280x800 welcome scene, same visible controls/recent projects; pointer differs",
+  "sceneArtifacts": {
+    "native-before.txt": "69d70516d513eab83252739ad7b847202c24c4154ef01729f1b321d472dbb685",
+    "native-before.jpg": "5ca2f3f8441e48ed7cfb69d6493dd67932a5a976a9575b5cb77a853d947c3a7a",
+    "native-after.jpg": "1f342398c032114105539df7e1f0432fd858846ba769cd4095d05463c8667753",
+    "operator-scene.json": "6553872bf74f9ee56c4b3a72a3be845c0d97eb49758e286657aa6c0cdbe4e390"
+  }
+}

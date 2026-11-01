@@ -1,0 +1,138 @@
+{
+  "createdAt": "2026-11-01T17:07:34.311507+00:00",
+  "sources": [
+    {
+      "destination": "apps/desktop/src-tauri/src/processes.rs",
+      "candidate": ".work/windows-processes-20261102/src/processes.rs",
+      "beforeSha256": "76c3b7832f98b900a54a947b3127e82a9db7f3a7d3a4f12d4ecdb420a0c045ad",
+      "afterSha256": "52c4281a6500b022e4f515ab36d4f4f01c2946c3373fd7455681b451a9fd17e9",
+      "bytes": 144535,
+      "baseMatchesAtSeal": true
+    },
+    {
+      "destination": "apps/desktop/src-tauri/src/search.rs",
+      "candidate": ".work/windows-processes-20261102/src/search.rs",
+      "beforeSha256": "a586666a139bec092b1fceb69a7272292ebe17a423c00f3cbe0d0fffe2ec4857",
+      "afterSha256": "6225eecf508ded74ab10582f377752e1c75d38a366a0e8bb2c6ab0bd7c155fef",
+      "bytes": 18464,
+      "baseMatchesAtSeal": true
+    },
+    {
+      "destination": "apps/desktop/src-tauri/src/extension_host.rs",
+      "candidate": ".work/windows-processes-20261102/src/extension_host.rs",
+      "beforeSha256": "0180a29b01c9c4dda746e79e90d35c5e4b1c47cf2ac76d7175e8a60782762118",
+      "afterSha256": "562771dc1a1a29ec22c7260666778b2d00f90cced8be37e55c9718fb2ae4f37e",
+      "bytes": 31856,
+      "baseMatchesAtSeal": true
+    },
+    {
+      "destination": "apps/desktop/src-tauri/src/windows_process.rs",
+      "candidate": ".work/windows-processes-20261102/windows_process.rs",
+      "beforeSha256": null,
+      "afterSha256": "27fba9ee23a762aeacf833b0c5ed67078f741988877989f58bd8980f49697928",
+      "bytes": 13369,
+      "newFile": true
+    }
+  ],
+  "vendor": {
+    "upstream": "portable-pty 0.9.0",
+    "candidate": ".work/windows-processes-20261102/vendor/portable-pty",
+    "destination": "apps/desktop/src-tauri/vendor/portable-pty",
+    "license": "LICENSE.md",
+    "changedUpstreamFiles": [
+      "src/cmdbuilder.rs",
+      "src/win/psuedocon.rs"
+    ],
+    "modifications": [
+      "CommandBuilder cfg(windows) creation_flags defaults/setter",
+      "ConPTY CreateProcessW OR supplied flags"
+    ],
+    "conptyFlags": "CREATE_SUSPENDED|CREATE_NEW_PROCESS_GROUP; no CREATE_NO_WINDOW",
+    "files": [
+      {
+        "relativePath": "Cargo.toml",
+        "sha256": "e1a7320efbb4b088352f5ac87c805e2ad96df571b994ac1397e6d6ffdf981c61",
+        "bytes": 2217
+      },
+      {
+        "relativePath": "Cargo.toml.orig",
+        "sha256": "963885e09998ceab9a1ad2465ce883d9a8a2ab7a0e972400f98e0356aded46f9",
+        "bytes": 936
+      },
+      {
+        "relativePath": "LICENSE.md",
+        "sha256": "191c46fcf52061382b1c51a70311eb9081381cc158e5899f3739473a9432185b",
+        "bytes": 1068
+      },
+      {
+        "relativePath": "examples/bash.rs",
+        "sha256": "bfa0f3d7e2243725952d2c0ac629f6fdbcf94e7d0a85587a43208d3d2b685f74",
+        "bytes": 2492
+      },
+      {
+        "relativePath": "examples/narrow.rs",
+        "sha256": "5ac4831f51e1661d8866a181cf6150fdd29de1a334255fc42a101498aefc4b99",
+        "bytes": 3305
+      },
+      {
+        "relativePath": "examples/whoami.rs",
+        "sha256": "a6504d8f5c98d8ec50b88975f3f3b59573d0da1d914ef1d05bc550960e69ec4b",
+        "bytes": 3587
+      },
+      {
+        "relativePath": "examples/whoami_async.rs",
+        "sha256": "c89932053c4f407353d2159f9a40f794cc52e46da745cf1ed2e3c79a54a72791",
+        "bytes": 2529
+      },
+      {
+        "relativePath": "src/cmdbuilder.rs",
+        "sha256": "78ff982fce6316174eecdd5c5a0c3af4b6c5a93b02503397e76a30224678493f",
+        "bytes": 27964
+      },
+      {
+        "relativePath": "src/lib.rs",
+        "sha256": "8b1d45c520f17c8be2d51069bb6ed46a6fa612d0395bc55a5b6e0ef30cc1c004",
+        "bytes": 13378
+      },
+      {
+        "relativePath": "src/serial.rs",
+        "sha256": "4c1db2410641b15af1c52d17b3e03a294f11d1a843744e27101d22dc91dbd793",
+        "bytes": 9219
+      },
+      {
+        "relativePath": "src/unix.rs",
+        "sha256": "14c85213b32074d71c8af334531fd027d6a0558dee830282620c88bab056c4b3",
+        "bytes": 12978
+      },
+      {
+        "relativePath": "src/win/conpty.rs",
+        "sha256": "8af0d7654aad62aaa67685b7b8550bc638b732360f7de1357cc5b0a35bc47ca1",
+        "bytes": 2984
+      },
+      {
+        "relativePath": "src/win/mod.rs",
+        "sha256": "c983e63d15800f73ac05105a69ec2b53fea482c066ea5559682bd024561f999a",
+        "bytes": 4398
+      },
+      {
+        "relativePath": "src/win/procthreadattr.rs",
+        "sha256": "0483a5b43794181f02b20175ba15dc4e913663208d94e4a48aa9cc2cd77fdb1c",
+        "bytes": 2183
+      },
+      {
+        "relativePath": "src/win/psuedocon.rs",
+        "sha256": "f9af06eef1915b2ba7202d403c01efe28ac22c425d9b2467acdc1bc8d57f6f3d",
+        "bytes": 6054
+      }
+    ],
+    "patch": ".work/windows-processes-20261102/portable-pty.patch"
+  },
+  "rootReviewFixes": [
+    "search attach failure: try_wait errors retain same actual Tokio Child and ProcessLease; only Ok(Some) releases",
+    "processes retain_windows_spawn_failure: only Ok(Some) calls process_exited; wait errors retain same Child/resource",
+    "Windows stop_process success: final state, lease_releasing, exitCode read under same final MutexGuard"
+  ],
+  "review": "Root read all backend diffs, shared helper and vendor two-file patch. Same actual Child/Job retained on unconfirmed cleanup; Windows process stop checks final state under one lock. Exact baseline and candidate/vendor hashes match. Full integrated build and real Windows execution pending.",
+  "installedMacUnchanged": true,
+  "noLocalCompileDuringL1": true
+}

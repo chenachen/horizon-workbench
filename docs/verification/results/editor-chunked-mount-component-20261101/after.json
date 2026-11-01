@@ -1,0 +1,83 @@
+{
+  "kind": "Same-file chunked wake mount regression",
+  "phases": [
+    {
+      "name": "initial mount automatically loads first chunk",
+      "passed": true,
+      "state": {
+        "fileId": "large",
+        "evicted": false,
+        "cursor": "reader-1-next",
+        "text": "automatic first chunk from reader-1",
+        "byteStart": "0",
+        "byteEnd": "262144",
+        "largeFileCount": 1,
+        "loadingMessage": false,
+        "chunkCalls": [
+          {
+            "method": "file_read_chunk",
+            "params": {
+              "fileId": "large",
+              "cursor": "reader-1",
+              "limitBytes": 262144
+            },
+            "projectId": "a"
+          }
+        ]
+      }
+    },
+    {
+      "name": "evicted transition unmounts the old reader; fresh same-file open automatically loads first chunk",
+      "passed": true,
+      "state": {
+        "fileId": "large",
+        "evicted": false,
+        "cursor": "reader-2-next",
+        "text": "automatic first chunk from reader-2",
+        "byteStart": "0",
+        "byteEnd": "262144",
+        "largeFileCount": 1,
+        "loadingMessage": false,
+        "chunkCalls": [
+          {
+            "method": "file_read_chunk",
+            "params": {
+              "fileId": "large",
+              "cursor": "reader-1",
+              "limitBytes": 262144
+            },
+            "projectId": "a"
+          },
+          {
+            "method": "file_read_chunk",
+            "params": {
+              "fileId": "large",
+              "cursor": "reader-2",
+              "limitBytes": 262144
+            },
+            "projectId": "a"
+          }
+        ]
+      }
+    }
+  ],
+  "pendingWake": {
+    "fileId": "large",
+    "evicted": true,
+    "text": "",
+    "largeFileCount": 0,
+    "loadingMessage": true,
+    "chunkCalls": [
+      {
+        "method": "file_read_chunk",
+        "params": {
+          "fileId": "large",
+          "cursor": "reader-1",
+          "limitBytes": 262144
+        },
+        "projectId": "a"
+      }
+    ]
+  },
+  "passed": true
+}

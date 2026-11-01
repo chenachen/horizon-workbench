@@ -1,0 +1,18 @@
+{
+  "command": [
+    "node_modules/.bin/vitest",
+    "run",
+    "packages/editor/src/store.test.ts",
+    "-t",
+    "reopens a sleeping|old chunk cursor|expired chunk cursor",
+    "--reporter=json",
+    "--outputFile=docs/verification/results/editor-chunked-lifecycle-component-20261101/after-targeted.json"
+  ],
+  "testStartedAt": "2026-11-01T05:33:17.489000+00:00",
+  "reportWrittenAt": "2026-11-01T05:33:17.766895+00:00",
+  "exitCode": 1,
+  "stdout": "after-targeted.stdout.txt",
+  "stderr": "after-targeted.stderr.txt",
+  "stdoutProvenance": "Exact text retained from exec tool result.",
+  "runnerScopeIssue": "Vitest path substring also selected four archived test copies under docs; their missing adjacent modules caused suite errors. Preserve report. The corrected after-run.json restricts --dir to actual packages/editor/src."
+}

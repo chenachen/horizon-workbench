@@ -1,0 +1,166 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container
+				4 text Horizon 工作区
+				5 pop up button 切换工作区, Value: macOS 完整验收 1101
+				6 button 搜索文件或命令 ⌘ P
+				7 button 切换侧栏, Help: 切换侧栏 ⌘ B
+				8 button AI 助手
+				9 button 插件中心
+				10 button 设置, Help: 设置 ⌘ ,
+			11 container 项目
+				12 text 工作区项目
+				13 content list
+					14 button 切换到项目 Editor Resume QA, Help: Editor Resume QA
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA
+				15 button (collapsed) 更多项目, Secondary Actions: Expand
+			16 container 项目侧栏
+				17 container
+					18 container /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA
+						19 text Editor Resume QA
+					20 button 项目操作
+					21 button 收起侧栏
+				22 tab group (selectable) 项目工具
+					23 tab (selected) 文件
+					24 tab (selectable) Git
+					25 tab (selectable) 搜索
+				26 container 项目文件
+					27 container
+						28 container 文件侧栏视图
+							29 toggle button 目录, Value: on
+							30 toggle button 结构, Value: off
+						31 button 新建文件
+						32 button 新建目录
+						33 button 刷新文件树
+						34 button 显示或隐藏点文件
+					35 container 文件树
+						36 container
+							37 container byte-cache
+								38 text byte-cache
+								39 button byte-cache 操作
+							40 container cache
+								41 text cache
+								42 button cache 操作
+							43 container limits
+								44 text limits
+								45 button limits 操作
+							46 container loop
+								47 text loop
+								48 text ↗
+								49 button loop 操作
+							50 container many
+								51 text many
+								52 button many 操作
+							53 container native-file-ops
+								54 text native-file-ops
+								55 button native-file-ops 操作
+							56 container native-remainder
+								57 text native-remainder
+								58 button native-remainder 操作
+							59 container native-remainder/denied
+								60 text denied
+								61 button denied 操作
+							62 container native-remainder/copy-ime.txt
+								63 text copy-ime.txt
+								64 button copy-ime.txt 操作
+							65 container native-remainder/dirty-trash.txt
+								66 text dirty-trash.txt
+								67 button dirty-trash.txt 操作
+							68 container native-remainder/visual.md
+								69 text visual.md
+								70 button visual.md 操作
+							71 container (selected) native-remainder/visual.ts
+								72 text visual.ts
+								73 button visual.ts 操作
+							74 container session-next
+								75 text session-next
+								76 button session-next 操作
+							77 container src
+								78 text src
+								79 button src 操作
+							80 container README.md
+								81 text README.md
+								82 button README.md 操作
+							83 container broken-link
+								84 text broken-link
+								85 text ↗
+								86 button broken-link 操作
+				87 container
+					88 text Editor Resume QA
+					89 button 快速打开文件
+				90 splitter 文件侧栏宽度, Value: 240
+			91 container 编辑区域
+				92 container 编辑工作台
+					93 tab group (selectable) 打开的文件
+						94 tab (selectable) state.txt, Help: session-next/state.txt
+						95 button 关闭 session-next/state.txt
+						96 tab (selectable) dirty-trash.txt, Help: native-remainder/dirty-trash.txt
+						97 button 关闭 native-remainder/dirty-trash.txt
+						98 tab (selectable) copy-ime.txt, Help: native-remainder/copy-ime.txt
+						99 button 关闭 native-remainder/copy-ime.txt
+						100 tab (selected) visual.ts 未保存, Help: native-remainder/visual.ts · 未保存, Value: on
+						101 button 关闭 native-remainder/visual.ts
+						102 tab (selectable) visual.md, Help: native-remainder/visual.md
+						103 button 关闭 native-remainder/visual.md
+						104 tab (selectable) text-101MiB.txt, Help: limits/text-101MiB.txt
+						105 button 关闭 limits/text-101MiB.txt
+					106 button 文件标签操作
+					107 container native-remainder/visual.ts
+						108 text native-remainder visual.ts
+					109 button 查找与替换
+					110 button 保存文件, Help: 保存 ⌘S
+					111 container visual.ts 未保存
+						112 text entry area (settable) native-remainder/visual.ts，代码编辑器, Value: export type ReadingItem = { title: string; done: boolean };
+
+export const readingPlan: ReadingItem[] = [
+  { title: '检查项目状态', done: true },
+  { title: '整理本地笔记', done: false },
+];
+
+export function remainingItems(items: ReadingItem[]) {
+  return items.filter(item => !item.done);
+}
+
+// 未保存的本地修改 1101
+
+
+							113 container (settable)
+								114 text (settable) export type ReadingItem  = { title:  string ; done:  boolean  };
+							115 container (settable)
+								116 text (settable) export const  readingPlan:  ReadingItem [] = [
+							117 container (settable)
+								118 text (settable)   { title:  '检查项目状态' , done:  true  },
+							119 container (settable)
+								120 text (settable)   { title:  '整理本地笔记' , done:  false  },
+							121 text (settable) ];
+							122 container (settable)
+								123 text (settable) export function  remainingItems(items:  ReadingItem []) {
+							124 container (settable)
+								125 text (settable) return  items.filter(item => !item.done);
+							126 text (settable) }
+							127 text (settable) // 未保存的本地修改 1101
+				128 button 进入专注模式
+			129 container
+				130 button Editor Resume QA
+				131 text Esc 后按 Tab 离开编辑器 恢复稿已存
+				132 button 行 13，列 1
+				133 text TS UTF8  ·  LF
+				134 pop up button 启动方案, Value: 在设置添加启动方案
+				135 button (disabled) 启动
+				136 button 切换终端
+				137 button 扩展
+				138 text macOS · 0.1.0
+	139 close button
+	140 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	141 minimize button
+142 menu bar
+	143 Horizon
+	144 File
+	145 Edit
+	146 View
+	147 Window
+	148 Help
+
+The focused UI element is 100 tab (selected) visual.ts 未保存, Help: native-remainder/visual.ts · 未保存, Value: on

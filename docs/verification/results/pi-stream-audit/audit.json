@@ -1,0 +1,27 @@
+{
+  "reviewedAt": "2026-10-30T18:43:25.134318+00:00",
+  "method": "Independent retained outputs and complete driver assertions; no repeat execution",
+  "sha256": {
+    "docs/verification/results/pi-stream-audit/pi-rpc.json": "ad7218bd87c3620709c7e4653a8eeec79ddd1e4b171cd8a2036313afd37425b9",
+    "docs/verification/results/pi-stream-audit/pi-rpc.log": "250acfc85687ad9a45243b5758245ec79dd8ffe98034bd6264343d6e1fd0cda4",
+    "docs/verification/results/pi-stream-audit/pi-policy-unicode.json": "f5291cc5e1f7504eaf43a675477014211a5394b7a40ec6baefc072a588154609"
+  },
+  "sourceSha256": {
+    "scripts/test-pi-rpc.mjs": "c924a96762448272b30b3db1f2ef99c5245ae43eadd8ad203054e2834ed214ea",
+    "scripts/test-pi-policy.mjs": "6b20ac0a718c8205e35268d2e527f2f5377362a2c96934d0ec622194ea3d13ac",
+    "packages/pi-policy/horizon-policy.ts": "3eb79c2578c8e1376698d496da9164df52de3bde3a7758b6364b3ba9e37d45d6"
+  },
+  "checks": [
+    "Real official Pi 1.4.0 RPC waits agent_settled and normal exit for each conversation",
+    "327680-byte Unicode response equals expected repeated text both in deltas and final message; sha256 63d18a6d135b8dcb10ececc549fbb4100097343d1acbad47a482ade7aef85472",
+    "Compaction start/end observed before settled, with successful final stopReason",
+    "Existing resume, abort clear_queue, authentication failure and no tools/context/auto-extensions remain passing",
+    "Actual checked-in policy transport receives Chinese/emoji over one-byte local Unix socket writes; corrected decoder matches; removing setEncoding reproduces corruption"
+  ],
+  "limits": [
+    "Controlled local model service, no live provider credentials",
+    "Pi RPC test bypasses native Horizon broker and visible chat pagination; not GUI long-conversation evidence",
+    "Policy transport test transpiles real implementation but stubs schema constructors and tool registration",
+    "Reported elapsed values are individual protocol-test durations, not product performance budgets"
+  ]
+}

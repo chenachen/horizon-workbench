@@ -1,0 +1,29 @@
+{
+  "method": "Actual SettingsPanel and AppearanceProvider; controlled bridge; actual product CSS in Chromium",
+  "navigation": {
+    "options": [
+      "全局默认设置",
+      "项目 A",
+      "项目 B"
+    ],
+    "projectSwitchKeepsSection": true,
+    "launchPanelFollowsProject": true,
+    "pendingProjectValuesHidden": true
+  },
+  "scope": [
+    {
+      "method": "settings_patch",
+      "params": {
+        "scope": "project",
+        "projectId": "b",
+        "expectedRevision": 1,
+        "set": {
+          "editor.tabSize": 4
+        },
+        "unset": []
+      },
+      "projectId": "b"
+    }
+  ],
+  "contrast": []
+}

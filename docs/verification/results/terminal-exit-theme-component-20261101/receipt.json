@@ -1,0 +1,133 @@
+{
+  "completedAt": "2026-11-01T07:06:49.721405+00:00",
+  "command": [
+    "rtk",
+    "proxy",
+    "node",
+    ".work/check-terminal-closed.mjs",
+    "docs/verification/results/terminal-exit-theme-component-20261101/after-result.json"
+  ],
+  "actualExitCode": 0,
+  "resultSha256": "87b42318a99c9470ac66de9cd2d52848ab21e9ba5c9b95387d2393dd7a3c584b",
+  "phases": [
+    {
+      "name": "same real xterm hidden dark to light to dark reopens with current low surface and retained history",
+      "passed": true
+    },
+    {
+      "name": "running to exited updates read-only options without remount; queued input is not sent; history remains",
+      "passed": true
+    },
+    {
+      "name": "closed history hide/reopen refreshes current theme while real ResizeObserver fit sends no native resize/input",
+      "passed": true
+    },
+    {
+      "name": "fresh mount of exited session replays retained output read-only without a PTY call",
+      "passed": true
+    },
+    {
+      "name": "new terminal remains interactive with real xterm input and native resize dispatch",
+      "passed": true
+    }
+  ],
+  "themeChecks": [
+    {
+      "palette": "orbit-dark",
+      "actual": {
+        "instances": 1,
+        "theme": {
+          "background": "#202d40",
+          "foreground": "#e2ebf7",
+          "cursor": "#4b72ad",
+          "selectionBackground": "#d8e4f7",
+          "black": "#38475c",
+          "red": "#c24f59",
+          "green": "#3a8060",
+          "yellow": "#a4782d",
+          "blue": "#4c79b2",
+          "magenta": "#8660ac",
+          "cyan": "#38858b",
+          "white": "#d7dee9"
+        },
+        "panel": "rgb(32, 45, 64)",
+        "xterm": "rgb(32, 45, 64)"
+      }
+    },
+    {
+      "palette": "celadon-light",
+      "actual": {
+        "instances": 1,
+        "theme": {
+          "background": "#f1f7f3",
+          "foreground": "#243e33",
+          "cursor": "#4b72ad",
+          "selectionBackground": "#d8e4f7",
+          "black": "#38475c",
+          "red": "#c24f59",
+          "green": "#3a8060",
+          "yellow": "#a4782d",
+          "blue": "#4c79b2",
+          "magenta": "#8660ac",
+          "cyan": "#38858b",
+          "white": "#d7dee9"
+        },
+        "panel": "rgb(241, 247, 243)",
+        "xterm": "rgb(241, 247, 243)"
+      }
+    },
+    {
+      "palette": "aurora-dark",
+      "actual": {
+        "instances": 1,
+        "theme": {
+          "background": "#263337",
+          "foreground": "#e1f1f1",
+          "cursor": "#4b72ad",
+          "selectionBackground": "#d8e4f7",
+          "black": "#38475c",
+          "red": "#c24f59",
+          "green": "#3a8060",
+          "yellow": "#a4782d",
+          "blue": "#4c79b2",
+          "magenta": "#8660ac",
+          "cyan": "#38858b",
+          "white": "#d7dee9"
+        },
+        "panel": "rgb(38, 51, 55)",
+        "xterm": "rgb(38, 51, 55)"
+      }
+    }
+  ],
+  "errors": [],
+  "sourceBefore": {
+    "index": {
+      "file": "docs/verification/results/terminal-exit-theme-component-20261101/before-source/apps/desktop/src/features/processes/index.tsx",
+      "sha256": "5b280452613f95533dd67f2cb089adbc237a8c6d7da012e7a371387c08ea40d3",
+      "origin": "docs/verification/results/processes-stop-failure-candidate8-audit/source/apps/desktop/src/features/processes/index.tsx",
+      "kind": "Preserved actual source identical to staged beforeSHA."
+    },
+    "css": {
+      "file": "docs/verification/results/terminal-exit-theme-component-20261101/before-source/apps/desktop/src/features/processes/processes.css",
+      "sha256": "88cea9523dac0c08bd5d6f4c444a1dff7449695db3024770a77944c907234245",
+      "kind": "Inverse of exactly the two authorized token replacements; hash matches pre-integration beforeSHA."
+    }
+  },
+  "sourceAfter": {
+    "apps/desktop/src/features/processes/index.tsx": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25",
+    "apps/desktop/src/features/processes/processes.css": "c0b89c416297f401048e0c4bd79ff4afcc1991bef838cb48e8d6664b7848c358",
+    "apps/desktop/src/styles.css": "2c9d77411e116c6049fa162585a3a652dbbd9f87d14f5f208f82b71ff53d7605"
+  },
+  "nativeBefore": [
+    "docs/verification/results/appearance-full-native-20261101/terminal-stopped-confirmed.jpg",
+    "docs/verification/results/appearance-full-native-20261101/terminal-stopped-confirmed.ax.txt",
+    "docs/verification/results/appearance-full-native-20261101/terminal-stop-process-check.json",
+    "docs/verification/results/terminal-eight-visual-review-20261101/review.json"
+  ],
+  "beforeComponentTestRun": false,
+  "beforeBoundary": "Original native failure and before source are preserved; no pre-patch component run was executed during the source/GUI freeze. This is not claimed as an automated red/green pair.",
+  "remaining": "Actual macOS same-PTY dark/light/dark reopen plus exited-history check; celadon/iris adjoining geometry remains native followup. Component test does not prove OS PTY ownership, process cleanup, native rendering or global CSS geometry.",
+  "productionFilesModified": false,
+  "nativeGuiOperated": false,
+  "appBuildRun": false
+}

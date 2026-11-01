@@ -1,0 +1,76 @@
+{
+  "at": "2026-11-01T06:00:14.097780+00:00",
+  "bundle": {
+    "sha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+    "testedPid": 30261,
+    "welcomeRelaunchPid": 40426
+  },
+  "method": "Actual native GUI through CUA; source regressions supplementary, no internal UI function execution.",
+  "captureCount": 11,
+  "cases": [
+    {
+      "id": "normal-existing-file-wake",
+      "result": "passed",
+      "evidence": [
+        "001-cold-chunk-ready",
+        "003-normal-wake-auto-first-chunk",
+        "004-normal-wake-next-chunk"
+      ],
+      "observed": "Manual Sleep/Resume automatically loads0–262144 with real fixture text, no Next required; subsequentNext advances262144–524288."
+    },
+    {
+      "id": "sleep-preferences-routing",
+      "result": "passed",
+      "evidence": [
+        "002-preferences-project-resources"
+      ],
+      "observed": "Preferences opensProject andResources with background sleep5minute control; project remains asleep until explicitResume."
+    },
+    {
+      "id": "active-tab-complete-visibility",
+      "result": "passed",
+      "evidence": [
+        "visual-sand-G02",
+        "visual-iris-G02",
+        "visual-graphite-G02"
+      ],
+      "observed": "Same active broken-link name and closeX visible after real layout transitions; explicitlight/theme pairing; independent review separate."
+    },
+    {
+      "id": "relocation-dialog-size",
+      "result": "passed",
+      "evidence": [
+        "005-relocation-dialog-size"
+      ],
+      "observed": "Native selected50B0444readonly candidate; real comparison约466px tall centered, no oversizedblankbottom; fullidentity/preview/actions visible; canceled, no binding/write."
+    },
+    {
+      "id": "sleep-normalquit-welcome",
+      "result": "passed",
+      "evidence": [
+        "006-asleep-before-welcome-restart",
+        "007-normal-quit-plan",
+        "008-welcome-handoff"
+      ],
+      "observed": "QA manuallyslept;CmdQno dirty→ApplyQuit. Independent6identitiesgone05:57:30;new40426samebundle realWelcome with no activeproject."
+    }
+  ],
+  "supersedesScope": [
+    "Only normalexisting-file-wake andpreferences entry defect ofd709; earlier missing path/navigation fix stayssupportedbyd709001–009.",
+    "Only targeted3G02tab/radius/condition issues andcomparisonheight; no blanket8layout pass."
+  ],
+  "visualReview": "../file-recovery-final-target-visual-review/review.json",
+  "captureCorrection": "capture-location-correction.json",
+  "limitations": [
+    "Three intermediate d709visual originals were overwritten by closure-target error and are not cited as retained raw evidence. Earlier df1e8visual originals remain, new342256 originals moved byte-identically.",
+    "No hot24/30minute/readingA-B budget measurements repeated.",
+    "DMGZIP packaging stillolderdf1e until final delivery build."
+  ],
+  "handoff": {
+    "guiOwner": "appearance_resume",
+    "pid": 40426,
+    "sourceFrozen": true,
+    "baseline": "1280x800 100% Iris layout+Mistlight UI13 theme density; nativeactiveproject null",
+    "noLiveSampler": true
+  }
+}

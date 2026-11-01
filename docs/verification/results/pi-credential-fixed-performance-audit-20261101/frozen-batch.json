@@ -1,0 +1,238 @@
+{
+  "frozenAt": "2026-11-01T12:23:42.536159+00:00",
+  "scope": "Only09b explicitmainTest +10a fakecredential system/session + fixedPERF0/1/2+Stop + distinctinternalrequest16. Prior224-reviewed old14/normalWRITE/06c/07–09 not repeated.",
+  "nativeFrozenManifest": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/09b-10a-perf-native-frozen-manifest.jsonl",
+    "sha256": "825c6d44c010070f112f199fac9b8d7f92e5efc1fe89be1c2ff8fa644c6681a1"
+  },
+  "nativeRecords": [
+    {
+      "label": "09-main-connection-reverified",
+      "time": "2026-11-01T11:37:53.094Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-09-main-connection-reverified.jpg",
+      "imageSHA256": "0aeabfeb6b1e7391b48be0be8bffde4839178db9055b5959d35ffa0dee834b18",
+      "axSHA256": "5b7d7d105b7a2163c91ed700d1b8e709474a43a7d2699a04d7e023bf606f1c9e",
+      "note": "主 QA 连接显式测试一次后从需要认证变为已验证",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-09-main-connection-reverified.ax.txt"
+    },
+    {
+      "label": "10a-system-credential-configured",
+      "time": "2026-11-01T11:41:38.854Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-10a-system-credential-configured.jpg",
+      "imageSHA256": "bb2c65193f1e708de00742b7c6539c83aee4e036f62b1839fa3e75c677d372b5",
+      "axSHA256": "4fa4c9fe5a8a23cdefe7384178e85e7e8390274ece81b0ff7a6f6c027986ecc5",
+      "note": "唯一假凭据连接已配置未验证，选择 Horizon API key / 系统钥匙串；未测试",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-10a-system-credential-configured.ax.txt"
+    },
+    {
+      "label": "10a-system-credential-verified",
+      "time": "2026-11-01T11:44:39.133Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-10a-system-credential-verified.jpg",
+      "imageSHA256": "dc3e1e30b6b3a7b8c4cce0dabbcc55e1d441959f9a8d6bf45a1683cb47fa7904",
+      "axSHA256": "190fb484f9db8404f8b036546a1ae07d6e60d690e99ce5694f2dbfb83056563c",
+      "note": "假凭据连接显式测试一次后显示已验证；主连接仍已验证",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-10a-system-credential-verified.ax.txt"
+    },
+    {
+      "label": "10a-pi-auth-owner-preview",
+      "time": "2026-11-01T11:47:27.118Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-10a-pi-auth-owner-preview.jpg",
+      "imageSHA256": "f4a64bca8c1a69a4a810ce18a4c28e673c920819cd5a627b473dddc696d3d7ac",
+      "axSHA256": "4a46f4ebcaccb25888409d48dad350b6c668c8f0aa3baf1f3bdf83970c583dfe",
+      "note": "假连接编辑中仅预览 Pi 已有认证说明；未保存或打开认证文件",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-10a-pi-auth-owner-preview.ax.txt"
+    },
+    {
+      "label": "10a-session-credential-configured",
+      "time": "2026-11-01T11:50:08.980Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-10a-session-credential-configured.jpg",
+      "imageSHA256": "7db314fe49af18dc153549e2a3ba668f5f6cad3d3f2d56f201bf31414b85838d",
+      "axSHA256": "4fa4c9fe5a8a23cdefe7384178e85e7e8390274ece81b0ff7a6f6c027986ecc5",
+      "note": "假连接改为仅本次应用会话保存指定假值后已配置未验证；未再测试",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-10a-session-credential-configured.ax.txt"
+    },
+    {
+      "label": "perf0-B-prepared-AX",
+      "axSHA256": "906002c8d98ea761e97af2d3c98b04b89ce589565331bfb3d57cb4439996562d",
+      "note": "此前采集的 B fresh AX；空聊天、假连接、无附件；记录写盘时间非采集时间",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-perf0-B-prepared.ax.txt"
+    },
+    {
+      "label": "perf0-before",
+      "time": "2026-11-01T11:56:30.938Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-perf0-before.jpg",
+      "imageSHA256": "c4687eb1d0a60ada8ee1590c20e2a150c714ee281a1e78abfdf0c029f1f9bfc4",
+      "axSHA256": "5db0d7ac5d06b43f94ac2f71494abd94bd3a4b297537ad5f3616d05d950006fb",
+      "note": "A 空聊天、无附件、当前假连接；B 先前 fresh AX 为空聊天且相同假连接；未发送",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-perf0-before.ax.txt"
+    },
+    {
+      "label": "perf1-running",
+      "time": "2026-11-01T12:05:39.368Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-perf1-running.jpg",
+      "imageSHA256": "cd3729eb9252a4494cf9a97de963bc6c8f15d75001be124c97498a0cfb733265",
+      "axSHA256": "0b0b90a2f522fa13e5d81e325c7cb05d82ff9c27f144fcce530452ecb069d031",
+      "note": "A 聊天使用假连接一次发送 PERF-one；Pi 正在回复、停止可见；此后冻结",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-perf1-running.ax.txt"
+    },
+    {
+      "label": "perf2-running",
+      "time": "2026-11-01T12:12:18.563Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-perf2-running.jpg",
+      "imageSHA256": "a14d23d629c4a117f57260a2e6705a318a07f88bf8b1a6312e7f7fb618d7d745",
+      "axSHA256": "a6f7428b32cc3536e9ae9e7943857e0104415d7e754861290cc13072b84e6043",
+      "note": "B 假连接/无附件，PERF-two 发送一次，Pi 正在回复；A run 保持；此后冻结",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-perf2-running.ax.txt"
+    },
+    {
+      "label": "perf-B-stopped-AX",
+      "axSHA256": "fd44214b991effa25f6fddf349abff68f53a9303e8448270c500f5226955358d",
+      "note": "B点击停止后、切A前 fresh AX；写盘时间非采集时间",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-perf-B-stopped.ax.txt"
+    },
+    {
+      "label": "perf-after-stopped-A",
+      "time": "2026-11-01T12:16:05.531Z",
+      "pid": 8737,
+      "pidStart": "2026-11-01 18:41:19 +0800",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-perf-after-stopped-A.jpg",
+      "imageSHA256": "aaae93ccde97661d0730c967b84853ebbc36b7f74c2880a287e498748bd0b5ee",
+      "axSHA256": "56394be4cd1de0ece5f5d7276ea02ecbc4a412dadfeb5cc6bceffba7270ce579",
+      "note": "两采样结束后 B/A 各正常点击停止一次；当前 A 显示已中断",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-perf-after-stopped-A.ax.txt"
+    }
+  ],
+  "dataArtifacts": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/09b-main-test-restored.json",
+      "sha256": "724abaad2f9c63d6e83c4ab60704b33c99208cc8c3bbd937cf130a9754694aa7"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/10a-baseline.json",
+      "sha256": "17ca52aa4e9e888a30ad266834c83451efcc8ebb65b75e50c5dc0aa79a00887d"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/10a-credential-reference.json",
+      "sha256": "e24a0ecf6e1ed8004dc926f5cff8512f52ac801f107155040ed7c8ec6169c40c"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/request16-investigation.json",
+      "sha256": "56d38350246a4c6135ecd519816c3f6c37aa9125d5471a33444c84b25d625b3d"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/request16-a-transcript-proof.json",
+      "sha256": "dfe8d3e3f1b6c4a467178eace26e1ec95bc9e16aa86ad423884276497d3e7d79"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/request16-own-a-session.jsonl",
+      "sha256": "39a846d2c14fa5bfa0968500109b2aea60fe1c4c7e0c1260000cd67e9240745e"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene0/metadata.json",
+      "sha256": "3606e638b63e346676690890594b6368b9ee62dd806273c107cddf5df4acf786"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene0/members.json",
+      "sha256": "e55668a3740427c5bae3775091d776de4e1647f215d1534dc2b1039a050f77be"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene1/metadata.json",
+      "sha256": "23432afab0f555df3e7f25bdabb2830466a3e2b760792dec85d5694216b26c8b"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene1/members.json",
+      "sha256": "19676a666476847be8715a65583ec58a17580c58c244563e050bace927a5b87b"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene2/metadata.json",
+      "sha256": "07d8d037b705f0b18af65b3a8255ace73b42a7d0d399fc6d3dacc031845ae8bf"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene2/members.json",
+      "sha256": "50753633d41f958cec89598980823a665ddceaa2d381b9f0f0408b9363134e75"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene0/post.json",
+      "sha256": "9cbf80ed413313a1f3b63d4cd95dc5b58f80a037823d220e6518db0ce8da07e2"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene1/post.json",
+      "sha256": "4c2a85f3ed80d90f46d95d20537d25766f85769bba687d5d7ed385b9304acfe0"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene2/post-stopped.json",
+      "sha256": "d65f06f3a63e05dcec644e4a1b7e1926e1787c6083a5f6e1919d50828ee9f15e"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene2/post-stopped-initial-hold.json",
+      "sha256": "37d0a97f6f25b3cb3c95fe8225dff6572034015aeb894ffdbbf157ad1b34a052"
+    }
+  ],
+  "rootSamplerOriginalReferences": {
+    "scene0": {
+      "json": [
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene0/attribution-summary.json",
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene0/metadata.json",
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene0/summary.json"
+      ],
+      "raw": [
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene0/samples.jsonl"
+      ]
+    },
+    "scene1": {
+      "json": [
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene1/attribution-summary.json",
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene1/metadata.json",
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene1/summary.json"
+      ],
+      "raw": [
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene1/samples.jsonl"
+      ]
+    },
+    "scene2": {
+      "json": [
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene2/metadata.json",
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene2/summary.json"
+      ],
+      "raw": [
+        "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/scene2/samples.jsonl"
+      ]
+    }
+  },
+  "rootProductAccounting": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-fixed-performance-20261101/product-accounting.json",
+  "classification": {
+    "samplerBaselines": [
+      13,
+      14,
+      15
+    ],
+    "postStopActualBaseline": 16,
+    "request16": "A originalassistant normalstop12:15:10.540 followed by distinctcheckpoint, after allsampling and beforeStop; fixture.includes marker routes summary intoresourcebranch. No originalprompt replay.",
+    "originalHoldPreserved": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene2/post-stopped-initial-hold.json",
+    "currentPiCount": 0,
+    "externalProvider": "2344 sameownedstart, keptalive forQ1/reopen/10b"
+  },
+  "exclusions": [
+    "Q1 not yet executed",
+    "sessioncredential restartexpiry not yet observed",
+    "10b effectivecredential clear/historyclear/deleteQA not performed",
+    "No purevisual8layout verdict"
+  ],
+  "metadataSafety": "No fakevalue/credentialvalue embedded; baselinefile reference may contain only the explicitlyownedknownfake testvalue. No realcredentials read."
+}

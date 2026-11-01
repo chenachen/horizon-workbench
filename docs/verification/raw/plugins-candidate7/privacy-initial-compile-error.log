@@ -1,0 +1,11 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+error[E0423]: cannot find function `sanitize` in this scope
+   --> src/settings.rs:210:470
+    |
+210 | ...n export_redacts_secrets_and_paths(){assert_eq!(sanitize(&json!({"secret":"bad","path":"/Users/name/code","good":1})),json!({"pa...
+    |                                                    ^^^^^^^^ not found in this scope
+    |
+    = note: a built-in attribute named `sanitize` exists in another namespace
+
+For more information about this error, try `rustc --explain E0423`.
+error: could not compile `horizon-desktop` (lib test) due to 1 previous error

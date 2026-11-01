@@ -1,0 +1,99 @@
+{
+  "auditedAt": "2026-11-01T06:35:43.994506+00:00",
+  "method": "Narrow remapping of the existing final48/48 retained productionEditorStore Vitest result. Independently read both assertions, production timer/checkpoint/flush/dispose paths, and matched current/archived source and raw execution receipt hashes. No test rerun.",
+  "executionReceipt": {
+    "startedAt": "2026-11-01T05:34:24.415921+00:00",
+    "command": [
+      "node_modules/.bin/vitest",
+      "run",
+      "--dir",
+      "packages/editor/src",
+      "store.test.ts",
+      "--reporter=json",
+      "--outputFile=docs/verification/results/editor-chunked-lifecycle-component-20261101/after.json"
+    ],
+    "sourceHashes": {
+      "packages/editor/src/store.ts": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "packages/editor/src/store.test.ts": "62c3b2015af91d3632dedcd9d8df922b25947215352bf1af79b2b74dfac07df9"
+    },
+    "endedAt": "2026-11-01T05:34:24.718676+00:00",
+    "exitCode": 0,
+    "stdout": "after.stdout.txt",
+    "stderr": "after.stderr.txt"
+  },
+  "sourceChecks": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "snapshot": "docs/verification/results/editor-chunked-lifecycle-component-20261101/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.test.ts",
+      "snapshot": "docs/verification/results/editor-chunked-lifecycle-component-20261101/store.test.ts",
+      "sha256": "62c3b2015af91d3632dedcd9d8df922b25947215352bf1af79b2b74dfac07df9",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "artifactChecks": [
+    {
+      "name": "after.json",
+      "bytes": 18588,
+      "sha256": "221e69075b264f6b73bdc764d175516e8fd3fca868a0993ffae9cce14a45a710"
+    },
+    {
+      "name": "after-run.json",
+      "bytes": 668,
+      "sha256": "78e0ad374e70d298483e39107652d41e2e1eaea94539bd81245d236097025ea1"
+    },
+    {
+      "name": "after.stdout.txt",
+      "bytes": 141,
+      "sha256": "e4d1ca5d6a30d58acef5ba451b725b59e60061a7870bba23374ef0b5fdb01ceb"
+    },
+    {
+      "name": "after.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "assertions": [
+    {
+      "ancestorTitles": [
+        "versioned editor documents"
+      ],
+      "fullName": "versioned editor documents blocks release when recovery persistence fails",
+      "status": "passed",
+      "title": "blocks release when recovery persistence fails",
+      "duration": 0.2750419999999991,
+      "failureMessages": [],
+      "meta": {},
+      "tags": [],
+      "benchmarks": []
+    },
+    {
+      "ancestorTitles": [
+        "versioned editor documents"
+      ],
+      "fullName": "versioned editor documents writes a recovery checkpoint at 2 seconds idle and within 10 seconds of continuous edits",
+      "status": "passed",
+      "title": "writes a recovery checkpoint at 2 seconds idle and within 10 seconds of continuous edits",
+      "duration": 0.6227090000000004,
+      "failureMessages": [],
+      "meta": {},
+      "tags": [],
+      "benchmarks": []
+    }
+  ],
+  "proven": [
+    "Idle scheduling resets on edits; fake timers assert no checkpoint at1999ms then checkpointVersion1 at2000ms.",
+    "Production single maxDraftTimer uses10000ms and is not reset by continuous edits; retained test performs11 edits950ms apart and observes at least a second checkpoint by10450ms.",
+    "document_checkpoint throwing磁盘已满 rejects disposeProject and retains the active only-copy text plus checkpointError; flushDrafts awaits checkpoint before disposal."
+  ],
+  "limits": [
+    "Timers and transport are controlled component fixtures, not a new wall-clock native measurement.",
+    "The continuous-edit test checks accumulated calls after10450ms; exact10000ms scheduling is established by production source, not a claimed separate deadline-bound assertion.",
+    "Does not prove actual abnormal-process exit/restart recovery or cache cleaning preserves unresolved drafts. Those native Q2/D1 actions remain pending.",
+    "This is an additional requirement mapping of the same48-test run, not48 newly executed tests."
+  ]
+}

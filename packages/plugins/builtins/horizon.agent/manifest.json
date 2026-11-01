@@ -1,0 +1,39 @@
+{
+  "id": "horizon.agent",
+  "name": "Pi Agent",
+  "version": "0.1.0",
+  "description": "通过 Pi 处理对话、工具执行与修改提案，按项目授权操作。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.agent.view",
+    "onCommand:horizon.agent.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "process.agent",
+    "network"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.agent.view",
+        "slot": "auxiliary",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.agent.open",
+        "title": "打开Pi Agent"
+      }
+    ]
+  }
+}

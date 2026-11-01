@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-11-01T11:13:26.597145+00:00",
+  "phase": "07 stale review rejects once, before UndoX",
+  "status": "UNDO TEST X READY",
+  "checks": {
+    "sourceDiskUnchanged": true,
+    "indexUnchanged": true,
+    "copyStillOnlyTaskWrite": true,
+    "zeroAppliedNative": true,
+    "versionRejectionNative": true,
+    "httpNoReplay": true,
+    "piZero": true
+  },
+  "reviewId": "c3140b18-4a6b-4a8a-9ca9-6bc02c659658",
+  "sessionId": "da0fb7c2-ff35-4874-8890-22c568b10c41",
+  "originalHashes": {
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004",
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776"
+  },
+  "http": {
+    "fixture": true,
+    "requests": 7
+  },
+  "piPids": [],
+  "nativeCaptures": [
+    {
+      "label": "07-stale-buffer-before",
+      "time": "2026-11-01T11:11:00.218Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-stale-buffer-before.jpg",
+      "imageSHA256": "00ae63ccdde571d45e75f630b45b17794669eea03dd9ed23f2bf2df0b8ae388a",
+      "axSHA256": "8f91a1d03e10718872f5990228d1e1b090d19e1a3eb577ebb641af2816fb7bcd"
+    },
+    {
+      "label": "07-stale-apply-rejected",
+      "time": "2026-11-01T11:12:03.678Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-stale-apply-rejected.jpg",
+      "imageSHA256": "608d24c0e634ddde3083c79ff2c3012465e91519b152ab954db9ed609f83403e",
+      "axSHA256": "92df938b35ca1428150b207e0f0e4961563727ced7aeca8019dfcf2467c0a585"
+    },
+    {
+      "label": "07-stale-buffer-preserved",
+      "time": "2026-11-01T11:12:38.939Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-stale-buffer-preserved.jpg",
+      "imageSHA256": "237ee1920234ef0cfa205c36eb5c6df02caba2371fbcab395d7b753ecdb82c0a",
+      "axSHA256": "4b5112903b6671ace48f2e402fb6dd7e015b87785cb08d10e64c6a56181cb501"
+    }
+  ],
+  "bufferObservation": "Terra original AX confirms only appendedX still present, saveenabled; disk unchanged. No save or second application.",
+  "undo": {
+    "checkedAt": "2026-11-01T11:15:13.015679+00:00",
+    "checks": {
+      "cleanSaveDisabled": true,
+      "nativeBaselineText": true,
+      "diskStillBaseline": true,
+      "indexStillBaseline": true,
+      "exactReviewTarget": true
+    },
+    "ax": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-example-clean-after-undo.ax.txt",
+    "axSHA": "52e41446530257421372241181307ac92f7f60d28b47acf6b3b98ee135539647",
+    "status": "DISCARD EXACT COPY READY",
+    "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/c3140b18-4a6b-4a8a-9ca9-6bc02c659658/worktree"
+  },
+  "discard": {
+    "checkedAt": "2026-11-01T11:17:53.412425+00:00",
+    "checks": {
+      "exactCopyGone": true,
+      "reviewMarkedDiscarded": true,
+      "sourceUnchanged": true,
+      "indexUnchanged": true,
+      "piZero": true,
+      "httpStillSeven": true
+    },
+    "status": "07 COMPLETE",
+    "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/c3140b18-4a6b-4a8a-9ca9-6bc02c659658/worktree",
+    "nativeAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-discard-exact-copy.ax.txt"
+  }
+}

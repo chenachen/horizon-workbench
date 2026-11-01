@@ -1,0 +1,727 @@
+{
+  "reviewer": "/root/plugin_resume",
+  "reviewedAt": "2026-11-01T07:01:09.034620+00:00",
+  "supplements": "review.json",
+  "scope": "Only8 newly captured F12 missing-region screenshots were personally viewed; original24pair+8lower review is retained, no duplicate upper/lower recapture or GUI/source/test/build action.",
+  "appBuildSHA256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+  "pid": 40426,
+  "counts": {
+    "supplementalNativeViewed": 8,
+    "hashesChecked": 24,
+    "previousF12PartialViewportCases": 8,
+    "remainingF12PartialViewportCases": 0,
+    "codeFindingsClosed": 0
+  },
+  "allHashesMatch": true,
+  "conclusion": "All8 exact missing regions now visually covered; field values match corresponding reference. F12 CSS sizing and shared backdrop issues remain open pending integrated build recapture. Original review and its per-image missing-area notes preserved.",
+  "cases": [
+    {
+      "case": "mist/F12",
+      "captureName": "F12-middle-mist",
+      "captureOriginal": {
+        "name": "F12-middle-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "76d432662ac09ca7943dc5206afbd16162c9275bbbfad21b7a85c14355f44974",
+        "axSha256": "df5ae09beb8707a969b9d68ec493e8072058379c9a173b082f62f095b5b5c26f",
+        "capturedAt": "2026-11-01T06:56:46.356Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-middle"
+        },
+        "notes": "Supplement divider+selectedbackground colors fully visible; no configuration changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-mist.jpg",
+        "sha256": "76d432662ac09ca7943dc5206afbd16162c9275bbbfad21b7a85c14355f44974",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-mist.ax.txt",
+        "sha256": "df5ae09beb8707a969b9d68ec493e8072058379c9a173b082f62f095b5b5c26f",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F12-settings-colors.png",
+        "sha256": "2f2c1ce2c38d2e8643fa04d64a62272e733205555402c14c322612cd32c71c55",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "分隔线与选中背景的完整值/来源/恢复",
+      "observedValues": {
+        "分隔线": "#dde4ee",
+        "选中背景": "#d8e5fb"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "分隔线": true,
+        "选中背景": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "visibleCoverage": "四排前八色值完整可见，重点分隔线/选中背景的值、来源、恢复全部在footer上方；编辑模式不在补图中，由原主图提供。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "paper/F12",
+      "captureName": "F12-middle-paper",
+      "captureOriginal": {
+        "name": "F12-middle-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "28fbf9025c432799780f9ad94f30f5a7b9a9290eb8e9b60af9b8f3ab0b94d754",
+        "axSha256": "aa2bb3b1074b32c8ca01da26f989b415b31d8c2a148060993b849b77c17580df",
+        "capturedAt": "2026-11-01T06:57:17.757Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-middle"
+        },
+        "notes": "Supplement divider+selectedbackground colors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-paper.jpg",
+        "sha256": "28fbf9025c432799780f9ad94f30f5a7b9a9290eb8e9b60af9b8f3ab0b94d754",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-paper.ax.txt",
+        "sha256": "aa2bb3b1074b32c8ca01da26f989b415b31d8c2a148060993b849b77c17580df",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F12-settings-colors.png",
+        "sha256": "edf8966009ae31db57515a5efd867c0fe835aa5d3a4dee1bcd92491043de78ca",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "分隔线与选中背景的完整值/来源/恢复",
+      "observedValues": {
+        "分隔线": "#e3e3d8",
+        "选中背景": "#e4ebd9"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "分隔线": true,
+        "选中背景": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "visibleCoverage": "四排前八色值完整可见，重点分隔线/选中背景的值、来源、恢复全部在footer上方；编辑模式不在补图中，由原主图提供。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "orbit/F12",
+      "captureName": "F12-middle-orbit",
+      "captureOriginal": {
+        "name": "F12-middle-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "ba3bb02c5c67966be0e57d73b4ab70fffd1248c314d198780667549a99da4c66",
+        "axSha256": "da1ed0614c5def355c6c9ff9af3bd6a824d8c8bcb4c1e5fd397f7a4828058a4f",
+        "capturedAt": "2026-11-01T06:57:32.038Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-middle"
+        },
+        "notes": "Supplement divider+selectedbackground colors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-orbit.jpg",
+        "sha256": "ba3bb02c5c67966be0e57d73b4ab70fffd1248c314d198780667549a99da4c66",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-orbit.ax.txt",
+        "sha256": "da1ed0614c5def355c6c9ff9af3bd6a824d8c8bcb4c1e5fd397f7a4828058a4f",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F12-settings-colors.png",
+        "sha256": "52a977e1ecb0d51705a55f6a2cc36806b3764e12743d2de72c23550c1beb16c6",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "分隔线与选中背景的完整值/来源/恢复",
+      "observedValues": {
+        "分隔线": "#d4dfed",
+        "选中背景": "#d5e3fb"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "分隔线": true,
+        "选中背景": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "visibleCoverage": "四排前八色值完整可见，重点分隔线/选中背景的值、来源、恢复全部在footer上方；编辑模式不在补图中，由原主图提供。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "graphite/F12",
+      "captureName": "F12-middle-graphite",
+      "captureOriginal": {
+        "name": "F12-middle-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "fbcd866227f3d7bb140376f599a94af704570fed957cddf089d9db1e4b5884d9",
+        "axSha256": "21c2409e16c76f90ee370f3d20d6754329079c892afaaf01e60e4ac927ad5cdb",
+        "capturedAt": "2026-11-01T06:57:55.003Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (28px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-middle"
+        },
+        "notes": "Supplement divider+selectedbackground colors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-graphite.jpg",
+        "sha256": "fbcd866227f3d7bb140376f599a94af704570fed957cddf089d9db1e4b5884d9",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-middle-graphite.ax.txt",
+        "sha256": "21c2409e16c76f90ee370f3d20d6754329079c892afaaf01e60e4ac927ad5cdb",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F12-settings-colors.png",
+        "sha256": "ab77daa755813fead401eca6b60d3d286ab18194341619229ecb2787e7f05ee4",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "分隔线与选中背景的完整值/来源/恢复",
+      "observedValues": {
+        "分隔线": "#d9dfe0",
+        "选中背景": "#d8e9ec"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "分隔线": true,
+        "选中背景": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "visibleCoverage": "四排前八色值完整可见，重点分隔线/选中背景的值、来源、恢复全部在footer上方；编辑模式不在补图中，由原主图提供。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "celadon/F12",
+      "captureName": "F12-upper-celadon",
+      "captureOriginal": {
+        "name": "F12-upper-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "28c3aa7c3e7666d83c740fdb1d9c61915dc51024c0bf46253c67f38c236ca5dd",
+        "axSha256": "badaa0f3c39913a6eb212a3c9d030cf2058d180e3d0a432fdcb716f2561e10ec",
+        "capturedAt": "2026-11-01T06:58:06.774Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-upper"
+        },
+        "notes": "Supplement editmode+firstsixcolors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-celadon.jpg",
+        "sha256": "28c3aa7c3e7666d83c740fdb1d9c61915dc51024c0bf46253c67f38c236ca5dd",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-celadon.ax.txt",
+        "sha256": "badaa0f3c39913a6eb212a3c9d030cf2058d180e3d0a432fdcb716f2561e10ec",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F12-settings-colors.png",
+        "sha256": "f8b68beba31099fb8687aee8dcba740a0f6866b2433ad11bcde15414a223a1c4",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "编辑模式与前6项完整色值/来源/恢复",
+      "observedValues": {
+        "强调色": "#3f7458",
+        "强调色文字": "#ffffff",
+        "工作台底色": "#eaf2ef",
+        "内容表面": "#fbfffc",
+        "正文": "#243e33",
+        "次要文字": "#607d6c"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "强调色": true,
+        "强调色文字": true,
+        "工作台底色": true,
+        "内容表面": true,
+        "正文": true,
+        "次要文字": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "editModePersonallyVisible": "浅色",
+      "visibleCoverage": "编辑模式下拉+前三排六色值、标签、插件默认来源、恢复完整可见；第四排在footer边缘不用于补证，原主图已完整覆盖该排。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "iris/F12",
+      "captureName": "F12-upper-iris",
+      "captureOriginal": {
+        "name": "F12-upper-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "a0216f1d145dee84420fedd591ee55d51a7531c071dcec002c83b4ec449a8775",
+        "axSha256": "a90d885d81ca560d0b3c04e9856b71213fb4559edf13d604e0a8e052a9c58397",
+        "capturedAt": "2026-11-01T06:58:19.699Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "spacious (38px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-upper"
+        },
+        "notes": "Supplement editmode+firstsixcolors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-iris.jpg",
+        "sha256": "a0216f1d145dee84420fedd591ee55d51a7531c071dcec002c83b4ec449a8775",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-iris.ax.txt",
+        "sha256": "a90d885d81ca560d0b3c04e9856b71213fb4559edf13d604e0a8e052a9c58397",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F12-settings-colors.png",
+        "sha256": "b4ec1b04a6c53e97026c0ad7078b998e5f5b71be8f1cfcde4810df92bac69b57",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "编辑模式与前6项完整色值/来源/恢复",
+      "observedValues": {
+        "强调色": "#7950a3",
+        "强调色文字": "#ffffff",
+        "工作台底色": "#f0eafa",
+        "内容表面": "#fefbff",
+        "正文": "#38254b",
+        "次要文字": "#7b628e"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "强调色": true,
+        "强调色文字": true,
+        "工作台底色": true,
+        "内容表面": true,
+        "正文": true,
+        "次要文字": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "editModePersonallyVisible": "浅色",
+      "visibleCoverage": "编辑模式下拉+前三排六色值、标签、插件默认来源、恢复完整可见；第四排在footer边缘不用于补证，原主图已完整覆盖该排。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "sand/F12",
+      "captureName": "F12-upper-sand",
+      "captureOriginal": {
+        "name": "F12-upper-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "b451ec4e23d58a9855711379f3b081a7d2aa1a8018b64b95e478c8902acc7ec5",
+        "axSha256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46",
+        "capturedAt": "2026-11-01T06:58:31.151Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-upper"
+        },
+        "notes": "Supplement editmode+firstsixcolors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-sand.jpg",
+        "sha256": "b451ec4e23d58a9855711379f3b081a7d2aa1a8018b64b95e478c8902acc7ec5",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-sand.ax.txt",
+        "sha256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F12-settings-colors.png",
+        "sha256": "e644acbc6fb5bef159c9d0696d60a933725ee886d8f46288c6e22dc8a2dac3d4",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "编辑模式与前6项完整色值/来源/恢复",
+      "observedValues": {
+        "强调色": "#946644",
+        "强调色文字": "#ffffff",
+        "工作台底色": "#f2ebe3",
+        "内容表面": "#fffcf8",
+        "正文": "#483b2e",
+        "次要文字": "#87725d"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "强调色": true,
+        "强调色文字": true,
+        "工作台底色": true,
+        "内容表面": true,
+        "正文": true,
+        "次要文字": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "editModePersonallyVisible": "浅色",
+      "visibleCoverage": "编辑模式下拉+前三排六色值、标签、插件默认来源、恢复完整可见；第四排在footer边缘不用于补证，原主图已完整覆盖该排。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    },
+    {
+      "case": "aurora/F12",
+      "captureName": "F12-upper-aurora",
+      "captureOriginal": {
+        "name": "F12-upper-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "90433b86626a99ab458d298c806d8c2501fbd9219d2612ff7e5acb7f67eb1bbc",
+        "axSha256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12",
+        "capturedAt": "2026-11-01T06:58:43.229Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F12-upper"
+        },
+        "notes": "Supplement editmode+firstsixcolors; no changes"
+      },
+      "personallyViewed": true,
+      "nativeImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-aurora.jpg",
+        "sha256": "90433b86626a99ab458d298c806d8c2501fbd9219d2612ff7e5acb7f67eb1bbc",
+        "matchesCaptureHash": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F12-upper-aurora.ax.txt",
+        "sha256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12",
+        "matchesCaptureHash": true,
+        "inspected": true
+      },
+      "referenceImage": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F12-settings-colors.png",
+        "sha256": "641569b9a50ebb095fe46ab73551b0c1e634a25f76703ca3e08953b4c00fb654",
+        "matchesPreviouslyViewedReference": true,
+        "dimensions": [
+          1280,
+          800
+        ]
+      },
+      "referencePersonallyViewedInInitialReview": true,
+      "coveredRegion": "编辑模式与前6项完整色值/来源/恢复",
+      "observedValues": {
+        "强调色": "#397976",
+        "强调色文字": "#ffffff",
+        "工作台底色": "#e7f1f1",
+        "内容表面": "#f8fdfd",
+        "正文": "#244344",
+        "次要文字": "#5c7a7c"
+      },
+      "valuesMatchReferenceByVisualInspection": true,
+      "valuesMatchAX": {
+        "强调色": true,
+        "强调色文字": true,
+        "工作台底色": true,
+        "内容表面": true,
+        "正文": true,
+        "次要文字": true
+      },
+      "coverageStatus": "closed-by-personal-visual-inspection",
+      "remainingCodeFindings": [
+        "SL2-03",
+        "SL2-04"
+      ],
+      "overallF12Status": "differences",
+      "notes": "Original missing-region observations retained in review.json; this screenshot closes only the named gap. Same pre-fix build still has36px color input style; no claim that prepared CSS fix has passed.",
+      "editModePersonallyVisible": "浅色",
+      "visibleCoverage": "编辑模式下拉+前三排六色值、标签、插件默认来源、恢复完整可见；第四排在footer边缘不用于补证，原主图已完整覆盖该排。",
+      "conditionBoundary": "补图前项目已显式休眠，shellPid/dirtyMarker/selection为null；此差异只改变模糊背景，不影响全局外观颜色区域比较，也不用于重证运行时保留。"
+    }
+  ]
+}

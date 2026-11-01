@@ -1,0 +1,39 @@
+{
+  "reviewedAt": "2026-10-30T21:17:26.722155+00:00",
+  "method": "Independently read new production-service test assertions and raw24pass log; no rerun or GUI",
+  "passed": 24,
+  "failed": 0,
+  "ignored": 1,
+  "ignoredReason": "HTTP child fixture test is invoked by owned_http_readiness; not an omitted acceptance test",
+  "seconds": 6.08,
+  "rawSha256": "b0f00b460411332fac2d3480c19ca17e496de57892e9290134815cb92c2f9dc4",
+  "sourceSha256": "3eb30e4f419695bd41a2644eff04d3805210f384d8fcc2f52fe4ebaedfa8a772",
+  "newClosedSubconditions": [
+    {
+      "requirement": "LAUNCH-003/007/010",
+      "evidence": "Real shell run retains revision1/scriptold after savingrevision2; next run writesnew marker. Native active delete returnsRESOURCE_BUSY and leaves profile; confirmed stop then delete removes only profile and retains projectmarker."
+    },
+    {
+      "requirement": "LAUNCH-005",
+      "evidence": "Ready::ProcessStarted production run explicitly verifiesfalse (running unverified). UI wording remains candidate7 GUI task."
+    },
+    {
+      "requirement": "LAUNCH-006",
+      "evidence": "Real preceding exit7 stops new run; dependent that would write marker never starts and marker absent."
+    },
+    {
+      "requirement": "LAUNCH-008",
+      "evidence": "Real production launch/readiness; injected final URL opener only called once after ready-marker. Later savedURLchange and3repeatautomaticcalls do not replace/rerun; logURL neveropens; before-ready timeoutcalls0."
+    },
+    {
+      "requirement": "LAUNCH-004/010",
+      "evidence": "Missing executable identifiesprogram withDEPENDENCY_UNAVAILABLE; WindowsdrivepathonmacOS returnsUNSUPPORTED_PLATFORM."
+    }
+  ],
+  "limits": [
+    "URL final opener is a counter substitution, not browser evidence. Actual automatic browser navigation needs7GUI.",
+    "No OS signal failure/stop timeout residual fixture; successful stop is not failure preservation evidence.",
+    "Active-delete Cancel/Confirm UI, revision display and missing-program recovery controls await7GUI.",
+    "Explicitexternalattach is unsupported in launcher/PiMVP; do not demand arbitraryTUIattach contraryAI006. Existing external-port refusal/provider survival remain actual boundary evidence."
+  ]
+}

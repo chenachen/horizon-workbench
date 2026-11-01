@@ -1,0 +1,21 @@
+    Blocking waiting for file lock on build directory
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.39s
+     Running tests/extensions_policy.rs (apps/desktop/src-tauri/target/debug/deps/extensions_policy-131b2851a88ed0db)
+
+running 12 tests
+test dependency_pause_blocks_consumer_in_only_the_same_project ... ok
+test dependency_cycle_is_rejected ... ok
+test cleanup_failure_in_one_project_does_not_block_another ... ok
+test dependency_version_change_cannot_bypass_consumer_range ... ok
+test project_cleanup_failure_does_not_block_another_project ... ok
+test global_pause_cannot_be_cleared_by_project_enabled_override ... ok
+test missing_grant_is_rejected_before_activation ... ok
+test project_override_cannot_enable_globally_disabled_extension ... ok
+test pause_survives_restart_and_does_not_pause_another_project ... ok
+test launch_release_preserves_preexisting_activation_and_other_project ... ok
+test restart_keeps_default_package_tombstone_and_does_not_recreate_files ... ok
+test launch_leases_release_only_last_owned_activation ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+

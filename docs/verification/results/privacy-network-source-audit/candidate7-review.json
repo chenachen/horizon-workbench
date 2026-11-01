@@ -1,0 +1,418 @@
+{
+  "evidenceId": "MAC-PRIVACY-NETWORK-SOURCE-002",
+  "recordedAt": "2026-10-30T21:06:53.671025+00:00",
+  "candidate": "7 source snapshot; independent read-only review",
+  "supersedesSourceFindingsIn": "audit.json (MAC-PRIVACY-NETWORK-SOURCE-001); historical file preserved",
+  "execution": {
+    "compiled": false,
+    "ranTests": false,
+    "startedProductProcesses": false,
+    "operatedGui": false,
+    "modifiedProductSource": false,
+    "reviewedExistingNativeTestLogs": true
+  },
+  "conclusion": {
+    "defaultNetworkEntryAudit": "closed at source level; 9 paths rechecked",
+    "fourOriginalSourceGaps": "repaired; relevant native regressions inspected",
+    "visibleAcceptance": "candidate7 GUI export preview/cleanup and real QuickJS exception/log display remain separate acceptance evidence"
+  },
+  "networkEntries": [
+    {
+      "id": "startup",
+      "trigger": "Application startup and 30-second maintenance",
+      "path": "lib::run -> HostState::new / extensions::initialize / start_maintenance",
+      "behavior": "Startup initializes local state and extensions. Maintenance trims local caches, expires plans and sleeps inactive project resources. No remote client is invoked by these paths. Release WebView connect-src permits only IPC; remote images/fonts/frames are excluded by CSP.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/lib.rs",
+          "lines": "184-229"
+        },
+        {
+          "file": "apps/desktop/src-tauri/tauri.conf.json",
+          "lines": "25-26"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "pi-install",
+      "trigger": "Explicit Install Pi button",
+      "path": "AgentSettings.install -> start(agent_runtime_install) -> agent::dispatch -> install",
+      "behavior": "GET fixed GitHub v1.4.0 platform archive, verify fixed SHA-256 before extraction/activation. No project text is sent. Merely opening settings invokes local --version detection, not install.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "lines": "21-27"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "77-102,449"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "pi-model",
+      "trigger": "Explicit connection Test or message Send",
+      "path": "AgentSettings.test / sendAgent -> agent_connection_test / agent_submit -> run_pi -> Pi RPC prompt",
+      "behavior": "Connection test uses a fixed diagnostic prompt, no snapshot, isolated empty cwd and --no-session. Submitted conversation includes explicit text and selected context snapshots; task-mode read/list responses can become model context only after the user starts the task. Pi performs provider requests against saved HTTP(S) endpoint. HTTP is restricted to loopback; endpoint userinfo and query are rejected.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "lines": "23,31"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/store.ts",
+          "lines": "77-90"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "104-125,258-291,462,468-470"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "pi-automatic-network",
+      "trigger": "Each managed Pi detection/run",
+      "path": "detect / run_pi -> fixed Pi 1.4.0 CLI and environment",
+      "behavior": "Detection sets PI_OFFLINE=1 and PI_TELEMETRY=0. Runs use env_clear, --offline, PI_OFFLINE=1, PI_SKIP_VERSION_CHECK=1, PI_TELEMETRY=0, dedicated PI_CODING_AGENT_DIR; automatic context files/MCP/extensions/skills/themes/templates are disabled. Only the bundled policy is explicitly loaded for task mode. Pinned Pi documentation defines offline as disabling automatic network/catalog activity and telemetry=0 as disabling install/update reporting and provider attribution headers. These controls do not block intended provider calls.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "19,80-85,115-125,269-274"
+        },
+        {
+          "file": "/tmp/horizon-pi/pi/docs/environment-variables.md",
+          "lines": "84-86"
+        },
+        {
+          "file": "/tmp/horizon-pi/pi/docs/cli.md",
+          "lines": "241-242"
+        },
+        {
+          "file": "/tmp/horizon-pi/pi/docs/settings.md",
+          "lines": "165-170"
+        },
+        {
+          "file": "research/verification/pi-provenance.json",
+          "lines": "1-25"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "launcher-probes",
+      "trigger": "Explicit launch preparation/start of configured plan",
+      "path": "launch_prepare -> preflight; launch_start -> checked_plan -> start_plan -> wait_ready",
+      "behavior": "TCP accepts only 127.0.0.1/::1. HTTP readiness accepts loopback hosts only; probe Client uses no_proxy and no redirects. Port ownership is verified before readiness. Requests contain configured readiness URL only, no project/source payload. No probes run from opening/saving a profile.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/processes.rs",
+          "lines": "589-624,643-662,1357-1397,1546-1550,1589-1612,2486-2488"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "external-url",
+      "trigger": "User clicks external link/saved launcher URL, or explicitly enables autoOpenUrl on a saved plan and starts it",
+      "path": "Preview onClick -> url_open_external; launcher -> claim_ready_url -> open_ready_url_with -> open_system_url",
+      "behavior": "External browser/application owns subsequent network. Launcher autoOpenUrl defaults false. When explicitly enabled, only the URL saved in the running plan snapshot opens after readiness, at most one automatic attempt per step. Logs are not parsed for URLs. Manual opening still requires a saved ready step. No project text is posted by these host calls.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/editor/Preview.tsx",
+          "lines": "31"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/lib.rs",
+          "lines": "135"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/processes.rs",
+          "lines": "1409-1481,1855,2528-2535"
+        },
+        {
+          "file": "apps/desktop/src/features/processes/index.tsx",
+          "lines": "1829,1839-1840"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "previews-backgrounds",
+      "trigger": "Editor preview / AI response rendering / appearance background rendering",
+      "path": "PreviewContent / MessageItem / AppearanceProvider -> local asset IPC",
+      "behavior": "Markdown preview skipHtml blocks raw HTML; img renders text, not remote image. AI Markdown replaces both links and images with text. Standalone image preview reads a local file through image_read. Background import reads selected local file and encodes retained asset as PNG data URL; frontend creates blob URL and revokes it. CSP additionally excludes remote images/fonts and all frames.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/editor/Preview.tsx",
+          "lines": "20-31"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/AgentPanel.tsx",
+          "lines": "13"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/appearance.rs",
+          "lines": "562-567,713-727,1004-1016"
+        },
+        {
+          "file": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+          "lines": "69-75"
+        },
+        {
+          "file": "apps/desktop/src/features/settings/background.ts",
+          "lines": "1-8"
+        },
+        {
+          "file": "apps/desktop/src-tauri/tauri.conf.json",
+          "lines": "26"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "external-extension",
+      "trigger": "Explicitly enabled/activated local extension",
+      "path": "validate_manifest -> QuickJS process -> closed SDK -> broker_call/sdk_call",
+      "behavior": "Third-party manifests permit only declarative or QuickJS runtimes and capabilities project.read/git.read/storage. QuickJS creates an ECMAScript context with only private send callback; no browser/Node networking bridge is installed. Both host layers whitelist project.read, git.status, storage.get/set and settings.get. settings.get is confined to that extension declarations. Unknown methods, including network, are denied.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/extensions.rs",
+          "lines": "716-740,2164-2196"
+        },
+        {
+          "file": "apps/extension-host/src/main.rs",
+          "lines": "82-98,231-250"
+        },
+        {
+          "file": "apps/extension-host/src/bootstrap.js",
+          "lines": "17-36"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/extension_host.rs",
+          "lines": "260-289"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    },
+    {
+      "id": "git-and-user-processes",
+      "trigger": "Explicit remote Git operation or authorized terminal/launcher/task command",
+      "path": "git service operation dispatch -> fetch/pull/push/clone; process spawn after plan/operation approval",
+      "behavior": "Remote Git uses configured remotes or explicit clone address. User-authorized programs may perform their own network I/O; task command UI explicitly states ordinary user OS permissions and no model key inheritance. This is an external-program boundary, not a default background upload route.",
+      "sources": [
+        {
+          "file": "apps/git-service/src/lib.rs",
+          "lines": "1125-1167,1287-1324"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/AgentPanel.tsx",
+          "lines": "25"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/processes.rs",
+          "lines": "2486-2488"
+        }
+      ],
+      "reviewStatus": "rechecked-source"
+    }
+  ],
+  "credentialAndDataBoundaries": [
+    {
+      "id": "horizon-key",
+      "result": "Source and native evidence verified",
+      "finding": "credential-index is authoritative. session uses only current HostState memory; system uses OS keyring. System-to-session stages index, deletes only that ref system key, commits index, then updates memory. Failure preserves prior mode and memory; system index-commit failure attempts cleanup of newly written key. No plaintext fallback.",
+      "sources": [
+        "apps/desktop/src-tauri/src/settings.rs:18-47",
+        "apps/desktop/src-tauri/src/settings.rs:186-202",
+        "apps/desktop/src-tauri/src/state.rs:263-265",
+        "apps/desktop/src-tauri/tests/credentials_workflow.rs:14-46"
+      ]
+    },
+    {
+      "id": "pi-key-and-auth",
+      "result": "Unchanged production boundary",
+      "finding": "Horizon models.json stores only $HORIZON_MODEL_KEY; actual secret is passed to isolated Pi environment. Per-connection Horizon/runtime/external directories stay separate; Pi-owned auth and user-installed runtime are not removed by Horizon credential cleanup.",
+      "sources": [
+        "apps/desktop/src-tauri/src/agent.rs:115-125",
+        "apps/desktop/src-tauri/src/agent.rs:269-274",
+        "apps/desktop/src-tauri/src/agent.rs:450-455",
+        "apps/desktop/src/features/agent/AgentSettings.tsx:36-37,56"
+      ]
+    },
+    {
+      "id": "local-session-storage",
+      "result": "Unchanged production boundary",
+      "finding": "Chat/session/selected context/review data is local app data; explicit send triggers provider use. Draft text remains frontend state until sent. Restoring history does not submit or replay a prompt.",
+      "sources": [
+        "apps/desktop/src/features/agent/store.ts:4-9,77-90",
+        "apps/desktop/src-tauri/src/agent.rs:395-417,464-470"
+      ]
+    },
+    {
+      "id": "separate-cleanup",
+      "result": "Source and existing native boundary evidence verified",
+      "finding": "Cache/history/drafts/credentials remain separate. Pending reviews/active sessions and active drafts block cleanup. External Pi OAuth/history boundary is disclosed. Expired session credential entries are now selectable for cleanup, including inert keyring remnants from previous versions.",
+      "sources": [
+        "apps/desktop/src-tauri/src/settings.rs:220-239",
+        "apps/desktop/src-tauri/src/agent.rs:425-434",
+        "apps/desktop/src/features/settings/SettingsPanel.tsx:531-537",
+        "apps/desktop/src-tauri/tests/credentials_workflow.rs:42-46"
+      ]
+    },
+    {
+      "id": "diagnostics-vs-logs",
+      "result": "Persisted external exception flaw repaired; scoped boundary retained",
+      "finding": "QuickJS failure persistence builds fixed EXTENSION_FAILED/runtimeFailure summary and verified owner IDs. Legacy QuickJS logs are rebuilt from fixed host-message allowlist, discarding extra fields; settings/policies remain untouched. Existing anonymous diagnostic projection and Pi stderr memory-only bound remain.",
+      "sources": [
+        "apps/desktop/src-tauri/src/extensions.rs:1180-1226",
+        "apps/desktop/src-tauri/src/extensions.rs:2295-2329",
+        "apps/desktop/src-tauri/src/extensions.rs:2393-2472",
+        "apps/desktop/src-tauri/src/agent.rs:282,317-326",
+        "apps/desktop/src/features/settings/diagnostics.ts:46-63"
+      ]
+    },
+    {
+      "id": "export-preview",
+      "result": "Source and native regression verified; GUI still separate",
+      "finding": "F09 obtains data_export_preview, displays full JSON with explicit pages, then confirms destination and writes planId. Backend freezes serialized content for 5 minutes, caps 1 MiB/4 previews, supports discard, and retains failed-write plan for retry. Export projects known schemas only; legacy connections/unknown bodies/secret fields and local path strings are omitted.",
+      "sources": [
+        "apps/desktop/src/features/settings/SettingsPanel.tsx:66-102,337-379,529-530",
+        "apps/desktop/src-tauri/src/settings.rs:10-16,74-112,152-218",
+        "apps/desktop/src-tauri/tests/files_workflow.rs:185-205"
+      ]
+    }
+  ],
+  "gapReview": [
+    {
+      "id": "PRIVACY-01",
+      "status": "source-and-native-repaired",
+      "finding": "F09 preview precedes destination selection; confirmation writes the exact backend frozen snapshot. Native tests cover freeze, expiry, discard, plan limit, failed write retry, oversize rejection.",
+      "evidence": [
+        "docs/verification/results/settings-privacy-candidate7/files-workflow.log",
+        "docs/verification/results/settings-privacy-candidate7/export-preview-final.log"
+      ],
+      "guiStatus": "pending candidate7 visible validation"
+    },
+    {
+      "id": "PRIVACY-02",
+      "status": "source-and-native-repaired-after-independent-followup",
+      "finding": "Legacy connections are omitted during load/save/export; unknown fields no longer copied through export. Independent review found embedded/Windows paths in the two remaining free-text export fields; owner fixed contains_absolute_path and the final production preview regression now excludes Unix embedded, Windows-drive and UNC fixtures while preserving ordinary preset/settings values.",
+      "evidence": [
+        "docs/verification/results/settings-privacy-candidate7/export-preview-final.log",
+        "apps/desktop/src-tauri/tests/files_workflow.rs"
+      ],
+      "finalRegression": "3 passed; final export fixture asserts no PRIVATE_ markers and only the normal preset remains"
+    },
+    {
+      "id": "PRIVACY-03",
+      "status": "persisted-log-source-and-native-repaired",
+      "finding": "Production persistence/log-snapshot helpers use fixed safe summary for external QuickJS, migrate old logs and reject stale activation mutation. No raw exception body is saved in these records.",
+      "evidence": [
+        "docs/verification/results/plugins-error-privacy-candidate7/source-review.json",
+        "docs/verification/raw/plugins-candidate7/privacy.log"
+      ],
+      "nativeRegression": "4 passed",
+      "guiStatus": "real QuickJS throw and visible safe logs still pending"
+    },
+    {
+      "id": "PRIVACY-04",
+      "status": "source-and-real-macos-keyring-repaired",
+      "finding": "System A -> session B -> HostState restart returns CREDENTIAL_UNAVAILABLE, never A. Test verifies actual keyring removal, different-ref survival, no secret in index, unavailable backend preservation, failed new system write without discarding session secret, legacy orphan ignored then explicitly removed.",
+      "evidence": [
+        "docs/verification/results/settings-privacy-candidate7/keyring-real.log",
+        "docs/verification/results/settings-privacy-candidate7/keyring-failures.log",
+        "apps/desktop/src-tauri/tests/credentials_workflow.rs"
+      ],
+      "nativeRegression": "1 actual macOS fake-key test passed; 1 injected unavailable-keyring test passed"
+    }
+  ],
+  "remainingBoundaries": [
+    "This review does not claim packet capture or new execution; direct source paths and pinned Pi 1.4.0 docs establish the default behavior.",
+    "Third-party arbitrary executables and explicitly approved terminal/task commands retain ordinary user OS/network permissions.",
+    "The QuickJS fix covers persisted diagnostic records and extension_logs. Raw exception replies can still briefly enter frontend in-memory error handling before native-state refresh; it does not claim all transient error channels are redacted.",
+    "Trusted-main host error channels are unchanged. The reviewed flaw was third-party QuickJS-controlled exception persistence.",
+    "Legacy pre-fix keyring entries behind a session-mode index are unusable but not automatically deleted at startup. F09 can select expired entries and credential_remove deletes the registered ref; real fake-key test proves this boundary.",
+    "The legacy direct data_export API still permits a sanitized export without a plan for compatibility; the shipped F09 flow always previews and writes the frozen plan. Preview is a user-visible capability, not an authorization boundary."
+  ],
+  "sourceHashes": {
+    "/tmp/horizon-pi/pi/docs/cli.md": "c45e59f31574de71770a71c9a7c9b6ac03bf9cad4928aa31bb6614d661733679",
+    "/tmp/horizon-pi/pi/docs/environment-variables.md": "097f2101e285f51f509be0b176d458825b83b929a635ae29d2a43703168170dd",
+    "/tmp/horizon-pi/pi/docs/settings.md": "2915d26f91f4c46ab1b92e63cbc46b8d48888fa0e491168642a5a90f973bd814",
+    "apps/desktop/src-tauri/src/agent.rs": "1ffd65c5938d0c3bc516413d4518304afe9f18ed51f401aaa3aec6f64a3d467a",
+    "apps/desktop/src-tauri/src/appearance.rs": "d31c9dc8e81ea0cad63e554d1c548af89085695400309a102bbff367d1cab5b9",
+    "apps/desktop/src-tauri/src/extension_host.rs": "1e5039b37dbd15d3261194fbd4fac711cf62060f6e3d0cddf4abf86332e35072",
+    "apps/desktop/src-tauri/src/extensions.rs": "44d71abba7b36a8d3613039450e2019fde4a6d1051bf0a27356a0b22face13de",
+    "apps/desktop/src-tauri/src/lib.rs": "03bacc9bb96010b4fd20eae66c09f5052dbf13735d1bde22a0e312443ddc3750",
+    "apps/desktop/src-tauri/src/processes.rs": "3eb30e4f419695bd41a2644eff04d3805210f384d8fcc2f52fe4ebaedfa8a772",
+    "apps/desktop/src-tauri/src/settings.rs": "9be35a41259d6fbaa1df853599f4424cd89e3e90dca21fc1ea402daf1a35cd7e",
+    "apps/desktop/src-tauri/src/state.rs": "19975a801e2269383b7ebd52e21a88dd4719234619cda171f6e7fc8ff384951f",
+    "apps/desktop/src-tauri/tauri.conf.json": "74215a9b1fbfa617f06e4e6e8721ea1ef85558d1070049596f764b5b843a8cf3",
+    "apps/desktop/src-tauri/tests/credentials_workflow.rs": "9302788f82579a1923bb6b48964945b3ccdc937ed9c8ca3858e3b2d6deb5f68e",
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "0a97fa6d2f5c6d372a4c7becc315d83a5fb600ed079beb61877fe7ccc03957bb",
+    "apps/desktop/src/features/agent/AgentPanel.tsx": "c27fa6fecd58dc8610a9a0e8937b00a5dc7ec21fc5035ef14c49c909ed0ecd15",
+    "apps/desktop/src/features/agent/AgentSettings.tsx": "aa46e37aa533c6de764ea5a1ca9eee83f4805f35868e87807dbb76fc71772420",
+    "apps/desktop/src/features/agent/store.ts": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+    "apps/desktop/src/features/editor/Preview.tsx": "52175732e04dc7f2ba86ca7434c6b0f124adec0540330fd339ca9a3dd78447c2",
+    "apps/desktop/src/features/plugins/PluginCenter.tsx": "e039b489cf50ee0dd27312ebf34b5b798b8d4484cacf71472564697e8effa43a",
+    "apps/desktop/src/features/plugins/PluginImpact.tsx": "bb239fc64409ce76e7d54568ff866103c2214adbc39b41222006ffa4719f13e7",
+    "apps/desktop/src/features/plugins/PluginRuntimeList.tsx": "9e455e9b009cea5bce8c71307eef73e9a7a76ce2d3be8af7d312bc9b4edfc3cf",
+    "apps/desktop/src/features/plugins/workerHost.ts": "782aa3e9b765d33bda3c7ffa6edd21c6e9acb541b26bc7fccddbc8f63293cf76",
+    "apps/desktop/src/features/processes/index.tsx": "cc557e0a770a84419c72375fcd5b26e8a02655b60bf97c5851c8ef626b798b17",
+    "apps/desktop/src/features/settings/AppearanceProvider.tsx": "38115c6f84526d6d3bcc65180b2ce09b3a0e9b109b5cf9968e531d9dfabd161f",
+    "apps/desktop/src/features/settings/SettingsPanel.tsx": "3242f814af84a54efd52fe3964a63ca432385f79fda65b94271bb8d77e38d503",
+    "apps/desktop/src/features/settings/background.ts": "d91c75a6e3112748a83a64a285fa3b519678f3e5d5d70864d13de1ec86eac710",
+    "apps/desktop/src/features/settings/diagnostics.ts": "1fd766fbbee83bf226e4046b0c4b76ce96d17f561afdf48691be242fbb8bfe2c",
+    "apps/extension-host/src/bootstrap.js": "d4e874210ab236f5abf6eea6bc8ade7c7fc435a773b64af287136afa0b39415e",
+    "apps/extension-host/src/main.rs": "19bc211e3ee47a71f639dbd3d1fcd90ba961b9ca91e7784fc75110459d351b4f",
+    "apps/git-service/src/lib.rs": "e304fcb0a38e2b341766fcebd958876e1a97ae7e204f66c3c398f1840a904e4a",
+    "docs/verification/results/diagnostic-export-audit/native-tests.log": "377e24f0c2d2f17bb47d5c8cb20fad64f6cc572ea71f76dd70ed85c59a81e31e",
+    "packages/plugins/src/runtime.ts": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+    "research/verification/pi-provenance.json": "35abad73776c7e03644d3e9c6b5f03f4476a08de275f15e905ad3d9bb48ba3e8"
+  },
+  "evidenceHashes": {
+    "docs/verification/results/settings-privacy-candidate7/files-workflow.log": "c6416e505eace92ba6e9237684ac8d189aefad7b6bda7f460bafebee2d10944f",
+    "docs/verification/results/settings-privacy-candidate7/export-preview-final.log": "8dbedc0b8f86ce8d31b36d5bb3664787b3aa5d5f3d989176c800df36452bb058",
+    "docs/verification/results/settings-privacy-candidate7/keyring-real.log": "7a8a2e2a1d9ec13e96a454fcd2f84acbd2cd674e0572b801126f0be6131e802d",
+    "docs/verification/results/settings-privacy-candidate7/keyring-failures.log": "9d9016f2b494561aa3beab97a82d48715f2c371a70265c28dcdfacaffc45e161",
+    "docs/verification/results/settings-privacy-candidate7/native-regressions.log": "88b926a71d44a69b080821f560b35bfbd051162eade98de687e7816c17c1b4c3",
+    "docs/verification/results/plugins-error-privacy-candidate7/source-review.json": "3520427d9a863726c8c68751094a868bc6862e98d745f6d61d9b267d3e159b98",
+    "docs/verification/raw/plugins-candidate7/privacy.log": "80636eb4718c635756e03e9664b4d56bb233060a4c60e26018a8a37d3769c676"
+  },
+  "ext009EvidenceBoundary": {
+    "requirement": "REQ-EXT-009: visible stopping; failed/timed-out stop retains resource accounting",
+    "currentEvidence": "Production code has pausing/cleanupFailed states and resource counting; processes owner confirms no OS stop fault seam or actual stop-failure residual test. A 700ms SIGTERM delay can show stopping, while successful SIGKILL only proves successful forced cleanup.",
+    "productionPath": [
+      "extensions::extension_stop_apply -> begin_stop_targets -> stop_targets",
+      "extension_host::stop_sessions -> Session::terminate",
+      "failure -> cleanup_failed -> state_value(cleanupFailed), leaving policy/package mutation after success unreachable"
+    ],
+    "minimalHonestProposedTest": [
+      "Use a self-authored owned QuickJS extension with successful activation and deactivate returning a never-resolving promise.",
+      "Add only a test-build, one-shot termination-failure seam targeted to that activation. Fail termination before OS kill; do not create an unkillable OS process.",
+      "Invoke the production extension_stop_apply path. Assert pausing event first, then error/cleanupFailed, same still-live owned PID/activation/resource count, unchanged enabled/installed policy, and another project unaffected.",
+      "Remove the injected failure and retry through production stop. Verify actual child exit/resource zero and policy transition occurs only now; always clean the owned fixture.",
+      "Label result controlled fault injection through production lifecycle. It does not prove OS refused SIGKILL."
+    ],
+    "uiSourceProves": [
+      "PluginCenter maps pausing to 正在停止 and cleanupFailed to 清理失败",
+      "PluginRuntimeList displays ownedResourceCount",
+      "Stop dialog keeps impact identities/PIDs and shows an error when apply fails"
+    ],
+    "uiSourceDoesNotProve": [
+      "A real rendered candidate7 window received the failure transition",
+      "Actual OS refusal to terminate",
+      "A QuickJS failure can be inferred merely from an unrelated terminal service test"
+    ],
+    "sources": [
+      "apps/desktop/src-tauri/src/extensions.rs:304-346,1396-1429,1917-1975",
+      "apps/desktop/src-tauri/src/extension_host.rs:122-135,417-455,510-511",
+      "apps/extension-host/src/main.rs:177-183,266-270",
+      "apps/desktop/src/features/plugins/PluginCenter.tsx:25-29,43-49,92-98",
+      "apps/desktop/src/features/plugins/PluginRuntimeList.tsx:5",
+      "apps/desktop/src/features/plugins/PluginImpact.tsx:37-40"
+    ]
+  }
+}

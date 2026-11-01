@@ -1,0 +1,5095 @@
+{
+  "kind": "real AgentPanel + store + bridge; controlled context_prepare rejection and transcript completion",
+  "startedAt": "2026-11-01T10:36:59.703Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/features/agent/store.ts",
+      "sha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "afterSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "sha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "afterSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    }
+  ],
+  "scenarios": [
+    {
+      "variant": "before",
+      "kind": "fresh",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c1f85ea9-8e6c-44d1-a227-f5e3b523299a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "c1d8ff2e-c3b7-4162-aeda-bc498605749f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "086c4b6b-284c-48f7-a823-b2c9b426c4c2"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-fresh",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n这次请求未完成\n\n输入与上下文已保留。检查连接后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。检查连接后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c1f85ea9-8e6c-44d1-a227-f5e3b523299a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "c1d8ff2e-c3b7-4162-aeda-bc498605749f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "086c4b6b-284c-48f7-a823-b2c9b426c4c2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "ea62a2c2-84c8-4c1a-9cac-38cadd3e8678"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-fresh",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "1fd9430e-a949-4e09-b822-89b59949b113"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "62f33944-5c4d-441e-a1af-bf41d828fc2a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "c14957e0-4789-492a-b068-20e3b3cd17fa"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3a5d0a16-1bbb-42d6-8d1b-4ec44507cb37"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-fresh",
+              "limit": 100
+            },
+            "requestId": "81522bdf-09ca-4639-958b-191cf7b68669"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-fresh",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c1f85ea9-8e6c-44d1-a227-f5e3b523299a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "c1d8ff2e-c3b7-4162-aeda-bc498605749f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "086c4b6b-284c-48f7-a823-b2c9b426c4c2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "ea62a2c2-84c8-4c1a-9cac-38cadd3e8678"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-fresh",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "1fd9430e-a949-4e09-b822-89b59949b113"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "62f33944-5c4d-441e-a1af-bf41d828fc2a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "c14957e0-4789-492a-b068-20e3b3cd17fa"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3a5d0a16-1bbb-42d6-8d1b-4ec44507cb37"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-fresh",
+              "limit": 100
+            },
+            "requestId": "81522bdf-09ca-4639-958b-191cf7b68669"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "existing",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "9a8cf5ab-53fd-468b-ad1c-ca8bfd26ed03"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "67b2ae26-e648-4309-8bcc-3bf52eac21a1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c205cfd9-02d7-4d2f-8bee-8be5b97135c7"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "3f5db956-61fa-4fa6-aceb-7926b089a5ea"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n这次请求未完成\n\n输入与上下文已保留。检查连接后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。检查连接后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "9a8cf5ab-53fd-468b-ad1c-ca8bfd26ed03"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "67b2ae26-e648-4309-8bcc-3bf52eac21a1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c205cfd9-02d7-4d2f-8bee-8be5b97135c7"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "3f5db956-61fa-4fa6-aceb-7926b089a5ea"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "ecad7e74-0407-42ff-bf24-5d4773af4ad4"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "ed885ab8-cd2f-4e63-9970-4174f7507858"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "643f3e43-433c-41fa-b1f2-296dc2f61d15"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "8ef8cca0-a858-427b-80bc-cddaeb98d440"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "2c0389ee-b04d-4c06-bc75-a3807c181eb4"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "9a8cf5ab-53fd-468b-ad1c-ca8bfd26ed03"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "67b2ae26-e648-4309-8bcc-3bf52eac21a1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c205cfd9-02d7-4d2f-8bee-8be5b97135c7"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "3f5db956-61fa-4fa6-aceb-7926b089a5ea"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "ecad7e74-0407-42ff-bf24-5d4773af4ad4"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "ed885ab8-cd2f-4e63-9970-4174f7507858"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "643f3e43-433c-41fa-b1f2-296dc2f61d15"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "8ef8cca0-a858-427b-80bc-cddaeb98d440"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "2c0389ee-b04d-4c06-bc75-a3807c181eb4"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "cancel",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "7fb98153-6a5d-4bf7-b43a-d11bbf611d06"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "14e1d034-f938-4b1d-a38b-9956819ec7b1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "476230bb-5967-41d4-b3cf-e855fae8cb3d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b6daf1b1-2317-486c-9009-b289ef47d861"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "cancelled",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n已中断\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "7fb98153-6a5d-4bf7-b43a-d11bbf611d06"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "14e1d034-f938-4b1d-a38b-9956819ec7b1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "476230bb-5967-41d4-b3cf-e855fae8cb3d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b6daf1b1-2317-486c-9009-b289ef47d861"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "ed74820b-1f1a-460d-b4cd-76b251af9478"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "016b97e0-8da8-408c-9138-af4ac6985eb6"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "542803f2-5934-4da7-8656-e58cd4f26370"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c5ae1d9f-ba5d-49ab-b7e6-2382bc253916"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "7af575ae-1667-4efe-9472-4b4841cab877"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "7fb98153-6a5d-4bf7-b43a-d11bbf611d06"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "14e1d034-f938-4b1d-a38b-9956819ec7b1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "476230bb-5967-41d4-b3cf-e855fae8cb3d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b6daf1b1-2317-486c-9009-b289ef47d861"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "ed74820b-1f1a-460d-b4cd-76b251af9478"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "016b97e0-8da8-408c-9138-af4ac6985eb6"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "542803f2-5934-4da7-8656-e58cd4f26370"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c5ae1d9f-ba5d-49ab-b7e6-2382bc253916"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "7af575ae-1667-4efe-9472-4b4841cab877"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "late",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "70a71d4a-4a4d-478d-94f4-084b1dc7c21e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "3d21a05e-8d26-4e0f-815b-e86b40afcfa9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "7fb0819d-35cf-44c8-afb0-237e06c64e56"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "6e321c56-cb1d-4148-b3b2-921facf9c2be"
+          }
+        ]
+      },
+      "running": {
+        "status": "running",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "c0dfd2d5-edb7-4dbe-b491-c9ca3cc2f1b3",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          }
+        ],
+        "sessionId": "current-empty",
+        "taskId": "owned-task",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi 正在回复\n停止\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "70a71d4a-4a4d-478d-94f4-084b1dc7c21e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "3d21a05e-8d26-4e0f-815b-e86b40afcfa9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "7fb0819d-35cf-44c8-afb0-237e06c64e56"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "6e321c56-cb1d-4148-b3b2-921facf9c2be"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "8d985ae0-d47a-4647-bd2f-20b8bc54e3ac"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "current-empty",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "0de02882-fd59-414d-81ad-1cdc29bf608a"
+            },
+            "requestId": "bc77e3b2-ea97-4134-8081-3460b3b743d8"
+          }
+        ]
+      },
+      "lateReply": {
+        "status": "idle",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "stale",
+            "role": "assistant",
+            "text": "不应覆盖新发送的旧历史",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "taskId": "owned-task",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n不应覆盖新发送的旧历史\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "70a71d4a-4a4d-478d-94f4-084b1dc7c21e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "3d21a05e-8d26-4e0f-815b-e86b40afcfa9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "7fb0819d-35cf-44c8-afb0-237e06c64e56"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "6e321c56-cb1d-4148-b3b2-921facf9c2be"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "8d985ae0-d47a-4647-bd2f-20b8bc54e3ac"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "current-empty",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "0de02882-fd59-414d-81ad-1cdc29bf608a"
+            },
+            "requestId": "bc77e3b2-ea97-4134-8081-3460b3b743d8"
+          }
+        ]
+      },
+      "final": {
+        "status": "succeeded",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "stale",
+            "role": "assistant",
+            "text": "不应覆盖新发送的旧历史",
+            "state": "stop"
+          },
+          {
+            "messageId": "owned-final",
+            "role": "assistant",
+            "text": "正常完成的组件回复",
+            "state": "stop",
+            "truncated": false
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n不应覆盖新发送的旧历史\n\n复制\nPi\n\n正常完成的组件回复\n\n复制\n已完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "70a71d4a-4a4d-478d-94f4-084b1dc7c21e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "3d21a05e-8d26-4e0f-815b-e86b40afcfa9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "7fb0819d-35cf-44c8-afb0-237e06c64e56"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "6e321c56-cb1d-4148-b3b2-921facf9c2be"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "8d985ae0-d47a-4647-bd2f-20b8bc54e3ac"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "current-empty",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "0de02882-fd59-414d-81ad-1cdc29bf608a"
+            },
+            "requestId": "bc77e3b2-ea97-4134-8081-3460b3b743d8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "stream_ack",
+            "params": {
+              "taskId": "owned-task",
+              "throughSeq": 3
+            },
+            "requestId": "630b3ee0-6beb-43c8-9dd2-805234ae6b9b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "987079b9-5817-421e-9d89-3663e9b7e53d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "92f265e6-0ab6-4de8-9c30-d7eb826fadbc"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "f36a6f92-4f85-4d05-8620-0ffd49aa8b5c"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "draft-edit",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "09047154-6dec-45e1-b68d-66fef6ee8b1a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "3004f9d2-a197-4aea-9aea-c5ff178af11c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "42257a11-cfe3-483b-9971-161559fd0985"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b497dec7-8684-464f-9023-7b1630f589af"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "历史加载期间的新草稿",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "stale",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "09047154-6dec-45e1-b68d-66fef6ee8b1a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "3004f9d2-a197-4aea-9aea-c5ff178af11c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "42257a11-cfe3-483b-9971-161559fd0985"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b497dec7-8684-464f-9023-7b1630f589af"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "normal",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "2338ccb7-9ce3-4777-bc1e-198be42aec6e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "bb7fedec-7b30-47ce-ae4b-6f4a3c57a915"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c9b042ff-d22e-4d1b-9ad1-6ac342516f5b"
+          }
+        ]
+      },
+      "running": {
+        "status": "running",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "850035ce-0315-44e3-9352-74dcaeeb6465",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          }
+        ],
+        "sessionId": "created-normal",
+        "taskId": "owned-task",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi 正在回复\n停止\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "2338ccb7-9ce3-4777-bc1e-198be42aec6e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "bb7fedec-7b30-47ce-ae4b-6f4a3c57a915"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c9b042ff-d22e-4d1b-9ad1-6ac342516f5b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "57031fd1-545e-4df1-a617-cdb640757db3"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-normal",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "928898c1-07c3-4a61-a758-c56c1de382f7"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "created-normal",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "af8c89eb-0251-43fb-90be-109e0d109f11"
+            },
+            "requestId": "3f796908-1f6b-4bc3-a19e-5ca0f5294b5b"
+          }
+        ]
+      },
+      "final": {
+        "status": "succeeded",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "850035ce-0315-44e3-9352-74dcaeeb6465",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          },
+          {
+            "messageId": "owned-final",
+            "role": "assistant",
+            "text": "正常完成的组件回复",
+            "state": "stop",
+            "truncated": false
+          }
+        ],
+        "sessionId": "created-normal",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi\n\n正常完成的组件回复\n\n复制\n已完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "2338ccb7-9ce3-4777-bc1e-198be42aec6e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "bb7fedec-7b30-47ce-ae4b-6f4a3c57a915"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c9b042ff-d22e-4d1b-9ad1-6ac342516f5b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "57031fd1-545e-4df1-a617-cdb640757db3"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-normal",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "928898c1-07c3-4a61-a758-c56c1de382f7"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "created-normal",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "af8c89eb-0251-43fb-90be-109e0d109f11"
+            },
+            "requestId": "3f796908-1f6b-4bc3-a19e-5ca0f5294b5b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "stream_ack",
+            "params": {
+              "taskId": "owned-task",
+              "throughSeq": 3
+            },
+            "requestId": "59abb8a5-50a1-4946-977d-94c9a6e59a7b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "7465f01c-6132-4c07-bb81-42f4abb2809e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "0c2abd5b-3378-440e-b089-92d137f82409"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "98139fbf-3bdf-4e81-8c8a-bf18b1d47af6"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "restore",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "history",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "400302c0-b72b-48cc-ab0f-702c21bdd8c3"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "b6b19393-2ed9-4da4-8c66-a88034c2c3c5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "843e1f45-d052-4722-9603-7557ad4c5bc5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "5ec2f063-c37a-4a2e-92d9-76394fa5e47d"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "history",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "400302c0-b72b-48cc-ab0f-702c21bdd8c3"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "b6b19393-2ed9-4da4-8c66-a88034c2c3c5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "843e1f45-d052-4722-9603-7557ad4c5bc5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "5ec2f063-c37a-4a2e-92d9-76394fa5e47d"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "explicit",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "retained",
+            "role": "assistant",
+            "text": "保留既有消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n保留既有消息\n\n复制\n这次请求未完成\n\n输入与上下文已保留。检查连接后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。检查连接后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "94ec6ee2-2be8-40f7-994b-96a8d495f6d5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "0fb9130f-7f3b-4466-b8fa-2ea8111385dd"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "39895d36-0947-4f5e-afdb-e2b09ab6915a"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "history",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "target-history",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "94ec6ee2-2be8-40f7-994b-96a8d495f6d5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "0fb9130f-7f3b-4466-b8fa-2ea8111385dd"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "39895d36-0947-4f5e-afdb-e2b09ab6915a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "target-history",
+              "limit": 100
+            },
+            "requestId": "57758f7c-a538-4852-ac31-f7fb6c10e4d0"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "auth",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "f48b43ae-a918-4302-acd0-a9d1751df3cb"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "a79ead25-802b-4cb1-867b-3394e294130a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "b5725814-ffcd-4d8e-8d16-b7cb1c709171"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "failed",
+        "error": "401 controlled authentication",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-auth",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n模型连接认证失败\n\n输入与上下文已保留。检查连接后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。检查连接后，可以重新发送。",
+        "errorTitle": "模型连接认证失败",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "f48b43ae-a918-4302-acd0-a9d1751df3cb"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "a79ead25-802b-4cb1-867b-3394e294130a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "b5725814-ffcd-4d8e-8d16-b7cb1c709171"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "dd9f2c58-b26f-4705-af58-4362c985a455"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-auth",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "3c8bbac5-7920-41f4-a857-5deef49fdec8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c5fcc776-148c-48f6-bfd3-cf80a73f8ecc"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "05bdfc56-a794-4ef0-aa79-5fd36646a606"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d91cc393-32d4-46ba-9e20-9c527edd3104"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-auth",
+              "limit": 100
+            },
+            "requestId": "84a8ca06-842a-458c-b789-2282b9361e50"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-auth",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "f48b43ae-a918-4302-acd0-a9d1751df3cb"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "a79ead25-802b-4cb1-867b-3394e294130a"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "b5725814-ffcd-4d8e-8d16-b7cb1c709171"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "dd9f2c58-b26f-4705-af58-4362c985a455"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-auth",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "3c8bbac5-7920-41f4-a857-5deef49fdec8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c5fcc776-148c-48f6-bfd3-cf80a73f8ecc"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "05bdfc56-a794-4ef0-aa79-5fd36646a606"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d91cc393-32d4-46ba-9e20-9c527edd3104"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-auth",
+              "limit": 100
+            },
+            "requestId": "84a8ca06-842a-458c-b789-2282b9361e50"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "no-draft",
+      "storeSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+      "panelSha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+      "bundleSha256": "a6cb6b3724dad6fc4ad582941865a71748991b2d08ab71e500e7157a37ff6d94",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "retained",
+            "role": "assistant",
+            "text": "保留既有消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n保留既有消息\n\n复制\n这次请求未完成\n\n已收到的内容仍在会话中。检查连接后可继续。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "已收到的内容仍在会话中。检查连接后可继续。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "7602fc9b-3899-4664-a778-033ec799bdb8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "064c03ac-b2ed-4b33-9ae0-4c4804979735"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "2bcdf582-9135-47f9-877c-ae970d0f9b53"
+          }
+        ]
+      },
+      "final": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "retained",
+            "role": "assistant",
+            "text": "保留既有消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n保留既有消息\n\n复制\n这次请求未完成\n\n已收到的内容仍在会话中。检查连接后可继续。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "已收到的内容仍在会话中。检查连接后可继续。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "7602fc9b-3899-4664-a778-033ec799bdb8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "064c03ac-b2ed-4b33-9ae0-4c4804979735"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "2bcdf582-9135-47f9-877c-ae970d0f9b53"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "fresh",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "8836c917-a558-483a-87e3-6f81771580d9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "f221b538-c249-4673-a0f5-e98a3bf070d2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "732e40fc-a5ea-4787-bbf7-1e2bcc2a436f"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-fresh",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n这次请求未完成\n\n输入与上下文已保留。查看错误详情并处理后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。查看错误详情并处理后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "8836c917-a558-483a-87e3-6f81771580d9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "f221b538-c249-4673-a0f5-e98a3bf070d2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "732e40fc-a5ea-4787-bbf7-1e2bcc2a436f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "bb2a39a6-cefb-4933-a1aa-ce14f2265663"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-fresh",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "b3bf5a9c-b053-4087-941d-ca0e8069c233"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "f1fc9b17-ff0b-40db-8202-bddb830bafe1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "efab8ce4-c4f2-4192-af19-991511c0f762"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3f1107a6-dda3-4495-9d15-db91520a9caf"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-fresh",
+              "limit": 100
+            },
+            "requestId": "b5003ef4-3129-4847-a05b-46dc704a7f46"
+          }
+        ]
+      },
+      "final": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-fresh",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n这次请求未完成\n\n输入与上下文已保留。查看错误详情并处理后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。查看错误详情并处理后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "8836c917-a558-483a-87e3-6f81771580d9"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "f221b538-c249-4673-a0f5-e98a3bf070d2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "732e40fc-a5ea-4787-bbf7-1e2bcc2a436f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "bb2a39a6-cefb-4933-a1aa-ce14f2265663"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-fresh",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "b3bf5a9c-b053-4087-941d-ca0e8069c233"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "f1fc9b17-ff0b-40db-8202-bddb830bafe1"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "efab8ce4-c4f2-4192-af19-991511c0f762"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3f1107a6-dda3-4495-9d15-db91520a9caf"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-fresh",
+              "limit": 100
+            },
+            "requestId": "b5003ef4-3129-4847-a05b-46dc704a7f46"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "existing",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "11f6078c-186a-42ad-882d-c99f6d66b76f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "b59e9fd8-d2fa-4c64-b73d-1f193e503165"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "161c4b5b-e04d-4023-82de-d7425e92db3e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "9cf2bbdd-ca51-4f4a-bb5e-51e94666f10b"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n这次请求未完成\n\n输入与上下文已保留。查看错误详情并处理后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。查看错误详情并处理后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "11f6078c-186a-42ad-882d-c99f6d66b76f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "b59e9fd8-d2fa-4c64-b73d-1f193e503165"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "161c4b5b-e04d-4023-82de-d7425e92db3e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "9cf2bbdd-ca51-4f4a-bb5e-51e94666f10b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "256a516f-9497-4f1f-b72f-8747424bb6e0"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "2bcf063e-304a-4884-9fb4-9069eedf9c09"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "0945a85c-1d69-409b-9f26-d111be5b460c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c9232fff-4000-4dcd-b0f0-1403ae88618d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "05d61ef9-f19f-495a-94b6-30309cd84767"
+          }
+        ]
+      },
+      "final": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n这次请求未完成\n\n输入与上下文已保留。查看错误详情并处理后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。查看错误详情并处理后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "11f6078c-186a-42ad-882d-c99f6d66b76f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "b59e9fd8-d2fa-4c64-b73d-1f193e503165"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "161c4b5b-e04d-4023-82de-d7425e92db3e"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "9cf2bbdd-ca51-4f4a-bb5e-51e94666f10b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "256a516f-9497-4f1f-b72f-8747424bb6e0"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "2bcf063e-304a-4884-9fb4-9069eedf9c09"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "0945a85c-1d69-409b-9f26-d111be5b460c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c9232fff-4000-4dcd-b0f0-1403ae88618d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "05d61ef9-f19f-495a-94b6-30309cd84767"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "cancel",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "feea9a72-c06a-4f9f-8cd5-9a5f43594333"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "ed56c967-4f9d-48f3-b4d9-dec96e87715c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "62c40608-1c8f-4e22-a9fe-c345548cebb2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "430f8492-182b-4ae6-a115-04262a72a544"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "cancelled",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n已中断\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "feea9a72-c06a-4f9f-8cd5-9a5f43594333"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "ed56c967-4f9d-48f3-b4d9-dec96e87715c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "62c40608-1c8f-4e22-a9fe-c345548cebb2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "430f8492-182b-4ae6-a115-04262a72a544"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "b02664ec-f9b0-4567-abb3-9282967e8c76"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "032913a7-42af-402e-8477-16e013e3cf48"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "061e8d84-500d-40e9-9fbb-3f9b4ced962b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "b8361c06-1db2-4c32-9261-5f3bdc4ffa45"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "baf8741d-b1b1-4e01-a587-c72e4f52b950"
+          }
+        ]
+      },
+      "final": {
+        "status": "cancelled",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n已中断\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "feea9a72-c06a-4f9f-8cd5-9a5f43594333"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "ed56c967-4f9d-48f3-b4d9-dec96e87715c"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "62c40608-1c8f-4e22-a9fe-c345548cebb2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "430f8492-182b-4ae6-a115-04262a72a544"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "b02664ec-f9b0-4567-abb3-9282967e8c76"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "032913a7-42af-402e-8477-16e013e3cf48"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "061e8d84-500d-40e9-9fbb-3f9b4ced962b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "b8361c06-1db2-4c32-9261-5f3bdc4ffa45"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "baf8741d-b1b1-4e01-a587-c72e4f52b950"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "late",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "913b428d-b5ec-488e-8c40-00f33caab83d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "07ea657b-7e90-434a-9f3d-d5aa4c98af50"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d119dc38-b84f-4ea2-b1af-c026384fecb5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "49573feb-08e3-4442-a4de-2c10d91a3e66"
+          }
+        ]
+      },
+      "running": {
+        "status": "running",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "9525a16e-bfe1-4ebd-b519-2a9545c6caa6",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          }
+        ],
+        "sessionId": "current-empty",
+        "taskId": "owned-task",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi 正在回复\n停止\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "913b428d-b5ec-488e-8c40-00f33caab83d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "07ea657b-7e90-434a-9f3d-d5aa4c98af50"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d119dc38-b84f-4ea2-b1af-c026384fecb5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "49573feb-08e3-4442-a4de-2c10d91a3e66"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "671f3ccf-d132-40e6-9679-05b67b2b866a"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "current-empty",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "5175d04a-b963-404c-b76f-9a741f73685b"
+            },
+            "requestId": "5ef06083-80b6-4a35-a1cb-588b2ea447c2"
+          }
+        ]
+      },
+      "lateReply": {
+        "status": "running",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "9525a16e-bfe1-4ebd-b519-2a9545c6caa6",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          }
+        ],
+        "sessionId": "current-empty",
+        "taskId": "owned-task",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi 正在回复\n停止\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "913b428d-b5ec-488e-8c40-00f33caab83d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "07ea657b-7e90-434a-9f3d-d5aa4c98af50"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d119dc38-b84f-4ea2-b1af-c026384fecb5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "49573feb-08e3-4442-a4de-2c10d91a3e66"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "671f3ccf-d132-40e6-9679-05b67b2b866a"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "current-empty",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "5175d04a-b963-404c-b76f-9a741f73685b"
+            },
+            "requestId": "5ef06083-80b6-4a35-a1cb-588b2ea447c2"
+          }
+        ]
+      },
+      "final": {
+        "status": "succeeded",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "9525a16e-bfe1-4ebd-b519-2a9545c6caa6",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          },
+          {
+            "messageId": "owned-final",
+            "role": "assistant",
+            "text": "正常完成的组件回复",
+            "state": "stop",
+            "truncated": false
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi\n\n正常完成的组件回复\n\n复制\n已完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "913b428d-b5ec-488e-8c40-00f33caab83d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "07ea657b-7e90-434a-9f3d-d5aa4c98af50"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d119dc38-b84f-4ea2-b1af-c026384fecb5"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "49573feb-08e3-4442-a4de-2c10d91a3e66"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "current-empty",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "671f3ccf-d132-40e6-9679-05b67b2b866a"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "current-empty",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "5175d04a-b963-404c-b76f-9a741f73685b"
+            },
+            "requestId": "5ef06083-80b6-4a35-a1cb-588b2ea447c2"
+          },
+          {
+            "command": "horizon_call",
+            "method": "stream_ack",
+            "params": {
+              "taskId": "owned-task",
+              "throughSeq": 3
+            },
+            "requestId": "34001010-7e3f-4be9-bfb6-ff6020a807d0"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "d61ee31e-bf99-42c8-bd74-dd67cfff29bd"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "4e3a8b59-6240-4a37-8425-2044884d4e0b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3f04ea3b-54a3-4fb7-8a5f-a07d18a08f81"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "draft-edit",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "83e248c3-9ae0-47fc-b335-5aa82f2175eb"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "81ec301d-eec3-424b-9d34-2e39ef07d272"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "4aa0b4d0-deae-429f-88e3-5d6f205fe7b8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "84774fe3-724e-4c20-a301-0abb537d68b6"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "历史加载期间的新草稿",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "stale",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "83e248c3-9ae0-47fc-b335-5aa82f2175eb"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "81ec301d-eec3-424b-9d34-2e39ef07d272"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "4aa0b4d0-deae-429f-88e3-5d6f205fe7b8"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "84774fe3-724e-4c20-a301-0abb537d68b6"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "normal",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c65cf5ea-3c14-426c-93c7-a16b3e8a7422"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "d0801425-7691-4732-a296-cb99f2159c18"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d169d96c-6270-468a-9b4f-b7b04455cfc3"
+          }
+        ]
+      },
+      "running": {
+        "status": "running",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "7777be63-bbb8-4493-b0cc-54448ac55693",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          }
+        ],
+        "sessionId": "created-normal",
+        "taskId": "owned-task",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi 正在回复\n停止\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c65cf5ea-3c14-426c-93c7-a16b3e8a7422"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "d0801425-7691-4732-a296-cb99f2159c18"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d169d96c-6270-468a-9b4f-b7b04455cfc3"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "556479cd-c9f5-4c2f-94b9-d14eda561abc"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-normal",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "eaa34287-0a35-4d92-b6f1-3a1187015243"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "created-normal",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "bafff2eb-871c-4aef-9723-f6d0ad198833"
+            },
+            "requestId": "f35cd263-8bb6-464e-b8b1-bde0b809ab2d"
+          }
+        ]
+      },
+      "final": {
+        "status": "succeeded",
+        "error": null,
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "7777be63-bbb8-4493-b0cc-54448ac55693",
+            "role": "user",
+            "text": "保留待发送任务",
+            "state": "sent"
+          },
+          {
+            "messageId": "owned-final",
+            "role": "assistant",
+            "text": "正常完成的组件回复",
+            "state": "stop",
+            "truncated": false
+          }
+        ],
+        "sessionId": "created-normal",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n你\n保留待发送任务\nPi\n\n正常完成的组件回复\n\n复制\n已完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 1,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "c65cf5ea-3c14-426c-93c7-a16b3e8a7422"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "d0801425-7691-4732-a296-cb99f2159c18"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "d169d96c-6270-468a-9b4f-b7b04455cfc3"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "556479cd-c9f5-4c2f-94b9-d14eda561abc"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-normal",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "eaa34287-0a35-4d92-b6f1-3a1187015243"
+          },
+          {
+            "command": "horizon_start",
+            "method": "agent_submit",
+            "params": {
+              "sessionId": "created-normal",
+              "text": "保留待发送任务",
+              "snapshotId": "owned-snapshot",
+              "manifestDigest": "owned-manifest",
+              "submissionId": "bafff2eb-871c-4aef-9723-f6d0ad198833"
+            },
+            "requestId": "f35cd263-8bb6-464e-b8b1-bde0b809ab2d"
+          },
+          {
+            "command": "horizon_call",
+            "method": "stream_ack",
+            "params": {
+              "taskId": "owned-task",
+              "throughSeq": 3
+            },
+            "requestId": "19ceaf7c-cd9e-4939-913a-08368ae6078f"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "fa4de574-b63e-4b24-80c4-45246f6dc086"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "1124d57f-fd22-4a6d-98cf-a5e8eee77286"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "c787cd70-ee28-4f94-979f-68b3ee872d83"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "restore",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "history",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "968cf0ab-bf2d-4daf-81b9-b003290f4c89"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "38e0154b-2055-44e9-a628-c5261b794661"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "304a4a75-f03b-442e-9288-6fcc8571ad1b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b09bce22-566f-4c9e-bb00-ce88fc619ffe"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "history",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "968cf0ab-bf2d-4daf-81b9-b003290f4c89"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "38e0154b-2055-44e9-a628-c5261b794661"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "304a4a75-f03b-442e-9288-6fcc8571ad1b"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "current-empty",
+              "limit": 100
+            },
+            "requestId": "b09bce22-566f-4c9e-bb00-ce88fc619ffe"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "explicit",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "retained",
+            "role": "assistant",
+            "text": "保留既有消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n保留既有消息\n\n复制\n这次请求未完成\n\n输入与上下文已保留。查看错误详情并处理后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。查看错误详情并处理后，可以重新发送。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "ce2c2373-54de-4a8f-99de-dcae24c79a08"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "9c4f83dd-d8a0-45f3-83e7-0dc22556d293"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "060bd2ef-0a2e-4c2c-a9f8-0bf806ec5270"
+          }
+        ]
+      },
+      "final": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "history",
+            "role": "assistant",
+            "text": "恢复的历史消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "target-history",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n恢复的历史消息\n\n复制\n就绪\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "ce2c2373-54de-4a8f-99de-dcae24c79a08"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "9c4f83dd-d8a0-45f3-83e7-0dc22556d293"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "060bd2ef-0a2e-4c2c-a9f8-0bf806ec5270"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "target-history",
+              "limit": 100
+            },
+            "requestId": "c7369674-29eb-42b2-82b0-d037a956edd3"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "auth",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "idle",
+        "error": null,
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n就绪\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "",
+        "errorTitle": "",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "d06e3ba1-4bbc-49c9-a411-ba64d96973d0"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "f7c10b88-488d-4b35-a420-da1ddbf85183"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "19494c86-7d1b-449b-8206-c29c7ab47421"
+          }
+        ]
+      },
+      "beforeTranscript": {
+        "status": "failed",
+        "error": "401 controlled authentication",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-auth",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n模型连接认证失败\n\n输入与上下文已保留。检查连接后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。检查连接后，可以重新发送。",
+        "errorTitle": "模型连接认证失败",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "d06e3ba1-4bbc-49c9-a411-ba64d96973d0"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "f7c10b88-488d-4b35-a420-da1ddbf85183"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "19494c86-7d1b-449b-8206-c29c7ab47421"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "9fced6f5-f2f0-4522-ba2c-27449cd9b033"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-auth",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "2fe1aa35-5995-4111-a2c5-104a737a9ef6"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "fd4bba12-000a-4b56-a0c7-66daed231358"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "4cf9a556-0666-490b-a866-9e371f40b826"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "483f9779-c151-462b-b5fa-7a5f69da5079"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-auth",
+              "limit": 100
+            },
+            "requestId": "36779d1c-dfed-49df-bea9-309fca64fed2"
+          }
+        ]
+      },
+      "final": {
+        "status": "failed",
+        "error": "401 controlled authentication",
+        "draft": "保留待发送任务",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [],
+        "sessionId": "created-auth",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\n让 Pi 完成一项任务\n\n在任务副本中工作。写入与命令逐次授权，结果经审查后应用。\n\n模型连接认证失败\n\n输入与上下文已保留。检查连接后，可以重新发送。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "输入与上下文已保留。检查连接后，可以重新发送。",
+        "errorTitle": "模型连接认证失败",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 1,
+        "sessionCreates": 1,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "d06e3ba1-4bbc-49c9-a411-ba64d96973d0"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "f7c10b88-488d-4b35-a420-da1ddbf85183"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "19494c86-7d1b-449b-8206-c29c7ab47421"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_session_create",
+            "params": {
+              "connectionId": "owned-connection",
+              "profile": "task"
+            },
+            "requestId": "9fced6f5-f2f0-4522-ba2c-27449cd9b033"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_context_prepare",
+            "params": {
+              "sessionId": "created-auth",
+              "items": [
+                {
+                  "source": "gitDiff",
+                  "fileId": "owned-example",
+                  "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                {
+                  "source": "buffer",
+                  "fileId": "owned-context",
+                  "documentId": "owned-document",
+                  "editorRevision": 1,
+                  "text": "owned text"
+                }
+              ]
+            },
+            "requestId": "2fe1aa35-5995-4111-a2c5-104a737a9ef6"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "fd4bba12-000a-4b56-a0c7-66daed231358"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "4cf9a556-0666-490b-a866-9e371f40b826"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "483f9779-c151-462b-b5fa-7a5f69da5079"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_transcript_read",
+            "params": {
+              "sessionId": "created-auth",
+              "limit": 100
+            },
+            "requestId": "36779d1c-dfed-49df-bea9-309fca64fed2"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "no-draft",
+      "storeSha256": "269dd58d022e92a5cd40aaf5211910f45e78a3ace0e27abd15a269bbf9ed7423",
+      "panelSha256": "02823ff59306953bbb59a5be41f292d9202b6191e7a414212feca3511415a550",
+      "bundleSha256": "e0d02107d99de09ea8b5bb087c1bab59344ba3caf168bffd64601885ab90c0d5",
+      "warnings": [],
+      "browserErrors": [],
+      "passed": true,
+      "initial": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "retained",
+            "role": "assistant",
+            "text": "保留既有消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n保留既有消息\n\n复制\n这次请求未完成\n\n已收到的内容仍在会话中。查看错误详情并处理后可继续。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "已收到的内容仍在会话中。查看错误详情并处理后可继续。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "8c34c38a-e648-4c5c-81ac-3e9930a166b6"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "06ab23b2-628d-4978-9b21-637eaf2e9964"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3397f49c-0092-4b74-bbd5-fd37adfe9228"
+          }
+        ]
+      },
+      "final": {
+        "status": "failed",
+        "error": "差异缓存已过期，请重新打开差异",
+        "draft": "",
+        "attachments": [
+          {
+            "key": "git",
+            "label": "example.txt · 暂存区 → 磁盘文件",
+            "source": "gitDiff",
+            "fileId": "owned-example",
+            "diffId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expectedRepoToken": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "byteLength": 100
+          },
+          {
+            "key": "buffer",
+            "label": "context.ts",
+            "source": "buffer",
+            "fileId": "owned-context",
+            "documentId": "owned-document",
+            "editorRevision": 1,
+            "text": "owned text",
+            "byteLength": 10
+          }
+        ],
+        "messages": [
+          {
+            "messageId": "retained",
+            "role": "assistant",
+            "text": "保留既有消息",
+            "state": "stop"
+          }
+        ],
+        "sessionId": "current-empty",
+        "loading": false,
+        "uiText": "聊天\n任务\n任务副本\nPi\n\n保留既有消息\n\n复制\n这次请求未完成\n\n已收到的内容仍在会话中。查看错误详情并处理后可继续。\n\n重新发送\n检查连接\n错误详情\n收起提示\n未完成\n结束会话\nexample.txt · 暂存区 → 磁盘文件\ncontext.ts\n添加上下文\nOwned fixture",
+        "errorParagraph": "已收到的内容仍在会话中。查看错误详情并处理后可继续。",
+        "errorTitle": "这次请求未完成",
+        "detailsOpen": false,
+        "submitCount": 0,
+        "contextCount": 0,
+        "sessionCreates": 0,
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {},
+            "requestId": "8c34c38a-e648-4c5c-81ac-3e9930a166b6"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "params": {},
+            "requestId": "06ab23b2-628d-4978-9b21-637eaf2e9964"
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {},
+            "requestId": "3397f49c-0092-4b74-bbd5-fd37adfe9228"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/features/agent/store.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T10:37:07.731Z",
+  "durationMs": 8028
+}

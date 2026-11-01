@@ -1,0 +1,207 @@
+{
+  "auditedAt": "2026-11-01T05:36:04.204049+00:00",
+  "method": "Independent source diff, current/snapshotSHA and retained raw Vitest JSON/stdout/stderr/run receipt audit; no tests rerun",
+  "sourceChecks": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.test.ts",
+      "sha256": "62c3b2015af91d3632dedcd9d8df922b25947215352bf1af79b2b74dfac07df9",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "executionReceipt": {
+    "startedAt": "2026-11-01T05:34:24.415921+00:00",
+    "command": [
+      "node_modules/.bin/vitest",
+      "run",
+      "--dir",
+      "packages/editor/src",
+      "store.test.ts",
+      "--reporter=json",
+      "--outputFile=docs/verification/results/editor-chunked-lifecycle-component-20261101/after.json"
+    ],
+    "sourceHashes": {
+      "packages/editor/src/store.ts": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "packages/editor/src/store.test.ts": "62c3b2015af91d3632dedcd9d8df922b25947215352bf1af79b2b74dfac07df9"
+    },
+    "endedAt": "2026-11-01T05:34:24.718676+00:00",
+    "exitCode": 0,
+    "stdout": "after.stdout.txt",
+    "stderr": "after.stderr.txt"
+  },
+  "beforeNewCases": [
+    {
+      "title": "reopens a sleeping chunked tab, reports a missing path, and retries with a fresh reader",
+      "status": "failed",
+      "failure": "AssertionError: expected 'reader-1-next' to be undefined"
+    },
+    {
+      "title": "reopens a sleeping unsupported tab, reports a missing path, and retries with a fresh reader",
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "title": "does not restore an old chunk cursor or text when a read finishes after host sleep",
+      "status": "failed",
+      "failure": "AssertionError: expected true to be false // Object.is equality"
+    },
+    {
+      "title": "turns an expired chunk cursor into a retryable file access error and reopens from a new cursor",
+      "status": "failed",
+      "failure": "AssertionError: expected { key: 'a\\u0000large', …(23) } to match object { evicted: true, …(2) }"
+    }
+  ],
+  "beforeResult": {
+    "newCases": 4,
+    "failed": 3,
+    "passed": 1,
+    "skippedExisting": 44,
+    "additionalArchivedSourceFileLoadErrors": 4
+  },
+  "intermediateTargetedResult": {
+    "newCasesPassed": 4,
+    "skippedExisting": 44,
+    "success": false,
+    "additionalArchivedSourceFileLoadErrors": 4
+  },
+  "finalResult": {
+    "passed": 48,
+    "failed": 0,
+    "skipped": 0,
+    "success": true,
+    "sourceFileReports": 1,
+    "exitCode": 0
+  },
+  "sourceFindings": [
+    "hostClosedProject invalidates chunk cursor/range/loading as it evicts text, preventing post-sleep reuse.",
+    "loadChunk captures current restore ticket and buffer identity; detached/evicted/error buffers do not request chunks and late read replies cannot refill old buffers.",
+    "Current owned read failures become accessError with evicted=true/cursor absent; explicit retry opens a fresh document reader.",
+    "Controlled production-store tests cover missing chunked/unsupported wake plus unrelated-tab activation, late read after sleep, and expired cursor then retry. Transport document responses are fixtures."
+  ],
+  "artifacts": [
+    {
+      "name": "after-run.json",
+      "bytes": 668,
+      "sha256": "78e0ad374e70d298483e39107652d41e2e1eaea94539bd81245d236097025ea1"
+    },
+    {
+      "name": "after-targeted-run.json",
+      "bytes": 836,
+      "sha256": "6fa9a042861b1315fd51ba060fd7181899530a8b50c13124388714e0ee40b643"
+    },
+    {
+      "name": "after-targeted.json",
+      "bytes": 19004,
+      "sha256": "1d05d3a895089fc87da471f1a4aa2523c5450f136468c925a4290822c5900e43"
+    },
+    {
+      "name": "after-targeted.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after-targeted.stdout.txt",
+      "bytes": 150,
+      "sha256": "3da27b1b343a6b94a8352db0c52635d7c0bcf3d178d1c94f863d700e8b85625b"
+    },
+    {
+      "name": "after.json",
+      "bytes": 18588,
+      "sha256": "221e69075b264f6b73bdc764d175516e8fd3fca868a0993ffae9cce14a45a710"
+    },
+    {
+      "name": "after.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "after.stdout.txt",
+      "bytes": 141,
+      "sha256": "e4d1ca5d6a30d58acef5ba451b725b59e60061a7870bba23374ef0b5fdb01ceb"
+    },
+    {
+      "name": "before-run.json",
+      "bytes": 812,
+      "sha256": "dfd6836b05dcf50be029b3b3152cf350e4cc2aab3175f3632dae047ed23ac47e"
+    },
+    {
+      "name": "before.json",
+      "bytes": 20300,
+      "sha256": "46c68a7e0698a1744c39d1b75dbc08cfcd173cd9e4b2e3d36ceaae6ef9e825c0"
+    },
+    {
+      "name": "before.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "before.stdout.txt",
+      "bytes": 142,
+      "sha256": "2e6c94e9a95c00169280f9c7bdbade9982f701c370733b1091a353428d7d72cb"
+    },
+    {
+      "name": "receipt.json",
+      "bytes": 1551,
+      "sha256": "c0a30afce939893f2003229a5a416efd8efe8a4aa7c9698f63cc7ed006c669de"
+    },
+    {
+      "name": "store.test.ts",
+      "bytes": 46578,
+      "sha256": "62c3b2015af91d3632dedcd9d8df922b25947215352bf1af79b2b74dfac07df9"
+    },
+    {
+      "name": "store.ts",
+      "bytes": 39376,
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+    }
+  ],
+  "limits": [
+    "Initial before and targeted-after commands scanned archived source copies and therefore returned success=false despite four actual new-case results; all four archive-module errors remain retained. The final --dir run has one actual test file and48passes.",
+    "Before/targeted command and exit1 receipts plus exact retained tool-result stdout/stderr were subsequently supplied. Their testStartedAt matches Vitest raw startTime; reportWrittenAt is a report-write observation, not a fabricated complete shell interval. Final48run retains full startedAt/endedAt and sourceSHA.",
+    "This store correction is secondary. Late plugin dispose/activation ordering is under separate production lifecycle review.",
+    "Native024–030 failure remains active; no native new-build acceptance or whole requirement closure is inferred."
+  ],
+  "additionalExecutionReceipts": [
+    {
+      "command": [
+        "node_modules/.bin/vitest",
+        "run",
+        "packages/editor/src/store.test.ts",
+        "-t",
+        "reopens a sleeping|old chunk cursor|expired chunk cursor",
+        "--reporter=json",
+        "--outputFile=docs/verification/results/editor-chunked-lifecycle-component-20261101/before.json"
+      ],
+      "testStartedAt": "2026-11-01T05:33:02.823000+00:00",
+      "reportWrittenAt": "2026-11-01T05:33:03.341070+00:00",
+      "exitCode": 1,
+      "stdout": "before.stdout.txt",
+      "stderr": "before.stderr.txt",
+      "stdoutProvenance": "Exact text retained from exec tool result.",
+      "runnerScopeIssue": "Vitest path substring also selected four archived test copies under docs; their missing adjacent modules caused suite errors. Preserve report. The corrected after-run.json restricts --dir to actual packages/editor/src."
+    },
+    {
+      "command": [
+        "node_modules/.bin/vitest",
+        "run",
+        "packages/editor/src/store.test.ts",
+        "-t",
+        "reopens a sleeping|old chunk cursor|expired chunk cursor",
+        "--reporter=json",
+        "--outputFile=docs/verification/results/editor-chunked-lifecycle-component-20261101/after-targeted.json"
+      ],
+      "testStartedAt": "2026-11-01T05:33:17.489000+00:00",
+      "reportWrittenAt": "2026-11-01T05:33:17.766895+00:00",
+      "exitCode": 1,
+      "stdout": "after-targeted.stdout.txt",
+      "stderr": "after-targeted.stderr.txt",
+      "stdoutProvenance": "Exact text retained from exec tool result.",
+      "runnerScopeIssue": "Vitest path substring also selected four archived test copies under docs; their missing adjacent modules caused suite errors. Preserve report. The corrected after-run.json restricts --dir to actual packages/editor/src."
+    }
+  ],
+  "executionReceiptsSupplementedAt": "2026-11-01T05:36:52.546725+00:00"
+}

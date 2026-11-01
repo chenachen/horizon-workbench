@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-11-01T12:06:33.168756+00:00",
+  "scene": "PERF-1 onePi",
+  "status": "OWNER READY SCENE1",
+  "checks": {
+    "sameAppInstalledRun": true,
+    "sameExternalProvider": true,
+    "onlyOneOwnedPiA": true,
+    "exactAChatSessionAndFakeConnection": true,
+    "oneRequestFourteen": true,
+    "exactPromptNoAttachment": true,
+    "chatNoTools": true,
+    "actualSessionCredentialRoute": true
+  },
+  "app": {
+    "pid": 8737,
+    "ppid": 1,
+    "start": "Sun Nov 1 18:41:19 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "args": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "mainSHA256BoundToSameFrozenLaunch": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "provider": {
+    "pid": 2344,
+    "ppid": 2338,
+    "start": "Sun Nov 1 17:47:30 2026",
+    "executable": "node",
+    "args": "node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs"
+  },
+  "piCount": 1,
+  "ptyCount": 0,
+  "launcherCount": 0,
+  "piA": {
+    "pid": 68652,
+    "ppid": 8737,
+    "start": "Sun Nov 1 20:05:04 2026",
+    "executable": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi",
+    "args": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/74a54d50-466a-412f-88aa-55c9e8329f30/session.jsonl --no-tools",
+    "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A",
+    "sessionId": "74a54d50-466a-412f-88aa-55c9e8329f30",
+    "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+    "profile": "chat",
+    "instanceEpochAtSnapshot": 0,
+    "runId": null,
+    "runIdentityBasis": "FormalrunId not exposed on disk; actualPID/start/argv/cwd/session association establishes thisrun, not an inventedrunId."
+  },
+  "fixedConnection": {
+    "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+    "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66",
+    "owner": "horizon",
+    "persistence": "session",
+    "authState": "configured",
+    "mode": "chat",
+    "endpoint": "http://127.0.0.1:18763/v1",
+    "provider": "horizon-fixture",
+    "model": "horizon-fixture"
+  },
+  "gui": {
+    "label": "perf1-running",
+    "time": "2026-11-01T12:05:39.368Z",
+    "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-perf1-running.jpg",
+    "imageSHA256": "cd3729eb9252a4494cf9a97de963bc6c8f15d75001be124c97498a0cfb733265",
+    "axSHA256": "0b0b90a2f522fa13e5d81e325c7cb05d82ff9c27f144fcce530452ecb069d031",
+    "window": "Horizon 1280×800",
+    "zoom": "100% 继承状态，尚未新核 View 菜单",
+    "style": "底部导航 / 极光 / 深色，继承状态"
+  },
+  "guiFreeze": "Terra actualRUNNING then freeze; noGUI/build/test during sampler",
+  "httpBefore": {
+    "fixture": true,
+    "requests": 14
+  },
+  "requestOrdinal": 14,
+  "sessionCredentialPathEvidence": "Sameownedref index=session, oldsystemitem deletion frozen10a, actualSDK request14 with authorization present; productionagent277/settings47 resolves sessionmap. No secretvalue read/stored.",
+  "fixtureReference": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/pi-resume-fixture.json",
+    "sha256": "b62a8462a63d9f8f2fd3952b09aa9ca746dde9bba47b8d2a8f74cd57dac63710"
+  },
+  "membersPath": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene1/members.json",
+  "piAStartedAtUtc": "2026-11-01T12:05:04+00:00",
+  "piAConservative600sDeadlineUtc": "2026-11-01T12:15:04+00:00",
+  "samplingOwner": "root125s,60swarm; do not loophealth/identity while active. PERF2 waits explicitrootlease."
+}

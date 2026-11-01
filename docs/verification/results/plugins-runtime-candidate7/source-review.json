@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-31",
+  "status": "source-and-targeted-tests-passed; candidate7-native-GUI-pending",
+  "measurement": "Counts read actual listener/observer/command/view collections and owned Cordis instances. Bridge unlisten remains counted until its native Promise confirms removal. Subsets are not added to totals.",
+  "contract": ".work/plugin-diagnostics-contract.md",
+  "changes": [
+    "Bridge total listeners and worker-owned subset are distinct from Rust HostState channel subscriptions",
+    "Worker abort callbacks, command observers, commands and views use actual active collections",
+    "Cordis global hook tables and fiber-local update tables provide root/plugin listener counts without estimating from effects",
+    "Owned instances remain counted during asynchronous disposal and after disposal failure",
+    "Cordis internally logged resource cleanup failures are preserved by the owner so the count cannot claim successful release"
+  ],
+  "tests": [
+    {"command":"rtk proxy npx tsx --test packages/plugins/tests/runtime.test.ts","cwd":"repository root","passed":9,"failed":0,"raw":"../../raw/plugins-candidate7/runtime.log"},
+    {"command":"rtk proxy /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node /Users/chenpengxiang/Desktop/Horizon/node_modules/vitest/vitest.mjs run src/features/plugins/workerHost.test.ts","cwd":"apps/desktop","passed":4,"failed":0,"raw":"../../raw/plugins-candidate7/worker.log"},
+    {"command":"rtk npm run desktop:check","cwd":"repository root","exitCode":0,"raw":"../../raw/plugins-candidate7/desktop-check.log"}
+  ],
+  "startupFailure": {
+    "command":"rtk proxy npx vitest run src/features/plugins/workerHost.test.ts",
+    "reason":"The npx launcher selected a Node runtime without node:util styleText; Vitest did not start any tests. The existing explicit Node 24.5.0 binary completed the test run.",
+    "raw":"../../raw/plugins-candidate7/worker-initial-startup-error.log"
+  },
+  "nativeGuiExecuted": false,
+  "remaining": "Candidate7 GUI lifecycle exports must show before/after counts alongside activation/PID ownership evidence. Unit tests do not substitute for this."
+}

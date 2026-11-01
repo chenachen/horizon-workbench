@@ -1,0 +1,53 @@
+{
+  "card": "05b",
+  "authorization": "Root preauthorized exact current I1 owned Pi SIGSTOP only after PID/start/argv/cwd match and Terra STOP BUTTON READY",
+  "signal": "SIGSTOP",
+  "signalAt": "2026-11-01T10:08:17.647224+00:00",
+  "target": {
+    "pid": 36311,
+    "ppid": 75147,
+    "start": "Sun Nov  1 18:04:45 2026",
+    "args": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/9d735921-dee5-45a3-aa6f-27a6ed40741f/session.jsonl --no-builtin-tools --tools horizon_read,horizon_list,horizon_write,horizon_exec -e /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/58453d41-2186-44c9-aca5-9a8694590d85/external/horizon-policy.ts",
+    "comm": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi",
+    "cwd": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/3f42cedd-c2d4-48c6-a1f0-4e40f048a016/worktree"
+  },
+  "stateAfterSignal": "T",
+  "reviewId": "3f42cedd-c2d4-48c6-a1f0-4e40f048a016",
+  "sessionId": "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+  "requestCountBefore": 3,
+  "status": "forced-stop cleanup/data checks passed; terminal wording/timing recorded literally",
+  "writeFlowAffected": false,
+  "postCheckedAt": "2026-11-01T10:10:34.488047+00:00",
+  "postChecks": {
+    "ownedPi36311Gone": true,
+    "piZero": true,
+    "sameExternalProviderAlive": true,
+    "noModelReplay": true,
+    "originalFilesUnchanged": true,
+    "originalIndexUnchanged": true,
+    "copyPreservedUnchanged": true,
+    "sameSessionRetained": true,
+    "BStillNoSession": true
+  },
+  "requestCountAfter": 3,
+  "persistedSessionAfter": {
+    "sessionId": "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+    "profile": "task",
+    "state": "dormant",
+    "instanceId": null,
+    "instanceEpoch": 1,
+    "reviewId": "3f42cedd-c2d4-48c6-a1f0-4e40f048a016"
+  },
+  "nativeObserved": {
+    "stoppingCaptureAt": "2026-11-01T10:08:33.221Z",
+    "terminalCaptureAt": "2026-11-01T10:08:56.904Z",
+    "terminalText": "已中断",
+    "draftAndTwoAttachmentsPreserved": true,
+    "reviewLinkVisible": true,
+    "captureIntervalSeconds": 23.683,
+    "timingLimit": "Tool scheduling stretched observed capture interval; do not claim an observed3–6s terminal bound or unobserved timeout/effects-unknown wording."
+  },
+  "providerIdentityAfter": "2344 Sun Nov  1 17:47:30 2026     node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs",
+  "next": "Independent06WRITE under root continuous authorization; no signal injection intoWRITE flow.",
+  "rootDecision": "Root reviewed04b/05b and accepted actual terminal已中断 plus exactOSgone; no invented3–6s timing or timeout wording required. Existing preauthorization continues06–09."
+}

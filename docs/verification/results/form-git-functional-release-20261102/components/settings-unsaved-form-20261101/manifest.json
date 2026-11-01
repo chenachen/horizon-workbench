@@ -1,0 +1,617 @@
+{
+  "status": "PREPARED_COMPONENT_VERIFIED_NOT_NATIVE",
+  "productEdited": false,
+  "productBuildInstallGuiRun": false,
+  "patch": {
+    "path": "source.patch",
+    "sha256": "32856982364954f4af5f660e0cffec6514377482509b897c082bd9450007a97a",
+    "files": 5
+  },
+  "finalSourceSHA": {
+    "preparedOnly": true,
+    "sources": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "beforeSha256": "b84605a820ee1d2c3746b953f40f7d773c479213622bb295dc45f6aa74ad91c6",
+        "afterSha256": "c39c749ad4f1e249bc4d62f20d6230979fd636e9d36a72c63e446885e838b8c7"
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "beforeSha256": "e211c7c86c387cc9eed991fe88eff18f5bbbc2aecd34f3044918119a420f09d8",
+        "afterSha256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5"
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "beforeSha256": "7ae8b63c86e35da409ec8c3c9a28fabb98f5a61d39d395218c34763adac22b12",
+        "afterSha256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f"
+      },
+      {
+        "path": "apps/desktop/src/features/processes/index.tsx",
+        "beforeSha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25",
+        "afterSha256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b"
+      }
+    ],
+    "added": [
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "afterSha256": "6032930230ff5256cca949c4d48152a40892cb8b1a7d6260191e6a94b068f120"
+      }
+    ]
+  },
+  "productSourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    }
+  ],
+  "newHelperAbsentFromProduct": true,
+  "preservedExistingFixes": {
+    "applyStopAndStopConfirmationExactSourceUnchanged": true,
+    "credentialMetadataHintsAndScopeValidationPreserved": true
+  },
+  "priorTestedCandidate": {
+    "patch": "attempt-03/source.patch",
+    "patchSHA256": "fdc481684a74b9a646a2ae466a82fa6d3ba6aa1997df4e6fc394935051d5ad3e",
+    "sourceSHA": "attempt-03/source-sha.json",
+    "reconstructFrom": "before/ plus that original patch",
+    "onlySubsequentProductFileChange": {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "priorAfterSHA256": "3272d0a3a42fea27983b376796f6f9fd6d3f6a956b37daedc18559a6cc9af9df",
+      "finalAfterSHA256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b",
+      "scope": "draft vs saved profile content comparison; shared cancellation uses same dirty; busy report requires an existing draft"
+    },
+    "sourceContinuity": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "priorAndFinalAfterSHA256": "c39c749ad4f1e249bc4d62f20d6230979fd636e9d36a72c63e446885e838b8c7",
+        "same": true
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "priorAndFinalAfterSHA256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5",
+        "same": true
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "priorAndFinalAfterSHA256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f",
+        "same": true
+      },
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "priorAndFinalAfterSHA256": "6032930230ff5256cca949c4d48152a40892cb8b1a7d6260191e6a94b068f120",
+        "same": true
+      }
+    ]
+  },
+  "runs": [
+    {
+      "id": "01",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "command": "rtk proxy node .work/settings-unsaved-form-20261101/run.mjs",
+      "exitCode": 1,
+      "startedAt": "2026-11-01T14:16:18.431Z",
+      "completedAt": "2026-11-01T14:16:47.278Z",
+      "durationMs": 28848,
+      "rawReport": "attempt-01/result.json",
+      "rawScript": "attempt-01/run.mjs",
+      "rawEntry": "attempt-01/entry.tsx",
+      "sha256": {
+        "result.json": "5ef514a9a775bd0566a6188fd87bb37efc01dfaf4cd788a864367d1888afb564",
+        "run.mjs": "21db0a6db0d95eb5fe4567473756c789eaf4f4cf2721479e9bd00e8168e47bf5",
+        "entry.tsx": "19e1e33bd84b02f9b9d0794d712418c8a5bd9acfd21bc42ff3bb29a6433dbd54",
+        "source-sha.json": "a64f527af595bfce7110d51374fcfff25b9c9ffeac9b3d2306e9532f38524f44"
+      },
+      "passed": false,
+      "states": [
+        {
+          "variant": "before",
+          "kind": "connection-close",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "outer-close-and-hidden",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "navigation",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "settings-forms",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "connection-validation-save-retry",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "connection-busy",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "launcher-cancel-save-busy",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "project-change-and-quit",
+          "passed": true
+        },
+        {
+          "variant": "before",
+          "kind": "clean-quit-error-locality",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "connection-close",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "outer-close-and-hidden",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "navigation",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "settings-forms",
+          "passed": false
+        }
+      ],
+      "productSourcesUnchanged": [
+        {
+          "path": "apps/desktop/src/App.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/processes/index.tsx",
+          "unchanged": true
+        }
+      ],
+      "rawError": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n",
+      "failureClassification": "test fixture selector; product candidate unchanged"
+    },
+    {
+      "id": "02",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "command": "rtk proxy node .work/settings-unsaved-form-20261101/run.mjs --resume-after-fixture",
+      "exitCode": 1,
+      "startedAt": "2026-11-01T14:18:18.427Z",
+      "completedAt": "2026-11-01T14:18:26.987Z",
+      "durationMs": 8560,
+      "rawReport": "attempt-02/result.json",
+      "rawScript": "attempt-02/run.mjs",
+      "rawEntry": "attempt-02/entry.tsx",
+      "sha256": {
+        "result.json": "4234b5f972b64d756b751c6ce282d7705e2305dc25176a942fd30393794b5b6e",
+        "run.mjs": "9a25c64180778f022424dac0d74a7d0602a781cbcffb8b215ddd91ddadedcacc",
+        "entry.tsx": "02187bed4b7fe2797ef4a6da4fcfd96e217e99f8b3ac8419b8cee0987b89d32b",
+        "source-sha.json": "a64f527af595bfce7110d51374fcfff25b9c9ffeac9b3d2306e9532f38524f44"
+      },
+      "passed": false,
+      "states": [
+        {
+          "variant": "after",
+          "kind": "settings-forms",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "connection-validation-save-retry",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "connection-busy",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "launcher-cancel-save-busy",
+          "passed": false
+        }
+      ],
+      "productSourcesUnchanged": [
+        {
+          "path": "apps/desktop/src/App.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/processes/index.tsx",
+          "unchanged": true
+        }
+      ],
+      "rawError": "Error: locator.waitFor: Error: strict mode violation: getByRole('dialog', { name: '设置', exact: true }).getByText('受控方案保存失败', { exact: true }) resolved to 2 elements:\n    1) <p role=\"alert\" class=\"process-error\">受控方案保存失败</p> aka getByLabel('项目启动方案设置').getByText('受控方案保存失败')\n    2) <span>受控方案保存失败</span> aka locator('span').filter({ hasText: '受控方案保存失败' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '设置', exact: true }).getByText('受控方案保存失败', { exact: true }) to be visible\u001b[22m\n",
+      "failureClassification": "test fixture selector; product candidate unchanged"
+    },
+    {
+      "id": "03",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "command": "rtk proxy node .work/settings-unsaved-form-20261101/run.mjs --resume-from=launcher-cancel-save-busy",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T14:19:23.964Z",
+      "completedAt": "2026-11-01T14:19:29.541Z",
+      "durationMs": 5577,
+      "rawReport": "attempt-03/result.json",
+      "rawScript": "attempt-03/run.mjs",
+      "rawEntry": "attempt-03/entry.tsx",
+      "sha256": {
+        "result.json": "a55ca6f21d5759b48e38f0b422ae58469e043c83c3e62f7a47d5845ebfa9c249",
+        "run.mjs": "8eea25d4af7c92bebdfbd2a42d5e6551556b988d2c7d65c22fedff9b2e9b21d0",
+        "entry.tsx": "02187bed4b7fe2797ef4a6da4fcfd96e217e99f8b3ac8419b8cee0987b89d32b",
+        "source-sha.json": "a64f527af595bfce7110d51374fcfff25b9c9ffeac9b3d2306e9532f38524f44"
+      },
+      "passed": true,
+      "states": [
+        {
+          "variant": "after",
+          "kind": "launcher-cancel-save-busy",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "project-change-and-quit",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "clean-quit-error-locality",
+          "passed": true
+        }
+      ],
+      "productSourcesUnchanged": [
+        {
+          "path": "apps/desktop/src/App.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/processes/index.tsx",
+          "unchanged": true
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "command": "rtk proxy node .work/settings-unsaved-form-20261101/run.mjs --launcher-refinement",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T14:22:18.021Z",
+      "completedAt": "2026-11-01T14:22:24.536Z",
+      "durationMs": 6515,
+      "rawReport": "attempt-04/result.json",
+      "rawScript": "attempt-04/run.mjs",
+      "rawEntry": "attempt-04/entry.tsx",
+      "sha256": {
+        "result.json": "22a7ccf5e15fbf03785025ed62a41ad0734046bd8d9d9119d9438a4c22275983",
+        "run.mjs": "c258447939318001cceb519aab383cf516638cb6149304d5ae6674225a42a2d7",
+        "entry.tsx": "02187bed4b7fe2797ef4a6da4fcfd96e217e99f8b3ac8419b8cee0987b89d32b",
+        "source-sha.json": "a3b85dcad48ef34cc7dce87f23cc143e63d7340bc2d7b43098206d450f49f8a3"
+      },
+      "passed": true,
+      "states": [
+        {
+          "variant": "before",
+          "kind": "launcher-saved-dirty",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "launcher-cancel-save-busy",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "launcher-saved-dirty",
+          "passed": true
+        }
+      ],
+      "productSourcesUnchanged": [
+        {
+          "path": "apps/desktop/src/App.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/processes/index.tsx",
+          "unchanged": true
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "command": "rtk proxy node .work/settings-unsaved-form-20261101/run.mjs --launcher-refinement",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T14:25:24.566Z",
+      "completedAt": "2026-11-01T14:25:31.483Z",
+      "durationMs": 6917,
+      "rawReport": "result.json",
+      "rawScript": "run.mjs",
+      "rawEntry": "entry.tsx",
+      "sha256": {
+        "result.json": "d204f388fff8e195fb3cf0b8f2ba5861eba6ac3c773f9a86dd38bd13c0a4dc39",
+        "run.mjs": "d014fc85ce16ed6c0eee3762cec19cb4daab62817bd537456446285c7fe99c37",
+        "entry.tsx": "7f252f5d6051e0875ad269fb37e405887d1f5551da5fc2610c2ef58d247884a1",
+        "source-sha.json": "a8b950001547f49353253075f6700356e660c26fcf2fe84ae77f17cbc08ce95d"
+      },
+      "passed": true,
+      "states": [
+        {
+          "variant": "before",
+          "kind": "launcher-saved-dirty",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "launcher-cancel-save-busy",
+          "passed": true
+        },
+        {
+          "variant": "after",
+          "kind": "launcher-saved-dirty",
+          "passed": true
+        }
+      ],
+      "productSourcesUnchanged": [
+        {
+          "path": "apps/desktop/src/App.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "unchanged": true
+        },
+        {
+          "path": "apps/desktop/src/features/processes/index.tsx",
+          "unchanged": true
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "connection-close",
+      "before": {
+        "kind": "connection-close",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "connection-close",
+        "variant": "after",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "finalBinding": "all changed components exercised by this group have identical after SHA; LauncherPanel is not mounted in this group"
+    },
+    {
+      "kind": "outer-close-and-hidden",
+      "before": {
+        "kind": "outer-close-and-hidden",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "outer-close-and-hidden",
+        "variant": "after",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "finalBinding": "App/SettingsPanel/helper SHA identical; launcher uses new revision=0 drafts, whose final draftDirty remains true; final Launcher group directly rechecks new draft save/failure/busy"
+    },
+    {
+      "kind": "navigation",
+      "before": {
+        "kind": "navigation",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "navigation",
+        "variant": "after",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "finalBinding": "App/SettingsPanel/helper SHA identical; launcher uses new revision=0 drafts, whose final draftDirty remains true; final Launcher group directly rechecks new draft save/failure/busy"
+    },
+    {
+      "kind": "settings-forms",
+      "before": {
+        "kind": "settings-forms",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "settings-forms",
+        "variant": "after",
+        "run": "02",
+        "report": "attempt-02/result.json"
+      },
+      "finalBinding": "all changed components exercised by this group have identical after SHA; LauncherPanel is not mounted in this group"
+    },
+    {
+      "kind": "connection-validation-save-retry",
+      "before": {
+        "kind": "connection-validation-save-retry",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "connection-validation-save-retry",
+        "variant": "after",
+        "run": "02",
+        "report": "attempt-02/result.json"
+      },
+      "finalBinding": "all changed components exercised by this group have identical after SHA; LauncherPanel is not mounted in this group"
+    },
+    {
+      "kind": "connection-busy",
+      "before": {
+        "kind": "connection-busy",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "connection-busy",
+        "variant": "after",
+        "run": "02",
+        "report": "attempt-02/result.json"
+      },
+      "finalBinding": "all changed components exercised by this group have identical after SHA; LauncherPanel is not mounted in this group"
+    },
+    {
+      "kind": "launcher-cancel-save-busy",
+      "before": {
+        "kind": "launcher-cancel-save-busy",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "launcher-cancel-save-busy",
+        "variant": "after",
+        "run": "05",
+        "report": "result.json"
+      },
+      "finalBinding": "directly tested with final five-file candidate SHA"
+    },
+    {
+      "kind": "project-change-and-quit",
+      "before": {
+        "kind": "project-change-and-quit",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "project-change-and-quit",
+        "variant": "after",
+        "run": "03",
+        "report": "attempt-03/result.json"
+      },
+      "finalBinding": "App/SettingsPanel/helper SHA identical; launcher uses new revision=0 drafts, whose final draftDirty remains true; final Launcher group directly rechecks new draft save/failure/busy"
+    },
+    {
+      "kind": "clean-quit-error-locality",
+      "before": {
+        "kind": "clean-quit-error-locality",
+        "variant": "before",
+        "run": "01",
+        "report": "attempt-01/result.json"
+      },
+      "after": {
+        "kind": "clean-quit-error-locality",
+        "variant": "after",
+        "run": "03",
+        "report": "attempt-03/result.json"
+      },
+      "finalBinding": "all changed components exercised by this group have identical after SHA; LauncherPanel is not mounted in this group"
+    },
+    {
+      "kind": "launcher-saved-dirty",
+      "before": {
+        "kind": "launcher-saved-dirty",
+        "variant": "before",
+        "run": "05",
+        "report": "result.json"
+      },
+      "after": {
+        "kind": "launcher-saved-dirty",
+        "variant": "after",
+        "run": "05",
+        "report": "result.json"
+      },
+      "finalBinding": "directly tested with final five-file candidate SHA"
+    }
+  ],
+  "coveredUserVisibleGroups": 10,
+  "beforePassedMeaning": "expected prior behavior observed; not old product acceptance",
+  "afterPassedMeaning": "component boundary assertions; not native acceptance",
+  "boundaries": {
+    "real": [
+      "App/DesktopShell",
+      "SettingsPanel",
+      "AppearanceProvider/useSettings",
+      "AgentSettings/ConnectionForm",
+      "LauncherPanel/useLauncher",
+      "Modal",
+      "ErrorNotice",
+      "bridge",
+      "prepared UnsavedChanges hook"
+    ],
+    "controlled": [
+      "Tauri call/listen",
+      "plugin service and PluginCenter",
+      "Agent store refresh",
+      "RecoveryPanel",
+      "editor store sentinel"
+    ],
+    "secrets": "owned dummy only; RPC secret field redacted, no secret in dirty snapshot or local/session storage",
+    "noModelRequest": true
+  },
+  "allRequestedComponentAssertionsSatisfied": true
+}

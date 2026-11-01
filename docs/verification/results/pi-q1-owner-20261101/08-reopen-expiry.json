@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-01T12:50:53.062721+00:00",
+  "phase": "Q1 reopen realcredentialexpiry in existingPrivacyUI, no Test/Send/refill",
+  "status": "Q1 NOREPLAY + SESSION EXPIRY OBSERVED",
+  "checks": {
+    "priorOneIdentityCheckPassed": true,
+    "exactOwnedConnectionInNativeList": true,
+    "nativeSessionUnconfigured": true,
+    "noReplayModelLogStillSeventeen": true
+  },
+  "identitySnapshot": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-q1-owner-20261101/08-reopen-identity.json",
+  "newAppPid": 42567,
+  "credentialScope": [
+    {
+      "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+      "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66",
+      "persistence": "session"
+    }
+  ],
+  "nativeObservation": "SameownedconnectionID 本次会话 · 未配置; checkboxnotselected, no clear/Test/Send/refill. Backendconfigured flag comes from credential_list sessionmap.",
+  "requestLogCountAtUiObservation": 17,
+  "nativeRefs": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/processes-terra-20261101/q1-1793535544818-07-fake-expiry-privacy.ax.txt",
+      "sha256": "18ef835cabd56b3c472830b103b6871d18a5cb577c63ef65a9a43904926d4c07"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/processes-terra-20261101/q1-1793535544818-07-fake-expiry-privacy.jpg",
+      "sha256": "99b46806234df6666549c60be2801134a323ebfc634eb7a18ca27898cd24633d"
+    }
+  ],
+  "separateUIFault": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-q1-owner-20261101/08-reopen-ui-mismatch.json",
+  "separation": "Realmemoryexpiry observed inPrivacyUI; AgentSettings defaultsystem/ref-onlyplaceholder fault is separate and not evidence that secretpersisted.",
+  "cleanup": "10b/refill/deletion not yet performed; rootpreparing UI-onlyfixrelease."
+}

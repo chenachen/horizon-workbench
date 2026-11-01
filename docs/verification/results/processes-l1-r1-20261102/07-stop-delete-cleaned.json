@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-11-01T17:13:41.977011+00:00",
+  "stage": "L1 Stop then Delete once; real process and persisted scope cleanup",
+  "native": {
+    "clickAt": "2026-11-01T17:12:21.537Z",
+    "captures": [
+      "03-stop-delete-observed",
+      "03-remaining-plans.ax.txt"
+    ],
+    "transient": "Tool AX observed stopping with follower exited/service still present; first image already final. No image of the transient is claimed. No repeated run."
+  },
+  "processes": [
+    {
+      "pid": 41657,
+      "ppid": 1,
+      "pgid": 41657,
+      "lstart": "Mon Nov 2 00:05:09 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "remainingOwnedProfiles": [
+    {
+      "profileId": "profile-1793535771697-1",
+      "revision": 1,
+      "name": "1101 Q1 双服务 · 含子进程"
+    }
+  ],
+  "preservedFiles": [
+    {
+      "relativePath": "candidate7/service.mjs",
+      "exists": true,
+      "bytes": 1304,
+      "sha256": "e73dfafb4860a0daf4b890dadcea70ff0cf714f60393a4e4c3c0edd8db3cbc68",
+      "matchesInitialSha256": true
+    },
+    {
+      "relativePath": "candidate7/follower.mjs",
+      "exists": true,
+      "bytes": 563,
+      "sha256": "4a2d4fa596aded72c9785faf850b7e214201489007527db1d556e22e1630364b",
+      "matchesInitialSha256": true
+    }
+  ],
+  "snapshotsSha256": "f40a02f51a3e7b6c7309412f1561340bc93f4bbb8dc83aedf22d9aff3fb8f62e",
+  "stopOrder": [
+    {
+      "role": "follower",
+      "pid": 27928,
+      "at": "2026-11-01T17:07:14.583Z"
+    },
+    {
+      "role": "service",
+      "pid": 27921,
+      "at": "2026-11-01T17:07:14.640Z"
+    },
+    {
+      "role": "follower",
+      "pid": 66705,
+      "at": "2026-11-01T17:12:21.699Z"
+    },
+    {
+      "role": "service",
+      "pid": 66699,
+      "at": "2026-11-01T17:12:21.764Z"
+    }
+  ],
+  "stopOrderSha256": "530deb99a0d1b82a36523b0f6be36654544c377febf7ce5dfc16cbc8ff48d876",
+  "port59133": {
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "launcherRunLeases": {},
+  "checks": {
+    "allFourRunPidNumbersAbsent": true,
+    "sameAppStillLive": true,
+    "deletedOnlyTargetProfile": true,
+    "port59133Empty": true,
+    "sourceScriptsPreserved": true,
+    "snapshotsFourRowsPreserved": true,
+    "bothRunsReverseStopOrder": true,
+    "noLauncherRunLeases": true
+  },
+  "ownerActions": "Readonly own profile/scripts/markers/exact ps/listener/own lease; no GUI/start/signal/build"
+}

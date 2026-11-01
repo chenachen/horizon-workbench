@@ -1,0 +1,57 @@
+{
+  "kind": "append-only-settings-scope-and-presence-correction",
+  "recordedAt": "2026-11-01T14:28:18.086863+00:00",
+  "authority": "Root read SettingsPanel.tsx:250: globalSettings rows always label 全局设置; label does not establish raw key presence",
+  "rawEvidenceModified": false,
+  "affectedCaptureNotes": [
+    {
+      "label": "01a-core-settings-baseline",
+      "time": "2026-11-01T14:14:06.462Z",
+      "originalNote": "Project scope: git inherited, auto-refresh on, auto-fetch off, diff inline, fast-forward only",
+      "correction": "Setting object CORE; git.path and git.diffView are global-only fields. This row label proves scope, not per-project inheritance or storage-key presence."
+    },
+    {
+      "label": "01a-core-identity",
+      "time": "2026-11-01T14:14:21.511Z",
+      "originalNote": "CORE git path git inherited; auto-refresh on; auto-fetch off; inline diff; fast-forward only; local identity",
+      "correction": "Setting object CORE; git.path and git.diffView are global-only fields. This row label proves scope, not per-project inheritance or storage-key presence."
+    }
+  ],
+  "gitPath": {
+    "beforeNativeEffectiveValue": "git",
+    "beforeNativeScope": "global",
+    "beforeRawKeyPresence": null,
+    "beforeRawPresenceStatus": "Not measured before test; root may locate existing historical snapshot, no retest",
+    "invalidRaw": {
+      "path": "owner/01a-global-path-observed.json",
+      "time": "2026-11-01T14:18:02.078262+00:00",
+      "keyExists": true,
+      "revision": 45,
+      "phase": "AFTER invalid write, never before"
+    },
+    "restoredRaw": {
+      "path": "owner/01a-global-path-restored.json",
+      "time": "2026-11-01T14:21:12.659849+00:00",
+      "keyExists": true,
+      "value": "git",
+      "revision": 46
+    },
+    "functionalEffectiveValueRestored": true,
+    "sameOriginalStoredPresence": null,
+    "withdrawnDerivedClaims": [
+      "01a-global-path-observed originalPresenceBasis must not infer original presence from global row label",
+      "01a-global-path-restored exactOriginalGlobalFieldRestored=true means only the expected effective git value/current explicit field; same pre-test storage presence was not observed"
+    ],
+    "rootInstruction": "Do not repeat bad path or reset git.path by speculation; representation limit does not block functional batch"
+  },
+  "gitDiffView": {
+    "beforeRaw": "owner/01b-global-diff-before.json",
+    "beforeKeyExists": false,
+    "beforeRawValue": null,
+    "beforeEffectiveValue": "inline",
+    "beforeNativeScope": "global",
+    "firstWriteGateNote": "CORE functional write gate passed; initial scripted assumption that raw diff key existed was rejected before any view write. Key absence is the actual valid original state.",
+    "authorizedRestoration": "One split→760 auto-inline→1280→inline chain; reset only default-diff row to restore original key absence; then read only this field"
+  },
+  "noOtherPrivateSettingsOutput": true
+}

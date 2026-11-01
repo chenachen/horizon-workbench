@@ -1,0 +1,556 @@
+{
+  "reason": "Historical rejection archive. Original JPEG/JFIF is eligible for manual visual review; a .png extension does not change actual format. Keep unchanged bytes and original build identity. Pending exact reference/condition review; no automatic visual pass.",
+  "captures": [
+    {
+      "case": "mist/F02",
+      "screenshot": "docs/verification/screenshots/release-candidate/appearance-02-layout-apply-error.png",
+      "capture_method": "screencapture-window",
+      "app_build": "release candidate 2; native PID 72108/window 13201; before candidate-3 fixes",
+      "platform": "macOS 26.3.1 arm64",
+      "captured_at": "2026-10-30T18:29:38.310153+00:00 (file timestamp)",
+      "viewport": [
+        1280,
+        800
+      ],
+      "pixel_ratio": 1,
+      "zoom": 1,
+      "theme": "dark",
+      "density": "未核实",
+      "state": "Paper layout request rejected: 未知字段 fromLayoutId",
+      "actions": [
+        "Appearance owner used actual native settings and system picker",
+        "Independent verifier inspected unchanged window PNG and matching reference PNG"
+      ],
+      "review": "differences",
+      "differences": [
+        {
+          "category": "conditions",
+          "expected": "mist/F02 light reference with matched state and density",
+          "actual": "Candidate-2 dark UI Kit project with different functional fixture/state; density unconfirmed",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "limits": [
+        "Functional and before-fix evidence; visual pass not claimed",
+        "Candidate-3 footer/navigation and functional fixes require actual new capture"
+      ],
+      "eligibleForManualVisualReview": true
+    },
+    {
+      "case": "mist/F10",
+      "screenshot": "docs/verification/screenshots/release-candidate/appearance-03-size-project-override.png",
+      "capture_method": "screencapture-window",
+      "app_build": "release candidate 2; native PID 72108/window 13201; before candidate-3 fixes",
+      "platform": "macOS 26.3.1 arm64",
+      "captured_at": "2026-10-30T18:34:16.782562+00:00 (file timestamp)",
+      "viewport": [
+        1280,
+        800
+      ],
+      "pixel_ratio": 1,
+      "zoom": 1,
+      "theme": "dark",
+      "density": "未核实",
+      "state": "UI Kit project sidebar override 280",
+      "actions": [
+        "Appearance owner used actual native settings and system picker",
+        "Independent verifier inspected unchanged window PNG and matching reference PNG"
+      ],
+      "review": "differences",
+      "differences": [
+        {
+          "category": "conditions",
+          "expected": "mist/F10 light reference with matched state and density",
+          "actual": "Candidate-2 dark UI Kit project with different functional fixture/state; density unconfirmed",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "field order",
+          "expected": "Sidebar, navigation, topbar, tabs, auxiliary and bottom regions in reference order",
+          "actual": "Native object key order starts auxiliary, bottom, code font size, navigation, sidebar",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "limits": [
+        "Functional and before-fix evidence; visual pass not claimed",
+        "Candidate-3 footer/navigation and functional fixes require actual new capture"
+      ],
+      "eligibleForManualVisualReview": true
+    },
+    {
+      "case": "mist/F10",
+      "screenshot": "docs/verification/screenshots/release-candidate/appearance-04-size-inherited.png",
+      "capture_method": "screencapture-window",
+      "app_build": "release candidate 2; native PID 72108/window 13201; before candidate-3 fixes",
+      "platform": "macOS 26.3.1 arm64",
+      "captured_at": "2026-10-30T18:34:41.967662+00:00 (file timestamp)",
+      "viewport": [
+        1280,
+        800
+      ],
+      "pixel_ratio": 1,
+      "zoom": 1,
+      "theme": "dark",
+      "density": "未核实",
+      "state": "UI Kit sidebar inherits global 260",
+      "actions": [
+        "Appearance owner used actual native settings and system picker",
+        "Independent verifier inspected unchanged window PNG and matching reference PNG"
+      ],
+      "review": "differences",
+      "differences": [
+        {
+          "category": "conditions",
+          "expected": "mist/F10 light reference with matched state and density",
+          "actual": "Candidate-2 dark UI Kit project with different functional fixture/state; density unconfirmed",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "limits": [
+        "Functional and before-fix evidence; visual pass not claimed",
+        "Candidate-3 footer/navigation and functional fixes require actual new capture"
+      ],
+      "eligibleForManualVisualReview": true
+    },
+    {
+      "case": "mist/B01",
+      "screenshot": "docs/verification/screenshots/release-candidate/appearance-05-background-editor.png",
+      "capture_method": "screencapture-window",
+      "app_build": "release candidate 2; native PID 72108/window 13201; before candidate-3 fixes",
+      "platform": "macOS 26.3.1 arm64",
+      "captured_at": "2026-10-30T18:38:31.133918+00:00 (file timestamp)",
+      "viewport": [
+        1280,
+        800
+      ],
+      "pixel_ratio": 1,
+      "zoom": 1,
+      "theme": "dark",
+      "density": "未核实",
+      "state": "Dirty plain text editor; chosen background hidden by opaque inner surface",
+      "actions": [
+        "Appearance owner used actual native settings and system picker",
+        "Independent verifier inspected unchanged window PNG and matching reference PNG"
+      ],
+      "review": "differences",
+      "differences": [
+        {
+          "category": "conditions",
+          "expected": "mist/B01 light reference with matched state and density",
+          "actual": "Candidate-2 dark UI Kit project with different functional fixture/state; density unconfirmed",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "background rendering",
+          "expected": "Selected imported editor background visibly rendered at saved 40%/40% settings",
+          "actual": "Editor remains solid opaque surface",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "limits": [
+        "Functional and before-fix evidence; visual pass not claimed",
+        "Candidate-3 footer/navigation and functional fixes require actual new capture"
+      ],
+      "eligibleForManualVisualReview": true
+    },
+    {
+      "case": "mist/F11",
+      "screenshot": "docs/verification/screenshots/release-candidate/appearance-06-background-source-moved.png",
+      "capture_method": "screencapture-window",
+      "app_build": "release candidate 2; native PID 72108/window 13201; before candidate-3 fixes",
+      "platform": "macOS 26.3.1 arm64",
+      "captured_at": "2026-10-30T18:38:55.999892+00:00 (file timestamp)",
+      "viewport": [
+        1280,
+        800
+      ],
+      "pixel_ratio": 1,
+      "zoom": 1,
+      "theme": "dark",
+      "density": "未核实",
+      "state": "Imported preview remains after source moved; editor/contain/40%/40%",
+      "actions": [
+        "Appearance owner used actual native settings and system picker",
+        "Independent verifier inspected unchanged window PNG and matching reference PNG"
+      ],
+      "review": "differences",
+      "differences": [
+        {
+          "category": "conditions",
+          "expected": "mist/F11 light reference with matched state and density",
+          "actual": "Candidate-2 dark UI Kit project with different functional fixture/state; density unconfirmed",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "limits": [
+        "Functional and before-fix evidence; visual pass not claimed",
+        "Candidate-3 footer/navigation and functional fixes require actual new capture"
+      ],
+      "eligibleForManualVisualReview": true
+    },
+    {
+      "case": "mist/F13",
+      "screenshot": "docs/verification/screenshots/release-candidate/appearance-07-preset-import-apply.png",
+      "capture_method": "screencapture-window",
+      "app_build": "release candidate 2; native PID 72108/window 13201; before candidate-3 fixes",
+      "platform": "macOS 26.3.1 arm64",
+      "captured_at": "2026-10-30T18:40:31.025487+00:00 (file timestamp)",
+      "viewport": [
+        1280,
+        800
+      ],
+      "pixel_ratio": 1,
+      "zoom": 1,
+      "theme": "dark",
+      "density": "未核实",
+      "state": "Two named preset copies; imported copy explicitly applied",
+      "actions": [
+        "Appearance owner used actual native settings and system picker",
+        "Independent verifier inspected unchanged window PNG and matching reference PNG"
+      ],
+      "review": "differences",
+      "differences": [
+        {
+          "category": "conditions",
+          "expected": "mist/F13 light reference with matched state and density",
+          "actual": "Candidate-2 dark UI Kit project with different functional fixture/state; density unconfirmed",
+          "severity": "major",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "limits": [
+        "Functional and before-fix evidence; visual pass not claimed",
+        "Candidate-3 footer/navigation and functional fixes require actual new capture"
+      ],
+      "eligibleForManualVisualReview": true
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/01-D01-empty.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "bf39848c46e54b43461fc2c6b49a01074bc37ac10fd777f4c3423c0e2489dc76",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/02-external-runtime-ownership.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "efca8fd309e0d553c18786eece5c79d9f156f981e027ffbc1e18199e30970ee1",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/03-F06-add-connection.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "1936b8974cfca9faed433c50eb8984f3aa1a9dbb9eb9e826cbf74f0f7e90ee78",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/04-F05-verified-inherited.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "7fd247fcb43522c244ac781a79acfb6bf1c7a11c99d28c4ee3e2037917673256",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/05-D02-chat.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "62ca614a40b56794b51e2fd867f6c9c5bdc77d083b1fe41501604b75fdbe2026",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/06-D03-context-buffer.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "a8789a2b095bdac6a6178c2e7656f2f005b7d75a3c6f27be7fcaa28eef93309b",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/07-D04-streaming.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "9d25dae9752717e8ce81489ba8efc188c52aa9986a785d8ad706d89ec3c0dfc2",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/08-D05-write-permission.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "4bdf0f4f749b3aa070e42297741cf3af73e74af275075a80f890d5d505bb7adb",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/09-D06-review-before.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "475ee971c2380f63d3a6bdafa391b86f7d0d5fd479c429927ddd4b248f149cb5",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/10-runtime-active-removal-blocked.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "cbf64d2f54f40616b95ced8fa14d5f8f5376f0f788a6be63a234c74378e6b3c5",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/11-D05-exec-permission.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "938bbc6b1d101c849042100cb6e2f111cc2418dbea6ff33cefd3ad0b73f0753c",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/12-long-message-page-2.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "28fd09f543ec9ee225609bb68d5ad297bb534092c93e544e012eb24aa70d3793",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/13-project-return-draft.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "bc03640abc807fcc20c5b9b74ef158cc0baa4303b9e38996165974f1a0ad829a",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/14-D07-auth-error-before.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "f903285703d8202f295806be36fced6451a7fe9e36cbf3dbc780f5db38d0e686",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/15-connection-remove-impact.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "c8256c4a4fb17977e91dd02cdd7f1bf3813925ec84c1991d09278ccd8afb3fca",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    },
+    {
+      "screenshot": "docs/verification/screenshots/pi-native-gui/16-F05-settings-ai.png",
+      "app_build": "candidate6",
+      "actualFormat": "JPEG/JFIF, misnamed .png",
+      "sha256": "6418fd39d807c8c17ec573c83b6a169cdb47ce5404e11014558d60ec32a05781",
+      "viewport": [
+        1280,
+        800
+      ],
+      "capture_method": "CUA screenshot returned JPEG bytes",
+      "review": "pending-reference-review",
+      "reason": "Original JPEG accepted for manual comparison. Need exact case/conditions and specific differences; do not retake solely for file format.",
+      "eligibleForManualVisualReview": true,
+      "historicalReview": "excluded-format",
+      "historicalReason": "Needs new original system PNG in candidate7; retained unchanged for functional observations."
+    }
+  ],
+  "historicalReason": "Original CUA screenshot byte streams below are JPEG/JFIF despite .png names. Preserve original bytes as functional/structural observations; exclude from original-PNG visual acceptance. No transcode.",
+  "eligibilityRevisedAt": "2026-11-01T02:58:24.930393+00:00",
+  "stateOrProvenanceExclusions": [
+    {
+      "case": "mist/B04",
+      "style": "mist",
+      "layout": "经典侧栏",
+      "theme": "雾蓝",
+      "mode": "light",
+      "screenshot": "docs/verification/results/editor-native-picker-20261101/visual/mist/B04-loading-rejected.jpg",
+      "reference": "design/exports/png/mist/B04-search.png",
+      "format": "JPEG",
+      "sha256": "a6bfdc0429577590eea626fdfc09f3784a3cd0b34a397dd69bd4d036fe6c9343",
+      "captured_at": "2026-11-01T04:33:43.619Z",
+      "app_build": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "viewport": [
+        1280,
+        800
+      ],
+      "zoom": 1,
+      "density": "跟随主题",
+      "uiFontSize": 13,
+      "codeFont": "Menlo",
+      "codeFontSize": 14,
+      "state": "Pending search, Stop visible, no grouped result yet",
+      "review": "rejected intermediate state; superseded by later B04",
+      "initialClaim": "Project disk search 项目, grouped local source/Markdown results, query/options retained",
+      "eligibleForManualVisualReview": false,
+      "exclusionKind": "intermediate-state"
+    },
+    {
+      "case": "mist/B05",
+      "style": "mist",
+      "layout": "经典侧栏",
+      "theme": "雾蓝",
+      "mode": "light",
+      "screenshot": "docs/verification/results/editor-native-picker-20261101/visual/mist/B05-unscoped-supplement.jpg",
+      "reference": "design/exports/png/mist/B05-search-empty.png",
+      "format": "JPEG",
+      "sha256": "1a784c9a2290e965666dcf6b808a47bf804797dc7ae1b9c08e3129e93b7130b2",
+      "captured_at": "2026-11-01T04:33:44.555Z",
+      "app_build": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "viewport": [
+        1280,
+        800
+      ],
+      "zoom": 1,
+      "density": "跟随主题",
+      "uiFontSize": 13,
+      "codeFont": "Menlo",
+      "codeFontSize": 14,
+      "state": "Project search has no results and keeps exact query 未找到的本地内容_1101",
+      "review": "supplemental unscoped state; scoped B05 supersedes for reference comparison",
+      "eligibleForManualVisualReview": false,
+      "exclusionKind": "supplement-not-reference-case"
+    }
+  ]
+}

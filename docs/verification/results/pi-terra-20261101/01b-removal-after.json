@@ -1,0 +1,89 @@
+{
+  "checkedAt": "2026-11-01T09:29:07.521240+00:00",
+  "card": "01b",
+  "status": "native connection-cache failure; backend selective deletion safe",
+  "projectIds": {
+    "A": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "B": "13eb772b-a7f7-43ca-87ea-c04de5858859"
+  },
+  "projects": {
+    "A": {
+      "id": "d873ae49-1b78-44c2-b220-6260348ab231",
+      "displayName": "PiQA A · 20261101",
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf",
+      "state": "active"
+    },
+    "B": {
+      "id": "13eb772b-a7f7-43ca-87ea-c04de5858859",
+      "displayName": "PiQA B 无HEAD · 20261101",
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-B-unborn",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf",
+      "state": "idle"
+    }
+  },
+  "dataChecks": {
+    "connectionRemoved": true,
+    "connectionCountZero": true,
+    "oldNineAllPresent": true,
+    "allSessionIdsUnchanged": true,
+    "oldNineStillReferenceDeletedConnection": true,
+    "noNewSessionAorB": true,
+    "globalDefaultCleared": true,
+    "noProjectDefaultToOldConnection": true,
+    "piZero": true,
+    "providerNotListening": true,
+    "newRequestLogAbsent": true,
+    "controlLogAbsent": true
+  },
+  "qaProjectSessionCounts": {
+    "A": 0,
+    "B": 0
+  },
+  "oldSessionIdsPreserved": [
+    "346e59a9-9596-4f44-a64a-774b2f1a2246",
+    "436b6ad1-5f1e-42b2-8159-5f8116b6456b",
+    "44ba66cc-50f7-446e-babf-57f7ffdd8a49",
+    "5f78fbf8-2d46-4b7d-91bf-b0a67799237f",
+    "6878d80d-958a-48e0-b96b-cdc16bb798a6",
+    "84e566d5-7069-4724-b883-911ff122fcb0",
+    "cbc22afb-6c3a-4e08-b953-04702366585e",
+    "d475ea29-72de-49e0-9fe8-36d1197f34b2",
+    "e6f3e8e7-09f2-4109-a552-ab0ff06512f5"
+  ],
+  "totalSessionCount": 9,
+  "app": {
+    "pid": 25623,
+    "pidStart": "2026-11-01 17:08:44 +0800",
+    "mainSHA256": "8124d09f55051290d86609dd4762af18e363a0e4ee6ab55e8b1644baec4b863b",
+    "window": "Horizon 1280x800",
+    "zoom": "100%",
+    "layout": "底部导航",
+    "theme": "极光",
+    "mode": "深色"
+  },
+  "actualUI": {
+    "operatorReported": "One confirmation deleted the unique old QA; main settings list became empty; closing main settings returned same A still showing old connection and start-a-question screen, no configuration guide. No project switch, refresh or send.",
+    "expected": "same A immediately displays unconnected guide",
+    "manifestAXHashBefore": "b2631e5b0579123a689cfbcd40c979e184fc2f2dbc5b2747913f707510b95561",
+    "manifestAXHashAfter": "b2631e5b0579123a689cfbcd40c979e184fc2f2dbc5b2747913f707510b95561",
+    "manifestAXBytesHashUnchanged": true,
+    "currentAXContainsOldLabel": true,
+    "currentAXContainsQuestionIntro": true,
+    "currentAXContainsConfigurationGuide": false
+  },
+  "evidence": {
+    "time": "2026-11-01T09:27:00.670Z",
+    "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/00-1793524858412-01b-after-main-settings-close.jpg",
+    "imageSHA256": "75e8424cef2da0ef39168ba812a3ea50a9fe5d66f3ed11a1f5d037d43e000a43",
+    "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/00-1793524858412-01b-after-main-settings-close.ax.txt",
+    "axSHA256": "b2631e5b0579123a689cfbcd40c979e184fc2f2dbc5b2747913f707510b95561"
+  },
+  "requestCount": {
+    "newOwnedProvider": 0,
+    "basis": "No listener or log; no new Pi/model request started"
+  },
+  "fixtureHashAudit": "08:49 baseline reused; no repeated full hash audit",
+  "sourceChain": "Root has reviewed main App.closeModal only closing modal; AgentSettings local refresh; AgentPanel loadAgent only own settings close/project effect. Root component before/after prepared. No source fix by Pi owner.",
+  "handoff": "Preserve native failure; root plans normal quit/new build with minimal AgentSettings sync fix. Provider remains off; no GUI refresh by owner."
+}

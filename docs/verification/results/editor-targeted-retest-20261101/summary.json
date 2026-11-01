@@ -1,0 +1,423 @@
+{
+  "recordedAt": "2026-11-01T05:17:28.773388+00:00",
+  "buildEvidence": "../editor-recovery-release-20261101/bundle-audit.json",
+  "firstPid": 40972,
+  "restartedPid": 52226,
+  "binarySha256": "df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+  "sessionRestoration": [
+    {
+      "project": "QA",
+      "projectId": "e1111892-92c6-4985-b285-f5dcbe4d11f3",
+      "beforeEvidence": "002",
+      "warmReturnEvidence": "005",
+      "newProcessEvidence": "021",
+      "activeFileId": "5b8377dc084f4d6881eaaf4a102fde609c8be035f4d928f5169735780a946ed9",
+      "tabOrder": [
+        "5b8377dc084f4d6881eaaf4a102fde609c8be035f4d928f5169735780a946ed9",
+        "3f8a10f4b71e5fd4afdf3c2928082fef42f5a7dbdbd1c63f4877e6736c4cb6d6",
+        "065e7f1ebb0b3da3f71e269a2da8238f7c637b14bd7339cef78a42c24eeaf73d",
+        "17dc73ab34048d36247cf960342d8129db5846b9949f3ea116ca321f0fb0eb19",
+        "1b55b505cb43887136a112502128cae6d37082c40f3048e14355e774363c58be",
+        "91cdb30c664cb9f31ec777b814491a62774d719ead207524e4bb51d4127b0806"
+      ],
+      "selection": {
+        "anchor": 475,
+        "head": 499
+      },
+      "selectedText": "qa SESSION_1101 line 020",
+      "scrollTop": 991,
+      "nativeVisibleTopLine": 40,
+      "allThreeStagesMatch": true
+    },
+    {
+      "project": "B",
+      "projectId": "f1e1e50c-f684-4108-ab00-cce8b200c052",
+      "beforeEvidence": "003",
+      "warmReturnEvidence": "007",
+      "newProcessEvidence": "022",
+      "activeFileId": "f306aa3b715de37e828bd1d22df71a8f2003c322465fa8bc41dec9c66f5501e1",
+      "tabOrder": [
+        "79a45eeaf70a26cc3bcdd615239e46785c95c748a6544b1c03612e87266ca6d7",
+        "f306aa3b715de37e828bd1d22df71a8f2003c322465fa8bc41dec9c66f5501e1"
+      ],
+      "selection": {
+        "anchor": 1239,
+        "head": 1209
+      },
+      "selectedText": "projectB SESSION_1101 line 040",
+      "scrollTop": 1491,
+      "nativeVisibleTopLine": 60,
+      "allThreeStagesMatch": true
+    },
+    {
+      "project": "C",
+      "projectId": "c0cdb4c1-14e2-4dd3-8408-f4e3d28c4e82",
+      "beforeEvidence": "004",
+      "warmReturnEvidence": "009",
+      "newProcessEvidence": "023",
+      "activeFileId": "c76bfa4ed201ffa970c811ed1858ad3435c3c7e9a90e703db3bc26ff9767c53b",
+      "tabOrder": [
+        "4d4ff178583f37df705a5b2facda0e7d54a63bec5088bc8c7b8b16775d8c3496",
+        "c76bfa4ed201ffa970c811ed1858ad3435c3c7e9a90e703db3bc26ff9767c53b"
+      ],
+      "selection": {
+        "anchor": 2139,
+        "head": 2179
+      },
+      "selectedText": "projectC SESSION_1101 line 070\nprojectC ",
+      "scrollTop": 641,
+      "nativeVisibleTopLine": 26,
+      "allThreeStagesMatch": true
+    }
+  ],
+  "recoveryUndo": {
+    "nativeAcknowledgement": [
+      "012-visual-draft-saved",
+      "013-visual-undo-clean"
+    ],
+    "byteReceiptCycle": [
+      "014-checkpoint-before-undo.json",
+      "015-visual-checkpoint-present",
+      "016-checkpoint-after-undo.json",
+      "016-visual-checkpoint-undo-clean"
+    ],
+    "checkpointPath": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/recovery/d993e3c6-66c4-4d69-99da-2387d4a5d087.json",
+    "returnObservation": "017-visual-return-stays-clean",
+    "actual": "Checkpoint existed with this own marker, then Undo made the editor clean, removed that checkpoint, retained the original 304-byte disk file and left no NOT_FOUND recovery notice.",
+    "previousFailurePreserved": "../editor-native-picker-20261101/044-recovery-error-after-visual-undo.jpg"
+  },
+  "normalQuit": {
+    "nativePlan": "019-normal-quit-clean-plan",
+    "action": "020-normal-quit-confirmed in actions.jsonl",
+    "independentIdentityAudit": "verification-postquit-identities.json",
+    "relaunch": "relaunch.json"
+  },
+  "hot24": {
+    "exactAudit": "hot24-audit.json",
+    "duration": {
+      "count": 24,
+      "medianMs": 17.000000000007276,
+      "p95NearestRankMs": 26,
+      "minMs": 13,
+      "maxMs": 27
+    },
+    "highlight": {
+      "count": 24,
+      "medianMs": 17.000000000007276,
+      "p95NearestRankMs": 26,
+      "minMs": 13,
+      "maxMs": 27
+    },
+    "actualDiagnostic": "export-hot24/horizon-diagnostics.json"
+  },
+  "fixtureIntegrity": "fixture-after.json",
+  "captures": [
+    {
+      "file": "001-new-release-reading.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "c4e3484f9090109e7c6593121fe04b7814600492c221d3662b854cc7fda031e5",
+      "bytes": 139965
+    },
+    {
+      "file": "002-A-selection-scroll-before.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "56c09a574c0679563199c64cedbe1e5b01e2a956e68074c73da90a93ed77952d",
+      "bytes": 153823
+    },
+    {
+      "file": "003-B-selection-scroll-before.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "84d7057e899d34dc9e7f3d09276bbd77b2102ced16a87d708bc341d9521cf380",
+      "bytes": 151392
+    },
+    {
+      "file": "004-C-selection-scroll-before.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "217efa58b8c82f30803fc35519b34ca703b0c666942ff1dcdecdfe9f5e856beb",
+      "bytes": 151166
+    },
+    {
+      "file": "005-A-selection-scroll-return.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "4b15135216118426bae18f00cabb37928bc0f3d014cc4b75eaa4f0fa29c36ae7",
+      "bytes": 153694
+    },
+    {
+      "file": "006-A-return-selection-visible.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "9fc1db622cefe3d9b1b583e09b90e4d07504df43558fd4f9fed97909a1c85e37",
+      "bytes": 156151
+    },
+    {
+      "file": "007-B-selection-scroll-return.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "142cbe84fd7d429be7be4c4b0e7ac7c2c9896453461f2031d7ff335ec1547531",
+      "bytes": 151217
+    },
+    {
+      "file": "008-B-return-selection-visible.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "029ee686eb2b70d66158b6cbb710778fedb6fd9e3978023a39839cf840de7598",
+      "bytes": 153532
+    },
+    {
+      "file": "009-C-selection-scroll-return.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "9db7320e6af293be386ccd66275493327695f11dfbdb1a9690b560b0b883fac5",
+      "bytes": 151078
+    },
+    {
+      "file": "010-C-return-selection-visible.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "7759ddbc63e4954648c524a569ed5237a9a51e7ce77f29dcc33f0a50355eb856",
+      "bytes": 153617
+    },
+    {
+      "file": "011-visual-dirty-marker.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "10c0e1db58f4f1a91e554a08c6455091c2970da6049f6f7107b2a19892e6cc3a",
+      "bytes": 115057
+    },
+    {
+      "file": "012-visual-draft-saved.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "b8c93475515e89330fd99062468102ca5d5f14f3985767024ec0de9c99679de0",
+      "bytes": 115251
+    },
+    {
+      "file": "013-visual-undo-clean.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "c16c6c54d9843807a500f3d6d05ec1bc2989479c0a8919c36625066d069cd6a9",
+      "bytes": 111774
+    },
+    {
+      "file": "014-visual-dirty-checkpoint-byte-check.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "f0d9eb45faaa881d8dec1af9a341bb21a7c0a017e7c1e4683f4ca78071f296c0",
+      "bytes": 115087
+    },
+    {
+      "file": "015-visual-checkpoint-present.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "330bf39f76f4c11c9824ea204b77ab95f9b0029f2dfef753387caa9e019afef5",
+      "bytes": 115293
+    },
+    {
+      "file": "016-visual-checkpoint-undo-clean.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "1921e0cbb1fec48df49cbef03b348fb0639a3860fd38949614d4514ed29a6616",
+      "bytes": 111773
+    },
+    {
+      "file": "017-visual-return-stays-clean.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "65a4d0e7d413652c212796bb8736eaa061d7f961ece60a586e9bf2576de32c51",
+      "bytes": 111621
+    },
+    {
+      "file": "018-prequit-A-session.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "b6f87e9e3d0c3cdd96ddd542eab9545ebaaab1d62e9eeb80f9e861ef707f48d3",
+      "bytes": 153593
+    },
+    {
+      "file": "019-normal-quit-clean-plan.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "d12c8e332cfcec957fb0f83d5ed56e7ea5a360889a631224c46eff07fdc13622",
+      "bytes": 77209
+    },
+    {
+      "file": "021-cold-restart-A-restored.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "7713d446116a889857f63cebdab2526ace736ea1ac0fa65be88f8b60879c30fd",
+      "bytes": 153349
+    },
+    {
+      "file": "022-cold-restart-B-restored.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "fb582c291b20f62bc63df118c974a3ebb153a2a3cdd58ba24b04acdaba5e4845",
+      "bytes": 151211
+    },
+    {
+      "file": "023-cold-restart-C-restored.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "575b7e268866352aa8f3aeae00f4df1a886810fa5654ef89b2849873bfb117fe",
+      "bytes": 151079
+    },
+    {
+      "file": "024-cold-restart-C-range-visible.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "27212a6302bcb58bb68ef668b9747c3b3fb0e7196a6cc63cb28e0ebbe7477fa4",
+      "bytes": 153768
+    },
+    {
+      "file": "025-reading-before-hot24.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "d1bbabee29c7ca81354fa31a48b83eb7854796e7f642f3d142ad8800c7af9aec",
+      "bytes": 140228
+    },
+    {
+      "file": "026-reading-git-ready.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "305a65e3d418ddea0c80253d0952d1634a94dfc4c3962ae2f256f8b2c37147cc",
+      "bytes": 129266
+    },
+    {
+      "file": "027-hot24-prewarmed-ready.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "fcbfd908dcabf9527a8b83fdb1bf3e9d837e3fb2c89595fbf035659ade4fbee9",
+      "bytes": 143928
+    },
+    {
+      "file": "028-hot24-completed.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "976bba8d57398237abdd0b335c3bd6b6deee9427b8beaf7d3fc49d75d6dc0cce",
+      "bytes": 139913
+    },
+    {
+      "file": "029-hot24-diagnostics-preview.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "fbbcbdab12d50b3c2d11c30890db358c89a914b082550ec73ecabfe0514adece",
+      "bytes": 97326
+    },
+    {
+      "file": "030-hot24-diagnostics-exported.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "d7855ee836a261849c7e12f01018348b947bf22f2c92982e38ad392e2d8a0eab",
+      "bytes": 105094
+    },
+    {
+      "file": "031-reading-handoff-ready.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "feb967ccad470360b9313ec2863a698c2b8c233959516803cc45f30f3f24f4e5",
+      "bytes": 139992
+    }
+  ],
+  "captureCorrection": "First four new capture names were initially written under the prior run by an old helper closure. They were moved byte-for-byte here; timestamps and correction records remain in both actions logs. No previous images were overwritten.",
+  "handoff": {
+    "capture": "031-reading-handoff-ready",
+    "pid": 52226,
+    "scene": "five clean reading tabs, hot4 active, main/0 changes, 1280x800 iris/Mist light; GUI returned to root"
+  },
+  "scope": "Only three-project scroll/range restoration, normal process restart, 044 checkpoint cleanup, and the changed editor hot path were retested. Other accepted FILE001-012 conditions and the 80-style capture sweep were not repeated."
+}

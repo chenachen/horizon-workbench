@@ -1,0 +1,54 @@
+{
+  "auditedAt": "2026-11-01T03:10:47.676549+00:00",
+  "build": "settings-project95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6 root34128",
+  "nativeAction": {
+    "at": "2026-11-01T03:09:01.303Z",
+    "action": "search-loading-stop-missing",
+    "screenshot": "057-search-loading-stop-missing.jpg",
+    "ui": [
+      "\t\t\t\t6 button 搜索文件或命令 ⌘ P",
+      "\t\t\t\t\t\t47 button 搜索",
+      "\t\t\t\t\t48 text 正在搜索…"
+    ],
+    "classification": "confirmed missing rerender after task handle; source fixed pending rebuilt app"
+  },
+  "screenshot": "docs/verification/results/editor-resume-20261101/057-search-loading-stop-missing.jpg",
+  "independentlyViewed": true,
+  "finding": "Independent original057 image shows Stop next to Search, contrary to filteredAX report. Exact chronology/diff completeness unresolved; no confirmed native missing-control failure.",
+  "scope": "Only pending-search cancellation affordance; existing completed search/results/cap evidence remains valid.",
+  "initialFindingSuperseded": "Actual no-match long search shows 正在搜索… but no Stop button; owner sees state.task set afterawait without update. Source now has minimal update; current running binary unchanged.",
+  "reviewCorrectionAt": "2026-11-01T03:11:30.111122+00:00",
+  "componentReview": {
+    "auditedAt": "2026-11-01T03:18:12.568579+00:00",
+    "nativeCorrection": "Earlier AX and later screenshot represent separate observations; persistent native missing Stop not established. Original action and correction retained.",
+    "method": "Independent reading of actual React harness and retained before/after outputs; no rerun by verifier. Before was virtual source without update notification, production file not reverted.",
+    "before": {
+      "phasePassCount": 5,
+      "result": "Stop locator timeout1500ms after delayed handle with zero match events"
+    },
+    "after": {
+      "phasePassCount": 6,
+      "result": "Stop displayed, one cancel call, confirmed terminal cancellation and unchanged query"
+    },
+    "sourceFinding": "state.task assignment must schedule existing update because Stop rendering depends on task and pending no-match search has no event-driven rerender. One update() now present.",
+    "nativeRetest": "Unified next build: real no-match search Stop then cancellation; current native build remains unchanged.",
+    "files": [
+      {
+        "path": "apps/desktop/src/features/editor/SearchPanel.tsx",
+        "sha256": "4c0f76b0423cedd3531bc8fb220956a005cd8bcce39496a7ece9aa41959a7f4f"
+      },
+      {
+        "path": "packages/editor/tests/quick-open.mjs",
+        "sha256": "a4eb58e149c3c0524fff92917a475e4c16ec4e0c851e1f9646db7ee1302ad9a2"
+      },
+      {
+        "path": "docs/verification/results/editor-resume-20261101/search-stop-before.json",
+        "sha256": "10580f0857863ce91f83b65f23d689a619c9eb1ac159e97c0699a1fc829075a8"
+      },
+      {
+        "path": "docs/verification/results/editor-resume-20261101/search-stop-after.json",
+        "sha256": "be9163c8bb944da36134c5dbba2c59e1791fe99e981cf1333a4208d84189c86a"
+      }
+    ]
+  }
+}

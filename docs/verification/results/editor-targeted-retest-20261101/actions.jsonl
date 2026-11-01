@@ -1,0 +1,32 @@
+{"at": "2026-11-01T05:08:10.993Z", "name": "001-new-release-reading", "pid": 40972, "binarySha256": "df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733", "scene": "reading5clean/hot4,irisMistlight1280x800"}
+{"at": "2026-11-01T05:08:29.717Z", "name": "002-A-selection-scroll-before", "project": "QA", "selectedText": "qa SESSION_1101 line 020", "selectionDirection": "forward", "action": "native selectText then scroll down1page without caret movement"}
+{"at": "2026-11-01T05:08:51.762Z", "name": "003-B-selection-scroll-before", "project": "B", "selectedText": "projectB SESSION_1101 line 040", "selectionDirection": "backward", "action": "GoTo40,CmdRight,CmdShiftLeft,scrollDown1page"}
+{"at": "2026-11-01T05:09:04.136Z", "name": "004-C-selection-scroll-before", "project": "C", "selectedText": "projectC SESSION_1101 line 070\nprojectC ", "selectionDirection": "forward multiline", "action": "GoTo70,CmdLeft,ShiftDown,ShiftRight9,scrollUp1page"}
+{"at": "2026-11-01T05:09:25.098408+00:00", "correction": "The4namednew-releasecapturefileswereinitiallywrittenherebyoldCUAhelperclosure,thenmovedbyteunchangedtoseparateeditor-targeted-retest-20261101directory. Existingoldcaptureswerenotoverwritten;recordtimestampsretained.", "names": ["001-new-release-reading", "002-A-selection-scroll-before", "003-B-selection-scroll-before", "004-C-selection-scroll-before"]}
+{"at":"2026-11-01T05:09:39.613Z","name":"005-A-selection-scroll-return","expected":{"anchor":475,"head":499,"scrollTop":991,"topVisibleLine":40},"action":"switch from C;noeditorclick/nogoto"}
+{"at":"2026-11-01T05:10:15.236Z","name":"006-A-return-selection-visible","purpose":"scrollonlytoexposeselection;noeditorclick","expectedSelectedText":"qa SESSION_1101 line 020"}
+{"at":"2026-11-01T05:10:16.539Z","name":"007-B-selection-scroll-return","expected":{"anchor":1239,"head":1209,"scrollTop":1491,"topVisibleLine":60},"action":"switchfromQA;noeditorclick/nogoto"}
+{"at":"2026-11-01T05:10:37.649Z","name":"008-B-return-selection-visible","purpose":"scrollonlytoexposereverseselection","expectedSelectedText":"projectB SESSION_1101 line 040"}
+{"at":"2026-11-01T05:10:38.936Z","name":"009-C-selection-scroll-return","expected":{"anchor":2139,"head":2179,"scrollTop":641,"topVisibleLine":26},"action":"switchfromB;noeditorclick/nogoto"}
+{"at":"2026-11-01T05:10:48.202Z","name":"010-C-return-selection-visible","purpose":"scrollonlytoexposemultilineselection","expectedSelectedText":"projectC SESSION_1101 line 070\nprojectC "}
+{"at":"2026-11-01T05:11:10.521Z","name":"011-visual-dirty-marker","marker":"// RECOVERY_CLEAN_UNDO_1101\n","method":"nativepasteatsourceend;not saved"}
+{"at":"2026-11-01T05:11:20.605Z","name":"012-visual-draft-saved","expected":"footer恢复稿已存 whilebufferdirty,diskoriginal304B"}
+{"at":"2026-11-01T05:11:21.205Z","name":"013-visual-undo-clean","expected":"SaveDisabled,markerremoved,noRecoveryNoticeNOT_FOUND"}
+{"at":"2026-11-01T05:11:39.459Z","name":"014-visual-dirty-checkpoint-byte-check","marker":"// RECOVERY_CHECKPOINT_1101\n","purpose":"supplementfilesystemcheckpointreceiptbeforeUndo;first012alreadyshowed恢复稿已存"}
+{"at":"2026-11-01T05:11:57.635Z","name":"015-visual-checkpoint-present","checkpointId":"d993e3c6-66c4-4d69-99da-2387d4a5d087","checkpointBytes":1280,"editorRevision":3,"actualFileMarkerVerified":true}
+{"at":"2026-11-01T05:11:58.247Z","name":"016-visual-checkpoint-undo-clean","expected":"noRecoveryNotice,SaveDisabled;nativecheckpointdeleteackawaitreadback"}
+{"at":"2026-11-01T05:12:30.340Z","name":"017-visual-return-stays-clean","actual":"returnaftercheckpointremoved;noextraedits"}
+{"at":"2026-11-01T05:12:31.145Z","name":"018-prequit-A-session","purpose":"cleanAstateactive;intact475to499,scroll991beforetrueprocessrestart"}
+{"at":"2026-11-01T05:12:43.952Z","name":"019-normal-quit-clean-plan","pid":40972,"actual":"没有未保存文档;nativeCmdQ"}
+{"at":"2026-11-01T05:12:44.074Z","name":"020-normal-quit-confirmed","pid":40972,"action":"actualCUAclick处理并退出;waitingindependentprocessgonebeforelaunch"}
+{"at":"2026-11-01T05:13:33.085Z","name":"021-cold-restart-A-restored","pid":52226,"action":"nopostlaunchinteraction;settledafterinitialasyncsessionrestore","expected":{"anchor":475,"head":499,"scrollTop":991,"topVisibleLine":40}}
+{"at":"2026-11-01T05:13:46.301Z","name":"022-cold-restart-B-restored","pid":52226,"action":"onlyprojectclick;nogoto/noeditorclick","expected":{"anchor":1239,"head":1209,"scrollTop":1491,"topVisibleLine":60}}
+{"at":"2026-11-01T05:13:47.048Z","name":"023-cold-restart-C-restored","pid":52226,"action":"onlyprojectclick;nogoto/noeditorclick","expected":{"anchor":2139,"head":2179,"scrollTop":641,"topVisibleLine":26}}
+{"at":"2026-11-01T05:13:56.143Z","name":"024-cold-restart-C-range-visible","action":"scrollonlyafter023recordedrestoredviewport","expectedSelectedText":"projectC SESSION_1101 line 070\nprojectC ","range":{"anchor":2139,"head":2179}}
+{"at":"2026-11-01T05:13:57.395Z","name":"025-reading-before-hot24","scene":"reading-five-clean-restored-afternewprocess;prewarmnext"}
+{"at":"2026-11-01T05:14:21.216Z","name":"026-reading-git-ready","actual":"main,working0,staged0,fivecleanhottabs"}
+{"at":"2026-11-01T05:14:25.068Z","name":"027-hot24-prewarmed-ready","prewarmTabs":5,"active":"hot-5.ts","pid":52226}
+{"at":"2026-11-01T05:15:09.453Z","name":"028-hot24-completed","startedAt":"2026-11-01T05:14:40.395Z","endedAt":"2026-11-01T05:14:55.099Z","clickCount":24,"active":"hot-4.ts"}
+{"at":"2026-11-01T05:15:11.773Z","name":"029-hot24-diagnostics-preview","purpose":"actualnativeF09snapshotafterhot24"}
+{"at":"2026-11-01T05:15:41.415Z","name":"030-hot24-diagnostics-exported","file":"export-hot24/horizon-diagnostics.json","actual":"nativeexportsuccess"}
+{"at":"2026-11-01T05:15:42.134Z","name":"031-reading-handoff-ready","pid":52226,"scene":"reading5clean/hot4,Gitmain0changes,irisMistlight1280x800","lease":"readytoreturntoroot"}

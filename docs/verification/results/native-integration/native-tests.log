@@ -1,0 +1,72 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.27s
+     Running unittests src/lib.rs (target/debug/deps/horizon_host-31593046111a787a)
+
+running 33 tests
+test agent::tests::path_boundary_rejects_escape_and_symlinks ... ok
+test agent::tests::real_pi_broker_review_and_secret_isolation ... ignored, Requires HORIZON_PI_BINARY official Pi 1.4.0 and Node; run scripts/test-pi-native.mjs
+test appearance::tests::backgrounds_reject_remote_paths_and_out_of_range_values ... ok
+test appearance::tests::colors_are_normalized_and_css_payloads_rejected ... ok
+test appearance::tests::custom_resource_uses_owning_package_for_gates_and_preset_references ... ok
+test appearance::tests::imported_image_is_resized_deduplicated_and_independent_of_original ... ok
+test appearance::tests::preferences_survive_restart_and_narrow_window_does_not_rewrite ... ok
+test appearance::tests::presets_reject_unknown_tokens_and_keep_missing_package_as_dependency ... ok
+test appearance::tests::project_fields_override_only_selected_values ... ok
+test files::tests::detect_mixed_lines ... ok
+test files::tests::invalid_names_cannot_escape ... ok
+test files::tests::revision_detects_same_size_change ... ok
+test files::tests::unicode_round_trips ... ok
+test processes::tests::authorization_snapshot_rejects_changed_script_and_missing_approval ... ok
+test processes::tests::bounded_bytes_keep_utf8_raw ... ok
+test processes::tests::credential_redaction_handles_split_output ... ok
+test processes::tests::cwd_rejects_escape ... ok
+test processes::tests::discovery_reads_nested_scripts_without_executing ... ok
+test processes::tests::hidden_output_is_continuously_consumed_with_bounded_history ... ok
+test processes::tests::http_fixture_server ... ignored, child process fixture, invoked by owned_http_readiness
+test processes::tests::interactive_pty_accepts_chinese_input_and_applies_actual_size ... ok
+test processes::tests::launch_failure_and_timeout_stop_only_owned_run ... ok
+test processes::tests::launch_waits_for_dependencies_and_stops_in_reverse_order ... ok
+test processes::tests::owned_http_readiness_and_restart_preflight_accept_only_owned_port ... ok
+test processes::tests::owned_pty_handles_chinese_resize_and_stop ... ok
+test processes::tests::port_preflight_leaves_external_listener_alive ... ok
+test processes::tests::profile_export_omits_secrets_and_local_authorization ... ok
+test processes::tests::rejects_cycles_and_unknown_dependencies ... ok
+test processes::tests::stopping_terminal_releases_pty_dependencies_and_preserves_other_project ... ok
+test processes::tests::terminal_input_backpressure_does_not_block_stop ... ok
+test settings::tests::export_redacts_secrets_and_paths ... ok
+test settings::tests::inheritance ... ok
+test settings::tests::reject_unknown_or_invalid ... ok
+
+test result: ok. 31 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 5.43s
+
+     Running tests/files_workflow.rs (target/debug/deps/files_workflow-f8c068a90166007d)
+
+running 13 tests
+test big_file_chunks_preserve_utf8_boundaries_and_reject_changed_file ... ok
+test directory_cursor_invalidates_after_change ... ok
+test non_utf8_paths_are_lossless_and_project_ids_are_scoped ... ok
+test project_dedup_and_session_survive_restart ... ok
+test project_symlink_cannot_escape ... ok
+test recovery_survives_host_restart_and_does_not_touch_disk ... ok
+test rename_does_not_overwrite_collision ... ok
+test rename_preserves_opaque_ids_and_unrelated_dirty_baseline ... ok
+test save_as_exports_copy_without_replacing_original_document ... ok
+test save_is_conditional_and_preserves_bom_eol ... ok
+test saving_older_snapshot_keeps_newer_checkpoint_dirty ... ok
+test settings_invalid_patch_is_atomic ... ok
+test utf16_and_mixed_eol_are_read_only ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.38s
+
+     Running tests/search_workflow.rs (target/debug/deps/search_workflow-095a4cb933f662fa)
+
+running 6 tests
+test cancellation_reaps_the_owned_search_process ... ok
+test fuzzy_paths_reuse_a_bounded_index ... ok
+test invalid_regex_does_not_spawn_a_process ... ok
+test invalid_utf8_search_uses_absolute_byte_ranges ... ok
+test ripgrep_limits_results_and_preserves_readable_pages ... ok
+test ripgrep_reports_utf16_positions_and_respects_ignore ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+

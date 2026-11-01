@@ -1,0 +1,108 @@
+{
+  "recordedAt": "2026-11-01T04:14:25.432905+00:00",
+  "commands": [
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-swift-version",
+        "5",
+        "-parse-as-library",
+        "-O",
+        "-target",
+        "arm64-apple-macosx12.0",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/ProbeHost.swift",
+        "-o",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeHost.app/Contents/MacOS/PickerKeyProbeHost"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeHost.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeHost.app: replacing existing signature\n"
+    },
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeHost.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "swiftc",
+        "-swift-version",
+        "5",
+        "-parse-as-library",
+        "-O",
+        "-target",
+        "arm64-apple-macosx12.0",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/Picker.instrumented.swift",
+        "-o",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeChild.app/Contents/MacOS/PickerKeyProbeChild"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeChild.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeChild.app: replacing existing signature\n"
+    },
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeChild.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "productionAndBundleBefore": {
+    "production": "a3948865cb106a70f009a7da60bb0b427153b8f0ecafe585ca36b4ca8d6ebceb",
+    "bundle": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+  },
+  "productionAndBundleAfter": {
+    "production": "a3948865cb106a70f009a7da60bb0b427153b8f0ecafe585ca36b4ca8d6ebceb",
+    "bundle": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+  },
+  "unchanged": true,
+  "guiStarted": false,
+  "traceExists": false,
+  "hostPath": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-key-probe-20261101/PickerKeyProbeHost.app",
+  "childBundleId": "dev.horizon.picker-key-probe-child",
+  "artifactHashes": {
+    "Picker.instrumented.swift": "9f8f7e918c63c8dc30fd18d8041739ff66d97989e3c24c6f54b1d00350a30249",
+    "ProbeHost.swift": "95f99e0d56efa000fb5b49dc1cd73b5cda45b21804fe376d1cc519db5b149a3d",
+    "PickerKeyProbeHost.app/Contents/MacOS/PickerKeyProbeHost": "56b6b03b8a073cea2a71ada1fbeab75d5e39575fd2f2c1e5b5acfd598dc74301",
+    "PickerKeyProbeChild.app/Contents/MacOS/PickerKeyProbeChild": "3c2f08de88ccf5528ad9e83c1f71586a73f4788e26aa838656c69a7028f9275f"
+  }
+}

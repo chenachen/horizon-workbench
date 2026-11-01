@@ -1,0 +1,176 @@
+{
+  "auditedAt": "2026-11-01T03:00:50.967191+00:00",
+  "build": "settings-project SHA95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6 root34128",
+  "method": "Independent originalnativeJPEG review + direct fixturebytes + previouslyexecuted productionStore/nativefile tests withmatchedsource; noGUI/test rerun byverifier",
+  "screenshots": [
+    {
+      "path": "docs/verification/results/editor-resume-20261101/003-checkpoint-before-sleep.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "60c27a90d741143df552c842b38f1608c3f1f930af20746f8342e6df8964ae4b",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/004-sleep-retain-checkpoint.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "1dfd25a388cbccaf27bc5b4ee8dee11bc1ce5aaf46b9a86742c3a42bafb1c57d",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/005-sleep-to-new-project-isolated.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "f6f3a6c3b359e6c82e16daa84479aeea05d4e1a355f3c64b7aecdaba81341159",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/006-wake-retained-draft-before-save.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "4f899dfb2ef1b58db9036262ec7058b31d03b94c17b4925f3c0a548df3898c8f",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/007-wake-save-no-stale-recovery.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "25aae96b8def1e792db9d4b8e3e630054d41aefbdf8a4688f21333b035e9e0d5",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/018-dirty-conflict-save-refused.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "afc4d7a889b5d6c051066e02163319b37e74e51aea5d9f6d63b3f8a4745847c3",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/021-failed-save-keeps-close-dialog-and-draft.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "c8aae419be258b033e75c7416c4c9a4b73da00a94f43075dd49efaece74825f7",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/027-native-save-immediate-paste-retained.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "12084ba391472f2070706550ed3f7cf4bd93cb1a214a1a95d325856a8cc77674",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/028-repeat-save-final-bytes.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "65b267115e2a6f0cb7b172475cee85fe8e8adff8127295ee77d6c81a2d399702",
+      "independentlyViewed": true
+    }
+  ],
+  "disk": [
+    {
+      "label": "recovery",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/src/recovery.txt",
+      "bytes": 41,
+      "sha256": "9221e069219860b898968e7dc933cccf1e4be76d1fd044b4e79afacdbda15988",
+      "prefixUtf8": "recovery baseline\ndraft-before-sleep-1101"
+    },
+    {
+      "label": "conflict",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/src/conflict.txt",
+      "bytes": 42,
+      "sha256": "35271016e386243a1807f0618c9c3eda91d26c63afa11e680cf8d4b2509c8795",
+      "prefixUtf8": "external-dirty: changed\nshared: unchanged\n"
+    },
+    {
+      "label": "copy",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/copies/conflict.txt",
+      "bytes": 62,
+      "sha256": "43d42eebc42ce4148c939e3b45f4b4ed7a5831720caeb8d89191f252dbf2ce8a",
+      "prefixUtf8": "external-clean: changed\nshared: unchanged\nlocal-dirty-retained"
+    },
+    {
+      "label": "save-race",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/src/save-race.txt",
+      "bytes": 9437235,
+      "sha256": "899cf9f46f08aadf15164dd150eeac79b67a05a5cf99d5f83270470626d0cebe",
+      "prefixUtf8": "SAVE_C_1101\nPASTE_AFTER_SAVE_1101\nSAVE_A_1101\nbsspa// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n// horizon fixture 790634758\n// h"
+    }
+  ],
+  "source": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "3e3d7933e25111d63a0eb2f0d2f539d5ad89a3ae4d30b5b092e62a7a018ecdd9",
+      "copy": "docs/verification/results/editor-resume-incremental-audit/source/packages/editor/src/store.ts",
+      "matchesPreviouslyTestedSource": true
+    },
+    {
+      "path": "packages/editor/src/store.test.ts",
+      "sha256": "27f2c962ad7a9e5941f27d76516ca04dd170229677d29d507ee4eb1d6519a075",
+      "copy": "docs/verification/results/editor-resume-incremental-audit/source/packages/editor/src/store.test.ts",
+      "matchesPreviouslyTestedSource": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/tests/files_workflow.rs",
+      "sha256": "2838f0f183c272c296877ece86ed3fad52cece357721d4502c2ea9f6af3a8b9e",
+      "copy": "docs/verification/results/editor-resume-incremental-audit/source/apps/desktop/src-tauri/tests/files_workflow.rs"
+    }
+  ],
+  "saveClauses": [
+    {
+      "condition": "Only save matchingdiskbaseline",
+      "evidence": "Actual native conflict18 shows refusal/retainedtext; disk42B unchanged; retained Rust save_is_conditional_and_preserves_bom_eol passes."
+    },
+    {
+      "condition": "Failure retainsfulltext/dirtydot",
+      "evidence": "Native18 dirtydot/local-dirty-retained; native21 failedsave keepsclosedialog; actualcopy62B confirms fullbuffer."
+    },
+    {
+      "condition": "New input during save remainsdirty",
+      "evidence": "Production EditorStore deferredtransport test capturesrevision1, editsrevision2 beforepromise resolves, assertsdirtytrue/version2/savedVersion1/checkpointVersion2 andfullnewtext. Same tested sourceSHA. Native27/28 only proves editingafter save/secondsave, not temporaloverlap."
+    },
+    {
+      "condition": "Duplicate samefile saves do notinterleave",
+      "evidence": "Same test assertsduplicate save returnsidenticalpendingPromise anddocument_save callcount1; source perbuffer savesmap retainsuntilfinally. Native finalfile includesalllatertext."
+    }
+  ],
+  "recovery": {
+    "sleep": "Native003menu/004welcome +operator explicit retaincheckpoint action",
+    "isolation": "Native005newProjectB noSTALE_SCOPE beforefileopen",
+    "wakeSave": "Native006dirtydraft then007clean andSave disabled, no staleRecoveryNotice; exact41B saved"
+  },
+  "limitations": [
+    "No actual native save/input overlap claimed; 024–026 invalidated observations retained in actions.",
+    "Storeasync test uses controlledtransport/faketimers; Rusttests use realtempfileproductionservice; neither is GUI.",
+    "Fullsavebehavior closure onlyFILE007, not allclose/recovery/threeproject/lifecycleconditions.",
+    "Recovery retest supersedes only oldsleepstalescope andsavedstaleRecoveryNotice failures.",
+    "NativeJPEG functional scene observations; no newvisualreferencepass."
+  ]
+}

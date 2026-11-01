@@ -1,0 +1,172 @@
+{
+  "recordedAt": "2026-11-01T04:40:31.069391+00:00",
+  "build": {
+    "recordedAt": "2026-11-01T04:18:01.605943+00:00",
+    "pid": 21917,
+    "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+    "sha256": "abc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+    "window": [
+      1280,
+      800
+    ],
+    "initialLayout": "iris",
+    "initialTheme": "mist",
+    "initialMode": "light",
+    "workspace": "macOS 完整验收 1101",
+    "sourceNoticePatch": "RecoveryPanel wording not included in running app"
+  },
+  "fixture": ".work/editor-native-picker-fixtures.json",
+  "functionalEvidence": [
+    {
+      "conditions": [
+        "STATE003 native Stop/cancel"
+      ],
+      "artifacts": [
+        "001",
+        "002"
+      ],
+      "actual": "Pending zero-match Stop visible; restarted query after stale AX first attempt; one actual Stop click then cancelled terminal with query retained."
+    },
+    {
+      "conditions": [
+        "RUN003 automatic-sleep wake"
+      ],
+      "artifacts": [
+        "004"
+      ],
+      "actual": "B clean exact24B Project B + B-unsaved-1101 visible at2:15 after saved-before-auto-sleep; no dirty-loss claim."
+    },
+    {
+      "conditions": [
+        "FILE004 project scope/keyboard/disabled"
+      ],
+      "artifacts": [
+        "005",
+        "006",
+        "007",
+        "039",
+        "040"
+      ],
+      "actual": "B/C same-name result eachopensowntext;Up/Down/Enter; currentQAeditordisabled >保存 unavailable Enter leavesdialog; editorre-enabled."
+    },
+    {
+      "conditions": [
+        "WS005 editor fields",
+        "FILE003 clean close"
+      ],
+      "artifacts": [
+        "009-023"
+      ],
+      "actual": "Threeprojectsown tabs/tree/query/caret/content retained; A dirty persists across switches then explicitSave. ClosingAclean tabdoesnotremoveB/Ctabs/text. Scrollfails Btop28->1,C58->78,A8->14. Rootowns sourcefix; currentGUI unchanged."
+    },
+    {
+      "conditions": [
+        "FILE001 hidden/refresh/symlink/directoryerror"
+      ],
+      "artifacts": [
+        "024",
+        "025",
+        "026",
+        "027",
+        "028"
+      ],
+      "actual": "ShowHidden reveals.hidden;refreshkeepsselectedstate;rootlooprowrejects请选择普通文件 withoutrecursion;own000directory Permissiondenied keepssiblings+Retry;restore0755watcherautorecoversbeforeRetryclick, noRetryclaim."
+    },
+    {
+      "conditions": [
+        "FILE002 Reveal/dirtyTrash"
+      ],
+      "artifacts": [
+        "029",
+        "030",
+        "031",
+        "dirty-trash-refusal-disk.json"
+      ],
+      "actual": "Finderselectedvisual.ts. DirtyTrashconfirmrefused;Cancelretainstextandoriginal22Bhash. ErrorisbehindpopupuntilCancel;previouslooperrorseparate."
+    },
+    {
+      "conditions": [
+        "FILE006 nativeCopy"
+      ],
+      "artifacts": [
+        "032",
+        "033",
+        "034"
+      ],
+      "actual": "Physical CmdHome+CmdShiftRight selectsCOPY_NATIVE_1101;CmdC/CmdEnd/CmdV,Undo,Redo,Save. No pasteAPI for copiedresult."
+    },
+    {
+      "conditions": [
+        "SET003 IMEautosavepause"
+      ],
+      "artifacts": [
+        "035",
+        "036",
+        "037",
+        "038",
+        "ime-before-composition.json",
+        "ime-during-composition.json",
+        "ime-after-commit.json"
+      ],
+      "actual": "afterDelay1s projectoverride. Physicalzhongwen visiblyunderlined;disk34Bandmtimeunchanged at04:29:22 afterbaseline04:29:07. Spacecommits中文;automaticSave40Bmtime04:29:29 withoutmanualSave. Projectoverride removed toinheritedoff. InputsourceSCIMPinyin unchanged."
+    },
+    {
+      "conditions": [
+        "FILE010 narrowMarkdown source/preview continuity"
+      ],
+      "artifacts": [
+        "041",
+        "042",
+        "043",
+        "visual-cleanup-hashes.json"
+      ],
+      "actual": "Actual823x800nativewindow/sidebarcollapsed/segmentedtabs;appendNARROW_UNDO_1101insource→previewshowscurrenttext→sourceUndo returnsoriginalclean. Restored1280x800and sidebar. Bothvisual.mdandvisual.tsdiskhashmatchpreparedbaseline."
+    },
+    {
+      "conditions": [
+        "RecoveryNotice cleanUndo asynchronous error"
+      ],
+      "artifacts": [
+        "044",
+        "047"
+      ],
+      "actual": "AfterUndoownvisual.tsmarkertoclean,RecoveryNotice displayedNo such file or directory(os error2),SaveDisabled. LateractualSettingsRecoverypage047saysno drafts. Root/store+panel/native+editor/componentfixpendingnewpackagednativeverification;originalfailure retained."
+    }
+  ],
+  "openLimits": [
+    "Candidate7focus.tsshortcut/compositionobservationstillunattributed;newCopy/IMEpassesdonoterasehistory",
+    "Threeprojectscrollnativefailcurrentbundle;root source regression15passnotnativefix",
+    "WS005Gitdraft/Pichat/activeAgentcontextremaincorrespondingowners",
+    "CurrentRecoveryPanelwordingpatchandscrollrepairnotinrunning21917bundle",
+    "044 cleanUndo recovery error remains native failure until new bundle retest; component current5phase pass separately proves stale-response handling,notnativefix"
+  ],
+  "visual": {
+    "index": "visual/captures.json",
+    "captureIssues": "visual/capture-issues.json",
+    "reviewOwner": "appearance_resume; unifiedrecords verification_resume",
+    "status": "80canonicaluniqueB02–B10/G02capturescomplete;4mistrecapturedafteroriginalmetadataissue;80JPEG1280x800/SHAaudited. appearanceindependentlyreviewedall80originals+80references/160SHA;knownG02failurepreserved.",
+    "artifactAudit": "visual/artifact-audit.json"
+  },
+  "lifecycle": {
+    "sampler": "verification exec52681",
+    "baselineConfirmedAt": "2026-11-01T04:22:32.705Z",
+    "preWorkflowExport": "export-start/horizon-diagnostics.json",
+    "tail": "046actualpreview→nativehelperfolderselection→047exporttoast→048samefixedreading;strictfrozenuntilverifieractualexit0",
+    "earliestCoordinatedStopAt": "2026-11-01T04:52:33Z",
+    "stopTimeClarification": "Thisminimumrestrainedsamplerstop,notF09preview/exportstart. Verifierexplicitlyclarifiedbeforetailactions.",
+    "tailExport": "export-end/horizon-diagnostics.json",
+    "tailPreviewAt": "2026-11-01T04:51:09.708Z",
+    "tailSuccessObservedAt": "2026-11-01T04:51:39.347Z",
+    "fixedReadingAt": "2026-11-01T04:51:40.063Z",
+    "samplerCompletion": "Verifierreportedexec52681exit0;928samples1929.1371s;formalstabletail41samples83.276s. Seeindependentverifierraw/audit."
+  },
+  "restoration": {
+    "deniedDirectoryMode": "0755",
+    "QAautosave": "inheritedglobaloff",
+    "inputSource": "originalSCIMPinyin unchanged",
+    "QAeditor": "currentproject re-enabled after disabled-command case",
+    "buffers": "AllownvisualmarkersremovedbyUndo,visual.md/tsbaselinehashesverified;readingfivecleantabs/hot4active. OwncopyIME/dirtytrashbufferssaved.",
+    "GUI": "Releasedtorootafterverificationactualexit0;noeditorGUIleaseactive."
+  },
+  "updatedAt": "2026-11-01T04:56:47.496957+00:00"
+}

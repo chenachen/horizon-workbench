@@ -1,0 +1,72 @@
+
+ RUN  v5.0.5 /Users/chenpengxiang/Desktop/Horizon/apps/desktop
+
+ ❯ src/features/plugins/service.test.ts (3 tests | 3 failed) 37ms
+   ❯ native activation refresh ordering (3)
+     × drains a stale refresh and old disposal before waking the editor with a fresh activation 30ms
+     × keeps an already-current activation without starting a second instance 2ms
+     × respects a newly paused native policy instead of reviving the cached active instance 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/plugins/service.test.ts > native activation refresh ordering > drains a stale refresh and old disposal before waking the editor with a fresh activation
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/features/plugins/service.test.ts:75:33
+     73|     try {
+     74|       await turn();
+     75|       expect(activationSettled).toBe(false);
+       |                                 ^
+     76|       expect(bridge.start).not.toHaveBeenCalled();
+     77|       native = sleeping; oldList.resolve({ items: [sleeping] });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/features/plugins/service.test.ts > native activation refresh ordering > keeps an already-current activation without starting a second instance
+AssertionError: expected "vi.fn()" to be called 2 times, but got 1 times
+ ❯ src/features/plugins/service.test.ts:106:25
+    104|     await service.refreshPlugins('A');
+    105|     await service.activatePlugin('horizon.editor', 'A', 'view');
+    106|     expect(bridge.call).toHaveBeenCalledTimes(2);
+       |                         ^
+    107|     expect(bridge.start).not.toHaveBeenCalled();
+    108|     expect(service.pluginRuntime.getDiagnostics().pluginInstances).toB…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/features/plugins/service.test.ts > native activation refresh ordering > respects a newly paused native policy instead of reviving the cached active instance
+AssertionError: expected { id: 'horizon.editor', …(15) } to match object { effectivePaused: true, …(1) }
+(27 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "effectivePaused": true,
+-   "runState": "paused",
++   "effectivePaused": false,
++   "runState": "active",
+  }
+
+ ❯ src/features/plugins/service.test.ts:118:55
+    116|     await service.activatePlugin('horizon.editor', 'A', 'view');
+    117|     expect(bridge.start).not.toHaveBeenCalled();
+    118|     expect(service.pluginRuntime.getSnapshot('A')[0]).toMatchObject({ …
+       |                                                       ^
+    119|     expect(service.pluginRuntime.getDiagnostics().pluginInstances).toB…
+    120|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  13:35:50
+   Duration  208ms (transform 61%, tests 26%, import 11%, worker 1%)
+

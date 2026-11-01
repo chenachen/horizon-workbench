@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-10-31T02:22:09.698232+08:00",
+  "binarySha256": "c7936994f12b71c196aefa6191c3527df4c5d18474bfe69b65a53c3bac46ec46",
+  "checks": [
+    {
+      "command": "cargo test --release --manifest-path apps/extension-host/Cargo.toml",
+      "passed": 12,
+      "durationSeconds": 1.08,
+      "scope": "Real isolated sidecar processes, controlled SDK broker, real temporary Git repository"
+    },
+    {
+      "command": "cargo test --release --manifest-path apps/extension-host/Cargo.toml unresolved_activation_has_a_30_second_deadline -- --ignored",
+      "passed": 1,
+      "durationSeconds": 30.44,
+      "scope": "Production 30-second async deadline; failure response then process exit"
+    },
+    {
+      "command": "cargo test --release --manifest-path apps/extension-host/Cargo.toml shipped_example_uses_real_git_data_via_async_capability_requests",
+      "passed": 1,
+      "durationSeconds": 0.49,
+      "scope": "Updated controlled broker to actual native Git snapshot.files/index/worktree/kind schema"
+    }
+  ],
+  "notCovered": [
+    "Full desktop GUI install/grant/pause/resume/uninstall flow",
+    "Whole-application process memory",
+    "30-minute application soak"
+  ],
+  "nativeIntegrationEvidence": "native-smoke.json"
+}

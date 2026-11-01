@@ -1,0 +1,176 @@
+{
+  "checkedAt": "2026-11-01T12:20:15.922618+00:00",
+  "sourceOwnPiFile": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/74a54d50-466a-412f-88aa-55c9e8329f30/session.jsonl",
+  "sessionId": "74a54d50-466a-412f-88aa-55c9e8329f30",
+  "lineCount": 6,
+  "records": [
+    {
+      "line": 1,
+      "type": "session",
+      "timestamp": "2026-11-01T12:05:04.405Z",
+      "id": "01a196ff-bb13-77a5-97e1-b80abc18eee7",
+      "parentId": null,
+      "keys": [
+        "type",
+        "version",
+        "id",
+        "timestamp",
+        "cwd"
+      ],
+      "messageRole": null,
+      "messageTimestamp": null,
+      "stopReason": null,
+      "errorMessage": null,
+      "usage": null,
+      "contentBlocks": []
+    },
+    {
+      "line": 2,
+      "type": "model_change",
+      "timestamp": "2026-11-01T12:05:04.440Z",
+      "id": "c4012f9f",
+      "parentId": null,
+      "keys": [
+        "type",
+        "id",
+        "parentId",
+        "timestamp",
+        "provider",
+        "modelId"
+      ],
+      "messageRole": null,
+      "messageTimestamp": null,
+      "stopReason": null,
+      "errorMessage": null,
+      "usage": null,
+      "contentBlocks": []
+    },
+    {
+      "line": 3,
+      "type": "thinking_level_change",
+      "timestamp": "2026-11-01T12:05:04.440Z",
+      "id": "292a2d95",
+      "parentId": "c4012f9f",
+      "keys": [
+        "type",
+        "id",
+        "parentId",
+        "timestamp",
+        "thinkingLevel"
+      ],
+      "messageRole": null,
+      "messageTimestamp": null,
+      "stopReason": null,
+      "errorMessage": null,
+      "usage": null,
+      "contentBlocks": []
+    },
+    {
+      "line": 4,
+      "type": "message",
+      "timestamp": "2026-11-01T12:05:04.450Z",
+      "id": "b208d95a",
+      "parentId": "292a2d95",
+      "keys": [
+        "type",
+        "id",
+        "parentId",
+        "timestamp",
+        "message"
+      ],
+      "messageRole": "system",
+      "messageTimestamp": 1793534704449,
+      "stopReason": null,
+      "errorMessage": null,
+      "usage": null,
+      "contentBlocks": [
+        {
+          "type": "text",
+          "textChars": 0,
+          "first100": ""
+        }
+      ]
+    },
+    {
+      "line": 5,
+      "type": "message",
+      "timestamp": "2026-11-01T12:05:04.450Z",
+      "id": "23412e70",
+      "parentId": "b208d95a",
+      "keys": [
+        "type",
+        "id",
+        "parentId",
+        "timestamp",
+        "message"
+      ],
+      "messageRole": "user",
+      "messageTimestamp": 1793534704449,
+      "stopReason": null,
+      "errorMessage": null,
+      "usage": null,
+      "contentBlocks": [
+        {
+          "type": "text",
+          "textChars": 37,
+          "first100": "HORIZON_TEST_RESOURCE_STREAM PERF-one"
+        }
+      ]
+    },
+    {
+      "line": 6,
+      "type": "message",
+      "timestamp": "2026-11-01T12:15:10.540Z",
+      "id": "8b813197",
+      "parentId": "23412e70",
+      "keys": [
+        "type",
+        "id",
+        "parentId",
+        "timestamp",
+        "message"
+      ],
+      "messageRole": "assistant",
+      "messageTimestamp": 1793534704460,
+      "stopReason": "stop",
+      "errorMessage": null,
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "totalTokens": 0,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "contentBlocks": [
+        {
+          "type": "text",
+          "textChars": 126021,
+          "first100": "controlled streaming controlled streaming controlled streaming controlled streaming controlled strea"
+        }
+      ]
+    }
+  ],
+  "ownModelsSafeProjection": [
+    {
+      "path": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/3d3e4cf8-4076-4265-9eda-553f5f4e58c3/horizon/models.json",
+      "providers": {
+        "horizon-fixture": {
+          "models": [
+            {
+              "contextWindow": 32768,
+              "id": "horizon-fixture",
+              "maxTokens": 4096
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

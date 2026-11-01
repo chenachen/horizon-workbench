@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-10-30T18:47:20.378307+00:00",
+  "source": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit/src/换行测试.txt",
+  "bytes": 51,
+  "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+  "bom": true,
+  "crlf": 3,
+  "bareLf": 0,
+  "text": "第一行\r\n第二行\r\n第三行：中文保存\r\n",
+  "containsUnsavedFourthLine": false,
+  "rootNativeReport": [
+    "Candidate-2 native Cmd+Q exits, retained draft remains",
+    "Candidate-3 cold start offers recovery; root opens read-only draft/disk comparison",
+    "Root explicitly restores fourth line to dirty editor",
+    "Independent disk read confirms prior baseline unchanged",
+    "Cmd+Q now displays unified close plan; cancel remains in app",
+    "After restored dirty buffer, native Cmd+Q",
+    "Choose retain checkpoint and process exit; root ps confirms absence",
+    "Relaunch candidate 3 and retry failed editor"
+  ],
+  "subsequentFailure": "Relaunch after successful retain-checkpoint exit reports exact error Selection points outside of document. Retry also fails. Editor owner is correcting session/recovery CRLF and selection boundaries; no post-fix native evidence yet.",
+  "limits": [
+    "Only initial restoration/no-write and close-cancel subpaths; subsequent retained-quit relaunch fails and is recorded separately",
+    "No screenshot captured in this short transition; UI observations are root operator report",
+    "Previous candidate-2 quit was a normal process exit bypassing dirty confirmation; not a forced-crash test"
+  ]
+}

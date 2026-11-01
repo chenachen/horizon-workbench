@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-11-01T10:58:27.065003+00:00",
+  "phase": "06a genuineWRITE pending permission",
+  "status": "ALLOW ONCE READY",
+  "checks": {
+    "ownedAWriteReview": true,
+    "managedSessionPi": true,
+    "cwdEqualsNewCopy": true,
+    "writePiNotSuspended": true,
+    "correctActualAuthorization": true,
+    "fixedWriteRequestOnly": true,
+    "originalFilesAndIndexUntouched": true,
+    "copyNotWrittenBeforeAllow": true,
+    "withinConservative120sWindow": true
+  },
+  "sessionId": "24c70f13-c6a0-4588-a7c4-6904a217a82b",
+  "review": {
+    "reviewId": "de22d942-2dd4-4496-94d1-3c34020b7559",
+    "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "sessionId": "24c70f13-c6a0-4588-a7c4-6904a217a82b",
+    "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/de22d942-2dd4-4496-94d1-3c34020b7559/worktree",
+    "baselineDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/de22d942-2dd4-4496-94d1-3c34020b7559/baseline",
+    "completed": false,
+    "discarded": false
+  },
+  "pi": {
+    "pid": 38117,
+    "ppid": 8737,
+    "start": "Sun Nov  1 18:56:47 2026",
+    "args": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/24c70f13-c6a0-4588-a7c4-6904a217a82b/session.jsonl --no-builtin-tools --tools horizon_read,horizon_list,horizon_write,horizon_exec -e /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/58453d41-2186-44c9-aca5-9a8694590d85/external/horizon-policy.ts",
+    "comm": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi",
+    "cwd": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/de22d942-2dd4-4496-94d1-3c34020b7559/worktree",
+    "stat": "S"
+  },
+  "httpBeforeAllow": {
+    "fixture": true,
+    "requests": 4
+  },
+  "requestLogMtimeAgeSeconds": 99.51014232635498,
+  "deadlineBasis": "Model request log precedes broker permission; conservative<105s leaves click margin inside120s. Actual interactionId/expiresAt not exposed in disk/AX, not invented.",
+  "guiAX": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06a-permission-request.ax.txt",
+  "originalHashesBefore": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004"
+  },
+  "copyHashesBefore": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004"
+  },
+  "originalIndexBefore": "26be14d07f0d84225c7a871266648b4475058a419819c8a7ed7f4236f44b9bb2",
+  "expectedToolContent": "changed by real Pi through Horizon broker\n",
+  "authorization": "Root preauthorized allowOnce for this exact actualexample.txt write request only. No signals inWRITE flow."
+}

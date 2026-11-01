@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-30T19:35:22.683355+00:00",
+  "run_status": "interrupted after intentional native quit to rebuild candidate5; diagnostic only",
+  "actual_seconds": 1049.6557,
+  "sample_count": 508,
+  "root_present_sample_count": 483,
+  "root_missing_sample_count": 25,
+  "first_root_missing_elapsed_seconds": 999.6328,
+  "sampler_stop": {
+    "pid": 69003,
+    "signal": "SIGINT",
+    "reason": "Root authorized stopping known-defect candidate4b after successful native quit; summary preserved"
+  },
+  "associated_identities": 22,
+  "all_observed_owned_processes_absent_at_postquit": true,
+  "unassigned_webkit_pid_and_owner": [
+    [
+      933,
+      723
+    ],
+    [
+      976,
+      723
+    ],
+    [
+      977,
+      723
+    ],
+    [
+      988,
+      723
+    ],
+    [
+      2711,
+      2489
+    ],
+    [
+      2712,
+      2489
+    ],
+    [
+      2713,
+      2489
+    ],
+    [
+      17997,
+      17890
+    ],
+    [
+      74412,
+      74411
+    ],
+    [
+      74413,
+      74411
+    ],
+    [
+      74414,
+      74411
+    ]
+  ],
+  "stale_debug_root_74411_selected_samples": [],
+  "operator_actions": 28,
+  "operator_file_hashes": {
+    "docs/verification/results/candidate4b-lifecycle-30m/operator-actions.jsonl": "6e0c2f5d23d4682117080916548d59342e905e1f67986df87d7a336c51c6fbe9",
+    "docs/verification/results/candidate4b-lifecycle-30m/operator-members.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "docs/verification/results/candidate4b-lifecycle-30m/operator-phase.txt": "3ec4515c1ce8f998364f2adf1fadde0d865c56b35f45dec9843a84712997fc2b",
+    "docs/verification/results/candidate4b-lifecycle-30m/operator-resources.json": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+    "docs/verification/results/candidate4b-lifecycle-30m/operator-state.json": "34b9cb14dadfa2c0fac2c556e0afa64e9ac1ab7256163da5ad8cdc8e9b57b8e7"
+  },
+  "limitations": [
+    "17.5-minute run does not meet 30-minute lifecycle requirement.",
+    "Active plugin installation, file selection, project changes and recovery export are not a fixed idle or reading workload; no resource-budget pass/fail is inferred.",
+    "No live listener/subscription diagnostic snapshots were supplied in this build; null remains unmeasured.",
+    "An accidentally opened old debug application is documented in operator actions and excluded by process identity; this known transition is retained.",
+    "Measured source includes editor view-disposal defect fixed only in later build."
+  ]
+}

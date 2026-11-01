@@ -1,0 +1,60 @@
+{
+  "status": "reproduced",
+  "productionImports": [
+    "service.ts",
+    "runtime.ts",
+    "EditorStore"
+  ],
+  "controlledBoundary": "bridge RPC only; lifecycle hook mirrors production editor index/store",
+  "events": [
+    {
+      "event": "wake epoch applied; cached plugin remains active",
+      "ticket": {
+        "epoch": 2,
+        "generation": 2
+      },
+      "cachedRunState": "active",
+      "enabledBefore": true
+    },
+    {
+      "event": "wake document_open pending",
+      "fileId": "large"
+    },
+    {
+      "event": "late runtime lifecycle.dispose",
+      "ticketBefore": {
+        "epoch": 2,
+        "generation": 2
+      }
+    },
+    {
+      "event": "late dispose completed",
+      "ticketAfter": {
+        "epoch": 2,
+        "generation": 3
+      }
+    },
+    {
+      "event": "reproduced detached no-op",
+      "cachedRunState": "sleeping",
+      "enabledAfter": true,
+      "nativeActivations": 0,
+      "oldTicket": {
+        "epoch": 2,
+        "generation": 2
+      },
+      "currentTicket": {
+        "epoch": 2,
+        "generation": 3
+      },
+      "active": {
+        "fileId": "large",
+        "mode": "chunked",
+        "evicted": true
+      },
+      "tabOpenReturnedUndefined": true,
+      "quickOpenReturnedUndefined": true,
+      "additionalDocumentOpens": 0
+    }
+  ]
+}

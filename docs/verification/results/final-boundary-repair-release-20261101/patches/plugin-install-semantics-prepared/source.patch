@@ -1,0 +1,22 @@
+--- a/apps/desktop/src-tauri/src/extensions.rs
++++ b/apps/desktop/src-tauri/src/extensions.rs
+@@ -1588,7 +1588,7 @@
+                 .cloned()
+                 .collect();
+             Ok(save_plan(
+-                json!({"kind":"install","source":path,"development":path.is_dir(),"packageDigest":package_digest(&files),"manifest":m,"dependencies":m["requires"],"permissions":permissions,"newPermissions":new_permissions,"previousVersion":old.map(|r|r["manifest"]["version"].clone()),"previousRevision":old.map(|r|r["revision"].clone()),"downloadBytes":files.iter().map(|(_,b)|b.len()).sum::<usize>().to_string()}),
++                json!({"kind":"install","source":path,"development":path.is_dir(),"packageDigest":package_digest(&files),"manifest":m,"dependencies":m["requires"],"permissions":permissions,"newPermissions":new_permissions,"previousVersion":old.filter(|r|r["installed"] == true).map(|r|r["manifest"]["version"].clone()),"previousRevision":old.map(|r|r["revision"].clone()),"downloadBytes":files.iter().map(|(_,b)|b.len()).sum::<usize>().to_string()}),
+             ))
+         }
+         "extension_install_apply" => {
+--- a/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
++++ b/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
+@@ -24,7 +24,7 @@
+   return <PluginDialog title={title} busy={busy} onClose={onClose}>
+     <div className="plugin-package-info"><PluginGlyph manifest={plan.manifest} /><div><strong>{plan.manifest.name}</strong><small>{plan.previousVersion ? `v${plan.previousVersion} → ` : ''}v{plan.manifest.version} · {plan.manifest.author}</small></div><span className="plugin-state active">兼容</span></div>
+     {busy ? <div className="plugin-install-progress" role="status"><p><Check size={16} />扩展包与兼容性已检查</p><p><Check size={16} />所需权限已确认</p><p className="plugin-install-current"><PackagePlus size={16} />{phase || '准备安装扩展文件'}</p><progress aria-label="扩展安装进度" /></div> : <>
+-      <dl className="plugin-package-meta"><dt>来源</dt><dd>{plan.source}</dd><dt>兼容版本</dt><dd>Horizon {plan.manifest.engines.horizon}</dd><dt>包大小</dt><dd>{Number(plan.downloadBytes).toLocaleString()} 字节</dd></dl>
++      <dl className="plugin-package-meta"><dt>来源</dt><dd>{plan.source}</dd><dt>兼容版本</dt><dd>Horizon {plan.manifest.engines.horizon}</dd><dt>解包后大小</dt><dd>{Number(plan.downloadBytes).toLocaleString()} 字节</dd></dl>
+       <fieldset className="plugin-install-permissions"><legend>所需权限</legend>{plan.permissions.length ? plan.permissions.map(permission => {
+         const added = !!plan.previousVersion && !!plan.newPermissions?.includes(permission.capability);
+         return <label key={permission.id} className={added ? 'plugin-permission-new' : ''}><input type="checkbox" checked={grants.includes(permission.id)} onChange={event => onGrant(permission.id, event.target.checked)} /><ShieldCheck size={17} /><span>{capabilityLabel(permission.capability)}<small>{permission.capability}</small></span><span className={`plugin-state ${added ? 'plugin-state-new' : ''}`}>{added ? '新增' : '必需'}</span></label>;

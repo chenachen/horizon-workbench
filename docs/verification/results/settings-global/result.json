@@ -1,0 +1,1424 @@
+{
+  "method": "Actual SettingsPanel and AppearanceProvider; controlled bridge; actual product CSS in Chromium",
+  "navigation": {
+    "left": [
+      "外观",
+      "编辑器",
+      "项目与资源",
+      "AI 连接",
+      "Git",
+      "快捷键",
+      "数据与隐私"
+    ],
+    "appearanceTabs": [
+      "主题与配色",
+      "布局与尺寸",
+      "背景图片",
+      "外观方案"
+    ]
+  },
+  "scope": [
+    {
+      "projectSwitchKeepsLayout": "tabs"
+    },
+    {
+      "method": "appearance_patch",
+      "params": {
+        "target": {
+          "kind": "global"
+        },
+        "expectedRevision": 1,
+        "changes": [
+          {
+            "field": {
+              "kind": "mode"
+            },
+            "operation": "set",
+            "value": "dark"
+          }
+        ]
+      }
+    },
+    {
+      "method": "appearance_layout_prepare",
+      "params": {
+        "target": {
+          "kind": "global"
+        },
+        "expectedRevision": 2,
+        "layoutId": "horizon.layout.orbit"
+      }
+    },
+    {
+      "method": "settings_patch",
+      "params": {
+        "scope": "global",
+        "expectedRevision": 1,
+        "set": {
+          "editor.fontSize": 18
+        },
+        "unset": []
+      }
+    },
+    {
+      "method": "settings_patch",
+      "params": {
+        "scope": "project",
+        "projectId": "b",
+        "expectedRevision": 2,
+        "set": {
+          "editor.tabSize": 4
+        },
+        "unset": []
+      },
+      "projectId": "b"
+    }
+  ],
+  "contrast": [
+    {
+      "theme": 0,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(73, 103, 147)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.263765 0.371529 0.530902)",
+        "contrast": 6.510828704767668
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(32, 44, 64)",
+        "background": "rgb(252, 253, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.263765 0.371529 0.530902)",
+        "contrast": 6.510828704767668
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(73, 103, 147)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.263765 0.371529 0.530902)",
+        "contrast": 6.510828704767668
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(32, 44, 64)",
+        "background": "rgb(252, 253, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.263765 0.371529 0.530902)",
+        "contrast": 6.510828704767668
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(73, 103, 147)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.263765 0.371529 0.530902)",
+        "contrast": 6.510828704767668
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(73, 103, 147)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.263765 0.371529 0.530902)",
+        "contrast": 6.510828704767668
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(24, 55, 93)",
+        "background": "rgb(178, 205, 248)"
+      },
+      "hover": {
+        "color": "rgb(24, 55, 93)",
+        "background": "color(srgb 0.723294 0.818745 0.970902)",
+        "contrast": 7.751464306411127
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(224, 232, 245)",
+        "background": "rgb(34, 43, 58)"
+      },
+      "hover": {
+        "color": "rgb(24, 55, 93)",
+        "background": "color(srgb 0.723294 0.818745 0.970902)",
+        "contrast": 7.751464306411127
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(24, 55, 93)",
+        "background": "rgb(178, 205, 248)"
+      },
+      "hover": {
+        "color": "rgb(24, 55, 93)",
+        "background": "color(srgb 0.723294 0.818745 0.970902)",
+        "contrast": 7.751464306411127
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(224, 232, 245)",
+        "background": "rgb(34, 43, 58)"
+      },
+      "hover": {
+        "color": "rgb(24, 55, 93)",
+        "background": "color(srgb 0.723294 0.818745 0.970902)",
+        "contrast": 7.751464306411127
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(24, 55, 93)",
+        "background": "rgb(178, 205, 248)"
+      },
+      "hover": {
+        "color": "rgb(24, 55, 93)",
+        "background": "color(srgb 0.723294 0.818745 0.970902)",
+        "contrast": 7.751464306411127
+      }
+    },
+    {
+      "theme": 0,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(24, 55, 93)",
+        "background": "rgb(178, 205, 248)"
+      },
+      "hover": {
+        "color": "rgb(24, 55, 93)",
+        "background": "color(srgb 0.723294 0.818745 0.970902)",
+        "contrast": 7.751464306411127
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(97, 114, 81)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.355686 0.413569 0.297882)",
+        "contrast": 5.88264961257063
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(52, 53, 45)",
+        "background": "rgb(255, 254, 250)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.355686 0.413569 0.297882)",
+        "contrast": 5.88264961257063
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(97, 114, 81)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.355686 0.413569 0.297882)",
+        "contrast": 5.88264961257063
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(52, 53, 45)",
+        "background": "rgb(255, 254, 250)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.355686 0.413569 0.297882)",
+        "contrast": 5.88264961257063
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(97, 114, 81)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.355686 0.413569 0.297882)",
+        "contrast": 5.88264961257063
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(97, 114, 81)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.355686 0.413569 0.297882)",
+        "contrast": 5.88264961257063
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(44, 62, 32)",
+        "background": "rgb(192, 208, 173)"
+      },
+      "hover": {
+        "color": "rgb(44, 62, 32)",
+        "background": "color(srgb 0.775451 0.828314 0.70149)",
+        "contrast": 7.358164732731262
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(233, 231, 215)",
+        "background": "rgb(43, 39, 34)"
+      },
+      "hover": {
+        "color": "rgb(44, 62, 32)",
+        "background": "color(srgb 0.775451 0.828314 0.70149)",
+        "contrast": 7.358164732731262
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(44, 62, 32)",
+        "background": "rgb(192, 208, 173)"
+      },
+      "hover": {
+        "color": "rgb(44, 62, 32)",
+        "background": "color(srgb 0.775451 0.828314 0.70149)",
+        "contrast": 7.358164732731262
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(233, 231, 215)",
+        "background": "rgb(43, 39, 34)"
+      },
+      "hover": {
+        "color": "rgb(44, 62, 32)",
+        "background": "color(srgb 0.775451 0.828314 0.70149)",
+        "contrast": 7.358164732731262
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(44, 62, 32)",
+        "background": "rgb(192, 208, 173)"
+      },
+      "hover": {
+        "color": "rgb(44, 62, 32)",
+        "background": "color(srgb 0.775451 0.828314 0.70149)",
+        "contrast": 7.358164732731262
+      }
+    },
+    {
+      "theme": 1,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(44, 62, 32)",
+        "background": "rgb(192, 208, 173)"
+      },
+      "hover": {
+        "color": "rgb(44, 62, 32)",
+        "background": "color(srgb 0.775451 0.828314 0.70149)",
+        "contrast": 7.358164732731262
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(70, 109, 168)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.255843 0.397255 0.61051)",
+        "contrast": 5.888463001381698
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(36, 54, 80)",
+        "background": "rgb(251, 253, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.255843 0.397255 0.61051)",
+        "contrast": 5.888463001381698
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(70, 109, 168)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.255843 0.397255 0.61051)",
+        "contrast": 5.888463001381698
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(36, 54, 80)",
+        "background": "rgb(251, 253, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.255843 0.397255 0.61051)",
+        "contrast": 5.888463001381698
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(70, 109, 168)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.255843 0.397255 0.61051)",
+        "contrast": 5.888463001381698
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(70, 109, 168)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.255843 0.397255 0.61051)",
+        "contrast": 5.888463001381698
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(20, 43, 80)",
+        "background": "rgb(174, 202, 255)"
+      },
+      "hover": {
+        "color": "rgb(20, 43, 80)",
+        "background": "color(srgb 0.710902 0.810275 0.995608)",
+        "contrast": 8.933498983125881
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(226, 235, 247)",
+        "background": "rgb(27, 38, 54)"
+      },
+      "hover": {
+        "color": "rgb(20, 43, 80)",
+        "background": "color(srgb 0.710902 0.810275 0.995608)",
+        "contrast": 8.933498983125881
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(20, 43, 80)",
+        "background": "rgb(174, 202, 255)"
+      },
+      "hover": {
+        "color": "rgb(20, 43, 80)",
+        "background": "color(srgb 0.710902 0.810275 0.995608)",
+        "contrast": 8.933498983125881
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(226, 235, 247)",
+        "background": "rgb(27, 38, 54)"
+      },
+      "hover": {
+        "color": "rgb(20, 43, 80)",
+        "background": "color(srgb 0.710902 0.810275 0.995608)",
+        "contrast": 8.933498983125881
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(20, 43, 80)",
+        "background": "rgb(174, 202, 255)"
+      },
+      "hover": {
+        "color": "rgb(20, 43, 80)",
+        "background": "color(srgb 0.710902 0.810275 0.995608)",
+        "contrast": 8.933498983125881
+      }
+    },
+    {
+      "theme": 2,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(20, 43, 80)",
+        "background": "rgb(174, 202, 255)"
+      },
+      "hover": {
+        "color": "rgb(20, 43, 80)",
+        "background": "color(srgb 0.710902 0.810275 0.995608)",
+        "contrast": 8.933498983125881
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(51, 95, 102)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.192863 0.347843 0.372549)",
+        "contrast": 7.707016939515811
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(38, 50, 52)",
+        "background": "rgb(255, 255, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.192863 0.347843 0.372549)",
+        "contrast": 7.707016939515811
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(51, 95, 102)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.192863 0.347843 0.372549)",
+        "contrast": 7.707016939515811
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(38, 50, 52)",
+        "background": "rgb(255, 255, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.192863 0.347843 0.372549)",
+        "contrast": 7.707016939515811
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(51, 95, 102)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.192863 0.347843 0.372549)",
+        "contrast": 7.707016939515811
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(51, 95, 102)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.192863 0.347843 0.372549)",
+        "contrast": 7.707016939515811
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(22, 51, 57)",
+        "background": "rgb(166, 209, 216)"
+      },
+      "hover": {
+        "color": "rgb(22, 51, 57)",
+        "background": "color(srgb 0.683922 0.833882 0.85749)",
+        "contrast": 8.514776901732318
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(226, 235, 235)",
+        "background": "rgb(34, 37, 38)"
+      },
+      "hover": {
+        "color": "rgb(22, 51, 57)",
+        "background": "color(srgb 0.683922 0.833882 0.85749)",
+        "contrast": 8.514776901732318
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(22, 51, 57)",
+        "background": "rgb(166, 209, 216)"
+      },
+      "hover": {
+        "color": "rgb(22, 51, 57)",
+        "background": "color(srgb 0.683922 0.833882 0.85749)",
+        "contrast": 8.514776901732318
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(226, 235, 235)",
+        "background": "rgb(34, 37, 38)"
+      },
+      "hover": {
+        "color": "rgb(22, 51, 57)",
+        "background": "color(srgb 0.683922 0.833882 0.85749)",
+        "contrast": 8.514776901732318
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(22, 51, 57)",
+        "background": "rgb(166, 209, 216)"
+      },
+      "hover": {
+        "color": "rgb(22, 51, 57)",
+        "background": "color(srgb 0.683922 0.833882 0.85749)",
+        "contrast": 8.514776901732318
+      }
+    },
+    {
+      "theme": 3,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(22, 51, 57)",
+        "background": "rgb(166, 209, 216)"
+      },
+      "hover": {
+        "color": "rgb(22, 51, 57)",
+        "background": "color(srgb 0.683922 0.833882 0.85749)",
+        "contrast": 8.514776901732318
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(63, 116, 88)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.232235 0.425255 0.324784)",
+        "contrast": 6.076577296135257
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(36, 62, 51)",
+        "background": "rgb(251, 255, 252)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.232235 0.425255 0.324784)",
+        "contrast": 6.076577296135257
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(63, 116, 88)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.232235 0.425255 0.324784)",
+        "contrast": 6.076577296135257
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(36, 62, 51)",
+        "background": "rgb(251, 255, 252)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.232235 0.425255 0.324784)",
+        "contrast": 6.076577296135257
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(63, 116, 88)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.232235 0.425255 0.324784)",
+        "contrast": 6.076577296135257
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(63, 116, 88)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.232235 0.425255 0.324784)",
+        "contrast": 6.076577296135257
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(30, 60, 40)",
+        "background": "rgb(169, 215, 185)"
+      },
+      "hover": {
+        "color": "rgb(30, 60, 40)",
+        "background": "color(srgb 0.692941 0.857412 0.750196)",
+        "contrast": 7.940448995540332
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(224, 241, 230)",
+        "background": "rgb(34, 53, 44)"
+      },
+      "hover": {
+        "color": "rgb(30, 60, 40)",
+        "background": "color(srgb 0.692941 0.857412 0.750196)",
+        "contrast": 7.940448995540332
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(30, 60, 40)",
+        "background": "rgb(169, 215, 185)"
+      },
+      "hover": {
+        "color": "rgb(30, 60, 40)",
+        "background": "color(srgb 0.692941 0.857412 0.750196)",
+        "contrast": 7.940448995540332
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(224, 241, 230)",
+        "background": "rgb(34, 53, 44)"
+      },
+      "hover": {
+        "color": "rgb(30, 60, 40)",
+        "background": "color(srgb 0.692941 0.857412 0.750196)",
+        "contrast": 7.940448995540332
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(30, 60, 40)",
+        "background": "rgb(169, 215, 185)"
+      },
+      "hover": {
+        "color": "rgb(30, 60, 40)",
+        "background": "color(srgb 0.692941 0.857412 0.750196)",
+        "contrast": 7.940448995540332
+      }
+    },
+    {
+      "theme": 4,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(30, 60, 40)",
+        "background": "rgb(169, 215, 185)"
+      },
+      "hover": {
+        "color": "rgb(30, 60, 40)",
+        "background": "color(srgb 0.692941 0.857412 0.750196)",
+        "contrast": 7.940448995540332
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(121, 80, 163)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.438824 0.290118 0.590902)",
+        "contrast": 6.740850753777904
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(56, 37, 75)",
+        "background": "rgb(254, 251, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.438824 0.290118 0.590902)",
+        "contrast": 6.740850753777904
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(121, 80, 163)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.438824 0.290118 0.590902)",
+        "contrast": 6.740850753777904
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(56, 37, 75)",
+        "background": "rgb(254, 251, 255)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.438824 0.290118 0.590902)",
+        "contrast": 6.740850753777904
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(121, 80, 163)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.438824 0.290118 0.590902)",
+        "contrast": 6.740850753777904
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(121, 80, 163)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.438824 0.290118 0.590902)",
+        "contrast": 6.740850753777904
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(67, 32, 93)",
+        "background": "rgb(219, 178, 255)"
+      },
+      "hover": {
+        "color": "rgb(67, 32, 93)",
+        "background": "color(srgb 0.869804 0.723843 0.998353)",
+        "contrast": 7.7897479702855295
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(239, 225, 252)",
+        "background": "rgb(48, 35, 61)"
+      },
+      "hover": {
+        "color": "rgb(67, 32, 93)",
+        "background": "color(srgb 0.869804 0.723843 0.998353)",
+        "contrast": 7.7897479702855295
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(67, 32, 93)",
+        "background": "rgb(219, 178, 255)"
+      },
+      "hover": {
+        "color": "rgb(67, 32, 93)",
+        "background": "color(srgb 0.869804 0.723843 0.998353)",
+        "contrast": 7.7897479702855295
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(239, 225, 252)",
+        "background": "rgb(48, 35, 61)"
+      },
+      "hover": {
+        "color": "rgb(67, 32, 93)",
+        "background": "color(srgb 0.869804 0.723843 0.998353)",
+        "contrast": 7.7897479702855295
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(67, 32, 93)",
+        "background": "rgb(219, 178, 255)"
+      },
+      "hover": {
+        "color": "rgb(67, 32, 93)",
+        "background": "color(srgb 0.869804 0.723843 0.998353)",
+        "contrast": 7.7897479702855295
+      }
+    },
+    {
+      "theme": 5,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(67, 32, 93)",
+        "background": "rgb(219, 178, 255)"
+      },
+      "hover": {
+        "color": "rgb(67, 32, 93)",
+        "background": "color(srgb 0.869804 0.723843 0.998353)",
+        "contrast": 7.7897479702855295
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(148, 102, 68)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.538667 0.376392 0.254588)",
+        "contrast": 5.507254554516133
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(72, 59, 46)",
+        "background": "rgb(255, 252, 248)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.538667 0.376392 0.254588)",
+        "contrast": 5.507254554516133
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(148, 102, 68)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.538667 0.376392 0.254588)",
+        "contrast": 5.507254554516133
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(72, 59, 46)",
+        "background": "rgb(255, 252, 248)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.538667 0.376392 0.254588)",
+        "contrast": 5.507254554516133
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(148, 102, 68)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.538667 0.376392 0.254588)",
+        "contrast": 5.507254554516133
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(148, 102, 68)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.538667 0.376392 0.254588)",
+        "contrast": 5.507254554516133
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(77, 48, 27)",
+        "background": "rgb(227, 177, 138)"
+      },
+      "hover": {
+        "color": "rgb(77, 48, 27)",
+        "background": "color(srgb 0.899529 0.722667 0.581255)",
+        "contrast": 6.621630609958863
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(244, 229, 211)",
+        "background": "rgb(52, 44, 36)"
+      },
+      "hover": {
+        "color": "rgb(77, 48, 27)",
+        "background": "color(srgb 0.899529 0.722667 0.581255)",
+        "contrast": 6.621630609958863
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(77, 48, 27)",
+        "background": "rgb(227, 177, 138)"
+      },
+      "hover": {
+        "color": "rgb(77, 48, 27)",
+        "background": "color(srgb 0.899529 0.722667 0.581255)",
+        "contrast": 6.621630609958863
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(244, 229, 211)",
+        "background": "rgb(52, 44, 36)"
+      },
+      "hover": {
+        "color": "rgb(77, 48, 27)",
+        "background": "color(srgb 0.899529 0.722667 0.581255)",
+        "contrast": 6.621630609958863
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(77, 48, 27)",
+        "background": "rgb(227, 177, 138)"
+      },
+      "hover": {
+        "color": "rgb(77, 48, 27)",
+        "background": "color(srgb 0.899529 0.722667 0.581255)",
+        "contrast": 6.621630609958863
+      }
+    },
+    {
+      "theme": 6,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(77, 48, 27)",
+        "background": "rgb(227, 177, 138)"
+      },
+      "hover": {
+        "color": "rgb(77, 48, 27)",
+        "background": "color(srgb 0.899529 0.722667 0.581255)",
+        "contrast": 6.621630609958863
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "light",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(57, 121, 118)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.212 0.444863 0.435294)",
+        "contrast": 5.602324144212246
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "light",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(36, 67, 68)",
+        "background": "rgb(248, 253, 253)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.212 0.444863 0.435294)",
+        "contrast": 5.602324144212246
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "light",
+      "id": "git",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(57, 121, 118)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.212 0.444863 0.435294)",
+        "contrast": 5.602324144212246
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "light",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(36, 67, 68)",
+        "background": "rgb(248, 253, 253)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.212 0.444863 0.435294)",
+        "contrast": 5.602324144212246
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "light",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(57, 121, 118)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.212 0.444863 0.435294)",
+        "contrast": 5.602324144212246
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "light",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(57, 121, 118)"
+      },
+      "hover": {
+        "color": "rgb(255, 255, 255)",
+        "background": "color(srgb 0.212 0.444863 0.435294)",
+        "contrast": 5.602324144212246
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "dark",
+      "id": "footer",
+      "normal": {
+        "color": "rgb(16, 53, 54)",
+        "background": "rgb(145, 215, 210)"
+      },
+      "hover": {
+        "color": "rgb(16, 53, 54)",
+        "background": "color(srgb 0.612549 0.857412 0.840549)",
+        "contrast": 8.530669598552675
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "dark",
+      "id": "filled",
+      "normal": {
+        "color": "rgb(225, 241, 241)",
+        "background": "rgb(32, 43, 46)"
+      },
+      "hover": {
+        "color": "rgb(16, 53, 54)",
+        "background": "color(srgb 0.612549 0.857412 0.840549)",
+        "contrast": 8.530669598552675
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "dark",
+      "id": "git",
+      "normal": {
+        "color": "rgb(16, 53, 54)",
+        "background": "rgb(145, 215, 210)"
+      },
+      "hover": {
+        "color": "rgb(16, 53, 54)",
+        "background": "color(srgb 0.612549 0.857412 0.840549)",
+        "contrast": 8.530669598552675
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "dark",
+      "id": "plugin",
+      "normal": {
+        "color": "rgb(225, 241, 241)",
+        "background": "rgb(32, 43, 46)"
+      },
+      "hover": {
+        "color": "rgb(16, 53, 54)",
+        "background": "color(srgb 0.612549 0.857412 0.840549)",
+        "contrast": 8.530669598552675
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "dark",
+      "id": "editor",
+      "normal": {
+        "color": "rgb(16, 53, 54)",
+        "background": "rgb(145, 215, 210)"
+      },
+      "hover": {
+        "color": "rgb(16, 53, 54)",
+        "background": "color(srgb 0.612549 0.857412 0.840549)",
+        "contrast": 8.530669598552675
+      }
+    },
+    {
+      "theme": 7,
+      "mode": "dark",
+      "id": "primary",
+      "normal": {
+        "color": "rgb(16, 53, 54)",
+        "background": "rgb(145, 215, 210)"
+      },
+      "hover": {
+        "color": "rgb(16, 53, 54)",
+        "background": "color(srgb 0.612549 0.857412 0.840549)",
+        "contrast": 8.530669598552675
+      }
+    }
+  ],
+  "minimumHoverContrast": 5.507254554516133
+}

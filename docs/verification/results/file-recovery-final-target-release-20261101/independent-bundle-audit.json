@@ -1,0 +1,113 @@
+{
+  "auditedAt": "2026-11-01T05:53:19.670564+00:00",
+  "method": "Independent Info.plist/bundle executable/current-source snapshotSHA and complete retained build receipt/log audit, plus readonly deep-strict signature verification; no build/test rerun",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "2c7268d56013f43e8cabd50b674676356b4ecb0dcb7999ef9042b2df12721f5f",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/components/SleepingProjectPage.tsx",
+      "sha256": "0f2f6ca0c2c04088c9888052b096058f86b07d1c85aff4cda593cb1135f8ab87",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "695ac932d3706f1e4cbab35db065e8f29e39aa08e51cd84bfa60b2e87aa51e1c",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/FileRecovery.tsx",
+      "sha256": "ad8ff227a546c4f5e6ff7d1c7e3a031c752640cfd27188001cecbfbd654c879b",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/file-recovery.css",
+      "sha256": "c2a3e10d6f988cba3cc66869978896a0f69e519168c5b77e824f0f9823b05ebc",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/service.ts",
+      "sha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "bundleInfo": {
+    "CFBundleExecutable": "horizon-desktop",
+    "CFBundleIdentifier": "dev.horizon.desktop",
+    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "0.1.0"
+  },
+  "bundleArtifacts": [
+    {
+      "path": "Contents/Helpers/HorizonPicker.app/Contents/Info.plist",
+      "bytes": 720,
+      "sha256": "c6e53094611aec4ef8f02bfd7d2b9e886f74bd3f53aff7ef1bc5e83594d92d60"
+    },
+    {
+      "path": "Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+      "bytes": 166816,
+      "sha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+    },
+    {
+      "path": "Contents/Info.plist",
+      "bytes": 969,
+      "sha256": "b1bd88caab2f71c8944e2cdf5491f422c5060013a3abad24c00201c1ebe5495a"
+    },
+    {
+      "path": "Contents/MacOS/horizon-desktop",
+      "bytes": 19860880,
+      "sha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87"
+    },
+    {
+      "path": "Contents/MacOS/horizon-extension-host",
+      "bytes": 1562272,
+      "sha256": "c7936994f12b71c196aefa6191c3527df4c5d18474bfe69b65a53c3bac46ec46"
+    },
+    {
+      "path": "Contents/MacOS/horizon-git",
+      "bytes": 1028608,
+      "sha256": "c4d10ced9f4476426c31093f6e5ad53d7664310f780f870c5c60747f9fb0030a"
+    },
+    {
+      "path": "Contents/MacOS/horizon-rg",
+      "bytes": 4014576,
+      "sha256": "a326a1fb48074202e9ad41e4cd1e389eeea372c8c6f7d7e80da81176d5d9430e"
+    }
+  ],
+  "signatureCheck": {
+    "command": [
+      "codesign",
+      "--verify",
+      "--deep",
+      "--strict",
+      "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "buildReceiptSha256": "51d92658a46ca86d84862464560fc5563ebfa7901a254f1e7b648352b9b6e9d3",
+  "buildLogSha256": "560702768f631a2c49c40ee8f8a482f0853141e1fb89410e7bda7e43e2aca89d",
+  "buildStatus": {
+    "exitCode": 0,
+    "startedAt": "2026-11-01T05:49:43.937470+00:00",
+    "finishedAt": "2026-11-01T05:51:54.699896+00:00"
+  },
+  "scope": "Four targeted followups: automaticfirstchunk mounting, SleepPreferences categoryroute, fullactive-tab includingclosevisibility, comparison fit-content sizing.",
+  "limits": [
+    "Onlyappwasrebundled;DMG/ZIPremainprior df1e and are not finaldistribution output.",
+    "Native four-target acceptance follows separately; source/build/signature checks do not infer UI success."
+  ]
+}

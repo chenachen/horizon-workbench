@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-01T05:38:05.656743+00:00",
+  "status": "source only, native retest pending",
+  "observedGap": "Manual sleep of current project returned Welcome; no central G03 sleep/recovery page.",
+  "reference": "design/source/app.js centerContent sleep; docs/ux/INTERACTION_SPEC.md G03",
+  "changes": [
+    "After native close_apply succeeds, show a host-owned sleeping project page with retained tab metadata and explicit Resume/Preferences actions.",
+    "Active projectId remains cleared, so editor/files/Git/AI/terminal/launcher components are not reactivated by this view.",
+    "Navigation highlights selected sleeping project; sidebar states resources suspended and retained tab count, not a fake live file tree.",
+    "On explicit resume, existing project activation performs fresh plugin synchronization and document restore; on failure sleep page remains available.",
+    "Workspace changes or successful project activation clear sleep presentation."
+  ],
+  "files": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "f8b54d7e674d15623f3fe2709519af1abc9b21fc24c77ee74bf95d9d1eb33692"
+    },
+    {
+      "path": "apps/desktop/src/components/SleepingProjectPage.tsx",
+      "sha256": "0f2f6ca0c2c04088c9888052b096058f86b07d1c85aff4cda593cb1135f8ab87"
+    },
+    {
+      "path": "apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138"
+    }
+  ],
+  "limits": [
+    "Manual current-project sleep presentation only; background project auto-sleep remains represented by navigation state and normal click-to-wake.",
+    "Cold launch with no active project intentionally opens Welcome.",
+    "Actual native component/rendering and wake test pending central build."
+  ]
+}

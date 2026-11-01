@@ -1,0 +1,36 @@
+{
+  "recordedAt": "2026-11-01T07:12:47.392725+00:00",
+  "checks": [
+    {
+      "command": "npm run desktop:check",
+      "exitCode": 0,
+      "notes": "before G03 markup/CSS follow-up; release build reruns TypeScript on final source"
+    },
+    {
+      "command": "cargo check --manifest-path apps/desktop/src-tauri/Cargo.toml",
+      "exitCode": 0
+    },
+    {
+      "command": "node v24.5.0 + tsx --test --test-name-pattern=eight independent packages/plugins/tests/runtime.test.ts",
+      "exitCode": 0,
+      "passed": 1
+    },
+    {
+      "command": "cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml --test extensions_policy theme",
+      "exitCode": 0,
+      "passed": 2,
+      "filtered": 13
+    },
+    {
+      "artifact": "../terminal-exit-theme-component-20261101/receipt.json",
+      "exitCode": 0,
+      "passed": 5
+    },
+    {
+      "artifact": "../../../../.work/resize-geometry-component-20261101/receipt.json",
+      "exitCode": 0,
+      "passed": 6
+    }
+  ],
+  "limits": "Component tests use actual production components with controlled RPC, not native GUI evidence."
+}

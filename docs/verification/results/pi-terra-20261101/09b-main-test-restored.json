@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-11-01T11:38:52.275456+00:00",
+  "phase": "09 postfailure singleexplicitmainTest restore",
+  "status": "10a SYSTEM SAVE READY",
+  "checks": {
+    "oneExplicitTestRequest": true,
+    "exactOriginalFixedProbe": true,
+    "toolsEmpty": true,
+    "noProjectContent": true,
+    "mainActuallyVerified": true,
+    "piExited": true
+  },
+  "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+  "authState": "verified",
+  "http": {
+    "fixture": true,
+    "requests": 12
+  },
+  "piPids": [],
+  "requestBody": {
+    "model": "horizon-fixture",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connection-test-cwd\n</cwd>"
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reply with exactly: Horizon connection verified. This is a connectivity test; no project content is included."
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "store": false,
+    "max_completion_tokens": 4096
+  },
+  "requestRowSHA": "17ad05190a81c563b9d46af7af995a96b126adab9540999ec1a0622433e47bb5",
+  "nativeAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-09-main-connection-reverified.ax.txt",
+  "nativeAXSHA": "5b7d7d105b7a2163c91ed700d1b8e709474a43a7d2699a04d7e023bf606f1c9e"
+}

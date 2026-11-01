@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-30T20:10:28.935304+00:00",
+  "run_status": "completed full requested 1800 seconds; actual interactive workflow observation, not fixed resource-budget pass",
+  "actual_seconds": 1800.0044,
+  "sample_count": 871,
+  "root_missing_sample_count": 0,
+  "associated_identity_count": 69,
+  "phases": {
+    "root-editor-restore-and-page-fidelity": {
+      "first_elapsed": 0.0002,
+      "last_elapsed": 258.6765,
+      "samples": 126
+    },
+    "handoff-processes-gui": {
+      "first_elapsed": 260.7498,
+      "last_elapsed": 277.3476,
+      "samples": 9
+    },
+    "processes: fixture project and plugin activation": {
+      "first_elapsed": 279.4204,
+      "last_elapsed": 411.8627,
+      "samples": 65
+    },
+    "processes: real PTY input, resize and persistence": {
+      "first_elapsed": 413.9303,
+      "last_elapsed": 761.6668,
+      "samples": 169
+    },
+    "processes: dualservice ready and logs": {
+      "first_elapsed": 763.7363,
+      "last_elapsed": 1663.7971,
+      "samples": 436
+    },
+    "processes: all fixture resources released; actual GUI diagnostics exported": {
+      "first_elapsed": 1665.8755,
+      "last_elapsed": 1800.0044,
+      "samples": 66
+    }
+  },
+  "metric_missing_samples": [
+    {
+      "elapsed": 585.842,
+      "missing_pids": [
+        2960
+      ]
+    },
+    {
+      "elapsed": 587.9152,
+      "missing_pids": [
+        2996
+      ]
+    },
+    {
+      "elapsed": 629.31,
+      "missing_pids": [
+        3748
+      ]
+    },
+    {
+      "elapsed": 631.3756,
+      "missing_pids": [
+        3788
+      ]
+    },
+    {
+      "elapsed": 811.4126,
+      "missing_pids": [
+        7070
+      ]
+    },
+    {
+      "elapsed": 1158.9163,
+      "missing_pids": [
+        14449,
+        14450
+      ]
+    }
+  ],
+  "diagnostic_snapshots": {
+    "2026-10-30T19:41:30.658809+00:00": {
+      "source": "docs/verification/results/root-candidate5/diagnostics-initial.json",
+      "diagnostics": {
+        "capturedAt": "2026-10-30T19:41:30.658809+00:00",
+        "method": "actualGUIsettingsdiagnosticexport",
+        "source": "docs/verification/results/root-candidate5/diagnostics-initial.json",
+        "architecture": "aarch64",
+        "caches": {
+          "entityRevisionEntries": 0,
+          "idempotencyEntries": 24,
+          "operationPlans": 1,
+          "pathSearchPaths": 0,
+          "pathSearchProjects": 0,
+          "searchResultItems": 0,
+          "searchResultTasks": 0
+        },
+        "cursors": 0,
+        "frontend": {
+          "editor": {
+            "coldOpenMedianMs": 11461,
+            "coldOpenP95Ms": 11461,
+            "coldOpenSamples": 1,
+            "createdViews": 3,
+            "destroyedViews": 3,
+            "languageReadyP95Ms": 21.000000000029104,
+            "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+            "openMedianMs": 192,
+            "openP95Ms": 11461,
+            "openSamples": 3,
+            "opens": [
+              {
+                "byteLength": 51,
+                "cache": "warm",
+                "durationMs": 192,
+                "editorRevision": 0,
+                "id": 1,
+                "language": "plain",
+                "languageReadyMs": 12,
+                "startedAtMs": 1793389054644,
+                "viewId": 1
+              },
+              {
+                "byteLength": 51,
+                "cache": "cold",
+                "durationMs": 11461,
+                "editorRevision": 0,
+                "id": 2,
+                "language": "plain",
+                "languageReadyMs": 11,
+                "startedAtMs": 1793389185970,
+                "viewId": 2
+              },
+              {
+                "byteLength": 619,
+                "cache": "warm",
+                "durationMs": 29,
+                "editorRevision": 0,
+                "highlightReadyMs": 36,
+                "id": 3,
+                "language": "ts",
+                "languageReadyMs": 21.000000000029104,
+                "startedAtMs": 1793389206381,
+                "viewId": 3
+              }
+            ],
+            "schemaVersion": 1,
+            "viewCount": 0,
+            "warmOpenMedianMs": 29,
+            "warmOpenP95Ms": 192,
+            "warmOpenSamples": 2
+          }
+        },
+        "openDocuments": 1,
+        "platform": "macos",
+        "subscriptions": 0,
+        "taskRecords": {
+          "active": 1,
+          "completedCached": 2,
+          "total": 3
+        },
+        "version": "0.1.0",
+        "watchers": 1
+      },
+      "first_seen": 260.7498,
+      "last_seen": 1663.7971
+    },
+    "2026-10-30T20:05:19.564539+00:00": {
+      "source": "docs/verification/results/processes-gui/candidate5-after-processes.json",
+      "diagnostics": {
+        "capturedAt": "2026-10-30T20:05:19.564539+00:00",
+        "method": "actualGUIsettingsdiagnosticexport",
+        "source": "docs/verification/results/processes-gui/candidate5-after-processes.json",
+        "architecture": "aarch64",
+        "caches": {
+          "entityRevisionEntries": 13,
+          "idempotencyEntries": 26,
+          "operationPlans": 0,
+          "pathSearchPaths": 0,
+          "pathSearchProjects": 0,
+          "searchResultItems": 0,
+          "searchResultTasks": 0
+        },
+        "cursors": 0,
+        "frontend": {
+          "editor": {
+            "coldOpenMedianMs": 39.00000000005821,
+            "coldOpenP95Ms": 11461,
+            "coldOpenSamples": 3,
+            "createdViews": 5,
+            "destroyedViews": 4,
+            "languageReadyP95Ms": 21.000000000029104,
+            "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+            "openMedianMs": 39.00000000005821,
+            "openP95Ms": 11461,
+            "openSamples": 5,
+            "opens": [
+              {
+                "byteLength": 51,
+                "cache": "warm",
+                "durationMs": 192,
+                "editorRevision": 0,
+                "id": 1,
+                "language": "plain",
+                "languageReadyMs": 12,
+                "startedAtMs": 1793389054644,
+                "viewId": 1
+              },
+              {
+                "byteLength": 51,
+                "cache": "cold",
+                "durationMs": 11461,
+                "editorRevision": 0,
+                "id": 2,
+                "language": "plain",
+                "languageReadyMs": 11,
+                "startedAtMs": 1793389185970,
+                "viewId": 2
+              },
+              {
+                "byteLength": 619,
+                "cache": "warm",
+                "durationMs": 29,
+                "editorRevision": 0,
+                "highlightReadyMs": 36,
+                "id": 3,
+                "language": "ts",
+                "languageReadyMs": 21.000000000029104,
+                "startedAtMs": 1793389206381,
+                "viewId": 3
+              },
+              {
+                "byteLength": 280,
+                "cache": "cold",
+                "durationMs": 39.00000000005821,
+                "editorRevision": 0,
+                "highlightReadyMs": 39.00000000005821,
+                "id": 5,
+                "language": "json",
+                "languageReadyMs": 16,
+                "startedAtMs": 1793389547622,
+                "viewId": 4
+              },
+              {
+                "byteLength": 619,
+                "cache": "cold",
+                "durationMs": 35.000000000116415,
+                "editorRevision": 0,
+                "highlightReadyMs": 35.000000000116415,
+                "id": 6,
+                "language": "ts",
+                "languageReadyMs": 21,
+                "startedAtMs": 1793389669148,
+                "viewId": 4
+              }
+            ],
+            "schemaVersion": 1,
+            "viewCount": 1,
+            "warmOpenMedianMs": 29,
+            "warmOpenP95Ms": 192,
+            "warmOpenSamples": 2
+          }
+        },
+        "openDocuments": 1,
+        "platform": "macos",
+        "subscriptions": 2,
+        "taskRecords": {
+          "active": 1,
+          "completedCached": 8,
+          "total": 9
+        },
+        "version": "0.1.0",
+        "watchers": 2
+      },
+      "first_seen": 1665.8755,
+      "last_seen": 1800.0044
+    }
+  },
+  "unassigned_webkit_pid_and_owner": [
+    [
+      933,
+      723
+    ],
+    [
+      976,
+      723
+    ],
+    [
+      977,
+      723
+    ],
+    [
+      988,
+      723
+    ],
+    [
+      2711,
+      2489
+    ],
+    [
+      2712,
+      2489
+    ],
+    [
+      2713,
+      2489
+    ],
+    [
+      17997,
+      17890
+    ]
+  ],
+  "postquit_all_sampled_identities_absent": true,
+  "operator_file_hashes": {
+    "docs/verification/results/candidate5-lifecycle-30m/operator-actions.jsonl": "aa30889a22375a63f06c80896ae738be08f9f68e423167dc38df554586bc6832",
+    "docs/verification/results/candidate5-lifecycle-30m/operator-members.json": "ca0254733754e4ff5e1215aa6d183c6e863200e96ea1852749db03a20c95fb57",
+    "docs/verification/results/candidate5-lifecycle-30m/operator-phase.txt": "4b7ff5bb115f8984265c7839e0512deecfc1bf08f18696b93bf6d94a84903679",
+    "docs/verification/results/candidate5-lifecycle-30m/operator-resources.json": "8ec88ff4c62eb3d1d91cc2b92dedba8310dbe3ce71572822946373450cf5cfb2",
+    "docs/verification/results/candidate5-lifecycle-30m/operator-state.json": "72c0068c2bd78a815d719f2dfb13ddb432d40aef4a249cc7f66eb02fc2e3d342"
+  },
+  "classification_corrections": [
+    {
+      "pid": 16615,
+      "start": "Sat Oct 31 03:58:49 2026",
+      "raw_group": "horizon",
+      "audited_group": "development",
+      "reason": "Owned cancel-startup launch-1793390329266-46 confirmed by processes operator; root PPID91978 and cancel.json; raw sample preserved; total footprint unchanged"
+    }
+  ],
+  "observations": [
+    {
+      "pid": 6508,
+      "state": "defunct child of root91978 after native Open URL operation at03:50:54 local",
+      "first_observed_elapsed": 778.2325,
+      "last_observed_elapsed": 1800.0044,
+      "sample_count": 495,
+      "footprint_bytes": 0,
+      "postquit_absent": true,
+      "status": "Owner investigating missing child wait; do not infer repeated-loop resource cleanup pass"
+    }
+  ],
+  "limitations": [
+    "Full30minutes completed but stages change project, panel, process and native filepicker state; aggregate trend/after60 fields do not establish steady state or budget.",
+    "Two actual diagnostics exports at19:41:30 and20:05:19 are sparse snapshots. Repeated rows retain snapshot age and do not make them live counters. Different active panels/projects mean watcher/subscription delta is not itself a leak.",
+    "Six footprint samples unavailable because short-lived process departed during read; entire sum is null rather than silently undercounted. CPU sums unavailable on first appearances until next delta.",
+    "Candidate5 manual-sleep late epoch error remains a separate verified failure; candidate6 source fix is not retroactively attributed.",
+    "Postquit checks cover every69sampled identity, but sampling may miss very short-lived processes. Operator also independently checked additional known fixture PIDs.",
+    "One native URL helper remains zombie until quit; next build must verify reaping after repeated URL opens.",
+    "No formal empty/reading/diff/Pi fixed scenario budget,20startup or20warmfile conclusion follows from this run."
+  ]
+}

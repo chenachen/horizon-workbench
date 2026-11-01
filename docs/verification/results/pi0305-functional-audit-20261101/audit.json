@@ -1,0 +1,91 @@
+{
+  "reviewedAt": "2026-11-01T10:21:05.730418+00:00",
+  "scope": "Functional-only native/source/retained owner-data audit. No model calls, GUI operations, product tests/builds or process sampling by verifier; zero visual records.",
+  "build": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+  "appPID": 75147,
+  "appStart": "2026-11-01 17:34:01 +0800",
+  "nativeReview": {
+    "originalsPersonallyViewed": 13,
+    "hashPairsVerified": 13,
+    "completeAXDirectlyRead": 9,
+    "sameByteAXReused": 1,
+    "completeNodeIdNormalizedDiffsRead": 3,
+    "timingCorrectionRowRetained": true
+  },
+  "ownerDataSHA256": {
+    "03a-connection-saved.json": "6b38df1ec67532291c499457c3a6214f21bf93fe34f99a6c9f0b2960e95c1519",
+    "03b-explicit-test.json": "baaec5c8c0801d0cff6ddea8aa9c3c1a2d4523bb28508cd4878cdb3b9362f71d",
+    "04a-context.json": "50265ed40c9a7ada293050b93d6adbd1049dbc6271cae237adafca58f51d746b",
+    "04b-http-context.json": "84fe76b66e03f4278ecc7b3ac9146b8d2bdc0329410a1f8dfc552da53ad0ff27",
+    "05a-run-identity.json": "d20fa85dba1c256acb582d97eff2fda20f4270050251941c2619f902f62b8c1d",
+    "05b-forced-stop.json": "534f211e093ad5a32c66c822cf15ab1b5297bed8edc407aeecbb48346659c3ac"
+  },
+  "sourceSHA256Matches495": {
+    "apps/desktop/src/features/agent/ContextPicker.tsx": "c3691678859b33fba683eb7f04814fc08600a599a7560b66e4ffd506e6c18229",
+    "apps/desktop/src/features/agent/AgentPanel.tsx": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953",
+    "apps/desktop/src/features/agent/store.ts": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+    "apps/desktop/src-tauri/src/agent.rs": "fe5998312c193cd5775f7e379d3d6956fe14be411958bd7dca0ab1e56964ecdc"
+  },
+  "requestLineSHA256WithoutLF": [
+    "17ad05190a81c563b9d46af7af995a96b126adab9540999ec1a0622433e47bb5",
+    "c6116e6b12cedd86a821cab9b45b0e08ce29f0dfd15e3462004fc1fc899a1169",
+    "4f43ac5caaf1bc07d7d45aa92df8e0d1d3dd6cf72c80b3630edee930563b5920"
+  ],
+  "context": {
+    "selectedLine": "export const selected = \"只附此行中文\";",
+    "scopeVisible": "A project; clean-buffer snapshot, selection line2; frozen index→disk Git diff; chat attachments versus task whole-copy scope explicitly distinct.",
+    "rawHTTP": "Second raw request matches exact selected Unicode line and frozen diff hashes, excludes three markers and has no tools. This batch uses a saved buffer; dirty-source display branch is source-supported and prior accepted native/integration buffer evidence is reused.",
+    "expectedUtf16RangeFromOwner": {
+      "fromUtf16": 38,
+      "toUtf16": 71,
+      "endExclusive": true
+    },
+    "actualSelectionEvidence": "Native complete selected-text AX and D03 line2 label; exact HTTP excerpt independently matched. No opaque-ID-derived range claimed."
+  },
+  "run": {
+    "sessionId": "9d735921-dee5-45a3-aa6f-27a6ed40741f",
+    "reviewId": "3f42cedd-c2d4-48c6-a1f0-4e40f048a016",
+    "piIdentity": {
+      "pid": 36311,
+      "ppid": 75147,
+      "start": "Sun Nov  1 18:04:45 2026",
+      "args": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/9d735921-dee5-45a3-aa6f-27a6ed40741f/session.jsonl --no-builtin-tools --tools horizon_read,horizon_list,horizon_write,horizon_exec -e /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/58453d41-2186-44c9-aca5-9a8694590d85/external/horizon-policy.ts",
+      "comm": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi",
+      "cwd": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/3f42cedd-c2d4-48c6-a1f0-4e40f048a016/worktree"
+    },
+    "basis": "GUI active task plus OS exact PID/start/parent/session argv/cwd; persisted state remains dormant/epoch0 during this live run and is not misreported as live flags. No invented runId.",
+    "ownerPostChecks": {
+      "ownedPi36311Gone": true,
+      "piZero": true,
+      "sameExternalProviderAlive": true,
+      "noModelReplay": true,
+      "originalFilesUnchanged": true,
+      "originalIndexUnchanged": true,
+      "copyPreservedUnchanged": true,
+      "sameSessionRetained": true,
+      "BStillNoSession": true
+    },
+    "externalProviderIdentityAfter": "2344 Sun Nov  1 17:47:30 2026     node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs"
+  },
+  "stop": {
+    "signalAt": "2026-11-01T10:08:17.647224+00:00",
+    "stateAfterSignal": "T",
+    "nativeObserved": {
+      "stoppingCaptureAt": "2026-11-01T10:08:33.221Z",
+      "terminalCaptureAt": "2026-11-01T10:08:56.904Z",
+      "terminalText": "已中断",
+      "draftAndTwoAttachmentsPreserved": true,
+      "reviewLinkVisible": true,
+      "captureIntervalSeconds": 23.683,
+      "timingLimit": "Tool scheduling stretched observed capture interval; do not claim an observed3–6s terminal bound or unobserved timeout/effects-unknown wording."
+    },
+    "interpretation": "Explicit Stop on exact SIGSTOP-owned Pi; actual stopping→interrupted and retained OS-gone receipt. No claim of observed3–6s latency, timeout wording or undoing side effects."
+  },
+  "limits": [
+    "All model responses use the controlled loopback protocol fixture; no live-provider quality/OAuth/real-secret claim.",
+    "Historical OS/health/file/index/copy observations are retained owner receipts, not repeated live sampling by verifier.",
+    "Persisted dormant/epoch0 during live run is not presented as a live runtime identity or invented runId.",
+    "No full AI005 disconnect/authorization/Q1 closure or full WS005/RUN001 Git branch inferred from this batch.",
+    "04a selection AX reports both document tabs selected despite actual context.ts editor; preserved AX observation, no new diagnosis."
+  ]
+}

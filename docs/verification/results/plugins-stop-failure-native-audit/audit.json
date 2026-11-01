@@ -1,0 +1,67 @@
+{
+  "recordedAt": "2026-10-31T03:27:04.803271+00:00",
+  "method": "Read actual test source and production stop helpers; validate source/log hashes and raw phase invariants; did not rerun test or operate GUI",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src-tauri/src/extensions.rs",
+      "expected": "6c34b9f69afe4193283d8f79faf088b68c705f5a7de065596c60b126079f7b87",
+      "actual": "6c34b9f69afe4193283d8f79faf088b68c705f5a7de065596c60b126079f7b87",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/extension_host.rs",
+      "expected": "0180a29b01c9c4dda746e79e90d35c5e4b1c47cf2ac76d7175e8a60782762118",
+      "actual": "0180a29b01c9c4dda746e79e90d35c5e4b1c47cf2ac76d7175e8a60782762118",
+      "matches": true
+    }
+  ],
+  "logSha256": "60d93eddd66b8488fc557a555f01eb31892c11aae1c4d1ab7e02aa63cc90cb47",
+  "rawPhases": [
+    {
+      "activationId": "18c38608-a2ab-489b-9886-f3036288020b",
+      "ownedResourceCount": 1,
+      "pid": 77809,
+      "processAlive": true,
+      "stage": "pausing"
+    },
+    {
+      "activationId": "18c38608-a2ab-489b-9886-f3036288020b",
+      "ownedResourceCount": 1,
+      "pid": 77809,
+      "policyUnchanged": true,
+      "processAlive": true,
+      "resources": [
+        {
+          "actions": [
+            "stop"
+          ],
+          "activationId": "18c38608-a2ab-489b-9886-f3036288020b",
+          "kind": "extensionRuntime",
+          "label": "local.cleanup-test.1ff67d42-b707-4987-b06b-d81b2922d69f · QuickJS",
+          "ownerExtensionId": "local.cleanup-test.1ff67d42-b707-4987-b06b-d81b2922d69f",
+          "pid": 77809,
+          "projectId": "cleanup-test-project-a",
+          "resourceId": "extension-runtime:18c38608-a2ab-489b-9886-f3036288020b",
+          "state": "stopping"
+        }
+      ],
+      "stage": "cleanupFailed"
+    },
+    {
+      "activationId": "18c38608-a2ab-489b-9886-f3036288020b",
+      "coverage": "resource cleanup only; final stop_apply policy commit is outside this test",
+      "ownedResourceCount": 0,
+      "pid": 77809,
+      "policyUnchanged": true,
+      "processAlive": false,
+      "stage": "retryResourcesReclaimed"
+    }
+  ],
+  "conclusion": "Real QuickJS child remains owned and alive across injected one-shot CLEANUP_FAILED; state pausing→cleanupFailed retains same activation/PID/policy; retry executes real kill/wait and reports zero resources/ESRCH.",
+  "limitations": [
+    "This is an injected native cleanup failure with a real live child, not an observed operating-system refusal to kill.",
+    "The test covers production state transitions and retry resource cleanup, not final extension_stop_apply policy commit.",
+    "No native GUI operation or stop-timeout screenshot was performed. Requirement-wide status remains partial."
+  ],
+  "buildScope": "New source after candidate7 bundle; test-only injection absent release. This is not a candidate7 GUI result."
+}

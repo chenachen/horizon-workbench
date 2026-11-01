@@ -1,0 +1,37 @@
+{
+  "auditedAt": "2026-10-30T19:19:48.004505+00:00",
+  "phase": "initial sampling attribution",
+  "rootPid": 68112,
+  "appHashMatchesBundleAudit": true,
+  "initialAttributedPids": [
+    68112,
+    68144,
+    68145,
+    68146,
+    68147,
+    68148
+  ],
+  "unassignedWebKitOwners": [
+    {
+      "pid": 723,
+      "owner": "Safari",
+      "started": "2026-10-17 19:19:27+08:00"
+    },
+    {
+      "pid": 2489,
+      "owner": "CC Switch",
+      "started": "2026-10-17 19:19:49+08:00"
+    },
+    {
+      "pid": 17890,
+      "owner": "WeChat",
+      "started": "2026-10-24 23:18:02+08:00"
+    }
+  ],
+  "observation": "All initial excluded WebKit candidates belong to three unrelated applications; initial included helpers directly identify Horizon68112 through macOS responsibility SPI. No missing root in first66seconds.",
+  "limitations": [
+    "Initial audit only; later Pi/development members and newly created helpers require per-phase attribution",
+    "No completion/idle-budget/leak result while sampler active",
+    "Listener/cache counts remain unavailable until actual diagnostic export"
+  ]
+}

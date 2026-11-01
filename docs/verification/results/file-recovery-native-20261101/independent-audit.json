@@ -1,0 +1,104 @@
+{
+  "auditedAt": "2026-11-01T05:06:59.009433+00:00",
+  "method": "Independent native source/test assertions, current SHA256 and retained exact RTK stdout/completion receipt review; no test rerun",
+  "reportSha256": "9863b57db8bea933ee92a79c8fdc56142aa850dafbad20cdb0454a71f6cc2e54",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src-tauri/src/files.rs",
+      "sha256": "ea837628d3ed8bba316d80d3d895846b66285111bc1e099a45731ce7405eac97",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/state.rs",
+      "sha256": "b37d373a02f174d36bf1966f0d40b897dedb94ca90f89e56e80c6a8acf09ad7a",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/watch.rs",
+      "sha256": "66623e49e2c880baf999bf91474f4bbf187b6e4adb0d40ed85112f1dbbe2bde4",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "sha256": "68cfe88fc3d955a177e700e7cd7b250cb67600f0500db4c1ffbe16fd667dd05e",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/tests/file_recovery.rs",
+      "sha256": "9b6335888434c1f4adbf69f2f1d5c0dd5f79fbe7bb8cf7a60e9bc23224897ee0",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "actualCurrentTestFunctions": [
+    "broken_link_open_retains_registered_identity_without_leaking_cross_project_file_refs",
+    "deleted_source_keeps_draft_copy_and_close_available_without_recreating_source",
+    "permission_failure_preserves_file_identity_and_metadata_only_draft_operations",
+    "actual_delete_watch_events_invalidate_documents_without_changing_clean_or_dirty_state",
+    "relocation_of_unopened_missing_file_grants_only_selected_external_file_after_confirmation",
+    "relocation_keep_buffer_preserves_full_checkpoint_identity_and_encoding_until_explicit_save",
+    "relocation_use_selected_discards_checkpoint_only_after_loading_confirmed_target",
+    "relocation_rejects_candidate_or_source_changes_and_keeps_original_checkpoint",
+    "relocation_rejects_another_open_document_and_keep_buffer_for_noneditable_candidates",
+    "relocation_use_selected_loads_full_readonly_text_after_explicit_discard_without_disk_writes",
+    "relocation_rechecks_project_epoch_and_confirmation_digest_before_association"
+  ],
+  "sourceFindings": [
+    "Real filesystem fixtures cover broken symlink owner identity, EACCES, deletion watcher invalidations, deleted draft copy/close and preservation of clean/dirty metadata.",
+    "Relocation preparation uses a native picker-selected path. No external file grant exists until confirmed association; only the selected file is granted.",
+    "Apply checks candidate disk revision, source editor/document/checkpoint identity, project epoch and digest before association.",
+    "keepBuffer retains full checkpoint text beyond truncated comparison preview, native document identity/revision/encoding/EOL and selection; restart reads the same persisted draft; target changes only on explicit later save.",
+    "useSelected loads full candidate before replacing native state and removing the old checkpoint; readonly complete text is accepted with source/target bytes and 0444 mode unchanged.",
+    "keepBuffer still rejects noneditable candidates; incomplete or unsupported candidates cannot replace a dirty buffer."
+  ],
+  "provenanceLimits": [
+    "10 file_recovery and 33 files_workflow passes refer to earlier source hashes in report.previousSourceHashes; final correction has seven relocation passes and four filtered tests, not eleven newly executed passes.",
+    "Exact RTK stdout and completed tool results are retained and independently matched. Unfiltered Cargo logs and absolute start/completion timestamps were not retained; no timings are inferred from poll wall_time_seconds.",
+    "No native application build/restart/picker/UI acceptance is claimed by these dispatch/filesystem tests."
+  ],
+  "retainedExecutions": [
+    {
+      "command": "rtk cargo test --locked --offline --test file_recovery",
+      "execSession": 78780,
+      "stdoutFile": "file-recovery-10.rtk.stdout.txt",
+      "completionReceipt": "file-recovery-10.completion.json",
+      "testDurationSeconds": 1.2,
+      "startedAt": null,
+      "completedAt": null,
+      "exitCode": 0,
+      "stdoutSha256": "659bf072ecd04dab4dc48fef91e044e1b87b2b435d865cf3d0a198292afc3bed",
+      "completionReceiptSha256": "f9fec40193474b9120dd792d65f7b29d8782af883cdfea615ca39ccc6b3fef88",
+      "actualRTKOutput": "cargo test: 10 passed (1 suite, 1.20s)\n"
+    },
+    {
+      "command": "rtk cargo test --locked --offline --test files_workflow",
+      "execSession": 73895,
+      "stdoutFile": "files-workflow-33.rtk.stdout.txt",
+      "completionReceipt": "files-workflow-33.completion.json",
+      "testDurationSeconds": 7.11,
+      "startedAt": null,
+      "completedAt": null,
+      "exitCode": 0,
+      "stdoutSha256": "319714aeeaf9dd363556635c53e0c1d4a918077cf4f42d51edd7a630a257ee82",
+      "completionReceiptSha256": "c85014096f139db1388f34752d195b47c393cc3ca3d0f38c7b7f984091be2249",
+      "actualRTKOutput": "cargo test: 33 passed (1 suite, 7.11s)\n"
+    },
+    {
+      "command": "rtk cargo test --locked --offline --test file_recovery relocation_",
+      "execSession": 66936,
+      "stdoutFile": "relocation-7.rtk.stdout.txt",
+      "completionReceipt": "relocation-7.completion.json",
+      "testDurationSeconds": 0.71,
+      "startedAt": null,
+      "completedAt": null,
+      "exitCode": 0,
+      "stdoutSha256": "5a65cdae3412d266712f0c64c3232bc325f9a5aa0fff5b298c63ce3c8bfc9b40",
+      "completionReceiptSha256": "6412d05ee8f24fb7e90052c67ba3eb1ce67684fbc0f30a002d30f7bfdb633e39",
+      "actualRTKOutput": "cargo test: 7 passed, 4 filtered out (1 suite, 0.71s)\n"
+    }
+  ],
+  "executionReceiptIndexSha256": "588bf92222a60ed3a5a07dbd8cea2e7f085c4a9bd331f15febc2a7691837e535",
+  "reportCorrection": {
+    "priorReportSha256": "92ffb8d4ae54afa3b9080ba1332ddea2dc202290e8fed3968f3920cd8307c1fc",
+    "change": "Operator corrected targetedTests to exclude Fixture::new; eleven actual test functions remain."
+  }
+}

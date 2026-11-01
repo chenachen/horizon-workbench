@@ -1,0 +1,801 @@
+{
+  "reviewedAt": "2026-11-01T12:21:44.112531+00:00",
+  "kind": "Read-only independent derivation from existing completed samples; no collector/test/product/source mutation",
+  "sourceProductAccounting": "docs/verification/results/pi-fixed-performance-20261101/product-accounting.json",
+  "sourceProductAccountingSHA256": "38d7959d4940716aec4b809e3283dc5e4d572d3680eb6d16f84eb2d455382533",
+  "scenes": [
+    {
+      "scene": 0,
+      "sampleCount": 117,
+      "observedSeconds": 125.0051,
+      "steadySampleCount": 61,
+      "steadyFirstElapsed": 60.8259,
+      "steadyLastElapsed": 125.0051,
+      "steadySpanSeconds": 64.17920000000001,
+      "checks": {
+        "raw117Steady61": true,
+        "receiptExit0": true,
+        "correctMain12ed": true,
+        "allSamplesRootPresent": true,
+        "allSamplesExactlyExpectedPiCount": true,
+        "sameHorizonSevenIdentities": true,
+        "uniquePIDNoDoubleCount": true,
+        "everyRawMemoryTotalMatchesProcesses": true,
+        "everyReportedProductExternalAndGroupMetricMatchesIndependentDerivation": true,
+        "allUnassignedResponsibilityForeign645732": true,
+        "resourcesFieldsNotInvented": true
+      },
+      "rederived": {
+        "productSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 189748312,
+            "p95": 191878232,
+            "max": 191878232,
+            "mean": 190363652.06557378
+          },
+          "rss": {
+            "count": 61,
+            "median": 520667136,
+            "p95": 522780672,
+            "max": 522911744,
+            "mean": 521284356.1967213
+          },
+          "cpu": {
+            "count": 61,
+            "median": 0.25754813568822227,
+            "p95": 0.7379690288778382,
+            "max": 0.76909830715929,
+            "mean": 0.2810297359162703
+          }
+        },
+        "productWholeWindow": {
+          "footprint": {
+            "count": 117,
+            "median": 189731928,
+            "p95": 191878232,
+            "max": 205526104,
+            "mean": 190386867.8974359
+          },
+          "rss": {
+            "count": 117,
+            "median": 520781824,
+            "p95": 523042816,
+            "max": 532463616,
+            "mean": 521491517.26495725
+          },
+          "cpu": {
+            "count": 116,
+            "median": 0.2595904816795495,
+            "p95": 0.7379690288778382,
+            "max": 13.273333261240944,
+            "mean": 0.3854280432794104
+          }
+        },
+        "externalProviderSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 26544288,
+            "p95": 26544288,
+            "max": 26544288,
+            "mean": 26544288
+          },
+          "rss": {
+            "count": 61,
+            "median": 50593792,
+            "p95": 50593792,
+            "max": 50593792,
+            "mean": 50593792
+          },
+          "cpu": {
+            "count": 61,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0.014732361007157673,
+            "mean": 0.0003086921469280137
+          }
+        },
+        "allMeasuredGroupsSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 216292600,
+            "p95": 218422520,
+            "max": 218422520,
+            "mean": 216907940.06557378
+          },
+          "rss": {
+            "count": 61,
+            "median": 571260928,
+            "p95": 573374464,
+            "max": 573505536,
+            "mean": 571878148.1967213
+          },
+          "cpu": {
+            "count": 61,
+            "median": 0.25754813568822227,
+            "p95": 0.7379690288778382,
+            "max": 0.76909830715929,
+            "mean": 0.28133842806319825
+          }
+        },
+        "groupSteady": {
+          "external-fixture-provider": {
+            "footprint": {
+              "count": 61,
+              "median": 26544288,
+              "p95": 26544288,
+              "max": 26544288,
+              "mean": 26544288
+            },
+            "rss": {
+              "count": 61,
+              "median": 50593792,
+              "p95": 50593792,
+              "max": 50593792,
+              "mean": 50593792
+            },
+            "cpu": {
+              "count": 61,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.014732361007157673,
+              "mean": 0.0003086921469280137
+            }
+          },
+          "horizon": {
+            "footprint": {
+              "count": 61,
+              "median": 189748312,
+              "p95": 191878232,
+              "max": 191878232,
+              "mean": 190363652.06557378
+            },
+            "rss": {
+              "count": 61,
+              "median": 520667136,
+              "p95": 522780672,
+              "max": 522911744,
+              "mean": 521284356.1967213
+            },
+            "cpu": {
+              "count": 61,
+              "median": 0.25754813568822227,
+              "p95": 0.7379690288778382,
+              "max": 0.76909830715929,
+              "mean": 0.2810297359162703
+            }
+          }
+        }
+      },
+      "identities": {
+        "external-fixture-provider": [
+          [
+            2344,
+            "Sun Nov 1 17:47:30 2026",
+            1104936872443
+          ]
+        ],
+        "horizon": [
+          [
+            8737,
+            "Sun Nov 1 18:41:19 2026",
+            1182423959706
+          ],
+          [
+            8808,
+            "Sun Nov 1 18:41:21 2026",
+            1182470791832
+          ],
+          [
+            8809,
+            "Sun Nov 1 18:41:21 2026",
+            1182471146960
+          ],
+          [
+            8810,
+            "Sun Nov 1 18:41:21 2026",
+            1182471238229
+          ],
+          [
+            8811,
+            "Sun Nov 1 18:41:21 2026",
+            1182475838424
+          ],
+          [
+            8812,
+            "Sun Nov 1 18:41:21 2026",
+            1182480403480
+          ],
+          [
+            20917,
+            "Sun Nov 1 18:47:40 2026",
+            1191570139610
+          ]
+        ]
+      },
+      "counts": {
+        "external-fixture-provider": [
+          1
+        ],
+        "horizon": [
+          7
+        ]
+      },
+      "foreignResponsiblePIDs": [
+        645,
+        732
+      ],
+      "sha256": {
+        "docs/verification/results/pi-fixed-performance-20261101/scene0/samples.jsonl": "fad1119e2076b099a4ba68e3a80822564e69c3c57d096a2df9b84a4968ab6b02",
+        "docs/verification/results/pi-fixed-performance-20261101/scene0/metadata.json": "d934797bbfc925e84987e16e1725bd536cd1736d0a2e4f9b4e1e0f57d675cf6a",
+        "docs/verification/results/pi-fixed-performance-20261101/scene0/summary.json": "fe17f60275231c848415141628c4fdefe77b654b2a04a9c849120ede6be1bf56",
+        "docs/verification/results/pi-fixed-performance-20261101/scene0-receipt.json": "7e5b5dfd396d0520ad4cd1d10553357b4b583987582c4916f06f3c872914d97f"
+      }
+    },
+    {
+      "scene": 1,
+      "sampleCount": 117,
+      "observedSeconds": 125.0031,
+      "steadySampleCount": 61,
+      "steadyFirstElapsed": 60.7151,
+      "steadyLastElapsed": 125.0031,
+      "steadySpanSeconds": 64.28800000000001,
+      "checks": {
+        "raw117Steady61": true,
+        "receiptExit0": true,
+        "correctMain12ed": true,
+        "allSamplesRootPresent": true,
+        "allSamplesExactlyExpectedPiCount": true,
+        "sameHorizonSevenIdentities": true,
+        "uniquePIDNoDoubleCount": true,
+        "everyRawMemoryTotalMatchesProcesses": true,
+        "everyReportedProductExternalAndGroupMetricMatchesIndependentDerivation": true,
+        "allUnassignedResponsibilityForeign645732": true,
+        "resourcesFieldsNotInvented": true
+      },
+      "rederived": {
+        "productSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 275584928,
+            "p95": 284350368,
+            "max": 285431736,
+            "mean": 277413496.13114756
+          },
+          "rss": {
+            "count": 61,
+            "median": 743489536,
+            "p95": 745373696,
+            "max": 745455616,
+            "mean": 741439655.8688525
+          },
+          "cpu": {
+            "count": 61,
+            "median": 17.583215107594402,
+            "p95": 20.87815545354282,
+            "max": 31.00178445597112,
+            "mean": 17.97149774344456
+          }
+        },
+        "productWholeWindow": {
+          "footprint": {
+            "count": 117,
+            "median": 280696736,
+            "p95": 316381112,
+            "max": 320952224,
+            "mean": 291000742.2905983
+          },
+          "rss": {
+            "count": 117,
+            "median": 733331456,
+            "p95": 745357312,
+            "max": 745455616,
+            "mean": 736291078.5641025
+          },
+          "cpu": {
+            "count": 116,
+            "median": 19.346627197963645,
+            "p95": 32.91714622138413,
+            "max": 35.762686990157036,
+            "mean": 22.368004642396365
+          }
+        },
+        "externalProviderSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 27199672,
+            "p95": 27609272,
+            "max": 27691192,
+            "mean": 27185973.901639346
+          },
+          "rss": {
+            "count": 61,
+            "median": 51249152,
+            "p95": 51658752,
+            "max": 51740672,
+            "mean": 51232768
+          },
+          "cpu": {
+            "count": 61,
+            "median": 0.2819890789963165,
+            "p95": 0.3547434920093484,
+            "max": 0.38903972375375434,
+            "mean": 0.2816175724218582
+          }
+        },
+        "allMeasuredGroupsSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 303063128,
+            "p95": 311173208,
+            "max": 312336496,
+            "mean": 304599470.0327869
+          },
+          "rss": {
+            "count": 61,
+            "median": 794624000,
+            "p95": 796327936,
+            "max": 796393472,
+            "mean": 792672423.8688525
+          },
+          "cpu": {
+            "count": 61,
+            "median": 17.872939889702867,
+            "p95": 21.267195177296575,
+            "max": 31.17724973475058,
+            "mean": 18.253115315866417
+          }
+        },
+        "groupSteady": {
+          "external-fixture-provider": {
+            "footprint": {
+              "count": 61,
+              "median": 27199672,
+              "p95": 27609272,
+              "max": 27691192,
+              "mean": 27185973.901639346
+            },
+            "rss": {
+              "count": 61,
+              "median": 51249152,
+              "p95": 51658752,
+              "max": 51740672,
+              "mean": 51232768
+            },
+            "cpu": {
+              "count": 61,
+              "median": 0.2819890789963165,
+              "p95": 0.3547434920093484,
+              "max": 0.38903972375375434,
+              "mean": 0.2816175724218582
+            }
+          },
+          "horizon": {
+            "footprint": {
+              "count": 61,
+              "median": 201331848,
+              "p95": 210048136,
+              "max": 211129504,
+              "mean": 203130602.62295082
+            },
+            "rss": {
+              "count": 61,
+              "median": 572997632,
+              "p95": 574832640,
+              "max": 574898176,
+              "mean": 570918744.1311475
+            },
+            "cpu": {
+              "count": 61,
+              "median": 8.918920538105336,
+              "p95": 10.38066705173399,
+              "max": 21.30707127522063,
+              "mean": 9.1227807052565
+            }
+          },
+          "pi-a": {
+            "footprint": {
+              "count": 61,
+              "median": 74302232,
+              "p95": 74302232,
+              "max": 74318616,
+              "mean": 74282893.50819673
+            },
+            "rss": {
+              "count": 61,
+              "median": 170541056,
+              "p95": 170541056,
+              "max": 170557440,
+              "mean": 170520911.73770493
+            },
+            "cpu": {
+              "count": 61,
+              "median": 8.581895970609452,
+              "p95": 11.2640396292479,
+              "max": 12.486909073302503,
+              "mean": 8.84871703818806
+            }
+          }
+        }
+      },
+      "identities": {
+        "external-fixture-provider": [
+          [
+            2344,
+            "Sun Nov 1 17:47:30 2026",
+            1104936872443
+          ]
+        ],
+        "horizon": [
+          [
+            8737,
+            "Sun Nov 1 18:41:19 2026",
+            1182423959706
+          ],
+          [
+            8808,
+            "Sun Nov 1 18:41:21 2026",
+            1182470791832
+          ],
+          [
+            8809,
+            "Sun Nov 1 18:41:21 2026",
+            1182471146960
+          ],
+          [
+            8810,
+            "Sun Nov 1 18:41:21 2026",
+            1182471238229
+          ],
+          [
+            8811,
+            "Sun Nov 1 18:41:21 2026",
+            1182475838424
+          ],
+          [
+            8812,
+            "Sun Nov 1 18:41:21 2026",
+            1182480403480
+          ],
+          [
+            20917,
+            "Sun Nov 1 18:47:40 2026",
+            1191570139610
+          ]
+        ],
+        "pi-a": [
+          [
+            68652,
+            "Sun Nov 1 20:05:04 2026",
+            1303016292167
+          ]
+        ]
+      },
+      "counts": {
+        "external-fixture-provider": [
+          1
+        ],
+        "horizon": [
+          7
+        ],
+        "pi-a": [
+          1
+        ]
+      },
+      "foreignResponsiblePIDs": [
+        645,
+        732
+      ],
+      "sha256": {
+        "docs/verification/results/pi-fixed-performance-20261101/scene1/samples.jsonl": "301eeaed5ccab060328abfb99a219cf9aff70b9d5ba442028bf82ba4b3a25e61",
+        "docs/verification/results/pi-fixed-performance-20261101/scene1/metadata.json": "f6f4cb926ff9e3a0ac279f1c3137846fa235fa2dbb42baef11c702a5b084d05a",
+        "docs/verification/results/pi-fixed-performance-20261101/scene1/summary.json": "409ccf7b712202e32c872d7283205b27605fb003644d2b4856b4ccb36ae378d7",
+        "docs/verification/results/pi-fixed-performance-20261101/scene1-receipt.json": "0845d1e4430684a9b5e64ab2da97170a33337236480e7ee17bcfa1194082e463"
+      }
+    },
+    {
+      "scene": 2,
+      "sampleCount": 117,
+      "observedSeconds": 125.0051,
+      "steadySampleCount": 61,
+      "steadyFirstElapsed": 60.6668,
+      "steadyLastElapsed": 125.0051,
+      "steadySpanSeconds": 64.3383,
+      "checks": {
+        "raw117Steady61": true,
+        "receiptExit0": true,
+        "correctMain12ed": true,
+        "allSamplesRootPresent": true,
+        "allSamplesExactlyExpectedPiCount": true,
+        "sameHorizonSevenIdentities": true,
+        "uniquePIDNoDoubleCount": true,
+        "everyRawMemoryTotalMatchesProcesses": true,
+        "everyReportedProductExternalAndGroupMetricMatchesIndependentDerivation": true,
+        "allUnassignedResponsibilityForeign645732": true,
+        "resourcesFieldsNotInvented": true
+      },
+      "rederived": {
+        "productSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 380263168,
+            "p95": 413227776,
+            "max": 415046400,
+            "mean": 391928299.5409836
+          },
+          "rss": {
+            "count": 61,
+            "median": 871333888,
+            "p95": 871940096,
+            "max": 871989248,
+            "mean": 871409899.0163934
+          },
+          "cpu": {
+            "count": 61,
+            "median": 30.10740218223447,
+            "p95": 43.07311338990091,
+            "max": 45.68627219681734,
+            "mean": 31.788676781315004
+          }
+        },
+        "productWholeWindow": {
+          "footprint": {
+            "count": 117,
+            "median": 412736256,
+            "p95": 422533888,
+            "max": 424434432,
+            "mean": 404848685.8119658
+          },
+          "rss": {
+            "count": 117,
+            "median": 871530496,
+            "p95": 873578496,
+            "max": 877281280,
+            "mean": 871907468.034188
+          },
+          "cpu": {
+            "count": 116,
+            "median": 35.02038933683411,
+            "p95": 42.90993211573087,
+            "max": 45.68627219681734,
+            "mean": 33.708249670043074
+          }
+        },
+        "externalProviderSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 28559544,
+            "p95": 29001912,
+            "max": 29067448,
+            "mean": 28560886.95081967
+          },
+          "rss": {
+            "count": 61,
+            "median": 51068928,
+            "p95": 51494912,
+            "max": 51560448,
+            "mean": 51067047.86885246
+          },
+          "cpu": {
+            "count": 61,
+            "median": 0.321801066773089,
+            "p95": 0.3922935810275832,
+            "max": 0.4207230011281935,
+            "mean": 0.31768979275041653
+          }
+        },
+        "allMeasuredGroupsSteady": {
+          "footprint": {
+            "count": 61,
+            "median": 408413112,
+            "p95": 441476024,
+            "max": 443458488,
+            "mean": 420489186.4918033
+          },
+          "rss": {
+            "count": 61,
+            "median": 922468352,
+            "p95": 923041792,
+            "max": 923090944,
+            "mean": 922476946.8852459
+          },
+          "cpu": {
+            "count": 61,
+            "median": 30.22843433804316,
+            "p95": 43.29618928150472,
+            "max": 46.029675121678686,
+            "mean": 32.10636657406542
+          }
+        },
+        "groupSteady": {
+          "external-fixture-provider": {
+            "footprint": {
+              "count": 61,
+              "median": 28559544,
+              "p95": 29001912,
+              "max": 29067448,
+              "mean": 28560886.95081967
+            },
+            "rss": {
+              "count": 61,
+              "median": 51068928,
+              "p95": 51494912,
+              "max": 51560448,
+              "mean": 51067047.86885246
+            },
+            "cpu": {
+              "count": 61,
+              "median": 0.321801066773089,
+              "p95": 0.3922935810275832,
+              "max": 0.4207230011281935,
+              "mean": 0.31768979275041653
+            }
+          },
+          "horizon": {
+            "footprint": {
+              "count": 61,
+              "median": 227693752,
+              "p95": 260625592,
+              "max": 262444216,
+              "mean": 240722515.80327868
+            },
+            "rss": {
+              "count": 61,
+              "median": 522092544,
+              "p95": 522665984,
+              "max": 522665984,
+              "mean": 522164794.75409836
+            },
+            "cpu": {
+              "count": 61,
+              "median": 10.882879922829906,
+              "p95": 23.28356310349807,
+              "max": 24.657472749180013,
+              "mean": 14.740996541786947
+            }
+          },
+          "pi-a": {
+            "footprint": {
+              "count": 61,
+              "median": 74580760,
+              "p95": 74597144,
+              "max": 74597144,
+              "mean": 74574582.4262295
+            },
+            "rss": {
+              "count": 61,
+              "median": 171098112,
+              "p95": 171130880,
+              "max": 171130880,
+              "mean": 171084145.3114754
+            },
+            "cpu": {
+              "count": 61,
+              "median": 8.14182440470453,
+              "p95": 11.282909072295459,
+              "max": 12.119796201513036,
+              "mean": 8.509084511319518
+            }
+          },
+          "pi-b": {
+            "footprint": {
+              "count": 61,
+              "median": 77988656,
+              "p95": 78021424,
+              "max": 78021424,
+              "mean": 76631201.31147541
+            },
+            "rss": {
+              "count": 61,
+              "median": 178159616,
+              "p95": 178192384,
+              "max": 178192384,
+              "mean": 178160958.95081967
+            },
+            "cpu": {
+              "count": 61,
+              "median": 8.321350993662382,
+              "p95": 11.077753183118585,
+              "max": 11.771017657719037,
+              "mean": 8.53859572820854
+            }
+          }
+        }
+      },
+      "identities": {
+        "external-fixture-provider": [
+          [
+            2344,
+            "Sun Nov 1 17:47:30 2026",
+            1104936872443
+          ]
+        ],
+        "horizon": [
+          [
+            8737,
+            "Sun Nov 1 18:41:19 2026",
+            1182423959706
+          ],
+          [
+            8808,
+            "Sun Nov 1 18:41:21 2026",
+            1182470791832
+          ],
+          [
+            8809,
+            "Sun Nov 1 18:41:21 2026",
+            1182471146960
+          ],
+          [
+            8810,
+            "Sun Nov 1 18:41:21 2026",
+            1182471238229
+          ],
+          [
+            8811,
+            "Sun Nov 1 18:41:21 2026",
+            1182475838424
+          ],
+          [
+            8812,
+            "Sun Nov 1 18:41:21 2026",
+            1182480403480
+          ],
+          [
+            20917,
+            "Sun Nov 1 18:47:40 2026",
+            1191570139610
+          ]
+        ],
+        "pi-a": [
+          [
+            68652,
+            "Sun Nov 1 20:05:04 2026",
+            1303016292167
+          ]
+        ],
+        "pi-b": [
+          [
+            81050,
+            "Sun Nov 1 20:11:32 2026",
+            1312337297935
+          ]
+        ]
+      },
+      "counts": {
+        "external-fixture-provider": [
+          1
+        ],
+        "horizon": [
+          7
+        ],
+        "pi-a": [
+          1
+        ],
+        "pi-b": [
+          1
+        ]
+      },
+      "foreignResponsiblePIDs": [
+        645,
+        732
+      ],
+      "sha256": {
+        "docs/verification/results/pi-fixed-performance-20261101/scene2/samples.jsonl": "7ca9520bd07121250548b69860dd03a58c1111f69166418bbf229729f22f8560",
+        "docs/verification/results/pi-fixed-performance-20261101/scene2/metadata.json": "a96e6474ecc7fd297d71fb61e2d9bcfdfff58bd51af3f601b08a1f36af4892d9",
+        "docs/verification/results/pi-fixed-performance-20261101/scene2/summary.json": "1c5037f81a13d75940bc088cc97971e8e23dd2242f4b5bb766163397a792c4fe",
+        "docs/verification/results/pi-fixed-performance-20261101/scene2-receipt.json": "e40bb180d2238e0c9884f20d3acc08190c8cbce8c1a654121c4f267d515ac029"
+      }
+    }
+  ],
+  "registration": "NOT CANONICAL YET; wait final owner09b/10a/performance/nativeStop and request16 cause frozen batch",
+  "limits": [
+    "Memory physicalfootprint sum decimalMB, not privateRSS.",
+    "Scene0 zeroPi emptychat with existingprojects/enabledfeatures is not alloff-host200MB evidence.",
+    "Scenes1/2 active10Hzstreams CPU notidle; delta notidlePi120MB.",
+    "Product excludes externalprovider per sample; medians are computed after row sums, not sum of medians.",
+    "No listener/subscription counts from resources:null.",
+    "Foreign645/732 classifications use retainedrootPS identityreview; verifier did not perform livePS.",
+    "SubsequentStop request15→16 causalHOLD separate; latestroot indicates internalcompaction checkpoint after sampling beforeStop, not classified replayfailure."
+  ]
+}

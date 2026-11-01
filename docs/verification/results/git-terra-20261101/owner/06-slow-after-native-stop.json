@@ -1,0 +1,113 @@
+{
+  "kind": "owned-slow-clone-readonly-snapshot",
+  "label": "06-slow-after-native-stop",
+  "recordedAt": "2026-11-01T15:32:36.553940+00:00",
+  "runtime": {
+    "pid": 52825,
+    "slowUrl": "http://127.0.0.1:51109/slow.git",
+    "authUrl": "http://127.0.0.1:51109/auth401.git",
+    "requests": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/http-requests.jsonl",
+    "startedAt": 1793546415.946423,
+    "externalTestProvider": true
+  },
+  "requests": [
+    {
+      "time": 1793546691.065645,
+      "path": "/auth401.git/info/refs?service=git-upload-pack",
+      "auth401": true,
+      "delayed": false
+    },
+    {
+      "time": 1793547038.324734,
+      "path": "/slow.git/info/refs?service=git-upload-pack",
+      "auth401": false,
+      "delayed": false
+    },
+    {
+      "time": 1793547038.3286002,
+      "path": "/slow.git/HEAD",
+      "auth401": false,
+      "delayed": false
+    },
+    {
+      "time": 1793547038.3330839,
+      "path": "/slow.git/objects/02/0e3ff694126641918643523f3b0fb05f988aa8",
+      "auth401": false,
+      "delayed": true
+    },
+    {
+      "time": 1793547038.333479,
+      "path": "/slow.git/objects/ab/95cb106452f5a75be81f58bf0776364985be1a",
+      "auth401": false,
+      "delayed": true
+    }
+  ],
+  "delayedObjectRequests": [
+    {
+      "time": 1793547038.3330839,
+      "path": "/slow.git/objects/02/0e3ff694126641918643523f3b0fb05f988aa8",
+      "auth401": false,
+      "delayed": true
+    },
+    {
+      "time": 1793547038.333479,
+      "path": "/slow.git/objects/ab/95cb106452f5a75be81f58bf0776364985be1a",
+      "auth401": false,
+      "delayed": true
+    }
+  ],
+  "groups": [],
+  "target": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/clone-targets/cancelled-native-clone",
+  "targetExists": false,
+  "targetEntries": [],
+  "reference": "06-slow-live.json",
+  "referenceMembers": [
+    {
+      "expected": {
+        "pid": 72951,
+        "ppid": 91087,
+        "pgid": 72951,
+        "start": "Sun Nov 1 23:30:38 2026",
+        "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-git"
+      },
+      "current": null,
+      "originalOwnedIdentityGone": true
+    },
+    {
+      "expected": {
+        "pid": 72952,
+        "ppid": 72951,
+        "pgid": 72951,
+        "start": "Sun Nov 1 23:30:38 2026",
+        "executable": "/Applications/Xcode.app/Contents/Developer/usr/bin/git"
+      },
+      "current": null,
+      "originalOwnedIdentityGone": true
+    },
+    {
+      "expected": {
+        "pid": 72953,
+        "ppid": 72952,
+        "pgid": 72951,
+        "start": "Sun Nov 1 23:30:38 2026",
+        "executable": "/Applications/Xcode.app/Contents/Developer/usr/libexec/git-core/git"
+      },
+      "current": null,
+      "originalOwnedIdentityGone": true
+    },
+    {
+      "expected": {
+        "pid": 72954,
+        "ppid": 72953,
+        "pgid": 72951,
+        "start": "Sun Nov 1 23:30:38 2026",
+        "executable": "/Applications/Xcode.app/Contents/Developer/usr/libexec/git-core/git-remote-http"
+      },
+      "current": null,
+      "originalOwnedIdentityGone": true
+    }
+  ],
+  "allOriginalOwnedIdentitiesGone": true,
+  "signalsSent": false,
+  "fixtureWrites": false
+}

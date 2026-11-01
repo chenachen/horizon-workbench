@@ -1,0 +1,86 @@
+{
+  "capturedAt": "2026-11-01T03:02:23.243524+00:00",
+  "method": "read-only persisted settings and scoped registry projection; no GUI or internal invocation",
+  "settingsSha256": "098d9b3d48e3192736691df46e26092b5c1d14e2ea36687e550ae407d89bfb0f",
+  "settingsRevision": 10,
+  "resourceOverrides": {
+    "global": {},
+    "projects": {
+      "1ad367fc-a33d-4cb8-b58b-7bea1edd9f13": {},
+      "9e5f6544-2f3e-4340-a0d4-a7c11d0fce0c": {},
+      "e1111892-92c6-4985-b285-f5dcbe4d11f3": {}
+    }
+  },
+  "effectiveForSelectedProjects": {
+    "resources.idleMinutes": 5,
+    "resources.keepRunning": false
+  },
+  "selectedProjects": [
+    {
+      "id": "e1111892-92c6-4985-b285-f5dcbe4d11f3",
+      "displayName": "Editor Resume QA",
+      "state": "active",
+      "revision": 1
+    },
+    {
+      "id": "f1e1e50c-f684-4108-ab00-cce8b200c052",
+      "displayName": "Project B",
+      "state": "sleeping",
+      "revision": 2
+    },
+    {
+      "id": "c0cdb4c1-14e2-4dd3-8408-f4e3d28c4e82",
+      "displayName": "Project C",
+      "state": "sleeping",
+      "revision": 2
+    }
+  ],
+  "sourceEvidence": [
+    {
+      "path": "apps/desktop/src-tauri/src/settings.rs",
+      "sha256": "410e1184e17b2c5a8b336ed081f4826a88c61e644cfefce9eca1196e91f1a3a4",
+      "lines": "5-9,71-74"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "sha256": "03bacc9bb96010b4fd20eae66c09f5052dbf13735d1bde22a0e312443ddc3750",
+      "lines": "210-229"
+    }
+  ],
+  "scope": "Configuration and persisted state only. Automatic transition timing is independently recorded by editor native GUI actions; these reads are not a substitute for those actions.",
+  "independentSelectedProjectRecheck": {
+    "capturedAt": "2026-11-01T03:17:18.579896+00:00",
+    "method": "independent read-only exact selected-project settings projection; app data unchanged",
+    "settingsSource": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/settings.json",
+    "settingsSha256": "6a122ec17262f63a3edd0d78e42b4bf3926b4a1f73e442e0b9cd6aa1d2f59368",
+    "settingsRevision": 11,
+    "globalResourceOverrides": {},
+    "selectedProjectPolicies": [
+      {
+        "id": "e1111892-92c6-4985-b285-f5dcbe4d11f3",
+        "displayName": "Editor Resume QA",
+        "hasProjectOverride": true,
+        "resourceOverrides": {},
+        "effectiveIdleMinutes": 5,
+        "effectiveKeepRunning": false
+      },
+      {
+        "id": "f1e1e50c-f684-4108-ab00-cce8b200c052",
+        "displayName": "Project B",
+        "hasProjectOverride": false,
+        "resourceOverrides": {},
+        "effectiveIdleMinutes": 5,
+        "effectiveKeepRunning": false
+      },
+      {
+        "id": "c0cdb4c1-14e2-4dd3-8408-f4e3d28c4e82",
+        "displayName": "Project C",
+        "hasProjectOverride": false,
+        "resourceOverrides": {},
+        "effectiveIdleMinutes": 5,
+        "effectiveKeepRunning": false
+      }
+    ]
+  },
+  "resourceOverridesInterpretation": "Original projects map includes all persisted project override entries, not only selected projects. Selected B/C IDs have no override entry and inherit global/default policy. Original snapshot preserved."
+}

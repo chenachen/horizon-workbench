@@ -1,0 +1,117 @@
+[
+  {
+    "label": "chat no tools",
+    "eventTypes": [
+      "response",
+      "agent_start",
+      "turn_start",
+      "message_start",
+      "message_end",
+      "message_update",
+      "turn_end",
+      "agent_end",
+      "agent_settled"
+    ],
+    "terminal": {
+      "type": "agent_settled",
+      "aborted": false
+    },
+    "stopReason": "stop",
+    "elapsedMs": 295
+  },
+  {
+    "label": "resume without replay",
+    "eventTypes": [
+      "response",
+      "agent_start",
+      "turn_start",
+      "message_start",
+      "message_end",
+      "message_update",
+      "turn_end",
+      "agent_end",
+      "agent_settled"
+    ],
+    "terminal": {
+      "type": "agent_settled",
+      "aborted": false
+    },
+    "stopReason": "stop",
+    "elapsedMs": 298
+  },
+  {
+    "label": "clear queue then abort",
+    "eventTypes": [
+      "response",
+      "agent_start",
+      "turn_start",
+      "message_start",
+      "message_end",
+      "message_update",
+      "queue_update",
+      "turn_end",
+      "agent_end",
+      "agent_settled"
+    ],
+    "terminal": {
+      "type": "agent_settled",
+      "aborted": true
+    },
+    "stopReason": "aborted",
+    "elapsedMs": 402
+  },
+  {
+    "label": "long Unicode response",
+    "eventTypes": [
+      "response",
+      "agent_start",
+      "turn_start",
+      "message_start",
+      "message_end",
+      "message_update",
+      "turn_end",
+      "agent_end",
+      "compaction_start",
+      "compaction_end",
+      "agent_settled"
+    ],
+    "terminal": {
+      "type": "agent_settled",
+      "aborted": false
+    },
+    "stopReason": "stop",
+    "elapsedMs": 369
+  },
+  {
+    "label": "long Unicode response integrity",
+    "utf8Bytes": 327680,
+    "sha256": "63d18a6d135b8dcb10ececc549fbb4100097343d1acbad47a482ade7aef85472",
+    "streamMatchesFinal": true
+  },
+  {
+    "label": "provider authentication failure",
+    "eventTypes": [
+      "response",
+      "agent_start",
+      "turn_start",
+      "message_start",
+      "message_end",
+      "turn_end",
+      "agent_end",
+      "agent_settled"
+    ],
+    "terminal": {
+      "type": "agent_settled",
+      "aborted": false
+    },
+    "stopReason": "error",
+    "elapsedMs": 308
+  },
+  {
+    "label": "chat tools disabled",
+    "requests": 6,
+    "noTools": true,
+    "noAutomaticContext": true,
+    "noAutomaticExtensions": true
+  }
+]

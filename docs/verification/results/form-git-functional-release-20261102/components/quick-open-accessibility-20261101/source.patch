@@ -1,0 +1,11 @@
+--- a/apps/desktop/src/App.tsx
++++ b/apps/desktop/src/App.tsx
+@@ -394,7 +394,7 @@
+       <div className="brand" data-tauri-drag-region><Orbit size={25} strokeWidth={1.6} /><span>Horizon</span></div>
+       <label className="workspace-switch"><span className="sr-only">工作区</span><select aria-label="切换工作区" value={workspaceId} onChange={e => { setSleepingSnapshot(undefined); void selectWorkspace(e.target.value); }}>{workspaces.map(w => <option value={w.id} key={w.id}>{w.name}</option>)}{!workspaces.length ? <option>工作区</option> : null}</select><ChevronDown size={13} /></label>
+       <div className="topbar-space" data-tauri-drag-region />
+-      <button className="quick-open-button" onClick={() => { if (projectId && filesEnabled) openQuickFiles(); else setModal('commands'); }}><Search size={15} /><span>搜索文件或命令</span><kbd>{shortcutDisplay(configuredShortcuts[projectId && filesEnabled ? 'file.open' : 'command.open'])}</kbd></button>
++      <button className="quick-open-button" aria-label="搜索文件或命令" onClick={() => { if (projectId && filesEnabled) openQuickFiles(); else setModal('commands'); }}><Search size={15} /><span>搜索文件或命令</span><kbd>{shortcutDisplay(configuredShortcuts[projectId && filesEnabled ? 'file.open' : 'command.open'])}</kbd></button>
+       <button className="icon-button" aria-label="切换侧栏" title={`切换侧栏 ${shortcutDisplay(configuredShortcuts['sidebar.toggle'])}`} onClick={() => { setMainPage(null); updatePanels({ sidebar: !panels.sidebar }); }}><PanelsTopLeft size={18} /></button>
+       <button className={`icon-button ${panels.ai ? 'selected' : ''}`} aria-label="AI 助手" title="AI 助手" onClick={toggleAI}><Sparkles size={18} /></button>
+       <button className={`icon-button plugin-entry ${pluginsOpen ? 'selected' : ''}`} aria-label="插件中心" title="插件中心" onClick={() => openPlugins()}><Puzzle size={18} /><span>插件</span></button>

@@ -1,0 +1,96 @@
+{
+  "readAt": "2026-11-01T14:37:47.253539+00:00",
+  "scope": "Read-only existing saved owned Q1 profile only; no imported seed/GUI/mutation/execution/probe",
+  "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+  "requestedProfileId": "profile-1793535771697-1",
+  "configurationPath": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/launch-profiles/309b0390830fa2f8f231825e6b266b5b92cf8ce39b885509a98232cd1d74ba54.json",
+  "configurationResolvedPath": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/launch-profiles/309b0390830fa2f8f231825e6b266b5b92cf8ce39b885509a98232cd1d74ba54.json",
+  "configurationFileBytes": 1767,
+  "configurationFileSha256": "43b501283da10f313c864023c5d83d2c8c61a6b0394137eebc0d9c8e2d8d5b08",
+  "matchingCount": 1,
+  "profile": {
+    "schemaVersion": 1,
+    "profileId": "profile-1793535771697-1",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 Q1 双服务 · 含子进程",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "api",
+        "title": "Q1 接口及子进程",
+        "dependsOn": [],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "api.mjs"
+          ]
+        },
+        "cwd": "q1",
+        "env": {
+          "API_PORT": "59130"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "http",
+          "url": "http://127.0.0.1:59130/health",
+          "statusCodes": [
+            200
+          ],
+          "timeoutMs": 5000
+        },
+        "onReady": null
+      },
+      {
+        "stepId": "web",
+        "title": "Q1 页面服务",
+        "dependsOn": [
+          "api"
+        ],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "web.mjs"
+          ]
+        },
+        "cwd": "q1",
+        "env": {
+          "API_PORT": "59130",
+          "WEB_PORT": "59131"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "tcp",
+          "host": "127.0.0.1",
+          "port": 59131,
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59131",
+          "autoOpenUrl": false
+        }
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  "profileCanonicalJsonSha256": "f77477cac996dedc432445fb2ef1a1ef94c7ce3f1bbd02104ed43d08d4c9df7b",
+  "actualRevision": 1,
+  "originalName": "1101 Q1 双服务 · 含子进程",
+  "expectedIdentityAndRevisionMatch": true,
+  "purpose": "SET007 native form guard card segment 2: same real saved Q1 profile before unsaved name edit",
+  "afterComparison": [
+    "configurationPath",
+    "configurationFileSha256",
+    "requestedProfileId",
+    "actualRevision",
+    "originalName",
+    "profileCanonicalJsonSha256"
+  ]
+}

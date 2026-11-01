@@ -1,0 +1,34 @@
+{
+  "kind": "new-ca71-target04-modal-stop-data-integrity-and-hook-cleanup",
+  "recordedAt": "2026-11-01T16:39:09.115798+00:00",
+  "nativeStop": "2026-11-01T16:38:22.954Z",
+  "nativeTerminal": "task stopped / outcome needs review; no stopping intermediate observed",
+  "baseline": "04-hook-installed.json",
+  "dataReceipt": "04-after-native-stop-data.json",
+  "processReceipt": "04-after-native-modal-stop.json",
+  "checks": {
+    "ownedMarker": true,
+    "HEADNoNewCommit": true,
+    "branchMain": true,
+    "indexPreserved": true,
+    "diskHashesPreserved": true,
+    "refsPreserved": true,
+    "remotePreserved": true,
+    "stashPreserved": true,
+    "onlySlowStaged": true,
+    "fourOriginalIdentitiesGone": true,
+    "noOwnedCommitProcess": true,
+    "noIndexLock": true,
+    "hookSameBytes": true
+  },
+  "allPassed": true,
+  "removedHook": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验/.git/fixture-hooks/pre-commit",
+    "sha256Before": "d0d56089557d00401fe6e1d3bc0c7f51ed91a95328b0195168b30770140ba4b6",
+    "removedAt": "2026-11-01T16:39:09.115523+00:00",
+    "absentAfter": true
+  },
+  "signalsSentByGitSol": false,
+  "pending": "late HEAD/index/remote gate strictly after 2026-11-01T16:40:29.085302Z; may overlap Process L1; no GUI wait",
+  "scope": "only owned byte-identical hook removed; index/disk/refs not modified; no commit retry"
+}

@@ -1,0 +1,613 @@
+{
+  "auditedAt": "2026-11-01T06:52:46.267974+00:00",
+  "method": "Reuse independent root48-original-image review and relevantAX-node review; verify24 capture records,72 artifact hashes/dimensions,AX excerpts,8 source hashes and metadata corrections. No GUI/test/source mutation or repeated images.",
+  "sourceReviewSha256": "b928459cc0bd2813fdef1229a9db5225f677b47f04ddb726c989270e8da4bb22",
+  "sources": [
+    {
+      "path": "apps/desktop/src/styles.css",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/0-styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138"
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/1-App.tsx",
+      "sha256": "2c7268d56013f43e8cabd50b674676356b4ecb0dcb7999ef9042b2df12721f5f"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/CodeSurface.tsx",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/2-CodeSurface.tsx",
+      "sha256": "e1a91cb76b63b2d8bf1c8dba474fb87a3e92b601fcb4bfef71a95455c87edf7e"
+    },
+    {
+      "path": "docs/ux/INTERACTION_SPEC.md",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/3-INTERACTION_SPEC.md",
+      "sha256": "9344895d4ac7649c098d083e7e86dcb4888cef82290829f9019f8c9a3251ae1d"
+    },
+    {
+      "path": "docs/ux/CUSTOMIZATION_DESIGN.md",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/4-CUSTOMIZATION_DESIGN.md",
+      "sha256": "58e86cf47016d4e6ca43872269ca482f6c1cb2e8af45bfc267d4cb3f5771b30b"
+    },
+    {
+      "path": "design/source/base.css",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/5-base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0"
+    },
+    {
+      "path": "design/source/atlas.css",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/6-atlas.css",
+      "sha256": "9566a3af7029984542edeabefb69eeff661b4c3c42da954885342a88f3121339"
+    },
+    {
+      "path": "design/source/app.js",
+      "snapshot": "docs/verification/results/workbench-focus-dark-visual-audit-20261101/7-app.js",
+      "sha256": "33f3ee778f6458411cda509441c93a58b946caa6fe07cb59cd6d41e5e96d1f5c"
+    }
+  ],
+  "records": [
+    {
+      "case": "mist/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:08:39.158Z",
+      "actualSha256": "371c92ba6057df595d0c017dae659f8584886be50f309f3e7da1c7edd1e39a0f",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "01a39b482012375bc1c65a3370720a34190b5c730afec029260e8134841c71ce",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    },
+    {
+      "case": "mist/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:08:38.513Z",
+      "actualSha256": "0a426d742e89ba0c9d921a15e5c46021d40a20ad8d0bff678e7ed1d3113bbd0f",
+      "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+      "referenceSha256": "3cd3c3388a11c1d295f356bfba8b7bd773c1d73866e1999bddabd5e27d1d5230",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "mist/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:09:32.098Z",
+      "actualSha256": "3931eb83a0262197af807839d1c26208a7962cc61fb3b04661bc8229013709b6",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "55133a8f33a1130cdb35aab7f8ebf0a681503711c79d90e79af5a35982604f7c",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    },
+    {
+      "case": "paper/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:13:38.666Z",
+      "actualSha256": "2a4f472e8c009385a12ae3e160d3daa299cee29b8f89d5b92fd8068c61416c09",
+      "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+      "referenceSha256": "47175b834113660330b109c49b9205b876abbb3219904f607a8a4414d937568a",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:14:09.270Z",
+          "files": [
+            "B01-paper.jpg",
+            "E01-paper.jpg"
+          ],
+          "field": "conditions.themeId",
+          "recorded": "mist",
+          "actual": "paper",
+          "reason": "CUA REPL closure captured prior conditions object after reassignment. UI selected暖纸, screenshot visiblypaper; rawimagesunchanged. All future captures require explicitconditionsargument."
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "paper/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:14:29.364Z",
+      "actualSha256": "a1adb6a98266fade998852213b4b1d95c1a32a629fac6535c2380af61492062c",
+      "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+      "referenceSha256": "2429bf4bc6a2f7f5446cc5885bc9ce4d07cb11e8ffa09f74a989aef447d3fcba",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "paper/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:17:11.329Z",
+      "actualSha256": "5718c731a8583a15d44c4511df094187039c6c9abecd6802f6e42e6359538341",
+      "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+      "referenceSha256": "b0792587cd1c1e0be0ed857e314a56bce5d2811f8e2eebc83166f07a2edcdecf",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "orbit/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:17:33.235Z",
+      "actualSha256": "259c70b719ebbba9eed6b02083c8b792df66c4c08df6a3d6160d868921b30550",
+      "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+      "referenceSha256": "9bd5a613f48adb24b52e7286c7df85d82e941d642a0d1a5b99529b2496bbedcf",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "condition-mismatch",
+      "conditionMismatches": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/31px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ]
+    },
+    {
+      "case": "orbit/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:17:35.194Z",
+      "actualSha256": "4fb5265f45b8ee77a13b8b65728f9a5d7cec5756df6b7baf848c3e392fc97c06",
+      "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+      "referenceSha256": "7266946d42a44cf6fb813c93bd5c4412ce9d2e36203a545a263c8c516303710a",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/31px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ]
+    },
+    {
+      "case": "orbit/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:17:34.562Z",
+      "actualSha256": "2d59795cac98aaa1597fa611250ef62457e07acfea77664240e17cae1c7c6ae7",
+      "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+      "referenceSha256": "9bd5a613f48adb24b52e7286c7df85d82e941d642a0d1a5b99529b2496bbedcf",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "condition-mismatch",
+      "conditionMismatches": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/31px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ]
+    },
+    {
+      "case": "graphite/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:18:41.046Z",
+      "actualSha256": "db2e7b8d7d0f9106323fb459bd7fb773d96da9ca200ece13378aa6ab6822a665",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "e439126e93b7b850e080b8411a9e0dba324c3a23b03336ed7de29e898423de30",
+      "effectiveDensity": "compact (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "graphite/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:18:58.467Z",
+      "actualSha256": "dd29a4f9a01785c49dff72163298e3466792de4aef372e8527d9bc47cc137c77",
+      "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+      "referenceSha256": "683aa45a952c6539ca9dd83c8d87fe54dcdb76479aa78a0821f4bcdfe99142d0",
+      "effectiveDensity": "compact (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "graphite/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:22:33.004Z",
+      "actualSha256": "cbbc655a9c693f2fff7b6649a60c8ff4c6089d3e7c59eed1d906064a384a7651",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "74b311f176d5772b8b8ae2630936376f1500fa1ea2c7355631aebc0abe878ca2",
+      "effectiveDensity": "compact (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "celadon/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:22:47.289Z",
+      "actualSha256": "5b75a4c08c8c01f1f15262b06c97ee4b6dd8517ff138756122ff275e6bf11720",
+      "axSha256": "690655ee20a9c2911c2a3cf7f1327a813614bfddf1dc3c5aced6e214843b6513",
+      "referenceSha256": "56bff0e6afdb7723cc2937ecb0122e36cba8223eff4203958d81aff80d5c7e44",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    },
+    {
+      "case": "celadon/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:22:58.607Z",
+      "actualSha256": "cf582415b1af4f938e4c4ee2134f1477fa8134e66fcad18635ea0fa33db9a6ab",
+      "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+      "referenceSha256": "b5175378fdecdc4f79271439fb06640e6699f328be3b598ed2389a2246c9e314",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "celadon/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:26:03.985Z",
+      "actualSha256": "c42e8e1bd5391b516038cdc7fbdf4eb7392d9eca15cc7cc272e47588168d9cfe",
+      "axSha256": "cd7cb4ae88448fa67482c4efe1d5e1c738d3c4834e1e9ac22f0654c55a1fa4e3",
+      "referenceSha256": "9a67be1c25b23e4cefad790cbcd4a2b3690bca5799aa982369ec79575efecd1f",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "condition-mismatch",
+      "conditionMismatches": [
+        {
+          "kind": "navigation-state",
+          "actual": "expanded project drawer",
+          "reference": "collapsed project drawer",
+          "status": "mismatch",
+          "observation": "实际更多项目区域展开到约407px，参考只有当前项目卡到约185px。深色配色仍可审，整体布局状态未对齐。"
+        }
+      ]
+    },
+    {
+      "case": "iris/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:26:10.269Z",
+      "actualSha256": "7ac79085f47706578b74747ad546b08d6fcd2a988d175577fd080cd51b4bfd90",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "298a2f0c89af1041997bd3cba5cedc1b54130f605cfa9124fa32ed29accd195b",
+      "effectiveDensity": "spacious (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "density",
+          "file": "B01-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    },
+    {
+      "case": "iris/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:26:17.574Z",
+      "actualSha256": "a9809f3f66321bb5c9338cd05bc0a0d10fed16d34742740753bd39ac0471093e",
+      "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+      "referenceSha256": "9ad667a313de8726e6959ee8f8ffab912ea9b178569ff8326dcf34433af94ceb",
+      "effectiveDensity": "spacious (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "density",
+          "file": "G04-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "iris/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:27:43.675Z",
+      "actualSha256": "4fa0cb84f0743b66a812683f1cdcaf7d86d464fa33933aa5fa0b4117cf83c0c7",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "0cd2ea5d89eb7dd59d550563597c821b219df8c88742cbb4032fcfac48adb09b",
+      "effectiveDensity": "spacious (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "density",
+          "file": "G05-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    },
+    {
+      "case": "sand/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:27:49.793Z",
+      "actualSha256": "42304df50338921467d06f3d30bebd711cd565eaa316c84ad79c2788bb6373c4",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "0e25a213bcb1f73a34502c5537c66573a63fe4298610d2a6747bd7920ab107b9",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "condition-mismatch",
+      "conditionMismatches": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/33px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ]
+    },
+    {
+      "case": "sand/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:27:51.708Z",
+      "actualSha256": "a2cb3016a54abe85082ae06329a52be697b2da4c53bc5a56362e5b19efaa3521",
+      "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+      "referenceSha256": "778e6e6571a5e7f72b961ced8111027a2437348e95415bc40a3bc0de08ac3da1",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/33px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ]
+    },
+    {
+      "case": "sand/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:29:06.375Z",
+      "actualSha256": "038b563f39896e2ff94a84f88ef25588aa6838518c124e589b085cb450f2caae",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "referenceSha256": "6e21b7266b1e99384920d7b022cee4d0c900c2f81aeb26b0af2eb96dccf55f86",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "condition-mismatch",
+      "conditionMismatches": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/33px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ]
+    },
+    {
+      "case": "aurora/B01",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:29:10.639Z",
+      "actualSha256": "5e365600f458c7c9f13d45e59ff665eec11a6ad16bc5f8e5da1e67e2676b7c63",
+      "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+      "referenceSha256": "b49fdef145c13a3cb15014c2b9e31f4cfbd2a6bf2a537a56f08b225bf65f3d41",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "density",
+          "file": "B01-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    },
+    {
+      "case": "aurora/G04",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:29:12.586Z",
+      "actualSha256": "7e5932bad29942f77a458a6c085148b698490d39fd63142a1df0f93c3833438b",
+      "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+      "referenceSha256": "15b8fbabb5f5550a12798ee129f03afb9e4a0e11625f55e0ccb9aac06959daf1",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "density",
+          "file": "G04-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "differences",
+      "conditionMismatches": []
+    },
+    {
+      "case": "aurora/G05",
+      "captureExactMatch": true,
+      "capturedAt": "2026-11-01T06:29:10.704Z",
+      "actualSha256": "ea61bfc9ade2ceda40c49d7a5aa6589b7a8cf0d8f5dde731f0905f9613ea3a5a",
+      "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+      "referenceSha256": "b49fdef145c13a3cb15014c2b9e31f4cfbd2a6bf2a537a56f08b225bf65f3d41",
+      "effectiveDensity": "comfortable (follow theme)",
+      "corrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "density",
+          "file": "G05-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "sourceReview": "pass",
+      "conditionMismatches": []
+    }
+  ],
+  "newVisualRecords": 24,
+  "passCandidateCount": 7,
+  "allPagesPassClaimed": false,
+  "explicitConditionMismatchSupport": "Navigation-state mismatches supplement, never replace or waive, viewport/theme/density/zoom checks."
+}

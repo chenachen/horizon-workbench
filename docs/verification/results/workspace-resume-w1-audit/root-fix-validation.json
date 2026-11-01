@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-11-01T03:47:23.092569+00:00",
+  "changes": [
+    "Defer active-project scrolling until parent appearance CSS applied; follow visible project identity/name/state and navigation geometry.",
+    "Differentiate denied/missing project directory; preserve original active context, present Retry/Relocate and clear availability error on recovery.",
+    "Persist session tab references by registered file identity+project ownership without requiring root availability; full file IO containment unchanged."
+  ],
+  "validation": {
+    "typescript": "npm run desktop:check exit0",
+    "nativeAccess": "agent panel_perf files_workflow project_ matched9 PASS including permission/missing tests",
+    "nativeMissingSession": "cargo test --test files_workflow session_tabs_survive_missing_root 1PASS/32filtered"
+  },
+  "pending": "New release native GUI retry/relocate, missing root normal exit, navigation layout/state changes. Current package failures retained.",
+  "sources": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "e93b06226f2af079363cd984d0d9574b055f11ec98413d577aca85e13a5b5e97"
+    },
+    {
+      "path": "apps/desktop/src/workspace.ts",
+      "sha256": "7376d0acf244e7fdc844d8880167be5020be6aef0e514caeeee3e42f67a3dea2"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/projects.rs",
+      "sha256": "d046e7f88d0b22853f36bfca2495c2bd9175837a310ca16a310c8eb4cf75f114"
+    },
+    {
+      "path": "apps/desktop/src-tauri/tests/files_workflow.rs",
+      "sha256": "893ba0f9f36d470299263d997b8f90dd2860558fc9c471292bf18e99aab1db4f"
+    }
+  ]
+}

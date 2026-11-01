@@ -1,0 +1,40 @@
+{
+  "id": "horizon.git",
+  "name": "Git",
+  "version": "0.1.0",
+  "description": "查看更改与历史，暂存、提交并处理分支与冲突。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.git.view",
+    "onCommand:horizon.git.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "project.read",
+    "project.write.reviewed",
+    "process.git"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.git.view",
+        "slot": "primarySidebar",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.git.open",
+        "title": "打开Git"
+      }
+    ]
+  }
+}

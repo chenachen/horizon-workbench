@@ -1,0 +1,43 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 确认文件的新位置
+				4 container
+					5 heading 确认文件的新位置, Value: 2
+						6 text 确认文件的新位置
+					7 button 关闭弹窗
+				8 text 原文件
+				9 text file-access-retest/dirty-source.ts
+				10 text 选择的新位置
+				11 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
+				12 text 0.0
+				13 text  KiB
+				14 text 确认文件身份后再关联。此操作不会写入所选文件。
+				15 heading 当前未保存编辑, Value: 3
+					16 text 当前未保存编辑
+				17 text export const source = "original";
+// DIRTY_RELOCATE_NATIVE_1101
+
+				18 heading 所选文件, Value: 3
+					19 text 所选文件
+				20 text export const candidate = "untouched target";
+
+				21 text “载入所选文件”会放弃当前未保存编辑。“保留当前编辑并关联”保留正文和撤销记录，之后仍需保存。
+				22 container
+					23 button 取消
+					24 button 重新选择文件…
+					25 button 保留当前编辑并关联
+					26 button 放弃当前编辑并载入
+	27 close button
+	28 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	29 minimize button
+30 menu bar
+	31 Horizon
+	32 File
+	33 Edit
+	34 View
+	35 Window
+	36 Help
+
+The focused UI element is 7 button 关闭弹窗

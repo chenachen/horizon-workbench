@@ -1,0 +1,85 @@
+{
+  "recordedAt": "2026-11-01T04:03:00Z",
+  "bundle": "bundle-final-audit.json",
+  "rootPid": 88219,
+  "fixture": ".work/native-picker-gui/fixture.json",
+  "scenarios": [
+    {
+      "kind": "folder",
+      "selected": true,
+      "cancelled": true,
+      "output": "horizon-diagnostics.json",
+      "bytes": 2244,
+      "sha256": "2e4721a5ffb482f896a5c83c6808217427999b665c0fc6df432e178fb878fa7d",
+      "evidence": [
+        "folder-ready.jpg",
+        "folder-completed.txt",
+        "folder-cancel-ready.txt",
+        "folder-cancel-completed.txt"
+      ]
+    },
+    {
+      "kind": "save",
+      "selected": true,
+      "cancelled": true,
+      "defaultFilename": "horizon-appearance.json (Finder extension hidden in field)",
+      "output": "horizon-appearance.json",
+      "bytes": 946,
+      "sha256": "4bbb8b1a80b13f2d6752a5ac918e7779ad7dfcfffab33734bac500917ece8df2",
+      "evidence": [
+        "save-default.txt",
+        "save-ready.txt",
+        "save-ready.jpg",
+        "save-completed.txt",
+        "save-cancel-completed.txt"
+      ]
+    },
+    {
+      "kind": "file",
+      "selected": true,
+      "cancelled": true,
+      "validJsonImported": true,
+      "importApplied": false,
+      "txtSelectable": false,
+      "evidence": [
+        "file-filter.txt",
+        "file-ready.txt",
+        "file-ready.jpg",
+        "file-import-settled.txt",
+        "file-import-settled.jpg",
+        "file-cancel.txt"
+      ]
+    }
+  ],
+  "hostModality": "blank blocking sheet while picker open; settings focus restored after completion, actual screenshots/AX",
+  "cmdq": {
+    "status": "failed",
+    "attempts": [
+      {
+        "key": "super+q",
+        "duration": "default"
+      },
+      {
+        "key": "super+q",
+        "durationMs": 100
+      }
+    ],
+    "observed": "Save panel remained open after both attempts; normal Cancel subsequently succeeded",
+    "evidence": [
+      "picker-cmdq.txt",
+      "picker-cmdq-settled.txt",
+      "picker-cmdq-still-open.txt",
+      "picker-after-cmdq-cancel.txt"
+    ]
+  },
+  "evidenceCaveats": [
+    "file-import-completed.* is transient host blocking sheet; settled files prove completion",
+    "CUA immediate getApp sometimes timed out; subsequent full bundle path bound actual running picker",
+    "All screenshots raw CUA JPEG; no screenshot resizing or alteration"
+  ],
+  "readingSceneRestoredAt": "2026-11-01T04:02:35.174Z",
+  "readingSceneEvidence": [
+    "reading-b-before.txt",
+    "reading-b-before.jpg"
+  ]
+}

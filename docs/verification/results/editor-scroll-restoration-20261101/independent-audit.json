@@ -1,0 +1,365 @@
+{
+  "auditedAt": "2026-11-01T04:40:11.695305+00:00",
+  "method": "Independent retainedrawresults/receipts/logs/sourcehash and finalReact/CodeMirrorharness review; no rerun",
+  "runs": {
+    "before": {
+      "receipt": {
+        "command": [
+          "node",
+          "packages/editor/tests/view-lifecycle.mjs",
+          ".work/editor-scroll-fix/before.json"
+        ],
+        "startedAt": "2026-11-01T04:30:42.555467+00:00",
+        "sourceSHA256": "19a055a18ed0ebb66c3c6ce4aeb177ba51a4c0d0bf793f6d841dfcbd4c3f92bf",
+        "pid": 66646,
+        "exitCode": 1,
+        "endedAt": "2026-11-01T04:30:45.165879+00:00"
+      },
+      "passed": false,
+      "phaseCount": 12,
+      "error": "AssertionError [ERR_ASSERTION]: scroll-a: restored viewport offset",
+      "phases": [
+        {
+          "name": "three project viewport restoration",
+          "before": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ],
+          "after": [
+            {
+              "projectId": "scroll-a",
+              "top": 0,
+              "savedTop": 0,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 0,
+              "savedTop": 0,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 4146,
+              "savedTop": 4146,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ]
+        }
+      ],
+      "rawSha256": "c34965bbcab9e9d4892335a22d2c8d84879ec6291b3276157b5947861fb5097d",
+      "receiptSha256": "ab89db2baaac984fc19e243b1ce4aae45858fc377fbd8164406df48abadb0caa",
+      "logSha256": "7968c404eb986a156dbf192e3916fe6d93ae00c143789c741aaac96dd1afa18a"
+    },
+    "after": {
+      "receipt": {
+        "command": [
+          "node",
+          "packages/editor/tests/view-lifecycle.mjs",
+          ".work/editor-scroll-fix/after.json"
+        ],
+        "startedAt": "2026-11-01T04:32:43.644599+00:00",
+        "sourceSHA256": "81784283603420b271ad335b481d7276882446c6ac5335bca9f89f0c15c075d5",
+        "pid": 70566,
+        "exitCode": 0,
+        "endedAt": "2026-11-01T04:32:45.873688+00:00"
+      },
+      "passed": true,
+      "phaseCount": 13,
+      "error": null,
+      "phases": [
+        {
+          "name": "three project viewport restoration",
+          "before": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ],
+          "after": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ]
+        }
+      ],
+      "rawSha256": "036acc7b6d54f48a0c0b8b38ac5f8b7894575497d82e7ce6bc3550f4fceaf177",
+      "receiptSha256": "ace17731c230249cecf18722bd63b057c39a2847e0a1ec4d9fa29d0ca69a066e",
+      "logSha256": "b7332bc16ef8873aadc57c3a0d327092da06f40019c26847404baff68e3a22b5"
+    },
+    "cold-before": {
+      "receipt": {
+        "command": [
+          "node",
+          "packages/editor/tests/view-lifecycle.mjs",
+          ".work/editor-scroll-fix/cold-before.json"
+        ],
+        "startedAt": "2026-11-01T04:34:13.247510+00:00",
+        "sourceSHA256": "81784283603420b271ad335b481d7276882446c6ac5335bca9f89f0c15c075d5",
+        "pid": 73572,
+        "exitCode": 1,
+        "endedAt": "2026-11-01T04:34:15.516669+00:00"
+      },
+      "passed": false,
+      "phaseCount": 14,
+      "error": "AssertionError [ERR_ASSERTION]: persisted session: restored viewport offset",
+      "phases": [
+        {
+          "name": "three project viewport restoration",
+          "before": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ],
+          "after": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "persisted session viewport restoration",
+          "expected": 1800,
+          "top": 3243,
+          "selection": {
+            "anchor": 200,
+            "head": 205
+          }
+        }
+      ],
+      "rawSha256": "48fe99c31bc61399d000b529a6f169b5e331aedc6d524de523a25a42a68b706a",
+      "receiptSha256": "4d34d3ba685f82e857e698dc1ada3f0ba18cad1cf7d504964e14bcf1ac94fb97",
+      "logSha256": "d2d8d91b566e320163d5186b9fe061d17782d2a9d80621e5237436d4d4653197"
+    },
+    "cold-after": {
+      "receipt": {
+        "command": [
+          "node",
+          "packages/editor/tests/view-lifecycle.mjs",
+          ".work/editor-scroll-fix/cold-after.json"
+        ],
+        "startedAt": "2026-11-01T04:34:44.949408+00:00",
+        "sourceSHA256": "e889979ec35877fc22bf631890d17835fc0c1e5fc541c9aa2416257f2e1c460e",
+        "pid": 74613,
+        "exitCode": 0,
+        "endedAt": "2026-11-01T04:34:47.249667+00:00"
+      },
+      "passed": true,
+      "phaseCount": 15,
+      "error": null,
+      "phases": [
+        {
+          "name": "three project viewport restoration",
+          "before": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ],
+          "after": [
+            {
+              "projectId": "scroll-a",
+              "top": 700,
+              "savedTop": 700,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-b",
+              "top": 1450,
+              "savedTop": 1450,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            },
+            {
+              "projectId": "scroll-c",
+              "top": 2300,
+              "savedTop": 2300,
+              "selection": {
+                "anchor": 0,
+                "head": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "persisted session viewport restoration",
+          "expected": 1800,
+          "top": 1800,
+          "selection": {
+            "anchor": 200,
+            "head": 205
+          }
+        }
+      ],
+      "rawSha256": "220ce9c0b5e5240e390665c22f67218e99d79c0784c5fc2203e6e0d022884818",
+      "receiptSha256": "f4665d7990663f33d0307dda8fc141fffd94891657bb9b31672e8293d5ca0c45",
+      "logSha256": "a7d617177d48ae545c767522ef81cc91d300502291db9e2d2fcf8d7ff2d5b8c9"
+    }
+  },
+  "finalSourceSha256": "e889979ec35877fc22bf631890d17835fc0c1e5fc541c9aa2416257f2e1c460e",
+  "finalHarnessSha256": "142ef7d1677fb9ace660d260633e87a6eb06e6383800691891d0569f00b9f962",
+  "actualHarnessScope": "HeadlessChromium rendersproductionReact CodeSurface andrealCodeMirror; transportdocumentresponsesarecontrolledfixtures. WarmcaseusesphysicalDOMscroll offsets andrealprojectrender transitions, includingemptyfirstdocument; coldcasecreatesfreshprojectsessionfields thenrealrestoreProjectSession. Thisisnotnativeapp/relaunch/performanceevidence.",
+  "sourceFinding": "Visibleviewport capturedbeforehosthides; hidden/detachedgeometrydoesnotzero savedposition. CachedscrollSnapshot restoredthroughCM effect andmappedthrough edits; freshsessionpixeloffset appliedinrequestMeasure afterresetoutgoinganchor.",
+  "limits": [
+    "Currentnativebundle21917/abc31e remainsunchanged andpriorWS005scrollfailure remainsactive.",
+    "Nextnativepackage musttargetthreeprojectscroll/fullselection, realrestartrestoration andone relatedhot24 timing; no readingA/B rerunimplied.",
+    "Fourexternalheadlesstestruns are not Horizonprocess samples orfixedidlebudgetwindows."
+  ]
+}

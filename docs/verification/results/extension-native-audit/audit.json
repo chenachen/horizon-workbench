@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-10-30T18:42:26.489798+00:00",
+  "method": "Independent result and complete native driver review; no repeated execution",
+  "producer": "extension_host",
+  "rawSha256": "e3fb37eb5b3bb717737b27abd7a17b70647bf6c66de752b618c0e6fc558bb50e",
+  "sourceSha256": {
+    "apps/desktop/src-tauri/examples/extension_smoke.rs": "f0f714634647f3cb64db10108eef5413b3916af008b6207e9e6a8cc8170a453f",
+    "apps/desktop/src-tauri/src/extension_host.rs": "1e5039b37dbd15d3261194fbd4fac711cf62060f6e3d0cddf4abf86332e35072",
+    "apps/desktop/src-tauri/src/extensions.rs": "ac338bc0d79cd4f1bf64869a283f8d0d3a42415ed90cd84f24c63cd2c1edf93b"
+  },
+  "runtime": "Actual tauri::Builder default AppHandle, no windows; production native dispatch and QuickJS/Git processes",
+  "result": {
+    "steps": 9,
+    "durationMs": 2182,
+    "ownedGitCleanupMs": 197,
+    "remainingSidecars": 0,
+    "remainingGit": 0,
+    "remainingOwnedPids": 0
+  },
+  "assertions": [
+    "Explicit grants required for ZIP install; installed/stopped has zero runtime processes",
+    "A/B distinct native QuickJS activations receive true project-specific Git view events",
+    "Pause A reaps its PID, preserves B refresh; resume gives new activation ID",
+    "HostState recreation plus extensions::initialize reload persisted pause; blocks implicit activation until resume",
+    "Global disable clears both processes; project enabled override cannot bypass it",
+    "Infinite CPU loop faults A while its actual slow Git request and two descendants are in flight; all owned request processes exit; same extension B echo and read-only-change refresh stay working",
+    "Uninstall removes sample package/tombstone and all tracked PIDs",
+    "Default Git package deletion persists initialize; explicit restore reads original project status"
+  ],
+  "limits": [
+    "HostState/registry reinitialization occurs inside one smoke process; not OS app quit/relaunch",
+    "Event listener is native AppHandle; no WebView view rendering, browser subscriptions or visible command lifecycle proved",
+    "197 ms includes failure command, cleanup wait, B echo/refresh and reporting; single sample, not isolated cancellation latency/P95",
+    "Git wrapper injects 20-second status delay then delegates to real system Git",
+    "Failure isolation proves other QuickJS project and Git call survive; independent native file/editor GUI responsiveness remains untested",
+    "Source hash records reviewed version; native report does not bind exact executable hash"
+  ]
+}

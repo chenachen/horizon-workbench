@@ -1,0 +1,873 @@
+{
+  "auditedAt": "2026-11-01T04:08:16.952487+00:00",
+  "rootPid": 88219,
+  "rootStart": "Sun Nov 1 11:51:37 2026",
+  "testedBundleAudit": {
+    "capturedAt": "2026-11-01T03:51:27.499363+00:00",
+    "signature": "ad-hoc local; not Developer ID/not notarized",
+    "files": [
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+        "bytes": 19778608,
+        "sha256": "d77ced715ee3c3b78d87e552138fc37d33ad9f70027423c0368bdff1c6a53d20",
+        "mtime": "2026-11-01T03:51:15.067365+00:00"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+        "bytes": 167456,
+        "sha256": "1fcf424a0bde9cf1eeba84c42f5a3035913b0644fcf26d502725f7ab350dc178",
+        "mtime": "2026-11-01T03:47:45.428858+00:00"
+      }
+    ],
+    "outerStrictVerifyExitCode": 0
+  },
+  "binarySha256AtLaterAudit": "abc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+  "binaryBytesAtLaterAudit": 19778608,
+  "pickerBinarySha256AtLaterAudit": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101",
+  "pickerBinaryBytesAtLaterAudit": 166816,
+  "laterBundleMutation": "After B ended and native root88219 quit, parent integrated CmdQ menu helper and re-signed outer bundle; later hashes are not the measured A/B bundle. Tested identities/hashes preserved in original bundle-final-audit and A/B metadata.",
+  "units": "MB is decimal bytes / 1,000,000; raw bytes retained. CPU is percentage of one core.",
+  "readingAB": {
+    "A": {
+      "actualCollectorExitCode": 0,
+      "metadataCapturedAt": "2026-11-01T03:53:09Z",
+      "rawSampleCount": 117,
+      "observedDurationSeconds": 125.0053,
+      "postWarmupSampleCount": 61,
+      "postWarmupObservedSeconds": 64.5849,
+      "postWarmupFootprintMeanBytes": 144290888.6557377,
+      "postWarmupFootprintMeanMBDecimal": 144.2908886557377,
+      "postWarmupFootprintP95MBDecimal": 144.592784,
+      "postWarmupCpuMeanPercentOneCore": 0.36026318824254583,
+      "postWarmupCpuP95PercentOneCore": 0.6851737364921435,
+      "postWarmupCpuMaxPercentOneCore": 3.723442110515836,
+      "missingRootRows": 0,
+      "identities": [
+        {
+          "pid": 88219,
+          "start": "Sun Nov 1 11:51:37 2026",
+          "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88286,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88287,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88288,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88289,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88290,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+          "sampleCount": 117
+        }
+      ],
+      "foreignWebKit": [
+        {
+          "pid": 863,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "responsiblePid": 645
+        },
+        {
+          "pid": 891,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "responsiblePid": 645
+        },
+        {
+          "pid": 909,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 645
+        },
+        {
+          "pid": 929,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1364,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1365,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1427,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1517,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 732
+        }
+      ],
+      "scene": "reading10000-five184320B-gitready-iris-mist-before-any-picker",
+      "phaseValues": [
+        "reading-a-before-any-picker"
+      ],
+      "binarySha256": "d77ced715ee3c3b78d87e552138fc37d33ad9f70027423c0368bdff1c6a53d20",
+      "rawFileHashes": {
+        "metadata.json": "13785f2d2fd722e8ff575e7789455d554583b045d3b2bde4513c77070c15a8ea",
+        "samples.jsonl": "1191b98328cdda364cb64666b76bf12a22322ccfa0f8928990b339fd07e0ce0d",
+        "summary.json": "1d9a52e65570d4e4538ccd645b3e6021afd838f8aec8a6507780209c31107588"
+      }
+    },
+    "B": {
+      "actualCollectorExitCode": 0,
+      "metadataCapturedAt": "2026-11-01T04:03:11Z",
+      "rawSampleCount": 117,
+      "observedDurationSeconds": 125.0051,
+      "postWarmupSampleCount": 61,
+      "postWarmupObservedSeconds": 64.5644,
+      "postWarmupFootprintMeanBytes": 151626963.80327868,
+      "postWarmupFootprintMeanMBDecimal": 151.6269638032787,
+      "postWarmupFootprintP95MBDecimal": 151.65436,
+      "postWarmupCpuMeanPercentOneCore": 0.21822459914632275,
+      "postWarmupCpuP95PercentOneCore": 0.5888202261262557,
+      "postWarmupCpuMaxPercentOneCore": 0.7937845501241197,
+      "missingRootRows": 0,
+      "identities": [
+        {
+          "pid": 88219,
+          "start": "Sun Nov 1 11:51:37 2026",
+          "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88286,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88287,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88288,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88289,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+          "sampleCount": 117
+        },
+        {
+          "pid": 88290,
+          "start": "Sun Nov 1 11:51:39 2026",
+          "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+          "sampleCount": 117
+        }
+      ],
+      "foreignWebKit": [
+        {
+          "pid": 863,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "responsiblePid": 645
+        },
+        {
+          "pid": 891,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "responsiblePid": 645
+        },
+        {
+          "pid": 909,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 645
+        },
+        {
+          "pid": 929,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1364,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1365,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1427,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 732
+        },
+        {
+          "pid": 1517,
+          "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "responsiblePid": 732
+        }
+      ],
+      "scene": "reading10000-five184320B-gitready-iris-mist-after-seven-picker-lifetimes",
+      "phaseValues": [
+        "reading-b-after-seven-picker-lifetimes"
+      ],
+      "binarySha256": "d77ced715ee3c3b78d87e552138fc37d33ad9f70027423c0368bdff1c6a53d20",
+      "rawFileHashes": {
+        "metadata.json": "0808f6d2e177befb9c8a8177542b458f527772a363fc2ae8e9e000a72419a57f",
+        "samples.jsonl": "56f6111c758f7f610ddad57a5b571a11a62d261cc959422382b88781583334d9",
+        "summary.json": "a4a157db594b8b624197a87e434d4db3ac3757ca45570423de7ff2a337298a01"
+      }
+    }
+  },
+  "postWarmupFootprintChangeMBDecimal": 7.33607514754101,
+  "sharedConditions": "Same release process, 1280x800, horizon.layout.iris (卡片分区), Mistlight light, reading-project 10000 clean tracked paths, five clean 184320B TypeScript tabs, hot-4 active after Git ready. No active Pi/PTY/launcher.",
+  "conditionDifferences": [
+    "Seven actual picker lifetimes and export/import work occurred between A and B.",
+    "One imported preset added but not applied; backend settings state is not identical.",
+    "A original metadata used obsolete display label 圆角表达; exact layout ID and actual scene stayed iris. Original retained, corrected control/audit separate."
+  ],
+  "nativeReview": {
+    "independentlyViewedOriginals": [
+      "reading-a-before.jpg",
+      "reading-a-after.jpg",
+      "reading-b-before.jpg",
+      "folder-parent-blocked.jpg",
+      "folder-ready.jpg",
+      "folder-completed.jpg",
+      "save-ready.jpg",
+      "save-completed.jpg",
+      "file-ready.jpg",
+      "file-import-settled.jpg",
+      "picker-cmdq-settled.jpg"
+    ],
+    "readingB": "Five clean tabs and hot-4 active in same card/Mistlight editor; root confirmed freeze throughout B actual exit0. No B after screenshot claimed.",
+    "modality": "Host blocked by blank native sheet while child picker owns foreground; after selection/cancel, AX focus returns to Settings container.",
+    "import": "Actual selected JSON import adds third saved preset; settled AX says click Apply to take effect. Earlier file-import-completed is transient blank sheet.",
+    "filter": "TXT visibly dimmed; original AX after TXT attempt keeps Open disabled; valid JSON can be opened.",
+    "cmdqFailure": "Two operator-issued CmdQ attempts (default and 100ms) left Save panel open; native AX proves it remained. Normal Cancel succeeded later. No quit pass inferred."
+  },
+  "pickerLifecycle": {
+    "actualCollectorExitCode": 0,
+    "samples": 393,
+    "observedSeconds": 423.81509562499923,
+    "allIdentities": 39,
+    "baselineAttributed": 6,
+    "baselineForeign": 5,
+    "newPickerChildren": 7,
+    "newAppleServices": 21,
+    "allNewGoneAtEnd": true,
+    "rootPresentEverySample": true,
+    "lastRecordedAt": "2026-11-01T04:03:00.016851+00:00",
+    "cases": [
+      {
+        "case": "folder selected",
+        "childPid": 99726,
+        "identities": [
+          {
+            "pid": 99726,
+            "start": "Sun Nov 1 11:57:22 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:57:23.020389+00:00",
+            "firstElapsedSeconds": 86.7643,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 42,
+            "lastObservedAt": "2026-11-01T03:58:07.445976+00:00",
+            "lastElapsedSeconds": 131.1612,
+            "firstObservedGoneAt": "2026-11-01T03:58:08.525645+00:00",
+            "firstObservedGoneElapsedSeconds": 132.249,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 99727,
+            "start": "Sun Nov 1 11:57:22 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:57:23.020389+00:00",
+            "firstElapsedSeconds": 86.7643,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 42,
+            "lastObservedAt": "2026-11-01T03:58:07.445976+00:00",
+            "lastElapsedSeconds": 131.1612,
+            "firstObservedGoneAt": "2026-11-01T03:58:08.525645+00:00",
+            "firstObservedGoneElapsedSeconds": 132.249,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 99728,
+            "start": "Sun Nov 1 11:57:22 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:57:23.020389+00:00",
+            "firstElapsedSeconds": 86.7643,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 42,
+            "lastObservedAt": "2026-11-01T03:58:07.445976+00:00",
+            "lastElapsedSeconds": 131.1612,
+            "firstObservedGoneAt": "2026-11-01T03:58:08.525645+00:00",
+            "firstObservedGoneElapsedSeconds": 132.249,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 99796,
+            "start": "Sun Nov 1 11:57:23 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:57:24.112949+00:00",
+            "firstElapsedSeconds": 87.8233,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 41,
+            "lastObservedAt": "2026-11-01T03:58:07.445976+00:00",
+            "lastElapsedSeconds": 131.1612,
+            "firstObservedGoneAt": "2026-11-01T03:58:08.525645+00:00",
+            "firstObservedGoneElapsedSeconds": 132.249,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      },
+      {
+        "case": "folder cancelled",
+        "childPid": 5326,
+        "identities": [
+          {
+            "pid": 5326,
+            "start": "Sun Nov 1 11:59:52 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:59:53.423594+00:00",
+            "firstElapsedSeconds": 237.1666,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 24,
+            "lastObservedAt": "2026-11-01T04:00:18.269150+00:00",
+            "lastElapsedSeconds": 262.011,
+            "firstObservedGoneAt": "2026-11-01T04:00:19.355525+00:00",
+            "firstObservedGoneElapsedSeconds": 263.0721,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 5328,
+            "start": "Sun Nov 1 11:59:52 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:59:53.423594+00:00",
+            "firstElapsedSeconds": 237.1666,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 24,
+            "lastObservedAt": "2026-11-01T04:00:18.269150+00:00",
+            "lastElapsedSeconds": 262.011,
+            "firstObservedGoneAt": "2026-11-01T04:00:19.355525+00:00",
+            "firstObservedGoneElapsedSeconds": 263.0721,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 5396,
+            "start": "Sun Nov 1 11:59:52 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:59:53.423594+00:00",
+            "firstElapsedSeconds": 237.1666,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 24,
+            "lastObservedAt": "2026-11-01T04:00:18.269150+00:00",
+            "lastElapsedSeconds": 262.011,
+            "firstObservedGoneAt": "2026-11-01T04:00:19.355525+00:00",
+            "firstObservedGoneElapsedSeconds": 263.0721,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 5398,
+            "start": "Sun Nov 1 11:59:53 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T03:59:54.502841+00:00",
+            "firstElapsedSeconds": 238.2266,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 23,
+            "lastObservedAt": "2026-11-01T04:00:18.269150+00:00",
+            "lastElapsedSeconds": 262.011,
+            "firstObservedGoneAt": "2026-11-01T04:00:19.355525+00:00",
+            "firstObservedGoneElapsedSeconds": 263.0721,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      },
+      {
+        "case": "save selected",
+        "childPid": 6552,
+        "identities": [
+          {
+            "pid": 6552,
+            "start": "Sun Nov 1 12:00:27 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:00:28.036042+00:00",
+            "firstElapsedSeconds": 271.7794,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 26,
+            "lastObservedAt": "2026-11-01T04:00:55.105471+00:00",
+            "lastElapsedSeconds": 298.8183,
+            "firstObservedGoneAt": "2026-11-01T04:00:56.171922+00:00",
+            "firstObservedGoneElapsedSeconds": 299.9085,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 6554,
+            "start": "Sun Nov 1 12:00:27 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:00:28.036042+00:00",
+            "firstElapsedSeconds": 271.7794,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 26,
+            "lastObservedAt": "2026-11-01T04:00:55.105471+00:00",
+            "lastElapsedSeconds": 298.8183,
+            "firstObservedGoneAt": "2026-11-01T04:00:56.171922+00:00",
+            "firstObservedGoneElapsedSeconds": 299.9085,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 6555,
+            "start": "Sun Nov 1 12:00:27 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:00:28.036042+00:00",
+            "firstElapsedSeconds": 271.7794,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 26,
+            "lastObservedAt": "2026-11-01T04:00:55.105471+00:00",
+            "lastElapsedSeconds": 298.8183,
+            "firstObservedGoneAt": "2026-11-01T04:00:56.171922+00:00",
+            "firstObservedGoneElapsedSeconds": 299.9085,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 6557,
+            "start": "Sun Nov 1 12:00:28 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:00:29.120416+00:00",
+            "firstElapsedSeconds": 272.8387,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 25,
+            "lastObservedAt": "2026-11-01T04:00:55.105471+00:00",
+            "lastElapsedSeconds": 298.8183,
+            "firstObservedGoneAt": "2026-11-01T04:00:56.171922+00:00",
+            "firstObservedGoneElapsedSeconds": 299.9085,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      },
+      {
+        "case": "save cancelled",
+        "childPid": 7622,
+        "identities": [
+          {
+            "pid": 7622,
+            "start": "Sun Nov 1 12:00:59 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:00.479538+00:00",
+            "firstElapsedSeconds": 304.2198,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 7,
+            "lastObservedAt": "2026-11-01T04:01:06.898222+00:00",
+            "lastElapsedSeconds": 310.6397,
+            "firstObservedGoneAt": "2026-11-01T04:01:07.984833+00:00",
+            "firstObservedGoneElapsedSeconds": 311.7016,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 7623,
+            "start": "Sun Nov 1 12:00:59 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:00.479538+00:00",
+            "firstElapsedSeconds": 304.2198,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 7,
+            "lastObservedAt": "2026-11-01T04:01:06.898222+00:00",
+            "lastElapsedSeconds": 310.6397,
+            "firstObservedGoneAt": "2026-11-01T04:01:07.984833+00:00",
+            "firstObservedGoneElapsedSeconds": 311.7016,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 7624,
+            "start": "Sun Nov 1 12:01:00 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:00.479538+00:00",
+            "firstElapsedSeconds": 304.2198,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 7,
+            "lastObservedAt": "2026-11-01T04:01:06.898222+00:00",
+            "lastElapsedSeconds": 310.6397,
+            "firstObservedGoneAt": "2026-11-01T04:01:07.984833+00:00",
+            "firstObservedGoneElapsedSeconds": 311.7016,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 7626,
+            "start": "Sun Nov 1 12:01:00 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:01.540975+00:00",
+            "firstElapsedSeconds": 305.2825,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 6,
+            "lastObservedAt": "2026-11-01T04:01:06.898222+00:00",
+            "lastElapsedSeconds": 310.6397,
+            "firstObservedGoneAt": "2026-11-01T04:01:07.984833+00:00",
+            "firstObservedGoneElapsedSeconds": 311.7016,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      },
+      {
+        "case": "file imported without apply",
+        "childPid": 7908,
+        "identities": [
+          {
+            "pid": 7908,
+            "start": "Sun Nov 1 12:01:08 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:09.041887+00:00",
+            "firstElapsedSeconds": 312.7879,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 19,
+            "lastObservedAt": "2026-11-01T04:01:28.394607+00:00",
+            "lastElapsedSeconds": 332.1404,
+            "firstObservedGoneAt": "2026-11-01T04:01:29.475656+00:00",
+            "firstObservedGoneElapsedSeconds": 333.1944,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 7909,
+            "start": "Sun Nov 1 12:01:08 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:09.041887+00:00",
+            "firstElapsedSeconds": 312.7879,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 19,
+            "lastObservedAt": "2026-11-01T04:01:28.394607+00:00",
+            "lastElapsedSeconds": 332.1404,
+            "firstObservedGoneAt": "2026-11-01T04:01:29.475656+00:00",
+            "firstObservedGoneElapsedSeconds": 333.1944,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 7910,
+            "start": "Sun Nov 1 12:01:08 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:09.041887+00:00",
+            "firstElapsedSeconds": 312.7879,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 19,
+            "lastObservedAt": "2026-11-01T04:01:28.394607+00:00",
+            "lastElapsedSeconds": 332.1404,
+            "firstObservedGoneAt": "2026-11-01T04:01:29.475656+00:00",
+            "firstObservedGoneElapsedSeconds": 333.1944,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 7916,
+            "start": "Sun Nov 1 12:01:09 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:10.128800+00:00",
+            "firstElapsedSeconds": 313.845,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 18,
+            "lastObservedAt": "2026-11-01T04:01:28.394607+00:00",
+            "lastElapsedSeconds": 332.1404,
+            "firstObservedGoneAt": "2026-11-01T04:01:29.475656+00:00",
+            "firstObservedGoneElapsedSeconds": 333.1944,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      },
+      {
+        "case": "file cancelled",
+        "childPid": 9011,
+        "identities": [
+          {
+            "pid": 9011,
+            "start": "Sun Nov 1 12:01:41 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:41.375690+00:00",
+            "firstElapsedSeconds": 345.0909,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 6,
+            "lastObservedAt": "2026-11-01T04:01:46.753173+00:00",
+            "lastElapsedSeconds": 350.4935,
+            "firstObservedGoneAt": "2026-11-01T04:01:47.846608+00:00",
+            "firstObservedGoneElapsedSeconds": 351.5563,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 9012,
+            "start": "Sun Nov 1 12:01:41 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:41.375690+00:00",
+            "firstElapsedSeconds": 345.0909,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 6,
+            "lastObservedAt": "2026-11-01T04:01:46.753173+00:00",
+            "lastElapsedSeconds": 350.4935,
+            "firstObservedGoneAt": "2026-11-01T04:01:47.846608+00:00",
+            "firstObservedGoneElapsedSeconds": 351.5563,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 9013,
+            "start": "Sun Nov 1 12:01:41 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:41.375690+00:00",
+            "firstElapsedSeconds": 345.0909,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 6,
+            "lastObservedAt": "2026-11-01T04:01:46.753173+00:00",
+            "lastElapsedSeconds": 350.4935,
+            "firstObservedGoneAt": "2026-11-01T04:01:47.846608+00:00",
+            "firstObservedGoneElapsedSeconds": 351.5563,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 9087,
+            "start": "Sun Nov 1 12:01:42 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:42.431010+00:00",
+            "firstElapsedSeconds": 346.1788,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 5,
+            "lastObservedAt": "2026-11-01T04:01:46.753173+00:00",
+            "lastElapsedSeconds": 350.4935,
+            "firstObservedGoneAt": "2026-11-01T04:01:47.846608+00:00",
+            "firstObservedGoneElapsedSeconds": 351.5563,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      },
+      {
+        "case": "save CmdQ ineffective then normal Cancel",
+        "childPid": 9580,
+        "identities": [
+          {
+            "pid": 9580,
+            "start": "Sun Nov 1 12:01:56 2026",
+            "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:57.558083+00:00",
+            "firstElapsedSeconds": 361.3031,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 30,
+            "lastObservedAt": "2026-11-01T04:02:28.804221+00:00",
+            "lastElapsedSeconds": 392.5108,
+            "firstObservedGoneAt": "2026-11-01T04:02:29.879868+00:00",
+            "firstObservedGoneElapsedSeconds": 393.6035,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 9581,
+            "start": "Sun Nov 1 12:01:56 2026",
+            "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:57.558083+00:00",
+            "firstElapsedSeconds": 361.3031,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 30,
+            "lastObservedAt": "2026-11-01T04:02:28.804221+00:00",
+            "lastElapsedSeconds": 392.5108,
+            "firstObservedGoneAt": "2026-11-01T04:02:29.879868+00:00",
+            "firstObservedGoneElapsedSeconds": 393.6035,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 9582,
+            "start": "Sun Nov 1 12:01:57 2026",
+            "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:57.558083+00:00",
+            "firstElapsedSeconds": 361.3031,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 30,
+            "lastObservedAt": "2026-11-01T04:02:28.804221+00:00",
+            "lastElapsedSeconds": 392.5108,
+            "firstObservedGoneAt": "2026-11-01T04:02:29.879868+00:00",
+            "firstObservedGoneElapsedSeconds": 393.6035,
+            "absentAtEnd": true
+          },
+          {
+            "pid": 9584,
+            "start": "Sun Nov 1 12:01:57 2026",
+            "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+            "presentAtBaseline": false,
+            "firstResponsiblePid": 88219,
+            "firstObservedAt": "2026-11-01T04:01:58.645811+00:00",
+            "firstElapsedSeconds": 362.3612,
+            "responsibilityValues": [
+              88219
+            ],
+            "observations": 29,
+            "lastObservedAt": "2026-11-01T04:02:28.804221+00:00",
+            "lastElapsedSeconds": 392.5108,
+            "firstObservedGoneAt": "2026-11-01T04:02:29.879868+00:00",
+            "firstObservedGoneElapsedSeconds": 393.6035,
+            "absentAtEnd": true
+          }
+        ],
+        "mapping": "Chronological native GUI sequence independently confirmed by root operator; sampled observation bounds are not exact click times"
+      }
+    ]
+  },
+  "actualExportsIndependentlyReadAndHashed": [
+    {
+      "source": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-native-picker-20261101-2mgneznk/diagnostics/horizon-diagnostics.json",
+      "bytes": 2244,
+      "sha256": "2e4721a5ffb482f896a5c83c6808217427999b665c0fc6df432e178fb878fa7d",
+      "topLevelKeys": [
+        "diagnostics",
+        "exportedAt",
+        "schemaVersion"
+      ]
+    },
+    {
+      "source": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-native-picker-20261101-2mgneznk/presets/horizon-appearance.json",
+      "bytes": 946,
+      "sha256": "4bbb8b1a80b13f2d6752a5ac918e7779ad7dfcfffab33734bac500917ece8df2",
+      "topLevelKeys": [
+        "assets",
+        "name",
+        "packageRefs",
+        "schemaVersion",
+        "values"
+      ]
+    }
+  ],
+  "limits": [
+    "One-second scans may miss shorter-lived identities; liveness bounds are sampled, not exact exit latencies.",
+    "No Apple helper was terminated by verification; selection/cancel paths completed normally, root survived A/lifecycle/B.",
+    "Reading memory and idle CPU condition passes only; final empty/diff/Pi and same-state 30-minute loop/active resource cleanup remain.",
+    "No full keyboard, focus, functional or visual requirement pass; CmdQ failure separately retained.",
+    "GUI performed by root; verifier independently reads originals, bytes, raw process identity and sampling math."
+  ],
+  "laterScopeReassessment": {
+    "at": "2026-11-01T04:24:31.560845+00:00",
+    "record": "MAC-NATIVE-PICKER-CMDQ-SCOPE-OBSERVATION-001",
+    "effect": "Original failed shortcut observations preserved. Mandatory requirement failure classification superseded because native-picker-openCmdQ not separatelyrequired and diagnostictrace neverhit key observationpoints. No successfulCmdQ claim."
+  }
+}

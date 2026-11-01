@@ -1,0 +1,13 @@
+export type GitFile = { projectId: string; fileId: string; displayPath: string };
+export type GitStatusFile = { file: GitFile; originalPath?: string; index: string; worktree: string; kind: 'ordinary' | 'rename' | 'unmerged' | 'untracked' | 'ignored'; binary?: boolean };
+export type GitSnapshot = { repoId: string; generation: number; repoToken: string; rootDisplayPath?: string; head: { state: 'branch' | 'detached' | 'unborn'; name?: string; oid?: string }; upstream: { name: string; ahead: number | null; behind: number | null } | null; files: GitStatusFile[]; truncated: boolean; operation?: 'merge' | 'rebase' | 'cherry-pick' | null; shallow?: boolean };
+export type DiffBase = 'indexToWorktree' | 'headToIndex' | 'commitToParent';
+export type GitDiff = { diffId: string; repoToken: string; base: DiffBase; file: GitFile; binary: boolean; truncated: boolean; patch?: string; byteLength: string; nextCursor: string | null; oldLine?: number; newLine?: number; startsMidLine?: boolean };
+export type GitCommit = { oid: string; parents: string[]; subject: string; author: string; time: string };
+export type GitBranch = { name: string; oid: string; current: boolean; remote: boolean; upstream?: string | null };
+export type GitBranches = { items: GitBranch[]; repoToken: string; remotes: string[] };
+export type MutationResult = { snapshot: GitSnapshot; commitOid?: string; perFile?: { fileId: string; state: string; error?: { message: string } }[] };
+export type DiffSelection = { file: GitFile; base: DiffBase; commitOid?: string; parentOid?: string; originalPath?: string; commit?: GitCommit; commitFiles?: { file: GitFile; status: string; originalPath?: string }[] };
+export type DiscardPlan = { planId: string; digest: string; repoToken: string; files: { fileId: string; file: GitFile; beforeHash: string; operation: 'trash' | 'restore' }[] };
+export type GitBlob = { oid: string; byteLength: string };
+export type GitConflict = { repoToken: string; base: GitBlob | null; ours: GitBlob | null; theirs: GitBlob | null; file: GitFile; operation?: string; worktree?: { exists: boolean; binary: boolean; text?: string; truncated: boolean; encodingUnsupported?: boolean } };

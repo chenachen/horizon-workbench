@@ -1,0 +1,30 @@
+{
+  "binary": "/tmp/horizon-pi/pi/pi",
+  "flags": [
+    "--mode",
+    "rpc",
+    "--provider",
+    "horizon",
+    "--model",
+    "horizon-fixture",
+    "--thinking",
+    "off",
+    "--no-session",
+    "--no-tools",
+    "--no-extensions",
+    "--no-mcp",
+    "--no-skills",
+    "--no-prompt-templates",
+    "--no-themes",
+    "--no-context-files",
+    "--no-approve",
+    "--offline"
+  ],
+  "fixture": "controlled local OpenAI protocol service",
+  "limits": "Standalone runtime only; excludes Horizon/WebView and fixture. Horizon adapter exits at settlement rather than retaining this idle process.",
+  "shutdown": {
+    "code": 0,
+    "signal": null
+  },
+  "finishedAt": "2026-10-30T18:25:26.221Z"
+}

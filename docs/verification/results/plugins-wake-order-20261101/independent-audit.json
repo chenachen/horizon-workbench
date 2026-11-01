@@ -1,0 +1,246 @@
+{
+  "auditedAt": "2026-11-01T05:46:47.597742+00:00",
+  "method": "Independent production service diff, complete regression/probe source and raw retained output, exact source snapshots and build typecheck provenance audit; no tests/probe rerun",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src/features/plugins/service.ts",
+      "reportedSha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+      "snapshotMatchesReported": true,
+      "currentSha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+      "currentMatchesReported": true
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/service.test.ts",
+      "reportedSha256": "3cd4caa18d21e12ecc24a7d2de828e5c4dc38cc27a3211599843f0962bd0679c",
+      "snapshotMatchesReported": true,
+      "currentSha256": "3cd4caa18d21e12ecc24a7d2de828e5c4dc38cc27a3211599843f0962bd0679c",
+      "currentMatchesReported": true
+    },
+    {
+      "path": "packages/plugins/src/runtime.ts",
+      "reportedSha256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+      "snapshotMatchesReported": true,
+      "currentSha256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+      "currentMatchesReported": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "reportedSha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "snapshotMatchesReported": true,
+      "currentSha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "currentMatchesReported": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/index.ts",
+      "reportedSha256": "21879b91b4fd4547a33be3f8c11debafa53e6db5742ed1afbd29e56cdb5aaaac",
+      "snapshotMatchesReported": true,
+      "currentSha256": "21879b91b4fd4547a33be3f8c11debafa53e6db5742ed1afbd29e56cdb5aaaac",
+      "currentMatchesReported": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/store.ts",
+      "reportedSha256": "a5c01ac75a45621d50631b0194f248cff0c25e5f3fcc086a669f0aaab1141303",
+      "snapshotMatchesReported": true,
+      "currentSha256": "a5c01ac75a45621d50631b0194f248cff0c25e5f3fcc086a669f0aaab1141303",
+      "currentMatchesReported": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "reportedSha256": "f8b54d7e674d15623f3fe2709519af1abc9b21fc24c77ee74bf95d9d1eb33692",
+      "snapshotMatchesReported": true,
+      "currentSha256": "2c7268d56013f43e8cabd50b674676356b4ecb0dcb7999ef9042b2df12721f5f",
+      "currentMatchesReported": false
+    }
+  ],
+  "sourceChronology": "All seven current hashes matched reported values in independent05:38:41Z check and were snapshotted then. App.tsx subsequently changed for root native followup; retain mismatch instead of attributing new source to earlier tests. Service/runtime/editor hashes remain exact.",
+  "probeAudit": {
+    "stdoutSha256": "44a3f533c9cb2cc0080f59190e8dd79f1c4bd6e01b849046882224d89ea29bd3",
+    "jsonMatchesExactRetainedStdout": true,
+    "executionReceipt": {
+      "archivedAt": "2026-11-01T05:45:08.740334+00:00",
+      "provenance": "Exact stdout copied from the original successful exec result still present in operator current context. No probe rerun and no product mutation during archival.",
+      "originalCommand": "rtk proxy /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node .work/run-plugin-wake-race.mjs",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "originalExitCode": 0,
+      "originalExecChunkId": "d3b9b9",
+      "originalExecWallTimeSeconds": 8.916e-06,
+      "originalExecutedAt": null,
+      "timingNote": "Original tool result contained no absolute timestamp. Run occurred before focused before.log started at 2026-11-01 13:35:50 Asia/Shanghai; do not substitute archival time as execution time.",
+      "stdoutFile": "probe-before.stdout.log",
+      "stdoutSha256": "44a3f533c9cb2cc0080f59190e8dd79f1c4bd6e01b849046882224d89ea29bd3",
+      "sourceNote": "Probe source files copied at archival, unchanged since the successful run. Production service/runtime/store before copies were captured later, before the service edit; exact run-time source hashes were not independently captured.",
+      "archivedFilesSha256": {
+        "probe-plugin-wake-race.ts": "f7a8e06f9fa24cd690d9376813a29d98d6dccf8b382c4a9646fbef7d6c2a102c",
+        "run-plugin-wake-race.mjs": "45b7d38bfc9a01925cf5b322401cadbf7d47f09d3493c126f5ef6ea0aa25e198",
+        "service-before.ts": "15c134bb83ec34035f2e6383c75b3980f46d1900be495490f3e40f8a3b506fb3",
+        "runtime-before.ts": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+        "store-before.ts": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+      }
+    },
+    "actualLastEvent": {
+      "event": "reproduced detached no-op",
+      "cachedRunState": "sleeping",
+      "enabledAfter": true,
+      "nativeActivations": 0,
+      "oldTicket": {
+        "epoch": 2,
+        "generation": 2
+      },
+      "currentTicket": {
+        "epoch": 2,
+        "generation": 3
+      },
+      "active": {
+        "fileId": "large",
+        "mode": "chunked",
+        "evicted": true
+      },
+      "tabOpenReturnedUndefined": true,
+      "quickOpenReturnedUndefined": true,
+      "additionalDocumentOpens": 0
+    },
+    "scope": "Real service/runtime/EditorStore with controlled bridge RPC and editor lifecycle hooks mirroring production; deterministic ordering reproduction, not native UI."
+  },
+  "regression": {
+    "before": {
+      "testsFailed": 3,
+      "originalLog": "before.log"
+    },
+    "intermediate": {
+      "failed": 1,
+      "passed": 2,
+      "issue": "Expected optional evicted property explicitly undefined while actual property absent; actual new-cursor already present. Assertion changed to semantic not-true; production logic unchanged."
+    },
+    "after": {
+      "testsPassed": 3,
+      "exitCode": 0,
+      "durationMs": 138,
+      "originalLog": "after.log"
+    },
+    "cases": [
+      "Hold old native list and runtime disposal; activation waits; exactly one fresh activation and one runtime instance; restored new cursor; old ticket rejected; other tab and QuickOpen each issue actual new document_open.",
+      "Already-current active policy refreshes but does not duplicate native activation or instance.",
+      "Newly paused native policy replaces stale cached active state and disposes instance without silently resuming."
+    ]
+  },
+  "sourceConclusion": "Fresh activation decision waits for older refresh and completed syncNative disposal plus successor snapshot; existing restore-ticket rejection remains intact. Host boolean enabled state alone no longer lets this activation skip new native state.",
+  "typecheck": {
+    "artifact": "../file-recovery-wake-release-20261101/build.log",
+    "buildLogSha256": "4b6c215a4e7d06ecbc80613327c67097730d20bc2c09c9214f02b1c3db346dec",
+    "actualBuildExitCode": 0,
+    "finalServiceTypeAnnotation": "Promise<void> added after runtime test pass; erased runtime implementation unchanged and final build tsc succeeded."
+  },
+  "artifacts": [
+    {
+      "name": "after-initial-assertion-shape.log",
+      "bytes": 1491,
+      "sha256": "5129955016f8507389e68e3d8723eb9b61c63353028f9b68f42284935867f678"
+    },
+    {
+      "name": "after.log",
+      "bytes": 210,
+      "sha256": "d4bda5a30c9dc57297531451f5a67748e973754408dd4dd72a233757a48ab65b"
+    },
+    {
+      "name": "before.log",
+      "bytes": 3045,
+      "sha256": "e67bffa7aba548e98196554823745276834daccfbc1ee717ab5adfdd7f0b10d5"
+    },
+    {
+      "name": "evidence.json",
+      "bytes": 4873,
+      "sha256": "5192eb470ea129c2054a75ffae2ec6df49d7cc0102d5276700eb2700b79eab78"
+    },
+    {
+      "name": "probe-before-receipt.json",
+      "bytes": 1635,
+      "sha256": "914634c886346c4fe059458dda5cf51f309d300df0a9f82d23a18df97e30d819"
+    },
+    {
+      "name": "probe-before.json",
+      "bytes": 1315,
+      "sha256": "44a3f533c9cb2cc0080f59190e8dd79f1c4bd6e01b849046882224d89ea29bd3"
+    },
+    {
+      "name": "probe-before.stdout.log",
+      "bytes": 1315,
+      "sha256": "44a3f533c9cb2cc0080f59190e8dd79f1c4bd6e01b849046882224d89ea29bd3"
+    },
+    {
+      "name": "probe-plugin-wake-race.ts",
+      "bytes": 5019,
+      "sha256": "f7a8e06f9fa24cd690d9376813a29d98d6dccf8b382c4a9646fbef7d6c2a102c"
+    },
+    {
+      "name": "run-plugin-wake-race.mjs",
+      "bytes": 1247,
+      "sha256": "45b7d38bfc9a01925cf5b322401cadbf7d47f09d3493c126f5ef6ea0aa25e198"
+    },
+    {
+      "name": "runtime-before.ts",
+      "bytes": 11469,
+      "sha256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845"
+    },
+    {
+      "name": "service-after.ts",
+      "bytes": 4957,
+      "sha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612"
+    },
+    {
+      "name": "service-before.ts",
+      "bytes": 4565,
+      "sha256": "15c134bb83ec34035f2e6383c75b3980f46d1900be495490f3e40f8a3b506fb3"
+    },
+    {
+      "name": "service.test.ts",
+      "bytes": 6807,
+      "sha256": "3cd4caa18d21e12ecc24a7d2de828e5c4dc38cc27a3211599843f0962bd0679c"
+    },
+    {
+      "name": "source/apps/desktop/src/App.tsx",
+      "bytes": 72171,
+      "sha256": "f8b54d7e674d15623f3fe2709519af1abc9b21fc24c77ee74bf95d9d1eb33692"
+    },
+    {
+      "name": "source/apps/desktop/src/features/editor/index.ts",
+      "bytes": 1596,
+      "sha256": "21879b91b4fd4547a33be3f8c11debafa53e6db5742ed1afbd29e56cdb5aaaac"
+    },
+    {
+      "name": "source/apps/desktop/src/features/editor/store.ts",
+      "bytes": 730,
+      "sha256": "a5c01ac75a45621d50631b0194f248cff0c25e5f3fcc086a669f0aaab1141303"
+    },
+    {
+      "name": "source/apps/desktop/src/features/plugins/service.test.ts",
+      "bytes": 6807,
+      "sha256": "3cd4caa18d21e12ecc24a7d2de828e5c4dc38cc27a3211599843f0962bd0679c"
+    },
+    {
+      "name": "source/apps/desktop/src/features/plugins/service.ts",
+      "bytes": 4957,
+      "sha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612"
+    },
+    {
+      "name": "source/packages/editor/src/store.ts",
+      "bytes": 39376,
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+    },
+    {
+      "name": "source/packages/plugins/src/runtime.ts",
+      "bytes": 11469,
+      "sha256": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845"
+    },
+    {
+      "name": "store-before.ts",
+      "bytes": 39376,
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+    }
+  ],
+  "limits": [
+    "Absolute original probe execution timestamp and exact in-process source hashes were not captured; original command/exit0/stdout recovered from operator current tool result, source copies archived afterward. Archival time is not execution time.",
+    "Vitest logs retain local start clocks and duration; exit codes retained in owner evidence. Do not infer complete command start/end intervals from log duration or tool poll wall time.",
+    "Native024–030 failure remains active pending targeted application retest; this source/component evidence alone does not supersede it.",
+    "This service regression does not render Workbench/LargeFileView or validate their automatic first-chunk rendering."
+  ]
+}

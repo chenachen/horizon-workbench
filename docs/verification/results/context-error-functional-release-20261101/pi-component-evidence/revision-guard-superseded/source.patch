@@ -1,0 +1,55 @@
+--- a/apps/desktop/src/features/agent/store.ts
++++ b/apps/desktop/src/features/agent/store.ts
+@@ -4,6 +4,7 @@
+ interface View { initialized: boolean; cancelRequested: boolean; revision: number; profile: Profile; session: AgentSession | null; sessions: AgentSession[]; connections: AgentConnection[]; connectionId: string; messages: Message[]; historyCursor: string | null; draft: string; attachments: Attachment[]; status: string; error: string | null; permission: PermissionRequest | null; tools: { id: string; name: string; state: string }[]; reviewId: string | null; task?: TaskHandle<RunResult>; loading: boolean }
+ const views = new Map<string, View>(), listeners = new Set<() => void>();
+ const loading = new Map<string, Promise<void>>();
++const sessionReads = new Map<string, symbol>();
+ const visible = new Set<string>();
+ const preview = (text: string) => text.length <= 32768 ? text : text.slice(0, /[\uD800-\uDBFF]/.test(text.charAt(32767)) ? 32767 : 32768);
+ const initial = (): View => ({ initialized: false, cancelRequested: false, revision: 0, profile: 'chat', session: null, sessions: [], connections: [], connectionId: '', messages: [], historyCursor: null, draft: '', attachments: [], status: 'idle', error: null, permission: null, tools: [], reviewId: null, loading: false });
+@@ -23,14 +24,21 @@
+       const current = view(projectId); const connectionId = connections.items.some(c => c.connectionId === current.connectionId) ? current.connectionId : preferences.effectiveConnectionId ?? connections.items[0]?.connectionId ?? '';
+       const session = current.session ? sessions.items.find(s => s.sessionId === current.session?.sessionId) ?? current.session : current.initialized ? null : [...sessions.items].reverse().find(s => s.profile === current.profile) ?? null;
+       patch(projectId, { initialized: true, connections: connections.items, sessions: sessions.items, connectionId, session, reviewId: current.reviewId ?? session?.reviewId ?? null, loading: false });
+-      if (session && !running(view(projectId).status) && !view(projectId).messages.length) await selectSession(projectId, session);
++      if (session && !running(view(projectId).status) && !view(projectId).messages.length) await hydrateSession(projectId, session, false);
+     } catch (error) { patch(projectId, { loading: false, error: errorMessage(error) }); }
+   })().finally(() => loading.delete(projectId)); loading.set(projectId, promise); return promise;
+ }
++async function hydrateSession(projectId: string, session: AgentSession, explicit: boolean) {
++  const current = view(projectId);
++  if (running(current.status)) return;
++  const read = Symbol(); sessionReads.set(projectId, read);
++  const result = await call<{ items: Message[]; nextCursor: string | null }>('agent_transcript_read', { sessionId: session.sessionId, limit: 100 }, projectId);
++  if (sessionReads.get(projectId) !== read || view(projectId).revision !== current.revision) return;
++  const preserveFailure = !explicit && (current.status === 'failed' || current.status === 'cancelled');
++  patch(projectId, { session, profile: session.profile, connectionId: session.connectionId, messages: result.items, historyCursor: result.nextCursor, reviewId: session.reviewId, ...(preserveFailure ? {} : { error: null, status: 'idle' }), tools: [] });
++}
+ export async function selectSession(projectId: string, session: AgentSession) {
+-  if (running(view(projectId).status)) return;
+-  const result = await call<{ items: Message[]; nextCursor: string | null }>('agent_transcript_read', { sessionId: session.sessionId, limit: 100 }, projectId);
+-  patch(projectId, { session, profile: session.profile, connectionId: session.connectionId, messages: result.items, historyCursor: result.nextCursor, reviewId: session.reviewId, error: null, status: 'idle', tools: [] });
++  await hydrateSession(projectId, session, true);
+ }
+ export async function loadEarlierMessages(projectId: string) {
+   const current = view(projectId); if (!current.session || !current.historyCursor || running(current.status)) return;
+--- a/apps/desktop/src/features/agent/AgentPanel.tsx
++++ b/apps/desktop/src/features/agent/AgentPanel.tsx
+@@ -32,6 +32,7 @@
+   useEffect(() => { if (following && list.current) list.current.scrollTop = list.current.scrollHeight; }, [state.revision, following]);
+   const fail = (e: unknown) => { const message = errorMessage(e); agentView.patch(projectId, { error: message }); onError?.(message); };
+   const connection = state.connections.find(c => c.connectionId === state.connectionId);
++  const authenticationError = connection?.authState === 'needsAuthentication' || /401|403|unauthorized|authentication/i.test(state.error ?? '');
+   const end = async () => { if (!state.session) return; try { const task = await start('agent_session_close', { sessionId: state.session.sessionId, reason: 'user' }, undefined, projectId); await task.result; agentView.patch(projectId, { status: 'idle', session: null, messages: [], tools: [], permission: null }); } catch (e) { fail(e); } };
+   return <section className="agent-panel" aria-label="AI 助手">
+     <div className="agent-panel-mode"><div className="agent-segmented" aria-label="Agent 模式"><button aria-pressed={state.profile === 'chat'} disabled={isRunning} onClick={() => setProfile(projectId, 'chat')}>聊天</button><button aria-pressed={state.profile === 'task'} disabled={isRunning} onClick={() => setProfile(projectId, 'task')}>任务</button></div><span className="agent-mode-hint">{state.profile === 'chat' ? '工具关闭' : '任务副本'}</span><button className="icon-button" aria-label="历史会话" disabled={isRunning} onClick={() => setHistory(true)}><History size={15} /></button><button className="icon-button" aria-label="新建会话" disabled={isRunning} onClick={() => agentView.patch(projectId, { session: null, messages: [], reviewId: null, tools: [], status: 'idle', error: null })}><Plus size={16} /></button></div>
+@@ -42,7 +43,7 @@
+         {state.tools.length ? <ol className="agent-tool-timeline">{state.tools.map(t => <li key={t.id}>{t.state === 'succeeded' ? <CircleCheck size={15} /> : t.state === 'failed' ? <TriangleAlert size={15} /> : <Terminal size={15} />}<span>{t.name.replace('horizon_', '')}<small>{({ requested: '请求工具操作', succeeded: '已完成', failed: '失败或拒绝' } as Record<string, string>)[t.state] ?? t.state}</small></span></li>)}</ol> : null}
+         {state.permission ? <PermissionCard key={state.permission.interactionId} request={state.permission} projectId={projectId} onError={fail} /> : null}
+         {state.reviewId ? <button className="agent-review-link tonal" onClick={() => setReview({ projectId, reviewId: state.reviewId! })}><GitCompareArrows size={16} /><span>审查任务修改<small>比较基线与副本结果</small></span><ChevronDown size={14} /></button> : null}
+-        {state.error ? <div className="agent-notice error agent-error-card" role="alert"><TriangleAlert size={17} /><div><strong>{connection?.authState === 'needsAuthentication' || /401|403|unauthorized|authentication/i.test(state.error) ? '模型连接认证失败' : '这次请求未完成'}</strong><p>{state.draft.trim() ? '输入与上下文已保留。检查连接后，可以重新发送。' : '已收到的内容仍在会话中。检查连接后可继续。'}</p><div className="agent-button-row"><button className="filled" disabled={isRunning || !state.draft.trim() || !connection} onClick={() => void sendAgent(projectId)}>重新发送</button><button onClick={() => setSettings(true)}>检查连接</button></div><details><summary>错误详情</summary><pre>{state.error}</pre></details><button className="agent-error-dismiss" onClick={() => agentView.patch(projectId, { error: null })}>收起提示</button></div></div> : null}
++        {state.error ? <div className="agent-notice error agent-error-card" role="alert"><TriangleAlert size={17} /><div><strong>{authenticationError ? '模型连接认证失败' : '这次请求未完成'}</strong><p>{state.draft.trim() ? `输入与上下文已保留。${authenticationError ? '检查连接后，可以重新发送。' : '查看错误详情并处理后，可以重新发送。'}` : `已收到的内容仍在会话中。${authenticationError ? '检查连接后可继续。' : '查看错误详情并处理后可继续。'}`}</p><div className="agent-button-row"><button className="filled" disabled={isRunning || !state.draft.trim() || !connection} onClick={() => void sendAgent(projectId)}>重新发送</button><button onClick={() => setSettings(true)}>检查连接</button></div><details><summary>错误详情</summary><pre>{state.error}</pre></details><button className="agent-error-dismiss" onClick={() => agentView.patch(projectId, { error: null })}>收起提示</button></div></div> : null}
+       </div>
+       {!following && state.messages.length ? <button className="agent-follow" onClick={() => { setFollowing(true); if (list.current) list.current.scrollTop = list.current.scrollHeight; }}><ArrowDown size={13} />查看新内容</button> : null}
+       <div className="agent-run-status" role="status" aria-live="polite">{isRunning ? <LoaderCircle size={13} className={state.status === 'waitingInput' ? '' : 'agent-spin'} /> : state.status === 'succeeded' ? <Check size={13} /> : null}<span>{labels[state.status] ?? state.status}</span>{isRunning ? <button disabled={state.status === 'stopping'} onClick={() => void cancelAgent(projectId)}><Square size={12} />停止</button> : state.session ? <button onClick={() => void end()}>结束会话</button> : null}</div>

@@ -1,0 +1,254 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 设置
+				4 container
+					5 heading 设置, Value: 2
+						6 text 设置
+					7 button 关闭弹窗
+				8 container 设置分类
+					9 button 外观
+					10 button 编辑器
+					11 button 项目与资源
+					12 button AI 连接
+					13 button Git
+					14 button 快捷键
+					15 button 数据与隐私
+				16 container
+					17 heading 项目与资源, Value: 2
+						18 text 项目与资源
+					19 text 会话常在，后台能力按需恢复。
+				20 container
+					21 text 设置对象
+					22 pop up button 设置对象, Value: 全局默认设置
+				23 text 各项目默认使用这里的设置
+				24 text 会话恢复
+				25 text 重新打开项目时恢复文件标签、阅读位置与面板。
+				26 text 自动恢复
+				27 text 后台项目休眠
+				28 text 有未保存内容或运行任务时保持活动。
+				29 text 应用默认
+				30 pop up button 后台项目休眠, Value: 5 分钟
+				31 button 恢复默认
+				32 text 终端任务
+				33 text 切换项目不会中断已运行的命令。
+				34 text 运行任务保持活动
+				35 text 能力预设
+				36 text 组合编辑、Git、AI 与终端能力。
+				37 text 全局默认
+				38 text 自定义
+				39 button 管理预设
+				40 container 当前工作区项目
+					41 heading 当前工作区 · macOS 完整验收 1101, Value: 3
+						42 text 当前工作区 ·  macOS 完整验收 1101
+					43 text Editor Resume QA
+					44 text 尚未打开
+					45 text Project B
+					46 text 尚未打开
+					47 text Project C
+					48 text 尚未打开
+					49 text Paths 100k
+					50 text 尚未打开
+					51 text reading-project
+					52 text 尚未打开
+					53 text Aurora Web
+					54 text 尚未打开
+					55 text scripts-no-auto-run
+					56 text 尚未打开
+					57 text readonly-project
+					58 text 尚未打开
+					59 text denied-project
+					60 text 尚未打开
+					61 text nested-directory
+					62 text 尚未打开
+					63 text parent-repository
+					64 text 尚未打开
+					65 text linked-worktree
+					66 text 尚未打开
+					67 text PiQA A · 20261101
+					68 text 会话已保存
+					69 text PiQA B 无HEAD · 20261101
+					70 text 已休眠
+					71 text 启动器验收
+					72 text 活动中
+				73 container
+					74 text 当前项目 ·  启动器验收
+				75 container 项目启动方案设置
+					76 heading 项目启动方案, Value: 2
+						77 text 项目启动方案
+					78 text 配置多个进程、依赖和就绪条件。打开项目不会执行命令。
+					79 button 发现 package scripts
+					80 button (disabled) 导入方案
+					81 button (disabled) 新建方案
+					82 text 导入内容仅为未授权草稿。请核对程序、目录、环境变量和凭据引用，再保存并预检。
+					83 heading 新建方案, Value: 3
+						84 text 新建方案
+					85 button 保存方案
+					86 button 取消
+					87 container
+						88 text 方案名称
+						89 text field (settable) 方案名称, Value: 1101 Q1 双服务 · 含子进程
+					90 container
+						91 text 失败处理
+						92 pop up button 失败处理, Value: 停止本次已启动进程
+					93 container
+						94 text 所需扩展（每行 ID@版本）
+						95 text entry area (settable) 所需扩展（每行 ID@版本）, Value: [text entry area], Placeholder: horizon.terminal@*
+							96 text horizon.terminal@*
+					97 container (expanded) Secondary Actions: Collapse
+						98 summary 进程 1 · Q1 接口及子进程, Value: on
+							99 text 进程 
+							100 text 1
+							101 text  · 
+							102 text Q1 接口及子进程
+						103 container
+							104 text 名称
+							105 text field (settable) 名称, Value: Q1 接口及子进程
+						106 container
+							107 text 工作目录
+							108 text field (settable) 工作目录, Value: q1
+						109 container
+							110 text 命令形式
+							111 pop up button 命令形式, Value: 程序与参数
+						112 container
+							113 text 可执行程序
+							114 text field (settable) 可执行程序, Value: /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node
+						115 container
+							116 text 参数（每行一个，保留空格）
+							117 text entry area (settable) 参数（每行一个，保留空格）, Value: [text entry area]
+								118 text (settable) api.mjs
+						119 container
+							120 text 输出模式
+							121 pop up button 输出模式, Value: 日志管道
+						122 container
+							123 text 生命周期
+							124 pop up button 生命周期, Value: 常驻服务
+						125 container
+							126 text 环境变量（KEY=value）
+							127 text entry area (settable) 环境变量（KEY=value）, Value: [text entry area]
+								128 text (settable) API_PORT=59130
+						129 container
+							130 text 凭据引用（KEY=凭据ID）
+							131 text entry area (settable) 凭据引用（KEY=凭据ID）, Value: [text entry area]
+						132 container 等待这些进程就绪
+							133 text 等待这些进程就绪
+							134 container
+								135 checkbox Q1 页面服务, Value: 0
+								136 text Q1 页面服务
+						137 container
+							138 text 就绪条件
+							139 pop up button 就绪条件, Value: 本地 HTTP 响应
+						140 container
+							141 text 超时（毫秒）
+							142 number field (settable) 超时（毫秒）, Value: 5000
+								143 stepper 0
+									144 unknown
+									145 unknown
+						146 container
+							147 text 探测 URL
+							148 text field (settable) 探测 URL, Value: http://127.0.0.1:59130/health
+						149 container
+							150 text 允许状态码（逗号分隔）
+							151 text field (settable) 允许状态码（逗号分隔）, Value: 200
+						152 container
+							153 text 就绪后可打开的 URL
+							154 text field (settable) 就绪后可打开的 URL, Placeholder: http://127.0.0.1:3000
+						155 container
+							156 checkbox (disabled) 就绪后自动打开 URL（每次运行一次）, Value: 0
+							157 text 就绪后自动打开 URL（每次运行一次）
+						158 container
+							159 checkbox (disabled) 就绪时显示此进程终端（PTY 模式）, Value: 0
+							160 text 就绪时显示此进程终端（PTY 模式）
+						161 button 删除此进程
+					162 container (expanded) Secondary Actions: Collapse
+						163 summary 进程 2 · Q1 页面服务, Value: on
+							164 text 进程 
+							165 text 2
+							166 text  · 
+							167 text Q1 页面服务
+						168 container
+							169 text 名称
+							170 text field (settable) 名称, Value: Q1 页面服务
+						171 container
+							172 text 工作目录
+							173 text field (settable) 工作目录, Value: q1
+						174 container
+							175 text 命令形式
+							176 pop up button 命令形式, Value: 程序与参数
+						177 container
+							178 text 可执行程序
+							179 text field (settable) 可执行程序, Value: /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node
+						180 container
+							181 text 参数（每行一个，保留空格）
+							182 text entry area (settable) 参数（每行一个，保留空格）, Value: [text entry area]
+								183 text (settable) web.mjs
+						184 container
+							185 text 输出模式
+							186 pop up button 输出模式, Value: 日志管道
+						187 container
+							188 text 生命周期
+							189 pop up button 生命周期, Value: 常驻服务
+						190 container
+							191 text 环境变量（KEY=value）
+							192 text entry area (settable) 环境变量（KEY=value）, Value: [text entry area]
+								193 container (settable)
+									194 text (settable) API_PORT=59130
+									195 text (settable) WEB_PORT=59131
+						196 container
+							197 text 凭据引用（KEY=凭据ID）
+							198 text entry area (settable) 凭据引用（KEY=凭据ID）, Value: [text entry area]
+						199 container 等待这些进程就绪
+							200 text 等待这些进程就绪
+							201 container
+								202 checkbox Q1 接口及子进程, Value: 1
+								203 text Q1 接口及子进程
+						204 container
+							205 text 就绪条件
+							206 pop up button 就绪条件, Value: 本地 TCP 端口
+						207 container
+							208 text 超时（毫秒）
+							209 number field (settable) 超时（毫秒）, Value: 5000
+								210 stepper 0
+									211 unknown
+									212 unknown
+						213 container
+							214 text 本地地址
+							215 pop up button 本地地址, Value: 127.0.0.1
+						216 container
+							217 text 端口
+							218 number field (settable) 端口, Value: 59131
+								219 stepper 0
+									220 unknown
+									221 unknown
+						222 container
+							223 text 就绪后可打开的 URL
+							224 text field (settable) 就绪后可打开的 URL, Value: http://127.0.0.1:59131, Placeholder: http://127.0.0.1:3000
+						225 container
+							226 checkbox 就绪后自动打开 URL（每次运行一次）, Value: 0
+							227 text 就绪后自动打开 URL（每次运行一次）
+						228 container
+							229 checkbox (disabled) 就绪时显示此进程终端（PTY 模式）, Value: 0
+							230 text 就绪时显示此进程终端（PTY 模式）
+						231 button 删除此进程
+					232 button 添加进程
+					233 pop up button 已保存方案, Value: 选择方案
+					234 button (disabled) 预检并启动
+					235 button (disabled) 编辑
+					236 button (disabled) 导出方案
+					237 button (disabled) 删除方案
+				238 container
+					239 text 偏好即时生效
+					240 button 完成
+	241 close button
+	242 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	243 minimize button
+244 menu bar
+	245 Horizon
+	246 File
+	247 Edit
+	248 View
+	249 Window
+	250 Help
+
+The focused UI element is 163 summary 进程 2 · Q1 页面服务, Value: on

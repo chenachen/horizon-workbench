@@ -1,0 +1,1050 @@
+{
+  "auditedAt": "2026-11-01T03:28:28.003415+00:00",
+  "method": "独立逐对人工查看八张原始原生 JPEG 与八张未改动的 B01 PNG 参考；没有改图或合成。",
+  "build": {
+    "fixture": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+    "workspace": "macOS 完整验收 1101",
+    "purpose": "Current settings-project native B01 layout comparison only; no PTY; no timing",
+    "sourceSha256": "afda7a8b0df3aca8f9c37da62e8d8603e50fa5737d5fba95a08a00830ab7b689",
+    "createdAt": "2026-11-01T11:12:53.510272+08:00",
+    "binaryPath": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+    "binarySha256": "95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6",
+    "baselinePid": 34128,
+    "screenshots": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/appearance-settings-project-b01",
+    "binaryMtime": "2026-10-31T12:58:01.300933+08:00"
+  },
+  "conditions": {
+    "native": "1280×800、缩放100%、UI13/代码14系统等宽字体、各布局默认几何、同名主题；orbit/aurora深色，其余浅色。",
+    "dataDifference": "六个真实自有项目，参考三个；两枚干净标签已匹配。自有源码接近参考但少量行不同；非Git夹具没有M标记。",
+    "captureOverlay": "鼠标光晕和原生彩色窗口按钮属于采集或平台细节，不作产品缺陷。",
+    "geometryAmendment": "DESIGN_SYSTEM第2节/F10/CUSTOMIZATION0.4默认尺寸取代早期B01各样式宽度。保留当前侧栏240/顶部56/标签40/代码14，以及导航64/55/94/180；不机械退回旧图尺寸。"
+  },
+  "manualFindings": {
+    "mist": [
+      "两枚干净标签；编辑状态已合入全局底栏。",
+      "目录/结构工具行与编辑器搜索/保存按钮有别于静态参考。"
+    ],
+    "paper": [
+      "编辑区直角、右贴边、左分界线已恢复。",
+      "项目导航使用总览/添加图标，参考为“工作区项目/管理项目”文字层级。"
+    ],
+    "orbit": [
+      "顶部项目标签与文件标签分层，深蓝灰色恢复。",
+      "当前主题舒适密度；原参考标为标准，未作密度一致通过。"
+    ],
+    "graphite": [
+      "编辑区直角和右贴边已恢复。",
+      "字母下仍有9px截断项目名，参考只显示字母。"
+    ],
+    "celadon": [
+      "工作区项目、当前项目、更多项目抽屉可见。",
+      "编辑区底角为直角、紧贴底栏；参考完整20px圆角与8px底部留白。"
+    ],
+    "iris": [
+      "浅紫卡片和宽松密度成立。",
+      "编辑区底角直角、无底部留白；文件树选中行为6px角。参考完整28px角、10px底部留白及胶囊行。",
+      "六项目夹具中当前Aurora未在导航可见区，root另查滚入行为。"
+    ],
+    "sand": [
+      "项目名称展开。",
+      "总览/搜索/插件图标居中，参考左对齐。",
+      "当前主题舒适密度，原参考标准。"
+    ],
+    "aurora": [
+      "项目导航位于底部。",
+      "仍有满宽填充底板和填充搜索框；参考居中悬浮按钮与透明轮廓搜索。"
+    ]
+  },
+  "paletteChecks": [
+    {
+      "style": "mist",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.mist/manifest.json",
+      "themeSha256": "86e80017627857d2de7a2e00b8df9a4c8428dd30f302002e1de7ea820f38441f",
+      "reference": "design/exports/png/mist/B01-home.png",
+      "referenceSha256": "01a39b482012375bc1c65a3370720a34190b5c730afec029260e8134841c71ce",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/01-mist.jpg",
+      "screenshotSha256": "a86bc1b40585d5481e89deb60a9b84b8711858f6b8d3f4f12a8398656df02511",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#edf1f7",
+          "actual": "#edf1f7",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#18202d",
+          "actual": "#18202d",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#fcfdff",
+          "actual": "#fcfdff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#222b3a",
+          "actual": "#222b3a",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#202c40",
+          "actual": "#202c40",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#e0e8f5",
+          "actual": "#e0e8f5",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#65738a",
+          "actual": "#65738a",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#a6b4cb",
+          "actual": "#a6b4cb",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#dde4ee",
+          "actual": "#dde4ee",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#3b485e",
+          "actual": "#3b485e",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#496793",
+          "actual": "#496793",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#b2cdf8",
+          "actual": "#b2cdf8",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#d8e5fb",
+          "actual": "#d8e5fb",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#2d4a73",
+          "actual": "#2d4a73",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#18375d",
+          "actual": "#18375d",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "paper",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.paper/manifest.json",
+      "themeSha256": "f098f35491181580820808f9524445fd22d12c90e4361a82f1b03002f671b4f7",
+      "reference": "design/exports/png/paper/B01-home.png",
+      "referenceSha256": "47175b834113660330b109c49b9205b876abbb3219904f607a8a4414d937568a",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/02-paper.jpg",
+      "screenshotSha256": "d68b5464bf36c7ef64ce0862ebf2227d9fc36e950052e6d7c717b4d620008c8e",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#f4f1eb",
+          "actual": "#f4f1eb",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#211e1a",
+          "actual": "#211e1a",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#fffefa",
+          "actual": "#fffefa",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#2b2722",
+          "actual": "#2b2722",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#34352d",
+          "actual": "#34352d",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#e9e7d7",
+          "actual": "#e9e7d7",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#737569",
+          "actual": "#737569",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#b4b4a5",
+          "actual": "#b4b4a5",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#e3e3d8",
+          "actual": "#e3e3d8",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#444438",
+          "actual": "#444438",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#617251",
+          "actual": "#617251",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#c0d0ad",
+          "actual": "#c0d0ad",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#e4ebd9",
+          "actual": "#e4ebd9",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#424f35",
+          "actual": "#424f35",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#2c3e20",
+          "actual": "#2c3e20",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "orbit",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.orbit/manifest.json",
+      "themeSha256": "b7c846b4e57971e54b881435b8b59577acfa48c8c8c9043ae0af0cc9e01ba85b",
+      "reference": "design/exports/png/orbit/B01-home.png",
+      "referenceSha256": "9bd5a613f48adb24b52e7286c7df85d82e941d642a0d1a5b99529b2496bbedcf",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/03-orbit.jpg",
+      "screenshotSha256": "79435325607ba41373f41fd40f020cb8ab9b48eca4c15b275a84e4e7690b5fe7",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#eaf0f8",
+          "actual": "#eaf0f8",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#131c29",
+          "actual": "#131c29",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#fbfdff",
+          "actual": "#fbfdff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#1b2636",
+          "actual": "#1b2636",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#243650",
+          "actual": "#243650",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#e2ebf7",
+          "actual": "#e2ebf7",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#60728d",
+          "actual": "#60728d",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#a6b6cd",
+          "actual": "#a6b6cd",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#d4dfed",
+          "actual": "#d4dfed",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#324156",
+          "actual": "#324156",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#466da8",
+          "actual": "#466da8",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#aecaff",
+          "actual": "#aecaff",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#d5e3fb",
+          "actual": "#d5e3fb",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#2b4672",
+          "actual": "#2b4672",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#142b50",
+          "actual": "#142b50",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "graphite",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.graphite/manifest.json",
+      "themeSha256": "c2522f5e86220a141c647606cc7742058e3526605cef53f1166498cf4e235a6a",
+      "reference": "design/exports/png/graphite/B01-home.png",
+      "referenceSha256": "e439126e93b7b850e080b8411a9e0dba324c3a23b03336ed7de29e898423de30",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/04-graphite.jpg",
+      "screenshotSha256": "f8d817b14c9f13f0859e647e860b2e9f939858837664016151ab131ad19d398a",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#eceeef",
+          "actual": "#eceeef",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#161819",
+          "actual": "#161819",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#222526",
+          "actual": "#222526",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#263234",
+          "actual": "#263234",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#e2ebeb",
+          "actual": "#e2ebeb",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#626f72",
+          "actual": "#626f72",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#a8b7ba",
+          "actual": "#a8b7ba",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#d9dfe0",
+          "actual": "#d9dfe0",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#3a4648",
+          "actual": "#3a4648",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#335f66",
+          "actual": "#335f66",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#a6d1d8",
+          "actual": "#a6d1d8",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#d8e9ec",
+          "actual": "#d8e9ec",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#28474c",
+          "actual": "#28474c",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#163339",
+          "actual": "#163339",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "celadon",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.celadon/manifest.json",
+      "themeSha256": "87bb1585d6e79ff183c590396e3438b20c78530b935315b8202154afb058aa99",
+      "reference": "design/exports/png/celadon/B01-home.png",
+      "referenceSha256": "56bff0e6afdb7723cc2937ecb0122e36cba8223eff4203958d81aff80d5c7e44",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/05-celadon.jpg",
+      "screenshotSha256": "01656b3352461925bbec8e5102e53899c842cce29e77c5f0257d6aa542883861",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#eaf2ef",
+          "actual": "#eaf2ef",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#17251f",
+          "actual": "#17251f",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#fbfffc",
+          "actual": "#fbfffc",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#22352c",
+          "actual": "#22352c",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#243e33",
+          "actual": "#243e33",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#e0f1e6",
+          "actual": "#e0f1e6",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#607d6c",
+          "actual": "#607d6c",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#a8c3b2",
+          "actual": "#a8c3b2",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#d6e5dc",
+          "actual": "#d6e5dc",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#3e5b48",
+          "actual": "#3e5b48",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#3f7458",
+          "actual": "#3f7458",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#a9d7b9",
+          "actual": "#a9d7b9",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#d5eadb",
+          "actual": "#d5eadb",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#315b40",
+          "actual": "#315b40",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#1e3c28",
+          "actual": "#1e3c28",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "iris",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.iris/manifest.json",
+      "themeSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481",
+      "reference": "design/exports/png/iris/B01-home.png",
+      "referenceSha256": "298a2f0c89af1041997bd3cba5cedc1b54130f605cfa9124fa32ed29accd195b",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/06-iris.jpg",
+      "screenshotSha256": "edc39e7d69827a51ff399d7e07f24672d92e403ebb0954deb844db3154978039",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#f0eafa",
+          "actual": "#f0eafa",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#231b2e",
+          "actual": "#231b2e",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#fefbff",
+          "actual": "#fefbff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#30233d",
+          "actual": "#30233d",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#38254b",
+          "actual": "#38254b",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#efe1fc",
+          "actual": "#efe1fc",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#7b628e",
+          "actual": "#7b628e",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#c1a9d5",
+          "actual": "#c1a9d5",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#e4d5ef",
+          "actual": "#e4d5ef",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#523b65",
+          "actual": "#523b65",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#7950a3",
+          "actual": "#7950a3",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#dbb2ff",
+          "actual": "#dbb2ff",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#e5d1fb",
+          "actual": "#e5d1fb",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#624180",
+          "actual": "#624180",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#43205d",
+          "actual": "#43205d",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "sand",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.sand/manifest.json",
+      "themeSha256": "746a8491cb81d5d2213637e9bfcb7836da4f4cbdb2462e9d9e2a69d587f3adff",
+      "reference": "design/exports/png/sand/B01-home.png",
+      "referenceSha256": "0e25a213bcb1f73a34502c5537c66573a63fe4298610d2a6747bd7920ab107b9",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/07-sand.jpg",
+      "screenshotSha256": "0f7dfd00aeb06ac20044251271893bd7ca91ff41482fd741a4286065359e1e5d",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#f2ebe3",
+          "actual": "#f2ebe3",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#28211b",
+          "actual": "#28211b",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#fffcf8",
+          "actual": "#fffcf8",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#342c24",
+          "actual": "#342c24",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#483b2e",
+          "actual": "#483b2e",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#f4e5d3",
+          "actual": "#f4e5d3",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#87725d",
+          "actual": "#87725d",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#c6ad92",
+          "actual": "#c6ad92",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#e5d9c9",
+          "actual": "#e5d9c9",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#5a4735",
+          "actual": "#5a4735",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#946644",
+          "actual": "#946644",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#e3b18a",
+          "actual": "#e3b18a",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#f0dcc7",
+          "actual": "#f0dcc7",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#68482f",
+          "actual": "#68482f",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#4d301b",
+          "actual": "#4d301b",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "style": "aurora",
+      "themeManifest": "packages/plugins/builtins/horizon.theme.aurora/manifest.json",
+      "themeSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f",
+      "reference": "design/exports/png/aurora/B01-home.png",
+      "referenceSha256": "b49fdef145c13a3cb15014c2b9e31f4cfbd2a6bf2a537a56f08b225bf65f3d41",
+      "screenshot": "docs/verification/screenshots/appearance-settings-project-b01/08-aurora.jpg",
+      "screenshotSha256": "b739fd5866dbfcfca5ce3baa18e0a40f702c583285d006cbd1f06d014c0508e5",
+      "corePaletteTokenComparisons": [
+        {
+          "mode": "light",
+          "token": "background",
+          "expected": "#e7f1f1",
+          "actual": "#e7f1f1",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "background",
+          "expected": "#171e20",
+          "actual": "#171e20",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "surface",
+          "expected": "#f8fdfd",
+          "actual": "#f8fdfd",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "surface",
+          "expected": "#202b2e",
+          "actual": "#202b2e",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "text",
+          "expected": "#244344",
+          "actual": "#244344",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "text",
+          "expected": "#e1f1f1",
+          "actual": "#e1f1f1",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "muted",
+          "expected": "#5c7a7c",
+          "actual": "#5c7a7c",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "muted",
+          "expected": "#a3bec0",
+          "actual": "#a3bec0",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "border",
+          "expected": "#cfe1e1",
+          "actual": "#cfe1e1",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "border",
+          "expected": "#3b5155",
+          "actual": "#3b5155",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "accent",
+          "expected": "#397976",
+          "actual": "#397976",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "accent",
+          "expected": "#91d7d2",
+          "actual": "#91d7d2",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "selection",
+          "expected": "#cce8e5",
+          "actual": "#cce8e5",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "selection",
+          "expected": "#294c4c",
+          "actual": "#294c4c",
+          "matches": true
+        },
+        {
+          "mode": "light",
+          "token": "onAccent",
+          "expected": "#ffffff",
+          "actual": "#ffffff",
+          "matches": true
+        },
+        {
+          "mode": "dark",
+          "token": "onAccent",
+          "expected": "#103536",
+          "actual": "#103536",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "scope": [
+    "八套主题128项核心浅深色token与参考源码相等，整体色偏在原生图中消失；未据JPEG宣称逐像素色值一致。",
+    "八套重复状态行、paper/graphite边缘、celadon抽屉等具体旧差异已关闭。",
+    "未新增B01整体通过；结构差异与数据/密度条件继续保留。",
+    "采图后的CSS修复尚未进入运行包，仍需新包原生复图。"
+  ]
+}

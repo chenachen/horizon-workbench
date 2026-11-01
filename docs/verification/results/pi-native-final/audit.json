@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-10-30T19:09:38.837690+00:00",
+  "producer": "agent_pi/native_core",
+  "method": "Independent native raw output, controlled HTTP fixture and complete new assertions reviewed; no rerun",
+  "inputsSha256": {
+    "research/verification/pi-native.json": "1050892106105f7c52070404d3030cbf335c3417d93abd3be413742a747b622c",
+    "research/verification/pi-native.log": "85d0ee02bf2909f6dee91b37d1085315dd7d46719c3c0e5cfa14b0e49fafa07d",
+    "research/verification/pi-cache-tests.json": "2d1eddfa6fb3a8eaca19464b3abd07835ad2643f655f841daf59f9282f69b46d",
+    ".work/evidence/native/candidate4-lib-tests.log": "ce6cd9f5f707fc7a71c969cec74cd100ee3369078389959efbc187e2bc96a4a6"
+  },
+  "sourceSha256": {
+    "apps/desktop/src-tauri/src/agent.rs": "0b340a75745822519a82a84f3eaf3baa499142b32f1743a4f769f7048861e1d6",
+    "scripts/test-pi-native.mjs": "f3fa43f2a04f3c1c2afb9a4d79daa67b7453cea8aba9384eaeaea4c525089019",
+    "scripts/test-pi-server.mjs": "094af7771f00ae25637a961204953cd4ab44c386e3e0bdf895b6fb98e8a725cf",
+    "packages/pi-policy/horizon-policy.ts": "3eb79c2578c8e1376698d496da9164df52de3bde3a7758b6364b3ba9e37d45d6"
+  },
+  "nativeChecks": 32,
+  "nativeTestDurationSeconds": 9.11,
+  "addedReviewedAssertions": [
+    "Actual context_prepare rejects21items and >256KiB, accepts exact256KiB, rejects stale disk/editor versions and split UTF16 surrogate",
+    "Real Pi receives327680byte Unicode response while a native Channel never acknowledges; canonical disk body exact, final reference/preview bounded and event ring<=512KiB",
+    "Three real Pi auth-owner variants use isolated configuration directories; controlled HTTP fixture rejects incorrect Authorization and all three succeed; original legacy auth.json unchanged",
+    "Native cache tests: 32KiB UTF8 pages reassemble327680bytes; history206messages pages100/100/6; cancelled read retains partialUTF8 record; >4MiB record rejected without oversize pending buffer;32MiB disk limit preserves prior history"
+  ],
+  "limits": [
+    "Fixture uses fake secrets; live provider and macOS keychain workflow not exercised",
+    "One ignored integration test deliberately invoked; separate lib log49pass2ignored includes four cache tests",
+    "Rust broker and native Channel, no WebView rendering/scroll behavior",
+    "Canonical exact body persists even when transient deltas intentionally throttled"
+  ]
+}

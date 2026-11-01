@@ -1,0 +1,66 @@
+{
+  "auditedAt": "2026-11-01T04:49:31.547760+00:00",
+  "method": "IndependentfouroriginalnativeJPEG/fullAX reviewandactualfixturehashreadback; no extraGUI orrerun",
+  "originals": [
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/041-narrow-markdown-preview.jpg",
+      "imageSha256": "f88b3c134f7fb5afa774c227c1d3adb905e46d6ba90203c4fe1a5a62d933e234",
+      "ax": "docs/verification/results/editor-native-picker-20261101/041-narrow-markdown-preview.txt",
+      "axSha256": "74474071b0c474295c1ccf9f4648c7e9c2ff925fa9bb77459a360e2ce29198c6",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/042-narrow-preview-after-source-edit.jpg",
+      "imageSha256": "a7abcb4b31c959d913b9e33aa88b75badc64da6508f26a20c762d7ec835f830f",
+      "ax": "docs/verification/results/editor-native-picker-20261101/042-narrow-preview-after-source-edit.txt",
+      "axSha256": "2e1765db2fa95161245b7cf8077578f66e0bc5dcbc0a60909ed88ab1dd42af38",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/043-narrow-source-undo-preserved.jpg",
+      "imageSha256": "06271c604f17b69cbb83a655e1328ebad8606372a224630e96c2a557e977f334",
+      "ax": "docs/verification/results/editor-native-picker-20261101/043-narrow-source-undo-preserved.txt",
+      "axSha256": "ee5dbb363a1a7cd0e9e2fb549dbd8c31681f509a934e7ce99913dc8c408f27d5",
+      "independentlyViewed": true
+    },
+    {
+      "image": "docs/verification/results/editor-native-picker-20261101/044-recovery-error-after-visual-undo.jpg",
+      "imageSha256": "265b7e8ad1bfcd9f5c1fc01f7705f0c6d8edf6950d54b094516d16820e5b5dcd",
+      "ax": "docs/verification/results/editor-native-picker-20261101/044-recovery-error-after-visual-undo.txt",
+      "axSha256": "83963d74f1cca7eaaac9f60f32bd02c4133e27b3430ae054265807ae14df4c54",
+      "independentlyViewed": true
+    }
+  ],
+  "currentFiles": [
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/native-remainder/visual.ts",
+      "bytes": 304,
+      "sha256": "f128398bfbdedd6912b4a804f328f57f962e7ee7e4d34e0d63d0b2a2049228a6",
+      "matchesInitialFixture": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/native-remainder/visual.md",
+      "bytes": 377,
+      "sha256": "29b9829eb04ae840847d63b0bbc4c8d247bda63dbf527910d962450a186ca4a7",
+      "matchesInitialFixture": true
+    }
+  ],
+  "narrow": {
+    "actualViewport": [
+      823,
+      800
+    ],
+    "observed": "RealnarrowMarkdownsource/previewtabs;042preview containsunsavedNARROW_UNDO_1101 inAX anddirtyindicator;043nativeimage showssource restoredclean andAXcontainsnomarker;actual377B baselineunchanged.",
+    "limit": "043AXtabselectedlabel is not aligned with screenshotactiveMarkdown; useoriginalimage forvisibleactivetab andonlyAXcontent for markerabsence. No inferredlossfrommixedmomentAX."
+  },
+  "recoveryNotice": {
+    "observed": "044afterUndoownvisual.tsmarkertoclean displaysrecovery-read errorENOENT withReread. Saveisdisabled andoriginal304B/code remains.",
+    "classification": "ObservednativeerroraftercleanUndo; distinct fromoldcandidate7Compare-clickfailure.",
+    "limitations": [
+      "NoCompareclickwasperformedinthiscase.",
+      "No persistence duration or rootcause inferred fromsinglecapture.",
+      "No textloss or failedsave claim.",
+      "Operatorfoundduringcleanup;no extra test sequence."
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "path": "apps/desktop/src-tauri/src/git.rs",
+  "frozenCa71SHA256": "51399e7460810d502176c0b258541f990f620c6ecf9e9c9cf740315a1e913209",
+  "provenance": "Reviewer earlier read actual lines381–430 and independently whole-file SHA matched ca71=true in retained tool result; subsequent Windows source edits now differ and are not relabeled as ca71. This is a derived excerpt from that earlier read, not a full-source archive.",
+  "guardLines392to405": "fn check_dirty(state: &HostState, project_id: &str, call: &Call) -> Result<(), HostError> {\n    let dirty = state.dirty_documents(Some(project_id));\n    if dirty.is_empty() { return Ok(()); }\n    let p = &call.params;\n    if call.method == \"git_mutate\"\n        && (matches!(p[\"operation\"].as_str(), Some(\"switch\" | \"pull\"))\n            || (p[\"operation\"] == \"createBranch\" && p[\"switchAfter\"] == true))\n    {\n        return Err(HostError::new(\"RESOURCE_BUSY\", \"请先处理未保存文档，再切换分支或拉取\"));\n    }",
+  "formatting": "Quoted tokens with whitespace compressed; not claimed byte-for-byte full source.",
+  "observedCallAt224": "check_dirty(&state, project_id, &call)?;"
+}

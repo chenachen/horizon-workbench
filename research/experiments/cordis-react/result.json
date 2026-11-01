@@ -1,0 +1,36 @@
+{
+  "observedOn": "2026-10-31 Asia/Shanghai",
+  "platform": "darwin arm64",
+  "browser": "151.0.7922.34",
+  "status": "passed",
+  "checks": [
+    "browser_without_node_globals",
+    "dependency_wait_and_resume",
+    "provider_teardown_stops_consumer",
+    "effect_timer_and_event_cleanup",
+    "theme_and_geometry_preserve_document_element",
+    "react_subscription_cleanup"
+  ],
+  "packages": {
+    "cordis": "4.0.0-rc.12",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "cosmokit": "1.8.1",
+    "esbuild": "0.28.2"
+  },
+  "bundleBytes": 254060,
+  "metrics": {
+    "mounts": 1,
+    "unmounts": 1,
+    "activations": 2,
+    "cleanups": 2,
+    "events": 1,
+    "timers": 2
+  },
+  "limits": [
+    "Chromium research experiment, not native Tauri WebView",
+    "No desktop memory/CPU benchmark",
+    "No arbitrary-layout-tree/CodeMirror/IME validation",
+    "No Node Loader, QuickJS or DSH plugin compatibility test"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-10-30T18:42:34.303975+00:00",
+  "source": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/recovery/b8ed1733-595c-42c5-a676-3b546cebdd3e.json",
+  "sha256": "814b16996bcd27470806e5878c514ed4ad2ff928ad13185b4c5a8e13ced2f8bc",
+  "bytes": 1009,
+  "checkpointId": "b8ed1733-595c-42c5-a676-3b546cebdd3e",
+  "method": "Independent read-only copy of explicitly identified temporary UI Kit recovery fixture before candidate-2 quit",
+  "checkpoint": {
+    "baseDiskRevision": {
+      "byteLength": "51",
+      "contentHash": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+      "modifiedAt": "2026-10-30T18:20:07.662851128+00:00",
+      "token": "5fc9aaec25b3c706d074e5d003b1ab6fdd3d1422e1e6e90b084c6fbd51f80af2"
+    },
+    "byteCount": "73",
+    "checkpointId": "b8ed1733-595c-42c5-a676-3b546cebdd3e",
+    "documentId": "b8ed1733-595c-42c5-a676-3b546cebdd3e",
+    "editorRevision": 4,
+    "encoding": "utf8bom",
+    "eol": "crlf",
+    "file": {
+      "displayPath": "src/换行测试.txt",
+      "fileId": "369c691a96ad821ed4b7b641b4fae431b91ece9842d3b17ff457b2c20b0ca291",
+      "projectId": "dfef65be-3750-41c6-9173-0395df536fc2"
+    },
+    "fileId": "369c691a96ad821ed4b7b641b4fae431b91ece9842d3b17ff457b2c20b0ca291",
+    "projectId": "dfef65be-3750-41c6-9173-0395df536fc2",
+    "selection": {
+      "anchor": 27,
+      "head": 27
+    },
+    "text": "第一行\n第二行\n第三行：中文保存\n未保存：跨项目保留\n",
+    "updatedAt": "2026-10-30T18:22:06.409694+00:00"
+  },
+  "disk": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit/src/换行测试.txt",
+    "bytes": 51,
+    "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+    "bom": true,
+    "crlf": 3,
+    "bareLf": 0,
+    "decodedText": "第一行\r\n第二行\r\n第三行：中文保存\r\n",
+    "containsUnsavedFourthLine": false
+  },
+  "checkpointTextCharacters": 27,
+  "checkpointTextUtf8Bytes": 73,
+  "operatorQuitSequence": [
+    "Root invokes native Cmd+Q on candidate 2; process exits",
+    "Immediate getAXState reacquires app by bundle and restarts old candidate, producing PID 28496; it displays clean disk contents while old recovery checkpoint remains",
+    "Root invokes Cmd+Q again, then lists apps and reads ps without getAXState; PID 28496 is confirmed absent"
+  ],
+  "limits": [
+    "Second launch is an automation reacquire side effect, not failure to quit or automatic save",
+    "Candidate-2 clean disk display does not prove recovery; candidate-3 restoration is pending"
+  ]
+}

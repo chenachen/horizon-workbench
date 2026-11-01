@@ -1,0 +1,82 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container
+				4 text Horizon 工作区
+				5 pop up button 切换工作区, Value: macOS 完整验收 1101
+				6 button 搜索文件或命令 ⌘ P
+				7 button 切换侧栏, Help: 切换侧栏 ⌘ B
+				8 button AI 助手
+				9 button 插件中心
+				10 button 设置, Help: 设置 ⌘ ,
+				11 button 退出专注
+			12 container 编辑区域
+				13 container 编辑工作台
+					14 tab group (selectable) 打开的文件
+						15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存
+						16 button 关闭 src/workspace.ts
+						17 tab (selectable) theme.css, Help: src/theme.css
+						18 button 关闭 src/theme.css
+					19 button 文件标签操作
+					20 container src/workspace.ts
+						21 text src workspace.ts
+					22 button 查找与替换
+					23 button 保存文件, Help: 保存 ⌘S
+					24 container workspace.ts 未保存
+						25 text entry area (settable) src/workspace.ts，代码编辑器, Value: 
+
+
+
+
+
+
+							26 container (settable)
+								27 text (settable) import  { createStore }  from "./store" ;
+							28 container (settable)
+								29 text (settable) import type  { Project }  from "./types" ;
+							30 container (settable)
+								31 text (settable) export const  workspace = createStore({
+							32 container (settable)
+								33 text (settable)   activeProject:  "aurora" ,
+							34 container (settable)
+								35 text (settable)   projects:  new  Map< string ,  Project >(),
+							36 text (settable) });
+							37 container (settable)
+								38 text (settable) export async function  switchProject(id:  string ) {
+							39 container (settable)
+								40 text (settable) const  current = workspace.get().activeProject;
+							41 text (settable) // 保存当前项目的标签与阅读位置
+							42 container (settable)
+								43 text (settable) await  saveSession(current);
+							44 container (settable)
+								45 text (settable) const  session =  await  restoreSession(id);
+							46 text (settable)   workspace.set({ activeProject: id });
+							47 text (settable)   editor.restore(session.tabs);
+							48 text (settable)   panels.restore(session.layout);
+							49 text (settable) }
+							50 text (settable) // 独立项目，各自保留上下文。
+							51 text (settable) // appearance-retention-20261101: 中文未保存标记
+				52 button 退出专注模式
+			53 container
+				54 button main 5 个更改
+				55 text Esc 后按 Tab 离开编辑器 恢复稿已存
+				56 button 行 2，列 40
+				57 text TS UTF8  ·  LF
+				58 pop up button 启动方案, Value: 在设置添加启动方案
+				59 button (disabled) 启动
+				60 button 切换终端
+				61 button 扩展
+				62 text macOS · 0.1.0
+	63 close button
+	64 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	65 minimize button
+66 menu bar
+	67 Horizon
+	68 File
+	69 Edit
+	70 View
+	71 Window
+	72 Help
+
+The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost

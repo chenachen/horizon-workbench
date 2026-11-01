@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-10-30T18:22:24.826410+00:00",
+  "source_path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit/src/换行测试.txt",
+  "bytes": 51,
+  "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+  "encoding": "UTF-8 BOM",
+  "bom_preserved": true,
+  "crlf_count": 3,
+  "bare_lf_count": 0,
+  "trailing_crlf": true,
+  "decoded_text": "第一行\r\n第二行\r\n第三行：中文保存\r\n",
+  "matches_expected_text": true,
+  "method": "independent read of actual UI Kit file after root native GUI paste and Cmd+S",
+  "build": "release candidate 2; native PID 72108, window 13201; not final release",
+  "limits": [
+    "Native actions supplied by root; no GUI input sent by verifier.",
+    "Paste does not establish actual IME composition.",
+    "This single CRLF+BOM case does not establish all LF/no-final-newline/new-file cases."
+  ]
+}

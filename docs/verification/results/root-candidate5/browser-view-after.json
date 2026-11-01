@@ -1,0 +1,317 @@
+{
+  "kind": "React + real CodeMirror browser regression",
+  "phases": [
+    {
+      "name": "initial mount",
+      "editors": 1,
+      "text": "content for a",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 1,
+        "destroyedViews": 0,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.770Z",
+            "languageReadyMs": 33.299999952316284,
+            "durationMs": 38.39999997615814,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dispose then reactivate while React stays mounted",
+      "editors": 1,
+      "text": "content for a retained draft",
+      "status": "Esc 后按 Tab 离开编辑器恢复稿已存行 1，列 29TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 2,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.770Z",
+            "languageReadyMs": 33.299999952316284,
+            "durationMs": 38.39999997615814,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.961Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 17,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "project B uses its own document",
+      "editors": 1,
+      "text": "content for b",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 2,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.770Z",
+            "languageReadyMs": 33.299999952316284,
+            "durationMs": 38.39999997615814,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.961Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 17,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:34.049Z",
+            "languageReadyMs": 2.399999976158142,
+            "durationMs": 23.800000071525574,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "late project A disposal leaves project B readable",
+      "editors": 1,
+      "text": "content for b",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 2,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.770Z",
+            "languageReadyMs": 33.299999952316284,
+            "durationMs": 38.39999997615814,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.961Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 17,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:34.049Z",
+            "languageReadyMs": 2.399999976158142,
+            "durationMs": 23.800000071525574,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "duplicate disposal then reactivation",
+      "editors": 1,
+      "text": "content for b",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 3,
+        "destroyedViews": 2,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.770Z",
+            "languageReadyMs": 33.299999952316284,
+            "durationMs": 38.39999997615814,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.961Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 17,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:34.049Z",
+            "languageReadyMs": 2.399999976158142,
+            "durationMs": 23.800000071525574,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:34.220Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 2.899999976158142,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "React unmount releases view and portal",
+      "editors": 0,
+      "text": "",
+      "status": "",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 0,
+        "createdViews": 3,
+        "destroyedViews": 3,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.770Z",
+            "languageReadyMs": 33.299999952316284,
+            "durationMs": 38.39999997615814,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          },
+          {
+            "id": 2,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:33.961Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 17,
+            "byteLength": "20",
+            "editorRevision": 15,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 3,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:34.049Z",
+            "languageReadyMs": 2.399999976158142,
+            "durationMs": 23.800000071525574,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 2,
+            "language": "plain"
+          },
+          {
+            "id": 4,
+            "projectId": "b",
+            "fileId": "two",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:34:34.220Z",
+            "languageReadyMs": 1.7000000476837158,
+            "durationMs": 2.899999976158142,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 3,
+            "language": "plain"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": true
+}

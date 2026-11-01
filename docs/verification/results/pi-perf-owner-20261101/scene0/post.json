@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-01T12:03:52.238745+00:00",
+  "phase": "PERF0 oncepost after rootcollector exit0",
+  "status": "POST0 PASS",
+  "checks": {
+    "sameAppPIDStartAndInstalledExecutable": true,
+    "sameProviderPIDStartAndScript": true,
+    "httpStillThirteen": true,
+    "piStillZero": true
+  },
+  "app": {
+    "pid": 8737,
+    "ppid": 1,
+    "start": "Sun Nov 1 18:41:19 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "args": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "provider": {
+    "pid": 2344,
+    "ppid": 2338,
+    "start": "Sun Nov 1 17:47:30 2026",
+    "executable": "node",
+    "args": "node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs"
+  },
+  "mainSHA256BoundToSameFrozenLaunch": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "sourceIdentityBasis": "Same livePID/start/installedexecutable bound to root12ed release; no rebuild/relaunch/sourcechange duringfreeze, no repeatedbinaryhash.",
+  "http": {
+    "fixture": true,
+    "requests": 13
+  },
+  "piPids": [],
+  "next": "No PERF1Send until rootseparatelease. No modelrequest made."
+}

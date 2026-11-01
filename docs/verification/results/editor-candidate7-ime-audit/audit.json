@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-10-31T03:25:57.395695+00:00",
+  "build": "candidate7",
+  "method": "Independent original PNG visual inspection plus exact disk UTF8/hash audit; exclusive operator performed physical keys and native Save/Undo/Redo",
+  "operatorRecord": "docs/verification/results/editor-candidate7-ime-audit/operator-ime.json",
+  "disk": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-editor-gui-sl3spe_4/src/ime.txt",
+    "bytes": 34,
+    "sha256": "24f573c60d4500fb1c70e286757a13e26824f3a3759b4bcfc5629ac8d345ad73",
+    "text": "真实拼音输入：\n中文输入",
+    "copy": "docs/verification/results/editor-candidate7-ime-audit/saved-ime.txt"
+  },
+  "screenshots": [
+    {
+      "path": "docs/verification/screenshots/editor-candidate7/08-ime-marked-zhong-wen.png",
+      "sha256": "80b893b93aef7483124f3ae087c8d8a2b1859331bb321228850f622bf2c061fe",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "independentlyViewed": true,
+      "visible": "Underlined zhong wen composition in editor; dirty tab"
+    },
+    {
+      "path": "docs/verification/screenshots/editor-candidate7/09-ime-chinese-saved.png",
+      "sha256": "c9a44eea50166feba8dfd1409cb51597fd5df18a4c7177de68b86cf072c6a95e",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "independentlyViewed": true,
+      "visible": "中文输入, clean ime.txt tab, disabled Save button"
+    },
+    {
+      "path": "docs/verification/screenshots/editor-candidate7/10-ime-undo-whole-composition.png",
+      "sha256": "dc1d427e01a3f5c1e1a303f13bf4a1a4d9e26662dfd11a3e9e4ed426dd9e6922",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "independentlyViewed": true,
+      "visible": "中文 remains; 输入 removed as whole committed unit; dirty tab"
+    }
+  ],
+  "conclusion": "Physical Pinyin composition → Chinese commit → native Save exactbytes → Undo removes whole second composition is proven. Operator also reports Redo restores clean text; no separate Redo PNG captured.",
+  "limitations": [
+    "Floating candidate list was not captured; only marked composition and chosen Chinese result are claimed.",
+    "Earlier shortcut/composition anomaly on focus.ts is a separate unresolved observation; this successful ime.txt case does not attribute or erase it.",
+    "Only FILE006 IME/undo/save subconditions, not full find/replace/unknown language or all editor acceptance."
+  ]
+}

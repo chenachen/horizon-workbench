@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-31T01:51:22+0800",
+  "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "git": "git version 2.50.1 (Apple Git-155)",
+  "binary": "/Users/chenpengxiang/Desktop/Horizon/apps/git-service/target/release/horizon-git",
+  "sampling": "20ms requested; ps overhead included. RSS sums sidecar and same-process-group Git descendants; no desktop/WebView in this probe.",
+  "cases": [
+    {
+      "durationMs": 1402.04,
+      "peakProcessGroupRssKiB": 30880,
+      "processes": [
+        "(git)",
+        "(horizon-git)",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/git-service/target/release/horizon-git"
+      ],
+      "exitCode": 0,
+      "cancelled": false,
+      "case": "status",
+      "fileCount": 10000,
+      "returnedFiles": 10000,
+      "truncated": false
+    },
+    {
+      "durationMs": 7140.74,
+      "peakProcessGroupRssKiB": 99472,
+      "processes": [
+        "(git)",
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/git",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/git-service/target/release/horizon-git"
+      ],
+      "exitCode": 0,
+      "cancelled": false,
+      "case": "status",
+      "fileCount": 100000,
+      "returnedFiles": 10000,
+      "truncated": true
+    },
+    {
+      "durationMs": 470.54,
+      "peakProcessGroupRssKiB": 76352,
+      "processes": [
+        "(git)",
+        "(horizon-git)",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/git-service/target/release/horizon-git"
+      ],
+      "exitCode": 0,
+      "cancelled": false,
+      "case": "largeDiff",
+      "diskBytes": 52505775,
+      "pageBytes": 131072,
+      "truncated": true,
+      "nextCursor": true
+    },
+    {
+      "durationMs": 380.47,
+      "peakProcessGroupRssKiB": 11680,
+      "processes": [
+        "(git)",
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/git",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/git-service/target/release/horizon-git",
+        "/bin/sh"
+      ],
+      "exitCode": -15,
+      "cancelled": true,
+      "case": "cancelProcessGroup",
+      "remainingProcessIds": [],
+      "headCreated": false
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "auditedAt": "2026-11-01T05:42:04.646033+00:00",
+  "method": "Independent bundle Info.plist/executable/source snapshot hashes, original complete build log and readonly deep-strict codesign verification; no build/test rerun",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "f8b54d7e674d15623f3fe2709519af1abc9b21fc24c77ee74bf95d9d1eb33692",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/components/SleepingProjectPage.tsx",
+      "sha256": "0f2f6ca0c2c04088c9888052b096058f86b07d1c85aff4cda593cb1135f8ab87",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "6911c1e0732d36d6e99d8ca0c2c13b664b4dd5598c84bf9f3bd22a60c6763453",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/FileRecovery.tsx",
+      "sha256": "ad8ff227a546c4f5e6ff7d1c7e3a031c752640cfd27188001cecbfbd654c879b",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/file-recovery.css",
+      "sha256": "30c736595d23de9e2bdd1175ae5dff457ecf742c941def7f19fd335f60e7895d",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/service.ts",
+      "sha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "bundleInfo": {
+    "CFBundleExecutable": "horizon-desktop",
+    "CFBundleIdentifier": "dev.horizon.desktop",
+    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "0.1.0"
+  },
+  "bundleArtifacts": [
+    {
+      "path": "Contents/Helpers/HorizonPicker.app/Contents/Info.plist",
+      "bytes": 720,
+      "sha256": "c6e53094611aec4ef8f02bfd7d2b9e886f74bd3f53aff7ef1bc5e83594d92d60"
+    },
+    {
+      "path": "Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+      "bytes": 166816,
+      "sha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+    },
+    {
+      "path": "Contents/Info.plist",
+      "bytes": 969,
+      "sha256": "b1bd88caab2f71c8944e2cdf5491f422c5060013a3abad24c00201c1ebe5495a"
+    },
+    {
+      "path": "Contents/MacOS/horizon-desktop",
+      "bytes": 19860880,
+      "sha256": "d70952fe156c6f2027ab0eb184846db3ced7ef634548a83d3ad19155f9464645"
+    },
+    {
+      "path": "Contents/MacOS/horizon-extension-host",
+      "bytes": 1562272,
+      "sha256": "c7936994f12b71c196aefa6191c3527df4c5d18474bfe69b65a53c3bac46ec46"
+    },
+    {
+      "path": "Contents/MacOS/horizon-git",
+      "bytes": 1028608,
+      "sha256": "c4d10ced9f4476426c31093f6e5ad53d7664310f780f870c5c60747f9fb0030a"
+    },
+    {
+      "path": "Contents/MacOS/horizon-rg",
+      "bytes": 4014576,
+      "sha256": "a326a1fb48074202e9ad41e4cd1e389eeea372c8c6f7d7e80da81176d5d9430e"
+    }
+  ],
+  "signatureCheck": {
+    "command": [
+      "codesign",
+      "--verify",
+      "--deep",
+      "--strict",
+      "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "buildReceiptSha256": "cc799c57c80259f7af219827df0aaad20e04e51ff12926dc77a92873613091bb",
+  "buildLogSha256": "4b6c215a4e7d06ecbc80613327c67097730d20bc2c09c9214f02b1c3db346dec",
+  "buildStatus": {
+    "buildExitCode": 0,
+    "wrapperExitCode": 1,
+    "startedAt": "2026-11-01T05:38:44.623377+00:00",
+    "finishedAt": null,
+    "observedCompleteAt": "2026-11-01T05:41:25.858488+00:00",
+    "explanation": "desktop-run returned0; receipt wrapper entered success branch then failed while hashing wrong executable path. No build rerun."
+  },
+  "limits": [
+    "Wrapper post-build hash lookup initially used incorrect display-name executable; operator corrected receipt from CFBundleExecutable, retaining wrapper exit1 and actual build exit0 separately. Exact completedAt unavailable; no timing inferred from poll return.",
+    "This invocation bundles only .app. Existing DMG/ZIP still identify prior df1e release and are not claimed updated.",
+    "Build includes frozen G03/manual-sleep metadata view, store cursor correction, plugin fresh-state ordering and targeted presentation changes. Native acceptance remains pending."
+  ]
+}

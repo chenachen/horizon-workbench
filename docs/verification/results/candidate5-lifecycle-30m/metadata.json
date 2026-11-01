@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-30T19:37:56Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/",
+  "python": "3.14.3",
+  "scenario": "native-project-panel-plugin-cycles",
+  "build": "release",
+  "build_id": "candidate5",
+  "root_executables": {
+    "91978": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "8265d62143a81c380acd350dc8c261685f241a2bc3fd0cfbece65c81073b00b2"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "createdAt": "2026-10-30T19:35:19.851488+00:00",
+    "build": "candidate5",
+    "status": "running",
+    "nativeGuiOwner": "root",
+    "changes": [
+      "CodeSurface recreates released view for resumed valid buffer",
+      "A01 welcome, A02 overview and plugin center reference shell alignment",
+      "anonymous editor timing exports and resource/cache counts",
+      "lastOpenedAt only after successful project activation"
+    ],
+    "pid": 91978,
+    "startedAt": "2026-10-30T19:37:49.541418+00:00"
+  },
+  "root_pids": [
+    91978
+  ],
+  "cache_condition": "OS cache unchanged; no cache purge",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "manual log",
+  "activity_log": ".work/candidate5-cycle/actions.jsonl",
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ]
+}

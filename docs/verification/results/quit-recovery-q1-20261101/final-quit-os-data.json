@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-11-01T12:40:48.390298+00:00",
+  "nativeSource": {
+    "operator": "/root/gui_terra_max",
+    "reported": "Final quit impact clean, lists original zsh/API/Web/Pi; handle-and-quit once",
+    "clickResolvedUtc": [
+      "2026-11-01T12:39:46.610Z",
+      "2026-11-01T12:39:46.692Z"
+    ]
+  },
+  "processesObserved": [],
+  "identityChecks": {
+    "8737": {
+      "expectedStart": "Sun Nov 1 18:41:19 2026",
+      "observedStart": null,
+      "originalIdentityGone": true
+    },
+    "15626": {
+      "expectedStart": "Sun Nov 1 20:28:36 2026",
+      "observedStart": null,
+      "originalIdentityGone": true
+    },
+    "15627": {
+      "expectedStart": "Sun Nov 1 20:28:36 2026",
+      "observedStart": null,
+      "originalIdentityGone": true
+    },
+    "15697": {
+      "expectedStart": "Sun Nov 1 20:28:36 2026",
+      "observedStart": null,
+      "originalIdentityGone": true
+    },
+    "9823": {
+      "expectedStart": "Sun Nov 1 20:25:43 2026",
+      "observedStart": null,
+      "originalIdentityGone": true
+    },
+    "21345": {
+      "expectedStart": "Sun Nov 1 20:31:34 2026",
+      "observedStart": null,
+      "originalIdentityGone": true
+    }
+  },
+  "allSixOriginalGone": true,
+  "psExitCode": 1,
+  "ports": {
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "",
+    "noListeners": true
+  },
+  "stopOrder": {
+    "rawRows": [
+      {
+        "role": "web",
+        "pid": 15697,
+        "at": "2026-11-01T12:39:48.697Z"
+      },
+      {
+        "role": "child",
+        "pid": 15627,
+        "at": "2026-11-01T12:39:48.763Z"
+      },
+      {
+        "role": "api",
+        "pid": 15626,
+        "at": "2026-11-01T12:39:48.763Z"
+      }
+    ],
+    "rolesInAppendOrder": [
+      "web",
+      "child",
+      "api"
+    ],
+    "webBeforeApiGroup": true,
+    "apiChildInternalOrderNotPromised": true
+  },
+  "dirtyDisk": {
+    "bytes": 47,
+    "sha256": "ecfc88ba63c7ff7f1b9dc4f50c765845094cdc61b81bcbbbc78f327189b324ee",
+    "matchesSaved47B": true,
+    "fileMode": "0o600",
+    "parentMode": "0o700"
+  },
+  "reopenBaselineReceipt": "reopen-baseline.json",
+  "permissionFaultActive": false,
+  "ownerActions": "Readonly OS/files and evidence copies only; no signal/start/GUI/relaunch"
+}

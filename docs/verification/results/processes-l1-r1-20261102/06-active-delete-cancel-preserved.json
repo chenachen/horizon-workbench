@@ -1,0 +1,118 @@
+{
+  "checkedAt": "2026-11-01T17:11:53.853995+00:00",
+  "stage": "L1 active profile Delete→Cancel preservation; one readonly phase check",
+  "native": {
+    "captures": [
+      "03-active-delete-preview",
+      "03-active-delete-cancel"
+    ],
+    "profileId": "profile-1793551533187-1",
+    "runId": "launch-1793552835379-7",
+    "profileRevision": 2,
+    "browser": {
+      "nativeReceipt": "02-browser-after.json",
+      "checkedAt": "2026-11-01T17:10:32Z",
+      "savedUrlMatchingTabCount": 2,
+      "logOnlyMatchingTabCount": 0,
+      "baselineSaved": 0,
+      "afterFirstRunSaved": 1,
+      "scope": "Only two QA target URL matches; no unrelated browser data"
+    }
+  },
+  "processes": [
+    {
+      "pid": 41657,
+      "ppid": 1,
+      "pgid": 41657,
+      "lstart": "Mon Nov 2 00:05:09 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    {
+      "pid": 66699,
+      "ppid": 41657,
+      "pgid": 66699,
+      "lstart": "Mon Nov 2 01:07:15 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node service.mjs"
+    },
+    {
+      "pid": 66705,
+      "ppid": 41657,
+      "pgid": 66705,
+      "lstart": "Mon Nov 2 01:07:15 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node follower.mjs"
+    }
+  ],
+  "savedOwnedProfile": {
+    "schemaVersion": 1,
+    "profileId": "profile-1793551533187-1",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 2,
+    "name": "1101 快照 · 自动 URL · 删除（导入）",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "service",
+        "title": "显式 Shell · 快照服务",
+        "dependsOn": [],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' service.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "PORT": "59133",
+          "SNAPSHOT": "updated"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "stdout",
+          "pattern": "READY",
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59133/saved",
+          "autoOpenUrl": true
+        }
+      },
+      {
+        "stepId": "follower",
+        "title": "无探针后继",
+        "dependsOn": [
+          "service"
+        ],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' follower.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "SNAPSHOT": "original"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  "actualLauncherRunLease": {
+    "activationId": "f20f29f0-67ed-4794-9d0e-9b7c072bdf50"
+  },
+  "snapshotSha256": "f40a02f51a3e7b6c7309412f1561340bc93f4bbb8dc83aedf22d9aff3fb8f62e",
+  "checks": {
+    "sameThreeLiveIdentities": true,
+    "sameSavedProfileRevisionTwo": true,
+    "sameFourSnapshotRows": true,
+    "sameRunLeaseRetained": true
+  },
+  "ownerActions": "Readonly exact saved object/3 ps/owned marker/own lease; no GUI/start/signal/build"
+}

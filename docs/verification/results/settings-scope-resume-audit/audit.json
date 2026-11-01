@@ -1,0 +1,58 @@
+{
+  "auditedAt": "2026-11-01T02:55:50.217136+00:00",
+  "method": "Independent existing originalnativeimage/AX andcontrolledReactresult review; no newGUI in this audit",
+  "scopeAmendment": "Oct31 user: all appearance/layout/fonts/density/motion global; editorbehavior mayprojectoverride; settingsselector actuallyswitchesproject retainingsection",
+  "artifacts": [
+    {
+      "path": "docs/verification/results/settings-global/summary.json",
+      "sha256": "79e524651e4a60ef65bdf9be39658cdd3edac1e0502aedee3f5c8c293ba005fa"
+    },
+    {
+      "path": "docs/verification/results/settings-global/result.json",
+      "sha256": "7fbe085388105d1ef052bab386a5dacfd5ddb95569ad5eed629591369b1dff12"
+    },
+    {
+      "path": "docs/verification/results/settings-global/migration.json",
+      "sha256": "417eda6dadd9a7e4881cca0a4429ddc52aea42e2ef74a5ca43832be786650cb4"
+    },
+    {
+      "path": "docs/verification/results/settings-global/native-layout.jpg",
+      "sha256": "e5ac29882b19a2ffcdadc114d5f8fdede3e59e19c8ec6583465117a9dc8d5f09"
+    },
+    {
+      "path": "docs/verification/results/settings-global/project-b-layout.txt",
+      "sha256": "4e55a85c6ae33d6a0a87e02f11ec09e8447240a5e90611ab791c45f6a861dec2"
+    },
+    {
+      "path": "docs/verification/results/settings-project/summary.json",
+      "sha256": "27c6f786fa423cc3764d6dda22043fbe3a441cfe44428ea672956034495f9af4"
+    },
+    {
+      "path": "docs/verification/results/settings-project/result.json",
+      "sha256": "97b6463d03e59da44cc3fd7a40b7f379e782bc027100c139c2395a8a4c4ef260"
+    },
+    {
+      "path": "docs/verification/results/settings-project/native-project-b.txt",
+      "sha256": "0dbe77a7614f10d4bf8423afe060346a98dd342b698a43c5039a82cfd505e2ac"
+    },
+    {
+      "path": "docs/verification/results/settings-project/native-project-restored.txt",
+      "sha256": "b60fb4dd9bee59bb8b5f382077c44bdcdfe86288ad4e815b2cd53a3c0cfaedd8"
+    }
+  ],
+  "nativeObserved": [
+    "Singleappearance navigation,fourtabs,structurallayoutnames",
+    "Cardlayoutshownactiveafter03→02;operator03→02→03 retainedlayout",
+    "Settingsprojectselector19choices;native02and03 AX preserveproject/resource section andcorrectlaunchproject"
+  ],
+  "controlledComponentObserved": [
+    "Font18 writesglobal evenfromprojectscope;tabSize4 writesprojectb",
+    "Project switchpendingvalueshidden andselectedsectionretained"
+  ],
+  "limitations": [
+    "ControlledReactbridgechecks are not nativeGUI checks.",
+    "No fullfont14→15allprojects/tab2→4+A8reset chain claimed; currentGUI remainsqueued.",
+    "No implicitpromotionof oldprojectappearance inheritance to validnewglobalrequirements.",
+    "No full8layoutdesignreviewor finalreleasepackageclaim."
+  ]
+}

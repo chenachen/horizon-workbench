@@ -1,0 +1,37 @@
+{
+  "beforeOutcome": "defect reproduced under controlled pending activation",
+  "beforeProductPass": false,
+  "beforeControlledFacts": {
+    "hostEpoch": 2,
+    "launcherRequestEpoch": 1,
+    "staleMethods": [
+      "launch_profile_list",
+      "launch_list"
+    ],
+    "localAndGlobalError": "项目上下文已过期"
+  },
+  "afterOutcome": "candidate App ordering change passed component checks in memory",
+  "afterControlledFacts": {
+    "pendingOverviewVisible": true,
+    "pendingLauncherCalls": 0,
+    "completedHostAndRequestEpoch": 2,
+    "newProfileLoaded": true,
+    "failedActivationRetainsOverviewAndOriginalError": true
+  },
+  "nativeAttribution": "The retained local LauncherToolbar error attributes the observation to useLauncher; at least one of its parallel launch_profile_list/launch_list calls failed. The historical native method cannot be separated. The component reproduces STALE_SCOPE for both.",
+  "nativeFixVerification": "pending parent integration/build and one real overview -> current project navigation",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    }
+  ]
+}

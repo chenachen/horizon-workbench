@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-01T09:55:52.820258+00:00",
+  "card": "03b",
+  "status": "explicit test passed; CONTEXT READY",
+  "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+  "checks": {
+    "exactlyOneRequest": true,
+    "fixedUserTextOnly": true,
+    "noProjectMarkers": true,
+    "chatToolsEmpty": true,
+    "authStateVerified": true,
+    "testPiExited": true,
+    "oldNineSessionSetUnchanged": true
+  },
+  "requestEvidence": {
+    "path": "/v1/chat/completions",
+    "model": "horizon-fixture",
+    "userTexts": [
+      "Reply with exactly: Horizon connection verified. This is a connectivity test; no project content is included."
+    ],
+    "roles": [
+      "system",
+      "user"
+    ],
+    "tools": [],
+    "log": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-requests.jsonl",
+    "health": {
+      "fixture": true,
+      "requests": 1
+    }
+  },
+  "authState": "verified",
+  "guiReceipt": "docs/verification/results/pi-terra-20261101/01c-1793525687778-manifest.jsonl",
+  "limits": "Only explicit connection test performed by Terra; owner issued no model POST. No full functional or visual claim."
+}

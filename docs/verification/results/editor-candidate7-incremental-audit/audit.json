@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-10-31T03:13:44.815745+00:00",
+  "candidate": "7",
+  "scope": "Independent rawfile/hash/schema and original PNG review, no GUI action or test rerun",
+  "closeCancelFocus": {
+    "operatorAction": "CmdP focus.ts; click editor; type // cancel-focus-7; CmdW; click Cancel then physical q without editor click",
+    "operatorObserved": "AX focus returned CodeMirror; document // cancel-focus-7q; Ln2 Col19; disk remains baseline",
+    "independentlyViewed": [
+      "docs/verification/screenshots/editor-candidate7/05-B08-dirty-close-dialog.png",
+      "docs/verification/screenshots/editor-candidate7/06-close-cancel-immediate-key-q.png"
+    ],
+    "diskShaOperatorReported": "3de6779948bb7bbfa143665cc674273238e1822045c7a38baae56083790a199d",
+    "conclusion": "Specific cancel-focus failure superseded; no blanket dirty-close requirement closure."
+  },
+  "diagnosticExport": {
+    "exportedAt": "2026-10-31T03:08:46.551980+00:00",
+    "bytes": 4600,
+    "sha256": "b2e82fac0a7e34477b7b82d339beb1458b1281f57cbc6a1f67bafd726a70aa90",
+    "runtime": {
+      "activationErrorObservers": 1,
+      "cordisPluginListeners": 0,
+      "cordisRootListeners": 3,
+      "eventListenerDisposalFailures": 0,
+      "eventListeners": 14,
+      "eventListenersDisposing": 0,
+      "pluginInstances": 4,
+      "pluginInstancesDisposing": 0,
+      "pluginStoreObservers": 12,
+      "schemaVersion": 1,
+      "workerAbortListeners": 0,
+      "workerCommandObservers": 1,
+      "workerCommands": 0,
+      "workerEventListeners": 0,
+      "workerViews": 0
+    },
+    "nativeCounts": {
+      "openDocuments": 1,
+      "watchers": 1,
+      "subscriptions": 2
+    },
+    "conclusion": "Actual successful native export with complete15runtimefields. Not a cycle/leak/performance pass."
+  },
+  "limitations": [
+    "Raw operation/focus/disk observations supplied by exclusive native operator; verifier independently views originalPNG and exact exportedbytes.",
+    "Current candidate7 picker still wrongappearanceSavePanel; sourceone-linefix is later than measured package.",
+    "No private-data clear or all-log privacy claim."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-30T19:14:37.804435+00:00",
+  "scope": "REQ-UI-005 traceability only",
+  "reason": "H05 retained4historical paths while interaction0.4baseline explicitly requires5; synchronize quick-launch and concrete cancel/failure exits",
+  "sourceSha256": {
+    "docs/implementation/TRACEABILITY.md": "619c9a032175e716ff24b99082613845fd4ec158f7b61e83fb1f462a4c8424a6",
+    "docs/ux/INTERACTION_SPEC.md": "9344895d4ac7649c098d083e7e86dcb4888cef82290829f9019f8c9a3251ae1d",
+    "design/SCREEN_INDEX.md": "ab93c79bb3a42fab14bdfe66d446d479caf9bce11a10fd595d93906eb3947b21",
+    "design/source/screens.json": "3e5cda34e1c11fc019a129431f3ba30588aab5f3311c4958de0a102b2a32ab1f",
+    "design/source/app.js": "33f3ee778f6458411cda509441c93a58b946caa6fe07cb59cd6d41e5e96d1f5c"
+  },
+  "requirementsAndIds": "Existing104first-versionrequirements and73screenIDs preserved, no new I/D IDs introduced",
+  "paths": [
+    "open project",
+    "Git delivery",
+    "external Pi review",
+    "extension recovery",
+    "quick launch"
+  ],
+  "checks": [
+    "Each path maps product requirement IDs, concrete current page IDs, cancel/return and failure/recovery",
+    "Concrete frontend method names checked: git_mutate(stage/commit/push), agent_interaction_answer, launch_prepare/start/stop/restart",
+    "All30H05navigation links render and lead to known screen keys",
+    "All8H05style containers fit horizontal bounds",
+    "Original8H05referencePNG hashes unchanged"
+  ],
+  "limitations": [
+    "This requirement is a mapping deliverable; actual product path execution remains in separate GUI evidence",
+    "Historical H05referencePNGs still show4paths and are retained unchanged as prior design evidence"
+  ]
+}

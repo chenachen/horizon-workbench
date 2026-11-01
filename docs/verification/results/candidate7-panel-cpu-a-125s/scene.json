@@ -1,0 +1,47 @@
+{
+  "observedAt": "2026-10-31T02:55:22.780822+00:00",
+  "build": "candidate7",
+  "pid": 37993,
+  "windowId": 15602,
+  "windowSize": [
+    2560,
+    1337
+  ],
+  "rootActions": [
+    "Explicit native click 01-双基线与提交 project",
+    "Explicit native click Git tab"
+  ],
+  "project": "01-双基线与提交",
+  "editor": "src/workspace.ts visible D-buffer clean, 3 lines; save disabled",
+  "git": "HEAD B, index D, one staged file; notes.txt untracked; draft 跨项目保留的 Git 草稿 visibly restored",
+  "panels": {
+    "primary": "git",
+    "agent": false,
+    "terminal": false
+  },
+  "layout": "mist",
+  "theme": "mist-light",
+  "scale": 1,
+  "noPickerInvokedByRootInThisProcess": true,
+  "screenshot": "docs/verification/screenshots/root-candidate7/02-cpu-a-fixed-scene.png",
+  "limitations": [
+    "Earlier unexplained project/panel changes before explicit scene setup remain open; check actual scene after interval.",
+    "This is one small file + Git scene, not formal 10000-path reading budget.",
+    "Runtime counters have not yet been exported because that opens a native picker."
+  ],
+  "windowBounds": {
+    "x": 0,
+    "y": 30,
+    "width": 2560,
+    "height": 1337
+  },
+  "dimensionCorrection": {
+    "priorValue": [
+      1280,
+      800
+    ],
+    "reason": "Initial CG bounds before setup were reused incorrectly. Before-sample and after-sample PNG are both2560x1337; post-sample read-only CG confirms identical current bounds. Window was not resized by root during sampling.",
+    "evidence": "docs/verification/screenshots/root-candidate7/03-cpu-a-after.png"
+  },
+  "postIntervalScene": "Same01 Git D-buffer and commit draft visibly present; no spontaneous navigation observed during A."
+}

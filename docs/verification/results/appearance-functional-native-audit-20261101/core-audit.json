@@ -1,0 +1,1319 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-01T07:13:25.767455+00:00",
+  "reviewer": "/root/verification_resume",
+  "scope": "First3 functional groups:50-layout retention,terminal cleanup and real nonempty cache clear. Other10 groups and A05fresh helper remain separate.",
+  "personallyViewedOriginalImages": 14,
+  "artifactHashChecks": 28,
+  "captureChecks": [
+    {
+      "name": "baseline-editor-dirty-selection",
+      "imageSha256": "d520ed9bb70d1c511b42cefecfd7734870093f57ebdddf384150287ea73e67f0",
+      "axSha256": "f136be68750a3409c0ae3317e9b0461f83d33e7e0c2731fdf62d4246fb922f59",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "baseline-editor-dirty-selection",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/baseline-editor-dirty-selection.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/baseline-editor-dirty-selection.ax.txt",
+        "format": "jpg",
+        "sha256": "d520ed9bb70d1c511b42cefecfd7734870093f57ebdddf384150287ea73e67f0",
+        "axSha256": "f136be68750a3409c0ae3317e9b0461f83d33e7e0c2731fdf62d4246fb922f59",
+        "capturedAt": "2026-11-01T06:04:22.252Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "shellPid": 51343,
+          "selection": "import type { Project } from \"./types\";",
+          "scroll": "top; line1 visible",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "单次paste插入末尾未保存标记；第二行整行选区；git init仅在自有QA目录，无提交。"
+      }
+    },
+    {
+      "name": "baseline-terminal-start",
+      "imageSha256": "8d6c3a8193d5d715f820c8d5e80b9316878ce2486bbc982055a5929d04edb0b9",
+      "axSha256": "a88a09a535f099a75666c92d03864339e1ea68e6b050c6dcaf71250b9bf4c62c",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "baseline-terminal-start",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/baseline-terminal-start.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/baseline-terminal-start.ax.txt",
+        "format": "jpg",
+        "sha256": "8d6c3a8193d5d715f820c8d5e80b9316878ce2486bbc982055a5929d04edb0b9",
+        "axSha256": "a88a09a535f099a75666c92d03864339e1ea68e6b050c6dcaf71250b9bf4c62c",
+        "capturedAt": "2026-11-01T06:04:04.608Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "shellPid": 51343
+        },
+        "notes": "初次粘贴在shell提示符出现前只回显；Ctrl+C后pwd与完整printf真实执行成功，中文UTF-8/PID/cwd可见。"
+      }
+    },
+    {
+      "name": "retention-after-50",
+      "imageSha256": "71f33b696695969129cc34c6cb4b16de517bd6b9108ff16ad228c31fc859538d",
+      "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "retention-after-50",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-after-50.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-after-50.ax.txt",
+        "format": "jpg",
+        "sha256": "71f33b696695969129cc34c6cb4b16de517bd6b9108ff16ad228c31fc859538d",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:32:25.430Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "switchCount": 50
+        },
+        "notes": "精确50次成功布局应用完成；同文档标签、脏标记及阅读位置。"
+      }
+    },
+    {
+      "name": "retention-original-selection-after-50",
+      "imageSha256": "5f501841ec94f991f1058f714b3c7ad280826f113addb75f28e63ea9de6d48ee",
+      "axSha256": "f136be68750a3409c0ae3317e9b0461f83d33e7e0c2731fdf62d4246fb922f59",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "retention-original-selection-after-50",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-original-selection-after-50.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-original-selection-after-50.ax.txt",
+        "format": "jpg",
+        "sha256": "5f501841ec94f991f1058f714b3c7ad280826f113addb75f28e63ea9de6d48ee",
+        "axSha256": "f136be68750a3409c0ae3317e9b0461f83d33e7e0c2731fdf62d4246fb922f59",
+        "capturedAt": "2026-11-01T06:35:46.254Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "switchCount": 50
+        },
+        "notes": "用17次Tab恢复编辑器焦点，未重新选文本；AX原选区仍精确为import type { Project } from \"./types\";。"
+      }
+    },
+    {
+      "name": "retention-undo-after-50",
+      "imageSha256": "7f240866714b9fbc27450bf7cac1ee4c05e4150ee7393e36ab996f768b37a38f",
+      "axSha256": "1bc0c99cd8253abb8c6671dfa52ddd96caf2c432be017e434cab19aa78d6c185",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "retention-undo-after-50",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-undo-after-50.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-undo-after-50.ax.txt",
+        "format": "jpg",
+        "sha256": "7f240866714b9fbc27450bf7cac1ee4c05e4150ee7393e36ab996f768b37a38f",
+        "axSha256": "1bc0c99cd8253abb8c6671dfa52ddd96caf2c432be017e434cab19aa78d6c185",
+        "capturedAt": "2026-11-01T06:35:46.812Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": null,
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "switchCount": 50
+        },
+        "notes": "一次Undo撤销原测试标记，验证50次切换保留同一undo历史；未保存到磁盘。"
+      }
+    },
+    {
+      "name": "retention-git-after-50",
+      "imageSha256": "a1cefd7fc92a797176b3fb34abf1ede8b4a8ad085c69794fcb24a3cfb95930b2",
+      "axSha256": "a3d7b2441af353f093b2a6c485561211fd3e1ca25b55c060628549408689d4ee",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "retention-git-after-50",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-git-after-50.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-git-after-50.ax.txt",
+        "format": "jpg",
+        "sha256": "a1cefd7fc92a797176b3fb34abf1ede8b4a8ad085c69794fcb24a3cfb95930b2",
+        "axSha256": "a3d7b2441af353f093b2a6c485561211fd3e1ca25b55c060628549408689d4ee",
+        "capturedAt": "2026-11-01T06:32:36.642Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "switchCount": 50
+        },
+        "notes": "Git提交草稿真实保留，0暂存，无提交。"
+      }
+    },
+    {
+      "name": "retention-terminal-after-50",
+      "imageSha256": "2323183f0f0868561fb43f9dac46a781413aeb9db652e56791430a838a640fbb",
+      "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "retention-terminal-after-50",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-terminal-after-50.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-terminal-after-50.ax.txt",
+        "format": "jpg",
+        "sha256": "2323183f0f0868561fb43f9dac46a781413aeb9db652e56791430a838a640fbb",
+        "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+        "capturedAt": "2026-11-01T06:32:37.851Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "switchCount": 50
+        },
+        "notes": "同一shell PID51343原输出保留；未创建新终端。"
+      }
+    },
+    {
+      "name": "terminal-stopped-confirmed",
+      "imageSha256": "618c5dc9282a3706f7ad4f22a7c79528921b65ef900ed362aaf760c37fc0c101",
+      "axSha256": "8071877117296f34f82231fa1f4235e80b465dd9c42e1bcf9af041155254a071",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "terminal-stopped-confirmed",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/terminal-stopped-confirmed.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/terminal-stopped-confirmed.ax.txt",
+        "format": "jpg",
+        "sha256": "618c5dc9282a3706f7ad4f22a7c79528921b65ef900ed362aaf760c37fc0c101",
+        "axSha256": "8071877117296f34f82231fa1f4235e80b465dd9c42e1bcf9af041155254a071",
+        "capturedAt": "2026-11-01T06:36:28.208Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "stoppedPid": 51343
+        },
+        "notes": "实际停止终态；独立ps核51343已不存在。"
+      }
+    },
+    {
+      "name": "cache-preview-real-one-item",
+      "imageSha256": "c01c7c3319e6c20300c6dee99d0af1db5dd86fc5ddbe35b6e1d10ed6ca349684",
+      "axSha256": "68bd5820920f80ba51d7d3c0e87aaed3252d5d941906ba008345fe5392b793b5",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "cache-preview-real-one-item",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-preview-real-one-item.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-preview-real-one-item.ax.txt",
+        "format": "jpg",
+        "sha256": "c01c7c3319e6c20300c6dee99d0af1db5dd86fc5ddbe35b6e1d10ed6ca349684",
+        "axSha256": "68bd5820920f80ba51d7d3c0e87aaed3252d5d941906ba008345fe5392b793b5",
+        "capturedAt": "2026-11-01T06:36:48.834Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "真实快速打开路径缓存，预览1项。"
+      }
+    },
+    {
+      "name": "cache-cleared-one-item",
+      "imageSha256": "e36831e0541d11bf2d513e5e24aa583b93c9ac520ea1dad0bb4b2b0184ff5588",
+      "axSha256": "ecf119ce097c202110c3dbcb2237c7233d3aec6aeeaac3498a0826ec39be5863",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "cache-cleared-one-item",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-cleared-one-item.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-cleared-one-item.ax.txt",
+        "format": "jpg",
+        "sha256": "e36831e0541d11bf2d513e5e24aa583b93c9ac520ea1dad0bb4b2b0184ff5588",
+        "axSha256": "ecf119ce097c202110c3dbcb2237c7233d3aec6aeeaac3498a0826ec39be5863",
+        "capturedAt": "2026-11-01T06:36:51.657Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "用户已授权的可重建缓存，真实清理1项成功。"
+      }
+    },
+    {
+      "name": "dirty-preserved-after-real-cache-clear",
+      "imageSha256": "0121df12be4a21c9c0e274129d463df35420378ef429a517905d31f4088ff986",
+      "axSha256": "f27cbc5479ca248475e40481a9c12745403bd4725c046c2c7ed91b52397c4e28",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "dirty-preserved-after-real-cache-clear",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/dirty-preserved-after-real-cache-clear.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/dirty-preserved-after-real-cache-clear.ax.txt",
+        "format": "jpg",
+        "sha256": "0121df12be4a21c9c0e274129d463df35420378ef429a517905d31f4088ff986",
+        "axSha256": "f27cbc5479ca248475e40481a9c12745403bd4725c046c2c7ed91b52397c4e28",
+        "capturedAt": "2026-11-01T06:36:53.477Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "真实1项路径缓存清理后，未保存标记仍在。"
+      }
+    },
+    {
+      "name": "plugin-runtime-six-before-qa-uninstall",
+      "imageSha256": "854e069b229dec9982d5d77790d79b477dba3905e4ee94a6c35ed120a250cfe3",
+      "axSha256": "0ed3573e3e80b56cef021cd26c90bbb33a01853a173a10dce5442f8d9483377a",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "plugin-runtime-six-before-qa-uninstall",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/plugin-runtime-six-before-qa-uninstall.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/plugin-runtime-six-before-qa-uninstall.ax.txt",
+        "format": "jpg",
+        "sha256": "854e069b229dec9982d5d77790d79b477dba3905e4ee94a6c35ed120a250cfe3",
+        "axSha256": "0ed3573e3e80b56cef021cd26c90bbb33a01853a173a10dce5442f8d9483377a",
+        "capturedAt": "2026-11-01T06:37:33.784Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "实际插件中心六运行项；搜索在paperB05首次启用，QA布局为声明式已暂停。已退出终端重开后toast此进程没有PTY原样记录。"
+      }
+    },
+    {
+      "name": "qa-layout-uninstalled",
+      "imageSha256": "61689ada41b6c3f363aad035727e93ac7ffb5789770424cee616aacd43c91d10",
+      "axSha256": "04c17f239d36803917e5ec77e36f837922dee558138ba86d119dec023d85dfe4",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "qa-layout-uninstalled",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/qa-layout-uninstalled.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/qa-layout-uninstalled.ax.txt",
+        "format": "jpg",
+        "sha256": "61689ada41b6c3f363aad035727e93ac7ffb5789770424cee616aacd43c91d10",
+        "axSha256": "04c17f239d36803917e5ec77e36f837922dee558138ba86d119dec023d85dfe4",
+        "capturedAt": "2026-11-01T06:37:50.309Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "自有暂停门槛QA布局已卸载；安装数25→24。"
+      }
+    },
+    {
+      "name": "diagnostics-after-qa-uninstall",
+      "imageSha256": "68037cf74b08c8050a9ac2ded0c15ddaadcb2a04cc879daf2082a49c5575b2c5",
+      "axSha256": "b9293dc7bec75a218a44a6a8ce7c746e812190c5e48e6942828102adce7154db",
+      "originalPersonallyViewed": true,
+      "capture": {
+        "name": "diagnostics-after-qa-uninstall",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/diagnostics-after-qa-uninstall.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/diagnostics-after-qa-uninstall.ax.txt",
+        "format": "jpg",
+        "sha256": "68037cf74b08c8050a9ac2ded0c15ddaadcb2a04cc879daf2082a49c5575b2c5",
+        "axSha256": "b9293dc7bec75a218a44a6a8ce7c746e812190c5e48e6942828102adce7154db",
+        "capturedAt": "2026-11-01T06:37:52.464Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101"
+        },
+        "notes": "QA声明式包卸载后运行计数；搜索为功能启用的第六运行实例，不误称QA布局实例。"
+      }
+    }
+  ],
+  "sequenceCount": 50,
+  "sequence": [
+    {
+      "number": 1,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:13:36.361Z",
+      "themeAtApply": "mist",
+      "modeAtApply": "light",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 2,
+      "fromLayout": "paper",
+      "toLayout": "orbit",
+      "at": "2026-11-01T06:17:29.993Z",
+      "themeAtApply": "paper",
+      "modeAtApply": "light",
+      "successUi": "\t\t\t\t27 toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 3,
+      "fromLayout": "orbit",
+      "toLayout": "graphite",
+      "at": "2026-11-01T06:18:37.695Z",
+      "themeAtApply": "orbit",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t28 toggle button 紧凑工具栏 缩小导航占用空间 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 4,
+      "fromLayout": "graphite",
+      "toLayout": "celadon",
+      "at": "2026-11-01T06:22:44.619Z",
+      "themeAtApply": "graphite",
+      "modeAtApply": "light",
+      "successUi": "\t\t\t\t29 toggle button 折叠导航 按需展开项目导航 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 5,
+      "fromLayout": "celadon",
+      "toLayout": "iris",
+      "at": "2026-11-01T06:26:07.638Z",
+      "themeAtApply": "celadon",
+      "modeAtApply": "light",
+      "successUi": "\t\t\t\t30 toggle button 卡片分区 独立卡片与宽松分区 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 6,
+      "fromLayout": "iris",
+      "toLayout": "sand",
+      "at": "2026-11-01T06:27:47.262Z",
+      "themeAtApply": "iris",
+      "modeAtApply": "light",
+      "successUi": "\t\t\t\t31 toggle button 展开式项目目录 直接浏览项目和文件 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 7,
+      "fromLayout": "sand",
+      "toLayout": "aurora",
+      "at": "2026-11-01T06:29:07.940Z",
+      "themeAtApply": "sand",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t32 toggle button 底部导航 从底部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 8,
+      "fromLayout": "aurora",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:31:09.205Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 9,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:31:40.675Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 10,
+      "fromLayout": "paper",
+      "toLayout": "orbit",
+      "at": "2026-11-01T06:31:41.297Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t27 toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 11,
+      "fromLayout": "orbit",
+      "toLayout": "graphite",
+      "at": "2026-11-01T06:31:41.934Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t28 toggle button 紧凑工具栏 缩小导航占用空间 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 12,
+      "fromLayout": "graphite",
+      "toLayout": "celadon",
+      "at": "2026-11-01T06:31:42.554Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t29 toggle button 折叠导航 按需展开项目导航 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 13,
+      "fromLayout": "celadon",
+      "toLayout": "iris",
+      "at": "2026-11-01T06:31:43.192Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t30 toggle button 卡片分区 独立卡片与宽松分区 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 14,
+      "fromLayout": "iris",
+      "toLayout": "sand",
+      "at": "2026-11-01T06:31:43.837Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t31 toggle button 展开式项目目录 直接浏览项目和文件 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 15,
+      "fromLayout": "sand",
+      "toLayout": "aurora",
+      "at": "2026-11-01T06:31:44.486Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t32 toggle button 底部导航 从底部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 16,
+      "fromLayout": "aurora",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:31:45.097Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 17,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:31:47.369Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 18,
+      "fromLayout": "paper",
+      "toLayout": "orbit",
+      "at": "2026-11-01T06:31:47.983Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t27 toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 19,
+      "fromLayout": "orbit",
+      "toLayout": "graphite",
+      "at": "2026-11-01T06:31:48.611Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t28 toggle button 紧凑工具栏 缩小导航占用空间 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 20,
+      "fromLayout": "graphite",
+      "toLayout": "celadon",
+      "at": "2026-11-01T06:31:49.270Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t29 toggle button 折叠导航 按需展开项目导航 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 21,
+      "fromLayout": "celadon",
+      "toLayout": "iris",
+      "at": "2026-11-01T06:31:49.904Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t30 toggle button 卡片分区 独立卡片与宽松分区 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 22,
+      "fromLayout": "iris",
+      "toLayout": "sand",
+      "at": "2026-11-01T06:31:50.567Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t31 toggle button 展开式项目目录 直接浏览项目和文件 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 23,
+      "fromLayout": "sand",
+      "toLayout": "aurora",
+      "at": "2026-11-01T06:31:51.156Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t32 toggle button 底部导航 从底部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 24,
+      "fromLayout": "aurora",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:31:51.756Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 25,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:31:59.121Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 26,
+      "fromLayout": "paper",
+      "toLayout": "orbit",
+      "at": "2026-11-01T06:31:59.768Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t27 toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 27,
+      "fromLayout": "orbit",
+      "toLayout": "graphite",
+      "at": "2026-11-01T06:32:00.380Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t28 toggle button 紧凑工具栏 缩小导航占用空间 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 28,
+      "fromLayout": "graphite",
+      "toLayout": "celadon",
+      "at": "2026-11-01T06:32:01.035Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t29 toggle button 折叠导航 按需展开项目导航 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 29,
+      "fromLayout": "celadon",
+      "toLayout": "iris",
+      "at": "2026-11-01T06:32:01.644Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t30 toggle button 卡片分区 独立卡片与宽松分区 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 30,
+      "fromLayout": "iris",
+      "toLayout": "sand",
+      "at": "2026-11-01T06:32:02.288Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t31 toggle button 展开式项目目录 直接浏览项目和文件 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 31,
+      "fromLayout": "sand",
+      "toLayout": "aurora",
+      "at": "2026-11-01T06:32:02.877Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t32 toggle button 底部导航 从底部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 32,
+      "fromLayout": "aurora",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:32:03.520Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 33,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:32:05.774Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 34,
+      "fromLayout": "paper",
+      "toLayout": "orbit",
+      "at": "2026-11-01T06:32:06.378Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t27 toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 35,
+      "fromLayout": "orbit",
+      "toLayout": "graphite",
+      "at": "2026-11-01T06:32:07.023Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t28 toggle button 紧凑工具栏 缩小导航占用空间 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 36,
+      "fromLayout": "graphite",
+      "toLayout": "celadon",
+      "at": "2026-11-01T06:32:07.629Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t29 toggle button 折叠导航 按需展开项目导航 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 37,
+      "fromLayout": "celadon",
+      "toLayout": "iris",
+      "at": "2026-11-01T06:32:08.268Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t30 toggle button 卡片分区 独立卡片与宽松分区 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 38,
+      "fromLayout": "iris",
+      "toLayout": "sand",
+      "at": "2026-11-01T06:32:08.913Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t31 toggle button 展开式项目目录 直接浏览项目和文件 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 39,
+      "fromLayout": "sand",
+      "toLayout": "aurora",
+      "at": "2026-11-01T06:32:09.590Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t32 toggle button 底部导航 从底部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 40,
+      "fromLayout": "aurora",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:32:10.189Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 41,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:32:17.513Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 42,
+      "fromLayout": "paper",
+      "toLayout": "orbit",
+      "at": "2026-11-01T06:32:18.107Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t27 toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 43,
+      "fromLayout": "orbit",
+      "toLayout": "graphite",
+      "at": "2026-11-01T06:32:18.724Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t28 toggle button 紧凑工具栏 缩小导航占用空间 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 44,
+      "fromLayout": "graphite",
+      "toLayout": "celadon",
+      "at": "2026-11-01T06:32:19.377Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t29 toggle button 折叠导航 按需展开项目导航 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 45,
+      "fromLayout": "celadon",
+      "toLayout": "iris",
+      "at": "2026-11-01T06:32:19.988Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t30 toggle button 卡片分区 独立卡片与宽松分区 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 46,
+      "fromLayout": "iris",
+      "toLayout": "sand",
+      "at": "2026-11-01T06:32:20.635Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t31 toggle button 展开式项目目录 直接浏览项目和文件 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 47,
+      "fromLayout": "sand",
+      "toLayout": "aurora",
+      "at": "2026-11-01T06:32:21.257Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t32 toggle button 底部导航 从底部切换项目 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 48,
+      "fromLayout": "aurora",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:32:21.890Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 49,
+      "fromLayout": "mist",
+      "toLayout": "paper",
+      "at": "2026-11-01T06:32:24.117Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t26 toggle button 一体侧栏 项目与文件集中在一侧 使用中 · 布局插件, Value: on"
+    },
+    {
+      "number": 50,
+      "fromLayout": "paper",
+      "toLayout": "mist",
+      "at": "2026-11-01T06:32:24.736Z",
+      "themeAtApply": "aurora",
+      "modeAtApply": "dark",
+      "successUi": "\t\t\t\t25 toggle button 经典侧栏 项目导航与文件侧栏分列 使用中 · 布局插件, Value: on"
+    }
+  ],
+  "runtimeDiff": {
+    "pluginInstances": [
+      5,
+      6
+    ]
+  },
+  "exactRetainedSelection": "import type { Project } from \"./types\";",
+  "tabFocusThenSingleUndo": [
+    {
+      "startedAt": "2026-11-01T06:35:31.432Z",
+      "completedAt": "2026-11-01T06:35:31.875Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:31.875Z",
+      "completedAt": "2026-11-01T06:35:32.350Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:32.350Z",
+      "completedAt": "2026-11-01T06:35:32.786Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:32.787Z",
+      "completedAt": "2026-11-01T06:35:33.226Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:33.226Z",
+      "completedAt": "2026-11-01T06:35:33.670Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:33.670Z",
+      "completedAt": "2026-11-01T06:35:34.142Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:34.142Z",
+      "completedAt": "2026-11-01T06:35:34.596Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:34.597Z",
+      "completedAt": "2026-11-01T06:35:35.035Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:35.035Z",
+      "completedAt": "2026-11-01T06:35:35.495Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:35.495Z",
+      "completedAt": "2026-11-01T06:35:35.930Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:35.930Z",
+      "completedAt": "2026-11-01T06:35:36.396Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:36.396Z",
+      "completedAt": "2026-11-01T06:35:36.868Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:36.869Z",
+      "completedAt": "2026-11-01T06:35:37.326Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:37.326Z",
+      "completedAt": "2026-11-01T06:35:37.785Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:37.785Z",
+      "completedAt": "2026-11-01T06:35:38.244Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:38.244Z",
+      "completedAt": "2026-11-01T06:35:38.691Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:38.691Z",
+      "completedAt": "2026-11-01T06:35:39.153Z",
+      "action": "key",
+      "key": "Tab"
+    },
+    {
+      "startedAt": "2026-11-01T06:35:46.255Z",
+      "completedAt": "2026-11-01T06:35:46.738Z",
+      "action": "key",
+      "key": "super+z"
+    }
+  ],
+  "initialGitDraftObservationCount": 0,
+  "terminalStop": {
+    "at": "2026-11-01T06:36:21.181536+00:00",
+    "pid": 51343,
+    "command": [
+      "ps",
+      "-p",
+      "51343",
+      "-o",
+      "pid=,ppid=,lstart=,comm="
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "",
+    "gone": true
+  },
+  "cacheObservation": {
+    "before": {
+      "diagnostics": {
+        "architecture": "aarch64",
+        "caches": {
+          "entityRevisionEntries": 0,
+          "idempotencyEntries": 88,
+          "operationPlans": 3,
+          "pathSearchPaths": 5,
+          "pathSearchProjects": 1,
+          "searchResultItems": 4,
+          "searchResultTasks": 2
+        },
+        "cursors": 0,
+        "frontend": {
+          "editor": {
+            "coldOpenMedianMs": 0,
+            "coldOpenP95Ms": 0,
+            "coldOpenSamples": 0,
+            "createdViews": 1,
+            "destroyedViews": 0,
+            "languageReadyP95Ms": 28,
+            "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+            "openMedianMs": 46.00000000005821,
+            "openP95Ms": 46.00000000005821,
+            "openSamples": 1,
+            "opens": [
+              {
+                "byteLength": 566,
+                "cache": "warm",
+                "durationMs": 46.00000000005821,
+                "editorRevision": 0,
+                "highlightReadyMs": 50,
+                "id": 1,
+                "language": "ts",
+                "languageReadyMs": 28,
+                "startedAtMs": 1793512984965,
+                "viewId": 1
+              }
+            ],
+            "schemaVersion": 1,
+            "viewCount": 1,
+            "warmOpenMedianMs": 46.00000000005821,
+            "warmOpenP95Ms": 46.00000000005821,
+            "warmOpenSamples": 1
+          },
+          "runtime": {
+            "activationErrorObservers": 1,
+            "cordisPluginListeners": 0,
+            "cordisRootListeners": 3,
+            "eventListenerDisposalFailures": 0,
+            "eventListeners": 15,
+            "eventListenersDisposing": 0,
+            "pluginInstances": 6,
+            "pluginInstancesDisposing": 0,
+            "pluginStoreObservers": 11,
+            "schemaVersion": 1,
+            "workerAbortListeners": 0,
+            "workerCommandObservers": 1,
+            "workerCommands": 0,
+            "workerEventListeners": 0,
+            "workerViews": 0
+          }
+        },
+        "openDocuments": 2,
+        "platform": "macos",
+        "subscriptions": 2,
+        "taskRecords": {
+          "active": 0,
+          "completedCached": 6,
+          "total": 6
+        },
+        "version": "0.1.0",
+        "watchers": 1
+      },
+      "exportedAt": "2026-11-01T06:36:49.519311+00:00",
+      "schemaVersion": 1
+    },
+    "after": {
+      "diagnostics": {
+        "architecture": "aarch64",
+        "caches": {
+          "entityRevisionEntries": 0,
+          "idempotencyEntries": 90,
+          "operationPlans": 3,
+          "pathSearchPaths": 0,
+          "pathSearchProjects": 0,
+          "searchResultItems": 4,
+          "searchResultTasks": 2
+        },
+        "cursors": 0,
+        "frontend": {
+          "editor": {
+            "coldOpenMedianMs": 0,
+            "coldOpenP95Ms": 0,
+            "coldOpenSamples": 0,
+            "createdViews": 1,
+            "destroyedViews": 0,
+            "languageReadyP95Ms": 28,
+            "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+            "openMedianMs": 46.00000000005821,
+            "openP95Ms": 46.00000000005821,
+            "openSamples": 1,
+            "opens": [
+              {
+                "byteLength": 566,
+                "cache": "warm",
+                "durationMs": 46.00000000005821,
+                "editorRevision": 0,
+                "highlightReadyMs": 50,
+                "id": 1,
+                "language": "ts",
+                "languageReadyMs": 28,
+                "startedAtMs": 1793512984965,
+                "viewId": 1
+              }
+            ],
+            "schemaVersion": 1,
+            "viewCount": 1,
+            "warmOpenMedianMs": 46.00000000005821,
+            "warmOpenP95Ms": 46.00000000005821,
+            "warmOpenSamples": 1
+          },
+          "runtime": {
+            "activationErrorObservers": 1,
+            "cordisPluginListeners": 0,
+            "cordisRootListeners": 3,
+            "eventListenerDisposalFailures": 0,
+            "eventListeners": 15,
+            "eventListenersDisposing": 0,
+            "pluginInstances": 6,
+            "pluginInstancesDisposing": 0,
+            "pluginStoreObservers": 11,
+            "schemaVersion": 1,
+            "workerAbortListeners": 0,
+            "workerCommandObservers": 1,
+            "workerCommands": 0,
+            "workerEventListeners": 0,
+            "workerViews": 0
+          }
+        },
+        "openDocuments": 2,
+        "platform": "macos",
+        "subscriptions": 2,
+        "taskRecords": {
+          "active": 0,
+          "completedCached": 7,
+          "total": 7
+        },
+        "version": "0.1.0",
+        "watchers": 1
+      },
+      "exportedAt": "2026-11-01T06:36:51.775976+00:00",
+      "schemaVersion": 1
+    },
+    "previewCount": 1,
+    "reportedRemoved": 1
+  },
+  "cacheSourceBasis": [
+    {
+      "path": "docs/verification/results/appearance-functional-native-audit-20261101/source-snapshots/settings.rs",
+      "sha256": "410e1184e17b2c5a8b336ed081f4826a88c61e644cfefce9eca1196e91f1a3a4"
+    },
+    {
+      "path": "docs/verification/results/appearance-functional-native-audit-20261101/source-snapshots/SettingsPanel.tsx",
+      "sha256": "6119001ee95f42f9d5961b44568b5291bf0b519c46410c8fd786feea88677745"
+    }
+  ],
+  "cacheBoundary": "Before/after same recovery id,time,size; refreshed recovery_list source excludes stale UI list explanation. No direct checkpoint body/mtime read from this batch; later re-marking is not old checkpoint proof.",
+  "limits": [
+    "Before/after diagnostics are point snapshots; no memory/30minute/no-growth claim.",
+    "Search was first enabled during initial layout cycle;pluginInstances5to6 is explicitly not equal.",
+    "Baseline/after selection and oneUndo prove original state/history retention, not IME deferred apply or all scroll positions.",
+    "Git draft after50 is directly visible; initial value is retained operator capturecondition, not a separate before Gitimage/action in this archive.",
+    "Closed terminal native NoPTY error remains a failure until actual native retest; component/sourcefix not a native result."
+  ]
+}

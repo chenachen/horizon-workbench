@@ -1,0 +1,184 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container
+				4 text Horizon 工作区
+				5 pop up button 切换工作区, Value: macOS 完整验收 1101
+				6 button 搜索文件或命令 ⌘ P
+				7 button 切换侧栏, Help: 切换侧栏 ⌘ B
+				8 button AI 助手
+				9 button 插件中心
+				10 button 设置, Help: 设置 ⌘ ,
+			11 container 项目
+				12 toggle button 项目总览, Value: off
+				13 content list
+					14 button 切换到项目 Editor Resume QA, Help: Editor Resume QA
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA
+					15 button 切换到项目 Project B, Help: Project B
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Project B
+					16 button 切换到项目 Project C, Help: Project C
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Project C
+					17 button 切换到项目 Paths 100k, Help: Paths 100k
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Paths 100k
+					18 button 切换到项目 reading-project, Help: reading-project
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/reading/reading-project
+					19 button 切换到项目 Aurora Web, Help: Aurora Web
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web
+					20 button 切换到项目 scripts-no-auto-run, Help: scripts-no-auto-run
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run
+					21 button 切换到项目 readonly-project, Help: readonly-project
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/readonly-project
+					22 button 切换到项目 denied-project, Help: denied-project
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/denied-project
+					23 button 切换到项目 nested-directory, Help: nested-directory
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository/nested-directory
+					24 button 切换到项目 parent-repository, Help: parent-repository
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository
+					25 button 切换到项目 linked-worktree, Help: linked-worktree
+/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/linked-worktree
+				26 button 添加本地项目
+				27 button 项目搜索, Help: 项目搜索 ⌘ ⇧ F
+				28 button 管理插件, Help: 插件中心
+			29 container 项目侧栏
+				30 container
+					31 container /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web
+						32 text Aurora Web
+					33 button 项目操作
+					34 button 收起侧栏
+				35 tab group (selectable) 项目工具
+					36 tab (selected) 文件
+					37 tab (selectable) Git
+					38 tab (selectable) 搜索
+				39 container 项目文件
+					40 container
+						41 container 文件侧栏视图
+							42 toggle button 目录, Value: on
+							43 toggle button 结构, Value: off
+						44 button 新建文件
+						45 button 新建目录
+						46 button 刷新文件树
+						47 button 显示或隐藏点文件
+					48 container 文件树
+						49 container
+							50 container src
+								51 text src
+								52 button src 操作
+							53 container src/index.ts
+								54 text index.ts
+								55 button index.ts 操作
+							56 container src/theme.css
+								57 text theme.css
+								58 button theme.css 操作
+							59 container (selected) src/workspace.ts
+								60 text workspace.ts
+								61 button workspace.ts 操作
+							62 container README.md
+								63 text README.md
+								64 button README.md 操作
+							65 container package.json
+								66 text package.json
+								67 button package.json 操作
+				68 container
+					69 text Aurora Web
+					70 button 快速打开文件
+				71 splitter 文件侧栏宽度, Value: 240
+			72 container 编辑区域
+				73 container 编辑工作台
+					74 tab group (selectable) 打开的文件
+						75 tab (selected) workspace.ts, Help: src/workspace.ts
+						76 button 关闭 src/workspace.ts
+						77 tab (selectable) theme.css, Help: src/theme.css
+						78 button 关闭 src/theme.css
+					79 button 文件标签操作
+					80 container src/workspace.ts
+						81 text src workspace.ts
+					82 button 查找与替换
+					83 button (disabled) 保存文件, Help: 保存 ⌘S
+					84 container workspace.ts
+						85 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from "./store";
+import type { Project } from "./types";
+
+export const workspace = createStore({
+  activeProject: "aurora",
+  projects: new Map<string, Project>(),
+});
+
+export async function switchProject(id: string) {
+  const current = workspace.get().activeProject;
+
+  // 保存当前项目的标签与阅读位置
+  await saveSession(current);
+  const session = await restoreSession(id);
+
+  workspace.set({ activeProject: id });
+  editor.restore(session.tabs);
+  panels.restore(session.layout);
+}
+
+// 独立项目，各自保留上下文。
+
+
+							86 container (settable)
+								87 text (settable) import  { createStore }  from "./store" ;
+							88 container (settable)
+								89 text (settable) import type  { Project }  from "./types" ;
+							90 container (settable)
+								91 text (settable) export const  workspace = createStore({
+							92 container (settable)
+								93 text (settable)   activeProject:  "aurora" ,
+							94 container (settable)
+								95 text (settable)   projects:  new  Map< string ,  Project >(),
+							96 text (settable) });
+							97 container (settable)
+								98 text (settable) export async function  switchProject(id:  string ) {
+							99 container (settable)
+								100 text (settable) const  current = workspace.get().activeProject;
+							101 text (settable) // 保存当前项目的标签与阅读位置
+							102 container (settable)
+								103 text (settable) await  saveSession(current);
+							104 container (settable)
+								105 text (settable) const  session =  await  restoreSession(id);
+							106 text (settable)   workspace.set({ activeProject: id });
+							107 text (settable)   editor.restore(session.tabs);
+							108 text (settable)   panels.restore(session.layout);
+							109 text (settable) }
+							110 text (settable) // 独立项目，各自保留上下文。
+				111 button 进入专注模式
+			112 container 终端
+				113 splitter 终端高度, Value: 220
+				114 container 项目终端
+					115 text 终端
+					116 pop up button 终端会话, Value: zsh · 12504 · 停止中
+					117 button (disabled) 新建终端
+					118 button (collapsed) 终端新建选项, Help: 工作目录选项, Secondary Actions: Expand
+					119 button (disabled) 结束进程
+					120 button 返回编辑器, Help: 返回编辑器（F6）
+					121 button 启动方案
+					122 button 隐藏终端面板
+					123 container
+						124 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  12504  · 停止中
+					125 container 交互式终端；F6 返回编辑器
+						126 text entry area (settable) Terminal input, Value: [text entry area: Terminal input]
+			127 container
+				128 button Aurora Web
+				129 text Esc 后按 Tab 离开编辑器
+				130 button 行 13，列 1
+				131 text TS UTF8  ·  LF
+				132 pop up button 启动方案, Value: 在设置添加启动方案
+				133 button (disabled) 启动
+				134 button 切换终端
+				135 button 扩展
+				136 text macOS · 0.1.0
+	137 close button
+	138 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	139 minimize button
+140 menu bar
+	141 Horizon
+	142 File
+	143 Edit
+	144 View
+	145 Window
+	146 Help
+
+The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost

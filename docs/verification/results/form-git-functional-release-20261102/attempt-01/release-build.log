@@ -1,0 +1,26 @@
+
+> horizon-workbench@0.1.0 desktop:release
+> node scripts/desktop-run.mjs build
+
+/Users/chenpengxiang/Desktop/Horizon/apps/picker-service/target/HorizonPicker.app: replacing existing signature
+    Finished `release` profile [optimized] target(s) in 0.13s
+    Finished `release` profile [optimized] target(s) in 0.03s
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `npm run build`
+
+> @horizon/desktop@0.1.0 build
+> tsc --noEmit && vite build
+
+src/components/UnsavedChanges.tsx(24,117): error TS2322: Type '{ children: Element; onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void; onCancel: (event: any) => void; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+  Property 'onCancel' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+src/components/UnsavedChanges.tsx(24,127): error TS7006: Parameter 'event' implicitly has an 'any' type.
+npm error Lifecycle script `build` failed with error:
+npm error code 2
+npm error path /Users/chenpengxiang/Desktop/Horizon/apps/desktop
+npm error workspace @horizon/desktop@0.1.0
+npm error location /Users/chenpengxiang/Desktop/Horizon/apps/desktop
+npm error command failed
+npm error command sh -c tsc --noEmit && vite build
+beforeBuildCommand `npm run build` failed with exit code 2
+       Error beforeBuildCommand `npm run build` failed with exit code 2
+/Users/chenpengxiang/Desktop/Horizon/node_modules/.bin/tauri exited 1

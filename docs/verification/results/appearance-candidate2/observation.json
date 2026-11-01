@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-30T18:45:46.561654+00:00",
+  "method": "Independent read-only JSON/embedded PNG/source-image review plus unchanged native screenshots",
+  "exportSource": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-qa-5rijtry8/appearance-with-background.json",
+  "exportBytes": 3452,
+  "exportSha256": "0938fd42426f9010c81efa50801ff7fb9ee2b08aaf37303a9c0623e0cf78bf4b",
+  "sourceImage": {
+    "originalAbsent": true,
+    "movedPath": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-qa-5rijtry8/gradient-moved.png",
+    "bytes": 28998,
+    "sha256": "699df971699a7ccbbae21f0161430b8a3105982e1a0f8f4dd760cba0863f7fc5"
+  },
+  "embeddedImage": {
+    "bytes": 1684,
+    "sha256": "613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690",
+    "matchesDeclaredHashAndAssetId": true
+  },
+  "operatorReport": "docs/verification/APPEARANCE_GUI.md",
+  "limits": [
+    "Only this controlled 320x180 image/export round trip covered",
+    "Actual background under editor was occluded; separate failure remains",
+    "No app restart or complete region/fit/release-decoder lifecycle evidence",
+    "CUA screenshot artifacts are compressed JPEG despite .png filenames; not original native PNG or pixel-perfect evidence"
+  ],
+  "screenshotEncoding": {
+    "files": "appearance-01 through appearance-07",
+    "actual": "JPEG",
+    "filenameSuffix": ".png",
+    "handling": "Original bytes preserved; excluded from original-PNG visual matrix; functional observations only"
+  }
+}

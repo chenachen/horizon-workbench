@@ -1,0 +1,59 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.82s
+     Running unittests src/lib.rs (apps/desktop/src-tauri/target/debug/deps/horizon_host-75c8e9d043c0aa41)
+
+running 51 tests
+test agent::tests::real_pi_broker_review_and_secret_isolation ... ignored, Requires HORIZON_PI_BINARY official Pi 1.4.0 and Node; run scripts/test-pi-native.mjs
+test agent::tests::path_boundary_rejects_escape_and_symlinks ... ok
+test appearance::tests::backgrounds_reject_remote_paths_and_out_of_range_values ... ok
+test appearance::tests::colors_are_normalized_and_css_payloads_rejected ... ok
+test appearance::tests::project_fields_override_only_selected_values ... ok
+test extensions::package_tests::checked_in_zip_matches_development_directory ... ok
+test agent::tests::bounded_pi_record_survives_cancelled_poll_and_rejects_oversize ... ok
+test extensions::package_tests::zip_rejects_symlinks ... ok
+test appearance::tests::project_appearance_reads_do_not_require_live_epoch_but_writes_do ... ok
+test agent::tests::session_disk_budget_rejects_append_without_erasing_history ... ok
+test extensions::package_tests::zip_rejects_traversal_absolute_paths_and_case_collisions ... ok
+test appearance::tests::presets_reject_unknown_tokens_and_keep_missing_package_as_dependency ... ok
+test extensions::package_tests::zip_checks_uncompressed_size ... ok
+test files::tests::detect_mixed_lines ... ok
+test files::tests::invalid_names_cannot_escape ... ok
+test files::tests::revision_detects_same_size_change ... ok
+test files::tests::unicode_round_trips ... ok
+test appearance::tests::custom_resource_uses_owning_package_for_gates_and_preset_references ... ok
+test extensions::presets::tests::custom_selection_includes_dependencies_and_leaves_appearance_out_of_stop_list ... ok
+test processes::tests::bounded_bytes_keep_utf8_raw ... ok
+test agent::tests::long_message_pages_keep_utf8_and_history_windows_bounded ... ok
+test processes::tests::credential_redaction_handles_split_output ... ok
+test processes::tests::cwd_rejects_escape ... ok
+test appearance::tests::preferences_survive_restart_and_narrow_window_does_not_rewrite ... ok
+test processes::tests::discovery_reads_nested_scripts_without_executing ... ok
+test extensions::presets::tests::initial_profile_is_review_and_preparing_development_does_not_enable_or_start ... ok
+test processes::tests::http_fixture_server ... ignored, child process fixture, invoked by owned_http_readiness
+test extensions::presets::tests::manual_feature_policy_change_makes_profile_custom ... ok
+test processes::tests::hidden_output_is_continuously_consumed_with_bounded_history ... ok
+test extensions::presets::tests::missing_packages_and_cycles_are_reported_without_installing ... ok
+test extensions::presets::tests::settings_patch_cannot_bypass_preset_confirmation ... ok
+test processes::tests::authorization_snapshot_rejects_changed_script_and_missing_approval ... ok
+test processes::tests::owned_pty_handles_chinese_resize_and_stop ... ok
+test processes::tests::port_preflight_leaves_external_listener_alive ... ok
+test processes::tests::profile_export_omits_secrets_and_local_authorization ... ok
+test processes::tests::rejects_cycles_and_unknown_dependencies ... ok
+test processes::tests::direct_terminal_lease_releases_after_natural_exit ... ok
+test processes::tests::tauri_app_handle_delivers_process_transport_events ... ok
+test processes::tests::cancellation_stops_owned_run_even_when_failure_policy_keeps_processes ... ok
+test settings::tests::export_redacts_secrets_and_paths ... ok
+test settings::tests::inheritance ... ok
+test settings::tests::reject_unknown_or_invalid ... ok
+test processes::tests::launch_lease_uses_actual_activation_and_releases_its_origin ... ok
+test processes::tests::terminal_input_backpressure_does_not_block_stop ... ok
+test processes::tests::owned_http_readiness_and_restart_preflight_accept_only_owned_port ... ok
+test processes::tests::background_service_exit_stops_siblings_and_releases_lease ... ok
+test processes::tests::launch_waits_for_dependencies_and_stops_in_reverse_order ... ok
+test processes::tests::launch_failure_and_timeout_stop_only_owned_run ... ok
+test processes::tests::stopping_terminal_releases_pty_dependencies_and_preserves_other_project ... ok
+test appearance::tests::imported_image_is_resized_deduplicated_and_independent_of_original ... ok
+test processes::tests::interactive_pty_accepts_chinese_input_and_applies_actual_size ... ok
+
+test result: ok. 49 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 2.09s
+

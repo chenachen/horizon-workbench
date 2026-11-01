@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-10-30T19:08:30.870050+00:00",
+  "candidate": "4a",
+  "nativePid": 59157,
+  "nativeWindow": 13535,
+  "rootNativeReport": [
+    "UI Kit shows disk3lines and pending recovery draft",
+    "Project settings > sleep plan contains no dirty document; apply returns welcome",
+    "Cmd+Q opens normal exit dialog without stale scope; apply exits; root ps confirms absence",
+    "Relaunch remains welcome and does not reactivate UI Kit"
+  ],
+  "screenshot": "docs/verification/screenshots/recovery-candidate4a/02-sleep-relaunch-welcome.png",
+  "registrySource": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/registry.json",
+  "registrySha256": "ce6f454c0e98693fe19800d30b760ac0adf6c5f3c9f03349ca48517b0689591e",
+  "appSession": {
+    "activeProjectId": null,
+    "activeWorkspaceId": "cb6ac1b6-9d76-462c-bde7-1c50a05e95d0",
+    "workspaceProjects": {
+      "cb6ac1b6-9d76-462c-bde7-1c50a05e95d0": "dfef65be-3750-41c6-9173-0395df536fc2"
+    }
+  },
+  "uiKitSession": {
+    "activeFileId": "369c691a96ad821ed4b7b641b4fae431b91ece9842d3b17ff457b2c20b0ca291",
+    "commitDraft": "",
+    "expandedEntryIds": [
+      "fe3a77494ad9f20e41514e936d7fb617b1fc5b004574bcd7a2d5ccb2b5ba4ccc"
+    ],
+    "layout": {
+      "focusMode": false,
+      "focusRestore": null,
+      "panels": {}
+    },
+    "revision": 23,
+    "schemaVersion": 1,
+    "searchDraft": "中文保存",
+    "tabs": [
+      {
+        "fileId": "369c691a96ad821ed4b7b641b4fae431b91ece9842d3b17ff457b2c20b0ca291",
+        "pinned": true,
+        "scrollTop": 0,
+        "selection": {
+          "anchor": 17,
+          "head": 17
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Screenshot proves final welcome state; intervening native sleep/quit sequence is root operator report",
+    "No active terminal, Pi or development process tested in this path",
+    "Manual sleep path; 30-minute idle auto-sleep threshold not exercised"
+  ]
+}

@@ -1,0 +1,997 @@
+{
+  "kind": "real GitPanel/GitModal/bridge; controlled Tauri branch/status data; no real repository or native GUI",
+  "startedAt": "2026-11-01T15:38:52.032Z",
+  "sources": {
+    "preparedOnly": true,
+    "change": {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "baseCandidateSha256": "0cc887995a50b6f1abb0a09d0356dc27b4957972bc52802648dce8d8d8558955",
+      "productBeforeSha256": "ab271f73782e932ca32df660e8904ff414076721cce0a58b4c5a0cbab70f44f6",
+      "afterSha256": "d9a891307d13240fa629335d002e0594b4237b92505d8eb1e194ac63260dab21"
+    },
+    "support": [
+      {
+        "path": "apps/desktop/src/bridge.ts",
+        "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+      },
+      {
+        "path": "apps/desktop/src/features/git/Modal.tsx",
+        "sha256": "3d110a81c3be6fd4d09d3b2fad4683603e1a6267d6d0786c78b154a1891e2bac"
+      },
+      {
+        "path": "apps/desktop/src/features/git/types.ts",
+        "sha256": "0d941be9717ac507e394b065a6ece3f3d146fd4c111671425f7f9826384d9b72"
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/lib.rs",
+        "sha256": "b6d5f56707efe9b4adb6831c24179e54878ddd0085fa0f5c10cf23013d541740"
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/state.rs",
+        "sha256": "b37d373a02f174d36bf1966f0d40b897dedb94ca90f89e56e80c6a8acf09ad7a"
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/git.rs",
+        "sha256": "51399e7460810d502176c0b258541f990f620c6ecf9e9c9cf740315a1e913209"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "variant": "after",
+      "kind": "cached-current",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "initial main/current",
+          "projectId": "A",
+          "snapshot": {
+            "projectId": "A",
+            "snapshot": {
+              "repoId": "repo-A",
+              "generation": 1,
+              "repoToken": "token-A-1",
+              "rootDisplayPath": "/owned/A",
+              "head": {
+                "state": "branch",
+                "name": "main",
+                "oid": "owned-A"
+              },
+              "upstream": {
+                "name": "origin/main",
+                "ahead": 0,
+                "behind": 0
+              },
+              "files": [],
+              "truncated": false
+            }
+          },
+          "rows": [
+            {
+              "name": "main",
+              "current": true,
+              "description": "当前分支 · 跟踪 origin/main"
+            },
+            {
+              "name": "gui/no-upstream",
+              "current": false,
+              "description": "本地分支"
+            },
+            {
+              "name": "origin/main",
+              "current": false,
+              "description": "远端分支"
+            }
+          ],
+          "upstreamHint": "origin/main · 领先 0 / 落后 0",
+          "remote": "origin",
+          "remoteOptions": [
+            {
+              "value": "",
+              "label": "选择远端"
+            },
+            {
+              "value": "origin",
+              "label": "origin"
+            }
+          ],
+          "target": "main",
+          "newBranch": "",
+          "startPoint": "HEAD",
+          "compareSource": "HEAD",
+          "compareTarget": "origin/main",
+          "networkButtons": [
+            {
+              "text": "获取",
+              "disabled": false
+            },
+            {
+              "text": "仅快进拉取",
+              "disabled": false
+            },
+            {
+              "text": "推送 main",
+              "disabled": false
+            }
+          ],
+          "errors": [],
+          "stale": false,
+          "loading": false,
+          "calls": [
+            {
+              "command": "horizon_start",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "session_get",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "settings_get",
+              "params": {
+                "projectId": "A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_subscribe",
+              "method": "service_subscribe",
+              "params": {
+                "topics": [
+                  "horizon.settings.v1"
+                ]
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "stream_ack",
+              "params": {
+                "taskId": "owned-status-1",
+                "throughSeq": 1
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            }
+          ],
+          "branchReads": [
+            {
+              "id": 1,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-1",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "resolved"
+            }
+          ]
+        },
+        {
+          "label": "external switch then manual refresh",
+          "projectId": "A",
+          "snapshot": {
+            "projectId": "A",
+            "snapshot": {
+              "repoId": "repo-A",
+              "generation": 2,
+              "repoToken": "token-A-2",
+              "rootDisplayPath": "/owned/A",
+              "head": {
+                "state": "branch",
+                "name": "gui/no-upstream",
+                "oid": "owned-A"
+              },
+              "upstream": null,
+              "files": [],
+              "truncated": false
+            }
+          },
+          "rows": [
+            {
+              "name": "main",
+              "current": false,
+              "description": "本地分支"
+            },
+            {
+              "name": "gui/no-upstream",
+              "current": true,
+              "description": "当前分支"
+            },
+            {
+              "name": "origin/main",
+              "current": false,
+              "description": "远端分支"
+            }
+          ],
+          "upstreamHint": "尚未设置上游。请明确选择远端与目标分支。",
+          "remote": "origin",
+          "remoteOptions": [
+            {
+              "value": "",
+              "label": "选择远端"
+            },
+            {
+              "value": "origin",
+              "label": "origin"
+            }
+          ],
+          "target": "gui/no-upstream",
+          "newBranch": "",
+          "startPoint": "HEAD",
+          "compareSource": "HEAD",
+          "compareTarget": "",
+          "networkButtons": [
+            {
+              "text": "获取",
+              "disabled": false
+            },
+            {
+              "text": "仅快进拉取",
+              "disabled": false
+            },
+            {
+              "text": "推送 gui/no-upstream",
+              "disabled": false
+            }
+          ],
+          "errors": [],
+          "stale": false,
+          "loading": false,
+          "calls": [
+            {
+              "command": "horizon_start",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "session_get",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "settings_get",
+              "params": {
+                "projectId": "A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_subscribe",
+              "method": "service_subscribe",
+              "params": {
+                "topics": [
+                  "horizon.settings.v1"
+                ]
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "stream_ack",
+              "params": {
+                "taskId": "owned-status-1",
+                "throughSeq": 1
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_start",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "stream_ack",
+              "params": {
+                "taskId": "owned-status-7",
+                "throughSeq": 1
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            }
+          ],
+          "branchReads": [
+            {
+              "id": 1,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-1",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "resolved"
+            },
+            {
+              "id": 2,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-2",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "resolved"
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "variant": "after",
+      "kind": "late-success",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "old success after new status; newest read remains pending",
+          "projectId": "A",
+          "snapshot": {
+            "projectId": "A",
+            "snapshot": {
+              "repoId": "repo-A",
+              "generation": 2,
+              "repoToken": "token-A-2",
+              "rootDisplayPath": "/owned/A",
+              "head": {
+                "state": "branch",
+                "name": "gui/no-upstream",
+                "oid": "owned-A"
+              },
+              "upstream": null,
+              "files": [],
+              "truncated": false
+            }
+          },
+          "rows": [],
+          "upstreamHint": "尚未设置上游。请明确选择远端与目标分支。",
+          "remote": "",
+          "remoteOptions": [
+            {
+              "value": "",
+              "label": "选择远端"
+            }
+          ],
+          "target": "",
+          "newBranch": "",
+          "startPoint": "HEAD",
+          "compareSource": "HEAD",
+          "compareTarget": "",
+          "networkButtons": [
+            {
+              "text": "获取",
+              "disabled": true
+            },
+            {
+              "text": "仅快进拉取",
+              "disabled": true
+            },
+            {
+              "text": "推送 gui/no-upstream",
+              "disabled": true
+            }
+          ],
+          "errors": [],
+          "stale": false,
+          "loading": true,
+          "calls": [
+            {
+              "command": "horizon_start",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "session_get",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "settings_get",
+              "params": {
+                "projectId": "A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_subscribe",
+              "method": "service_subscribe",
+              "params": {
+                "topics": [
+                  "horizon.settings.v1"
+                ]
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "stream_ack",
+              "params": {
+                "taskId": "owned-status-1",
+                "throughSeq": 1
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            }
+          ],
+          "branchReads": [
+            {
+              "id": 1,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-1",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "resolved"
+            },
+            {
+              "id": 2,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-2",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "pending"
+            }
+          ]
+        },
+        {
+          "label": "fresh branch read accepted",
+          "projectId": "A",
+          "snapshot": {
+            "projectId": "A",
+            "snapshot": {
+              "repoId": "repo-A",
+              "generation": 2,
+              "repoToken": "token-A-2",
+              "rootDisplayPath": "/owned/A",
+              "head": {
+                "state": "branch",
+                "name": "gui/no-upstream",
+                "oid": "owned-A"
+              },
+              "upstream": null,
+              "files": [],
+              "truncated": false
+            }
+          },
+          "rows": [
+            {
+              "name": "main",
+              "current": false,
+              "description": "本地分支"
+            },
+            {
+              "name": "gui/no-upstream",
+              "current": true,
+              "description": "当前分支"
+            },
+            {
+              "name": "origin/main",
+              "current": false,
+              "description": "远端分支"
+            }
+          ],
+          "upstreamHint": "尚未设置上游。请明确选择远端与目标分支。",
+          "remote": "origin",
+          "remoteOptions": [
+            {
+              "value": "",
+              "label": "选择远端"
+            },
+            {
+              "value": "origin",
+              "label": "origin"
+            }
+          ],
+          "target": "gui/no-upstream",
+          "newBranch": "",
+          "startPoint": "HEAD",
+          "compareSource": "HEAD",
+          "compareTarget": "",
+          "networkButtons": [
+            {
+              "text": "获取",
+              "disabled": false
+            },
+            {
+              "text": "仅快进拉取",
+              "disabled": false
+            },
+            {
+              "text": "推送 gui/no-upstream",
+              "disabled": false
+            }
+          ],
+          "errors": [],
+          "stale": false,
+          "loading": false,
+          "calls": [
+            {
+              "command": "horizon_start",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "session_get",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "settings_get",
+              "params": {
+                "projectId": "A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_subscribe",
+              "method": "service_subscribe",
+              "params": {
+                "topics": [
+                  "horizon.settings.v1"
+                ]
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "stream_ack",
+              "params": {
+                "taskId": "owned-status-1",
+                "throughSeq": 1
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_status",
+              "params": {
+                "refresh": true
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            },
+            {
+              "command": "horizon_call",
+              "method": "git_branches",
+              "params": {
+                "repoId": "repo-A"
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "A",
+                "projectEpoch": 1
+              }
+            }
+          ],
+          "branchReads": [
+            {
+              "id": 1,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-1",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "resolved"
+            },
+            {
+              "id": 2,
+              "projectId": "A",
+              "repoId": "repo-A",
+              "data": {
+                "repoToken": "token-A-2",
+                "remotes": [
+                  "origin"
+                ],
+                "items": [
+                  {
+                    "name": "main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": false,
+                    "upstream": "origin/main"
+                  },
+                  {
+                    "name": "gui/no-upstream",
+                    "oid": "owned-A",
+                    "current": true,
+                    "remote": false,
+                    "upstream": null
+                  },
+                  {
+                    "name": "origin/main",
+                    "oid": "owned-A",
+                    "current": false,
+                    "remote": true
+                  }
+                ]
+              },
+              "state": "resolved"
+            }
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/git/Modal.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/git/types.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/state.rs",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/git.rs",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T15:38:53.151Z",
+  "durationMs": 1119
+}

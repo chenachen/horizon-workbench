@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-30T21:24:02.208056+00:00",
+  "build": "candidate6 release25e407375f1f112e4d111d5b088065af3034cefb9ce9b4e087c805e6e0b288b5",
+  "scope": "First16 snapshots and14 original native screenshots; Git operator still completing later cases. Only listed subconditions are reviewed.",
+  "method": "Independent screenshot review and exact comparison of operator read-only fixture Git/file snapshots; no GUI inputs or Git mutation by verifier.",
+  "checks": {
+    "stagedOnlyCommitExactPriorIndex": true,
+    "stagedOnlyCommitPreservesWorktree": true,
+    "untrackedNotesPreserved": true,
+    "indexAfterCommitEmpty": true,
+    "fetchPreservesHeadIndexFiles": true,
+    "ffOnlyPullAdvancesToFetchedHead": true,
+    "pushRemoteExactlyLocalHead": true,
+    "ffOnlyRejectedPreservesHeadIndexFiles": true,
+    "hookFailurePreservesHeadAndStagedContent": true,
+    "hookRetryCommitsAndClearsIndex": true,
+    "conflictChoicePreservesAllIndexStages": true,
+    "conflictChoiceCopiesIncomingToWorktree": true,
+    "explicitResolveAndCommitClearsConflict": true,
+    "discardCancelNoProjectMutation": true,
+    "discardTrackedRestoresIndexPreservesStaging": true,
+    "trashTimeoutPreservesUntracked": true
+  },
+  "originalHashes": {
+    "01-before.json": "c68c02e53c22a1262ee48241323120f66c4ade013e9e0f4f93abd7f9158eb126",
+    "02-after-staged-only-commit.json": "064a5228eb66c2499428b5d48abc9edeb64882dd6fed1f68b9f167d90f69c2b6",
+    "03-after-fetch.json": "8c61bc8be658484c6df361db3ee51c4576103460b74f673fb2986574d0666695",
+    "04-after-ff-pull.json": "38b0707241e53f444bedda58024bcada981c32759e3352ca6efbfea5187ebe47",
+    "05-after-push.json": "d5e3051f3ac7c6e18af4feee18073d4a0eee98ad8195d4f1dd60c291cd2900a2",
+    "06-after-push-rejection.json": "40985311663c4d57a3579d50c2a085daa1c68d4f5cdb95fd18984fa1bfa5da4c",
+    "07-after-ff-pull-rejection.json": "c61ea9cdd7f9efed1f4c8394717b0b692a6f2d0cb649e891164e0e4a70d3d3d3",
+    "08-after-branch-create-switch.json": "3672939590246ddeee8d315815eb829fa360e888da4124c87c79340b8fbf9385",
+    "09-after-hook-failure.json": "cd1b5382b0a28b39bf9ff1000c94766befd2bba617540413c3936a1f4310ad67",
+    "10-after-hook-retry.json": "42b03a30dd1dbb410b8ee75d1ae1a7c2fb2415668fcce4369e294926291117fc",
+    "11-conflict-choice-before-stage.json": "131dedf3c325289b1e521e898ac9f31e91eb15fdea86b50dde6a2621328e091c",
+    "12-after-conflict-merge-commit.json": "ba1cb046ee7efbadb298153813d2fd86bf97ad41c5e02c8ed4bf4cf371f29375",
+    "13-after-discard-cancel.json": "89851cd7e8810e6c64bb16de642534a1560f099a6aec8aed73b997e0579a6871",
+    "14-after-discard-tracked.json": "22937b40eae4fa8fe96f6e28875a598b1a8aa15be2fca57800869552e9cd5d9e",
+    "15-after-trash.json": "8f1adf56071b250314250b3c3b56ebfd3ef67776412cfc711ad074f6eba8509d",
+    "16-trash-timeout-original-retained.json": "162e9d2a71e32aceb1e90c8d735482549142180cfb4988f3eafdab1552220ce2"
+  },
+  "screenshots": [
+    {
+      "path": "docs/verification/screenshots/git-candidate6/01-staged-A-to-B.png",
+      "sha256": "1ba28f72493dc7f5a2f61c1da7038c87a5b7160c4b86a2976bf9811969378ff6",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/02-unstaged-B-to-C-split.png",
+      "sha256": "0f0efd4c1d5e8ee596541657c198ddc3d6a42310f1b9a3bb618f84e8f847fb63",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/03-dirty-buffer-stage-choice.png",
+      "sha256": "82950612d33db2ab0f7e27c795e6f2437a1b335dede8419b4d928f9e81ab6ac3",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/04-C02-staged-before-commit.png",
+      "sha256": "54ebcadc1a24dbf1f6ff5736ac46af2c66fe6fdf397a94beff85ad18524c4b65",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/05-staged-diff-cleared-after-commit.png",
+      "sha256": "22a1bcd0b31f71d9a82f9ba12f35633073beaa606a6c94bb5a1eecdf6e8e0957",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/06-C04-fetched-remote-behind1.png",
+      "sha256": "dd55d7f63f46c45c7fb9bed59fa32c49aeb9674cf8cb56da2c8462f2805a3371",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/07-C07-push-rejected-duplicate-toast.png",
+      "sha256": "1d9e383807a39554497d72f773622cab53cd3dbe3589e696cc913991e9965f96",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/08-dirty-branch-switch-refused.png",
+      "sha256": "0e3f29f231cd366d5690c9aaf573f3a412bd2a168d7b421ef4a58d374d5637de",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/09-hook-failure-draft-retained.png",
+      "sha256": "e670bcf2ecc4da54fcadf621b333828f66581621b01fa9ceb8adc70505555ad5",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/10-C05-conflict-sources-result.png",
+      "sha256": "ec6273c9d73569bd7993544a360d7da50ddc2d98a1595b0d65ebac75c597d7a1",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/11-conflict-chosen-still-unmerged.png",
+      "sha256": "7463be536ec07f3b4f6caced8a7ad947db3148fd0bc68d9650348336e9d45923",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/12-C06-discard-plan.png",
+      "sha256": "a77df56cdf64e6c490df7eaab1e91ceb9bd52b7be138f18baa45268ca4ab0f1f",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/13-trash-finder-hang-no-stop.png",
+      "sha256": "e874d2253fad5c58ec5c3c09d152f1a7574daeb532fd0ac98f82257f6967123e",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/14-trash-appleevent-timeout.png",
+      "sha256": "632037e1439ce2cb3eca923a50c7c3d11aec338b8b61d00ffabb6698b15a93d4",
+      "width": 1280,
+      "height": 800,
+      "independentlyViewed": true
+    }
+  ],
+  "observedFailures": [
+    {
+      "id": "trash-untracked-timeout",
+      "evidence": [
+        "13-trash-finder-hang-no-stop.png",
+        "14-trash-appleevent-timeout.png",
+        "16-trash-timeout-original-retained.json"
+      ],
+      "finding": "Untracked trash waits with both Cancel and close disabled and no Stop action, then Finder AppleEvent timeout(-1712). Original file is retained. This is not a successful Trash action.",
+      "limits": "Exact duration/targeted recovery chronology awaits operator final action report. trash-hang-recovery.json says sent=false."
+    },
+    {
+      "id": "push-error-repetition",
+      "evidence": [
+        "07-C07-push-rejected-duplicate-toast.png"
+      ],
+      "finding": "Same push failure appears in sidebar, modal, and large toast. Toast overlaps modal footer action area. Functional non-fast-forward refusal still holds."
+    }
+  ],
+  "closedPreviousFailure": {
+    "id": "MAC-GIT-STALE-DIFF-001",
+    "evidence": "05-staged-diff-cleared-after-commit.png",
+    "finding": "After native staged-only commit, selected HEAD-to-index view shows +0/-0 and explicit no-diff message; index is actually empty. Closes this stale-diff reproduction only."
+  },
+  "limitations": [
+    "Snapshot helper field setupIsNotGuiAcceptance=true is retained literally. Native action evidence comes from original screenshots/operator, not setup script alone.",
+    "Local synthetic bare remote; no real remote credential or network failure coverage.",
+    "This initial audit does not close all Git requirements or visual fidelity, and excludes history/clone/large-diff cases still in progress.",
+    "DirtyD retention is native operator observation; actual diskC unchanged independently verified. Cross-project D restoration not yet independently verified."
+  ],
+  "operatorClarification": {
+    "receivedAt": "2026-10-30T21:29:55.643457+00:00",
+    "dirtyBufferChoice": "Screenshot03: operator clicked Cancel, retained unsaved editor D. During later stagedB commit, D remained unsaved; diskC unchanged. Cross-project return still pending.",
+    "captureConditions": "Native screencapture window14467 PNG, Mist/light/舒适/1280x800/zoom100%; operator changed none of these."
+  }
+}

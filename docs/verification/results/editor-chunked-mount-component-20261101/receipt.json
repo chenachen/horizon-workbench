@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-11-01T05:48:12.840308+00:00",
+  "productionScope": "EditorWorkbench including its real LargeFile component, feature/store and EditorStore; native RPC and outer settings/plugin providers are fixtures.",
+  "negativeControl": "Only remove the chunked !buffer.evicted render guard in esbuild memory. Other current production code, including loading status, remains. Production source was never reverted.",
+  "before": {
+    "exitCode": 1,
+    "pendingLargeFileCount": 1,
+    "freshCursor": "reader-2",
+    "fileReadChunkCalls": 1,
+    "visibleText": "",
+    "failure": "Fresh same-file first chunk never appears within1500ms because existing LargeFile effect has unchanged fileId/projectId."
+  },
+  "after": {
+    "exitCode": 0,
+    "phases": 2,
+    "pendingLargeFileCount": 0,
+    "pendingShowsReadingStatus": true,
+    "restored": {
+      "fileId": "large",
+      "evicted": false,
+      "cursor": "reader-2-next",
+      "text": "automatic first chunk from reader-2",
+      "byteStart": "0",
+      "byteEnd": "262144",
+      "largeFileCount": 1,
+      "loadingMessage": false,
+      "chunkCalls": [
+        {
+          "method": "file_read_chunk",
+          "params": {
+            "fileId": "large",
+            "cursor": "reader-1",
+            "limitBytes": 262144
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "file_read_chunk",
+          "params": {
+            "fileId": "large",
+            "cursor": "reader-2",
+            "limitBytes": 262144
+          },
+          "projectId": "a"
+        }
+      ]
+    },
+    "noNextChunkClick": true
+  },
+  "executionReceipts": [
+    "before-run.json",
+    "after-run.json"
+  ],
+  "limits": [
+    "Component regression only; root owns the related native retest in the next bundle.",
+    "No store48 rerun, hot24, lifecycle sampler, native GUI, or product source edit in this task."
+  ]
+}

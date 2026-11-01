@@ -1,0 +1,225 @@
+{
+  "recordedAt": "2026-11-01T16:32:47.634658+00:00",
+  "identity": {
+    "mainSHA256": "ca71ca1125f994c19254f5b56866ac64fe3f5f023ab3d2a1784d7611e0f1811a",
+    "pid": 41657,
+    "start": "2026-11-02 00:05:09 +0800",
+    "laterPortalWindowsSourceNotNativePassed": true
+  },
+  "review": {
+    "originals": 18,
+    "newViews": 16,
+    "twoEarlierOriginalsReused": [
+      "01-escape-empty-ax",
+      "01-cmdq-empty-ax"
+    ],
+    "fullAX": 8,
+    "completeDiffOrIdenticalAXReuses": 10,
+    "initial00Excluded": true,
+    "allHashesMatched": true
+  },
+  "nativeManifest": "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-manifest.jsonl",
+  "Q1": {
+    "afterReadAt": "2026-11-01T16:15:25.337742+00:00",
+    "profileId": "profile-1793535771697-1",
+    "revision": 1,
+    "name": "1101 Q1 双服务 · 含子进程",
+    "bytes": 1767,
+    "sha256": "43b501283da10f313c864023c5d83d2c8c61a6b0394137eebc0d9c8e2d8d5b08",
+    "checks": {
+      "sameConfigurationPath": true,
+      "sameFileBytes": true,
+      "sameFileSha256": true,
+      "oneOwnedMatch": true,
+      "sameProfileId": true,
+      "sameRevision": true,
+      "sameOriginalName": true,
+      "sameCanonicalProfileSha256": true,
+      "sameWholeOwnedObject": true
+    },
+    "wholeObjectEqual": true,
+    "requiredExtensionsActuallyEmpty": true
+  },
+  "priorAcceptedCoverage": [
+    {
+      "id": "MAC-FILES-INTEGRATION-002",
+      "requirements": [
+        "REQ-FILE-001",
+        "REQ-FILE-002",
+        "REQ-FILE-006",
+        "REQ-FILE-007",
+        "REQ-FILE-008",
+        "REQ-FILE-009",
+        "REQ-FILE-011",
+        "REQ-FILE-012",
+        "REQ-FILE-013",
+        "REQ-RUN-003",
+        "REQ-SET-007",
+        "REQ-STATE-001",
+        "REQ-WS-001",
+        "REQ-WS-002",
+        "REQ-WS-005"
+      ],
+      "build": "native Rust test profile; retained run: 40 unit / 18 file workflow / 7 search workflow pass",
+      "observed": "18 file workflow tests pass, retaining the earlier 13 cases. Added clean-marker checkpoint removal with unchanged disk/baseline and stale-revision rejection; close-plan decisions/retained draft/A-B resource isolation; persisted empty-workspace selection; active-project workspace move; oversized image rejection and real small PNG metadata; stale scope epoch after explicit invalidation/reactivation."
+    },
+    {
+      "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+      "requirements": [
+        "REQ-LAUNCH-001",
+        "REQ-LAUNCH-002",
+        "REQ-LAUNCH-003",
+        "REQ-LAUNCH-004",
+        "REQ-LAUNCH-005",
+        "REQ-LAUNCH-006",
+        "REQ-LAUNCH-007",
+        "REQ-LAUNCH-008",
+        "REQ-LAUNCH-009",
+        "REQ-LAUNCH-010",
+        "REQ-HOST-004",
+        "REQ-SET-007",
+        "REQ-STATE-004"
+      ],
+      "build": "candidate5 releaseSHA8265d62143a81c380acd350dc8c261685f241a2bc3fd0cfbece65c81073b00b2",
+      "observed": "原生发现、授权、导入/导出、双服务依赖就绪、重启、失败/保留排错、超时、取消、外部端口、来源变化、PTY定位与项目隔离均有界面和OS证据。剩余子项在CONDITION_GAPS列明；URL辅助进程回收另记失败。"
+    },
+    {
+      "id": "MAC-EDITOR-PREFERENCES-COMPOSITE-NATIVE-CLOSED-001",
+      "requirements": [
+        "REQ-SET-003"
+      ],
+      "build": "aa010d289eadc486167225d2eae8c9fb65bc9abdab7d19848cf88fc3fbbd2101;PID92803/startlocal15:13:42",
+      "observed": "macOS SET003各子句组合闭合：字体全局共用；本轮项目缩进与折行覆盖、隔离和恢复；应用默认自动保存关闭。此前实际开启延迟保存不写既有dirty，后续编辑/离焦才写；外部冲突暂停；真实marked Pinyin超过延迟期间34B/hash/mtime不变，提交后40B自动保存且clean。既有原生LF/CRLF/末行字节与设置仅重配编辑器的源码不暗改换行证据复用。"
+    },
+    {
+      "id": "MAC-SAVE-DELAY-RESET-AND-INHERITANCE-COMPOSITE-NATIVE-001",
+      "requirements": [
+        "REQ-SET-001"
+      ],
+      "build": "b077f8307c0b208bb1d0c514934be09365c915c5f9602deaead7b87c036cc3a8;delay/Overview PID54593/start15:43:40;Welcome PID68973/start15:50:43",
+      "observed": "SET001最后保存延迟入口闭合：真实Aurora延迟保存下1秒应用默认→0.5秒项目覆盖且有“使用全局设置”→点击后1秒应用默认，再清自动保存覆盖回关闭。留存磁盘投影revision42的global/project两字段均无覆盖。结合已独审global2→4/A8保持→UseGlobalA4、折行A/B隔离与全局字体/外观共用及来源/作用域源码，macOS该条完整。"
+    },
+    {
+      "id": "MAC-PI-CREDENTIAL-OWNERSHIP-SETTINGS-COMPOSITE-001",
+      "requirements": [
+        "REQ-AI-013",
+        "REQ-SET-004"
+      ],
+      "build": "a78cfd8a5523562d6252de96e7ddbaf4af56bdd1c4b46f1eddfbf4bad4365d27",
+      "observed": "既有真实keyring/安全引用与任务环境隔离、provider/协议/endpoint/model和全局配置/项目引用/删除影响；12ed固定Test12/13无项目文本，系统保存先configured再显式verified，同ref切session/rev2/旧systemitem absent且SDK14/15实际会话引用；Q1重开Privacy真session未配置。a78c新列表明确过期、编辑框blank+过期hint+仅本次应用会话，8paired16组件覆盖有效/过期/无ref/新建/双向scope无key拒绝。10b实际ordinarypaste/rev4变有效后仅1ref清理，两个QA连接各0/0预览删除、外部provider始终存活到owner最后显式停。Pi既有认证归属说明预览Cancel如实区分，不伪造OAuth登录。运行时/模型两层及检测/验证/运行分开，凭据归属原句组合闭合。"
+    }
+  ],
+  "componentContext": {
+    "manifest": "docs/verification/results/form-git-functional-release-20261102/components/settings-unsaved-form-20261101/manifest.json",
+    "groups": 10,
+    "boundary": {
+      "real": [
+        "App/DesktopShell",
+        "SettingsPanel",
+        "AppearanceProvider/useSettings",
+        "AgentSettings/ConnectionForm",
+        "LauncherPanel/useLauncher",
+        "Modal",
+        "ErrorNotice",
+        "bridge",
+        "prepared UnsavedChanges hook"
+      ],
+      "controlled": [
+        "Tauri call/listen",
+        "plugin service and PluginCenter",
+        "Agent store refresh",
+        "RecoveryPanel",
+        "editor store sentinel"
+      ],
+      "secrets": "owned dummy only; RPC secret field redacted, no secret in dirty snapshot or local/session storage",
+      "noModelRequest": true
+    },
+    "review": "Root previously reviewed; this phase reads manifest/coverage, not new harness execution or full harness rereview."
+  },
+  "SET007": "Connection Escape/CmdQ Continue preserves exact draft AX; Cancel/Discard closes only draft and outer empty settings remains. Q1 Done/Continue preserves suffix, Discard/reopen original and persisted 1767B/rev1/object unchanged. Final editor whole AX same, Save disabled. Existing instant preference/explicit-save/validity coverage composed; only source-only close failure superseded.",
+  "activeAXFailure": {
+    "labels": [
+      "01-escape-empty-ax",
+      "01-cancel-confirm-empty-ax",
+      "01-cmdq-empty-ax"
+    ],
+    "sameEmptyAXSHA256": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "status": "UI004 ACTIVE failure; visible confirm but only HTMLroot/menu AX. Q1 Done confirm is accessible. Portal source candidate not native proof; no proven root cause."
+  },
+  "narrow": {
+    "width": 760,
+    "state": "No connection onboarding, no composer",
+    "namedControls": [
+      "搜索文件或命令",
+      "AI连接设置",
+      "隐藏AI面板",
+      "配置一个连接"
+    ],
+    "focus": "F6 HTMLroot→workspace; ShiftF6→projectbutton only",
+    "restored1280WholeAXEqual": true
+  },
+  "limits": [
+    "No Windows native/implementation pass from work/source changes.",
+    "Stored Q1 requiredExtensions[] empty; horizon.terminal@* AX text is placeholder, not L1 preflight proof.",
+    "No GUI/model/Test/Send/Save/Start/OS sampling or visual pass by verifier.",
+    "Git03/04 separately registered after their authorized batch."
+  ],
+  "evidenceIds": [
+    "MAC-NARROW-QUICK-OPEN-NAME-NATIVE-FAIL-001",
+    "MAC-UNSAVED-FORM-CONFIRMATION-AX-NATIVE-FAIL-001",
+    "MAC-UNSAVED-SETTINGS-FORM-SAVE-DISCARD-NATIVE-COMPOSITE-001",
+    "MAC-NARROW-AI-ONBOARDING-SEARCH-FOCUS-NATIVE-001"
+  ],
+  "artifactSHA256": {
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-draft-filled.jpg": "d3a983eccee76d40f81045bda6b7859352ca2410c4d9517270f466512feecde7",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-draft-filled.ax.txt": "553efd7f0692ba60579215552eb377f895f7d039513dadc314d5e47d0aa7e62b",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-escape-empty-ax.jpg": "2e087fb848ba9ab9bd93dd5795d2dc41f9b7e167cbd5455080e79cdb10d11094",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-escape-empty-ax.ax.txt": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-escape-continue.jpg": "9375d27f82b6e95cc74eac2363891ef793cb184177b610e3ee6d2ca87baba3a9",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-escape-continue.ax.txt": "553efd7f0692ba60579215552eb377f895f7d039513dadc314d5e47d0aa7e62b",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cmdq-empty-ax.jpg": "e25ac4fd4004e35b1a0f9f15401d24791e5502d8e01951aaa49ec8e320ff8f45",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cmdq-empty-ax.ax.txt": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cmdq-continue.jpg": "e143020937cae7c183a2d1aab971ff036f21058e2bd8a05fbbd198e1f96f0784",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cmdq-continue.ax.txt": "553efd7f0692ba60579215552eb377f895f7d039513dadc314d5e47d0aa7e62b",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cancel-confirm-empty-ax.jpg": "0a5e46e7ceaa25c37f8bd92da258398c22df55b9aa70e3ae8ffc834a4eee83fc",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cancel-confirm-empty-ax.ax.txt": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-draft-discarded.jpg": "c2108c3e35272cc7a6b9e0334db7c4a5e552dc199bc82270acf5490d65f23f7f",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-draft-discarded.ax.txt": "ec2b704fd5166e04d1e4df67be4315a23ae3cc187450b3b4a72df966857bc938",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-draft.jpg": "b7aa224fe4c38fd6588a84d1be811affa73beeb09d9a0e7075d21e9f6bae9579",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-draft.ax.txt": "0e0554e16ce40a14f9a83dcad24d10804f9ccbffb0c6713b2140bdc3d525308e",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-done-confirm.jpg": "07e56a08060fb83735958ae6e220ae14f7b4f8b9fa08967c0a4f4d38bcdfdbd9",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-done-confirm.ax.txt": "6e74c1d36341302ded82fd3b6afd05235d0a651e9e222ff8e284b64b0ec48625",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-continue.jpg": "12c7ab80d5cf0b21e72bd22c6509f468e077dcd51eb3e668e93e52921bae168f",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-continue.ax.txt": "47cdd23c31729bbbac143365283b6df4a272898e444b39ee051b9c9c23febe12",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-reopened-original.jpg": "5a29b3c1780635611411fe6836b76872733bab50da835c03f78431bbb0c64a55",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-02-q1-reopened-original.ax.txt": "7802df373f30987353813b0cb768bed33c9aebddb0741a740a677e8a49fb77ab",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-before-narrow.jpg": "7135a590309dbfd5d7ead9234242344cbc7451a17a104fdacd454af86b7a94df",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-before-narrow.ax.txt": "f62b25a8113538c5b153af4c238bdc57b36a0471537143bab9fd6294db521e6c",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-narrow-search.jpg": "f75a1a96ce6d8e12931eea7e2c64ff9a1395cb457dfa04b6ea3fd83039df29f5",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-narrow-search.ax.txt": "f84ad041399c1f4d4a4d53d50fdf53f9e92699ad076287cf9221cc139fc494d4",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-narrow-ai.jpg": "33074570902eba3563ed45ad85d573ebce07eadca64e9fb01774b3833ef1ae67",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-narrow-ai.ax.txt": "dabf4fae4a22d6e4c8367cd2366807784487a3046e538064a568f89c5a74cb31",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-f6.jpg": "e8b38d13bebb320fbf0adc18a7b2bf277a87fba84b43f02b4c80bb6af14c186e",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-f6.ax.txt": "5f6d359f9c700ea92fe3d145ebaaf9491cf09886e730cb5937b2d5edff53f386",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-shift-f6.jpg": "5d9117a0948069dc00b9f5b52f3e43dc0966a41bd7124183f4d0b08cd3d78d73",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-shift-f6.ax.txt": "4314b1095f4e7fa96eabd20ce8d2532c1bb0b7de2ceefecad44d98a3e5d8418f",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-ai-hidden-narrow.jpg": "221d3e80d18a1b5ca16ecdcfeb9ee34e58c5adbdedb79c4e0e5539214b762073",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-ai-hidden-narrow.ax.txt": "e8716db073a38a5c8a01792d841780f19e59a3bc0af2b148195c8c4ee2ae6671",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-restored.jpg": "e63c2898fe0e64ed65b539ce32a9a04e2ea15a08bc5080136ec7893cd088ac93",
+    "docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-03-restored.ax.txt": "f62b25a8113538c5b153af4c238bdc57b36a0471537143bab9fd6294db521e6c",
+    "docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-chinese-narrow.jpg": "25c817fbc5c89b5ac4053d0b2dabd52e362508f26281802b36953cf71f2a7620",
+    "docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-chinese-narrow.ax.txt": "8e414b3e07c7d7c92740dff50021e299684c8300285adbed99241d3d062acdd5",
+    "docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-narrow-sidebar-collapsed.jpg": "d8965eeee7e6b5aed85fcb6527ec4bdd1c5665d895ad4e6a500d49f70039ed1d",
+    "docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-narrow-sidebar-collapsed.ax.txt": "57091d071d81cd0bf13c0fa7b6183484357b606d68b6ca07db76c5a201ab4a45",
+    "docs/verification/results/settings-unsaved-native-audit-20261102/q1-owned-profile-before.json": "85273d46bd844ad8208b55e7cad0d68ae9e549a044c1b5a7a7b99d53fe1eb581",
+    "docs/verification/results/settings-unsaved-native-audit-20261102/q1-owned-profile-after.json": "02eaa193e6cc73a241f32f7db9bb5e6dc973e88f87d8e0c80fcc51c7ab20271f",
+    "docs/verification/results/settings-unsaved-native-audit-20261102/native-settings-segments-frozen-manifest.jsonl": "c43ef92bd064f536b74a795935a2874cea1adc57ad4106e338ae33bc1d0c1054",
+    "docs/verification/results/settings-unsaved-native-audit-20261102/historical-narrow-name-failure.json": "525ae55f58726628faafda3dda5ae2f756b81119164efd8606f4b4a1bd62f98c",
+    "docs/verification/results/settings-unsaved-native-audit-20261102/portal-design-and-initial-failure-review.json": "789bf79e5b246ea43b6870469d4e56dc45945dc2d5bd9e0d74035b26aad076b4",
+    "docs/verification/results/form-git-functional-release-20261102/bundle-identity.json": "2c410b73337024949f1a5d949e6ade1ad9be04811e628380068584d0cde36356",
+    "docs/verification/results/form-git-functional-release-20261102/source-change.json": "75c21ed62be97ea8f52eb14ead27a78315e9acb9b87da1226da5d0bd6604816e",
+    "docs/verification/results/form-git-functional-release-20261102/installed-native-identity.json": "9a7e1b170b4f6a5be9af3f6acb7f1da23718cce53e1e5c0eb128393f34ad4f7d",
+    "docs/verification/results/form-git-functional-release-20261102/release-build-receipt.json": "3400cab7394d003ac69f01d994db793b0103837ab1c5e46cba05480d4b9ed47b",
+    "docs/verification/results/form-git-functional-release-20261102/components/unsaved-cancel-type-20261102/after/apps/desktop/src/components/UnsavedChanges.tsx": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17"
+  }
+}

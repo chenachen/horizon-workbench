@@ -1,0 +1,57 @@
+{
+  "recordedAt": "2026-10-30T19:30:19.868040+00:00",
+  "candidate": "4b",
+  "rootPid": 68112,
+  "method": "Independent inspection of three original native captures separated by actual project/extension actions; disk byte copy",
+  "screenshots": [
+    "docs/verification/screenshots/plugins-candidate4b/005-live-git-b.png",
+    "docs/verification/screenshots/plugins-candidate4b/011-rollback-live.png",
+    "docs/verification/screenshots/plugins-candidate4b/015-b-survives-a-failure.png"
+  ],
+  "nativeActions": [
+    {
+      "time": "2026-10-30T19:22:55.964335+00:00",
+      "actor": "plugin_runtime",
+      "action": "Switched UI Kit and activated same read-only extension through contribution command",
+      "result": "B view shows exactly 1 untracked src/换行测试.txt; A earlier showed 2 distinct changes",
+      "evidence": "docs/verification/screenshots/plugins-candidate4b/005-live-git-b.png"
+    },
+    {
+      "time": "2026-10-30T19:25:46.504550+00:00",
+      "actor": "plugin_runtime",
+      "action": "Activated rolled-back0.1.0",
+      "result": "Original Git 更改·2 title and A change paths returned; currently visible editor background lacks text, recorded for editor owner",
+      "evidence": "docs/verification/screenshots/plugins-candidate4b/011-rollback-live.png"
+    },
+    {
+      "time": "2026-10-30T19:28:08.561561+00:00",
+      "actor": "plugin_runtime",
+      "action": "Switched to B after A exception",
+      "result": "B original instance still running; Git view still shows own untracked file; A contribution gone",
+      "evidence": "docs/verification/screenshots/plugins-candidate4b/015-b-survives-a-failure.png"
+    }
+  ],
+  "disk": [
+    {
+      "project": "aurora",
+      "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/aurora-web/src/workspace.ts",
+      "bytes": 619,
+      "sha256": "ab3aca97a67b71d8eda4c5bbea735e9246a9edf0fe2ff183799bf22e3f4fc400",
+      "lines": 23
+    },
+    {
+      "project": "uikit",
+      "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit/src/换行测试.txt",
+      "bytes": 51,
+      "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+      "lines": 3
+    }
+  ],
+  "observed": "UI Kit and Aurora selected tabs, breadcrumb, recovery/status indicators render but body area contains neither text nor line numbers. Repeated later captures show same result, including Aurora without background image. Both captured footers show line4column1. Disk files remain nonempty with original expected contents.",
+  "rootCause": null,
+  "limitations": [
+    "Underlying cause not determined by screenshot; renderer/cache attachment under owner investigation",
+    "No typing/saving/recovery action issued by verifier; not evidence of disk data loss",
+    "Current lifecycle sample remains valid diagnosis of this known-defect build, not successful final editor acceptance"
+  ]
+}

@@ -1,0 +1,1241 @@
+{
+  "kind": "Production ResizeHandle + AppearanceProvider controlled component regression",
+  "scope": "Real production React components, applyAppearance, layouts and themes. Only bridge RPC/events replaced with deferred host fixture. Headless Chromium; no Horizon/native GUI; no desktop build.",
+  "startedAt": "2026-11-01T07:08:07.570Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/components/ResizeHandle.tsx",
+      "sha256": "e4cf4e7909e27c6524c6910e94b1a48235461078442ad2d1b67294993459e097",
+      "bytes": 4050
+    },
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "sha256": "1443e94e1100b027ab1b3e5e28e4c1bab820ec720c850628198f18955b2ef719",
+      "bytes": 9674
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "2f2f56b8eb55007a433e808e13516428ba52fdef5c01621d7eb7216104233185",
+      "bytes": 72550
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "sha256": "57e135d0818a7cb0d231f2b720ee246125b2c41f2e3bb9bd4b35f86fb53ac8a8",
+      "bytes": 7368
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "sha256": "07093d9e4e619f1f9d1ad98a196076f23465213b4d9df7c38de1cbb17c62a1cb",
+      "bytes": 2033
+    }
+  ],
+  "phases": [
+    {
+      "name": "active drag Escape restores CSS/ARIA and later pointerup makes zero commits",
+      "passed": true,
+      "at": "2026-11-01T07:08:08.397Z",
+      "dragPreview": {
+        "css": 285,
+        "renderedWidth": 285,
+        "aria": 285,
+        "snapshotWidth": 260,
+        "snapshotRevision": 40,
+        "hostWidth": 260,
+        "hostRevision": 40,
+        "patchCount": 0,
+        "activePatches": 0,
+        "errors": []
+      },
+      "cancelledBeforeUp": {
+        "css": 260,
+        "renderedWidth": 260,
+        "aria": 260,
+        "snapshotWidth": 260,
+        "snapshotRevision": 40,
+        "hostWidth": 260,
+        "hostRevision": 40,
+        "patchCount": 0,
+        "activePatches": 0,
+        "errors": []
+      },
+      "cancelledAfterUp": {
+        "css": 260,
+        "renderedWidth": 260,
+        "aria": 260,
+        "snapshotWidth": 260,
+        "snapshotRevision": 40,
+        "hostWidth": 260,
+        "hostRevision": 40,
+        "patchCount": 0,
+        "activePatches": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "ordinary Escape preserves committed Right + ShiftRight and adds no commit",
+      "passed": true,
+      "at": "2026-11-01T07:08:08.603Z",
+      "beforeEscape": {
+        "css": 271,
+        "renderedWidth": 271,
+        "aria": 271,
+        "snapshotWidth": 271,
+        "snapshotRevision": 42,
+        "hostWidth": 271,
+        "hostRevision": 42,
+        "patchCount": 2,
+        "activePatches": 0,
+        "errors": []
+      },
+      "afterEscape": {
+        "css": 271,
+        "renderedWidth": 271,
+        "aria": 271,
+        "snapshotWidth": 271,
+        "snapshotRevision": 42,
+        "hostWidth": 271,
+        "hostRevision": 42,
+        "patchCount": 2,
+        "activePatches": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "real headless doubleclick submits default once; already-default doubleclick submits zero",
+      "passed": true,
+      "at": "2026-11-01T07:08:08.837Z",
+      "resetPreview": {
+        "css": 240,
+        "renderedWidth": 240,
+        "aria": 240,
+        "snapshotWidth": 271,
+        "snapshotRevision": 42,
+        "hostWidth": 271,
+        "hostRevision": 42,
+        "patchCount": 3,
+        "activePatches": 1,
+        "errors": []
+      },
+      "resetSaved": {
+        "css": 240,
+        "renderedWidth": 240,
+        "aria": 240,
+        "snapshotWidth": 240,
+        "snapshotRevision": 43,
+        "hostWidth": 240,
+        "hostRevision": 43,
+        "patchCount": 3,
+        "activePatches": 0,
+        "errors": []
+      },
+      "resetAgain": {
+        "css": 240,
+        "renderedWidth": 240,
+        "aria": 240,
+        "snapshotWidth": 240,
+        "snapshotRevision": 43,
+        "hostWidth": 240,
+        "hostRevision": 43,
+        "patchCount": 3,
+        "activePatches": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "multiple pointermove previews produce one changed pointerup commit",
+      "passed": true,
+      "at": "2026-11-01T07:08:09.052Z",
+      "moved": {
+        "css": 275,
+        "renderedWidth": 275,
+        "aria": 275,
+        "snapshotWidth": 240,
+        "snapshotRevision": 43,
+        "hostWidth": 240,
+        "hostRevision": 43,
+        "patchCount": 3,
+        "activePatches": 0,
+        "errors": []
+      },
+      "dragSaved": {
+        "css": 275,
+        "renderedWidth": 275,
+        "aria": 275,
+        "snapshotWidth": 275,
+        "snapshotRevision": 44,
+        "hostWidth": 275,
+        "hostRevision": 44,
+        "patchCount": 4,
+        "activePatches": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "rapid keyboard saves serialize fresh revisions while preserving latest preview",
+      "passed": true,
+      "at": "2026-11-01T07:08:09.266Z",
+      "queued": {
+        "css": 287,
+        "renderedWidth": 287,
+        "aria": 287,
+        "snapshotWidth": 275,
+        "snapshotRevision": 44,
+        "hostWidth": 275,
+        "hostRevision": 44,
+        "patchCount": 5,
+        "activePatches": 1,
+        "errors": []
+      },
+      "firstQueuedSaved": {
+        "css": 287,
+        "renderedWidth": 287,
+        "aria": 287,
+        "snapshotWidth": 276,
+        "snapshotRevision": 45,
+        "hostWidth": 276,
+        "hostRevision": 45,
+        "patchCount": 6,
+        "activePatches": 1,
+        "errors": []
+      },
+      "secondQueuedSaved": {
+        "css": 287,
+        "renderedWidth": 287,
+        "aria": 287,
+        "snapshotWidth": 277,
+        "snapshotRevision": 46,
+        "hostWidth": 277,
+        "hostRevision": 46,
+        "patchCount": 7,
+        "activePatches": 1,
+        "errors": []
+      },
+      "queueDrained": {
+        "css": 287,
+        "renderedWidth": 287,
+        "aria": 287,
+        "snapshotWidth": 287,
+        "snapshotRevision": 47,
+        "hostWidth": 287,
+        "hostRevision": 47,
+        "patchCount": 7,
+        "activePatches": 0,
+        "errors": []
+      },
+      "queueFacts": {
+        "maxActive": 1,
+        "patches": [
+          {
+            "expectedRevision": 44,
+            "value": 276,
+            "state": "resolved"
+          },
+          {
+            "expectedRevision": 45,
+            "value": 277,
+            "state": "resolved"
+          },
+          {
+            "expectedRevision": 46,
+            "value": 287,
+            "state": "resolved"
+          }
+        ],
+        "errors": 0
+      }
+    },
+    {
+      "name": "real write error refreshes authoritative CSS/ARIA, preserves original error, never retries, and does not poison queue",
+      "passed": true,
+      "at": "2026-11-01T07:08:09.410Z",
+      "failedPreview": {
+        "css": 297,
+        "renderedWidth": 297,
+        "aria": 297,
+        "snapshotWidth": 287,
+        "snapshotRevision": 47,
+        "hostWidth": 287,
+        "hostRevision": 47,
+        "patchCount": 8,
+        "activePatches": 1,
+        "errors": []
+      },
+      "failureRestored": {
+        "css": 283,
+        "renderedWidth": 283,
+        "aria": 283,
+        "snapshotWidth": 283,
+        "snapshotRevision": 48,
+        "hostWidth": 283,
+        "hostRevision": 48,
+        "patchCount": 8,
+        "activePatches": 0,
+        "errors": [
+          {
+            "code": "STALE_VERSION",
+            "message": "真实外观版本冲突（受控宿主）",
+            "identity": "original-write-error"
+          }
+        ]
+      },
+      "afterFailureSave": {
+        "css": 284,
+        "renderedWidth": 284,
+        "aria": 284,
+        "snapshotWidth": 284,
+        "snapshotRevision": 49,
+        "hostWidth": 284,
+        "hostRevision": 49,
+        "patchCount": 9,
+        "activePatches": 0,
+        "errors": [
+          {
+            "code": "STALE_VERSION",
+            "message": "真实外观版本冲突（受控宿主）",
+            "identity": "original-write-error"
+          }
+        ]
+      }
+    }
+  ],
+  "inMemoryFixtureSha256": "2cfb7b1f3159ea8b2b2efc89e1daa52cdf395fc52e7f5a49ec5ed38d0647b571",
+  "passed": true,
+  "final": {
+    "css": 284,
+    "renderedWidth": 284,
+    "aria": 284,
+    "snapshotWidth": 284,
+    "snapshotRevision": 49,
+    "hostWidth": 284,
+    "hostRevision": 49,
+    "patchCount": 9,
+    "activePatches": 0,
+    "errors": [
+      {
+        "code": "STALE_VERSION",
+        "message": "真实外观版本冲突（受控宿主）",
+        "identity": "original-write-error"
+      }
+    ],
+    "calls": [
+      {
+        "method": "settings_get",
+        "params": {},
+        "revision": 40
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 40
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 40
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 40
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 40,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 261
+            }
+          ]
+        },
+        "revision": 40
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 41
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 41
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 41
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 41
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 41
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 41,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 271
+            }
+          ]
+        },
+        "revision": 41
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 42
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 42
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 42
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 42
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 42
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 42,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 240
+            }
+          ]
+        },
+        "revision": 42
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 43
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 43
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 43
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 43
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 43
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 43,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 275
+            }
+          ]
+        },
+        "revision": 43
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 44
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 44
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 44
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 44
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 44
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 44,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 276
+            }
+          ]
+        },
+        "revision": 44
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 45
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 45
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 45
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 45
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 45
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 45,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 277
+            }
+          ]
+        },
+        "revision": 45
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 46
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 46
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 46
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 46
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 46
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 46,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 287
+            }
+          ]
+        },
+        "revision": 46
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 47
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 47
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 47
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 47
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 47
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 47,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 297
+            }
+          ]
+        },
+        "revision": 47
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 48
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 48
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 48
+      },
+      {
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 48,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 284
+            }
+          ]
+        },
+        "revision": 48
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 49
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 49
+      },
+      {
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "revision": 49
+      },
+      {
+        "method": "extension_list",
+        "params": {},
+        "revision": 49
+      }
+    ],
+    "events": [
+      {
+        "name": "appearance.changed",
+        "revision": 41
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 42
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 43
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 44
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 45
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 46
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 47
+      },
+      {
+        "name": "appearance.changed",
+        "revision": 49
+      }
+    ],
+    "maxActivePatches": 1,
+    "patches": [
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 40,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 261
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 41
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 41,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 271
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 42
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 42,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 240
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 43
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 43,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 275
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 44
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 44,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 276
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 45
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 45,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 277
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 46
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 46,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 287
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 47
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 47,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 297
+            }
+          ]
+        },
+        "state": "rejected",
+        "error": {
+          "code": "STALE_VERSION",
+          "message": "真实外观版本冲突（受控宿主）"
+        }
+      },
+      {
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 48,
+          "changes": [
+            {
+              "field": {
+                "kind": "geometry",
+                "layoutId": "horizon.layout.mist",
+                "key": "sidebarWidth"
+              },
+              "operation": "set",
+              "value": 284
+            }
+          ]
+        },
+        "state": "resolved",
+        "resultRevision": 49
+      }
+    ],
+    "originalErrorIdentityPreserved": true
+  },
+  "browserErrors": [],
+  "consoleErrors": [],
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/components/ResizeHandle.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T07:08:09.439Z",
+  "durationMs": 1869
+}

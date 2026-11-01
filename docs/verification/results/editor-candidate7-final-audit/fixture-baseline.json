@@ -1,0 +1,80 @@
+{
+  "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-editor-gui-sl3spe_4",
+  "registeredByGui": true,
+  "files": {
+    "README.md": {
+      "bytes": 309,
+      "sha256": "056029db1502987b6c2d13ddb9a78e1bcf1421ba2631b648446dc8dc918b4389",
+      "purpose": "Markdown heading/list/task/table/code preview"
+    },
+    "src/focus.ts": {
+      "bytes": 33,
+      "sha256": "3de6779948bb7bbfa143665cc674273238e1822045c7a38baae56083790a199d",
+      "purpose": "dirty close/cancel and keyboard focus return"
+    },
+    "src/autosave.txt": {
+      "bytes": 19,
+      "sha256": "8b1eef1aad39c2c6bfb95677d50b1e34d153e372ce238c018e48816dc27d6a47",
+      "purpose": "afterDelay and focus-change auto-save"
+    },
+    "src/ime.txt": {
+      "bytes": 22,
+      "sha256": "af2709777693a1f0bc938d8ee287cfa0083daa05ef02d0230f65c5ccc0abe0a8",
+      "purpose": "actual ITABC composition, candidate selection and undo"
+    },
+    "src/conflict.txt": {
+      "bytes": 35,
+      "sha256": "af812600b0e8cee3d84001773f904de857b8124d080ad6c6607eef3e0b6e0e1a",
+      "purpose": "external disk conflict while editor dirty"
+    },
+    "src/bom-crlf.txt": {
+      "bytes": 45,
+      "sha256": "87d0a31a2e7a15340467b3776e799b2394df074140e860cbadd5ea5046d41e2b",
+      "purpose": "BOM/CRLF preservation with real IME edit"
+    },
+    "perf/warm_a.ts": {
+      "bytes": 200000,
+      "sha256": "f30995a1386e09ed80132afa18b6619aa64a8b97c582aa3cbbd25ea9763724f8",
+      "purpose": "exact 200,000-byte TypeScript warm-open/highlight sample"
+    },
+    "perf/warm_b.ts": {
+      "bytes": 200000,
+      "sha256": "0ed6f30dee1c54f2a0fc69089d152620d8941edb4990c30c3b27d9c464ff003e",
+      "purpose": "exact 200,000-byte TypeScript warm-open/highlight sample"
+    },
+    "src/save-race.txt": {
+      "bytes": 9437184,
+      "sha256": "dd9f353901cbbfdab1e5a19e981db1f3f3ff59e0d007f24be9e6e3edaae407ef",
+      "purpose": "editable 9 MiB file to attempt typing during native save"
+    },
+    "perf/read-10m.txt": {
+      "bytes": 10485760,
+      "sha256": "62694d3d259e72b9020d8ebf38582f8f8369dfcd92e34dcc29fb18043f7a407a",
+      "purpose": "10 MiB simplified read-only boundary"
+    },
+    "perf/read-50m.txt": {
+      "bytes": 52428800,
+      "sha256": "b83b3e7f3bafabfa4684013ac25e00590b5ee454b470f766c9d95ef1cfe7d388",
+      "purpose": "50 MiB chunked read-only boundary"
+    },
+    "perf/long-line-120k.txt": {
+      "bytes": 120001,
+      "sha256": "cb650abfad0262448595e2606cd0b9692b0e5736d684b6b5962947da50556f91",
+      "purpose": "single line over 100k UTF-16 positions"
+    }
+  },
+  "many": {
+    "directory": "many",
+    "files": 10000,
+    "needle": "EDITOR_QA_SEARCH_NEEDLE",
+    "expectedTotalMatches": 20000,
+    "uiMaxMatches": 10000
+  },
+  "inputSourceObserved": {
+    "keyboard": "ABC",
+    "ime": "com.apple.inputmethod.SCIM.ITABC",
+    "method": "read-only defaults read com.apple.HIToolbox AppleEnabledInputSources"
+  },
+  "displayName": "Editor QA",
+  "registeredAt": "2026-10-31T03:11:18.874491+00:00"
+}

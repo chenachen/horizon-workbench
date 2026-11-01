@@ -1,0 +1,39 @@
+
+ RUN  v5.0.5 /Users/chenpengxiang/Desktop/Horizon/apps/desktop
+
+ ❯ src/features/plugins/service.test.ts (3 tests | 1 failed) 43ms
+   ❯ native activation refresh ordering (3)
+     × drains a stale refresh and old disposal before waking the editor with a fresh activation 38ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/plugins/service.test.ts > native activation refresh ordering > drains a stale refresh and old disposal before waking the editor with a fresh activation
+AssertionError: expected { key: 'A\u0000large', …(22) } to match object { fileId: 'large', …(3) }
+(26 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "cursor": "new-cursor",
+-   "evicted": undefined,
+    "fileId": "large",
+    "mode": "chunked",
+  }
+
+ ❯ src/features/plugins/service.test.ts:88:33
+     86|       expect(store.captureRestoreTicket('A', 2)).not.toEqual(priorTick…
+     87|       await store.restoreProjectSession('A', priorTicket);
+     88|       expect(store.getActive()).toMatchObject({ fileId: 'large', mode:…
+       |                                 ^
+     89|       const beforeClick = documentCount;
+     90|       expect(await store.openFile('other')).toMatchObject({ fileId: 'o…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  13:36:05
+   Duration  139ms (tests 60%, import 19%, transform 18%, worker 3%)
+

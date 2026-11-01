@@ -1,0 +1,77 @@
+{
+  "recordedAt": "2026-11-01T05:37:13.844899+00:00",
+  "status": "targeted-production-regression-passed; native-GUI-pending",
+  "scope": "Only plugin service fresh-state ordering and its focused regression. No runtime, editor store, App, or native code edited by plugin owner.",
+  "rootCause": {
+    "originalService": "activatePlugin returned early from cached active/activating state without awaiting an in-flight native list and its runtime disposal.",
+    "observedControlledSequence": [
+      "New epoch2 captured generation2 restore ticket while plugin cache still active.",
+      "Cached-active activation returned with zero native activation requests.",
+      "Late sleeping sync disposed old instance, editor lifecycle hostClosedProject incremented generation2 to3 and re-added detached.",
+      "Pending document_open result was discarded by correct stale-ticket protection.",
+      "Other tab and QuickOpen returned undefined with zero further document_open requests.",
+      "isEnabled stayed true across active→sleeping, so boolean-only App effect dependencies did not retry."
+    ],
+    "boundary": "Production service/runtime/EditorStore imported; bridge RPC responses and cleanup Promise controlled. Editor lifecycle hooks mirror production index/store. This is a deterministic ordering reproduction, not a GUI claim.",
+    "controlledSequenceRaw": {
+      "stdout": "probe-before.stdout.log",
+      "json": "probe-before.json",
+      "receipt": "probe-before-receipt.json",
+      "provenance": "Original successful tool stdout recovered verbatim from current context; no rerun."
+    }
+  },
+  "change": [
+    "refreshPlugins optional fresh mode marks a follow-up while an older refresh is in flight, waits for its entire syncNative disposal, then awaits the successor snapshot scheduled by finally.",
+    "activatePlugin awaits fresh native state before checking active/disabled/paused, and again after native activation completes.",
+    "Existing stale restore ticket guards remain unchanged. The new activation editor lifecycle obtains a valid current ticket after old cleanup."
+  ],
+  "verification": {
+    "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node /Users/chenpengxiang/Desktop/Horizon/node_modules/vitest/vitest.mjs run src/features/plugins/service.test.ts",
+    "cwd": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop",
+    "before": {
+      "exitCode": 1,
+      "tests": 3,
+      "failed": 3,
+      "raw": "before.log"
+    },
+    "after": {
+      "exitCode": 0,
+      "tests": 3,
+      "passed": 3,
+      "durationMs": 138,
+      "raw": "after.log"
+    },
+    "cases": [
+      "Pending stale list + deliberately held old disposal: no early activation; follow-up fresh snapshot; exactly one native activation; actual EditorStore current chunk cursor restores; old ticket stays rejected; other tab/QuickOpen perform new reads; one runtime instance.",
+      "Already-current active state remains same instance and issues no duplicate native activation.",
+      "Fresh paused policy replaces cached active state, disposes old instance, and is not silently resumed."
+    ],
+    "intermediate": "after-initial-assertion-shape.log records first post-change run: behavior restored new cursor correctly, but toMatchObject expected an explicit evicted:undefined key while actual object omitted that optional key. Assertion changed to semantic not-true; production implementation unchanged.",
+    "typecheck": "Await root unified desktop typecheck; explicit Promise<void> annotation added after runtime pass only.",
+    "nativeGui": "Not run by plugin owner. Root must retest actual sleep/wake and navigation after unified release build."
+  },
+  "sourceSha256": {
+    "apps/desktop/src/features/plugins/service.ts": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612",
+    "apps/desktop/src/features/plugins/service.test.ts": "3cd4caa18d21e12ecc24a7d2de828e5c4dc38cc27a3211599843f0962bd0679c",
+    "packages/plugins/src/runtime.ts": "c9bcd830665d6ad464f68c960a6327a9782c511144e74841524baa77cab49845",
+    "packages/editor/src/store.ts": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+    "apps/desktop/src/features/editor/index.ts": "21879b91b4fd4547a33be3f8c11debafa53e6db5742ed1afbd29e56cdb5aaaac",
+    "apps/desktop/src/features/editor/store.ts": "a5c01ac75a45621d50631b0194f248cff0c25e5f3fcc086a669f0aaab1141303",
+    "apps/desktop/src/App.tsx": "f8b54d7e674d15623f3fe2709519af1abc9b21fc24c77ee74bf95d9d1eb33692"
+  },
+  "artifacts": [
+    "before.log",
+    "after-initial-assertion-shape.log",
+    "after.log",
+    "service-before.ts",
+    "service-after.ts",
+    "service.test.ts",
+    "runtime-before.ts",
+    "store-before.ts",
+    "probe-before.json",
+    "probe-before.stdout.log",
+    "probe-before-receipt.json",
+    "probe-plugin-wake-race.ts",
+    "run-plugin-wake-race.mjs"
+  ]
+}

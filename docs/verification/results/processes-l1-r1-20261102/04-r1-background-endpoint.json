@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-11-01T17:04:43.464129+00:00",
+  "stage": "R1 single continuous background endpoint; no target scope activation",
+  "nativeSwitchUtcUpperBound": "2026-11-01T16:54:57.441000+00:00",
+  "continuousBackgroundSeconds": 586.023129,
+  "activeProjectIds": [
+    {
+      "path": ".sessions.__app.activeProjectId",
+      "value": "06a5ebcd-166b-4d55-9ffe-316ccc30da6a"
+    }
+  ],
+  "projects": [
+    {
+      "id": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+      "displayName": "启动器验收",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf",
+      "state": "idle",
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收",
+      "revision": 3
+    },
+    {
+      "id": "06a5ebcd-166b-4d55-9ffe-316ccc30da6a",
+      "displayName": "01-Git补验",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf",
+      "state": "active",
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "revision": 3
+    }
+  ],
+  "originalRunIdFromNative": "launch-1793551634320-3",
+  "originalRunProfileRevision": 1,
+  "savedProfileRevisionAlreadyVerified": 2,
+  "processes": [
+    {
+      "pid": 27921,
+      "ppid": 41657,
+      "pgid": 27921,
+      "lstart": "Mon Nov 2 00:47:14 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node service.mjs"
+    },
+    {
+      "pid": 27928,
+      "ppid": 41657,
+      "pgid": 27928,
+      "lstart": "Mon Nov 2 00:47:14 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node follower.mjs"
+    },
+    {
+      "pid": 41657,
+      "ppid": 1,
+      "pgid": 41657,
+      "lstart": "Mon Nov 2 00:05:09 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "snapshots": [
+    {
+      "role": "service",
+      "pid": 27921,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "port": 59133,
+      "startedAt": "2026-11-01T16:47:14.391Z"
+    },
+    {
+      "role": "follower",
+      "pid": 27928,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "startedAt": "2026-11-01T16:47:14.604Z"
+    }
+  ],
+  "snapshotsSha256": "601de41bfc6ebcda73f893a58dc30f20477e38269ed8c9cdef4962d7bd18d5e7",
+  "persistedOwnExtensionLeases": [
+    {
+      "extensionId": "horizon.editor",
+      "activationId": "95291592-1243-42e7-a326-6217255776de",
+      "runLeases": null,
+      "policyRevision": 8
+    },
+    {
+      "extensionId": "horizon.files",
+      "activationId": "8333e37e-bb92-45ab-bd23-91d95777c2f1",
+      "runLeases": null,
+      "policyRevision": 6
+    },
+    {
+      "extensionId": "horizon.git",
+      "activationId": "209a449d-9ec2-43f4-94e6-a3b301118864",
+      "runLeases": null,
+      "policyRevision": 7
+    },
+    {
+      "extensionId": "horizon.launch",
+      "activationId": "f20f29f0-67ed-4794-9d0e-9b7c072bdf50",
+      "runLeases": {
+        "launch-1793551634320-3": {
+          "activationId": "f20f29f0-67ed-4794-9d0e-9b7c072bdf50"
+        }
+      },
+      "policyRevision": 7
+    },
+    {
+      "extensionId": "horizon.terminal",
+      "activationId": "bba9a7d8-3de9-4912-b796-67314bb8c6bf",
+      "runLeases": null,
+      "policyRevision": 9
+    }
+  ],
+  "leaseInterpretation": "Actual persisted horizon.launch run lease for the original run is present. Profile requiredExtensions=[] adds no dependency leases. Existing other extension activations are projected without asserting run ownership. No transient lease or maintenance tick is invented.",
+  "maintenanceSourceCorrelation": "Installed source start_maintenance checks every30s; elapsed covers300+30. No last-maintenance time interface; actual project state is idle.",
+  "f04Actual": "Once native CORE settings view: QA label 会话已保存 (=idle), no scheme/PID detail in this installed UI. F04 resource detail remains separate gap.",
+  "checks": {
+    "elapsedBeyond300Plus30Seconds": true,
+    "coreStillActive": true,
+    "qaStateIdleNotSleeping": true,
+    "sameOriginalThreeIdentities": true,
+    "sameOriginalSnapshots": true,
+    "noNewSnapshotRows": true
+  },
+  "ownerActions": "Read only registry/owned markers/exact ps; no GUI/scoped RPC/build/sampler/start/signal"
+}

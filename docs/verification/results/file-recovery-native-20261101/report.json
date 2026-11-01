@@ -1,0 +1,85 @@
+{
+  "recordedAt": "2026-11-01T04:59:30.802338+00:00",
+  "scope": "G02 native file availability recovery and confirmed relocation; no app build/restart or native GUI validation in this pass",
+  "sourceHashes": {
+    "apps/desktop/src-tauri/src/files.rs": "ea837628d3ed8bba316d80d3d895846b66285111bc1e099a45731ce7405eac97",
+    "apps/desktop/src-tauri/src/state.rs": "b37d373a02f174d36bf1966f0d40b897dedb94ca90f89e56e80c6a8acf09ad7a",
+    "apps/desktop/src-tauri/src/watch.rs": "66623e49e2c880baf999bf91474f4bbf187b6e4adb0d40ed85112f1dbbe2bde4",
+    "apps/desktop/src-tauri/src/lib.rs": "68cfe88fc3d955a177e700e7cd7b250cb67600f0500db4c1ffbe16fd667dd05e",
+    "apps/desktop/src-tauri/tests/file_recovery.rs": "9b6335888434c1f4adbf69f2f1d5c0dd5f79fbe7bb8cf7a60e9bc23224897ee0"
+  },
+  "checks": [
+    {
+      "command": "rtk cargo test --locked --offline --test file_recovery",
+      "workingDirectory": "apps/desktop/src-tauri",
+      "exitCode": 0,
+      "passed": 10,
+      "failed": 0,
+      "testDurationSeconds": 1.2,
+      "execSession": 78780
+    },
+    {
+      "command": "rtk cargo test --locked --offline --test files_workflow",
+      "workingDirectory": "apps/desktop/src-tauri",
+      "exitCode": 0,
+      "passed": 33,
+      "failed": 0,
+      "testDurationSeconds": 7.11,
+      "execSession": 73895
+    },
+    {
+      "command": "rtk cargo test --locked --offline --test file_recovery relocation_",
+      "workingDirectory": "apps/desktop/src-tauri",
+      "exitCode": 0,
+      "passed": 7,
+      "failed": 0,
+      "filteredOut": 4,
+      "testDurationSeconds": 0.71,
+      "execSession": 66936,
+      "scope": "Final complete-readable readonly candidate correction; original files_workflow suite was not repeated."
+    }
+  ],
+  "targetedTests": [
+    "broken_link_open_retains_registered_identity_without_leaking_cross_project_file_refs",
+    "deleted_source_keeps_draft_copy_and_close_available_without_recreating_source",
+    "permission_failure_preserves_file_identity_and_metadata_only_draft_operations",
+    "actual_delete_watch_events_invalidate_documents_without_changing_clean_or_dirty_state",
+    "relocation_of_unopened_missing_file_grants_only_selected_external_file_after_confirmation",
+    "relocation_keep_buffer_preserves_full_checkpoint_identity_and_encoding_until_explicit_save",
+    "relocation_use_selected_discards_checkpoint_only_after_loading_confirmed_target",
+    "relocation_rejects_candidate_or_source_changes_and_keeps_original_checkpoint",
+    "relocation_rejects_another_open_document_and_keep_buffer_for_noneditable_candidates",
+    "relocation_use_selected_loads_full_readonly_text_after_explicit_discard_without_disk_writes",
+    "relocation_rechecks_project_epoch_and_confirmation_digest_before_association"
+  ],
+  "verifiedBehaviors": [
+    "Broken symlink initial open returns owner-validated FileRef in error details; retry opens same identity after target returns; cross-project and unknown IDs disclose no FileRef.",
+    "Deleted source retains mark_dirty/checkpoint/save_as/close workflows without recreating original path; ordinary save remains conditional and refuses vanished source.",
+    "Real EACCES remains PERMISSION_DENIED with retained identity; metadata-only draft writes remain available.",
+    "Real native filesystem deletion events invalidate both open documents; clean stays clean and dirty stays dirty.",
+    "Prepare grants no external access; confirmed association grants selected external file only, never its directory/sibling; keepBuffer is unavailable without a dirty buffer.",
+    "Keep buffer uses full checkpoint beyond the 256 KiB candidate preview, preserves document ID/revision/encoding/EOL/selection/state, rebinds checkpoint and base revision, survives HostState restart, writes target only on later explicit save.",
+    "Explicit useSelected loads candidate before replacing native state and removing old checkpoint; leaves both source/target disk bytes unchanged.",
+    "Candidate disk changes and source editor changes reject stale confirmation while retaining original checkpoint and association.",
+    "Another opened native document rejects relocation. keepBuffer rejects mixed-EOL/UTF16/binary/long-line simplified candidates. Unsupported/incomplete candidates reject useSelected for dirty buffers; complete readable 0444 text permits explicit useSelected, removes old checkpoint only after opening, and preserves source/target disk revisions plus readonly permissions.",
+    "Project epoch, project identity and digest are rechecked before association."
+  ],
+  "pending": "Root centralized release build plus actual native G02 UI paths; these tests do not claim native GUI acceptance.",
+  "previousSourceHashes": {
+    "apps/desktop/src-tauri/src/files.rs": "19a2b16ba9783f9c5fe7511c418a1131d2668c3fab1925be3d39437649574f1e",
+    "apps/desktop/src-tauri/src/state.rs": "b37d373a02f174d36bf1966f0d40b897dedb94ca90f89e56e80c6a8acf09ad7a",
+    "apps/desktop/src-tauri/src/watch.rs": "66623e49e2c880baf999bf91474f4bbf187b6e4adb0d40ed85112f1dbbe2bde4",
+    "apps/desktop/src-tauri/src/lib.rs": "68cfe88fc3d955a177e700e7cd7b250cb67600f0500db4c1ffbe16fd667dd05e",
+    "apps/desktop/src-tauri/tests/file_recovery.rs": "e7dc8e59162e73c4cc2ae72dab57c39281f3251fbf8dd1573589c9cfd13c379e"
+  },
+  "followup": {
+    "reason": "Explicitly choosing complete readable readonly text need not require editing capability because useSelected does not write the target.",
+    "change": "Only candidate mode != editor or incomplete text blocks dirty useSelected; keepBuffer still requires editable.",
+    "newTest": "relocation_use_selected_loads_full_readonly_text_after_explicit_discard_without_disk_writes"
+  },
+  "executionReceipts": "execution-receipts.json",
+  "interfaceContract": {
+    "path": "docs/architecture/INTERFACES.md",
+    "sha256": "37cb786e757b6baa630b74425d062f600a44002ff400206b26a39e6c22260373"
+  }
+}

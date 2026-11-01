@@ -1,0 +1,38 @@
+{
+  "id": "horizon.terminal",
+  "name": "终端",
+  "version": "0.1.0",
+  "description": "在当前项目目录运行 Shell 命令，切换面板后保留会话。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.terminal.view",
+    "onCommand:horizon.terminal.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "process.terminal"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.terminal.view",
+        "slot": "bottom",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.terminal.open",
+        "title": "打开终端"
+      }
+    ]
+  }
+}

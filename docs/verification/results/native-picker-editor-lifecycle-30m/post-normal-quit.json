@@ -1,0 +1,115 @@
+{
+  "observedAt": "2026-11-01T05:04:48.665038+00:00",
+  "method": "Independent full ps PID/start identity check after root reported actual CmdQ, close plan, and native App quit; no kill or sampler",
+  "operatorEvidence": [
+    "docs/verification/results/editor-recovery-release-20261101/old-quit-plan.txt",
+    "docs/verification/results/editor-recovery-release-20261101/old-quit-plan.jpg"
+  ],
+  "baselineIdentityCount": 7,
+  "allBaselineIdentitiesGone": true,
+  "checks": [
+    {
+      "expected": {
+        "pid": 21917,
+        "start": "Sun Nov 1 12:08:01 2026",
+        "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "root PID",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 21919,
+        "start": "Sun Nov 1 12:08:03 2026",
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "macOS responsibility SPI → 21917",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 21920,
+        "start": "Sun Nov 1 12:08:03 2026",
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "macOS responsibility SPI → 21917",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 21921,
+        "start": "Sun Nov 1 12:08:03 2026",
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "macOS responsibility SPI → 21917",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 21922,
+        "start": "Sun Nov 1 12:08:03 2026",
+        "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "macOS responsibility SPI → 21917",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 21923,
+        "start": "Sun Nov 1 12:08:03 2026",
+        "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "macOS responsibility SPI → 21917",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    },
+    {
+      "expected": {
+        "pid": 29435,
+        "start": "Sun Nov 1 12:11:52 2026",
+        "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+        "firstElapsedSeconds": 0.0001,
+        "firstAttribution": "macOS responsibility SPI → 21917",
+        "samples": 928,
+        "lastElapsedSeconds": 1929.1371
+      },
+      "observed": null,
+      "sameIdentityAlive": false
+    }
+  ],
+  "rawArtifact": "docs/verification/results/native-picker-editor-lifecycle-30m/post-normal-quit-processes.txt",
+  "rawSha256": "ece87bb64eb0335173469c86d4f301006b60bad4d39ac0f12d2072d6abbbcc29",
+  "limits": [
+    "This checks the seven known baseline identities from the completed 30-minute run, not later active Pi/terminal/launch shutdown conditions.",
+    "Prior four new picker identities had already disappeared during the retained sampler run."
+  ],
+  "nativePlanIndependentlyViewed": true,
+  "nativePlanObservation": "Original image and AX show Quit Horizon, no unsaved documents, Cancel and Process and Quit. Subsequent click/App quit is operator-reported; independent post-quit ps confirms all seven expected identities gone.",
+  "operatorEvidenceSha256": {
+    "docs/verification/results/editor-recovery-release-20261101/old-quit-plan.txt": "86943c2a9514bf185383cee8a76ffad839fe8c0b5cca2300daf8569f453552d0",
+    "docs/verification/results/editor-recovery-release-20261101/old-quit-plan.jpg": "cb478f120f23325f88aea7b83d90996ed782eeade2ec2c69ec1041ec1a0a6168"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-11-01T08:10:00.688185+00:00",
+  "kind": "CUA picker binding observation; no product patch",
+  "parent": {
+    "pid": 89459,
+    "startLocal": "2026-11-01 16:00:58 Asia/Shanghai"
+  },
+  "helper": {
+    "pid": 97797,
+    "parentPid": 89459,
+    "startLocal": "2026-11-01 16:05:14 Asia/Shanghai",
+    "bundleId": "dev.horizon.picker",
+    "displayName": "Horizon",
+    "LSUIElement": true,
+    "binarySha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+  },
+  "panelServicePid": 97800,
+  "observation": [
+    "An early full-path getApp was attempted before product Choose File; it timed out.",
+    "After real extension_pick_package and helper spawn, full-path getApp also timed out; parent AX showed disabled empty sheet.",
+    "CUA inventory did not list accessory helper; OS process and sampled bundle ID confirmed it was alive in normal NSApplication event wait.",
+    "Binding the same existing helper by verified dev.horizon.picker succeeded and exposed native Open panel.",
+    "A separate local variable scoping ReferenceError sent no key; operator rebinds at top level."
+  ],
+  "limitations": [
+    "Exact reason for full-path CUA binding timeout is unproven; duplicate display name is observed, not claimed as confirmed tool implementation cause.",
+    "No product picker failure/repair or installation success is inferred from binding alone."
+  ],
+  "recommendation": "After each real picker open, fresh bind cua.getApp(dev.horizon.picker), then operate current AX."
+}

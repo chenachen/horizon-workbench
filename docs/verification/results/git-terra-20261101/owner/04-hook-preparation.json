@@ -1,0 +1,14 @@
+{
+  "kind": "authorized-owned-prepared-hook-window-edit",
+  "recordedAt": "2026-11-01T14:57:45.301609+00:00",
+  "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/prepared-hooks/pre-commit",
+  "originalSeconds": 90,
+  "newSeconds": 300,
+  "oldSHA256": "79d6ec81fd40f360f556cefe52cf9005d2f0dc8f6048f269010d0153e348f24d",
+  "newSHA256": "d0d56089557d00401fe6e1d3bc0c7f51ed91a95328b0195168b30770140ba4b6",
+  "originalMode": "0o755",
+  "diff": "--- original90\n+++ prepared300\n@@ -1,5 +1,5 @@\n #!/bin/sh\n printf '%s\\n' \"$$\" > .git/horizon-slow-hook.pid\n-sleep 90 &\n+sleep 300 &\n printf '%s\\n' \"$!\" > .git/horizon-slow-child.pid\n wait\n",
+  "authority": "Root explicitly authorized before first install only; no runtime extension/reinstall/test run",
+  "executedBeforeInstall": false,
+  "productSourceModified": false
+}

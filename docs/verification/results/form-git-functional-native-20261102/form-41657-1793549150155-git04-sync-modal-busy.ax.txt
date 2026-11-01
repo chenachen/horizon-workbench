@@ -1,0 +1,45 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 分支与同步
+				4 container
+					5 heading 分支与同步, Value: 2
+						6 text 分支与同步
+					7 button 停止
+					8 button (disabled) 关闭分支与同步
+				9 text 等待 Git…
+				10 container
+					11 text 查找分支
+					12 text field (settable) 查找分支, Placeholder: 分支名称
+				13 summary 新建分支, Value: off
+					14 text 新建分支
+				15 heading 远端同步, Value: 3
+					16 text 远端同步
+				17 container
+					18 text origin/main  · 领先  2  / 落后  1
+				19 container
+					20 text 远端
+					21 pop up button 远端, Value: 选择远端
+				22 container
+					23 text 目标分支
+					24 text field (settable) 目标分支
+				25 button (disabled) 获取
+				26 button (disabled) 仅快进拉取
+				27 button (disabled) 推送 main
+				28 container
+					29 text 目标： 未选择远端  /  未选择分支 。推送不强制覆盖历史。
+				30 summary 比较两个引用, Value: off
+					31 text 比较两个引用
+	32 close button
+	33 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	34 minimize button
+35 menu bar
+	36 Horizon
+	37 File
+	38 Edit
+	39 View
+	40 Window
+	41 Help
+
+The focused UI element is 7 button 停止

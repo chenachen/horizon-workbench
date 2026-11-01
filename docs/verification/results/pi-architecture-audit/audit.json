@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-10-30T18:35:28.978340+00:00",
+  "requirement": "REQ-AI-009",
+  "acceptance_kind": "Architecture/dependency boundary expressly requires implementation and dependency review",
+  "method": "Independent source/dependency review plus retained genuine official Pi RPC/native integration evidence; no rerun",
+  "source_sha256": {
+    "apps/desktop/src-tauri/src/agent.rs": "36cb55c15a39d3bfc167c97c3878d29f1f130244c83b8fc6f2bfa0493f3b5b27",
+    "apps/desktop/src-tauri/Cargo.toml": "bd58ca3ba1c075b647b2bfba8c896a2fa71b3b805955a60044837913b368e8fc",
+    "apps/desktop/package.json": "e5a054bd4402585dced038993e9729a5198e3cd9a2b2ac15830d6e8aed90131b",
+    "packages/pi-policy/horizon-policy.ts": "b9d7a27c3d131bd6f4ea7e3fd91c91e48160081d7a8f5e08c31317c43351db1f",
+    "packages/pi-policy/package.json": "4f63cdec55f2c35067968a2244c829f245e671da4fe433d12d77e90bb64aba4f",
+    "research/verification/pi-native.json": "44f2de2f001b1f37a9bd8c868cfa7f68c33983a2cde0d1657f7fc27eddecc65a",
+    "research/verification/pi-rpc.json": "4c182a0096add3f580c2fc0c3ebd1cb7f46c0d2fe0b03ef71fac1a6a104ca944",
+    "research/verification/pi-provenance.json": "35abad73776c7e03644d3e9c6b5f03f4476a08de275f15e905ad3d9bb48ba3e8"
+  },
+  "checks": [
+    {
+      "condition": "Planning, tool-execution loop and conversational memory belong to external tool",
+      "finding": "run_pi launches official fixed Pi 1.4.0 executable with --mode rpc and --session; sends get_state/prompt, forwards structured events and waits for agent_settled. Session history is Pi-owned JSONL; Horizon transcript display/storage does not run planning or compaction."
+    },
+    {
+      "condition": "Horizon is an adapter; no direct model API automatic tool loop",
+      "finding": "Host model provider metadata is written to Pi configuration. Product network call sites were inspected: agent reqwest downloads fixed runtime asset; processes HTTP client probes explicitly configured readiness. No product host/frontend model-generation request is issued."
+    },
+    {
+      "condition": "Host tool wrapper is authorization, not an agent engine",
+      "finding": "Fixed horizon-policy.ts registers exactly four Pi tools; execute forwards Unix-socket request to host broker and returns text to Pi. Host broker enforces scope/approval and executes only the authorized operation."
+    },
+    {
+      "condition": "No assumed universal ACP",
+      "finding": "capabilities explicitly reports protocol pi-rpc, attach=false, task-only gated tools; fixed-version RPC/native tests invoke real official binary."
+    }
+  ],
+  "limits": [
+    "This full verdict is only the architectural prohibition REQ-AI-009; it does not close Pi GUI, provider credentials, installer, performance or other functional requirements.",
+    "Controlled model fixture supplies deterministic responses; integration evidence is not a live-provider test."
+  ]
+}

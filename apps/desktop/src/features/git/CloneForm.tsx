@@ -1,0 +1,24 @@
+import { useState } from 'react';
+import { Download, FolderOpen } from 'lucide-react';
+import { call, errorMessage, start, type TaskHandle } from '../../bridge';
+import './git.css';
+
+type CloneResult = { cloned: boolean; project: { id: string; displayName: string }; path: string };
+export function CloneForm({ workspaceId, onCloned, onClose }: { workspaceId?: string; onCloned?: (project: CloneResult['project']) => void; onClose?: () => void }) {
+  const [nameEdited, setNameEdited] = useState(false);
+  const [url, setUrl] = useState(''), [name, setName] = useState(''), [destination, setDestination] = useState<{ selectionToken: string; displayPath?: string } | null>(null), [error, setError] = useState(''), [progress, setProgress] = useState(''), [busy, setBusy] = useState(false), [task, setTask] = useState<TaskHandle<CloneResult> | null>(null), [cancelRequested, setCancelRequested] = useState(false), [residue, setResidue] = useState(false), [confirmCleanup, setConfirmCleanup] = useState(false);
+  const choose = async () => { try { const selected = await call<{ selectionToken: string | null; displayPath?: string }>('project_pick_directory'); if (selected.selectionToken) setDestination({ ...selected, selectionToken: selected.selectionToken }); } catch (e) { setError(errorMessage(e)); } };
+  const clone = async () => {
+    if (!destination || busy) return; setBusy(true); setError(''); setProgress('连接远端…'); setCancelRequested(false); setResidue(false);
+    try { const handle = await start<CloneResult>('git_clone', { url, name, destinationSelectionToken: destination.selectionToken, workspaceId }, event => { if (event.payload.type === 'progress') setProgress(event.payload.phase ?? '克隆中…'); }); setTask(handle); const result = await handle.result; setProgress('克隆完成，已添加项目。'); onCloned?.(result.project); }
+    catch (e) { setError(errorMessage(e)); setProgress(''); const code = typeof e === 'object' && e && 'code' in e ? String(e.code) : ''; setResidue(!['INVALID_ARGUMENT', 'PERMISSION_DENIED', 'NOT_FOUND', 'PLUGIN_DISABLED'].includes(code)); } finally { setBusy(false); setTask(null); }
+  };
+  if (confirmCleanup) return <section className="git-clone" aria-labelledby="git-clone-cleanup-title"><h3 id="git-clone-cleanup-title">清理克隆残留</h3><p>若本次未完成克隆留下目录，将其移到废纸篓：</p><p className="git-hint">{destination?.displayPath}/{name}</p>{error ? <p className="git-error" role="alert">{error}</p> : null}<footer className="form-actions"><button type="button" autoFocus disabled={busy} onClick={() => setConfirmCleanup(false)}>取消</button><button type="button" className="git-danger" disabled={busy} onClick={() => { setBusy(true); setError(''); void call('git_clone_cleanup', { destinationSelectionToken: destination?.selectionToken, name }).then(() => { setConfirmCleanup(false); setResidue(false); setProgress('克隆残留已清理。'); }).catch(e => setError(errorMessage(e))).finally(() => setBusy(false)); }}>{busy ? '正在移到废纸篓…' : '移到废纸篓'}</button></footer></section>;
+  return <div className="git-clone"><form className="form-stack" onSubmit={e => { e.preventDefault(); void clone(); }}>
+    <p className="form-intro">从远端创建本地副本，然后加入当前工作区。</p>
+    <label>仓库地址<input value={url} disabled={busy || residue} placeholder="https://… 或 git@…" onChange={e => { const value = e.target.value; setUrl(value); if (!nameEdited) setName(value.split('/').pop()?.replace(/\.git$/, '') ?? ''); }} required /></label><label>目标父目录<div className="project-directory-field"><input value={destination?.displayPath ?? '尚未选择'} readOnly /><button type="button" disabled={busy || residue} onClick={() => void choose()}><FolderOpen size={16} />选择</button></div></label><label>新目录名<input value={name} disabled={busy || residue} onChange={e => { setNameEdited(true); setName(e.target.value); }} pattern="[^/\\\\]+" required /></label><p className="git-hint">目标目录必须不存在。克隆成功后才添加项目；不会运行仓库脚本。</p>
+    {error ? <p className="git-error" role="alert">{error}</p> : null}{progress ? <p className="git-progress" role="status">{progress}</p> : null}
+    <footer className="form-actions">{onClose ? <button type="button" className="text-button" disabled={busy} onClick={onClose}>取消</button> : null}<button className="git-primary" disabled={busy || !destination || !url.trim() || !name.trim() || residue}><Download size={15} />{busy ? '克隆中…' : '克隆并添加项目'}</button>{busy ? <button type="button" disabled={cancelRequested || !task} onClick={() => { setCancelRequested(true); void task?.cancel().catch(e => setError(errorMessage(e))); }}>{cancelRequested ? '正在停止…' : '停止克隆'}</button> : null}</footer>
+    {residue ? <div className="git-warning"><p>目标：{destination?.displayPath}/{name}。若此任务留下目录，可保留或移到废纸篓。</p><button type="button" onClick={() => { setResidue(false); setProgress(''); }}>保留目录，修改表单</button><button type="button" onClick={() => setConfirmCleanup(true)}>清理本次残留…</button></div> : null}
+  </form></div>;
+}

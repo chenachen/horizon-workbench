@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-01T05:34:14.537178+00:00",
+  "status": "source ready; awaits central bundle and targeted native retest",
+  "observedEvidence": [
+    "../file-recovery-native-gui-visual-review/review.json",
+    "../file-recovery-native-gui-20261101/016-dirty-relocation-comparison.jpg"
+  ],
+  "changes": [
+    "ResizeObserver on file tab container keeps active tab visible when layout width changes; one observer with disconnect cleanup; existing key-based scroll retained.",
+    "Unavailable evicted chunked/unsupported body and stale readonly/simplified notices no longer render alongside central recovery view.",
+    "Relocation comparison reports bytes below1KiB, uses content-sized modal with bounded scrolling, and proper36px action buttons.",
+    "Compact layout central recovery buttons use7px radius.",
+    "Evicted buffer with an accessError waits for explicit Retry; auto-open effect cannot loop failed chunk reads."
+  ],
+  "validation": {
+    "command": "rtk npm run desktop:check",
+    "sessionId": 58509,
+    "exitCode": 0,
+    "stdout": "> tsc --noEmit\n",
+    "timeLimit": "Exact start/end not retained; not inferred from tool polling."
+  },
+  "files": [
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "6911c1e0732d36d6e99d8ca0c2c13b664b4dd5598c84bf9f3bd22a60c6763453"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/FileRecovery.tsx",
+      "sha256": "ad8ff227a546c4f5e6ff7d1c7e3a031c752640cfd27188001cecbfbd654c879b"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/file-recovery.css",
+      "sha256": "30c736595d23de9e2bdd1175ae5dff457ecf742c941def7f19fd335f60e7895d"
+    }
+  ],
+  "limits": [
+    "No new native success claimed before bundling.",
+    "Logical store/plugin sleep ordering handled separately by respective owners."
+  ]
+}

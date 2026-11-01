@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-11-01T11:33:33.367054+00:00",
+  "phase": "09a firstcontrolled401 before explicitretry",
+  "status": "09 COMPLETE / TEST RESTORE READY",
+  "checks": {
+    "oneExplicit401Request": true,
+    "sameExactFailurePromptAndOwnAttachment": true,
+    "newAChatSession": true,
+    "chatToolsEmpty": true,
+    "piExitedNoAutoReplay": true,
+    "nativeAuthError": true,
+    "nativeInputContextRetained": true
+  },
+  "sessionId": "c74fd8c9-6593-44e0-86f9-97e5d27d0f3e",
+  "profile": "chat",
+  "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+  "authStateBefore": "verified",
+  "authStateAfterFirst": "needsAuthentication",
+  "http": {
+    "fixture": true,
+    "requests": 10
+  },
+  "piPids": [],
+  "requestRowSHA": "9cfa78eef6bc7b697e2fe39f515ac22f675d92e384164f09e7368083567302ce",
+  "requestBody": {
+    "model": "horizon-fixture",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A\n</cwd>"
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "HORIZON_TEST_AUTH_FAILURE UI-retry\n\nAttached context (source=\"buffer\", file=\"example.txt\", SHA256=\"a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004\"):\ndisk change for frozen Git context 20261101\n"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "store": false,
+    "max_completion_tokens": 4096
+  },
+  "nativeAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-09a-auth-error-first.ax.txt",
+  "nativeAXSHA": "50584082c88feae7ed2f316d2aca96e5d0f6662ce37fcdfdb0ab0a9b6926db58",
+  "responseBasis": "Fixed approvedprovider script line32 returns401 invalid_api_key for exactAUTH_FAILURE trigger; native shows认证失败. Request log records request, not responsewirebody.",
+  "retryAuthorization": "Root one manualretry only; fixture will401 again, not authenticationrepair.",
+  "retry": {
+    "checkedAt": "2026-11-01T11:35:39.281842+00:00",
+    "checks": {
+      "exactlyOneManualRetryRequest": true,
+      "sameFailedPromptAndAttachment": true,
+      "sameAChatSession": true,
+      "piZeroNoFurtherReplay": true,
+      "chatToolsEmpty": true,
+      "actualSecondAuthError": true,
+      "connectionStillNeedsAuthentication": true
+    },
+    "http": {
+      "fixture": true,
+      "requests": 11
+    },
+    "piPids": [],
+    "sessionId": "c74fd8c9-6593-44e0-86f9-97e5d27d0f3e",
+    "instanceEpoch": 2,
+    "authStateAfterSecond": "needsAuthentication",
+    "requestBody": {
+      "model": "horizon-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A\n</cwd>"
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "HORIZON_TEST_AUTH_FAILURE UI-retry\n\nAttached context (source=\"buffer\", file=\"example.txt\", SHA256=\"a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004\"):\ndisk change for frozen Git context 20261101\n"
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "HORIZON_TEST_AUTH_FAILURE UI-retry\n\nAttached context (source=\"buffer\", file=\"example.txt\", SHA256=\"a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004\"):\ndisk change for frozen Git context 20261101\n"
+            }
+          ]
+        }
+      ],
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "store": false,
+      "max_completion_tokens": 4096
+    },
+    "requestRowSHA": "cffdde464d0cf631a72adaab2e91441b21d195bf122f00a588e225f94761f429",
+    "nativeAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-09a-auth-error-manual-retry.ax.txt",
+    "nativeAXSHA": "3b9f165ee569bc77277cca27ad560316c45c63491dc640a340a1d3cdb7535039",
+    "classification": "Secondcontrolled401 from one explicitretry; not authenticationrepair."
+  }
+}

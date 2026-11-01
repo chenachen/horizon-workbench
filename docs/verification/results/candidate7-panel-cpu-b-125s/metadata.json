@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-31T03:05:07Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/",
+  "python": "3.14.3",
+  "scenario": "candidate7-panel-cpu-B-after-picker-expired-export",
+  "build": "release",
+  "build_id": "candidate7-84c6cf3bfadaa7a481648f051e34ed07e0f08ed0875d771720916ede2409ab38",
+  "root_executables": {
+    "37993": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "84c6cf3bfadaa7a481648f051e34ed07e0f08ed0875d771720916ede2409ab38"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "observedAt": "2026-10-31T03:04:44.456038+00:00",
+    "build": "candidate7",
+    "pid": 37993,
+    "windowId": 15602,
+    "windowSize": [
+      2560,
+      1337
+    ],
+    "rootActions": [
+      "Explicit native click 01-双基线与提交 project",
+      "Explicit native click Git tab"
+    ],
+    "project": "01-双基线与提交",
+    "editor": "src/workspace.ts visible D-buffer clean, 3 lines; save disabled",
+    "git": "HEAD B, index D, one staged file; notes.txt untracked; draft 跨项目保留的 Git 草稿 visibly restored",
+    "panels": {
+      "primary": "git",
+      "agent": false,
+      "terminal": false
+    },
+    "layout": "mist",
+    "theme": "mist-light",
+    "scale": 1,
+    "noPickerInvokedByRootInThisProcess": false,
+    "screenshot": "docs/verification/screenshots/root-candidate7/06-cpu-b-before.png",
+    "limitations": [
+      "Earlier unexplained project/panel changes before explicit scene setup remain open; check actual scene after interval.",
+      "This is one small file + Git scene, not formal 10000-path reading budget.",
+      "Runtime counters have not yet been exported because that opens a native picker."
+    ],
+    "windowBounds": {
+      "x": 0,
+      "y": 30,
+      "width": 2560,
+      "height": 1337
+    },
+    "dimensionCorrection": {
+      "priorValue": [
+        1280,
+        800
+      ],
+      "reason": "Initial CG bounds before setup were reused incorrectly. Before-sample and after-sample PNG are both2560x1337; post-sample read-only CG confirms identical current bounds. Window was not resized by root during sampling.",
+      "evidence": "docs/verification/screenshots/root-candidate7/03-cpu-a-after.png"
+    },
+    "postIntervalScene": "Same01 Git D-buffer and commit draft visibly present; no spontaneous navigation observed during A.",
+    "picker": {
+      "operation": "F09 diagnostics preview → appearance_preset_pick native Save panel → navigate empty target → Save",
+      "target": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-candidate7-empty-export-12f61h9q",
+      "outcome": "Native panel closed. data_export rejected expired 5 minute preview, no file written. Click Cancel then Settings Done; original Git/editor/draft scene restored.",
+      "limitations": "Wrong appearance SaveAs default horizon-appearance.json; source owner will change to directory picker after B."
+    }
+  },
+  "root_pids": [
+    37993
+  ],
+  "cache_condition": "OS cache retained; fixed2560x1337 Git one-small-file scene; no concurrent compile; native picker closed after preview expiry refused write; no successful export or resource snapshot",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "manual log",
+  "activity_log": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-candidate7-panel-cpu-b-z0_5xcq6/actions.jsonl",
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ]
+}

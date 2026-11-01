@@ -1,0 +1,59 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 设置
+				4 container
+					5 heading 设置, Value: 2
+						6 text 设置
+					7 button 关闭弹窗
+				8 container 设置分类
+					9 button 外观
+					10 button 编辑器
+					11 button 项目与资源
+					12 button AI 连接
+					13 button Git
+					14 button 快捷键
+					15 button 数据与隐私
+				16 container Pi 与模型连接
+					17 heading AI 连接, Value: 3
+						18 text AI 连接
+					19 text Pi 负责对话与任务。模型连接可供多个项目使用。
+					20 container (expanded) Secondary Actions: Collapse
+						21 summary π Pi runtime 固定版本 1.4.0 · 官方发行 · 按需运行 可用, Value: on
+							22 text π
+							23 text Pi runtime
+							24 text 固定版本 1.4.0 · 官方发行 · 按需运行
+							25 text 可用
+						26 container /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi
+							27 text /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi
+						28 text Horizon 受管安装  ·  1.4.0  · 空闲时无 Pi 进程
+						29 button 移除受管 Pi
+						30 summary 使用已有 Pi, Value: on
+							31 text 使用已有 Pi
+						32 text 仅接入 Pi 1.4.0，不修改全局安装。保存模型连接时会采用此路径。
+						33 text field (settable) Pi 可执行文件路径, Placeholder: /绝对路径/pi
+						34 button 检测
+					35 pop up button 模型默认连接范围, Value: 全局默认连接
+					36 text 项目可单独选择
+					37 heading 模型连接, Value: 4
+						38 text 模型连接
+					39 button 添加连接
+					40 text 添加提供商、模型与凭据，或连接本机模型服务。
+					41 text 上下文范围 每次发送前明确选择 手动附加 项目间对话 各项目保留独立的会话与附件 独立 连接验证 测试由 Pi 发送固定文本，不含项目内容，可能产生模型费用
+					42 text 首版只实现 Pi。Codex、Claude Code 尚未接入。
+				43 container
+					44 text 偏好即时生效
+					45 button 完成
+	46 close button
+	47 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	48 minimize button
+49 menu bar
+	50 Horizon
+	51 File
+	52 Edit
+	53 View
+	54 Window
+	55 Help
+
+The focused UI element is 21 summary π Pi runtime 固定版本 1.4.0 · 官方发行 · 按需运行 可用, Value: on

@@ -1,0 +1,38 @@
+{
+  "id": "horizon.launch",
+  "name": "项目启动器",
+  "version": "0.1.0",
+  "description": "保存并运行项目启动方案，查看日志并管理关联任务。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.launch.view",
+    "onCommand:horizon.launch.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "process.launch"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.launch.view",
+        "slot": "status",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.launch.open",
+        "title": "打开项目启动器"
+      }
+    ]
+  }
+}

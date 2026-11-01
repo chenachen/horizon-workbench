@@ -1,0 +1,38 @@
+{
+  "observedAt": "2026-11-01T10:40:57.161337+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "495ab6bae4ebb33678afcd7c9fc3327c24d0af179b20f5061d70efca133ad2d1",
+  "mainSha256": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "bytes": 19877872,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": false,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-context-functional-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-context-functional-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "nativeLaunchIdentity": "installed-native-identity.json",
+  "nativeStartupManifest": "../pi-terra-20261101/context-fix-1793529728678-manifest.jsonl",
+  "nativeStartupObservation": "Actual installed app reached PiQA A workbench with editor, Git and prior AI history. Initial plugin-loading frame restored on next observation."
+}

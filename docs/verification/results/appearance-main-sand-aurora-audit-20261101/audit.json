@@ -1,0 +1,3914 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-01T09:18:13.648078+00:00",
+  "reviewer": "/root/verification_sol",
+  "scope": "Sand/Aurora main retest only,33 logicalcases/43 original frames.",
+  "buildSha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+  "appIdentity": {
+    "observedAt": "2026-11-01T08:01:21.984544+00:00",
+    "processes": [
+      "89459     1 Sun Nov  1 16:00:58 2026     /Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop"
+    ]
+  },
+  "releaseReceipt": "docs/verification/results/navigation-activation-repair-release-20261101/build-receipt.json",
+  "sourceSnapshot": "docs/verification/results/appearance-main-source-7ba-20261101/manifest.json",
+  "sourceSnapshotSha256": "b494d13b2de16dbe86c5a94f3443828e04d657427a4f0ea43d2b377ac4a2f8c9",
+  "sourceSnapshotFilesVerified": 114,
+  "frozenBatch": ".work/appearance-main-sand-aurora-batch.json",
+  "frozenBatchSha256": "f6726d8644f14a280afbaf30f4c07047d42c50d18fee75bf06a580aab5bff5d2",
+  "captureChecks": [
+    {
+      "capture": {
+        "time": "2026-11-01T08:01:53.329Z",
+        "name": "Owned Aurora baseline; both tabs checked clean",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "经典侧栏 (pending verification)",
+        "theme": "雾蓝 (pending verification)",
+        "mode": "浅色 (pending verification)",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px (pending verification)",
+        "editorFont": "Menlo 14 (pending verification)",
+        "density": "跟随主题 (pending verification)",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-02-aurora-baseline.jpg",
+        "ax": "terra-main-1793520075462-02-aurora-baseline.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 116253,
+        "imageSHA256": "d18e90e16f831c595bf2a7906df3f4b689556a89e1775f0dba3b042f2cf9efd9",
+        "axSHA256": "76cb69c2662305e01604db84cf6d1a735ea7621440fa6d456d6456e34a2ec558"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:02:13.943Z",
+        "name": "Aurora after overview navigation, settled",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "经典侧栏 (pending verification)",
+        "theme": "雾蓝 (pending verification)",
+        "mode": "浅色 (pending verification)",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px (pending verification)",
+        "editorFont": "Menlo 14 (pending verification)",
+        "density": "跟随主题 (pending verification)",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-03-overview-to-aurora.jpg",
+        "ax": "terra-main-1793520075462-03-overview-to-aurora.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 116180,
+        "imageSHA256": "5f9ad3f26329d2fd9548a7d87ac3ca7e99deefcfac3ce70a3edcd52936cebf02",
+        "axSHA256": "d73dc3692200fb8a7c9dc7440b4c43aace9eddc25c50d80149419cd15a4dba1c"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:02:42.745Z",
+        "name": "Read-only Aurora editor scope after overview navigation",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "经典侧栏 (pending verification)",
+        "theme": "雾蓝 (pending verification)",
+        "mode": "浅色 (pending verification)",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px (pending verification)",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题 (pending verification)",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-04-aurora-editor-settings.jpg",
+        "ax": "terra-main-1793520075462-04-aurora-editor-settings.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 85600,
+        "imageSHA256": "4edebd8b282f6ac12315f1c9559e892873bc243ddef83a263f833264639c173c",
+        "axSHA256": "3967896f8e9bcbe321b0bc73770582a71c37898a83f44673b7dfd7c6a2a0ed22"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:02:52.649Z",
+        "name": "Aurora workbench after read-only settings",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "经典侧栏 (pending verification)",
+        "theme": "雾蓝 (pending verification)",
+        "mode": "浅色 (pending verification)",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px (pending verification)",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题 (pending verification)",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-05-main-after-settings.jpg",
+        "ax": "terra-main-1793520075462-05-main-after-settings.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 116307,
+        "imageSHA256": "a62257b141afe13e817d85117c46aeada8f747a644228684a3345d30e5db3c81",
+        "axSHA256": "4ca9d9d2f0c748884718973124e7ff917dd71c5c39bd460fe83f466bc935029b"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:04:31.574Z",
+        "name": "Aurora existing Git draft before eight layouts",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "经典侧栏 (pending verification)",
+        "theme": "雾蓝 (pending verification)",
+        "mode": "浅色 (pending verification)",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px (pending verification)",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题 (pending verification)",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-git-draft-before-eight-layouts.jpg",
+        "ax": "terra-main-1793520075462-git-draft-before-eight-layouts.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 125756,
+        "imageSHA256": "479d7c85c744a7421ae4c2e022d44e060a57bf3a6a183658c402638497f4941f",
+        "axSHA256": "1d246a2d1c3b7fd3b5f264b58e4875bd1299d6dd8c32a576d7722093ce56f6a9"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:52.022Z",
+        "name": "Theme and mode before sand",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "卡片分区",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-theme-settings.ax.txt",
+        "axSHA256": "1788a6633e145b34f90f2342c76a78b450ba50a894c7d0c5f37fade40875ac50"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:53.032Z",
+        "name": "Layout, UI size and density before sand",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-layout-settings.ax.txt",
+        "axSHA256": "9aab6285103a9298cfdb444ac4ff018a849558e1737b9f7cffbe8678d1360db6"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:53.602Z",
+        "name": "Sand file row density",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-B01-density-border.jpg",
+        "ax": "terra-main-1793520075462-sand-B01-density-border.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 135808,
+        "imageSHA256": "f33337219506dcb3b460df721c3c959dc7b4ef4f131c4380ee39b9d5f79c608f",
+        "axSHA256": "c171cea5d90d020867370b6c7ddeb9aecb5271af1b0213d049a772e5cfb71d6b"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:53.674Z",
+        "name": "Sand running PTY 16574",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-E01-running.jpg",
+        "ax": "terra-main-1793520075462-sand-E01-running.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 135811,
+        "imageSHA256": "e2c936f43df8e323d3e640f1a125dec6b08f5595344320d09bf77dfbcac9ddb6",
+        "axSHA256": "c171cea5d90d020867370b6c7ddeb9aecb5271af1b0213d049a772e5cfb71d6b"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:55.095Z",
+        "name": "sand quick open",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-B03.jpg",
+        "ax": "terra-main-1793520075462-sand-B03.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 63739,
+        "imageSHA256": "732b901b0044d38f953b2e4659ddaf3d1fd9351ead4919a6df2fd1405acd2f52",
+        "axSHA256": "4d1d725811166f055adad7eeef5815a306a9aae2e9b638c0ec66a945d2834b1a"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:57.905Z",
+        "name": "sand unsaved dialog",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-B08.jpg",
+        "ax": "terra-main-1793520075462-sand-B08.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 66151,
+        "imageSHA256": "e8388230f3f5b30aab0e95f917f5b17c0331ced4d91eb7d1bb3fe1d867cb4385",
+        "axSHA256": "50911c5bdea7fbe76b1d874fc3f40a10216a7eeb044765267b41cafe8821b53d"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:32:59.698Z",
+        "name": "sand undo clean",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "contentEqualBefore": true,
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-B08-after-undo.ax.txt",
+        "axSHA256": "deaed5f81455858ef2b9e95a3ffc3529af0df5fe7d86cfeadb4f037cda2a2596"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:00.252Z",
+        "name": "sand focus",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-G04.jpg",
+        "ax": "terra-main-1793520075462-sand-G04.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 98334,
+        "imageSHA256": "1bbbe36afc09d540c471e4c171ab95263c054525e3124d383a93de7e8b5c608c",
+        "axSHA256": "df007a477d9056dc212f41f9fb388392b892600980a71509c596b62f077d5c08"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:11.852Z",
+        "name": "sand overview",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-A02.jpg",
+        "ax": "terra-main-1793520075462-sand-A02.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 127504,
+        "imageSHA256": "bf0bd2196543ed8c3b54b138f40d795c375ddcd84a9c1582f6fa35f9a742d595",
+        "axSHA256": "2f4b5f979ee6e64b0fc91ea54c6bdb445a916ec98d0bcce88e2a3688e1dc4065"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:13.413Z",
+        "name": "sand workspace form",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-A03.jpg",
+        "ax": "terra-main-1793520075462-sand-A03.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 75387,
+        "imageSHA256": "96acdf88478a23700b36c1f33bca27451bfb550eab3bdaf2c5a86c20f1e4450d",
+        "axSHA256": "d2dc8a02fab559bb80d96ce91431fcc0baa6411a8bfc9bd9b2c66a9e27f8699b"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:19.957Z",
+        "name": "Initial picker binding timeout",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "error": "Error: Computer Use server error -10005: timeoutReached",
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-A04-picker-bind-timeout.ax.txt",
+        "axSHA256": "50285f564fdbf410b3dc3beb39186f31ed9fb3af7cde5b5c7fdfd11df3bd1bb6"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:24.802Z",
+        "name": "sand add project form",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-A04.jpg",
+        "ax": "terra-main-1793520075462-sand-A04.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 87730,
+        "imageSHA256": "a951fae1a6a635414aa32d6adcfb32a65f9703b4f17e50750429b2e7e0bde163",
+        "axSHA256": "fa377598cdb51f6aee48485d342ebd34b14d68f127b82d2cd4b114d2dc7b64d6"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:33.109Z",
+        "name": "Initial picker binding timeout",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "error": "Error: Computer Use server error -10005: timeoutReached",
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-A05-picker-bind-timeout.ax.txt",
+        "axSHA256": "50285f564fdbf410b3dc3beb39186f31ed9fb3af7cde5b5c7fdfd11df3bd1bb6"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:37.561Z",
+        "name": "sand clone form",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-A05.jpg",
+        "ax": "terra-main-1793520075462-sand-A05.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 85041,
+        "imageSHA256": "28e9611c3e8fb260ad70800bbbd1d452f360b6be2b29f5f15efc87d8d7561b37",
+        "axSHA256": "a065a0cb7664a390d55584184c7681059ea52a904de79ae0dcaf614c461de336"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:46.280Z",
+        "name": "sand editor settings",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F03.jpg",
+        "ax": "terra-main-1793520075462-sand-F03.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 87602,
+        "imageSHA256": "dd63604de1fa7cbb5e05f2998de05d2e7b3594d5cd2e2bb57089c7aa9d38a61f",
+        "axSHA256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:46.875Z",
+        "name": "sand shortcuts",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F08.jpg",
+        "ax": "terra-main-1793520075462-sand-F08.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 89547,
+        "imageSHA256": "6def06f59da4cfa5b0ec12db351350ffaa814011f3f5106f911fdaeb1ba5bbd9",
+        "axSHA256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:47.447Z",
+        "name": "sand data upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F09-upper.jpg",
+        "ax": "terra-main-1793520075462-sand-F09-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 100193,
+        "imageSHA256": "f90cd04342f3533db5b6515b9fdf07310eed70f834173a5cdc58f24328e569f8",
+        "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:49.042Z",
+        "name": "sand data lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F09-lower.jpg",
+        "ax": "terra-main-1793520075462-sand-F09-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 97109,
+        "imageSHA256": "e6f8c5537476cddd4b23e590eefdfc5731f3807d8cac3047e0637b7ec330b5c5",
+        "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:52.074Z",
+        "name": "sand sizes upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F10-upper.jpg",
+        "ax": "terra-main-1793520075462-sand-F10-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 102723,
+        "imageSHA256": "8f79970b38cddf970236db4a8243cc9ede6fb3a6a89c4da10eabdbc3cef9c2b3",
+        "axSHA256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:52.661Z",
+        "name": "sand sizes lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F10-lower.jpg",
+        "ax": "terra-main-1793520075462-sand-F10-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 99974,
+        "imageSHA256": "ab0db0d39180d84ba0af863c62e86bccfffbb159fbbcc5728c43ae7e39581c31",
+        "axSHA256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:53.273Z",
+        "name": "sand background upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F11-upper.jpg",
+        "ax": "terra-main-1793520075462-sand-F11-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 87157,
+        "imageSHA256": "89224f02b1d2e58d22df1d99269cede0f1a949cd68575c2d9ef0a1552b9cfbe3",
+        "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:54.922Z",
+        "name": "sand background lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F11-lower.jpg",
+        "ax": "terra-main-1793520075462-sand-F11-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 94169,
+        "imageSHA256": "fa9af3b31116ea8aa3c0d45870bd3326c08b66f9c513c09d0f3264aace39d337",
+        "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:57.461Z",
+        "name": "sand colors upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F12-upper.jpg",
+        "ax": "terra-main-1793520075462-sand-F12-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 95473,
+        "imageSHA256": "4a343f5471b1bc0eb65d8dbaf0074c46568651e04dc85123a6e1b41701a4f40f",
+        "axSHA256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:58.049Z",
+        "name": "sand colors middle",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F12-middle.jpg",
+        "ax": "terra-main-1793520075462-sand-F12-middle.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 97191,
+        "imageSHA256": "555f751b0bfa9c7524eda31742b8d15f34001d273f3f0c269ccdd4dcacc8531b",
+        "axSHA256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:58.635Z",
+        "name": "sand colors lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F12-lower.jpg",
+        "ax": "terra-main-1793520075462-sand-F12-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 91654,
+        "imageSHA256": "5c643bd14a94ab84a773da8c20a14ad0c5e12b1854715c6733ff8bb9712a390e",
+        "axSHA256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:33:59.256Z",
+        "name": "sand schemes",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F13.jpg",
+        "ax": "terra-main-1793520075462-sand-F13.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 97691,
+        "imageSHA256": "b01fb9de511f12594bf12eb81e841c7e10b2f1c23b931b67490085bf6c3236c7",
+        "axSHA256": "4bfa14b479488a8756def8bc73559806e71fd2148f8d676b8aca4685bb4c1783"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:00.415Z",
+        "name": "sand paused layout recovery",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-sand-F14.jpg",
+        "ax": "terra-main-1793520075462-sand-F14.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 90637,
+        "imageSHA256": "9fde9724bfd28772c927b298a6e0472678d85b8d51a828d097341cdaf9e99ea2",
+        "axSHA256": "84d7038ec127581b2228bc068e535f1617c92e1bf43a92c80e5e94266d5a885a"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:12.812Z",
+        "name": "Theme and mode before aurora",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-theme-settings.ax.txt",
+        "axSHA256": "1fe6a3f1e15479d66443a1e4c1e9bfe91e740c751188598d03d6c4d2eb4aa3d3"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:13.806Z",
+        "name": "Layout, UI size and density before aurora",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-layout-settings.ax.txt",
+        "axSHA256": "248cdbcb708fa7b8397d10c975121434efc70ffdbb79dca063308112a3a7fca9"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:14.391Z",
+        "name": "Aurora running PTY 16574",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-E01-running.jpg",
+        "ax": "terra-main-1793520075462-aurora-E01-running.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 128862,
+        "imageSHA256": "1171a3b2abe0c99f2fa328cff7ea499855607633e0ded49f0f81a5cc66764828",
+        "axSHA256": "682b90bb9e499747a5d8d55298c5e5570f2a603db70ae2f74b935d1671c3b5f5"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:15.854Z",
+        "name": "aurora quick open",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-B03.jpg",
+        "ax": "terra-main-1793520075462-aurora-B03.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 62414,
+        "imageSHA256": "966a769664587367367f485dfc2594356d84ffd12e4cfd16f85ef1bc8b15f1e9",
+        "axSHA256": "4d1d725811166f055adad7eeef5815a306a9aae2e9b638c0ec66a945d2834b1a"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:18.549Z",
+        "name": "aurora unsaved dialog",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-B08.jpg",
+        "ax": "terra-main-1793520075462-aurora-B08.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 65409,
+        "imageSHA256": "1a449ff235ff51657084a86d01f7152423b1084d6dcb01dc7e43a9d277ac80fe",
+        "axSHA256": "50911c5bdea7fbe76b1d874fc3f40a10216a7eeb044765267b41cafe8821b53d"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:20.212Z",
+        "name": "aurora undo clean",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "contentEqualBefore": true,
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-B08-after-undo.ax.txt",
+        "axSHA256": "d8804888f939cdf2ef16600a76d6147025192ca4274d74ba73d075e81ec72576"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:20.761Z",
+        "name": "aurora focus",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-G04.jpg",
+        "ax": "terra-main-1793520075462-aurora-G04.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 96793,
+        "imageSHA256": "4812841f38e0dcbba5d669759863e5eb9efcbbe44c587dce6442657412662e50",
+        "axSHA256": "df007a477d9056dc212f41f9fb388392b892600980a71509c596b62f077d5c08"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:33.508Z",
+        "name": "aurora overview",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-A02.jpg",
+        "ax": "terra-main-1793520075462-aurora-A02.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 117527,
+        "imageSHA256": "ecdacca58d73bafff567bd5a61f525efdf661842b0782720bbaaa04852c49b5c",
+        "axSHA256": "d61b2615fd08f36fb1d0ab036af35e49caa4b6eb000eef9b36550b8db1cd3927"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:34.999Z",
+        "name": "aurora workspace form",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-A03.jpg",
+        "ax": "terra-main-1793520075462-aurora-A03.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 64651,
+        "imageSHA256": "dc59d6ec4d8f0dfdfb2aa6ad629922f2898cd76d3d67bd61c823af5e866e12be",
+        "axSHA256": "dc2f353b24f74124000074d519a4f9a5e3bd25ba5476989c533b25ac5144e202"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:41.572Z",
+        "name": "Initial picker binding timeout",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "error": "Error: Computer Use server error -10005: timeoutReached",
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-A04-picker-bind-timeout.ax.txt",
+        "axSHA256": "50285f564fdbf410b3dc3beb39186f31ed9fb3af7cde5b5c7fdfd11df3bd1bb6"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:45.958Z",
+        "name": "aurora add project form",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-A04.jpg",
+        "ax": "terra-main-1793520075462-aurora-A04.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 76512,
+        "imageSHA256": "1a392c2ffa0e817b7cc0c3eb057618e3b6e2aba9941b1f4a77f41d1868a10ca0",
+        "axSHA256": "fa377598cdb51f6aee48485d342ebd34b14d68f127b82d2cd4b114d2dc7b64d6"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:54.135Z",
+        "name": "Initial picker binding timeout",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "error": "Error: Computer Use server error -10005: timeoutReached",
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-A05-picker-bind-timeout.ax.txt",
+        "axSHA256": "50285f564fdbf410b3dc3beb39186f31ed9fb3af7cde5b5c7fdfd11df3bd1bb6"
+      },
+      "axHashVerified": true
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:34:59.065Z",
+        "name": "aurora clone form",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-A05.jpg",
+        "ax": "terra-main-1793520075462-aurora-A05.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 73681,
+        "imageSHA256": "72132ad30ec06895bb77d47f9812614e2388d37e9485307a7040d476e3d51a68",
+        "axSHA256": "a065a0cb7664a390d55584184c7681059ea52a904de79ae0dcaf614c461de336"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:08.195Z",
+        "name": "aurora editor settings",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F03.jpg",
+        "ax": "terra-main-1793520075462-aurora-F03.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 79895,
+        "imageSHA256": "923a6dd4f5b30f2b47e91ad00ca6a61f39c140d0c8b904d9a3986f6d97f1ed0e",
+        "axSHA256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:08.798Z",
+        "name": "aurora shortcuts",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F08.jpg",
+        "ax": "terra-main-1793520075462-aurora-F08.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 81986,
+        "imageSHA256": "d3454955690cb5e6af7a2d21d5602b9b5d41dc9e6e0c3bf09d537191cf71a237",
+        "axSHA256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:09.360Z",
+        "name": "aurora data upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F09-upper.jpg",
+        "ax": "terra-main-1793520075462-aurora-F09-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 92162,
+        "imageSHA256": "dcce29a4a44a64062112fed1ae6e5ce7a70f0943b746e3aabb2165b4644edd72",
+        "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:10.966Z",
+        "name": "aurora data lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F09-lower.jpg",
+        "ax": "terra-main-1793520075462-aurora-F09-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 88982,
+        "imageSHA256": "2d471ca4503bed2b1331cf6eec4922d6c22dd1ff706bd54568b54a8c19971ef2",
+        "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:13.952Z",
+        "name": "aurora sizes upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F10-upper.jpg",
+        "ax": "terra-main-1793520075462-aurora-F10-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 93976,
+        "imageSHA256": "43b5db6755b3db8cea2b88f422254c28c180372d303222dbfbef2782f7c70c13",
+        "axSHA256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:14.512Z",
+        "name": "aurora sizes lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F10-lower.jpg",
+        "ax": "terra-main-1793520075462-aurora-F10-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 92093,
+        "imageSHA256": "1096e9ff00957112d13e7b3f075b5d800582bfd16767a554f5d9ba0ff25998d5",
+        "axSHA256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:15.115Z",
+        "name": "aurora background upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F11-upper.jpg",
+        "ax": "terra-main-1793520075462-aurora-F11-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 78991,
+        "imageSHA256": "b8547114803f896502926649632eb82eb9ce7a2fdc13e97bbfc94c5b769fb70b",
+        "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:16.747Z",
+        "name": "aurora background lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F11-lower.jpg",
+        "ax": "terra-main-1793520075462-aurora-F11-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 85906,
+        "imageSHA256": "458d2cd2e328464691933380cb69969271d061a46da4c02d6ba84d2ef481e5b6",
+        "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:19.310Z",
+        "name": "aurora colors upper",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F12-upper.jpg",
+        "ax": "terra-main-1793520075462-aurora-F12-upper.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 87193,
+        "imageSHA256": "839d873b5e0ddcffae30e54136809c83e218f8ad85fbd0b8f01dcbef172d1f8c",
+        "axSHA256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:19.896Z",
+        "name": "aurora colors middle",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F12-middle.jpg",
+        "ax": "terra-main-1793520075462-aurora-F12-middle.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 89938,
+        "imageSHA256": "ded6ed1760aad09e518909fa4a17aedf9b64618f1b663e56e4f07511f6858709",
+        "axSHA256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:20.494Z",
+        "name": "aurora colors lower",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F12-lower.jpg",
+        "ax": "terra-main-1793520075462-aurora-F12-lower.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 85126,
+        "imageSHA256": "f63e459e2e26000a694b3a313357d3bc17c270cca3d35b0b3e2fce6a099726a4",
+        "axSHA256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:21.122Z",
+        "name": "aurora schemes",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F13.jpg",
+        "ax": "terra-main-1793520075462-aurora-F13.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 90717,
+        "imageSHA256": "2ec2e1f36528a0d9084e875567fd6aa9c8df19b213b22a6c34d53742b8d56ef0",
+        "axSHA256": "a892b480c913c7463a11ecb3c363d30deafef6d1455236173e0e702397144f3a"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:35:22.185Z",
+        "name": "aurora paused layout recovery",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-aurora-F14.jpg",
+        "ax": "terra-main-1793520075462-aurora-F14.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 82534,
+        "imageSHA256": "e5562dcf20a955be7201472eb7dccb0c6bd607bb1e0768fb5184e2a217af45cf",
+        "axSHA256": "103eae2e51f85fe2c338f6e9644a7653dd36e4fca2381d9e613ccd3552da68c4"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:36:03.222Z",
+        "name": "Aurora workspace nonzero scroll before layout cycle",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-scroll-before.jpg",
+        "ax": "terra-main-1793520075462-scroll-before.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 127832,
+        "imageSHA256": "f17e1b332d56749aefb8f9dde99324b08c4b866ed0a915765be460f2d2277672",
+        "axSHA256": "682b90bb9e499747a5d8d55298c5e5570f2a603db70ae2f74b935d1671c3b5f5"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "capture": {
+        "time": "2026-11-01T08:36:11.010Z",
+        "name": "Aurora workspace nonzero scroll before layout cycle, adjusted",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": "terra-main-1793520075462-scroll-before-adjusted.jpg",
+        "ax": "terra-main-1793520075462-scroll-before-adjusted.ax.txt",
+        "width": 1280,
+        "height": 800,
+        "imageBytes": 128456,
+        "imageSHA256": "0c019b13cf57b8ba07565e5a0384a31fa6ae12652b9b592dfa106bbc5b8c703a",
+        "axSHA256": "682b90bb9e499747a5d8d55298c5e5570f2a603db70ae2f74b935d1671c3b5f5"
+      },
+      "axHashVerified": true,
+      "imageHashVerified": true,
+      "dimensions": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "personallyViewedNativeImages": 43,
+  "personallyViewedReferenceImages": 33,
+  "referenceChecks": [
+    {
+      "case": "sand/E01",
+      "path": "design/exports/png/sand/E01-terminal.png",
+      "sha256": "acb1808c0c3de93d5c6432366a70eac715cc942aed0fc2b3b67d848fe01964fc",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/A02",
+      "path": "design/exports/png/sand/A02-projects.png",
+      "sha256": "b9855bde1de221de5517c606c4b2ff703ededc390a16d3757ce54f2385b48f7e",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/A03",
+      "path": "design/exports/png/sand/A03-workspace-create.png",
+      "sha256": "514e2fd238e4918b8675791a5d56d23fd781213a920415765f744a114c2f67fd",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/A04",
+      "path": "design/exports/png/sand/A04-project-add.png",
+      "sha256": "f754f13139139579405f69e5c148028f3d89cbc3c155baffb16e9713fa18dcfe",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/A05",
+      "path": "design/exports/png/sand/A05-clone.png",
+      "sha256": "ca66e9bca241bd39f8abb80fd5e5c7f254345a8b6d20ca2d2b10c6cf517bab7e",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/G04",
+      "path": "design/exports/png/sand/G04-focus.png",
+      "sha256": "778e6e6571a5e7f72b961ced8111027a2437348e95415bc40a3bc0de08ac3da1",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/B03",
+      "path": "design/exports/png/sand/B03-quick-open.png",
+      "sha256": "5150c1b0b3d58ae276b4409b875790be947604612cbe78af2d6dfafb6074b281",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/B08",
+      "path": "design/exports/png/sand/B08-unsaved.png",
+      "sha256": "22133604f0206609a8219c225fbded1095f97c98824b210f152fe43cabc2cfdd",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/B01",
+      "path": "design/exports/png/sand/B01-home.png",
+      "sha256": "0e25a213bcb1f73a34502c5537c66573a63fe4298610d2a6747bd7920ab107b9",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F03",
+      "path": "design/exports/png/sand/F03-settings-editor.png",
+      "sha256": "5c869b5818c0d7b2a084925cd18109d2e4a4092ef8b2f16cb1ebf0a2f0005b47",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F08",
+      "path": "design/exports/png/sand/F08-settings-keys.png",
+      "sha256": "96089be704242880cce46591d431bc9794ed1cb28d6d371fa6aa7a9d98b73cd6",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F09",
+      "path": "design/exports/png/sand/F09-settings-data.png",
+      "sha256": "fdb5f79237b6305626062a547f9ed66e5a75c669d5c60bd5647bc99fce4420f1",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F10",
+      "path": "design/exports/png/sand/F10-settings-sizes.png",
+      "sha256": "27514e79281c99ba704adea700eb3b59107c7d42321f06d82489ec20c53d4526",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F11",
+      "path": "design/exports/png/sand/F11-settings-background.png",
+      "sha256": "fcc33f8c0cd4e39d0e08aa654bacdda20d9b04d88856bb9e5c5f2e88a7165114",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F12",
+      "path": "design/exports/png/sand/F12-settings-colors.png",
+      "sha256": "e644acbc6fb5bef159c9d0696d60a933725ee886d8f46288c6e22dc8a2dac3d4",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F13",
+      "path": "design/exports/png/sand/F13-settings-presets.png",
+      "sha256": "10dfcbf403a48b075303089e735ed71ef2f3d0335c348de10420e1b123734aee",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "sand/F14",
+      "path": "design/exports/png/sand/F14-settings-layout-recovery.png",
+      "sha256": "25614da7663fea0a02385e9ebae34e33ea17b4dfccc8d98a4171b7c3ee601b3c",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/E01",
+      "path": "design/exports/png/aurora/E01-terminal.png",
+      "sha256": "c179cd2ff88cb5f9992fcc7d96cc751ed7a95997207bcf1f1da5a72418519d89",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/A02",
+      "path": "design/exports/png/aurora/A02-projects.png",
+      "sha256": "361b84ddec78bc65b7496f0e441b9fd14e53c4647c2a5b9ccdfcf850e6c49e89",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/A03",
+      "path": "design/exports/png/aurora/A03-workspace-create.png",
+      "sha256": "dd26f13bcae4051306cb8635170352e1db46f5aee1aa7bafab5401d6a860a365",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/A04",
+      "path": "design/exports/png/aurora/A04-project-add.png",
+      "sha256": "c221099383022bd4348e604e6fffe0a17db8a269d0ecdfac2c18dfce697e9c01",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/A05",
+      "path": "design/exports/png/aurora/A05-clone.png",
+      "sha256": "e6ca6a10c85f91ce2cb19a0c09413ed6e6b057f6c5ca97855d106942cefebddf",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/G04",
+      "path": "design/exports/png/aurora/G04-focus.png",
+      "sha256": "15b8fbabb5f5550a12798ee129f03afb9e4a0e11625f55e0ccb9aac06959daf1",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/B03",
+      "path": "design/exports/png/aurora/B03-quick-open.png",
+      "sha256": "7269a9c7f5b56e6ae3b2c6b0e97fc01abaed339ea6deeedd0703844fb93d937d",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/B08",
+      "path": "design/exports/png/aurora/B08-unsaved.png",
+      "sha256": "8771f2d98230ff170c990174952ce0347e2b093bcb40ec253f53a12143454ac8",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F03",
+      "path": "design/exports/png/aurora/F03-settings-editor.png",
+      "sha256": "b26033ed7db2f7c8e6e493f34fead5d03c1f0fc3aaa52d988d0a610782b57d42",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F08",
+      "path": "design/exports/png/aurora/F08-settings-keys.png",
+      "sha256": "e2283b759377bfdeb355362635658ff3ca9389e26be3cc87320a13b7063ad531",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F09",
+      "path": "design/exports/png/aurora/F09-settings-data.png",
+      "sha256": "3aab402ea54a8e30e72e4d3dace906b026dfd687bf3ea55311c2df6b2cd7f1db",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F10",
+      "path": "design/exports/png/aurora/F10-settings-sizes.png",
+      "sha256": "f4d3ab71e4dcb15f7fdf397f3c07e25ee874f07b05db6cbaeab8660ef48980fc",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F11",
+      "path": "design/exports/png/aurora/F11-settings-background.png",
+      "sha256": "ff70a0665f707cc2289df9f4399791074a9344f5c61b80d9e0c00fa5feaf45ea",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F12",
+      "path": "design/exports/png/aurora/F12-settings-colors.png",
+      "sha256": "641569b9a50ebb095fe46ab73551b0c1e634a25f76703ca3e08953b4c00fb654",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F13",
+      "path": "design/exports/png/aurora/F13-settings-presets.png",
+      "sha256": "385a04282f42f8efc56285bbe3daae9622f28ea0fd860a58c5bba5d0385cf6f8",
+      "personallyViewedOriginal": true
+    },
+    {
+      "case": "aurora/F14",
+      "path": "design/exports/png/aurora/F14-settings-layout-recovery.png",
+      "sha256": "bf8a8267f11c03bd50a8c98b8d5ae8fcb412654a87c40820303816efb8f1de75",
+      "personallyViewedOriginal": true
+    }
+  ],
+  "hashChecks": 143,
+  "completeAxReview": "All43 selected AX contents read via exact identity or complete normalized-ID unified diff against fully read Paper/Mist originals; four condition AX read fully. Repeated scrollAX identical to upper originals. Auxiliary marker/Undo code511/save-disabled/samePTY compared programmatically. Full raw files preserved.",
+  "identicalAxGroups": [
+    [
+      "terra-main-1793520075462-sand-B01-density-border.ax.txt",
+      "terra-main-1793520075462-sand-E01-running.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-B03.ax.txt",
+      "terra-main-1793520075462-aurora-B03.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-B08.ax.txt",
+      "terra-main-1793520075462-aurora-B08.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-G04.ax.txt",
+      "terra-main-1793520075462-aurora-G04.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-A04-picker-bind-timeout.ax.txt",
+      "terra-main-1793520075462-sand-A05-picker-bind-timeout.ax.txt",
+      "terra-main-1793520075462-aurora-A04-picker-bind-timeout.ax.txt",
+      "terra-main-1793520075462-aurora-A05-picker-bind-timeout.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-A04.ax.txt",
+      "terra-main-1793520075462-aurora-A04.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-A05.ax.txt",
+      "terra-main-1793520075462-aurora-A05.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-F03.ax.txt",
+      "terra-main-1793520075462-aurora-F03.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-F08.ax.txt",
+      "terra-main-1793520075462-aurora-F08.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-F09-upper.ax.txt",
+      "terra-main-1793520075462-sand-F09-lower.ax.txt",
+      "terra-main-1793520075462-aurora-F09-upper.ax.txt",
+      "terra-main-1793520075462-aurora-F09-lower.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-F10-upper.ax.txt",
+      "terra-main-1793520075462-sand-F10-lower.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-F11-upper.ax.txt",
+      "terra-main-1793520075462-sand-F11-lower.ax.txt",
+      "terra-main-1793520075462-aurora-F11-upper.ax.txt",
+      "terra-main-1793520075462-aurora-F11-lower.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-sand-F12-upper.ax.txt",
+      "terra-main-1793520075462-sand-F12-middle.ax.txt",
+      "terra-main-1793520075462-sand-F12-lower.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-aurora-E01-running.ax.txt",
+      "terra-main-1793520075462-scroll-before.ax.txt",
+      "terra-main-1793520075462-scroll-before-adjusted.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-aurora-F10-upper.ax.txt",
+      "terra-main-1793520075462-aurora-F10-lower.ax.txt"
+    ],
+    [
+      "terra-main-1793520075462-aurora-F12-upper.ax.txt",
+      "terra-main-1793520075462-aurora-F12-middle.ax.txt",
+      "terra-main-1793520075462-aurora-F12-lower.ax.txt"
+    ]
+  ],
+  "conditions": {
+    "sand": {
+      "theme": {
+        "time": "2026-11-01T08:32:52.022Z",
+        "name": "Theme and mode before sand",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "卡片分区",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-theme-settings.ax.txt",
+        "axSHA256": "1788a6633e145b34f90f2342c76a78b450ba50a894c7d0c5f37fade40875ac50"
+      },
+      "layout": {
+        "time": "2026-11-01T08:32:53.032Z",
+        "name": "Layout, UI size and density before sand",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-sand-layout-settings.ax.txt",
+        "axSHA256": "9aab6285103a9298cfdb444ac4ff018a849558e1737b9f7cffbe8678d1360db6"
+      },
+      "resolvedDensity": "标准"
+    },
+    "aurora": {
+      "theme": {
+        "time": "2026-11-01T08:34:12.812Z",
+        "name": "Theme and mode before aurora",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "展开式项目目录",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-theme-settings.ax.txt",
+        "axSHA256": "1fe6a3f1e15479d66443a1e4c1e9bfe91e740c751188598d03d6c4d2eb4aa3d3"
+      },
+      "layout": {
+        "time": "2026-11-01T08:34:13.806Z",
+        "name": "Layout, UI size and density before aurora",
+        "pid": 89459,
+        "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "zoom": "100% (View AX confirmed)",
+        "uiFont": "13px",
+        "editorFont": "Menlo 14 (Editor AX confirmed)",
+        "density": "跟随主题",
+        "project": "Aurora Web",
+        "image": null,
+        "ax": "terra-main-1793520075462-aurora-layout-settings.ax.txt",
+        "axSHA256": "248cdbcb708fa7b8397d10c975121434efc70ffdbb79dca063308112a3a7fca9"
+      },
+      "resolvedDensity": "舒适"
+    }
+  },
+  "themes": {
+    "sand": {
+      "source": "docs/verification/results/appearance-main-source-7ba-20261101/source/packages/plugins/builtins/horizon.theme.sand/manifest.json",
+      "sha256": "3c979baeefa3c27e0eb437a7ac8e1ff487d7c2feb4f9ec2b8dcf50c8c6f7e6e0",
+      "rawDensity": "standard",
+      "density": "标准",
+      "rowHeight": 33
+    },
+    "aurora": {
+      "source": "docs/verification/results/appearance-main-source-7ba-20261101/source/packages/plugins/builtins/horizon.theme.aurora/manifest.json",
+      "sha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f",
+      "rawDensity": "comfortable",
+      "density": "舒适",
+      "rowHeight": 34
+    }
+  },
+  "markerCancelUndo": [
+    {
+      "style": "sand",
+      "before": "terra-main-1793520075462-sand-E01-running.ax.txt",
+      "after": "terra-main-1793520075462-sand-B08-after-undo.ax.txt",
+      "codeChars": 511,
+      "codeSha256": "6ba00aa4975d975519428805b835baa416c3b9ba9de530c558f22e7cdcecdf12",
+      "codeEqual": true,
+      "saveDisabledAfterUndo": true,
+      "samePty": 16574,
+      "scope": "Only this tour marker/Cancel/Undo; not old50-switch dirty-state proof."
+    },
+    {
+      "style": "aurora",
+      "before": "terra-main-1793520075462-aurora-E01-running.ax.txt",
+      "after": "terra-main-1793520075462-aurora-B08-after-undo.ax.txt",
+      "codeChars": 511,
+      "codeSha256": "6ba00aa4975d975519428805b835baa416c3b9ba9de530c558f22e7cdcecdf12",
+      "codeEqual": true,
+      "saveDisabledAfterUndo": true,
+      "samePty": 16574,
+      "scope": "Only this tour marker/Cancel/Undo; not old50-switch dirty-state proof."
+    }
+  ],
+  "cases": [
+    {
+      "case": "sand/E01",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:32:53.674Z",
+          "name": "Sand running PTY 16574",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-E01-running.jpg",
+          "ax": "terra-main-1793520075462-sand-E01-running.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 135811,
+          "imageSHA256": "e2c936f43df8e323d3e640f1a125dec6b08f5595344320d09bf77dfbcac9ddb6",
+          "axSHA256": "c171cea5d90d020867370b6c7ddeb9aecb5271af1b0213d049a772e5cfb71d6b"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/E01-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "terminal-theme-refresh",
+          "disposition": "resolved",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        },
+        {
+          "category": "terminal-surface",
+          "disposition": "resolved",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        },
+        {
+          "category": "toolbar-scope-difference",
+          "disposition": "accepted",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        }
+      ],
+      "manualObserved": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/A02",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:11.852Z",
+          "name": "sand overview",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-A02.jpg",
+          "ax": "terra-main-1793520075462-sand-A02.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 127504,
+          "imageSHA256": "bf0bd2196543ed8c3b54b138f40d795c375ddcd84a9c1582f6fa35f9a742d595",
+          "axSHA256": "2f4b5f979ee6e64b0fc91ea54c6bdb445a916ec98d0bcce88e2a3688e1dc4065"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A02-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "overview-count-scope",
+          "disposition": "resolved",
+          "basis": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix."
+        },
+        {
+          "category": "minor-toolbar-geometry",
+          "disposition": "open",
+          "basis": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix."
+        },
+        {
+          "category": "reference-density",
+          "disposition": "resolved",
+          "basis": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix."
+        }
+      ],
+      "manualObserved": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/A03",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:13.413Z",
+          "name": "sand workspace form",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-A03.jpg",
+          "ax": "terra-main-1793520075462-sand-A03.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 75387,
+          "imageSHA256": "96acdf88478a23700b36c1f33bca27451bfb550eab3bdaf2c5a86c20f1e4450d",
+          "axSHA256": "d2dc8a02fab559bb80d96ce91431fcc0baa6411a8bfc9bd9b2c66a9e27f8699b"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A03-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "workspace-default-location-content",
+          "disposition": "accepted",
+          "basis": "Centered510px form with prominent title, real name, no-move grouping note and right footer. Workspace creation accepts name only and stores a project grouping, so prototype default-project-location field is absent and modal naturally shorter. Existing project locations are not represented by an inert preference."
+        }
+      ],
+      "manualObserved": "Centered510px form with prominent title, real name, no-move grouping note and right footer. Workspace creation accepts name only and stores a project grouping, so prototype default-project-location field is absent and modal naturally shorter. Existing project locations are not represented by an inert preference.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/A04",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:24.802Z",
+          "name": "sand add project form",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-A04.jpg",
+          "ax": "terra-main-1793520075462-sand-A04.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 87730,
+          "imageSHA256": "a951fae1a6a635414aa32d6adcfb32a65f9703b4f17e50750429b2e7e0bde163",
+          "axSHA256": "fa377598cdb51f6aee48485d342ebd34b14d68f127b82d2cd4b114d2dc7b64d6"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A04-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "workspace-select-height",
+          "disposition": "resolved",
+          "basis": "Centered510px add-project form; selected owned QA parent/name/current workspace and enabled footer are real, picker later Cancelled. Workspace select is now40px. Text fields still36px/radius8 instead of40/radius12 because global input specificity overrides the scoped rule. No-Git location note is truthful for this selected parent."
+        }
+      ],
+      "manualObserved": "Centered510px add-project form; selected owned QA parent/name/current workspace and enabled footer are real, picker later Cancelled. Workspace select is now40px. Text fields still36px/radius8 instead of40/radius12 because global input specificity overrides the scoped rule. No-Git location note is truthful for this selected parent.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/A05",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:37.561Z",
+          "name": "sand clone form",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-A05.jpg",
+          "ax": "terra-main-1793520075462-sand-A05.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 85041,
+          "imageSHA256": "28e9611c3e8fb260ad70800bbbd1d452f360b6be2b29f5f15efc87d8d7561b37",
+          "axSHA256": "a065a0cb7664a390d55584184c7681059ea52a904de79ae0dcaf614c461de336"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A05-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "clone-form-hierarchy",
+          "disposition": "resolved",
+          "basis": "Clone dialog hierarchy/title/footer fixed; owned parent selected and new child name supplied, CTA enabled but not submitted. Separate parent/new-name and current-workspace model plus no-script note are real controls; example.invalid is intentional test data. Same text-input36px/radius8 versus40/radius12 issue remains."
+        },
+        {
+          "category": "clone-fields-and-data",
+          "disposition": "accepted",
+          "basis": "Clone dialog hierarchy/title/footer fixed; owned parent selected and new child name supplied, CTA enabled but not submitted. Separate parent/new-name and current-workspace model plus no-script note are real controls; example.invalid is intentional test data. Same text-input36px/radius8 versus40/radius12 issue remains."
+        }
+      ],
+      "manualObserved": "Clone dialog hierarchy/title/footer fixed; owned parent selected and new child name supplied, CTA enabled but not submitted. Separate parent/new-name and current-workspace model plus no-script note are real controls; example.invalid is intentional test data. Same text-input36px/radius8 versus40/radius12 issue remains.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/G04",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:00.252Z",
+          "name": "sand focus",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-G04.jpg",
+          "ax": "terra-main-1793520075462-sand-G04.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 98334,
+          "imageSHA256": "1bbbe36afc09d540c471e4c171ab95263c054525e3124d383a93de7e8b5c608c",
+          "axSHA256": "df007a477d9056dc212f41f9fb388392b892600980a71509c596b62f077d5c08"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/G04-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "focus-unnecessary-status",
+          "disposition": "resolved",
+          "basis": "Focused editor shows actual workspace.ts code and both tabs across the available area; old empty focused editor and unnecessary launcher/Git/process/platform footer removed. Only caret and TS/UTF8/LF editing status remain. Real code/path/workspace and exit-control order are useful implementation details."
+        }
+      ],
+      "manualObserved": "Focused editor shows actual workspace.ts code and both tabs across the available area; old empty focused editor and unnecessary launcher/Git/process/platform footer removed. Only caret and TS/UTF8/LF editing status remain. Real code/path/workspace and exit-control order are useful implementation details.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable/34px (follow theme)",
+            "reference": "standard/33px",
+            "status": "mismatch",
+            "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/B03",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:32:55.095Z",
+          "name": "sand quick open",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-B03.jpg",
+          "ax": "terra-main-1793520075462-sand-B03.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 63739,
+          "imageSHA256": "732b901b0044d38f953b2e4659ddaf3d1fd9351ead4919a6df2fd1405acd2f52",
+          "axSHA256": "4d1d725811166f055adad7eeef5815a306a9aae2e9b638c0ec66a945d2834b1a"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/B03-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "structure",
+          "disposition": "accepted",
+          "basis": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required."
+        },
+        {
+          "category": "command-mode-structure",
+          "disposition": "accepted",
+          "basis": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required."
+        },
+        {
+          "category": "radius",
+          "disposition": "resolved",
+          "basis": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required."
+        }
+      ],
+      "manualObserved": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/B08",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:32:57.905Z",
+          "name": "sand unsaved dialog",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-B08.jpg",
+          "ax": "terra-main-1793520075462-sand-B08.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 66151,
+          "imageSHA256": "e8388230f3f5b30aab0e95f917f5b17c0331ced4d91eb7d1bb3fe1d867cb4385",
+          "axSHA256": "50911c5bdea7fbe76b1d874fc3f40a10216a7eeb044765267b41cafe8821b53d"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/B08-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "geometry",
+          "disposition": "accepted",
+          "basis": "Centered510px dialog,22px title, path card and right-aligned Cancel/discard/save footer now follow reference hierarchy. About263px height versus reference270 follows actual text/control content; all actions remain clear. Relative src/workspace.ts and explicit discard wording accurately describe this file."
+        },
+        {
+          "category": "radius",
+          "disposition": "resolved",
+          "basis": "Centered510px dialog,22px title, path card and right-aligned Cancel/discard/save footer now follow reference hierarchy. About263px height versus reference270 follows actual text/control content; all actions remain clear. Relative src/workspace.ts and explicit discard wording accurately describe this file."
+        }
+      ],
+      "manualObserved": "Centered510px dialog,22px title, path card and right-aligned Cancel/discard/save footer now follow reference hierarchy. About263px height versus reference270 follows actual text/control content; all actions remain clear. Relative src/workspace.ts and explicit discard wording accurately describe this file.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "sand/B01",
+      "review": "differences",
+      "conditionMismatches": [
+        {
+          "kind": "terminal-panel-state",
+          "actual": "Live16574 terminal expanded.",
+          "reference": "Bottom terminal hidden, full-height editor.",
+          "observation": "sand actual theme-follow rows and layout surfaces, true workspace/file controls are readable. Live16574 terminal remains expanded against terminal-hidden reference; full B01 stays condition-mismatch."
+        }
+      ],
+      "captures": [
+        {
+          "time": "2026-11-01T08:32:53.602Z",
+          "name": "Sand file row density",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-B01-density-border.jpg",
+          "ax": "terra-main-1793520075462-sand-B01-density-border.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 135808,
+          "imageSHA256": "f33337219506dcb3b460df721c3c959dc7b4ef4f131c4380ee39b9d5f79c608f",
+          "axSHA256": "c171cea5d90d020867370b6c7ddeb9aecb5271af1b0213d049a772e5cfb71d6b"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/B01-sand.jpg",
+      "priorOpenDispositions": [],
+      "manualObserved": "sand actual theme-follow rows and layout surfaces, true workspace/file controls are readable. Live16574 terminal remains expanded against terminal-hidden reference; full B01 stays condition-mismatch.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable/34px (follow theme)",
+            "reference": "standard/33px",
+            "status": "mismatch",
+            "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F03",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:46.280Z",
+          "name": "sand editor settings",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F03.jpg",
+          "ax": "terra-main-1793520075462-sand-F03.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 87602,
+          "imageSHA256": "dd63604de1fa7cbb5e05f2998de05d2e7b3594d5cd2e2bb57089c7aa9d38a61f",
+          "axSHA256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F03-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "F03-toggle-geometry",
+          "disposition": "resolved",
+          "basis": "Settings bounds790x690 retained. Toggle23px track/selected17px centered thumb now match. Actual global Menlo14, lineNumbers on, wrap off, indent2/spaces, source labels and per-setting reset controls are truthful. Required extra insertSpaces/source rows extend natural scroll; only photographed upper pixels are visually covered, Done remains fixed."
+        }
+      ],
+      "manualObserved": "Settings bounds790x690 retained. Toggle23px track/selected17px centered thumb now match. Actual global Menlo14, lineNumbers on, wrap off, indent2/spaces, source labels and per-setting reset controls are truthful. Required extra insertSpaces/source rows extend natural scroll; only photographed upper pixels are visually covered, Done remains fixed.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F08",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:46.875Z",
+          "name": "sand shortcuts",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F08.jpg",
+          "ax": "terra-main-1793520075462-sand-F08.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 89547,
+          "imageSHA256": "6def06f59da4cfa5b0ec12db351350ffaa814011f3f5106f911fdaeb1ba5bbd9",
+          "axSHA256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F08-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-01",
+          "disposition": "resolved",
+          "basis": "Shortcut search is now40px. Eleven actual editable shortcuts with source/reset and distinct file/command actions use natural scroll; displayed subset and fixed Done are readable. Prototype seven illustrative rows/configured key labels are not fabricated."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        }
+      ],
+      "manualObserved": "Shortcut search is now40px. Eleven actual editable shortcuts with source/reset and distinct file/command actions use natural scroll; displayed subset and fixed Done are readable. Prototype seven illustrative rows/configured key labels are not fabricated.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F09",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:47.447Z",
+          "name": "sand data upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F09-upper.jpg",
+          "ax": "terra-main-1793520075462-sand-F09-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 100193,
+          "imageSHA256": "f90cd04342f3533db5b6515b9fdf07310eed70f834173a5cdc58f24328e569f8",
+          "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+        },
+        {
+          "time": "2026-11-01T08:33:49.042Z",
+          "name": "sand data lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F09-lower.jpg",
+          "ax": "terra-main-1793520075462-sand-F09-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 97109,
+          "imageSHA256": "e6f8c5537476cddd4b23e590eefdfc5731f3807d8cac3047e0637b7ec330b5c5",
+          "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F09-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-02",
+          "disposition": "resolved",
+          "basis": "Configuration export tonal/download and cache outline/trash actions now match hierarchy. Upper/lower images cover real diagnosis export, chat/recovery/credential controls, disabled empty-selection actions and truthful no-telemetry/local-project note. Real on-demand export behavior replaces an inert diagnostics toggle."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        }
+      ],
+      "manualObserved": "Configuration export tonal/download and cache outline/trash actions now match hierarchy. Upper/lower images cover real diagnosis export, chat/recovery/credential controls, disabled empty-selection actions and truthful no-telemetry/local-project note. Real on-demand export behavior replaces an inert diagnostics toggle.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F10",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:52.074Z",
+          "name": "sand sizes upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F10-upper.jpg",
+          "ax": "terra-main-1793520075462-sand-F10-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 102723,
+          "imageSHA256": "8f79970b38cddf970236db4a8243cc9ede6fb3a6a89c4da10eabdbc3cef9c2b3",
+          "axSHA256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7"
+        },
+        {
+          "time": "2026-11-01T08:33:52.661Z",
+          "name": "sand sizes lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F10-lower.jpg",
+          "ax": "terra-main-1793520075462-sand-F10-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 99974,
+          "imageSHA256": "ab0db0d39180d84ba0af863c62e86bccfffbb159fbbcc5728c43ae7e39581c31",
+          "axSHA256": "00adeeab632f2d30754746b1fa745c7dc5005bf06cd8f064db9a86d3f7cc64f7"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F10-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-03",
+          "disposition": "resolved",
+          "basis": "Upper/lower ranges show round14px accent thumbs and compact30px numeric fields without visible steppers, replacing old white elliptical thumbs/36px fields. Layout-specific values/source and lower reset/narrow-window note readable. Slight native track border and actual scroll gutter are accepted; no sizing behavior is inferred from stills."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        }
+      ],
+      "manualObserved": "Upper/lower ranges show round14px accent thumbs and compact30px numeric fields without visible steppers, replacing old white elliptical thumbs/36px fields. Layout-specific values/source and lower reset/narrow-window note readable. Slight native track border and actual scroll gutter are accepted; no sizing behavior is inferred from stills.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F11",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:53.273Z",
+          "name": "sand background upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F11-upper.jpg",
+          "ax": "terra-main-1793520075462-sand-F11-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 87157,
+          "imageSHA256": "89224f02b1d2e58d22df1d99269cede0f1a949cd68575c2d9ef0a1552b9cfbe3",
+          "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+        },
+        {
+          "time": "2026-11-01T08:33:54.922Z",
+          "name": "sand background lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F11-lower.jpg",
+          "ax": "terra-main-1793520075462-sand-F11-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 94169,
+          "imageSHA256": "fa9af3b31116ea8aa3c0d45870bd3326c08b66f9c513c09d0f3264aace39d337",
+          "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F11-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-03",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        },
+        {
+          "category": "SL-04",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        },
+        {
+          "category": "SL-05",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        },
+        {
+          "category": "SL-07",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        }
+      ],
+      "manualObserved": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F12",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:57.461Z",
+          "name": "sand colors upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F12-upper.jpg",
+          "ax": "terra-main-1793520075462-sand-F12-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 95473,
+          "imageSHA256": "4a343f5471b1bc0eb65d8dbaf0074c46568651e04dc85123a6e1b41701a4f40f",
+          "axSHA256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46"
+        },
+        {
+          "time": "2026-11-01T08:33:58.049Z",
+          "name": "sand colors middle",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F12-middle.jpg",
+          "ax": "terra-main-1793520075462-sand-F12-middle.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 97191,
+          "imageSHA256": "555f751b0bfa9c7524eda31742b8d15f34001d273f3f0c269ccdd4dcacc8531b",
+          "axSHA256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46"
+        },
+        {
+          "time": "2026-11-01T08:33:58.635Z",
+          "name": "sand colors lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F12-lower.jpg",
+          "ax": "terra-main-1793520075462-sand-F12-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 91654,
+          "imageSHA256": "5c643bd14a94ab84a773da8c20a14ad0c5e12b1854715c6733ff8bb9712a390e",
+          "axSHA256": "97b49071bf00cee7ff552a05948ad5bc31fcfe30e9ff850857401dd6ec245a46"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F12-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL2-03",
+          "disposition": "resolved",
+          "basis": "Compact color selector now wins and explicitly sets min-height/height24px; native fields/cards visibly reduced. The remaining useful24px editable HEX plus separate source row is explicitly accepted, not claimed56px pixel equality."
+        },
+        {
+          "category": "SL2-04",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches reference expression and blur3px; new images show coherent darkening over actual overview/workbench rather than old blue-gray cast."
+        }
+      ],
+      "manualObserved": "Upper/middle/lower cover all11 real semantic color tokens plus preview, contrast and reset. Old ordinary36px input/82px cards fixed to editable24px HEX fields/~70px cards. Separate label/value/source lines and3 extra semantic tokens justify longer flow than static8-token/~56px prototype. Theme values follow actual manifest; no JPEG pixel-equality claim.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F13",
+      "review": "differences",
+      "conditionMismatches": [
+        {
+          "kind": "preset-list-state",
+          "actual": "Three saved QA presets with populated list.",
+          "reference": "No saved presets, empty placeholder.",
+          "observation": "Real current-layout/theme preview, blank name with disabled save, and3 existing QA presets are visible. Overlay now uses the exact reference backdrop expression; populated list remains a condition mismatch against empty-reference state. No presets removed to fabricate emptiness."
+        }
+      ],
+      "captures": [
+        {
+          "time": "2026-11-01T08:33:59.256Z",
+          "name": "sand schemes",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F13.jpg",
+          "ax": "terra-main-1793520075462-sand-F13.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 97691,
+          "imageSHA256": "b01fb9de511f12594bf12eb81e841c7e10b2f1c23b931b67490085bf6c3236c7",
+          "axSHA256": "4bfa14b479488a8756def8bc73559806e71fd2148f8d676b8aca4685bb4c1783"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F13-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL2-04",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches reference expression and blur3px; new images show coherent darkening over actual overview/workbench rather than old blue-gray cast."
+        }
+      ],
+      "manualObserved": "Real current-layout/theme preview, blank name with disabled save, and3 existing QA presets are visible. Overlay now uses the exact reference backdrop expression; populated list remains a condition mismatch against empty-reference state. No presets removed to fabricate emptiness.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "preset-list-state",
+            "actual": "Three saved QA presets with populated list",
+            "reference": "No saved presets, empty placeholder state",
+            "observation": "Actual saved-list view is retained; it does not visually cover the empty reference state. No real presets are removed to fabricate emptiness."
+          },
+          "disposition": "retained-in-new-condition-mismatches"
+        },
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "sand/F14",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:00.415Z",
+          "name": "sand paused layout recovery",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "展开式项目目录",
+          "theme": "砂岩",
+          "mode": "浅色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-sand-F14.jpg",
+          "ax": "terra-main-1793520075462-sand-F14.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 90637,
+          "imageSHA256": "9fde9724bfd28772c927b298a6e0472678d85b8d51a828d097341cdaf9e99ea2",
+          "axSHA256": "84d7038ec127581b2228bc068e535f1617c92e1bf43a92c80e5e94266d5a885a"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F14-sand.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL2-01",
+          "disposition": "resolved",
+          "basis": "Paused QA-layout pre-apply rejection shows one inline recovery card, valid prior layout/theme preview,40/38px themed recovery actions and unobstructed Done. Old duplicate global toast removed. Actual pause reason is retained instead of prototype missing-editor reason; no candidate execution or postcommit rollback claimed."
+        },
+        {
+          "category": "SL2-02",
+          "disposition": "resolved",
+          "basis": "Paused QA-layout pre-apply rejection shows one inline recovery card, valid prior layout/theme preview,40/38px themed recovery actions and unobstructed Done. Old duplicate global toast removed. Actual pause reason is retained instead of prototype missing-editor reason; no candidate execution or postcommit rollback claimed."
+        },
+        {
+          "category": "SL2-04",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches reference expression and blur3px; new images show coherent darkening over actual overview/workbench rather than old blue-gray cast."
+        }
+      ],
+      "manualObserved": "Paused QA-layout pre-apply rejection shows one inline recovery card, valid prior layout/theme preview,40/38px themed recovery actions and unobstructed Done. Old duplicate global toast removed. Actual pause reason is retained instead of prototype missing-editor reason; no candidate execution or postcommit rollback claimed.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          },
+          "disposition": "resolved-by-current-standard33-theme-and-native-controls"
+        }
+      ]
+    },
+    {
+      "case": "aurora/E01",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:14.391Z",
+          "name": "Aurora running PTY 16574",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-E01-running.jpg",
+          "ax": "terra-main-1793520075462-aurora-E01-running.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 128862,
+          "imageSHA256": "1171a3b2abe0c99f2fa328cff7ea499855607633e0ded49f0f81a5cc66764828",
+          "axSHA256": "682b90bb9e499747a5d8d55298c5e5570f2a603db70ae2f74b935d1671c3b5f5"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/E01-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "terminal-theme-refresh",
+          "disposition": "resolved",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        },
+        {
+          "category": "terminal-surface",
+          "disposition": "resolved",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        },
+        {
+          "category": "toolbar-scope-difference",
+          "disposition": "accepted",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        },
+        {
+          "category": "terminal-containment",
+          "disposition": "resolved",
+          "basis": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown."
+        }
+      ],
+      "manualObserved": "Terminal uses the layout low surface through toolbar/body; same live16574 shell marker/output/prompt remains readable. Real session/cwd/Stop/F6 controls replace prototype placeholder output. Bottom1px dark line is minor and does not obstruct text, input, scroll or themed seams; cause remains unknown.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/A02",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:33.508Z",
+          "name": "aurora overview",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-A02.jpg",
+          "ax": "terra-main-1793520075462-aurora-A02.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 117527,
+          "imageSHA256": "ecdacca58d73bafff567bd5a61f525efdf661842b0782720bbaaa04852c49b5c",
+          "axSHA256": "d61b2615fd08f36fb1d0ab036af35e49caa4b6eb000eef9b36550b8db1cd3927"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A02-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "overview-count-scope",
+          "disposition": "resolved",
+          "basis": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix."
+        },
+        {
+          "category": "minor-toolbar-geometry",
+          "disposition": "open",
+          "basis": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix."
+        }
+      ],
+      "manualObserved": "Overview now truthfully counts2workspaces/31projects, grouped19+12. The real larger list naturally scrolls; actual paths/statuses retained. Header title/search/filter layout matches; two heading actions remain38px versus40px reference and await the scoped fix.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/A03",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:34.999Z",
+          "name": "aurora workspace form",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-A03.jpg",
+          "ax": "terra-main-1793520075462-aurora-A03.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 64651,
+          "imageSHA256": "dc59d6ec4d8f0dfdfb2aa6ad629922f2898cd76d3d67bd61c823af5e866e12be",
+          "axSHA256": "dc2f353b24f74124000074d519a4f9a5e3bd25ba5476989c533b25ac5144e202"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A03-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "workspace-default-location-content",
+          "disposition": "accepted",
+          "basis": "Centered510px form with prominent title, real name, no-move grouping note and right footer. Workspace creation accepts name only and stores a project grouping, so prototype default-project-location field is absent and modal naturally shorter. Existing project locations are not represented by an inert preference."
+        }
+      ],
+      "manualObserved": "Centered510px form with prominent title, real name, no-move grouping note and right footer. Workspace creation accepts name only and stores a project grouping, so prototype default-project-location field is absent and modal naturally shorter. Existing project locations are not represented by an inert preference.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/A04",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:45.958Z",
+          "name": "aurora add project form",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-A04.jpg",
+          "ax": "terra-main-1793520075462-aurora-A04.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 76512,
+          "imageSHA256": "1a392c2ffa0e817b7cc0c3eb057618e3b6e2aba9941b1f4a77f41d1868a10ca0",
+          "axSHA256": "fa377598cdb51f6aee48485d342ebd34b14d68f127b82d2cd4b114d2dc7b64d6"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A04-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "workspace-select-height",
+          "disposition": "resolved",
+          "basis": "Centered510px add-project form; selected owned QA parent/name/current workspace and enabled footer are real, picker later Cancelled. Workspace select is now40px. Text fields still36px/radius8 instead of40/radius12 because global input specificity overrides the scoped rule. No-Git location note is truthful for this selected parent."
+        }
+      ],
+      "manualObserved": "Centered510px add-project form; selected owned QA parent/name/current workspace and enabled footer are real, picker later Cancelled. Workspace select is now40px. Text fields still36px/radius8 instead of40/radius12 because global input specificity overrides the scoped rule. No-Git location note is truthful for this selected parent.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/A05",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:59.065Z",
+          "name": "aurora clone form",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-A05.jpg",
+          "ax": "terra-main-1793520075462-aurora-A05.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 73681,
+          "imageSHA256": "72132ad30ec06895bb77d47f9812614e2388d37e9485307a7040d476e3d51a68",
+          "axSHA256": "a065a0cb7664a390d55584184c7681059ea52a904de79ae0dcaf614c461de336"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/A05-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "clone-form-hierarchy",
+          "disposition": "resolved",
+          "basis": "Clone dialog hierarchy/title/footer fixed; owned parent selected and new child name supplied, CTA enabled but not submitted. Separate parent/new-name and current-workspace model plus no-script note are real controls; example.invalid is intentional test data. Same text-input36px/radius8 versus40/radius12 issue remains."
+        },
+        {
+          "category": "clone-fields-and-data",
+          "disposition": "accepted",
+          "basis": "Clone dialog hierarchy/title/footer fixed; owned parent selected and new child name supplied, CTA enabled but not submitted. Separate parent/new-name and current-workspace model plus no-script note are real controls; example.invalid is intentional test data. Same text-input36px/radius8 versus40/radius12 issue remains."
+        }
+      ],
+      "manualObserved": "Clone dialog hierarchy/title/footer fixed; owned parent selected and new child name supplied, CTA enabled but not submitted. Separate parent/new-name and current-workspace model plus no-script note are real controls; example.invalid is intentional test data. Same text-input36px/radius8 versus40/radius12 issue remains.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/G04",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:20.761Z",
+          "name": "aurora focus",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-G04.jpg",
+          "ax": "terra-main-1793520075462-aurora-G04.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 96793,
+          "imageSHA256": "4812841f38e0dcbba5d669759863e5eb9efcbbe44c587dce6442657412662e50",
+          "axSHA256": "df007a477d9056dc212f41f9fb388392b892600980a71509c596b62f077d5c08"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/G04-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "focus-unnecessary-status",
+          "disposition": "resolved",
+          "basis": "Focused editor shows actual workspace.ts code and both tabs across the available area; old empty focused editor and unnecessary launcher/Git/process/platform footer removed. Only caret and TS/UTF8/LF editing status remain. Real code/path/workspace and exit-control order are useful implementation details."
+        },
+        {
+          "category": "focus-editor-invisible",
+          "disposition": "resolved",
+          "basis": "Focused editor shows actual workspace.ts code and both tabs across the available area; old empty focused editor and unnecessary launcher/Git/process/platform footer removed. Only caret and TS/UTF8/LF editing status remain. Real code/path/workspace and exit-control order are useful implementation details."
+        }
+      ],
+      "manualObserved": "Focused editor shows actual workspace.ts code and both tabs across the available area; old empty focused editor and unnecessary launcher/Git/process/platform footer removed. Only caret and TS/UTF8/LF editing status remain. Real code/path/workspace and exit-control order are useful implementation details.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/B03",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:15.854Z",
+          "name": "aurora quick open",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-B03.jpg",
+          "ax": "terra-main-1793520075462-aurora-B03.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 62414,
+          "imageSHA256": "966a769664587367367f485dfc2594356d84ffd12e4cfd16f85ef1bc8b15f1e9",
+          "axSHA256": "4d1d725811166f055adad7eeef5815a306a9aae2e9b638c0ec66a945d2834b1a"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/B03-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "structure",
+          "disposition": "accepted",
+          "basis": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required."
+        },
+        {
+          "category": "command-mode-structure",
+          "disposition": "accepted",
+          "basis": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required."
+        },
+        {
+          "category": "radius",
+          "disposition": "resolved",
+          "basis": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required."
+        },
+        {
+          "category": "overlay",
+          "disposition": "open",
+          "basis": "Frozen editor.css31 still uses #0a142640/blur4px for editor-modal-backdrop; dark reference uses #07030b80/blur3px. New Aurora original remains too bright behind B03/B08. Shared styles.css modal fix does not affect this separate element."
+        }
+      ],
+      "manualObserved": "640px card at top109 with theme radius restored. One real workspace.ts result; current-project scope, > command mode and explicit X explain the lower first row/shorter card. Normal bordered focus input is readable. No fake second result or related actions are required.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/B08",
+      "review": "differences",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:34:18.549Z",
+          "name": "aurora unsaved dialog",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-B08.jpg",
+          "ax": "terra-main-1793520075462-aurora-B08.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 65409,
+          "imageSHA256": "1a449ff235ff51657084a86d01f7152423b1084d6dcb01dc7e43a9d277ac80fe",
+          "axSHA256": "50911c5bdea7fbe76b1d874fc3f40a10216a7eeb044765267b41cafe8821b53d"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/B08-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "geometry",
+          "disposition": "accepted",
+          "basis": "Centered510px dialog,22px title, path card and right-aligned Cancel/discard/save footer now follow reference hierarchy. About263px height versus reference270 follows actual text/control content; all actions remain clear. Relative src/workspace.ts and explicit discard wording accurately describe this file."
+        },
+        {
+          "category": "radius",
+          "disposition": "resolved",
+          "basis": "Centered510px dialog,22px title, path card and right-aligned Cancel/discard/save footer now follow reference hierarchy. About263px height versus reference270 follows actual text/control content; all actions remain clear. Relative src/workspace.ts and explicit discard wording accurately describe this file."
+        },
+        {
+          "category": "overlay",
+          "disposition": "open",
+          "basis": "Frozen editor.css31 still uses #0a142640/blur4px for editor-modal-backdrop; dark reference uses #07030b80/blur3px. New Aurora original remains too bright behind B03/B08. Shared styles.css modal fix does not affect this separate element."
+        }
+      ],
+      "manualObserved": "Centered510px dialog,22px title, path card and right-aligned Cancel/discard/save footer now follow reference hierarchy. About263px height versus reference270 follows actual text/control content; all actions remain clear. Relative src/workspace.ts and explicit discard wording accurately describe this file.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F03",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:08.195Z",
+          "name": "aurora editor settings",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F03.jpg",
+          "ax": "terra-main-1793520075462-aurora-F03.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 79895,
+          "imageSHA256": "923a6dd4f5b30f2b47e91ad00ca6a61f39c140d0c8b904d9a3986f6d97f1ed0e",
+          "axSHA256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F03-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "F03-toggle-geometry",
+          "disposition": "resolved",
+          "basis": "Settings bounds790x690 retained. Toggle23px track/selected17px centered thumb now match. Actual global Menlo14, lineNumbers on, wrap off, indent2/spaces, source labels and per-setting reset controls are truthful. Required extra insertSpaces/source rows extend natural scroll; only photographed upper pixels are visually covered, Done remains fixed."
+        }
+      ],
+      "manualObserved": "Settings bounds790x690 retained. Toggle23px track/selected17px centered thumb now match. Actual global Menlo14, lineNumbers on, wrap off, indent2/spaces, source labels and per-setting reset controls are truthful. Required extra insertSpaces/source rows extend natural scroll; only photographed upper pixels are visually covered, Done remains fixed.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F08",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:08.798Z",
+          "name": "aurora shortcuts",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F08.jpg",
+          "ax": "terra-main-1793520075462-aurora-F08.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 81986,
+          "imageSHA256": "d3454955690cb5e6af7a2d21d5602b9b5d41dc9e6e0c3bf09d537191cf71a237",
+          "axSHA256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F08-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-01",
+          "disposition": "resolved",
+          "basis": "Shortcut search is now40px. Eleven actual editable shortcuts with source/reset and distinct file/command actions use natural scroll; displayed subset and fixed Done are readable. Prototype seven illustrative rows/configured key labels are not fabricated."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        }
+      ],
+      "manualObserved": "Shortcut search is now40px. Eleven actual editable shortcuts with source/reset and distinct file/command actions use natural scroll; displayed subset and fixed Done are readable. Prototype seven illustrative rows/configured key labels are not fabricated.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F09",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:09.360Z",
+          "name": "aurora data upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F09-upper.jpg",
+          "ax": "terra-main-1793520075462-aurora-F09-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 92162,
+          "imageSHA256": "dcce29a4a44a64062112fed1ae6e5ce7a70f0943b746e3aabb2165b4644edd72",
+          "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+        },
+        {
+          "time": "2026-11-01T08:35:10.966Z",
+          "name": "aurora data lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F09-lower.jpg",
+          "ax": "terra-main-1793520075462-aurora-F09-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 88982,
+          "imageSHA256": "2d471ca4503bed2b1331cf6eec4922d6c22dd1ff706bd54568b54a8c19971ef2",
+          "axSHA256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F09-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-02",
+          "disposition": "resolved",
+          "basis": "Configuration export tonal/download and cache outline/trash actions now match hierarchy. Upper/lower images cover real diagnosis export, chat/recovery/credential controls, disabled empty-selection actions and truthful no-telemetry/local-project note. Real on-demand export behavior replaces an inert diagnostics toggle."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        }
+      ],
+      "manualObserved": "Configuration export tonal/download and cache outline/trash actions now match hierarchy. Upper/lower images cover real diagnosis export, chat/recovery/credential controls, disabled empty-selection actions and truthful no-telemetry/local-project note. Real on-demand export behavior replaces an inert diagnostics toggle.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F10",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:13.952Z",
+          "name": "aurora sizes upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F10-upper.jpg",
+          "ax": "terra-main-1793520075462-aurora-F10-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 93976,
+          "imageSHA256": "43b5db6755b3db8cea2b88f422254c28c180372d303222dbfbef2782f7c70c13",
+          "axSHA256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd"
+        },
+        {
+          "time": "2026-11-01T08:35:14.512Z",
+          "name": "aurora sizes lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F10-lower.jpg",
+          "ax": "terra-main-1793520075462-aurora-F10-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 92093,
+          "imageSHA256": "1096e9ff00957112d13e7b3f075b5d800582bfd16767a554f5d9ba0ff25998d5",
+          "axSHA256": "298dfa390fba02da34a3355efaf1c048a94bc5dc58c3d470281d89ee712e4cdd"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F10-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-03",
+          "disposition": "resolved",
+          "basis": "Upper/lower ranges show round14px accent thumbs and compact30px numeric fields without visible steppers, replacing old white elliptical thumbs/36px fields. Layout-specific values/source and lower reset/narrow-window note readable. Slight native track border and actual scroll gutter are accepted; no sizing behavior is inferred from stills."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        }
+      ],
+      "manualObserved": "Upper/lower ranges show round14px accent thumbs and compact30px numeric fields without visible steppers, replacing old white elliptical thumbs/36px fields. Layout-specific values/source and lower reset/narrow-window note readable. Slight native track border and actual scroll gutter are accepted; no sizing behavior is inferred from stills.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F11",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:15.115Z",
+          "name": "aurora background upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F11-upper.jpg",
+          "ax": "terra-main-1793520075462-aurora-F11-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 78991,
+          "imageSHA256": "b8547114803f896502926649632eb82eb9ce7a2fdc13e97bbfc94c5b769fb70b",
+          "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+        },
+        {
+          "time": "2026-11-01T08:35:16.747Z",
+          "name": "aurora background lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F11-lower.jpg",
+          "ax": "terra-main-1793520075462-aurora-F11-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 85906,
+          "imageSHA256": "458d2cd2e328464691933380cb69969271d061a46da4c02d6ba84d2ef481e5b6",
+          "axSHA256": "d0fd8f7fa56731a8324e3712a8922055ce562d3b6273cb4ed91cd1718205c84c"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F11-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL-03",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        },
+        {
+          "category": "SL-04",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        },
+        {
+          "category": "SL-05",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        },
+        {
+          "category": "SL-06",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches design/source/base.css light-dark(#20162b40,#07030b80)/blur3px; new originals no longer show old blue-gray brightness issue. Different actual backdrop content is preserved."
+        },
+        {
+          "category": "SL-07",
+          "disposition": "resolved",
+          "basis": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images."
+        }
+      ],
+      "manualObserved": "Upper upload card170px/16px image icon and complete visibility/overlay fields restored. Actual no-asset preferences30/65/x25/y75 retained, lower shows position fields, disabled close/remove and future-tense import note. Different values are real state, not palette failure; no memory-release claim comes from these images.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F12",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:19.310Z",
+          "name": "aurora colors upper",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F12-upper.jpg",
+          "ax": "terra-main-1793520075462-aurora-F12-upper.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 87193,
+          "imageSHA256": "839d873b5e0ddcffae30e54136809c83e218f8ad85fbd0b8f01dcbef172d1f8c",
+          "axSHA256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12"
+        },
+        {
+          "time": "2026-11-01T08:35:19.896Z",
+          "name": "aurora colors middle",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F12-middle.jpg",
+          "ax": "terra-main-1793520075462-aurora-F12-middle.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 89938,
+          "imageSHA256": "ded6ed1760aad09e518909fa4a17aedf9b64618f1b663e56e4f07511f6858709",
+          "axSHA256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12"
+        },
+        {
+          "time": "2026-11-01T08:35:20.494Z",
+          "name": "aurora colors lower",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F12-lower.jpg",
+          "ax": "terra-main-1793520075462-aurora-F12-lower.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 85126,
+          "imageSHA256": "f63e459e2e26000a694b3a313357d3bc17c270cca3d35b0b3e2fce6a099726a4",
+          "axSHA256": "24fd04016776c2097ff12ecdf3cb575303a1505fc17768a76b68e86f580bdc12"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F12-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL2-03",
+          "disposition": "resolved",
+          "basis": "Compact color selector now wins and explicitly sets min-height/height24px; native fields/cards visibly reduced. The remaining useful24px editable HEX plus separate source row is explicitly accepted, not claimed56px pixel equality."
+        },
+        {
+          "category": "SL2-04",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches reference expression and blur3px; new images show coherent darkening over actual overview/workbench rather than old blue-gray cast."
+        }
+      ],
+      "manualObserved": "Upper/middle/lower cover all11 real semantic color tokens plus preview, contrast and reset. Old ordinary36px input/82px cards fixed to editable24px HEX fields/~70px cards. Separate label/value/source lines and3 extra semantic tokens justify longer flow than static8-token/~56px prototype. Theme values follow actual manifest; no JPEG pixel-equality claim.",
+      "priorConditionDispositions": []
+    },
+    {
+      "case": "aurora/F13",
+      "review": "differences",
+      "conditionMismatches": [
+        {
+          "kind": "preset-list-state",
+          "actual": "Three saved QA presets with populated list.",
+          "reference": "No saved presets, empty placeholder.",
+          "observation": "Real current-layout/theme preview, blank name with disabled save, and3 existing QA presets are visible. Overlay now uses the exact reference backdrop expression; populated list remains a condition mismatch against empty-reference state. No presets removed to fabricate emptiness."
+        }
+      ],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:21.122Z",
+          "name": "aurora schemes",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F13.jpg",
+          "ax": "terra-main-1793520075462-aurora-F13.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 90717,
+          "imageSHA256": "2ec2e1f36528a0d9084e875567fd6aa9c8df19b213b22a6c34d53742b8d56ef0",
+          "axSHA256": "a892b480c913c7463a11ecb3c363d30deafef6d1455236173e0e702397144f3a"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F13-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL2-04",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches reference expression and blur3px; new images show coherent darkening over actual overview/workbench rather than old blue-gray cast."
+        }
+      ],
+      "manualObserved": "Real current-layout/theme preview, blank name with disabled save, and3 existing QA presets are visible. Overlay now uses the exact reference backdrop expression; populated list remains a condition mismatch against empty-reference state. No presets removed to fabricate emptiness.",
+      "priorConditionDispositions": [
+        {
+          "condition": {
+            "kind": "preset-list-state",
+            "actual": "Three saved QA presets with populated list",
+            "reference": "No saved presets, empty placeholder state",
+            "observation": "Actual saved-list view is retained; it does not visually cover the empty reference state. No real presets are removed to fabricate emptiness."
+          },
+          "disposition": "retained-in-new-condition-mismatches"
+        }
+      ]
+    },
+    {
+      "case": "aurora/F14",
+      "review": "pass",
+      "conditionMismatches": [],
+      "captures": [
+        {
+          "time": "2026-11-01T08:35:22.185Z",
+          "name": "aurora paused layout recovery",
+          "pid": 89459,
+          "sha256": "7ba8676ec5884232dd7170e1ed252fdc5fccc7ba9cca37e72c2f42d4ddae0885",
+          "layout": "底部导航",
+          "theme": "极光",
+          "mode": "深色",
+          "zoom": "100% (View AX confirmed)",
+          "uiFont": "13px",
+          "editorFont": "Menlo 14 (Editor AX confirmed)",
+          "density": "跟随主题",
+          "project": "Aurora Web",
+          "image": "terra-main-1793520075462-aurora-F14.jpg",
+          "ax": "terra-main-1793520075462-aurora-F14.ax.txt",
+          "width": 1280,
+          "height": 800,
+          "imageBytes": 82534,
+          "imageSHA256": "e5562dcf20a955be7201472eb7dccb0c6bd607bb1e0768fb5184e2a217af45cf",
+          "axSHA256": "103eae2e51f85fe2c338f6e9644a7653dd36e4fca2381d9e613ccd3552da68c4"
+        }
+      ],
+      "priorRecordScreenshot": "docs/verification/results/appearance-full-native-20261101/F14-aurora.jpg",
+      "priorOpenDispositions": [
+        {
+          "category": "SL2-01",
+          "disposition": "resolved",
+          "basis": "Paused QA-layout pre-apply rejection shows one inline recovery card, valid prior layout/theme preview,40/38px themed recovery actions and unobstructed Done. Old duplicate global toast removed. Actual pause reason is retained instead of prototype missing-editor reason; no candidate execution or postcommit rollback claimed."
+        },
+        {
+          "category": "SL2-02",
+          "disposition": "resolved",
+          "basis": "Paused QA-layout pre-apply rejection shows one inline recovery card, valid prior layout/theme preview,40/38px themed recovery actions and unobstructed Done. Old duplicate global toast removed. Actual pause reason is retained instead of prototype missing-editor reason; no candidate execution or postcommit rollback claimed."
+        },
+        {
+          "category": "SL2-04",
+          "disposition": "resolved",
+          "basis": "Frozen native modal backdrop exactly matches reference expression and blur3px; new images show coherent darkening over actual overview/workbench rather than old blue-gray cast."
+        }
+      ],
+      "manualObserved": "Paused QA-layout pre-apply rejection shows one inline recovery card, valid prior layout/theme preview,40/38px themed recovery actions and unobstructed Done. Old duplicate global toast removed. Actual pause reason is retained instead of prototype missing-editor reason; no candidate execution or postcommit rollback claimed.",
+      "priorConditionDispositions": []
+    }
+  ],
+  "excludedImageObservations": [
+    {
+      "image": "terra-main-1793520075462-02-aurora-baseline.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    },
+    {
+      "image": "terra-main-1793520075462-03-overview-to-aurora.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    },
+    {
+      "image": "terra-main-1793520075462-04-aurora-editor-settings.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    },
+    {
+      "image": "terra-main-1793520075462-05-main-after-settings.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    },
+    {
+      "image": "terra-main-1793520075462-git-draft-before-eight-layouts.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    },
+    {
+      "image": "terra-main-1793520075462-scroll-before.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    },
+    {
+      "image": "terra-main-1793520075462-scroll-before-adjusted.jpg",
+      "reason": "Prior02–05 navigation already reviewed/registered, or Git/scroll auxiliary reserved for next functional tail audit; not included in this43-image main visual claim."
+    }
+  ],
+  "pickerBoundary": "Actual owned parent selections retained and Cancelled; no Add/Clone submission. No copied earlier Orbit timing incident is attributed to this Sand/Aurora batch.",
+  "remaining": [
+    "A02actions38→40 and A04/A05textinputs36/radius8→40/radius12 await exact new-package related evidence.",
+    "F13 populated-state remains2 condition mismatches; SandB01 expanded-terminal adds1 precise condition. AuroraB03/B08 dark editor-modal-backdrop remainsopen; prepared patch alone not accepted."
+  ],
+  "newFunctionalEvidenceIds": [
+    "MAC-APPEARANCE-MAIN-SAND-AURORA-VISUAL-RETEST-001"
+  ],
+  "newVisualRecords": 33,
+  "recordDispositions": {
+    "pass": 22,
+    "differences": 8,
+    "conditionsMismatch": 3
+  },
+  "priorUnrelatedOriginalsNotRepeated": true
+}

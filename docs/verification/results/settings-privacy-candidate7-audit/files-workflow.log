@@ -1,0 +1,37 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.04s
+     Running tests/files_workflow.rs (target/debug/deps/files_workflow-80399783b1bfcb5f)
+
+running 28 tests
+test diagnostic_export_rejects_unknown_incomplete_and_non_integer_runtime_counts ... ok
+test diagnostic_export_rejects_identifiers_extra_strings_and_unbounded_samples_before_write ... ok
+test diagnostic_export_preserves_frontend_runtime_counts_separately_from_native_subscriptions ... ok
+test diagnostic_export_writes_anonymous_editor_samples_and_native_measurement ... ok
+test export_preview_limits_discard_expiry_and_failed_write_allow_retry ... ok
+APFS rejected non-Unicode name (EILSEQ); verified lossless path codec instead
+test empty_workspace_selection_and_project_move_survive_restart ... ok
+test non_utf8_paths_are_lossless_and_project_ids_are_scoped ... ok
+test image_preview_checks_dimensions_before_returning_browser_bytes ... ok
+test diagnostic_export_counts_resources_without_serializing_their_records ... ok
+test directory_cursor_invalidates_after_change ... ok
+test project_activation_persists_last_opened_time_without_changing_revision ... ok
+test close_retains_latest_checkpoint_and_releases_only_its_project ... ok
+test project_reveal_requires_app_scope_and_a_registered_existing_root ... ok
+test project_symlink_cannot_escape ... ok
+test project_dedup_and_session_survive_restart ... ok
+test rename_does_not_overwrite_collision ... ok
+test settings_invalid_patch_is_atomic ... ok
+test sleeping_project_rejects_its_old_epoch_after_reactivation ... ok
+test export_preview_projects_known_fields_and_writes_the_exact_frozen_snapshot ... ok
+test save_as_exports_copy_without_replacing_original_document ... ok
+test recovery_survives_host_restart_and_does_not_touch_disk ... ok
+test save_is_conditional_and_preserves_bom_eol ... ok
+test undo_to_saved_content_removes_checkpoint_without_changing_disk_baseline ... ok
+test rename_preserves_opaque_ids_and_unrelated_dirty_baseline ... ok
+test saving_older_snapshot_keeps_newer_checkpoint_dirty ... ok
+test utf16_and_mixed_eol_are_read_only ... ok
+test export_preview_rejects_oversized_snapshot_before_allocating_a_plan ... ok
+test big_file_chunks_preserve_utf8_boundaries_and_reject_changed_file ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.02s
+

@@ -1,0 +1,149 @@
+{
+  "id": "MAC-PROCESS-CONTROLLED-STOP-FAILURE-001",
+  "capturedAt": "2026-10-31T03:34:48.360182+00:00",
+  "method": "Rust production process supervisor with real owned shell and child PIDs; one cfg(test) run-scoped error consumed before OS signal. No registry/PID fabrication; retry uses actual OS signals.",
+  "test": "processes::tests::controlled_stop_failure_retains_owned_run_until_real_retry",
+  "result": "1 passed; 0 failed; 0.51s",
+  "typescript": "desktop:check passed",
+  "sourceSha256": {
+    "apps/desktop/src-tauri/src/processes.rs": "6d45f35e44d5fbe9432d1961269b55d6c2b9c0118bbbd4d80a693e79be68e7b6",
+    "apps/desktop/src/features/processes/index.tsx": "5b280452613f95533dd67f2cb089adbc237a8c6d7da012e7a371387c08ea40d3"
+  },
+  "events": [
+    {
+      "childPid": 97049,
+      "failingServicePid": 97050,
+      "identities": "97048 97013 97048 S    Sat Oct 31 11:34:04 2026     /bin/sh -c sleep 30 & child=$!; printf '%s' \"$child\" > owned-child.pid; printf READY; wait \"$child\"\n97049 97048 97048 S    Sat Oct 31 11:34:04 2026     sleep 30\n97050 97013 97050 S    Sat Oct 31 11:34:04 2026     /bin/sh -c printf READY; while [ ! -f trigger-failure ]; do sleep 0.03; done; exit 23\n",
+      "method": "real owned shell/process group; one cfg(test) run-scoped error before OS signal; not an OS permission failure or GUI test",
+      "pgid": 97048,
+      "phase": "before-controlled-failure",
+      "pid": 97048,
+      "runId": "launch-1793417644473-5"
+    },
+    {
+      "deleteProfile": "RESOURCE_BUSY",
+      "duplicateStart": "RESOURCE_BUSY",
+      "identities": "97048 97013 97048 S    Sat Oct 31 11:34:04 2026     /bin/sh -c sleep 30 & child=$!; printf '%s' \"$child\" > owned-child.pid; printf READY; wait \"$child\"\n97049 97048 97048 S    Sat Oct 31 11:34:04 2026     sleep 30\n",
+      "phase": "retained-after-controlled-failure",
+      "resources": {
+        "items": [
+          {
+            "bufferEnd": "5",
+            "bufferStart": "0",
+            "cwd": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/.tmpoUqCBg/项目 中文",
+            "exitCode": null,
+            "kind": "launchProcess",
+            "owner": {
+              "activationId": "8c4e62be-9a89-4db3-a3d4-4b0c65a005b6",
+              "extensionId": "horizon.launch",
+              "launchRunId": "launch-1793417644473-5",
+              "projectId": "test-project-1793417644467-2"
+            },
+            "ownerExtensionId": "horizon.launch",
+            "ownership": "owned",
+            "pid": 97048,
+            "processInstanceId": "process-1793417644479-6",
+            "requiresExtensions": [
+              "horizon.launch"
+            ],
+            "resourceId": "process-1793417644479-6",
+            "revision": 2,
+            "startedAt": "1793417644479",
+            "state": "stopping",
+            "stepId": "step-0",
+            "terminalSessionId": null,
+            "title": "进程 0"
+          }
+        ]
+      },
+      "run": {
+        "createdAt": 1793417644473,
+        "launchRunId": "launch-1793417644473-5",
+        "profileId": "test-profile-1793417644467-1",
+        "profileRevision": 1,
+        "projectId": "test-project-1793417644467-2",
+        "revision": 11,
+        "state": "partial",
+        "steps": [
+          {
+            "pid": 97048,
+            "processInstanceId": "process-1793417644479-6",
+            "ready": false,
+            "state": "stopping",
+            "stepId": "step-0",
+            "stopError": "受控测试故障：本次停止请求在发送系统信号前失败",
+            "title": "进程 0",
+            "url": null,
+            "verified": true
+          },
+          {
+            "exitCode": 23,
+            "pid": 97050,
+            "processInstanceId": "process-1793417644566-7",
+            "ready": false,
+            "state": "exited",
+            "stepId": "step-1",
+            "title": "进程 1",
+            "url": null,
+            "verified": true
+          }
+        ]
+      }
+    },
+    {
+      "identities": "",
+      "ownedRootChildAndGroupGone": true,
+      "phase": "real-stop-retry-complete",
+      "resources": {
+        "items": []
+      },
+      "result": {
+        "externalUntouched": [],
+        "failed": [],
+        "stopped": [
+          "process-1793417644566-7",
+          "process-1793417644479-6"
+        ]
+      },
+      "run": {
+        "createdAt": 1793417644473,
+        "launchRunId": "launch-1793417644473-5",
+        "profileId": "test-profile-1793417644467-1",
+        "profileRevision": 1,
+        "projectId": "test-project-1793417644467-2",
+        "revision": 16,
+        "state": "stopped",
+        "steps": [
+          {
+            "exitCode": -1,
+            "pid": 97048,
+            "processInstanceId": "process-1793417644479-6",
+            "ready": false,
+            "state": "exited",
+            "stepId": "step-0",
+            "title": "进程 0",
+            "url": null,
+            "verified": true
+          },
+          {
+            "exitCode": 23,
+            "pid": 97050,
+            "processInstanceId": "process-1793417644566-7",
+            "ready": false,
+            "state": "exited",
+            "stepId": "step-1",
+            "title": "进程 1",
+            "url": null,
+            "verified": true
+          }
+        ]
+      }
+    }
+  ],
+  "boundaries": [
+    "Not a real OS permission-denied or unkillable-process reproduction.",
+    "Not a GUI test; stopping/error rendering requires existing GUI evidence plus source invariant or candidate8 check.",
+    "Failure seam is cfg(test) only, keyed to this runId and consumed once; no release switch."
+  ],
+  "log": "docs/verification/results/processes-gui/candidate8-controlled-stop-failure.log"
+}

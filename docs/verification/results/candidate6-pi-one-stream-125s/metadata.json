@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-30T20:37:48Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/",
+  "python": "3.14.3",
+  "scenario": "one-managed-pi1.4.0-chat-native-stream-controlled-provider",
+  "build": "release",
+  "build_id": "candidate6",
+  "root_executables": {
+    "33304": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "25e407375f1f112e4d111d5b088065af3034cefb9ce9b4e087c805e6e0b288b5"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "capturedAt": "2026-10-30T20:37:47.915097+00:00",
+    "build": "candidate6",
+    "pid": 33304,
+    "scene": "single managed Pi1.4.0 chat stream through controlled localhost provider",
+    "piPid": 55692,
+    "runtimeOwner": "managed",
+    "piVersion": "1.4.0",
+    "mode": "chat --no-tools",
+    "providerPids": [
+      55520,
+      55521
+    ],
+    "providerKind": "controlled protocol fixture, not real local model",
+    "nativeOperator": "agent_pi",
+    "scenarioSource": "agent_pi actual native GUI started180secondstream; user-facing window held unchanged during125secondinterval",
+    "phase": "streaming",
+    "diagnosticExportDuringInterval": false,
+    "window": [
+      1280,
+      800
+    ],
+    "fileAndTabWorkload": "not independently fixed; do not claim standard reading workload",
+    "sourceNote": "No real vendor credentials ormodel inference asserted"
+  },
+  "root_pids": [
+    33304
+  ],
+  "cache_condition": "OS cache unchanged; no cache purge",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "none; passive sampling only",
+  "activity_log": null,
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ]
+}

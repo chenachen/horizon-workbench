@@ -1,0 +1,263 @@
+{
+  "frozenAt": "2026-11-01T11:06:19.675687+00:00",
+  "scope": "owned QA model requests6/7 only, no headers/credentials",
+  "requests": [
+    {
+      "ordinal": 6,
+      "sourceRowSHA": "7a99c795e04fe069af072d4c3d16bdf9db5b5febaea6a6925e3baa49073f245e",
+      "path": "/v1/chat/completions",
+      "body": {
+        "model": "horizon-fixture",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/c3140b18-4a6b-4a8a-9ca9-6bc02c659658/worktree\n</cwd>"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "HORIZON_TEST_WRITE_STREAM_REVIEW I1 review"
+              }
+            ]
+          }
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "store": false,
+        "max_completion_tokens": 4096,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_read",
+              "description": "Read a UTF-8 file inside this task copy. Paths are relative to the task root. Never reads the original project.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "path"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_list",
+              "description": "List a directory inside this task copy. Paths are relative to the task root.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "path"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "default": "."
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_write",
+              "description": "Create or replace a UTF-8 file inside this task copy, after user approval. Does not modify the original project.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "path",
+                  "content"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_exec",
+              "description": "Request user approval to execute a program with exact arguments in this task copy. No model credentials are passed to this process. Use /bin/sh with explicit -c only when a shell is needed. This is not an OS sandbox.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "executable",
+                  "argv"
+                ],
+                "properties": {
+                  "executable": {
+                    "type": "string"
+                  },
+                  "argv": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "cwd": {
+                    "type": "string",
+                    "default": "."
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 7,
+      "sourceRowSHA": "32183cf075200903593352473552944cad3d8c68b11307ce59da6327508123ca",
+      "path": "/v1/chat/completions",
+      "body": {
+        "model": "horizon-fixture",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/c3140b18-4a6b-4a8a-9ca9-6bc02c659658/worktree\n</cwd>"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "HORIZON_TEST_WRITE_STREAM_REVIEW I1 review"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "tool-6",
+                "type": "function",
+                "function": {
+                  "name": "horizon_write",
+                  "arguments": "{\"path\":\"example.txt\",\"content\":\"changed by real Pi through Horizon broker\\n\"}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "content": "Written to the task copy. Original project unchanged.",
+            "tool_call_id": "tool-6"
+          }
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "store": false,
+        "max_completion_tokens": 4096,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_read",
+              "description": "Read a UTF-8 file inside this task copy. Paths are relative to the task root. Never reads the original project.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "path"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_list",
+              "description": "List a directory inside this task copy. Paths are relative to the task root.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "path"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "default": "."
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_write",
+              "description": "Create or replace a UTF-8 file inside this task copy, after user approval. Does not modify the original project.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "path",
+                  "content"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "horizon_exec",
+              "description": "Request user approval to execute a program with exact arguments in this task copy. No model credentials are passed to this process. Use /bin/sh with explicit -c only when a shell is needed. This is not an OS sandbox.",
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "executable",
+                  "argv"
+                ],
+                "properties": {
+                  "executable": {
+                    "type": "string"
+                  },
+                  "argv": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "cwd": {
+                    "type": "string",
+                    "default": "."
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

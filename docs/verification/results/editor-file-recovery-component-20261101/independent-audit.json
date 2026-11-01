@@ -1,0 +1,111 @@
+{
+  "auditedAt": "2026-11-01T05:06:11.952077+00:00",
+  "method": "Independent production source, retained source SHA256 and raw React/CodeMirror result review; no tests rerun",
+  "sourceChecks": [
+    {
+      "path": "packages/editor/src/types.ts",
+      "sha256": "8683bc39b7ea9bcc2c96ac7d98e153beaa1a0a596ddabc3bf74c3bde44de145a",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "4b8448ed25ecc92bfdcdd8f20487c4839a8bffeacf3eb9dedf402ce73b6c7c4d",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/src/store.test.ts",
+      "sha256": "687db9a161c7cd19c6597b418e749ba456c1c7fe34d31afafaf121da447f953f",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "packages/editor/tests/view-lifecycle.mjs",
+      "sha256": "42c4548c2969875ee5420d856130046f372dc4ddf98d1e6e81a93ae5e043ec9f",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/CodeSurface.tsx",
+      "sha256": "e1a91cb76b63b2d8bf1c8dba474fb87a3e92b601fcb4bfef71a95455c87edf7e",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "b41613ffb282f855d3750d63ae630301d2b4cf9dfea3ef0b91535dc0ac407c6c",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/FileRecovery.tsx",
+      "sha256": "e1eb545ba1edb09c80d0ccc7ee2f4a412039e8ed2efc1b233813e8ee5560fd2f",
+      "currentAndSnapshotMatch": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/file-recovery.css",
+      "sha256": "819cfa94b1255a1af1721ba03c610b3451e686da263603044f705070f19f4964",
+      "currentAndSnapshotMatch": true
+    }
+  ],
+  "rawArtifacts": {
+    "report.json": "4a9a00d30e3fd68fb4e9aafbde998abd11ffc2a6de664a9d76efb158d41b22b7",
+    "view-lifecycle.json": "ff68d4257c7f1606e3d1fc0b6507bc5a2509b221fbab60fbcf10035c5500b3f6"
+  },
+  "actualRetainedRun": {
+    "passed": true,
+    "phaseCount": 17,
+    "warmOffsets": [
+      700,
+      1450,
+      2300
+    ],
+    "freshSessionOffset": 1800,
+    "freshSessionSelection": {
+      "anchor": 200,
+      "head": 205
+    },
+    "relocation": {
+      "name": "relocation preserves real CodeMirror undo and does not reuse the old saved baseline",
+      "relocation": {
+        "sameBuffer": true,
+        "sameText": true,
+        "fileId": "relocated"
+      },
+      "undone": {
+        "didUndo": true,
+        "dirty": true,
+        "views": 3
+      }
+    },
+    "unmountedLiveViews": 0,
+    "createdViews": 3,
+    "destroyedViews": 3
+  },
+  "sourceFindings": [
+    "A failed first open creates an owner-scoped unavailable buffer and tab; prior draft remains separate. Retry replaces that same file identity after a successful open.",
+    "Relocation prepare waits for native dirty marking and a current checkpoint, then uses the native-selected plan. Cancel clears proposal state. Apply preserves or replaces the buffer according to the explicit choice.",
+    "keepBuffer rekeys the same buffer and CodeMirror cached state, clears the former saved-content identity, and retains real Undo; the retained run confirms Undo stays dirty against the new target.",
+    "Clean checkpoint identity is cleared only after native document_mark_dirty acknowledgement, then emits a fresh state.",
+    "FileRecovery supplies retry, native locate, close-this-tab, optional save-copy, candidate/current comparison and explicit discard or keep choices; this UI is source-reviewed, not executed by the CodeSurface-only harness."
+  ],
+  "operatorReportedChecks": [
+    {
+      "command": "rtk test node node_modules/vitest/vitest.mjs run --dir packages/editor/src store.test.ts",
+      "exitCode": 0,
+      "testsPassed": 44,
+      "reportedDurationMs": 134
+    },
+    {
+      "command": "rtk proxy node packages/editor/tests/view-lifecycle.mjs .work/editor-scroll-fix/relocation-after.json",
+      "exitCode": 0,
+      "phasesPassed": 17
+    },
+    {
+      "command": "rtk npm run desktop:check",
+      "exitCode": 0
+    }
+  ],
+  "provenanceLimits": [
+    "store44 and desktop:check exit/counts are operator-reported from original tool output; raw command logs were not saved and unavailable history was not reconstructed.",
+    "Headless 17-phase JSON is retained and independently audited. Its CLI exitCode is operator-reported; transport responses are controlled fixtures.",
+    "Harness renders production CodeSurface with real React/CodeMirror but does not render FileRecovery/EditorWorkbench or invoke the native picker.",
+    "The initial broad vitest substring run selected archived source test copies and failed module resolution; corrected --dir run is reported separately.",
+    "Native G02, three-project/cold-restart scroll and 044 Undo acceptance remain pending the central new package."
+  ]
+}

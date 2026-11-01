@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-11-01T09:26:50.724653+00:00",
+  "card": "01a",
+  "connectionId": "e9b4ae92-6986-4369-967c-e80da3deab14",
+  "status": "Root approved preview and authorized01b before late owner projection; deletion completed",
+  "authorizationBoundary": "Root personally reviewed image/AX, compared prior owner projection, then issuedROOT DELETE OLD QA READY; no duplicate owner authorization needed",
+  "preview": {
+    "time": "2026-11-01T09:25:42.482Z",
+    "pid": 25623,
+    "pidStart": "2026-11-01 17:08:44 +0800",
+    "mainSHA256": "8124d09f55051290d86609dd4762af18e363a0e4ee6ab55e8b1644baec4b863b",
+    "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/00-1793524858412-01a-old-qa-removal-preview.jpg",
+    "imageSHA256": "4cff803c4f13c014e1fa4e257881224699f370569d4d5d0badd7f10ecc32c108",
+    "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/00-1793524858412-01a-old-qa-removal-preview.ax.txt",
+    "axSHA256": "bffd8fca05030ee92c7b6986effee495103194ce2be7932cb33c7e1bb56d800e"
+  },
+  "previewText": [
+    "删除 协议验证服务。0 个项目默认引用将清除，9 个历史会话保留，但无法继续使用此连接。",
+    "Pi 自有认证与外部安装不会被删除。"
+  ],
+  "limits": "Delete the connection only; no credential clearing, history deletion, source deletion or recovery deletion. Remain same A after closing main settings to observe connection-cache behavior.",
+  "lateOwnerProjectionNote": "This original current projection was taken after root-authorized deletion, so absent connection is post-delete state, not a preview mismatch. Original checks retained as late observations, not failed01a product criteria.",
+  "previewApprovalBasis": {
+    "ownerProjectionBeforePreviewAt": "2026-11-01T09:25:30.424883+00:00",
+    "uniqueOwnedConnectionBefore": true,
+    "projectDefaultsBefore": 0,
+    "historyReferencesBefore": 9,
+    "credentialRefBefore": null,
+    "authOwnerBefore": "external",
+    "rootAndTerraObservedPreview": [
+      "0个项目默认引用清除",
+      "9历史会话保留但无法继续此连接",
+      "Pi自有认证与外部安装不删除"
+    ]
+  },
+  "latePostDeleteProjection": {
+    "connectionId": "e9b4ae92-6986-4369-967c-e80da3deab14",
+    "connectionCount": 0,
+    "present": false,
+    "label": null,
+    "authOwner": null,
+    "credentialRef": null,
+    "endpoint": null,
+    "runtime": null,
+    "globalDefault": false,
+    "projectDefaultCount": 0,
+    "sessionReferenceIds": [
+      "346e59a9-9596-4f44-a64a-774b2f1a2246",
+      "436b6ad1-5f1e-42b2-8159-5f8116b6456b",
+      "44ba66cc-50f7-446e-babf-57f7ffdd8a49",
+      "5f78fbf8-2d46-4b7d-91bf-b0a67799237f",
+      "6878d80d-958a-48e0-b96b-cdc16bb798a6",
+      "84e566d5-7069-4724-b883-911ff122fcb0",
+      "cbc22afb-6c3a-4e08-b953-04702366585e",
+      "d475ea29-72de-49e0-9fe8-36d1197f34b2",
+      "e6f3e8e7-09f2-4109-a552-ab0ff06512f5"
+    ],
+    "sameBackupNine": true,
+    "allNinePresent": true
+  },
+  "lateMachineObservations": {
+    "uniqueOwnedConnection": false,
+    "safeOwnedEndpoint": false,
+    "externalNoKey": false,
+    "zeroProjectDefaults": true,
+    "sameNineHistory": true,
+    "previewZeroNinePreserved": false,
+    "externalDataPreserved": true,
+    "previewCorrectName": false
+  },
+  "checks": {
+    "ownedUniqueOldQaBeforeDelete": true,
+    "noCredentialRefBeforeDelete": true,
+    "zeroProjectDefaultsBeforeDelete": true,
+    "sameNineHistoryBeforeDelete": true,
+    "rootAndTerraConfirmedPreviewPreservesNineHistory": true,
+    "rootAndTerraConfirmedExternalAuthAndInstallationPreserved": true
+  },
+  "checksProvenance": "Before-delete fields observed by owner at09:25:30Z; preview semantically confirmed by root/Terra at09:25:42Z. Late machine observations use already-deleted state and are not01a product failures."
+}

@@ -1,0 +1,304 @@
+--- a/apps/desktop/src/App.tsx
++++ b/apps/desktop/src/App.tsx
+@@ -6,6 +6,7 @@
+ import { ProjectMenu } from './components/ProjectMenu';
+ import { ResizeHandle } from './components/ResizeHandle';
+ import { ErrorNotice } from './components/ErrorNotice';
++import { useDiscardConfirmation } from './components/UnsavedChanges';
+ import { SleepingProjectPage, type SleepingProjectSnapshot } from './components/SleepingProjectPage';
+ import type { Bootstrap, Project, ProjectSession, StopPlan, Workspace } from './workspace';
+ import { activatePlugin, pluginRuntime, usePluginEnabled, usePlugins } from './features/plugins/service';
+@@ -147,14 +148,22 @@
+ function DesktopShell(props: ShellProps) {
+   const { workspaces, projects, workspaceId, projectId, projectEpoch, booting, bootError, error, busyProject, activate: activateProject, selectWorkspace, refresh, reportError } = props;
+   const [modal, setModal] = useState<ModalKind>(null);
++  const [settingsForm, setSettingsForm] = useState({ dirty: false, busy: false });
++  const [connectionForm, setConnectionForm] = useState({ dirty: false, busy: false });
++  const [launcherForm, setLauncherForm] = useState({ dirty: false, busy: false });
++  const settingsDirtyChanged = useCallback((dirty: boolean, busy = false) => setSettingsForm({ dirty, busy }), []);
++  const connectionDirtyChanged = useCallback((dirty: boolean, busy = false) => setConnectionForm({ dirty, busy }), []);
++  const launcherDirtyChanged = useCallback((dirty: boolean, busy = false) => setLauncherForm({ dirty, busy }), []);
++  const { confirmDiscard, confirmation } = useDiscardConfirmation();
++  const confirmLeavingSettings = useCallback(() => confirmDiscard(modal === 'settings' && (settingsForm.dirty || connectionForm.dirty || launcherForm.dirty), modal === 'settings' && (settingsForm.busy || connectionForm.busy || launcherForm.busy)), [modal, settingsForm, connectionForm, launcherForm, confirmDiscard]);
+   const [mainPage, setMainPage] = useState<'overview' | 'plugins' | null>(null);
+   const [sleepingSnapshot, setSleepingSnapshot] = useState<SleepingProjectSnapshot>();
+   const overviewOpen = mainPage === 'overview';
+   const pluginsOpen = mainPage === 'plugins';
+   const fullPageOpen = mainPage !== null;
+   const activate = useCallback(async (id: string) => { const opened = await activateProject(id); if (opened) { setMainPage(null); setSleepingSnapshot(undefined); } return opened; }, [activateProject]);
+-  const openOverview = useCallback(() => { setModal(null); setMainPage('overview'); }, []);
+-  const openPlugins = useCallback(() => { setModal(null); setMainPage('plugins'); }, []);
++  const openOverview = useCallback(async () => { if (await confirmLeavingSettings()) { setModal(null); setMainPage('overview'); } }, [confirmLeavingSettings]);
++  const openPlugins = useCallback(async () => { if (await confirmLeavingSettings()) { setModal(null); setMainPage('plugins'); } }, [confirmLeavingSettings]);
+   const [settingsTab, setSettingsTab] = useState('appearance');
+   const [panels, setPanels] = useState<PanelState>(defaultPanels);
+   const [quickOpen, setQuickOpen] = useState(false);
+@@ -203,7 +212,12 @@
+   const gitSnapshot = projectId && gitEnabled ? gitSnapshots[projectId] : undefined;
+   const conflictOpen = Boolean(gitEnabled && projectId && conflicts[projectId]);
+   const fileGitStatus = useMemo(() => gitSnapshot ? Object.fromEntries(gitSnapshot.files.map(item => [item.file.fileId, item.kind === 'unmerged' ? '!' : item.kind === 'untracked' ? '?' : item.worktree.replace(/[. ]/g, '') || item.index.replace(/[. ]/g, '')])) : undefined, [gitSnapshot]);
+-  const closeModal = useCallback(() => setModal(null), []);
++  const closeModal = useCallback(async () => { if (await confirmLeavingSettings()) setModal(null); }, [confirmLeavingSettings]);
++  const openRecovery = useCallback(async () => { if (await confirmLeavingSettings()) setModal('recovery'); }, [confirmLeavingSettings]);
++  const selectSettingsProject = useCallback(async (id: string): Promise<boolean | 'cancelled'> => {
++    if (id !== projectId && !await confirmDiscard(launcherForm.dirty, launcherForm.busy)) return 'cancelled';
++    return activate(id);
++  }, [projectId, launcherForm, confirmDiscard, activate]);
+   const refreshReview = useCallback(({ projectId: id, snapshot }: { projectId: string; snapshot: GitSnapshot }) => {
+     setGitSnapshots(items => items[id]?.repoToken === snapshot.repoToken ? items : { ...items, [id]: snapshot });
+     setReviews(items => {
+@@ -274,11 +288,14 @@
+   useEffect(() => {
+     const openTerminal = (event: Event) => {
+       const detail = (event as CustomEvent<{ projectId: string }>).detail;
+-      if (detail.projectId !== projectId) void activate(detail.projectId);
+-      setWasTerminal(true); updatePanels({ terminal: true }); setModal(null);
++      void confirmLeavingSettings().then(allowed => {
++        if (!allowed) return;
++        if (detail.projectId !== projectId) void activate(detail.projectId);
++        setWasTerminal(true); updatePanels({ terminal: true }); setModal(null);
++      });
+     };
+     window.addEventListener('horizon:open-terminal', openTerminal); return () => window.removeEventListener('horizon:open-terminal', openTerminal);
+-  }, [activate, projectId, updatePanels]);
++  }, [activate, projectId, updatePanels, confirmLeavingSettings]);
+   const executeCommand = useCallback((id: string) => {
+     if (!commandEnabled(id)) return;
+     switch (id) {
+@@ -295,12 +312,12 @@
+       case 'view.focus': updatePanels({ focus: !panels.focus }); break;
+       case 'app.settings': openSettings(); break;
+       case 'app.plugins': openPlugins(); break;
+-      case 'app.recovery': setModal('recovery'); break;
++      case 'app.recovery': void openRecovery(); break;
+       case 'project.add': setModal('add'); break;
+       case 'project.overview': openOverview(); break;
+       case 'project.launch': openSettings('launch'); break;
+     }
+-  }, [chooseSidebar, openSettings, openOverview, openPlugins, panels.sidebar, panels.focus, reportError, toggleAI, toggleTerminal, updatePanels, commandEnabled, openQuickFiles]);
++  }, [chooseSidebar, openSettings, openOverview, openPlugins, openRecovery, panels.sidebar, panels.focus, reportError, toggleAI, toggleTerminal, updatePanels, commandEnabled, openQuickFiles]);
+   useEffect(() => {
+     const keys = (event: KeyboardEvent) => {
+       if (event.isComposing || event.defaultPrevented || document.querySelector('dialog[open],[aria-modal="true"],[role="menu"]')) return;
+@@ -328,12 +345,13 @@
+   }, [executeCommand, quickOpen, fullPageOpen, updatePanels, settings, projectId, filesEnabled]);
+ 
+   const prepareStop = useCallback(async (action: 'exit' | 'sleep' | 'remove', target?: Project) => {
++    if (!await confirmLeavingSettings()) return;
+     try {
+       await (await getEditor()).flushDrafts(action === 'exit' ? undefined : target!.id);
+       const plan = await call<StopPlan>(action === 'exit' ? 'app_exit_plan' : 'project_close_plan', action === 'exit' ? {} : { projectId: target!.id, action });
+       setStopPlan({ plan, project: target, action }); setModal(null);
+     } catch (reason) { reportError(reason); }
+-  }, [reportError]);
++  }, [reportError, confirmLeavingSettings]);
+   useEffect(() => {
+     if (!nativeAvailable()) return;
+     let disposed = false; let dispose: (() => Promise<void>) | undefined;
+@@ -435,7 +453,7 @@
+ 
+     {error ? <ErrorNotice message={error} onClose={props.clearError} /> : null}
+     {inaccessibleProject && props.projectAccessError ? <ProjectAccessDialog project={inaccessibleProject} failure={props.projectAccessError} onClose={props.clearProjectAccessError} open={activate} refresh={refresh} /> : null}
+-    {modal === 'settings' ? <Modal title="设置" wide onClose={closeModal} className="settings-modal">{lazyPanel('设置', <SettingsPanel onClose={closeModal} onManageRecovery={() => setModal('recovery')} projectId={projectId} projectName={project?.displayName} projects={orderedProjects} onSelectProject={activate} onManagePlugins={() => openPlugins()} onError={reportError} initialSection={settingsTab === 'agent' ? 'ai' : settingsTab === 'launch' || settingsTab === 'projects' ? 'projects' : 'appearance'} agentSettings={lazyPanel('AI 设置', <AgentSettings projectId={projectId} onError={reportError} />)} projectSettings={projectId ? lazyPanel('启动方案', <LauncherPanel projectId={projectId} onError={reportError} />) : <EmptyState title="先选择项目">启动方案属于具体项目。</EmptyState>} />)}</Modal> : null}
++    {modal === 'settings' ? <Modal title="设置" wide onClose={closeModal} className="settings-modal">{lazyPanel('设置', <SettingsPanel onClose={closeModal} onDirtyChange={settingsDirtyChanged} onManageRecovery={openRecovery} projectId={projectId} projectName={project?.displayName} projects={orderedProjects} onSelectProject={selectSettingsProject} onManagePlugins={() => void openPlugins()} onError={reportError} initialSection={settingsTab === 'agent' ? 'ai' : settingsTab === 'launch' || settingsTab === 'projects' ? 'projects' : 'appearance'} agentSettings={lazyPanel('AI 设置', <AgentSettings projectId={projectId} onError={reportError} onDirtyChange={connectionDirtyChanged} />)} projectSettings={projectId ? lazyPanel('启动方案', <LauncherPanel projectId={projectId} onError={reportError} onDirtyChange={launcherDirtyChanged} />) : <EmptyState title="先选择项目">启动方案属于具体项目。</EmptyState>} />)}</Modal> : null}
+     {modal === 'recovery' ? <Modal title="恢复草稿" wide onClose={closeModal}>{lazyPanel('恢复草稿', <RecoveryPanel projects={projects} canRestore={id => projects.some(project => project.id === id) && pluginRuntime.isEnabled('horizon.editor', id)} onRestore={async (checkpointId, id) => { await activate(id); await activatePlugin('horizon.editor', id, 'view'); await (await getEditor()).restoreDraft(checkpointId, id); setModal(null); }} />)}</Modal> : null}
+     {modal === 'workspace' ? <Modal title={editWorkspace ? '管理工作区' : '创建工作区'} className="project-setup-modal" onClose={closeModal}><WorkspaceForm onCancel={closeModal} workspace={editWorkspace} defaultWorkspace={workspaces[0]} onSaved={async id => { await refresh(); await selectWorkspace(id); openOverview(); }} onError={reportError} /></Modal> : null}
+     {modal === 'add' ? <Modal title="添加本地项目" className="project-setup-modal" onClose={closeModal}><AddProjectForm onCancel={closeModal} workspaces={workspaces} workspaceId={workspaceId} onAdded={addFinished} onError={reportError} /></Modal> : null}
+@@ -449,6 +467,7 @@
+     }} onReveal={() => { const id = projectMenu.project.id; setProjectMenu(undefined); void call('project_reveal', { projectId: id }).catch(reportError); }} onLaunch={() => {
+       const id = projectMenu.project.id; setProjectMenu(undefined); void activate(id).then(opened => { if (opened) openSettings('launch'); });
+     }} onStop={action => { const item = projectMenu.project; setProjectMenu(undefined); void prepareStop(action, item); }} /> : null}
++    {confirmation}
+     {stopPlan ? <Modal title={stopPlan.action === 'exit' ? '退出 Horizon' : `${stopPlan.action === 'sleep' ? '休眠' : '移除'}项目`} onClose={() => { if (!stopBusy) setStopPlan(undefined); }}><StopConfirmation key={stopPlan.plan.planId} {...stopPlan} projects={projects} busy={stopBusy} apply={applyStop} cancel={() => setStopPlan(undefined)} /></Modal> : null}
+   </div>;
+ }
+--- a/apps/desktop/src/features/settings/SettingsPanel.tsx
++++ b/apps/desktop/src/features/settings/SettingsPanel.tsx
+@@ -10,6 +10,7 @@
+ import { backgroundObjectUrl } from './background';
+ import { defaultShortcuts, shortcutLabels, shortcutDisplay, shortcutFromEvent } from './shortcuts';
+ import { previewAppearanceChanges, settleAppearanceChanges } from './pendingAppearance';
++import { useFormDirty, type FormDirtyListener } from '../../components/UnsavedChanges';
+ 
+ const sections = [
+   ['appearance', '主题与配色', '外观', '调整整个应用的外观，切换项目保持一致。'],
+@@ -108,7 +109,7 @@
+   </dialog>;
+ }
+ 
+-export function SettingsPanel({ projectId, projectName, projects = [], onSelectProject, onError, agentSettings, projectSettings, initialSection = 'appearance', onSectionChange, onManagePlugins, onManageRecovery, onDirtyChange, onClose }: { projectId?: string; projectName?: string; projects?: Project[]; onSelectProject?: (id: string) => Promise<boolean>; onError?: (error: unknown) => void; agentSettings?: ReactNode; projectSettings?: ReactNode; initialSection?: SettingsSection; onSectionChange?: (section: SettingsSection) => void; onManagePlugins?: () => void; onManageRecovery?: () => void; onDirtyChange?: (dirty: boolean) => void; onClose?: () => void }) {
++export function SettingsPanel({ projectId, projectName, projects = [], onSelectProject, onError, agentSettings, projectSettings, initialSection = 'appearance', onSectionChange, onManagePlugins, onManageRecovery, onDirtyChange, onClose }: { projectId?: string; projectName?: string; projects?: Project[]; onSelectProject?: (id: string) => Promise<boolean | 'cancelled'>; onError?: (error: unknown) => void; agentSettings?: ReactNode; projectSettings?: ReactNode; initialSection?: SettingsSection; onSectionChange?: (section: SettingsSection) => void; onManagePlugins?: () => void; onManageRecovery?: () => void; onDirtyChange?: FormDirtyListener; onClose?: () => void }) {
+   const appearance = useAppearance();
+   const [section, setSection] = useState<Section>(() => initialSettingsSection(initialSection));
+   const contentRef = useRef<HTMLDivElement | null>(null);
+@@ -171,9 +172,8 @@
+     setError(`${errorMessage(error)}${references.length ? `。关联配置：${references.map(id => id === 'global' ? '全局默认' : id).join('、')}` : ''}`); if (notifyGlobal) onError?.(error);
+   }, [onError]);
+   const presetDirty = editingPreset !== null && JSON.stringify(editingPreset) !== JSON.stringify(presets.find(preset => preset.id === editingPreset.id));
+-  const dirtyListener = useRef(onDirtyChange); dirtyListener.current = onDirtyChange;
+-  useEffect(() => { dirtyListener.current?.(!!pendingShortcut || !!conflict || presetDirty); }, [pendingShortcut, conflict, presetDirty]);
+-  useEffect(() => () => dirtyListener.current?.(false), []);
++  const formDirty = !!presetName || !!pendingShortcut || !!conflict || presetDirty;
++  useFormDirty(formDirty, onDirtyChange, formDirty && !!busy);
+   useEffect(() => setGitVersion(''), [settings?.effective['git.path']]);
+   const updateSnapshot = useCallback((value: AppearanceSnapshot) => { snapshotRef.current = value; setSnapshot(value); }, []);
+   const reload = useCallback(async () => {
+@@ -419,7 +419,7 @@
+     <div className="settings-content" ref={contentRef}>
+       {section !== 'ai' ? <header className="settings-heading"><h2>{recoveryVisible ? '布局未能启用' : selectedSection[2]}</h2><p>{recoveryVisible ? '新的布局没有完成加载，已经保留上次可用布局。' : selectedSection[3]}</p></header> : null}
+       {appearanceSections.includes(section) ? <nav className="appearance-tabs" aria-label="外观分类">{sections.filter(([id]) => appearanceSections.includes(id)).map(([id, label]) => <button key={id} aria-current={section === id ? 'page' : undefined} onClick={() => { void persistChanges().catch(() => {}); changeSection(id); }}>{label}</button>)}</nav> : null}
+-      {['editor', 'projects', 'git'].includes(section) ? <div className="settings-scope"><label className="settings-scope-label">设置对象<select aria-label="设置对象" value={scope === 'project' && projectId ? projectId : 'global'} disabled={!!busy} onChange={event => { const next = event.target.value; void persistChanges().then(() => run('正在切换设置对象…', async () => { if (next === 'global') { setScope('global'); return; } if (next !== projectId && (!onSelectProject || !await onSelectProject(next))) throw new Error('未能切换项目，请检查项目路径后重试。'); setScope('project'); setMessage(''); setGitIdentity(null); })).catch(() => {}); }}><option value="global">全局默认设置</option>{projects.length ? <optgroup label="项目设置">{projects.map(item => <option key={item.id} value={item.id}>{item.displayName}</option>)}</optgroup> : projectId ? <option value={projectId}>{projectName ?? '当前项目'}</option> : null}</select></label><span>{scope === 'project' ? '单独设置此项目；未单独设置的选项使用全局值' : '各项目默认使用这里的设置'}</span></div> : null}
++      {['editor', 'projects', 'git'].includes(section) ? <div className="settings-scope"><label className="settings-scope-label">设置对象<select aria-label="设置对象" value={scope === 'project' && projectId ? projectId : 'global'} disabled={!!busy} onChange={event => { const next = event.target.value; void persistChanges().then(() => run('正在切换设置对象…', async () => { if (next === 'global') { setScope('global'); return; } if (next !== projectId) { const opened = await onSelectProject?.(next); if (opened === 'cancelled') return; if (!opened) throw new Error('未能切换项目，请检查项目路径后重试。'); } setScope('project'); setMessage(''); setGitIdentity(null); })).catch(() => {}); }}><option value="global">全局默认设置</option>{projects.length ? <optgroup label="项目设置">{projects.map(item => <option key={item.id} value={item.id}>{item.displayName}</option>)}</optgroup> : projectId ? <option value={projectId}>{projectName ?? '当前项目'}</option> : null}</select></label><span>{scope === 'project' ? '单独设置此项目；未单独设置的选项使用全局值' : '各项目默认使用这里的设置'}</span></div> : null}
+       {visited.has('ai') ? <div className="settings-external" hidden={section !== 'ai'}>{agentSettings}</div> : null}
+       {error && !recoveryVisible ? <div className="settings-error" role="alert"><strong>未能完成</strong><p>{error}</p><button onClick={() => void reload().then(() => setError('')).catch(reportError)}>重新读取设置</button><button className="custom-reset" onClick={() => setError('')}>关闭</button></div> : null}
+       {snapshot?.notices.map((notice, index) => <Note key={`${notice.code}:${index}`} error>{notice.message}{onManagePlugins ? <div><button className="custom-reset" onClick={onManagePlugins}>管理插件并恢复</button></div> : null}</Note>)}
+@@ -522,7 +522,7 @@
+           <p className="settings-secondary">快捷键应用于全部项目。录入后保存生效。</p>
+           <input className="shortcut-search" aria-label="查找快捷键" placeholder="搜索操作或按键" value={shortcutSearch} onChange={event => setShortcutSearch(event.target.value)} />
+           {Object.entries(shortcutLabels).filter(([action, label]) => `${label} ${activeShortcutValues[action]}`.toLowerCase().includes(shortcutSearch.toLowerCase())).map(([action, label]) => <div className="shortcut-row" key={action}><span>{label}<small>{settingSource('shortcuts')}</small></span><div>{recording === action ? <input autoFocus aria-label={`${label}快捷键录入`} placeholder="按下组合键，Esc 取消" onKeyDown={event => keyDown(event, action)} onBlur={() => setRecording(null)} /> : <button className="shortcut-key" onClick={() => setRecording(action)} aria-label={`修改${label}快捷键`}><Pencil size={15} aria-hidden="true" /><kbd>{activeShortcutValues[action] ? shortcutDisplay(activeShortcutValues[action]) : '未绑定'}</kbd></button>}<button className="custom-reset" onClick={() => { const overrides = { ...(setting('shortcuts', {}) as Record<string, string>) }; delete overrides[action]; void writeSettings({ shortcuts: overrides }); }}>恢复默认</button></div></div>)}
+-          {conflict ? <div className="settings-error" role="alert"><strong>快捷键冲突</strong><p>{shortcutDisplay(conflict.value)} 已用于「{shortcutLabels[conflict.other]}」。替换会解除原绑定。</p><div className="settings-button-row"><button onClick={() => { void writeSettings({ shortcuts: { ...(setting('shortcuts', {}) as object), [conflict.other]: '', [conflict.action]: conflict.value } }); setConflict(null); }}>替换绑定</button><button onClick={() => setConflict(null)}>取消</button></div></div> : null}
++          {conflict ? <div className="settings-error" role="alert"><strong>快捷键冲突</strong><p>{shortcutDisplay(conflict.value)} 已用于「{shortcutLabels[conflict.other]}」。替换会解除原绑定。</p><div className="settings-button-row"><button onClick={() => { void writeSettings({ shortcuts: { ...(setting('shortcuts', {}) as object), [conflict.other]: '', [conflict.action]: conflict.value } }).then(() => setConflict(null)).catch(() => {}); }}>替换绑定</button><button onClick={() => setConflict(null)}>取消</button></div></div> : null}
+           {pendingShortcut ? <div className="setting-note"><strong>{shortcutLabels[pendingShortcut.action]}</strong><p>新快捷键：<kbd>{shortcutDisplay(pendingShortcut.value)}</kbd></p><div className="settings-button-row"><button className="filled" onClick={() => void writeSettings({ shortcuts: { ...(setting('shortcuts', {}) as object), [pendingShortcut.action]: pendingShortcut.value } }).then(() => setPendingShortcut(null)).catch(() => {})}>保存快捷键</button><button onClick={() => setPendingShortcut(null)}>取消</button></div></div> : null}
+           <Note>鼠标与快捷键触发同一操作。Esc 关闭弹窗或退出专注，保留正在运行的任务。</Note>
+         </> : null}
+--- a/apps/desktop/src/features/agent/AgentSettings.tsx
++++ b/apps/desktop/src/features/agent/AgentSettings.tsx
+@@ -2,13 +2,14 @@
+ import { Check, CircleCheck, Cloud, Download, ExternalLink, KeyRound, Laptop, Pencil, Plug, Plus, RefreshCw, Trash2, TriangleAlert } from 'lucide-react';
+ import { call, errorMessage, start } from '../../bridge';
+ import { Modal } from '../../components/Modal';
++import { useDiscardConfirmation, useFormDirty, type FormDirtyListener } from '../../components/UnsavedChanges';
+ import type { AgentConnection } from './types';
+ import { loadAgent } from './store';
+ import './agent.css';
+ type CredentialMetadata = { credentialRef: string; connectionId: string; persistence: 'system' | 'session'; configured: boolean };
+ type Detection = { ownership: 'managed' | 'userInstalled'; installed: boolean; supported: boolean; version: string | null; path: string; requiredVersion: string; downloadBytes: number; source: string; diagnostics: string[] };
+ const authLabels: Record<string, string> = { configured: '已配置 · 未验证', verified: '已验证', needsAuthentication: '需要认证' };
+-export function AgentSettings({ projectId, onError }: { projectId?: string; onError?: (error: string) => void }) {
++export function AgentSettings({ projectId, onError, onDirtyChange }: { projectId?: string; onError?: (error: string) => void; onDirtyChange?: FormDirtyListener }) {
+   const [scope, setScope] = useState<'global' | 'project'>('global'), [preferences, setPreferences] = useState<{ revision: number; effectiveConnectionId: string | null; projectConnectionId: string | null }>({ revision: 0, effectiveConnectionId: null, projectConnectionId: null }), [removal, setRemoval] = useState<{ connection: AgentConnection; impact: { impactDigest: string; sessions: unknown[]; projects: unknown[]; active: boolean } } | null>(null), [removeKey, setRemoveKey] = useState(false), [authInfo, setAuthInfo] = useState<{ command: string; instructions: string; agentDirectory: string } | null>(null);
+   const [detection, setDetection] = useState<Detection | null>(null), [connections, setConnections] = useState<AgentConnection[]>([]), [error, setError] = useState(''), [busy, setBusy] = useState(''), [editing, setEditing] = useState<AgentConnection | 'new' | null>(null), [runtimePath, setRuntimePath] = useState(''), [uninstallingRuntime, setUninstallingRuntime] = useState(false);
+   const [credentials, setCredentials] = useState<CredentialMetadata[]>([]);
+@@ -46,21 +47,26 @@
+     {uninstallingRuntime ? <Modal title="移除受管 Pi" onClose={() => { if (!busy) setUninstallingRuntime(false); }}><p className="agent-form-intro">移除 Horizon 下载的 Pi 1.4.0。使用此运行时的连接会在重新安装后恢复可用；模型连接、凭据、会话记录和用户自行安装的 Pi 均保留。</p><p className="agent-footnote">正在运行时不能移除，请先结束 Pi 实例。</p>{error ? <div className="agent-notice error" role="alert">{error}</div> : null}<div className="agent-form-actions"><button disabled={!!busy} onClick={() => setUninstallingRuntime(false)}>取消</button><button className="danger" disabled={!!busy} onClick={() => void uninstallRuntime()}>{busy === 'uninstall-runtime' ? '正在移除…' : '移除受管 Pi'}</button></div></Modal> : null}
+     {removal ? <Modal title="删除模型连接" onClose={() => { if (!busy) setRemoval(null); }}><p className="agent-form-intro">删除 {removal.connection.provider.label || removal.connection.provider.model}。{removal.impact.projects.length} 个项目默认引用将清除，{removal.impact.sessions.length} 个历史会话保留，但无法继续使用此连接。</p>{removal.impact.active ? <div className="agent-notice error">此连接正在运行，请先结束实例。</div> : null}{removal.connection.provider.credentialRef ? <label className="agent-checkbox"><input type="checkbox" checked={removeKey} onChange={e => setRemoveKey(e.target.checked)} />同时移除 Horizon 保存的 API key</label> : null}<p className="agent-footnote">Pi 自有认证与外部安装不会被删除。</p><div className="agent-form-actions"><button onClick={() => setRemoval(null)}>取消</button><button className="danger" disabled={!!busy || removal.impact.active} onClick={() => void remove()}>删除连接</button></div></Modal> : null}
+     {authInfo ? <Modal title="Pi 自有认证" onClose={() => setAuthInfo(null)}><p className="agent-form-intro">{authInfo.instructions}</p><pre className="agent-auth-command">{authInfo.command}</pre><p className="agent-footnote">目录：{authInfo.agentDirectory}。此方式由 Pi 保存认证，不会迁入系统钥匙串。</p><div className="agent-form-actions"><button className="tonal" onClick={() => void navigator.clipboard.writeText(authInfo.command)}>复制终端命令</button><button onClick={() => setAuthInfo(null)}>完成</button></div></Modal> : null}
+-    {editing ? <ConnectionForm initial={editing === 'new' ? undefined : editing} credential={editing === 'new' ? undefined : credentials.find(item => item.credentialRef === editing.provider.credentialRef)} runtimePath={runtimePath} projectId={projectId} onClose={() => setEditing(null)} onSaved={() => { setEditing(null); refreshAgent(); void refresh().catch(fail); }} /> : null}
++    {editing ? <ConnectionForm initial={editing === 'new' ? undefined : editing} credential={editing === 'new' ? undefined : credentials.find(item => item.credentialRef === editing.provider.credentialRef)} runtimePath={runtimePath} projectId={projectId} onDirtyChange={onDirtyChange} onClose={() => setEditing(null)} onSaved={() => { setEditing(null); refreshAgent(); void refresh().catch(fail); }} /> : null}
+   </section>;
+ }
+-function ConnectionForm({ initial, credential, runtimePath, onClose, onSaved }: { initial?: AgentConnection; credential?: CredentialMetadata; runtimePath: string; projectId?: string; onClose: () => void; onSaved: () => void }) {
++function ConnectionForm({ initial, credential, runtimePath, onDirtyChange, onClose, onSaved }: { initial?: AgentConnection; credential?: CredentialMetadata; runtimePath: string; projectId?: string; onDirtyChange?: FormDirtyListener; onClose: () => void; onSaved: () => void }) {
+   const savedPersistence = credential?.persistence ?? 'system';
+   const missingCredential = Boolean(initial?.provider.credentialRef) && !credential?.configured;
+   const expiredSession = missingCredential && credential?.persistence === 'session';
+   const credentialHint = expiredSession ? '会话凭据已过期，请重新输入 API key。' : missingCredential ? '凭据未配置，请重新输入 API key。' : '保存为安全引用，不写入连接 JSON。';
+   const [name, setName] = useState(initial?.provider.label ?? ''), [provider, setProvider] = useState(initial?.provider.id ?? 'horizon-openai'), [api, setApi] = useState(initial?.provider.api ?? 'openai-completions'), [endpoint, setEndpoint] = useState(initial?.provider.endpoint ?? 'https://api.openai.com/v1'), [model, setModel] = useState(initial?.provider.model ?? ''), [key, setKey] = useState(''), [persistence, setPersistence] = useState(savedPersistence), [owner, setOwner] = useState(initial?.authOwner ?? 'horizon'), [saving, setSaving] = useState(false), [error, setError] = useState('');
++  const [connectionId] = useState(() => initial?.connectionId ?? crypto.randomUUID());
++  const dirty = name !== (initial?.provider.label ?? '') || provider !== (initial?.provider.id ?? 'horizon-openai') || api !== (initial?.provider.api ?? 'openai-completions') || endpoint !== (initial?.provider.endpoint ?? 'https://api.openai.com/v1') || model !== (initial?.provider.model ?? '') || owner !== (initial?.authOwner ?? 'horizon') || persistence !== savedPersistence || key !== '';
++  useFormDirty(dirty, onDirtyChange, saving);
++  const { confirmDiscard, confirmation } = useDiscardConfirmation();
++  const close = async () => { if (await confirmDiscard(dirty, saving)) onClose(); };
+   const save = async () => { setError(''); if (owner === 'horizon' && initial?.provider.credentialRef && persistence !== savedPersistence && !key) { setError('更改凭据保存方式需要重新输入 API key。'); return; } setSaving(true); try {
+-    const connectionId = initial?.connectionId ?? crypto.randomUUID(); let credentialRef = initial?.provider.credentialRef;
+-    if (key) { const result = await call<{ credentialRef: string }>('credential_set', { connectionId, secret: key, persistence }); credentialRef = result.credentialRef; setKey(''); }
+-    await call('agent_connection_save', { expectedRevision: initial?.revision ?? 0, connection: { connectionId, adapterId: 'pi', runtime: runtimePath ? { source: 'userInstalled', executablePath: runtimePath, version: '1.4.0' } : initial?.runtime ?? { source: 'managed', version: '1.4.0' }, provider: { id: provider.trim(), api, endpoint: endpoint.trim(), model: model.trim(), label: name.trim(), ...(credentialRef ? { credentialRef } : {}) }, authOwner: owner } }); onSaved();
++    let credentialRef = initial?.provider.credentialRef;
++    if (key) { const result = await call<{ credentialRef: string }>('credential_set', { connectionId, secret: key, persistence }); credentialRef = result.credentialRef; }
++    await call('agent_connection_save', { expectedRevision: initial?.revision ?? 0, connection: { connectionId, adapterId: 'pi', runtime: runtimePath ? { source: 'userInstalled', executablePath: runtimePath, version: '1.4.0' } : initial?.runtime ?? { source: 'managed', version: '1.4.0' }, provider: { id: provider.trim(), api, endpoint: endpoint.trim(), model: model.trim(), label: name.trim(), ...(credentialRef ? { credentialRef } : {}) }, authOwner: owner } }); setKey(''); onSaved();
+   } catch (e) { setError(errorMessage(e)); } finally { setSaving(false); } };
+-  return <Modal title={initial ? '编辑模型连接' : '添加模型连接'} onClose={() => { if (!saving) onClose(); }} className="agent-connection-modal"><form className="agent-connection-form" onSubmit={e => { e.preventDefault(); void save(); }}>
++  return <><Modal title={initial ? '编辑模型连接' : '添加模型连接'} onClose={() => void close()} className="agent-connection-modal"><form className="agent-connection-form" onSubmit={e => { e.preventDefault(); void save(); }}>
+     <p className="agent-form-intro">由 Pi 使用这个连接。选择与你的服务一致的 API 协议。</p>
+     <label>连接名称<input autoFocus value={name} onChange={e => setName(e.target.value)} placeholder="例如：开发助手" /></label>
+     <div className="agent-form-grid"><label>提供商 ID<input required value={provider} onChange={e => setProvider(e.target.value)} /></label><label>API 协议<select value={api} onChange={e => setApi(e.target.value)}><option value="openai-completions">OpenAI Chat Completions</option><option value="openai-responses">OpenAI Responses</option><option value="anthropic-messages">Anthropic Messages</option><option value="google-generative-ai">Google Generative AI</option></select></label></div>
+@@ -68,6 +74,6 @@
+     <label>模型 ID<input required value={model} onChange={e => setModel(e.target.value)} placeholder="服务提供的精确模型 ID" /></label>
+     <label>认证归属<select value={owner} onChange={e => setOwner(e.target.value as AgentConnection['authOwner'])}><option value="horizon">Horizon API key</option><option value="external">本地服务 / 外部认证</option><option value="runtime">Pi 已有认证</option></select></label>
+     {owner === 'horizon' ? <><label>API key<input type="password" autoComplete="off" value={key} onChange={e => setKey(e.target.value)} placeholder={credential?.configured ? '已保存，留空保持原凭据' : expiredSession ? '会话凭据已过期，请重新输入' : '输入凭据'} /><small><KeyRound size={12} />{credentialHint}</small></label><label className="agent-inline-label">凭据保存<select value={persistence} onChange={e => setPersistence(e.target.value as CredentialMetadata['persistence'])}><option value="system">系统钥匙串</option><option value="session">仅本次应用会话</option></select></label></> : owner === 'runtime' ? <p className="agent-notice">Pi 认证保存在 Horizon 专用 Pi 目录的 auth.json，由 Pi 管理。完成配置后可查看认证目录；不会读取用户全局 Pi 认证。</p> : <p className="agent-footnote">无认证的本机服务无需密钥。外部服务仍须自身提供访问控制。</p>}
+-    {error ? <div className="agent-notice error" role="alert">{error}</div> : null}<div className="agent-form-actions"><button type="button" onClick={onClose} disabled={saving}>取消</button><button type="submit" className="filled" disabled={saving || !model.trim() || !endpoint.trim()}><Check size={15} />{saving ? '保存中…' : '保存连接'}</button></div>
+-  </form></Modal>;
++    {error ? <div className="agent-notice error" role="alert">{error}</div> : null}<div className="agent-form-actions"><button type="button" onClick={() => void close()} disabled={saving}>取消</button><button type="submit" className="filled" disabled={saving || !model.trim() || !endpoint.trim()}><Check size={15} />{saving ? '保存中…' : '保存连接'}</button></div>
++  </form></Modal>{confirmation}</>;
+ }
+--- a/apps/desktop/src/features/processes/index.tsx
++++ b/apps/desktop/src/features/processes/index.tsx
+@@ -1,6 +1,7 @@
+ import { useCallback, useEffect, useRef, useState } from "react";
+ import type { Terminal } from "@xterm/xterm";
+ import { Settings2, X } from "lucide-react";
++import { useDiscardConfirmation, useFormDirty, type FormDirtyListener } from "../../components/UnsavedChanges";
+ import {
+   call,
+   start,
+@@ -853,7 +854,7 @@
+   );
+ }
+ 
+-export function LauncherPanel({ projectId, onError }: Props) {
++export function LauncherPanel({ projectId, onError, onDirtyChange }: Props & { onDirtyChange?: FormDirtyListener }) {
+   const model = useLauncher(projectId, onError);
+   const [draft, setDraft] = useState<Profile | null>(null);
+   const [candidates, setCandidates] = useState<Candidate[] | null>(null);
+@@ -861,6 +862,8 @@
+   const [log, setLog] = useState<string>();
+   const [notice, setNotice] = useState("");
+   const [deleting, setDeleting] = useState<Profile | null>(null);
++  useFormDirty(!!draft, onDirtyChange, saving);
++  const { confirmDiscard, confirmation } = useDiscardConfirmation();
+   useEffect(() => {
+     setDraft(null);
+     setCandidates(null);
+@@ -1073,9 +1076,7 @@
+             </button>
+             <button
+               disabled={saving}
+-              onClick={() => {
+-                if (window.confirm("放弃未保存的方案修改？")) setDraft(null);
+-              }}
++              onClick={() => { void confirmDiscard(!!draft, saving).then(discard => { if (discard) setDraft(null); }); }}
+             >
+               取消
+             </button>
+@@ -1354,6 +1355,7 @@
+           onConfirm={() => void remove()}
+         />
+       ) : null}
++      {confirmation}
+     </section>
+   );
+ }
+--- /dev/null
++++ b/apps/desktop/src/components/UnsavedChanges.tsx
+@@ -0,0 +1,31 @@
++import { useCallback, useEffect, useRef, useState } from 'react';
++import { Modal } from './Modal';
++
++export type FormDirtyListener = (dirty: boolean, busy?: boolean) => void;
++
++export function useFormDirty(dirty: boolean, onDirtyChange?: FormDirtyListener, busy = false) {
++  const listener = useRef(onDirtyChange); listener.current = onDirtyChange;
++  useEffect(() => { listener.current?.(dirty, busy); }, [dirty, busy]);
++  useEffect(() => () => listener.current?.(false, false), []);
++}
++
++export function useDiscardConfirmation() {
++  const [pending, setPending] = useState<((discard: boolean) => void) | null>(null);
++  const resolver = useRef<((discard: boolean) => void) | null>(null);
++  const confirmDiscard = useCallback((dirty: boolean, busy = false): Promise<boolean> => {
++    if (busy || resolver.current) return Promise.resolve(false);
++    if (!dirty) return Promise.resolve(true);
++    return new Promise(resolve => { resolver.current = resolve; setPending(() => resolve); });
++  }, []);
++  const finish = useCallback((discard: boolean) => {
++    const resolve = resolver.current; resolver.current = null; setPending(null); resolve?.(discard);
++  }, []);
++  useEffect(() => () => { resolver.current?.(false); resolver.current = null; }, []);
++  const confirmation = pending ? <div onKeyDown={event => { if (event.key === 'Escape') event.stopPropagation(); }} onCancel={event => { event.preventDefault(); event.stopPropagation(); finish(false); }}>
++    <Modal title="放弃未保存的修改？" onClose={() => finish(false)}>
++      <p>未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。</p>
++      <div className="form-actions"><button autoFocus onClick={() => finish(false)}>继续编辑</button><button className="danger-button" onClick={() => finish(true)}>放弃修改</button></div>
++    </Modal>
++  </div> : null;
++  return { confirmDiscard, confirmation };
++}

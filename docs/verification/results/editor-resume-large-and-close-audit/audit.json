@@ -1,0 +1,182 @@
+{
+  "auditedAt": "2026-11-01T03:04:52.163592+00:00",
+  "method": "IndependentoriginalnativeJPEG/actualfixturebyteaudit, prior10/50MiBactualGUI evidence, samepreviouslytestedproductionstore/source invariants; noGUI/test rerun",
+  "screenshots": [
+    {
+      "path": "docs/verification/results/editor-resume-20261101/039-limit-single-line-99999-txt.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "9c6f718318ffd168aff7802a37a2e63c1cf3329fdf9c55e461a489491c6bf14b",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/040-limit-single-line-100000-txt.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "c4547e71e4fedb37c97333681844384fc01ccf4df71c361d86be8cd269d226f3",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/041-limit-single-line-100001-txt.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "f22969e0c62c9e7188ea263dd00b6367f89f5870215dd9591e9e36e6e249da2e",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/043-limit-binary-bin.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "b52613ae8e684145b6e57bd5e9b3f606b32d4a5f2463821834e515feaae1e498",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/044-101MiB-chunked-final-and-background-sleep.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "bd4a0c008265f49bca40a363b44cda682c255e8b0ba3eec159a5021dbe3d47ff",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/045-101MiB-next-chunk-save-disabled.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "a36422afff7da5e4ca8a386c93ba1dc5bd7b70771161ccac05e25a71e027d7dc",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/046-binary-system-archive-result.jpg",
+      "format": "JPEG",
+      "pixels": [
+        378,
+        138
+      ],
+      "sha256": "11e5578c97e335324137be68cc8345c2d02804fbdac4dcb9453d0ed544f10fe2",
+      "independentlyViewed": true
+    }
+  ],
+  "files": [
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/limits/single-line-99999.txt",
+      "bytes": 100000,
+      "singleLineChars": 99999,
+      "sha256": "6f143f3ad2b4510e4fec08b2991e27b526da42eeb10488f309b702b63221b295",
+      "matchesGenerator": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/limits/single-line-100000.txt",
+      "bytes": 100001,
+      "singleLineChars": 100000,
+      "sha256": "bfea3d32f999b72aa62c59ea58089c7d910d03a088fea16033b5fc1c4824e525",
+      "matchesGenerator": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/limits/single-line-100001.txt",
+      "bytes": 100002,
+      "singleLineChars": 100001,
+      "sha256": "a600aec0fb98937c1d5474dae52f88bb79acd48bf17ebaea6ee7a1428a626f33",
+      "matchesGenerator": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/limits/binary.bin",
+      "bytes": 4096,
+      "sha256": "c8f5d0341d54d951a71b136e6e2afcb14d11ed8489a7ae126a8fee0df6ecf193",
+      "matchesGenerator": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/limits/text-101MiB.txt",
+      "bytes": 105906176,
+      "sha256": "c55450324cbc5c1aee46710c31bb70640b56cc01b134241a26734657e81c19b9",
+      "matchesGenerator": true,
+      "comparison": "Computed expectedhash in memory fromexistinggenerator; nofixturewritten"
+    }
+  ],
+  "source": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "copy": "docs/verification/results/editor-resume-large-and-close-audit/source/packages/editor/src/store.ts",
+      "sha256": "3e3d7933e25111d63a0eb2f0d2f539d5ad89a3ae4d30b5b092e62a7a018ecdd9"
+    },
+    {
+      "path": "packages/editor/src/store.test.ts",
+      "copy": "docs/verification/results/editor-resume-large-and-close-audit/source/packages/editor/src/store.test.ts",
+      "sha256": "27f2c962ad7a9e5941f27d76516ca04dd170229677d29d507ee4eb1d6519a075"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "copy": "docs/verification/results/editor-resume-large-and-close-audit/source/apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "fec6e25f939d91f3667ec0955baf548fc59f614ad9cbf3d3ffb4a0235ef42a65"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/files.rs",
+      "copy": "docs/verification/results/editor-resume-large-and-close-audit/source/apps/desktop/src-tauri/src/files.rs",
+      "sha256": "d203b3d80b99b3d0cc33eef9c1d79a5ef57f95a821c914661176ea52420d8edf"
+    }
+  ],
+  "largeClauses": [
+    {
+      "condition": "10MiB/50MiB/100kline independentlydegrade",
+      "evidence": "Priorcandidate7 original17–20/images+baselinehashaudit:10MiBreadonly,50MiBboundedchunks,120kline; current039–041 actual99999normal,100000/100001simplifiedreadonly."
+    },
+    {
+      "condition": "Size,range,readonlyreason",
+      "evidence": "Current040/04197.7KiBandcorrectlonglinereason;044/045101.0MiB and0–262144→262144–524288 ranges. Sharedcurrentreadonlybranch no longerencoding/permissionfalsecause."
+    },
+    {
+      "condition": "Partialloadcannotoverwritefullfile",
+      "evidence": "Actual044/045Save disabled;101MiB fullhash matchesexistinggenerator; old50MiBCmdSblocked/hashunchanged; productionstore save rejectsnoneditor/readonly."
+    },
+    {
+      "condition": "Binaryopensviasystem",
+      "evidence": "Actual043binarytab cannottextsave andsystemopenbutton;046ArchiveUtility receivesbinary.bin andrejectsunsupportedarchive. Syntheticbytesare notvalidarchive; delegation is observed."
+    }
+  ],
+  "closeClauses": [
+    {
+      "condition": "Save/discard/cancelindependent",
+      "evidence": "Actualnative21showsseparateactions;source saved dispatches save thenclose,discard document_close decisiondiscard, cancelclearsqueue only."
+    },
+    {
+      "condition": "Savefailuredoesnotclose",
+      "evidence": "Native21stillshowsdialog/path/errorafterfailedsave;018dirtyfulltextretained;productionstore returnsfalse beforedocument_close."
+    },
+    {
+      "condition": "Cancelrestoresoriginalcontext",
+      "evidence": "Priorcandidate7 nativeclose-cancel-focus screenshot/action: immediatelytypedq withnoclick; oldfocusfailure superseded."
+    },
+    {
+      "condition": "DiscardbufferdoesnotGitrestore",
+      "evidence": "Exact currentdocument_close removeshostdocument/recoverycheckpoint only; source hasnoGitdispatch. Productionstore batchtest callsdiscard ondirty1 thenobservesnextdirty2."
+    },
+    {
+      "condition": "Batchcloseindividualhandling",
+      "evidence": "Same38passstoretest clean→dirty1→dirty2 withpendingCloseperfile;cancelretainsremainingtext. Native21 validates sameperfiledialog/errorrenderer; no claimnewGUIbatchrun."
+    }
+  ],
+  "limits": [
+    "042isloadingtransientandnotlargefileendpoint; use044/045.",
+    "101MiBrefusal is notREQ-FILE011/PRDcondition; chunkedreadonlyisvalidlargerfilecase.",
+    "Native100000lineboundaryisrecordedexactly; nooffbyoneclaimderivedfrominitialsuggestedPRDwording.",
+    "ArchiveUtilitycannotdecodefakebinary; Horizonactualsystemdelegation iswhatpassed.",
+    "Closebatchmicrosequence verifiedviaactualproductionStore withcontrolledtransport, notnewnativeGUIbatch.",
+    "No8layoutvisualpassfromfunctionalimages."
+  ]
+}

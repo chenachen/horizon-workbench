@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-31",
+  "status": "source-fixed-for-candidate7; typecheck-passed; native-GUI-pending",
+  "candidate6Counterexample": {
+    "reportedBy": "root from Pi native GUI verification",
+    "selectedScope": "project",
+    "extension": "horizon.agent",
+    "before": "Card showed disabled and global-default source; enabledGlobal=false",
+    "action": "Clicked the ordinary Enable button once",
+    "observed": "enabledGlobal became true because PluginCenter silently substituted scope=global",
+    "rawEvidence": null,
+    "evidenceNote": "Counterexample supplied by root. Raw Pi action/screenshot reference will be linked after its operator archives the round. This agent did not operate the candidate6 GUI."
+  },
+  "confirmedSourceCauses": [
+    "toggle replaced the selected project scope with global whenever enabledGlobal was false",
+    "runtime-list onResume replaced the selected scope with global whenever pausedGlobal was true"
+  ],
+  "candidate7Changes": [
+    "Enable and resume requests use the selected scope without substitution",
+    "Project scope plus global disabled/paused state shows the restriction and an explicit Switch to all projects button, with no native mutation",
+    "Switching scope only changes the visible scope and asks the user to click Enable/Resume again",
+    "Card and runtime resume share the same scope check",
+    "Details show the current action scope; enable/resume labels no longer infer a global action from policy state"
+  ],
+  "changedFiles": [
+    "apps/desktop/src/features/plugins/PluginCenter.tsx",
+    "apps/desktop/src/features/plugins/PluginDetails.tsx",
+    "apps/desktop/src/features/plugins/PluginRuntimeList.tsx"
+  ],
+  "candidate7RequiredNativeRetest": [
+    "With global disabled and current-project scope, click Enable: global and project registry policy stay byte-identical; restriction notice appears",
+    "Click Switch to all projects: only scope changes; enabledGlobal remains false",
+    "Click Enable again: explicit global enable succeeds",
+    "With global enabled but project disabled, current-project Enable changes only that project; another project and global policy remain unchanged",
+    "With pausedGlobal=true and current-project scope, both card and runtime Resume refuse implicit global resume",
+    "After explicit scope switch, a separate Resume action clears global pause; ordinary project-only pause/resume remains isolated"
+  ],
+  "verification": {
+    "nativeGuiExecuted": false,
+    "nativeTestsExecuted": false,
+    "typecheckExecutedAfterThisChange": true,
+    "typecheckExitCode": 0,
+    "typecheckRaw": "../../raw/plugins-candidate7/desktop-check.log",
+    "candidate6BundleChanged": false
+  }
+}

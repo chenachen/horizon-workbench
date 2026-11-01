@@ -1,0 +1,87 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.65s
+     Running unittests src/lib.rs (apps/desktop/src-tauri/target/debug/deps/horizon_host-75c8e9d043c0aa41)
+
+running 42 tests
+test agent::tests::real_pi_broker_review_and_secret_isolation ... ignored, Requires HORIZON_PI_BINARY official Pi 1.4.0 and Node; run scripts/test-pi-native.mjs
+test appearance::tests::backgrounds_reject_remote_paths_and_out_of_range_values ... ok
+test agent::tests::path_boundary_rejects_escape_and_symlinks ... ok
+test appearance::tests::colors_are_normalized_and_css_payloads_rejected ... ok
+test appearance::tests::project_fields_override_only_selected_values ... ok
+test files::tests::invalid_names_cannot_escape ... ok
+test files::tests::detect_mixed_lines ... ok
+test files::tests::unicode_round_trips ... ok
+test extensions::package_tests::checked_in_zip_matches_development_directory ... ok
+test extensions::package_tests::zip_rejects_symlinks ... ok
+test processes::tests::bounded_bytes_keep_utf8_raw ... ok
+test files::tests::revision_detects_same_size_change ... ok
+test processes::tests::credential_redaction_handles_split_output ... ok
+test processes::tests::cwd_rejects_escape ... ok
+test extensions::package_tests::zip_rejects_traversal_absolute_paths_and_case_collisions ... ok
+test processes::tests::discovery_reads_nested_scripts_without_executing ... ok
+test extensions::package_tests::zip_checks_uncompressed_size ... ok
+test processes::tests::http_fixture_server ... ignored, child process fixture, invoked by owned_http_readiness
+test appearance::tests::presets_reject_unknown_tokens_and_keep_missing_package_as_dependency ... ok
+test processes::tests::hidden_output_is_continuously_consumed_with_bounded_history ... ok
+test appearance::tests::custom_resource_uses_owning_package_for_gates_and_preset_references ... ok
+test processes::tests::authorization_snapshot_rejects_changed_script_and_missing_approval ... ok
+test appearance::tests::preferences_survive_restart_and_narrow_window_does_not_rewrite ... ok
+test processes::tests::owned_pty_handles_chinese_resize_and_stop ... ok
+test processes::tests::port_preflight_leaves_external_listener_alive ... ok
+test processes::tests::profile_export_omits_secrets_and_local_authorization ... ok
+test processes::tests::rejects_cycles_and_unknown_dependencies ... ok
+test processes::tests::direct_terminal_lease_releases_after_natural_exit ... ok
+test processes::tests::tauri_app_handle_delivers_process_transport_events ... ok
+test processes::tests::cancellation_stops_owned_run_even_when_failure_policy_keeps_processes ... ok
+test settings::tests::export_redacts_secrets_and_paths ... ok
+test settings::tests::inheritance ... ok
+test settings::tests::reject_unknown_or_invalid ... ok
+test processes::tests::launch_lease_uses_actual_activation_and_releases_its_origin ... ok
+test processes::tests::terminal_input_backpressure_does_not_block_stop ... ok
+test processes::tests::background_service_exit_stops_siblings_and_releases_lease ... ok
+test processes::tests::owned_http_readiness_and_restart_preflight_accept_only_owned_port ... ok
+test processes::tests::launch_waits_for_dependencies_and_stops_in_reverse_order ... ok
+test processes::tests::launch_failure_and_timeout_stop_only_owned_run ... ok
+test processes::tests::stopping_terminal_releases_pty_dependencies_and_preserves_other_project ... ok
+test appearance::tests::imported_image_is_resized_deduplicated_and_independent_of_original ... ok
+test processes::tests::interactive_pty_accepts_chinese_input_and_applies_actual_size ... ok
+
+test result: ok. 40 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 2.01s
+
+     Running tests/files_workflow.rs (apps/desktop/src-tauri/target/debug/deps/files_workflow-80399783b1bfcb5f)
+
+running 18 tests
+test non_utf8_paths_are_lossless_and_project_ids_are_scoped ... ok
+test project_symlink_cannot_escape ... ok
+test rename_does_not_overwrite_collision ... ok
+test image_preview_checks_dimensions_before_returning_browser_bytes ... ok
+test project_dedup_and_session_survive_restart ... ok
+test settings_invalid_patch_is_atomic ... ok
+test empty_workspace_selection_and_project_move_survive_restart ... ok
+test sleeping_project_rejects_its_old_epoch_after_reactivation ... ok
+test directory_cursor_invalidates_after_change ... ok
+test recovery_survives_host_restart_and_does_not_touch_disk ... ok
+test rename_preserves_opaque_ids_and_unrelated_dirty_baseline ... ok
+test save_as_exports_copy_without_replacing_original_document ... ok
+test undo_to_saved_content_removes_checkpoint_without_changing_disk_baseline ... ok
+test save_is_conditional_and_preserves_bom_eol ... ok
+test saving_older_snapshot_keeps_newer_checkpoint_dirty ... ok
+test close_retains_latest_checkpoint_and_releases_only_its_project ... ok
+test utf16_and_mixed_eol_are_read_only ... ok
+test big_file_chunks_preserve_utf8_boundaries_and_reject_changed_file ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.23s
+
+     Running tests/search_workflow.rs (apps/desktop/src-tauri/target/debug/deps/search_workflow-f62ab5b3854f5445)
+
+running 7 tests
+test invalid_regex_does_not_spawn_a_process ... ok
+test completed_search_and_path_caches_are_bounded_across_projects ... ok
+test fuzzy_paths_reuse_a_bounded_index ... ok
+test invalid_utf8_search_uses_absolute_byte_ranges ... ok
+test ripgrep_limits_results_and_preserves_readable_pages ... ok
+test cancellation_reaps_the_owned_search_process ... ok
+test ripgrep_reports_utf16_positions_and_respects_ignore ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+

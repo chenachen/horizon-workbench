@@ -1,0 +1,163 @@
+{
+  "checkedAt": "2026-11-01T17:08:51.079197+00:00",
+  "stage": "L1 restart adopts saved v2; one readonly native-bound check",
+  "native": {
+    "approvedAt": "2026-11-01T17:07:14.460Z",
+    "runId": "launch-1793552835379-7",
+    "profileRevision": 2,
+    "newServicePid": 66699,
+    "newFollowerPid": 66705,
+    "captureNote": "Terra initially reported 02-restart-v2-ready reused a stopping frame, then re-read both original AX files and corrected: both already show new revision2 and old revision1 exited (same AX hash prefix d7d05b). The transient stopping state was in tool output and was not captured as an image. Original files and correction history retained in native manifest; new 02-restart-visible-final shows actual new/old runs and PIDs. This OS receipt does not infer capture contents independently.",
+    "finalCaptureReported": "02-restart-visible-final"
+  },
+  "processes": [
+    {
+      "pid": 41657,
+      "ppid": 1,
+      "pgid": 41657,
+      "lstart": "Mon Nov 2 00:05:09 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    {
+      "pid": 66699,
+      "ppid": 41657,
+      "pgid": 66699,
+      "lstart": "Mon Nov 2 01:07:15 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node service.mjs"
+    },
+    {
+      "pid": 66705,
+      "ppid": 41657,
+      "pgid": 66705,
+      "lstart": "Mon Nov 2 01:07:15 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node follower.mjs"
+    }
+  ],
+  "snapshots": [
+    {
+      "role": "service",
+      "pid": 27921,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "port": 59133,
+      "startedAt": "2026-11-01T16:47:14.391Z"
+    },
+    {
+      "role": "follower",
+      "pid": 27928,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "startedAt": "2026-11-01T16:47:14.604Z"
+    },
+    {
+      "role": "service",
+      "pid": 66699,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "updated",
+      "port": 59133,
+      "startedAt": "2026-11-01T17:07:15.446Z"
+    },
+    {
+      "role": "follower",
+      "pid": 66705,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "startedAt": "2026-11-01T17:07:15.563Z"
+    }
+  ],
+  "snapshotsSha256": "f40a02f51a3e7b6c7309412f1561340bc93f4bbb8dc83aedf22d9aff3fb8f62e",
+  "stopOrder": [
+    {
+      "role": "follower",
+      "pid": 27928,
+      "at": "2026-11-01T17:07:14.583Z"
+    },
+    {
+      "role": "service",
+      "pid": 27921,
+      "at": "2026-11-01T17:07:14.640Z"
+    }
+  ],
+  "port59133": {
+    "exitCode": 0,
+    "stdout": "COMMAND   PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    66699 chenpengxiang   21u  IPv4 0x1f3f67edab0bd1f7      0t0  TCP 127.0.0.1:59133 (LISTEN)\n"
+  },
+  "savedOwnedProfile": {
+    "schemaVersion": 1,
+    "profileId": "profile-1793551533187-1",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 2,
+    "name": "1101 快照 · 自动 URL · 删除（导入）",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "service",
+        "title": "显式 Shell · 快照服务",
+        "dependsOn": [],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' service.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "PORT": "59133",
+          "SNAPSHOT": "updated"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "stdout",
+          "pattern": "READY",
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59133/saved",
+          "autoOpenUrl": true
+        }
+      },
+      {
+        "stepId": "follower",
+        "title": "无探针后继",
+        "dependsOn": [
+          "service"
+        ],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' follower.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "SNAPSHOT": "original"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  "checks": {
+    "oldOriginalPidNumbersAbsent": true,
+    "newTwoDistinctOwnedGroups": true,
+    "sameAppIdentity": true,
+    "savedProfileRevisionTwoUnchanged": true,
+    "originalSnapshotPrefixUnchanged": true,
+    "exactlyOneNewServiceUpdatedAndFollowerOriginal": true,
+    "oldReverseStopOrder": true,
+    "portListenerIsNewService": true
+  },
+  "browserSecondAutoUrl": "Terra matching-target inventory pending; owner does not access unrelated tabs",
+  "ownerActions": "Readonly own profile/markers/exact ps/listener; no GUI/start/signal/build"
+}

@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-01T12:26:27.726246+00:00",
+  "source": "Terra native UI reports one new zsh session PID9823 running in QA; owner read-only OS confirmation",
+  "processes": [
+    {
+      "pid": 8737,
+      "ppid": 1,
+      "pgid": 8737,
+      "lstart": "Sun Nov 1 18:41:19 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    {
+      "pid": 9823,
+      "ppid": 8737,
+      "pgid": 9823,
+      "lstart": "Sun Nov 1 20:25:43 2026",
+      "command": "/bin/zsh -l"
+    }
+  ],
+  "ps": {
+    "exitCode": 0,
+    "stdout": " 8737     1  8737 Sun Nov  1 18:41:19 2026     /Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop\n 9823  8737  9823 Sun Nov  1 20:25:43 2026     /bin/zsh -l\n",
+    "stderr": ""
+  },
+  "cwd": {
+    "exitCode": 0,
+    "stdout": "p9823\nfcwd\nn/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收\n",
+    "stderr": ""
+  },
+  "tty": {
+    "exitCode": 0,
+    "stdout": "p9823\nf0\nn/dev/ttys001\nf1\nn/dev/ttys001\nf2\nn/dev/ttys001\n",
+    "stderr": ""
+  },
+  "checks": {
+    "parentAppSame": true,
+    "shellDirectChildOfApp": true,
+    "cwdExact": true
+  },
+  "ownerStartedProcess": false,
+  "guiActions": false
+}

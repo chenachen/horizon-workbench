@@ -1,0 +1,65 @@
+{
+  "reviewedAt": "2026-10-30T19:44:49.509191+00:00",
+  "build": "candidate5; main SHA256 8265d62143a81c380acd350dc8c261685f241a2bc3fd0cfbece65c81073b00b2",
+  "method": "Independent original native PNG, source bytes, native diagnostic export and browser-regression assertion review",
+  "nativeSequence": "Editor plugin sleep/confirm/wake while shell retained, return to three-line body with line numbers; switch Aurora and UI Kit; project sleep returns welcome",
+  "browserRegression": {
+    "beforePassed": false,
+    "afterPassed": true,
+    "afterPhases": 6,
+    "testSourceSHA256": "28c9dbc91431b52fcfb02c933ea18eb0bfefcbbb594a8726bb9483eb32f426c6",
+    "transport": "Controlled file/checkpoint transport in browser; real React/CodeMirror view lifecycle, separate from native sequence"
+  },
+  "sourceFiles": {
+    "aurora": {
+      "bytes": 619,
+      "sha256": "ab3aca97a67b71d8eda4c5bbea735e9246a9edf0fe2ff183799bf22e3f4fc400",
+      "has_utf8_bom": false,
+      "crlf_count": 0,
+      "text": "import { createStore } from \"./store\";\nimport type { Project } from \"./types\";\n\nexport const workspace = createStore({\n  activeProject: \"aurora\",\n  projects: new Map<string, Project>(),\n});\n\nexport async function switchProject(id: string) {\n  const current = workspace.get().activeProject;\n\n  // 保存当前项目的标签与阅读位置\n  await saveSession(current);\n  const session = await restoreSession(id);\n\n  workspace.set({ activeProject: id });\n  editor.restore(session.tabs);\n  panels.restore(session.layout);\n}\n\n// 独立项目，各自保持上下文。\n// ：，。\n// 粘贴验收：你好，地平线。\n"
+    },
+    "uikit": {
+      "bytes": 51,
+      "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+      "has_utf8_bom": true,
+      "crlf_count": 3,
+      "text": "第一行\r\n第二行\r\n第三行：中文保存\r\n"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "docs/verification/screenshots/root-candidate5/01-mist-project-overview.png",
+      "sha256": "13146fd71da1ea66d9999210f24f5cac88da9b5e8cf2fb13382a5451b4098b18"
+    },
+    {
+      "path": "docs/verification/screenshots/root-candidate5/02-mist-plugins-full-page.png",
+      "sha256": "fa80ddcb20770e840d1aafb3cf875250cabd769f0efea39da34d0c4030d3a1d9"
+    },
+    {
+      "path": "docs/verification/screenshots/root-candidate5/03-editor-sleep-wake-readable.png",
+      "sha256": "19606cb7f8530c7125b4b1b51fae6f8a0f3fb64182de7d023b7d545502cd1fb6"
+    },
+    {
+      "path": "docs/verification/screenshots/root-candidate5/04-mist-welcome.png",
+      "sha256": "113dabc8b800d48aa40fe30243d2265b3b6b8f4d17e06d44201a9dbf7f9347b0"
+    }
+  ],
+  "diagnosticExport": {
+    "exportedAt": "2026-10-30T19:41:30.658809+00:00",
+    "sha256": "3ce410c7490ac22bdbc11efb6f0e152f4430c8f784b52fd466f295f3a0e68936",
+    "viewCount": 0,
+    "createdViews": 3,
+    "destroyedViews": 3,
+    "nativeOpenDocuments": 1,
+    "watchers": 1,
+    "subscriptions": 0,
+    "anonymousOpenSamples": 3
+  },
+  "limitations": [
+    "Native action timestamps were recorded after the sequence, not exact per-action clocks.",
+    "Candidate5 cold sample11461ms spans hidden editor after plugin wake until explicit return; retained raw, not a normal hot-file benchmark.",
+    "Three timing samples do not satisfy20 warm opens or150ms budget.",
+    "This replaces the specific blank-body failure; three-project session/IME/dirty-close acceptance remains separate.",
+    "Resource counts are one actual export at19:41:30Z; later sampler rows retain this timestamp and do not imply newly queried counts."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "evidenceId": "MAC-HOST-NATIVE-TRASH-CANDIDATE7",
+  "recordedAt": "2026-10-30T21:36:59.634846+00:00",
+  "sourceFrozen": true,
+  "trigger": "Git candidate6 actual GUI default trash5 Finder AppleEvent waited 120s then failed -1712; host file_trash used the same default API.",
+  "change": "Host file_trash selects existing trash::macos::DeleteMethod::NsFileManager on macOS. Other OS backends unchanged. Existing expectedRevision, confirmationDigest, project-root and dirty-document guards remain before trash call.",
+  "verification": {
+    "command": "cargo test --test files_workflow file_trash -- --nocapture",
+    "passed": 2,
+    "failed": 0,
+    "durationSeconds": 0.28,
+    "log": "native-trash.log",
+    "coverage": [
+      "Dedicated random synthetic file moved by native macOS Trash API and original source disappears; unrelated retained file unchanged.",
+      "Wrong confirmation digest, changed disk revision and dirty document each reject deletion and preserve original bytes."
+    ]
+  },
+  "gui": {
+    "operated": false,
+    "appStartedOrRebuilt": false
+  },
+  "limitation": "NSFileManager still moves items to real Trash. trash5 documents that Finder Put Back may be absent on some macOS versions; files can still be restored by dragging them out.",
+  "sourceHashes": {
+    "apps/desktop/src-tauri/src/files.rs": "d203b3d80b99b3d0cc33eef9c1d79a5ef57f95a821c914661176ea52420d8edf",
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "7c0462a498c3566c5f1381f13b2b4f2a21e8369d130ef5214785685569c51dc7"
+  },
+  "logHash": "ee94f686a4a8cbdb1cb985eaf291eb2eecaf04add462b5326d86fb0ed1fa4761"
+}

@@ -1,0 +1,98 @@
+--- a/apps/desktop/src/features/processes/index.tsx
++++ b/apps/desktop/src/features/processes/index.tsx
+@@ -376,6 +376,7 @@
+             key={`${projectId}:${active.processInstanceId}`}
+             projectId={projectId}
+             sessionId={active.processInstanceId}
++            readOnly={active.state === "exited" || active.exitCode != null}
+             onError={report}
+           />
+         </>
+@@ -397,13 +398,24 @@
+ function TerminalView({
+   projectId,
+   sessionId,
++  readOnly,
+   onError,
+ }: {
+   projectId: string;
+   sessionId: string;
++  readOnly: boolean;
+   onError: (e: unknown) => void;
+ }) {
+   const mount = useRef<HTMLDivElement>(null);
++  const terminalRef = useRef<Terminal | null>(null);
++  const readOnlyRef = useRef(readOnly);
++  readOnlyRef.current = readOnly;
++  useEffect(() => {
++    if (terminalRef.current) {
++      terminalRef.current.options.disableStdin = readOnly;
++      terminalRef.current.options.cursorBlink = !readOnly;
++    }
++  }, [readOnly]);
+   useEffect(() => {
+     let disposed = false;
+     let terminal: Terminal | undefined;
+@@ -441,13 +453,15 @@
+         };
+       };
+       terminal = new Xterm({
+-        cursorBlink: true,
++        cursorBlink: !readOnlyRef.current,
++        disableStdin: readOnlyRef.current,
+         scrollback: 3000,
+         fontSize: 12,
+         fontFamily: "SFMono-Regular, Menlo, monospace",
+         allowProposedApi: false,
+         theme: theme(),
+       });
++      terminalRef.current = terminal;
+       const fit = new FitAddon();
+       terminal.loadAddon(fit);
+       terminal.open(mount.current);
+@@ -461,6 +475,7 @@
+         )
+           return;
+         fit.fit();
++        if (readOnlyRef.current) return;
+         void call(
+           "terminal_resize",
+           {
+@@ -520,14 +535,16 @@
+       for (const event of pending) receive(event);
+       pending.length = 0;
+       terminal.onData((data) => {
++        if (disposed || readOnlyRef.current) return;
+         input = input
+-          .then(() =>
+-            call(
++          .then(() => {
++            if (disposed || readOnlyRef.current) return;
++            return call(
+               "terminal_input",
+               { terminalSessionId: sessionId, data },
+               projectId,
+-            ),
+-          )
++            );
++          })
+           .then(() => undefined)
+           .catch(onError);
+       });
+@@ -567,6 +584,7 @@
+       appearance?.disconnect();
+       detach?.();
+       terminal?.dispose();
++      if (terminalRef.current === terminal) terminalRef.current = null;
+       if (viewId)
+         void call(
+           "terminal_detach_view",
+@@ -579,7 +597,7 @@
+     <div
+       className="process-xterm"
+       ref={mount}
+-      aria-label="交互式终端；F6 返回编辑器"
++      aria-label={readOnly ? "终端历史输出（只读）；F6 返回编辑器" : "交互式终端；F6 返回编辑器"}
+     />
+   );
+ }

@@ -1,0 +1,55 @@
+--- a/src/backend/macos/file_dialog/panel_ffi.rs
++++ b/src/backend/macos/file_dialog/panel_ffi.rs
+@@ -31,6 +31,14 @@
+ impl AsModal for Panel {
+     fn inner_modal(&self) -> &(impl InnerModal + 'static) {
+         &*self.panel
++    }
++
++    fn finish_modal(&self) {
++        // The completion callback has already copied URL/path results. Only
++        // finish this panel; Rust's Retained remains its ownership authority.
++        unsafe { self.panel.setReleasedWhenClosed(false) };
++        self.panel.orderOut(None);
++        self.panel.close();
+     }
+ }
+ 
+--- a/src/backend/macos/modal_future.rs
++++ b/src/backend/macos/modal_future.rs
+@@ -13,6 +13,10 @@
+ 
+ pub(super) trait AsModal {
+     fn inner_modal(&self) -> &(impl InnerModal + 'static);
++
++    // File panels can explicitly finish their native lifecycle once their
++    // selected paths have been copied. Other modal types keep their behavior.
++    fn finish_modal(&self) {}
+ }
+ 
+ pub(super) trait InnerModal: ClassType + MainThreadOnly {
+@@ -53,13 +57,18 @@
+ 
+         let dialog_callback = move |state: Arc<Mutex<FutureState<R, D>>>,
+                                     result: NSModalResponse| {
++            // Take ownership exactly once and unlock before calling AppKit:
++            // closing the completed panel may re-enter native callbacks.
++            let modal = { state.lock().unwrap().modal.take() };
++            let Some(mut modal) = modal else {
++                return;
++            };
++            let data = (cb)(&mut modal, result);
++            modal.finish_modal();
++            drop(modal);
++
+             let mut state = state.lock().unwrap();
+-            // take() to drop it when it's safe to do so
+-            state.data = if let Some(mut modal) = state.modal.take() {
+-                Some((cb)(&mut modal, result))
+-            } else {
+-                Some(Default::default())
+-            };
++            state.data = Some(data);
+             if let Some(waker) = state.waker.take() {
+                 waker.wake();
+             }

@@ -1,0 +1,129 @@
+{
+  "baseline": "0.4.0",
+  "date": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "platform": "macOS arm64",
+  "status": "passed",
+  "scope": "Research, documentation, browser prototype and artifact checks; desktop application remains unimplemented.",
+  "documentation": {
+    "files": 18,
+    "tables": 128,
+    "localLinks": 205,
+    "productRequirements": 110,
+    "uxRequirements": 19,
+    "tasks": 45,
+    "screens": 73,
+    "typeScriptBlocks": 26,
+    "jsonBlocks": 5,
+    "issues": []
+  },
+  "dependencies": {
+    "tasks": 45,
+    "explicitDependencyEdges": 171,
+    "cycles": []
+  },
+  "prototype": {
+    "desktopScenes": 584,
+    "responsiveScenes": 224,
+    "interactionStyles": 8,
+    "errors": [],
+    "issues": []
+  },
+  "plugins": {
+    "lifecycleStyles": 8,
+    "pluginScenes": 15,
+    "responsiveCases": 360,
+    "errors": [],
+    "overflow": []
+  },
+  "customization": {
+    "status": "passed",
+    "checks": [
+      "layout_theme_independence",
+      "per_layout_geometry",
+      "global_project_inheritance",
+      "topbar_size_preview",
+      "light_dark_token_independence",
+      "local_image_import",
+      "preset_export_persistence",
+      "layout_recovery",
+      "28_responsive_cases"
+    ],
+    "errors": [],
+    "responsive": []
+  },
+  "cordisReact": {
+    "observedOn": "2026-10-31 Asia/Shanghai",
+    "platform": "darwin arm64",
+    "browser": "151.0.7922.34",
+    "status": "passed",
+    "checks": [
+      "browser_without_node_globals",
+      "dependency_wait_and_resume",
+      "provider_teardown_stops_consumer",
+      "effect_timer_and_event_cleanup",
+      "theme_and_geometry_preserve_document_element",
+      "react_subscription_cleanup"
+    ],
+    "packages": {
+      "cordis": "4.0.0-rc.12",
+      "react": "19.3.1",
+      "react-dom": "19.3.1",
+      "cosmokit": "1.8.1",
+      "esbuild": "0.28.2"
+    },
+    "bundleBytes": 254060,
+    "metrics": {
+      "mounts": 1,
+      "unmounts": 1,
+      "activations": 2,
+      "cleanups": 2,
+      "events": 1,
+      "timers": 2
+    },
+    "limits": [
+      "Chromium research experiment, not native Tauri WebView",
+      "No desktop memory/CPU benchmark",
+      "No arbitrary-layout-tree/CodeMirror/IME validation",
+      "No Node Loader, QuickJS or DSH plugin compatibility test"
+    ]
+  },
+  "typescript": {
+    "status": "passed",
+    "mode": "strict, noEmit, moduleDetection force, ES2022, DOM",
+    "blocks": 26,
+    "compilerVersion": "5.1.6"
+  },
+  "artifacts": {
+    "pngs": 584,
+    "pdfs": 11,
+    "customizationPdfPages": 8,
+    "visualInspection": [
+      "F02 layout picker",
+      "F10 sizes",
+      "F12 colors",
+      "customization PDF cover",
+      "customization PDF layout page"
+    ]
+  },
+  "sourceSha256": {
+    "design/source/screens.json": "c12ab63d78c3e2103210c8995f4057571c5848cd2cf5339db591d7b3e0c68221",
+    "design/source/styles.json": "485fd225cc119e6b94374391ffc73807c9b9da84d016f5f38d2c9406e9ca69af",
+    "design/source/customization.js": "66da7888a6e6d896c6507b494b4b18b6e6f2fd8a9ed8fa7b8d3384b140392b58",
+    "design/index.html": "87a4e9a771877846b806c472648c53cd8ec9a7a493e1c675a2e1f63148c68fc1",
+    "research/experiments/cordis-react/package-lock.json": "efed796d5c20470ca110bad9ff87f18acae2601dad7d4abb9bb31e6ff3e571e3"
+  },
+  "notRun": [
+    "Tauri desktop build",
+    "WKWebView/WebView2 native behavior",
+    "CodeMirror layout migration and IME",
+    "real Git/Agent/extension integration",
+    "desktop RAM/CPU benchmarks",
+    "signing or release"
+  ],
+  "git": {
+    "branch": "main",
+    "commitCreated": false,
+    "pushed": false
+  }
+}

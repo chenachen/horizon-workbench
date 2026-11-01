@@ -1,0 +1,14 @@
+Command: cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml extensions::presets --lib
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.42s
+     Running unittests src/lib.rs (apps/desktop/src-tauri/target/debug/deps/horizon_host-75c8e9d043c0aa41)
+
+running 5 tests
+test extensions::presets::tests::manual_feature_policy_change_makes_profile_custom ... ok
+test extensions::presets::tests::missing_packages_and_cycles_are_reported_without_installing ... ok
+test extensions::presets::tests::initial_profile_is_review_and_preparing_development_does_not_enable_or_start ... ok
+test extensions::presets::tests::custom_selection_includes_dependencies_and_leaves_appearance_out_of_stop_list ... ok
+test extensions::presets::tests::settings_patch_cannot_bypass_preset_confirmation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.16s
+
+

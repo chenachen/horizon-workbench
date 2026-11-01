@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-11-01T09:52:25.079615+00:00",
+  "card": "03a",
+  "status": "CONNECTION TEST READY",
+  "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+  "safeConfiguration": {
+    "label": "PiQA 协议服务 1101",
+    "runtime": {
+      "source": "managed",
+      "version": "1.4.0"
+    },
+    "provider": {
+      "id": "horizon-fixture",
+      "api": "openai-completions",
+      "endpoint": "http://127.0.0.1:18763/v1",
+      "model": "horizon-fixture",
+      "credentialRef": null
+    },
+    "authOwner": "external",
+    "authState": "configured",
+    "revision": 1
+  },
+  "checks": {
+    "uniqueOnlyConnection": true,
+    "fixedManagedRuntime": true,
+    "fixedProvider": true,
+    "externalNoCredential": true,
+    "configuredUnverified": true,
+    "providerZeroAndLogConsistent": true,
+    "piZero": true,
+    "oldNineSessionSetUnchanged": true,
+    "noMainConnectionSessions": true
+  },
+  "httpBeforeExplicitTest": {
+    "health": {
+      "fixture": true,
+      "requests": 0
+    },
+    "logLines": 0,
+    "logExists": false
+  },
+  "guiReceipt": "docs/verification/results/pi-terra-20261101/01c-1793525687778-manifest.jsonl",
+  "authorization": "Root preauthorized one explicit test for this exact loopback/no-key connection; Terra clicks once and stops on success or explicit error, no retry. No owner model POST."
+}

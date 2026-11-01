@@ -1,0 +1,3447 @@
+{
+  "developerEnabled": true,
+  "profiles": {
+    "@app": {
+      "profile": "review",
+      "selectedIds": [
+        "horizon.editor",
+        "horizon.files",
+        "horizon.git",
+        "horizon.search"
+      ]
+    }
+  },
+  "records": {
+    "horizon.agent": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": false,
+      "grants": [
+        "process.agent",
+        "network"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589168+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406914+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233129+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412738+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512813+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480115+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.agent.view",
+          "onCommand:horizon.agent.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "process.agent",
+          "network"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.agent.open",
+              "title": "打开Pi Agent"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.agent.view",
+              "renderer": "trusted",
+              "slot": "auxiliary"
+            }
+          ]
+        },
+        "description": "通过 Pi 处理对话、工具执行与修改提案，按项目授权操作。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.agent",
+        "name": "Pi Agent",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.agent/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 5,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 7,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.editor": {
+      "activations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "6df5a2ae-75bc-40da-81d7-2861270c90b3"
+      },
+      "builtin": true,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "directActivations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "6df5a2ae-75bc-40da-81d7-2861270c90b3"
+      },
+      "enabledGlobal": true,
+      "error": null,
+      "errors": {},
+      "grants": [
+        "project.read",
+        "project.write.reviewed"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T17:58:37.454077+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:18:09.605757+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:19:55.332260+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T18:26:09.392707+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:42:19.976185+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:44:57.515032+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:46:48.127662+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:47:26.015345+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T18:52:17.920971+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:06:08.080409+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:06:12.485436+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:06:34.925103+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:07:13.634807+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:09:54.263165+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:16:09.888706+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:20:16.622796+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:21:56.206485+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:22:58.260896+00:00"
+        },
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589175+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406918+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233133+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412744+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512819+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:32:30.543711+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:37:34.599634+00:00"
+        },
+        {
+          "message": "sleep",
+          "time": "2026-10-30T19:39:45.967458+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:39:53.313925+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:40:06.365034+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:40:24.001362+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:43:10.710513+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:45:34.455136+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:47:49.160965+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:53:04.515367+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:54:22.490690+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480751+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T20:14:23.714118+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.editor.view",
+          "onCommand:horizon.editor.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "project.read",
+          "project.write.reviewed"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.editor.open",
+              "title": "打开代码编辑器"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.editor.view",
+              "renderer": "trusted",
+              "slot": "editor"
+            }
+          ]
+        },
+        "description": "编辑代码与文本，查找替换并保存；未保存内容可保留恢复稿。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.editor",
+        "name": "代码编辑器",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.editor/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 5,
+      "projectConfig": {},
+      "projects": {
+        "dfef65be-3750-41c6-9173-0395df536fc2": {}
+      },
+      "revision": 37,
+      "runLeases": {},
+      "sleeping": {
+        "02979279-94b0-47b2-8ecd-4983edec7544": false,
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": false,
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": true,
+        "dfef65be-3750-41c6-9173-0395df536fc2": true
+      },
+      "stopping": {}
+    },
+    "horizon.files": {
+      "activations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "b3dfa2d5-28dd-4006-b48f-5286fa031a93"
+      },
+      "builtin": true,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "directActivations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "b3dfa2d5-28dd-4006-b48f-5286fa031a93"
+      },
+      "enabledGlobal": true,
+      "error": null,
+      "errors": {},
+      "grants": [
+        "project.read"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T17:58:37.459409+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:18:09.607677+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:19:55.330523+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T18:26:09.392759+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:42:19.977364+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:44:57.516900+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:46:48.125705+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:47:26.019164+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T18:52:17.920981+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:06:08.081829+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:06:12.486548+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:06:34.926601+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:07:13.634812+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:09:54.264980+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:16:09.890156+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:20:16.624768+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:21:56.211784+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:22:58.273281+00:00"
+        },
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589177+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406920+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233134+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412747+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512820+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:32:30.533744+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:37:34.601194+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:40:06.368541+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:40:24.001365+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:43:10.716010+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:45:34.455143+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:47:49.162158+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:53:04.515378+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:54:22.497614+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.482292+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T20:14:23.717212+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.files.view",
+          "onCommand:horizon.files.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "project.read"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.files.open",
+              "title": "打开文件树"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.files.view",
+              "renderer": "trusted",
+              "slot": "primarySidebar"
+            }
+          ]
+        },
+        "description": "浏览项目目录，创建、重命名和管理本地文件。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.files",
+        "name": "文件树",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.files/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 5,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 35,
+      "runLeases": {},
+      "sleeping": {
+        "02979279-94b0-47b2-8ecd-4983edec7544": false,
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": false,
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": true,
+        "dfef65be-3750-41c6-9173-0395df536fc2": true
+      },
+      "stopping": {}
+    },
+    "horizon.git": {
+      "activations": {},
+      "builtin": true,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "error": null,
+      "grants": [
+        "project.read",
+        "project.write.reviewed",
+        "process.git"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:09:27.544279+00:00"
+        },
+        {
+          "message": "作为显式激活的必需依赖启动",
+          "time": "2026-10-30T19:19:57.313175+00:00"
+        },
+        {
+          "message": "作为显式激活的必需依赖启动",
+          "time": "2026-10-30T19:22:52.078621+00:00"
+        },
+        {
+          "message": "作为显式激活的必需依赖启动",
+          "time": "2026-10-30T19:23:16.355694+00:00"
+        },
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589181+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406921+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233136+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412749+00:00"
+        },
+        {
+          "message": "uninstall",
+          "time": "2026-10-30T19:31:51.327936+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512821+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.482113+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.git.view",
+          "onCommand:horizon.git.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "project.read",
+          "project.write.reviewed",
+          "process.git"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.git.open",
+              "title": "打开Git"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.git.view",
+              "renderer": "trusted",
+              "slot": "primarySidebar"
+            }
+          ]
+        },
+        "description": "查看更改与历史，暂存、提交并处理分支与冲突。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.git",
+        "name": "Git",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.git/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 6,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 13,
+      "runLeases": {},
+      "sleeping": {
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": false,
+        "@app": false
+      },
+      "stopping": {}
+    },
+    "horizon.launch": {
+      "activations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "e640fbd3-c308-45a7-b0b7-15c5f646f346"
+      },
+      "builtin": true,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "directActivations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "e640fbd3-c308-45a7-b0b7-15c5f646f346"
+      },
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [
+        "process.launch"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589184+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406922+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:29:26.424433+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233138+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412751+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512821+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:43:31.832392+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:47:49.158295+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-10-30T19:53:04.515383+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:54:22.499444+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481717+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T20:14:23.719250+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.launch.view",
+          "onCommand:horizon.launch.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "process.launch"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.launch.open",
+              "title": "打开项目启动器"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.launch.view",
+              "renderer": "trusted",
+              "slot": "status"
+            }
+          ]
+        },
+        "description": "保存并运行项目启动方案，查看日志并管理关联任务。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.launch",
+        "name": "项目启动器",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.launch/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 6,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 34,
+      "runLeases": {},
+      "sleeping": {
+        "02979279-94b0-47b2-8ecd-4983edec7544": false,
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": false,
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": true,
+        "dfef65be-3750-41c6-9173-0395df536fc2": false
+      },
+      "stopping": {}
+    },
+    "horizon.layout.aurora": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480308+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.aurora",
+              "label": "极光",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "dock",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "id": "primarySidebar",
+                        "kind": "slot",
+                        "sizing": "sidebarWidth",
+                        "slot": "primarySidebar"
+                      },
+                      {
+                        "children": [
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      },
+                      {
+                        "id": "auxiliary",
+                        "kind": "slot",
+                        "sizing": "auxiliaryWidth",
+                        "slot": "auxiliary"
+                      }
+                    ],
+                    "id": "body",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  },
+                  {
+                    "id": "navigation",
+                    "kind": "slot",
+                    "slot": "navigation"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "项目切换集中到底部，顶部保留搜索和当前工作。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.aurora",
+        "name": "极光布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.aurora/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.celadon": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480225+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.celadon",
+              "label": "青瓷",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "drawer",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "id": "navigation",
+                            "kind": "slot",
+                            "slot": "navigation"
+                          },
+                          {
+                            "id": "sidebar-tabs",
+                            "kind": "tabs",
+                            "slots": [
+                              "primarySidebar"
+                            ]
+                          }
+                        ],
+                        "id": "drawer",
+                        "kind": "column"
+                      },
+                      {
+                        "children": [
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      },
+                      {
+                        "id": "auxiliary",
+                        "kind": "slot",
+                        "sizing": "auxiliaryWidth",
+                        "slot": "auxiliary"
+                      }
+                    ],
+                    "id": "body",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "项目与文件共用可折叠侧栏，需要时展开导航。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.celadon",
+        "name": "青瓷布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.celadon/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.graphite": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.479759+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "navigationWidth": {
+                  "initial": 55,
+                  "max": 280,
+                  "min": 48,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.graphite",
+              "label": "石墨",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "compact",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "id": "navigation",
+                    "kind": "slot",
+                    "sizing": "navigationWidth",
+                    "slot": "navigation"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "id": "primarySidebar",
+                            "kind": "slot",
+                            "sizing": "sidebarWidth",
+                            "slot": "primarySidebar"
+                          },
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "auxiliary",
+                            "kind": "slot",
+                            "sizing": "auxiliaryWidth",
+                            "slot": "auxiliary"
+                          }
+                        ],
+                        "id": "body",
+                        "kind": "row"
+                      },
+                      {
+                        "id": "bottom",
+                        "kind": "slot",
+                        "sizing": "bottomHeight",
+                        "slot": "bottom"
+                      },
+                      {
+                        "id": "status",
+                        "kind": "slot",
+                        "sizing": "statusHeight",
+                        "slot": "status"
+                      }
+                    ],
+                    "id": "panes",
+                    "kind": "column"
+                  }
+                ],
+                "id": "root",
+                "kind": "row"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "紧凑项目导航配合细分区，给代码与工具留出更多空间。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.graphite",
+        "name": "石墨布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.graphite/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.iris": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481391+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "navigationWidth": {
+                  "initial": 94,
+                  "max": 280,
+                  "min": 48,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.iris",
+              "label": "鸢尾",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "expressive",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "id": "navigation",
+                            "kind": "slot",
+                            "sizing": "navigationWidth",
+                            "slot": "navigation"
+                          }
+                        ],
+                        "id": "projects",
+                        "kind": "column"
+                      },
+                      {
+                        "children": [
+                          {
+                            "id": "primarySidebar",
+                            "kind": "slot",
+                            "sizing": "sidebarWidth",
+                            "slot": "primarySidebar"
+                          }
+                        ],
+                        "id": "files",
+                        "kind": "column"
+                      },
+                      {
+                        "children": [
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      },
+                      {
+                        "children": [
+                          {
+                            "id": "auxiliary",
+                            "kind": "slot",
+                            "sizing": "auxiliaryWidth",
+                            "slot": "auxiliary"
+                          }
+                        ],
+                        "id": "assistant",
+                        "kind": "column"
+                      }
+                    ],
+                    "id": "islands",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "项目导航与文件区域分别成组，以宽松分区安排编辑和辅助工具。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.iris",
+        "name": "鸢尾布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.iris/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.mist": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480385+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "navigationWidth": {
+                  "initial": 64,
+                  "max": 280,
+                  "min": 48,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.mist",
+              "label": "雾蓝",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "rail",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "id": "navigation",
+                        "kind": "slot",
+                        "sizing": "navigationWidth",
+                        "slot": "navigation"
+                      },
+                      {
+                        "id": "primarySidebar",
+                        "kind": "slot",
+                        "sizing": "sidebarWidth",
+                        "slot": "primarySidebar"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "grow": 1,
+                                "id": "editor",
+                                "kind": "slot",
+                                "slot": "editor"
+                              },
+                              {
+                                "id": "auxiliary",
+                                "kind": "slot",
+                                "sizing": "auxiliaryWidth",
+                                "slot": "auxiliary"
+                              }
+                            ],
+                            "id": "documents",
+                            "kind": "row"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      }
+                    ],
+                    "id": "body",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "项目导航、文件侧栏与辅助区各自分开，常用区域一目了然。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.mist",
+        "name": "雾蓝布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.mist/0.1.0",
+      "pausedGlobal": false,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 2,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.orbit": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481534+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.orbit",
+              "label": "深空",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "tabs",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "id": "navigation",
+                    "kind": "slot",
+                    "slot": "navigation"
+                  },
+                  {
+                    "children": [
+                      {
+                        "id": "primarySidebar",
+                        "kind": "slot",
+                        "sizing": "sidebarWidth",
+                        "slot": "primarySidebar"
+                      },
+                      {
+                        "children": [
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      },
+                      {
+                        "id": "auxiliary",
+                        "kind": "slot",
+                        "sizing": "auxiliaryWidth",
+                        "slot": "auxiliary"
+                      }
+                    ],
+                    "id": "body",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "项目标签置于顶部，编辑区横向展开，辅助工具从侧面打开。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.orbit",
+        "name": "深空布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.orbit/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.paper": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481790+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.paper",
+              "label": "暖纸",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "unified",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "id": "navigation",
+                            "kind": "slot",
+                            "slot": "navigation"
+                          },
+                          {
+                            "id": "primarySidebar",
+                            "kind": "slot",
+                            "sizing": "sidebarWidth",
+                            "slot": "primarySidebar"
+                          }
+                        ],
+                        "id": "unified",
+                        "kind": "column"
+                      },
+                      {
+                        "children": [
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      },
+                      {
+                        "id": "auxiliary",
+                        "kind": "slot",
+                        "sizing": "auxiliaryWidth",
+                        "slot": "auxiliary"
+                      }
+                    ],
+                    "id": "body",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "项目与文件放进同一侧栏，主区域保持连续的阅读空间。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.paper",
+        "name": "暖纸布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.paper/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.layout.sand": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480934+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "navigationWidth": {
+                  "initial": 180,
+                  "max": 280,
+                  "min": 48,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "horizon.layout.sand",
+              "label": "砂岩",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "expanded",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "id": "navigation",
+                    "kind": "slot",
+                    "sizing": "navigationWidth",
+                    "slot": "navigation"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "id": "primarySidebar",
+                            "kind": "slot",
+                            "sizing": "sidebarWidth",
+                            "slot": "primarySidebar"
+                          },
+                          {
+                            "grow": 1,
+                            "id": "editor",
+                            "kind": "slot",
+                            "slot": "editor"
+                          },
+                          {
+                            "id": "auxiliary",
+                            "kind": "slot",
+                            "sizing": "auxiliaryWidth",
+                            "slot": "auxiliary"
+                          }
+                        ],
+                        "id": "upper",
+                        "kind": "row"
+                      },
+                      {
+                        "id": "bottom",
+                        "kind": "slot",
+                        "sizing": "bottomHeight",
+                        "slot": "bottom"
+                      },
+                      {
+                        "id": "status",
+                        "kind": "slot",
+                        "sizing": "statusHeight",
+                        "slot": "status"
+                      }
+                    ],
+                    "id": "content",
+                    "kind": "column"
+                  }
+                ],
+                "id": "root",
+                "kind": "row"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "展开项目目录并显示完整名称，便于在多个项目间定位。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.layout.sand",
+        "name": "砂岩布局",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.layout.sand/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.markdown": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": false,
+      "grants": [
+        "project.read"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589185+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406924+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233139+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412752+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512822+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481935+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.markdown.view",
+          "onCommand:horizon.markdown.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "project.read"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.markdown.open",
+              "title": "打开Markdown 预览"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.markdown.view",
+              "renderer": "trusted",
+              "slot": "editor"
+            }
+          ]
+        },
+        "description": "并排阅读 Markdown 源码与预览，查看目录和项目内图片。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.markdown",
+        "name": "Markdown 预览",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.markdown/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 5,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 7,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.search": {
+      "activations": {},
+      "builtin": true,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [
+        "project.read"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T18:22:23.615208+00:00"
+        },
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589187+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406925+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233140+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412754+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512823+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481012+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.search.view",
+          "onCommand:horizon.search.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "project.read"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.search.open",
+              "title": "打开项目搜索"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.search.view",
+              "renderer": "trusted",
+              "slot": "primarySidebar"
+            }
+          ]
+        },
+        "description": "在项目中查找文件和文本，按文件定位匹配结果。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.search",
+        "name": "项目搜索",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.search/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 5,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 8,
+      "runLeases": {},
+      "sleeping": {
+        "dfef65be-3750-41c6-9173-0395df536fc2": false
+      },
+      "stopping": {}
+    },
+    "horizon.terminal": {
+      "activations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "ea1ee185-8115-41d9-9b18-bfe86c679942"
+      },
+      "builtin": true,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "directActivations": {
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": "ea1ee185-8115-41d9-9b18-bfe86c679942"
+      },
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [
+        "process.terminal"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "应用能力预设 minimal",
+          "time": "2026-10-30T19:29:03.589189+00:00"
+        },
+        {
+          "message": "应用能力预设 development",
+          "time": "2026-10-30T19:29:26.406926+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:29:51.233142+00:00"
+        },
+        {
+          "message": "应用能力预设 custom",
+          "time": "2026-10-30T19:30:15.412755+00:00"
+        },
+        {
+          "message": "应用能力预设 review",
+          "time": "2026-10-30T19:32:30.512824+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:43:40.002884+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:54:35.936745+00:00"
+        },
+        {
+          "message": "pause",
+          "time": "2026-10-30T20:03:51.271234+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.482430+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T20:14:23.715709+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onView:horizon.terminal.view",
+          "onCommand:horizon.terminal.open"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [
+          "process.terminal"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "horizon.terminal.open",
+              "title": "打开终端"
+            }
+          ],
+          "views": [
+            {
+              "id": "horizon.terminal.view",
+              "renderer": "trusted",
+              "slot": "bottom"
+            }
+          ]
+        },
+        "description": "在当前项目目录运行 Shell 命令，切换面板后保留会话。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.terminal",
+        "name": "终端",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "trusted-main"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.terminal/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 7,
+      "projectConfig": {},
+      "projects": {
+        "02979279-94b0-47b2-8ecd-4983edec7544": {
+          "paused": true
+        }
+      },
+      "revision": 16,
+      "runLeases": {},
+      "sleeping": {
+        "02979279-94b0-47b2-8ecd-4983edec7544": false,
+        "0c6e460f-6e76-4a6b-b242-0a197bcdd307": false
+      },
+      "stopping": {}
+    },
+    "horizon.theme.aurora": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.677237+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481869+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#91d7d2",
+                "background": "#171e20",
+                "border": "#3b5155",
+                "error": "#efafb3",
+                "muted": "#a3bec0",
+                "onAccent": "#103536",
+                "selection": "#294c4c",
+                "success": "#9ad4b0",
+                "surface": "#202b2e",
+                "text": "#e1f1f1",
+                "warning": "#ecd4aa"
+              },
+              "density": "comfortable",
+              "id": "horizon.theme.aurora",
+              "label": "极光",
+              "light": {
+                "accent": "#397976",
+                "background": "#e7f1f1",
+                "border": "#cfe1e1",
+                "error": "#9e4245",
+                "muted": "#5c7a7c",
+                "onAccent": "#ffffff",
+                "selection": "#cce8e5",
+                "success": "#39674e",
+                "surface": "#f8fdfd",
+                "text": "#244344",
+                "warning": "#684c25"
+              },
+              "radius": 22
+            }
+          ],
+          "views": []
+        },
+        "description": "石墨色层次与青色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.aurora",
+        "name": "极光主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.aurora/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.celadon": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.676128+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480472+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#a9d7b9",
+                "background": "#17251f",
+                "border": "#3e5b48",
+                "error": "#efafb3",
+                "muted": "#a8c3b2",
+                "onAccent": "#1e3c28",
+                "selection": "#315b40",
+                "success": "#9ad4b0",
+                "surface": "#22352c",
+                "text": "#e0f1e6",
+                "warning": "#ecd4aa"
+              },
+              "density": "comfortable",
+              "id": "horizon.theme.celadon",
+              "label": "青瓷",
+              "light": {
+                "accent": "#3f7458",
+                "background": "#eaf2ef",
+                "border": "#d6e5dc",
+                "error": "#9e4245",
+                "muted": "#607d6c",
+                "onAccent": "#ffffff",
+                "selection": "#d5eadb",
+                "success": "#39674e",
+                "surface": "#fbfffc",
+                "text": "#243e33",
+                "warning": "#684c25"
+              },
+              "radius": 20
+            }
+          ],
+          "views": []
+        },
+        "description": "浅青绿表面与柔和绿色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.celadon",
+        "name": "青瓷主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.celadon/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.graphite": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.675788+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.479649+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#a6d1d8",
+                "background": "#161819",
+                "border": "#3a4648",
+                "error": "#efafb3",
+                "muted": "#a8b7ba",
+                "onAccent": "#163339",
+                "selection": "#28474c",
+                "success": "#9ad4b0",
+                "surface": "#222526",
+                "text": "#e2ebeb",
+                "warning": "#ecd4aa"
+              },
+              "density": "compact",
+              "id": "horizon.theme.graphite",
+              "label": "石墨",
+              "light": {
+                "accent": "#335f66",
+                "background": "#eceeef",
+                "border": "#d9dfe0",
+                "error": "#9e4245",
+                "muted": "#626f72",
+                "onAccent": "#ffffff",
+                "selection": "#d8e9ec",
+                "success": "#39674e",
+                "surface": "#ffffff",
+                "text": "#263234",
+                "warning": "#684c25"
+              },
+              "radius": 6
+            }
+          ],
+          "views": []
+        },
+        "description": "中性灰表面与青灰色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.graphite",
+        "name": "石墨主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.graphite/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.iris": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.677644+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.482725+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#dbb2ff",
+                "background": "#231b2e",
+                "border": "#523b65",
+                "error": "#efafb3",
+                "muted": "#c1a9d5",
+                "onAccent": "#43205d",
+                "selection": "#624180",
+                "success": "#9ad4b0",
+                "surface": "#30233d",
+                "text": "#efe1fc",
+                "warning": "#ecd4aa"
+              },
+              "density": "spacious",
+              "id": "horizon.theme.iris",
+              "label": "鸢尾",
+              "light": {
+                "accent": "#7950a3",
+                "background": "#f0eafa",
+                "border": "#e4d5ef",
+                "error": "#9e4245",
+                "muted": "#7b628e",
+                "onAccent": "#ffffff",
+                "selection": "#e5d1fb",
+                "success": "#39674e",
+                "surface": "#fefbff",
+                "text": "#38254b",
+                "warning": "#684c25"
+              },
+              "radius": 28
+            }
+          ],
+          "views": []
+        },
+        "description": "紫色层次与鲜明选中配色，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.iris",
+        "name": "鸢尾主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.iris/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.mist": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.677139+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.481200+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#b2cdf8",
+                "background": "#18202d",
+                "border": "#3b485e",
+                "error": "#efafb3",
+                "muted": "#a6b4cb",
+                "onAccent": "#18375d",
+                "selection": "#2d4a73",
+                "success": "#9ad4b0",
+                "surface": "#222b3a",
+                "text": "#e0e8f5",
+                "warning": "#ecd4aa"
+              },
+              "density": "comfortable",
+              "id": "horizon.theme.mist",
+              "label": "雾蓝",
+              "light": {
+                "accent": "#496793",
+                "background": "#edf1f7",
+                "border": "#dde4ee",
+                "error": "#9e4245",
+                "muted": "#65738a",
+                "onAccent": "#ffffff",
+                "selection": "#d8e5fb",
+                "success": "#39674e",
+                "surface": "#fcfdff",
+                "text": "#202c40",
+                "warning": "#684c25"
+              },
+              "radius": 18
+            }
+          ],
+          "views": []
+        },
+        "description": "蓝灰表面与柔和蓝色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.mist",
+        "name": "雾蓝主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.mist/0.1.0",
+      "pausedGlobal": false,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 3,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.orbit": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.677391+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.482363+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#aecaff",
+                "background": "#131c29",
+                "border": "#324156",
+                "error": "#efafb3",
+                "muted": "#a6b6cd",
+                "onAccent": "#142b50",
+                "selection": "#2b4672",
+                "success": "#9ad4b0",
+                "surface": "#1b2636",
+                "text": "#e2ebf7",
+                "warning": "#ecd4aa"
+              },
+              "density": "comfortable",
+              "id": "horizon.theme.orbit",
+              "label": "深空",
+              "light": {
+                "accent": "#466da8",
+                "background": "#eaf0f8",
+                "border": "#d4dfed",
+                "error": "#9e4245",
+                "muted": "#60728d",
+                "onAccent": "#ffffff",
+                "selection": "#d5e3fb",
+                "success": "#39674e",
+                "surface": "#fbfdff",
+                "text": "#243650",
+                "warning": "#684c25"
+              },
+              "radius": 14
+            }
+          ],
+          "views": []
+        },
+        "description": "蓝灰层次与冷色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.orbit",
+        "name": "深空主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.orbit/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.paper": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.677490+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.482499+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#c0d0ad",
+                "background": "#211e1a",
+                "border": "#444438",
+                "error": "#efafb3",
+                "muted": "#b4b4a5",
+                "onAccent": "#2c3e20",
+                "selection": "#424f35",
+                "success": "#9ad4b0",
+                "surface": "#2b2722",
+                "text": "#e9e7d7",
+                "warning": "#ecd4aa"
+              },
+              "density": "comfortable",
+              "id": "horizon.theme.paper",
+              "label": "暖纸",
+              "light": {
+                "accent": "#617251",
+                "background": "#f4f1eb",
+                "border": "#e3e3d8",
+                "error": "#9e4245",
+                "muted": "#737569",
+                "onAccent": "#ffffff",
+                "selection": "#e4ebd9",
+                "success": "#39674e",
+                "surface": "#fffefa",
+                "text": "#34352d",
+                "warning": "#684c25"
+              },
+              "radius": 8
+            }
+          ],
+          "views": []
+        },
+        "description": "暖白表面与低饱和橄榄色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.paper",
+        "name": "暖纸主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.paper/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "horizon.theme.sand": {
+      "activations": {},
+      "builtin": true,
+      "config": {},
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "随应用更新同步内置主题声明",
+          "time": "2026-10-30T19:16:09.676318+00:00"
+        },
+        {
+          "message": "随应用更新同步内置扩展说明与主题声明",
+          "time": "2026-10-30T20:14:23.480658+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "themes": [
+            {
+              "apiVersion": 1,
+              "dark": {
+                "accent": "#e3b18a",
+                "background": "#28211b",
+                "border": "#5a4735",
+                "error": "#efafb3",
+                "muted": "#c6ad92",
+                "onAccent": "#4d301b",
+                "selection": "#68482f",
+                "success": "#9ad4b0",
+                "surface": "#342c24",
+                "text": "#f4e5d3",
+                "warning": "#ecd4aa"
+              },
+              "density": "comfortable",
+              "id": "horizon.theme.sand",
+              "label": "砂岩",
+              "light": {
+                "accent": "#946644",
+                "background": "#f2ebe3",
+                "border": "#e5d9c9",
+                "error": "#9e4245",
+                "muted": "#87725d",
+                "onAccent": "#ffffff",
+                "selection": "#f0dcc7",
+                "success": "#39674e",
+                "surface": "#fffcf8",
+                "text": "#483b2e",
+                "warning": "#684c25"
+              },
+              "radius": 12
+            }
+          ],
+          "views": []
+        },
+        "description": "低饱和暖色表面与棕色强调，提供浅色和深色配色。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "horizon.theme.sand",
+        "name": "砂岩主题",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.theme.sand/0.1.0",
+      "pausedGlobal": false,
+      "policyRevision": 1,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 4,
+      "runLeases": {},
+      "stopping": {}
+    },
+    "local.read-only-changes": {
+      "activations": {},
+      "builtin": false,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "development": true,
+      "directActivations": {},
+      "enabledGlobal": false,
+      "error": null,
+      "errors": {
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": {
+          "code": "EXTENSION_FAILED",
+          "message": "GUI fixture intentional failure"
+        }
+      },
+      "grants": [
+        "git.read",
+        "storage",
+        "project.read"
+      ],
+      "installed": false,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-10-30T19:19:25.234485+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:19:57.313180+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:22:52.078627+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:23:16.355699+00:00"
+        },
+        {
+          "message": "pause",
+          "time": "2026-10-30T19:23:26.771314+00:00"
+        },
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-10-30T19:24:45.554408+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:24:55.171022+00:00"
+        },
+        {
+          "message": "已回退到上一个校验版本",
+          "time": "2026-10-30T19:25:14.380441+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:25:37.709954+00:00"
+        },
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-10-30T19:26:31.852456+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:26:42.043738+00:00"
+        },
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-10-30T19:27:12.030475+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:27:20.992744+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-10-30T19:27:46.393871+00:00"
+        },
+        {
+          "message": "GUI fixture intentional failure",
+          "time": "2026-10-30T19:27:54.074105+00:00"
+        },
+        {
+          "message": "disable",
+          "time": "2026-10-30T19:28:32.514707+00:00"
+        },
+        {
+          "message": "uninstall",
+          "time": "2026-10-30T19:28:43.381104+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onCommand:local.read-only-changes.refresh"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon SDK example",
+        "capabilities": [
+          "git.read",
+          "storage",
+          "project.read"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "local.read-only-changes.refresh",
+              "title": "读取更改列表"
+            },
+            {
+              "id": "local.read-only-changes.fail",
+              "title": "触发测试异常"
+            }
+          ],
+          "settings": [
+            {
+              "default": true,
+              "key": "includeUntracked",
+              "label": "显示未跟踪文件",
+              "type": "boolean"
+            }
+          ],
+          "views": [
+            {
+              "id": "local.read-only-changes.list",
+              "renderer": "declarative",
+              "slot": "primarySidebar"
+            }
+          ]
+        },
+        "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "local.read-only-changes",
+        "name": "只读更改列表",
+        "optional": {},
+        "requires": {
+          "horizon.git": "^0.1.0"
+        },
+        "runtime": {
+          "entry": "index.js",
+          "kind": "quickjs"
+        },
+        "version": "0.1.2"
+      },
+      "packageDigest": "23712be983650401dabac5ec07da2838d9e04ff3e1a732367504d2850d13359a",
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.read-only-changes/0.1.2-23712be98365",
+      "pausedGlobal": false,
+      "policyRevision": 5,
+      "previous": {
+        "grants": [
+          "git.read",
+          "storage",
+          "project.read"
+        ],
+        "manifest": {
+          "activation": [
+            "onCommand:local.read-only-changes.refresh"
+          ],
+          "apiVersion": 1,
+          "author": "Horizon SDK example",
+          "capabilities": [
+            "git.read",
+            "storage",
+            "project.read"
+          ],
+          "contributes": {
+            "commands": [
+              {
+                "id": "local.read-only-changes.refresh",
+                "title": "读取更改列表"
+              },
+              {
+                "id": "local.read-only-changes.fail",
+                "title": "触发测试异常"
+              }
+            ],
+            "settings": [
+              {
+                "default": true,
+                "key": "includeUntracked",
+                "label": "显示未跟踪文件",
+                "type": "boolean"
+              }
+            ],
+            "views": [
+              {
+                "id": "local.read-only-changes.list",
+                "renderer": "declarative",
+                "slot": "primarySidebar"
+              }
+            ]
+          },
+          "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+          "engines": {
+            "horizon": ">=0.1.0 <0.2.0"
+          },
+          "id": "local.read-only-changes",
+          "name": "只读更改列表",
+          "optional": {},
+          "requires": {
+            "horizon.git": "^0.1.0"
+          },
+          "runtime": {
+            "entry": "index.js",
+            "kind": "quickjs"
+          },
+          "version": "0.1.2"
+        },
+        "packageDigest": "73f4c4251934ce6d063b701da98366781905e065d96a063ab2287a4e13cf6cc9",
+        "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.read-only-changes/0.1.2-73f4c4251934"
+      },
+      "projectConfig": {
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": {
+          "includeUntracked": false
+        }
+      },
+      "projects": {
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": {
+          "paused": false
+        }
+      },
+      "revision": 21,
+      "runLeases": {},
+      "sleeping": {
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e": false,
+        "@app": false,
+        "dfef65be-3750-41c6-9173-0395df536fc2": false
+      },
+      "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-gui-ea4ga3dc/developer",
+      "stopping": {}
+    }
+  },
+  "schemaVersion": 1
+}

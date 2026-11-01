@@ -1,0 +1,311 @@
+     Locking 1 package to highest compatible version
+      Adding rfd v0.17.2 (/Users/chenpengxiang/Desktop/Horizon/vendor/rfd)
+   Compiling rfd v0.17.2 (/Users/chenpengxiang/Desktop/Horizon/vendor/rfd)
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+warning: use of deprecated function `objc2_core_foundation::CFUserNotificationDisplayAlert`: renamed to `CFUserNotification::display_alert`
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/utils/user_alert.rs:15:5
+   |
+15 |     CFUserNotificationDisplayAlert, CFURL,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated function `objc2_core_foundation::CFUserNotificationDisplayAlert`: renamed to `CFUserNotification::display_alert`
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/utils/user_alert.rs:94:13
+   |
+94 |             CFUserNotificationDisplayAlert(
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:47:9
+   |
+47 |         unsafe { self.beginSheetModalForWindow_completionHandler(window, handler) }
+   |         ^^^^^^ unnecessary `unsafe` block
+   |
+   = note: `#[warn(unused_unsafe)]` (part of `#[warn(unused)]`) on by default
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:51:9
+   |
+51 |         unsafe { self.runModal() }
+   |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:78:13
+   |
+78 |             unsafe {
+   |             ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:84:9
+   |
+84 |         unsafe { self.panel.runModal() }
+   |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:88:9
+   |
+88 |         unsafe {
+   |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:95:9
+   |
+95 |         unsafe {
+   |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:112:9
+    |
+112 |         unsafe { self.panel().setCanCreateDirectories(can) }
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:125:9
+    |
+125 |         unsafe {
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:143:13
+    |
+143 |             unsafe {
+    |             ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:151:9
+    |
+151 |         unsafe {
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:158:9
+    |
+158 |         unsafe { self.panel().setMessage(Some(&NSString::from_str(title))) }
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:176:21
+    |
+176 |         let panel = unsafe { NSOpenPanel::openPanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:198:9
+    |
+198 |         unsafe { panel.setCanChooseDirectories(false) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:199:9
+    |
+199 |         unsafe { panel.setCanChooseFiles(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:205:21
+    |
+205 |         let panel = unsafe { NSSavePanel::savePanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:231:21
+    |
+231 |         let panel = unsafe { NSOpenPanel::openPanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:244:9
+    |
+244 |         unsafe { panel.setCanChooseDirectories(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:245:9
+    |
+245 |         unsafe { panel.setCanChooseFiles(false) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:251:21
+    |
+251 |         let panel = unsafe { NSOpenPanel::openPanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:264:9
+    |
+264 |         unsafe { panel.setCanChooseDirectories(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:265:9
+    |
+265 |         unsafe { panel.setCanChooseFiles(false) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:266:9
+    |
+266 |         unsafe { panel.setAllowsMultipleSelection(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:272:21
+    |
+272 |         let panel = unsafe { NSOpenPanel::openPanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:290:9
+    |
+290 |         unsafe { panel.setCanChooseDirectories(false) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:291:9
+    |
+291 |         unsafe { panel.setCanChooseFiles(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:292:9
+    |
+292 |         unsafe { panel.setAllowsMultipleSelection(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:298:21
+    |
+298 |         let panel = unsafe { NSOpenPanel::openPanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:315:9
+    |
+315 |         unsafe { panel.setCanChooseDirectories(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:316:9
+    |
+316 |         unsafe { panel.setCanChooseFiles(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:317:9
+    |
+317 |         unsafe { panel.setAllowsMultipleSelection(false) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:323:21
+    |
+323 |         let panel = unsafe { NSOpenPanel::openPanel(mtm) };
+    |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:340:9
+    |
+340 |         unsafe { panel.setCanChooseDirectories(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:341:9
+    |
+341 |         unsafe { panel.setCanChooseFiles(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs:342:9
+    |
+342 |         unsafe { panel.setAllowsMultipleSelection(true) };
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:32:21
+   |
+32 |         let alert = unsafe { NSAlert::new(mtm) };
+   |                     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:40:9
+   |
+40 |         unsafe { alert.setAlertStyle(level) };
+   |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:64:13
+   |
+64 |             unsafe { alert.addButtonWithTitle(&label) };
+   |             ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:67:9
+   |
+67 |         unsafe {
+   |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:90:55
+   |
+90 |                 block2::StackBlock::new(move |result| unsafe {
+   |                                                       ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:95:13
+   |
+95 |             unsafe {
+   |             ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:101:38
+    |
+101 |         dialog_result(&self.buttons, unsafe { self.alert.runModal() })
+    |                                      ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:147:9
+    |
+147 |         unsafe { self.beginSheetModalForWindow_completionHandler(window, Some(handler)) }
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/message_dialog.rs:151:9
+    |
+151 |         unsafe { self.runModal() }
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/modal_future.rs:83:13
+   |
+83 |             unsafe { app.mainWindow() }.or_else(|| app.windows().firstObject())
+   |             ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/modal_future.rs:88:12
+   |
+88 |         if unsafe { app.isRunning() } && win.is_some() {
+   |            ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/utils/policy_manager.rs:13:30
+   |
+13 |         let initial_policy = unsafe { app.activationPolicy() };
+   |                              ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/utils.rs:17:5
+   |
+17 |     unsafe { thread.start() };
+   |     ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> /Users/chenpengxiang/Desktop/Horizon/vendor/rfd/src/backend/macos/utils.rs:26:12
+   |
+26 |         if unsafe { app.isRunning() } {
+   |            ^^^^^^ unnecessary `unsafe` block
+
+warning: `rfd` (lib) generated 50 warnings
+    Checking tauri-plugin-dialog v2.8.4
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 9.27s

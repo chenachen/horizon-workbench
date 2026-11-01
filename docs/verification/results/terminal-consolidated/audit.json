@@ -1,0 +1,61 @@
+{
+  "requirement": "REQ-RUN-005",
+  "coverage": "full",
+  "method": "逐条件组合候选5/6真实GUI和生产原生服务测试；不混成同一次执行",
+  "clauses": [
+    {
+      "condition": "首次新建才启动shell，显示项目/目录",
+      "evidence": [
+        "candidate5 002-empty-terminal.png",
+        "candidate5 003-pty-chinese-pid-size.png",
+        "processes-gui/terminal-pid.txt"
+      ],
+      "observed": "空面板无shell；新建后显示PID98648、当前项目和目录，OS父进程为91978。"
+    },
+    {
+      "condition": "中文输入输出和resize可用",
+      "evidence": [
+        "candidate5 003/004/019 PNG",
+        "processes-gui/ime.json",
+        "processes service test interactive_pty_accepts_chinese_input_and_applies_actual_size"
+      ],
+      "observed": "真实系统拼音逐键组合后回声你好；stty实际9×126→9×101；生产PTY原生测试另验证37×99与中文交互。"
+    },
+    {
+      "condition": "切项目不改旧cwd；隐藏继续",
+      "evidence": [
+        "candidate5 006-persistent-pid-cwd.png",
+        "processes-gui/discovery-baseline.json"
+      ],
+      "observed": "隐藏、专注、A-B切换返回后PID98648和terminal-cwd不变，持续输出序号推进。"
+    },
+    {
+      "condition": "结束会话结束受管进程",
+      "evidence": [
+        "processes-gui/candidate6-pty-stop.json",
+        "candidate6 023-candidate6-single-header-live.png"
+      ],
+      "observed": "候选6通过底栏启动并定位PTY41752；原生点击结束进程，界面转已退出，独立ps原始结果为空/exit1。"
+    },
+    {
+      "condition": "日志有界",
+      "evidence": [
+        "processes-gui/candidate6-service-tests.log",
+        "processes.rs::hidden_output_is_continuously_consumed_with_bounded_history",
+        "processes.rs const BUFFER=2*1024*1024"
+      ],
+      "observed": "真实生产process输出消费8,388,608字节，断言retained BUFFER=2MiB、start=6MiB且正常退出。此压力测试使用pipe生产reader，PTY共享同一有界输出存储；实际PTY输入/退出另有原生与GUI证据。"
+    }
+  ],
+  "sourceHashes": {
+    "docs/verification/results/processes-gui/candidate6-pty-stop.json": "eadedad347044c0ce0d8d0b8f455d35b0c7c1251abf48bf3a2d9842b8a66ea52",
+    "docs/verification/screenshots/processes/023-candidate6-single-header-live.png": "6fde3066a845dd3ae7ef50441468bb797d13ba24b6ead33e1019e0081cfbd697",
+    "docs/verification/results/processes-gui/candidate6-service-tests.log": "0aa26630cce98c27a092736e0a2b5b4e3b789d3204c1f8e959c9ec09219dad1e",
+    "apps/desktop/src-tauri/src/processes.rs": "5c36105f1a132fb3bd4b161c259d03b93a770023b2ead1d7a90c3b9266fa31f5"
+  },
+  "limitations": [
+    "仅macOS arm64；不证明Windows行为或其他平台声明。",
+    "隐藏大吞吐压力来自生产pipe reader测试，未声称候选5GUI实际输入8MiB。",
+    "完整需求闭合限定按需终端；其他RUN/LAUNCH需求仍按各自子项处理。"
+  ]
+}

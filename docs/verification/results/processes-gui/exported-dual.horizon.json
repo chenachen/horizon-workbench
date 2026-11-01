@@ -1,0 +1,70 @@
+{
+  "format": "horizon-launch@1",
+  "profile": {
+    "failurePolicy": "stopStarted",
+    "name": "双服务依赖验收（导入）",
+    "profileId": "",
+    "projectId": "",
+    "requiredExtensions": [],
+    "revision": 0,
+    "schemaVersion": 1,
+    "steps": [
+      {
+        "command": {
+          "args": [
+            "api.mjs"
+          ],
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "kind": "exec"
+        },
+        "cwd": ".",
+        "dependsOn": [],
+        "env": {},
+        "lifecycle": "service",
+        "mode": "pipe",
+        "onReady": null,
+        "ready": {
+          "kind": "http",
+          "statusCodes": [
+            200
+          ],
+          "timeoutMs": 5000,
+          "url": "http://127.0.0.1:59130/health"
+        },
+        "secretRefs": {},
+        "stepId": "api",
+        "title": "接口服务"
+      },
+      {
+        "command": {
+          "args": [
+            "web.mjs"
+          ],
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "kind": "exec"
+        },
+        "cwd": ".",
+        "dependsOn": [
+          "api"
+        ],
+        "env": {},
+        "lifecycle": "service",
+        "mode": "pipe",
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59131"
+        },
+        "ready": {
+          "host": "127.0.0.1",
+          "kind": "tcp",
+          "port": 59131,
+          "timeoutMs": 5000
+        },
+        "secretRefs": {},
+        "stepId": "web",
+        "title": "页面服务"
+      }
+    ]
+  },
+  "redactedEnvKeys": []
+}

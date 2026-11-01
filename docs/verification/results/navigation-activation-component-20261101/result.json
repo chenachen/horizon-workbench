@@ -1,0 +1,783 @@
+{
+  "kind": "actual App + LauncherToolbar + bridge; held Tauri activation reply after host epoch increment",
+  "startedAt": "2026-11-01T07:54:28.943Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "2f2f56b8eb55007a433e808e13516428ba52fdef5c01621d7eb7216104233185"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25"
+    }
+  ],
+  "scenarios": [
+    {
+      "variant": "before",
+      "inMemoryAppSha256": "2f2f56b8eb55007a433e808e13516428ba52fdef5c01621d7eb7216104233185",
+      "bundleSha256": "83e020b79cce5c7a017702c2aa4a15070653f084d62a95f7fc7bb4b0238d40ab",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "passed": true,
+      "initial": {
+        "hostEpoch": 1,
+        "phase": "boot",
+        "pending": false,
+        "overviewVisible": false,
+        "toolbarCount": 1,
+        "launcherError": "",
+        "globalError": "",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          }
+        ]
+      },
+      "pending": {
+        "hostEpoch": 2,
+        "phase": "pending",
+        "pending": true,
+        "overviewVisible": false,
+        "toolbarCount": 1,
+        "launcherError": "项目上下文已过期",
+        "globalError": "项目上下文已过期",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 1,
+            "outcome": "held",
+            "hostEpochAfter": 2
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 2,
+            "outcome": "STALE_SCOPE"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 2,
+            "outcome": "STALE_SCOPE"
+          }
+        ]
+      },
+      "completed": {
+        "hostEpoch": 2,
+        "phase": "completed",
+        "pending": false,
+        "overviewVisible": false,
+        "toolbarCount": 1,
+        "launcherError": "项目上下文已过期",
+        "globalError": "项目上下文已过期",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 1,
+            "outcome": "released",
+            "hostEpochAfter": 2
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 2,
+            "outcome": "STALE_SCOPE"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 2,
+            "outcome": "STALE_SCOPE"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "after",
+      "inMemoryAppSha256": "27f0cf56343e51877985e0f3d3e3bade830947786f5a7641af340db20197fee4",
+      "bundleSha256": "5637c83b8020d7336b1c0846acac10795052c84e46f2759cfded5262db9d3633",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "passed": true,
+      "initial": {
+        "hostEpoch": 1,
+        "phase": "boot",
+        "pending": false,
+        "overviewVisible": false,
+        "toolbarCount": 1,
+        "launcherError": "",
+        "globalError": "",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          }
+        ]
+      },
+      "pending": {
+        "hostEpoch": 2,
+        "phase": "pending",
+        "pending": true,
+        "overviewVisible": true,
+        "toolbarCount": 0,
+        "launcherError": "",
+        "globalError": "",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 1,
+            "outcome": "held",
+            "hostEpochAfter": 2
+          }
+        ]
+      },
+      "completed": {
+        "hostEpoch": 2,
+        "phase": "completed",
+        "pending": false,
+        "overviewVisible": false,
+        "toolbarCount": 1,
+        "launcherError": "",
+        "globalError": "",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 1,
+            "outcome": "released",
+            "hostEpochAfter": 2
+          },
+          {
+            "command": "horizon_call",
+            "phase": "completed",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 2
+            },
+            "hostEpoch": 2,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "completed",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 2
+            },
+            "hostEpoch": 2,
+            "outcome": "ok"
+          }
+        ]
+      },
+      "failurePending": {
+        "hostEpoch": 2,
+        "phase": "failure-pending",
+        "pending": true,
+        "overviewVisible": true,
+        "toolbarCount": 0,
+        "launcherError": "",
+        "globalError": "",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 1,
+            "outcome": "released",
+            "hostEpochAfter": 2
+          },
+          {
+            "command": "horizon_call",
+            "phase": "completed",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 2
+            },
+            "hostEpoch": 2,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "completed",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 2
+            },
+            "hostEpoch": 2,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "failure-pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 2,
+            "outcome": "held",
+            "hostEpochAfter": 2
+          }
+        ]
+      },
+      "failed": {
+        "hostEpoch": 2,
+        "phase": "failed",
+        "pending": false,
+        "overviewVisible": true,
+        "toolbarCount": 0,
+        "launcherError": "",
+        "globalError": "受控项目激活失败",
+        "calls": [
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 0,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "boot",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 1
+            },
+            "hostEpoch": 1,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 1,
+            "outcome": "released",
+            "hostEpochAfter": 2
+          },
+          {
+            "command": "horizon_call",
+            "phase": "completed",
+            "method": "launch_profile_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 2
+            },
+            "hostEpoch": 2,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "completed",
+            "method": "launch_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-aurora",
+              "projectEpoch": 2
+            },
+            "hostEpoch": 2,
+            "outcome": "ok"
+          },
+          {
+            "command": "horizon_call",
+            "phase": "failure-pending",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "hostEpoch": 2,
+            "outcome": "rejected",
+            "hostEpochAfter": 2
+          }
+        ]
+      }
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T07:54:30.360Z",
+  "durationMs": 1417
+}

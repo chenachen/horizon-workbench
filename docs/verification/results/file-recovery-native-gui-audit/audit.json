@@ -1,0 +1,130 @@
+{
+  "auditedAt": "2026-11-01T05:35:06.597532+00:00",
+  "method": "Independent 29 original native JPEG/AX review, exact seven-file final bytes, retained historical filesystem/action receipts and seven process identity shutdown audit; no GUI or test rerun",
+  "buildSha256": "df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+  "rootPid": 52226,
+  "functionalImageCount": 29,
+  "eightVisualImagesReviewedSeparately": true,
+  "functionalAudit": "incremental-001-023.json",
+  "chunkedFailureAndQuitAudit": "incremental-chunked-failure-and-quit.json",
+  "ownerSummarySha256": "d866243995693d04cdec4c48fa79a9e1cd86773948c1823e8b80c786c5abb978",
+  "metadataCorrectionsSha256": "197a1108e6fd60fe43efbac6f21dfdad06b1fd31cfbb9ddcb43ef1f13048bf48",
+  "rawImageAndReceiptHashesStillMatch": true,
+  "metadataCorrectionAudit": "024 original character-indexed payload and 030 initial success wording are retained beside corrected descriptions; original timestamps and screenshot/AX hashes are unchanged. 030 is an unsuccessful navigation attempt.",
+  "caseResults": [
+    {
+      "id": "missing-first-open-retry",
+      "result": "passed",
+      "captures": [
+        "001",
+        "002",
+        "006"
+      ],
+      "detail": "Own named pinned unavailable tab, no previous document body; Retry remains unavailable while absent, then loads restored symlink target."
+    },
+    {
+      "id": "locate-cancel",
+      "result": "passed",
+      "captures": [
+        "003",
+        "004",
+        "005"
+      ],
+      "detail": "Native picker cancellation and comparison cancellation preserve missing original identity."
+    },
+    {
+      "id": "permission-retry",
+      "result": "passed",
+      "captures": [
+        "007",
+        "008"
+      ],
+      "detail": "000 permissions produce explicit access error; restored0644 Retry reads unchanged38B source."
+    },
+    {
+      "id": "close-unavailable-tab",
+      "result": "passed",
+      "captures": [
+        "009",
+        "010"
+      ],
+      "detail": "Close this tab returns prior permission.ts; unrelated tabs remain."
+    },
+    {
+      "id": "readonly-selected-load",
+      "result": "passed",
+      "captures": [
+        "011",
+        "012"
+      ],
+      "detail": "Explicit clean useSelected binds50B0444 external readonly file; full content visible and Save disabled; no file writes."
+    },
+    {
+      "id": "dirty-missing-save-copy",
+      "result": "passed",
+      "captures": [
+        "013",
+        "014",
+        "015"
+      ],
+      "detail": "Missing dirty original retains64B full buffer; native Save Copy writes64B elsewhere; original34B preserved and buffer remains dirty."
+    },
+    {
+      "id": "keep-buffer-undo-save",
+      "result": "passed",
+      "captures": [
+        "016",
+        "017",
+        "018",
+        "019"
+      ],
+      "detail": "KeepBuffer preserves64B andUndo; candidate45B unchanged until explicitSave. Undo leaves34B source content dirty against new45B baseline, explicitSave writes34B."
+    },
+    {
+      "id": "candidate-version-conflict",
+      "result": "passed",
+      "captures": [
+        "020",
+        "021",
+        "022",
+        "023"
+      ],
+      "detail": "External candidate changes45B→83B after preview; apply rejects, Cancel preserves original38B body, all moved source paths restored and external83B preserved."
+    },
+    {
+      "id": "chunked-sleep-wake-missing",
+      "result": "failed",
+      "captures": [
+        "024",
+        "025",
+        "027",
+        "028",
+        "030"
+      ],
+      "detail": "Missing101MiB after sleep/wake retains stale chunk page/cursor and blank body; Next Chunk shows expired-position error without FileRecovery; attempts to switch existing tab or Quick Open also do not navigate. Independent readonly analysis indicates lifecycle restore/late-dispose ordering; fix pending."
+    },
+    {
+      "id": "controlled-fixture-restore-and-normal-quit",
+      "result": "passed",
+      "captures": [
+        "029",
+        "031"
+      ],
+      "detail": "Owned101MiB restored at identical hash; nativeCmdQ no dirty documents, Apply Quit. Independent7process identity audit confirms all exited."
+    }
+  ],
+  "notExecuted": [
+    "Dirty useSelected discard option was visible but not clicked.",
+    "No actual vendor AI service or unrelated project was involved."
+  ],
+  "limits": [
+    "Intermediate no-write and moved-file states are operator-retained timestamped filesystem receipts. Verifier independently reads final seven files and original native images/AX; it did not continuously sample disk during each UI step.",
+    "Some AX captures label every tab selected; active tab conclusions combine rendered underline, editor container/path/content and specific stable AX states, not that label alone.",
+    "Native picker Cancel has retained selected AX excerpt plus post-cancel native image; no extra complete picker screenshot is fabricated.",
+    "Dirty discard choice is visible but not executed in this batch. Complete readonly useSelected and keepBuffer/Undo were executed.",
+    "This batch does not by itself complete crash recovery, every state requirement, or eight-layout visual acceptance.",
+    "The chunked sleep/wake error and subsequent navigation failure remain active until an actual new-build targeted retest; a source fix alone will not supersede them.",
+    "Normal large-file boundaries remain separately verified under FILE011; this new failure concerns wake revalidation and recoverable error actions.",
+    "Clean normal quit confirms all seven identities known before quit gone, not active Pi/TTY/launch shutdown and not a continuous picker-lifetime trace."
+  ]
+}

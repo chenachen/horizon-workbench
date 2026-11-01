@@ -1,0 +1,11 @@
+   Compiling horizon-desktop v0.1.0 (/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri)
+error[E0502]: cannot borrow `message` as mutable because it is also borrowed as immutable
+   --> src/agent.rs:353:9
+    |
+352 | ...   let mid=field(&message,"messageId")?;let dir=data(state)?.join("messages").join(sid);private_dir(&dir)?;let path=dir.join(form...
+    |                     -------- immutable borrow occurs here
+353 | ...   message["text"]=json!(text_prefix(&text,MESSAGE_PAGE_BYTES));message["contentRef"]=json!({"sessionId":sid,"messageId":mid});me...
+    |       ^^^^^^^ mutable borrow occurs here                                                 ---------------------------------------- immutable borrow later used here
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `horizon-desktop` (lib) due to 1 previous error

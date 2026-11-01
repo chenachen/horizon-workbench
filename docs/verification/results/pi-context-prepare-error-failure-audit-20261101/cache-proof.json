@@ -1,0 +1,56 @@
+{
+  "frozenAt": "2026-11-01T10:24:35.450911+00:00",
+  "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+  "canonicalProjectRoot": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A",
+  "cachePath": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/git-cache/diff-dc1f748e6c65753b9e0f38d88ae7c85da37aa7ec9eec7cf670b42c3979fc13d8.json",
+  "diffId": "dc1f748e6c65753b9e0f38d88ae7c85da37aa7ec9eec7cf670b42c3979fc13d8",
+  "cacheSha256": "dc1f748e6c65753b9e0f38d88ae7c85da37aa7ec9eec7cf670b42c3979fc13d8",
+  "cacheBytes": 499,
+  "originalMtimeUtc": "2026-11-01T09:56:58.409207+00:00",
+  "metadata": {
+    "base": "indexToWorktree",
+    "binary": false,
+    "byteLength": "199",
+    "newOid": null,
+    "oldOid": null,
+    "path": "example.txt",
+    "repoId": "ed3625a2fa9040644fc384cbf67fc37fac1e6d85d27ba4cdea53941b592a34d4",
+    "repoToken": "68d26e5c79574744825379653c21f3a9721313768cea7522c5863a5b60d65412",
+    "truncated": false
+  },
+  "ownershipBinding": {
+    "productionRule": "state::digest(canonical root encoded bytes) == repoId",
+    "expectedRootDigest": "ed3625a2fa9040644fc384cbf67fc37fac1e6d85d27ba4cdea53941b592a34d4",
+    "actualRepoId": "ed3625a2fa9040644fc384cbf67fc37fac1e6d85d27ba4cdea53941b592a34d4",
+    "matches": true
+  },
+  "sameFrozen04aDiff": {
+    "patchSha256": "ec0554a439514069cf842fcf1edb59fb427d95198c12a8051dbb0402ae91897f",
+    "exactPatchIncludedInActual04bHttp": true,
+    "declaredShaIncludedInActual04bHttp": true,
+    "uniqueRecentCacheForThisAFlow": true
+  },
+  "expiryAtNativeAttempt": {
+    "source": "apps/desktop/src-tauri/src/git.rs:503",
+    "guard": "metadata.modified().elapsed().as_secs() > 600",
+    "earliest06AttemptAfterPreviousTerminalUtc": "2026-11-01T10:08:56.904Z",
+    "ageSecondsAtThatConservativeBound": 718.4947934150696,
+    "first06ObservationUtc": "2026-11-01T10:14:25.798Z",
+    "ageSecondsAtObservation": 1047.3887934684753,
+    "guardAlreadyTrueAtEarliestBound": true,
+    "preciseClickTimestamp": "not recorded; not invented"
+  },
+  "causalChain": [
+    "Same inherited A example.txt indexToWorktree diff is byte-identical to actual04b attachment patch and its declaredSHA.",
+    "Cachemtime09:56:58 is unchanged; it was already older than600whole seconds before any06 attempt following05 terminal.",
+    "agent_context_prepare gitDiff branch invokes read_diff_snapshot before agent_submit/Pi; deterministic expired-cache guard returnsSTALE_CURSOR.",
+    "Native06 created only sessiona95b2fcb, left epoch0/reviewnull, no Pi/HTTP4; sendAgent catch→passive loadAgent→selectSession clears the visible error/status."
+  ],
+  "limit": "The swallowed native error reply itself was not logged; expiration cause is established from exact owned cache, prior actualHTTP attachment and deterministic production path, not a new internal product call.",
+  "nativeFailureArtifacts": [
+    "docs/verification/results/pi-terra-20261101/06a-send-observation.json",
+    "docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-send-observation.ax.txt",
+    "docs/verification/results/pi-terra-20261101/01c-1793525687778-06a-click-record.json"
+  ],
+  "quitReadiness": "All06 live UI/data/cache identity evidence frozen. No current Pi or permission window; root can normalquit75147 while provider2344 remains external/alive."
+}

@@ -1,0 +1,124 @@
+{
+  "at": "2026-11-01T05:50:09.589711+00:00",
+  "bundleSha256": "d70952fe156c6f2027ab0eb184846db3ced7ef634548a83d3ad19155f9464645",
+  "pid": 8305,
+  "method": "Actual CUA native clicks/keyboard/screenshot/AX; owned fixture reversible rename and byte receipts.",
+  "passed": [
+    {
+      "case": "missing101MiB sleep/wake restores unavailable page",
+      "evidence": [
+        "001",
+        "002",
+        "003",
+        "004"
+      ],
+      "detail": "Single central FileRecovery, own path, no stale chunk UI; real sleeping page retained11 tab names."
+    },
+    {
+      "case": "navigation remains usable after missing wake",
+      "evidence": [
+        "005",
+        "006"
+      ],
+      "detail": "Quick Open permission.ts reads38B, existing101MiB tab returns to own error page."
+    },
+    {
+      "case": "explicitRetry after ownedpath restoration creates fresh reader",
+      "evidence": [
+        "007",
+        "008",
+        "009"
+      ],
+      "detail": "Unchanged105906176B restored; first0-262144 and next262144-524288 with real content."
+    },
+    {
+      "case": "normal exit",
+      "evidence": [
+        "015"
+      ],
+      "detail": "No dirty documents; normalCmdQ→ApplyQuit; independent process audit separate."
+    }
+  ],
+  "remainingFailures": [
+    {
+      "case": "normal existing-path resume initial chunk",
+      "evidence": [
+        "011",
+        "012",
+        "013"
+      ],
+      "detail": "First chunk remains0-0 empty without error until explicitNext. Fixed source by delaying LargeFile mount until buffer no longer evicted; targeted true-component negative/positive verified, native nextbuild pending."
+    },
+    {
+      "case": "sleep preferences routing",
+      "evidence": [
+        "010"
+      ],
+      "detail": "Button openedAppearance; added projects route mapping, native nextbuild pending."
+    },
+    {
+      "case": "active tab close control visibility",
+      "evidence": [
+        "visual-iris-G02",
+        "visual-sand-G02"
+      ],
+      "detail": "Label nowvisible but closeX outside horizontal scroll; scroll entire tabparent sourcefixed, native nextbuild pending."
+    },
+    {
+      "case": "relocation dialog height",
+      "evidence": [
+        "014"
+      ],
+      "detail": "Correct50B and36pxbuttons; still752px tall with unused lower area. Sourcefit-content +strong body selector pending native nextbuild."
+    }
+  ],
+  "visualScope": "Graphite nowcorrectlight reference and7pxbuttons; Iris/Sand labelsvisible, close control limitation retained. G03 Iris+Mist is mixed-theme structural evidence only.",
+  "notRepeated": [
+    "Old missing/permission/keepBuffer/Undo/useSelected ordinary functional chains; currentchanges scoped rendering and wake.",
+    "Hot24, readingA/B125s and32minute lifecycle tests."
+  ],
+  "fixtures": [
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/limits/text-101MiB.txt",
+      "bytes": 105906176,
+      "sha256": "c55450324cbc5c1aee46710c31bb70640b56cc01b134241a26734657e81c19b9",
+      "mode": "0o644"
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/file-access-retest/permission.ts",
+      "bytes": 38,
+      "sha256": "cc2eebd544b0f7790d43b1633e46f32254561e42f68cbddd572c7bf4c31f4f51",
+      "mode": "0o644"
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts",
+      "bytes": 34,
+      "sha256": "0b2614cc62a68342d32260c3514ce59249d1b96b5b0150409133d77e125e9d9b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts",
+      "bytes": 64,
+      "sha256": "23514d2e28b764219c4e34af21f70e79b8222d6d4987f4dc4cc8c4f18b66c286",
+      "mode": "0o600"
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/conflict.ts",
+      "bytes": 83,
+      "sha256": "1abd972e9539923b7efe936750b9105a6d6d8a3361e08f1dc2277eb48bf6a4fb",
+      "mode": "0o644"
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts",
+      "bytes": 50,
+      "sha256": "177dbc653ffce8a458df52cb6b419109f4c4e17572a26ef0c9444bbb5daab62b",
+      "mode": "0o444"
+    }
+  ],
+  "corrections": [
+    "010-metadata-correction.json",
+    "011-metadata-correction.json",
+    "014-metadata-correction.json"
+  ],
+  "pendingBuild": "../file-recovery-final-target-release-20261101"
+}

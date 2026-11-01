@@ -1,0 +1,16 @@
+{
+  "observedAt": null,
+  "command": "ps -p 92803,12504 -o pid,ppid,lstart,command",
+  "present": [
+    {
+      "pid": 92803,
+      "lstart": "Sun Nov 1 15:13:42 2026"
+    }
+  ],
+  "absent": [
+    12504
+  ],
+  "limit": "Terminal PID was read from native UI while running; no independent OS start-time snapshot was captured before stop. This confirms absence at the observation, not a full PID/start lifecycle audit.",
+  "recordedAt": "2026-11-01T07:27:26.640227+00:00",
+  "observationTimeSource": "Parent ps tool output did not include explicit UTC time; no exact observation time claimed."
+}

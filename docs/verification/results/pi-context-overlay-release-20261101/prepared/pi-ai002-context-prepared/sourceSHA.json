@@ -1,0 +1,51 @@
+{
+  "preparedAt": "2026-11-01T09:01:11.845537+00:00",
+  "status": "prepared_not_applied_not_built_no_gui",
+  "sources": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sourceSha256": "27f0cf56343e51877985e0f3d3e3bade830947786f5a7641af340db20197fee4",
+      "proposedSha256": "bcf6aff0d18437d32371012a925cb7b531ec70a2fb55a45a97c5a92eb204429d"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "sourceSha256": "03e7cd7b5ef2428012acf115aee8dff4c05e24d92c2ff1be6ed6198fe9146958",
+      "proposedSha256": "80f56236f5a4283fcdd8ce54b34acc6d0fc3f47bef0535a5bbb8182cf64e18c9"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/ContextPicker.tsx",
+      "sourceSha256": "5e11bea99b181a76112e7c50cb43d04476be95b10703915c7e9bf9f56b1749d6",
+      "proposedSha256": "c3691678859b33fba683eb7f04814fc08600a599a7560b66e4ffd506e6c18229"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/types.ts",
+      "sourceSha256": "44381df1be86c63f0cae47d4591b1f28ca15aa1eca2fb218cbcb25822021ccfd",
+      "proposedSha256": "e136ca988c19146efc4b9da60f0d6cf1819507d3275d1613888b0312699eec49"
+    }
+  ],
+  "patchSha256": "a38ddeb19704fc64f41067552e46f3c02ffec386e05794c68745bb4ede968829",
+  "payloadMappingUnchanged": {
+    "path": "apps/desktop/src/features/agent/store.ts",
+    "sourceSha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+    "reason": "sendAgent destructures explicit existing fields; UI-only bufferDirty is not included"
+  },
+  "existingSatisfied": [
+    "Attachment label already displays file path; unchanged.",
+    "DiffViewer label already displays labels[0] → labels[1]; unchanged.",
+    "Initial AgentSettings install button already displays downloadBytes N MB; no added installed-state size requirement."
+  ],
+  "calculation": "Use frozen complete text plus UTF16 from/to offsets; toUtf16 is exclusive. Count LF (one per LF or CRLF), excluding newline at toUtf16-1; Unicode code units preserve supplied offsets.",
+  "reactRules": [
+    "rerender-derived-state-no-effect: derive descriptions, no state/effect copying",
+    "useMemo caches the text scan only across selected-array changes; simple budget arithmetic stays inline",
+    "Existing path_query effect, snapshot creation, limits, payload mapping and lifecycle unchanged"
+  ],
+  "nativeVerification": "Root necessary build/typecheck then actual D03/HTTP context batch; pure calculation check does not establish native UI acceptance.",
+  "calculationCheck": {
+    "path": ".work/pi-ai002-context-prepared/calculation-check.json",
+    "sha256": "7e128cd91e0d0a04505880bf88619e43304536adf23b61392acab2bfb9da6ac6",
+    "passed": 14,
+    "checkedAt": "2026-11-01T09:01:29.544Z",
+    "scope": "new private display calculation only; no React/native/provider execution"
+  }
+}

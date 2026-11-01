@@ -1,0 +1,218 @@
+{
+  "at": "2026-11-01T08:44:14.222295+00:00",
+  "extensionId": "local.resume-layout-guard",
+  "record": {
+    "activations": {},
+    "builtin": false,
+    "cleanupError": null,
+    "cleanupErrors": {},
+    "config": {},
+    "development": false,
+    "directActivations": {},
+    "enabledGlobal": false,
+    "errors": {},
+    "grants": [],
+    "installed": false,
+    "launchOrigins": {},
+    "logs": [
+      {
+        "message": "安装包校验和复制完成",
+        "time": "2026-11-01T06:05:07.222532+00:00"
+      },
+      {
+        "message": "pause",
+        "time": "2026-11-01T06:05:27.482558+00:00"
+      },
+      {
+        "message": "uninstall",
+        "time": "2026-11-01T06:37:49.841281+00:00"
+      },
+      {
+        "message": "安装包校验和复制完成",
+        "time": "2026-11-01T08:12:43.358323+00:00"
+      },
+      {
+        "message": "uninstall",
+        "time": "2026-11-01T08:38:16.834811+00:00"
+      }
+    ],
+    "manifest": {
+      "activation": [],
+      "apiVersion": 1,
+      "author": "Horizon verification fixture",
+      "capabilities": [],
+      "contributes": {
+        "commands": [],
+        "layouts": [
+          {
+            "apiVersion": 1,
+            "geometry": {
+              "auxiliaryWidth": {
+                "initial": 320,
+                "max": 560,
+                "min": 240,
+                "step": 1
+              },
+              "bottomHeight": {
+                "initial": 220,
+                "max": 480,
+                "min": 120,
+                "step": 1
+              },
+              "codeFontSize": {
+                "initial": 14,
+                "max": 28,
+                "min": 10,
+                "step": 1
+              },
+              "navigationWidth": {
+                "initial": 64,
+                "max": 280,
+                "min": 48,
+                "step": 1
+              },
+              "sidebarWidth": {
+                "initial": 240,
+                "max": 480,
+                "min": 160,
+                "step": 1
+              },
+              "statusHeight": {
+                "initial": 26,
+                "max": 40,
+                "min": 20,
+                "step": 1
+              },
+              "tabHeight": {
+                "initial": 40,
+                "max": 64,
+                "min": 28,
+                "step": 1
+              },
+              "tabMinWidth": {
+                "initial": 120,
+                "max": 240,
+                "min": 80,
+                "step": 1
+              },
+              "topbarHeight": {
+                "initial": 56,
+                "max": 88,
+                "min": 40,
+                "step": 1
+              },
+              "uiFontSize": {
+                "initial": 13,
+                "max": 20,
+                "min": 11,
+                "step": 1
+              }
+            },
+            "id": "local.resume-layout-guard",
+            "label": "验收布局 · 暂停门槛",
+            "narrow": {
+              "breakpoint": 900,
+              "collapse": [
+                "auxiliary",
+                "primarySidebar"
+              ],
+              "minimumEditorWidth": 320
+            },
+            "navigation": "rail",
+            "requiredSlots": [
+              "editor"
+            ],
+            "root": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "id": "navigation",
+                      "kind": "slot",
+                      "sizing": "navigationWidth",
+                      "slot": "navigation"
+                    },
+                    {
+                      "id": "primarySidebar",
+                      "kind": "slot",
+                      "sizing": "sidebarWidth",
+                      "slot": "primarySidebar"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "grow": 1,
+                              "id": "editor",
+                              "kind": "slot",
+                              "slot": "editor"
+                            },
+                            {
+                              "id": "auxiliary",
+                              "kind": "slot",
+                              "sizing": "auxiliaryWidth",
+                              "slot": "auxiliary"
+                            }
+                          ],
+                          "id": "documents",
+                          "kind": "row"
+                        },
+                        {
+                          "id": "bottom",
+                          "kind": "slot",
+                          "sizing": "bottomHeight",
+                          "slot": "bottom"
+                        }
+                      ],
+                      "id": "work",
+                      "kind": "column"
+                    }
+                  ],
+                  "id": "body",
+                  "kind": "row"
+                },
+                {
+                  "id": "status",
+                  "kind": "slot",
+                  "sizing": "statusHeight",
+                  "slot": "status"
+                }
+              ],
+              "id": "root",
+              "kind": "column"
+            }
+          }
+        ],
+        "views": []
+      },
+      "description": "专用声明式验收包；用于确认暂停布局的真实应用失败保留当前有效布局。",
+      "engines": {
+        "horizon": ">=0.1.0 <0.2.0"
+      },
+      "id": "local.resume-layout-guard",
+      "name": "验收布局 · 暂停门槛",
+      "optional": {},
+      "requires": {},
+      "runtime": {
+        "kind": "declarative"
+      },
+      "version": "0.1.0"
+    },
+    "packageDigest": "4c367bb60f11658f5aa3fcd3970ee39f2b1f9d83cf16fc8b5a8e4ad2fe6a83c0",
+    "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.resume-layout-guard/0.1.0-4c367bb60f11",
+    "pausedGlobal": true,
+    "policyRevision": 5,
+    "projectConfig": {},
+    "projects": {},
+    "revision": 8,
+    "runLeases": {},
+    "sleeping": {
+      "@app": false
+    },
+    "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/layout-guard.horizon-extension",
+    "stopping": {
+      "@app": false
+    }
+  }
+}

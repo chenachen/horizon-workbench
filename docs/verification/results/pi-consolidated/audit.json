@@ -1,0 +1,110 @@
+{
+  "reviewedAt": "2026-10-30T21:08:44.518799+00:00",
+  "scope": "Combine existing real native protocol/broker tests, candidate6 native GUI/HTTP/disk evidence, and narrow source invariants. Different executions/builds remain identified.",
+  "sourceHashes": {
+    "apps/desktop/src-tauri/src/agent.rs": "1ffd65c5938d0c3bc516413d4518304afe9f18ed51f401aaa3aec6f64a3d467a",
+    "apps/desktop/src/features/agent/ContextPicker.tsx": "5e11bea99b181a76112e7c50cb43d04476be95b10703915c7e9bf9f56b1749d6",
+    "apps/desktop/src/features/agent/AgentPanel.tsx": "c27fa6fecd58dc8610a9a0e8937b00a5dc7ec21fc5035ef14c49c909ed0ecd15",
+    "scripts/test-pi-rpc.mjs": "c924a96762448272b30b3db1f2ef99c5245ae43eadd8ad203054e2834ed214ea",
+    "packages/pi-policy/horizon-policy.ts": "3eb79c2578c8e1376698d496da9164df52de3bde3a7758b6364b3ba9e37d45d6"
+  },
+  "requirements": {
+    "REQ-AI-003": {
+      "status": "full for macOS implementation",
+      "clauses": [
+        {
+          "condition": "20 files /256KiB initial budget",
+          "evidence": "Native context_prepare actual21items/over256KiB rejects; exact256KiB accepted. GUI context picker shows1/20 and1/256KiB."
+        },
+        {
+          "condition": "Oversize requires reduction or split, no silent clipping",
+          "evidence": "ContextPicker disables Attach and shows 超出附件上限，请删减后发送。不会自动截断。; native error asks删减或分批. Boundary native assertions verify rejection rather than substring truncation."
+        },
+        {
+          "condition": "Host does not rewrite Agent memory",
+          "evidence": "context_prepare freezes selected text and digest; agent_submit concatenates those attachments. Pi owns any compaction; same real protocol run observed compaction_start/end then agent_settled."
+        },
+        {
+          "condition": "No false precise token count",
+          "evidence": "Current picker displays file count and encoded byte KiB budget only; no token total/estimate is presented."
+        }
+      ],
+      "runtimeEvidence": [
+        "docs/verification/results/pi-native-final/pi-native.json",
+        "docs/verification/results/pi-stream-audit/pi-rpc.json",
+        "docs/verification/results/pi-native-gui-audit/audit.json",
+        "docs/verification/screenshots/pi-native-gui/06-D03-context-buffer.png"
+      ],
+      "limits": [
+        "Native budget guards have actual boundary tests; oversize error visual layout not separately captured. JPEG functional screenshot not counted as formal PNG visual pass."
+      ]
+    },
+    "REQ-AI-004": {
+      "status": "full for macOS implementation",
+      "clauses": [
+        {
+          "condition": "One in-flight turn, no queue",
+          "evidence": "Actual Rust integration asserts oneRunPerProject; run_pi rejects second project run before spawn and treats queued disposition as protocol error. UI does not enqueue turns."
+        },
+        {
+          "condition": "Chat has no project tools or automatic discovery",
+          "evidence": "Real Pi protocol test noTools/noAutomaticContext/noAutomaticExtensions; native GUI HTTP lines3–7/15–19 have zero tools, launch flags include --no-tools/--no-context-files/--no-extensions/--no-mcp."
+        },
+        {
+          "condition": "Accepted input is not completed run; retry/compaction must settle",
+          "evidence": "Native run_pi emits agent.accepted on started response and only runSettled after agent_settled; real long Unicode protocol record includes compaction_start/end before settled; GUI stream remains running then final/manual stop reflects terminal state."
+        },
+        {
+          "condition": "Ordinary stdout not fabricated as structured events",
+          "evidence": "Production next_pi_record/serde_json/from_str require typed JSONL; invalid JSON returns AGENT_PROTOCOL_ERROR, unknown structured kinds are ignored; only explicit protocol variants map to events. This clause is code-invariant evidence, not an injected invalid-stdout GUI test."
+        }
+      ],
+      "runtimeEvidence": [
+        "docs/verification/results/pi-native-final/pi-native.json",
+        "docs/verification/results/pi-stream-audit/pi-rpc.json",
+        "docs/verification/results/pi-native-gui-audit/provider-requests.jsonl",
+        "docs/verification/results/candidate6-pi-one-stream-retest-125s/audit.json"
+      ],
+      "limits": [
+        "Provider is controlled local service. This closes message/mode semantics, not real-provider authentication, all transport failures or full Pi release gate.",
+        "Retry phase guard is source-reviewed; actual automatic-compaction ordering is observed. No claim a vendor auto-retry was triggered."
+      ]
+    },
+    "REQ-AI-007": {
+      "status": "full for controlled macOS task-tool authorization protocol",
+      "clauses": [
+        {
+          "condition": "Write/exec asks before effect and shows action/path/cwd/source",
+          "evidence": "Native GUI08write and11exec dialogs show exact operation and source Pi; production broker records pending permission before fs::write/cmd.spawn."
+        },
+        {
+          "condition": "Deny causes no write; accepted operation runs only in copy",
+          "evidence": "GUIwrite-denied copy/original identical and HTTP tool denial; GUIallow changes only copy before explicit apply; same assertions in realRust broker test."
+        },
+        {
+          "condition": "Expired or broken bridge refuses; no fail-open execution",
+          "evidence": "Production120s oneshot timeout/error becomesfalse before effects; cancelling pending permission drops sender and native integration proves no change. Policy missing socket/token, error/end/timeout/malformed or ok!=true rejects and has no local execution fallback. Timer/transport branches are source invariants, not claimed as120s GUI fault injection."
+        },
+        {
+          "condition": "Unknown tool cannot bypass",
+          "evidence": "RealRust broker unknownToolNoEffect/exactToolAllowlist checks; policy tool_call blocks names outside four, builtin tools disabled and user_bash blocked."
+        },
+        {
+          "condition": "No OS sandbox claim",
+          "evidence": "GUI11 explicitly says ordinary user OS privileges, once-only permission, not OS sandbox; broker executes with cleared environment and bounded owned process group."
+        }
+      ],
+      "runtimeEvidence": [
+        "docs/verification/results/pi-native-candidate7/pi-native.json",
+        "docs/verification/results/pi-native-gui/write-denied.json",
+        "docs/verification/results/pi-native-gui/write-allowed-before-apply.json",
+        "docs/verification/results/pi-native-gui/pending-cancel.json",
+        "docs/verification/results/pi-native-gui/exec-environment.json"
+      ],
+      "limits": [
+        "120s expiry and broken socket responses are verified by source guard behavior combined with real denial/cancel paths; no separate deliberate120s GUI wait is claimed.",
+        "This closes authorization forwarding semantics, not OS sandboxing, credential system storage, all native process-stop failures or visual fidelity."
+      ]
+    }
+  }
+}

@@ -1,0 +1,2354 @@
+{
+  "kind": "real App/SettingsPanel/AgentSettings/LauncherPanel/Modal/bridge/AppearanceProvider; controlled Tauri and unrelated modules",
+  "startedAt": "2026-11-01T15:55:53.263Z",
+  "sources": {
+    "preparedOnly": true,
+    "changePath": "apps/desktop/src/components/UnsavedChanges.tsx",
+    "sources": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "beforeSha256": "a4f9cc7e83f6007722aafca6183eeae37f19fb1e48a835131e52c2b9adc2a445",
+        "afterSha256": "a4f9cc7e83f6007722aafca6183eeae37f19fb1e48a835131e52c2b9adc2a445"
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "beforeSha256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5",
+        "afterSha256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5"
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "beforeSha256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f",
+        "afterSha256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f"
+      },
+      {
+        "path": "apps/desktop/src/features/processes/index.tsx",
+        "beforeSha256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b",
+        "afterSha256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b"
+      },
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "beforeSha256": "6032930230ff5256cca949c4d48152a40892cb8b1a7d6260191e6a94b068f120",
+        "afterSha256": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17"
+      }
+    ],
+    "support": [
+      {
+        "path": "apps/desktop/src/components/Modal.tsx",
+        "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33"
+      },
+      {
+        "path": "apps/desktop/src/bridge.ts",
+        "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+      },
+      {
+        "path": "apps/desktop/tsconfig.json",
+        "sha256": "a074d7381ee08a4c76c8575917e0f47ce29e0686b7453638288ef4e07b2b4283"
+      }
+    ],
+    "firstReleaseFailure": {
+      "original": "docs/verification/results/form-git-functional-release-20261102/release-build.log",
+      "copy": "source/release-build-first-failure.log",
+      "sha256": "02caba46c186b96a2e2e3baac3a81581cf64e73ae23eac4cc37d6497d373fb20"
+    }
+  },
+  "scenarios": [
+    {
+      "variant": "after",
+      "kind": "connection-close",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "X confirmation Escape keeps both parent dialogs",
+          "dialogs": [
+            "设置",
+            "添加模型连接"
+          ],
+          "section": "ai",
+          "fields": [
+            {
+              "label": "连接名称",
+              "value": "Owned unsaved connection"
+            },
+            {
+              "label": "提供商 ID",
+              "value": "horizon-openai"
+            },
+            {
+              "label": "API 协议",
+              "value": "openai-completions"
+            },
+            {
+              "label": "服务地址",
+              "value": "https://api.openai.com/v1"
+            },
+            {
+              "label": "模型 ID",
+              "value": "owned-model-new"
+            },
+            {
+              "label": "认证归属",
+              "value": "horizon"
+            },
+            {
+              "label": "API key",
+              "passwordPresent": true
+            },
+            {
+              "label": "凭据保存",
+              "value": "system"
+            }
+          ],
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "X final closure",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "ai",
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Escape confirmation Escape keeps both parent dialogs",
+          "dialogs": [
+            "设置",
+            "添加模型连接"
+          ],
+          "section": "ai",
+          "fields": [
+            {
+              "label": "连接名称",
+              "value": "Owned unsaved connection"
+            },
+            {
+              "label": "提供商 ID",
+              "value": "horizon-openai"
+            },
+            {
+              "label": "API 协议",
+              "value": "openai-completions"
+            },
+            {
+              "label": "服务地址",
+              "value": "https://api.openai.com/v1"
+            },
+            {
+              "label": "模型 ID",
+              "value": "owned-model-new"
+            },
+            {
+              "label": "认证归属",
+              "value": "horizon"
+            },
+            {
+              "label": "API key",
+              "passwordPresent": true
+            },
+            {
+              "label": "凭据保存",
+              "value": "system"
+            }
+          ],
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Escape final closure",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "ai",
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "cancel confirmation Escape keeps both parent dialogs",
+          "dialogs": [
+            "设置",
+            "添加模型连接"
+          ],
+          "section": "ai",
+          "fields": [
+            {
+              "label": "连接名称",
+              "value": "Owned unsaved connection"
+            },
+            {
+              "label": "提供商 ID",
+              "value": "horizon-openai"
+            },
+            {
+              "label": "API 协议",
+              "value": "openai-completions"
+            },
+            {
+              "label": "服务地址",
+              "value": "https://api.openai.com/v1"
+            },
+            {
+              "label": "模型 ID",
+              "value": "owned-model-new"
+            },
+            {
+              "label": "认证归属",
+              "value": "horizon"
+            },
+            {
+              "label": "API key",
+              "passwordPresent": true
+            },
+            {
+              "label": "凭据保存",
+              "value": "system"
+            }
+          ],
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "cancel final closure",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "ai",
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "unchanged connection form closes directly",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "ai",
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_detect",
+              "params": {
+                "adapterId": "pi"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_connections_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "credential_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "agent_preferences_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        }
+      ],
+      "nativeConfirms": [],
+      "passed": true
+    },
+    {
+      "variant": "after",
+      "kind": "outer-close-and-hidden",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "done outer closure",
+          "dialogs": [],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "X outer closure",
+          "dialogs": [],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Escape outer closure",
+          "dialogs": [],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        }
+      ],
+      "nativeConfirms": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T15:56:00.962Z",
+  "durationMs": 7699
+}

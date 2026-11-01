@@ -1,0 +1,32 @@
+{
+  "status": "attributed periodic native directory synchronization; exact watched directory and trigger not established",
+  "helperPid": 35619,
+  "responsiblePid": 33304,
+  "exactStart": "Sat Oct 31 04:16:41 2026",
+  "dormantAfter60Seconds": {
+    "horizonCpuMeanOneCorePercent": 13.857709812059223,
+    "helperCpuMeanOneCorePercent": 13.67641120901599,
+    "otherHorizonCpuMeanOneCorePercent": 0.181298603043233,
+    "pulse": "approximately every 5 seconds; 31–65% one-core samples"
+  },
+  "sampleAt": "2026-10-31 04:51:12.438 +0800",
+  "sampleFindings": {
+    "mainThread": "4218 of 4220 samples waiting in mach_msg; not an AppKit main-thread spin",
+    "worker": "660 of 4220 worker samples in TNode::HandleSync -> TNode::SynchronizeChildren -> TFSInfoSynchronizer::FetchChildren; directory enumeration, LaunchServices property and sandbox checks",
+    "scope": "Later 4.22-second stack sample corroborates periodic filesystem work; it is not the same 125-second CPU interval or a path-level file trace"
+  },
+  "rawStack": "panel-helper-sample.txt",
+  "rawStackSha256": "72e25b72d54a67a5f1b2110a5003111f33eb306c333e2e5fab01fabfb34b6e7c",
+  "preserveAccounting": true,
+  "nextReproduction": [
+    "After normal application restart, recreate same dormant scene. Hold UI unchanged for 125 seconds before any file picker; collect full owned process metrics.",
+    "Use normal GUI diagnostic export into a dedicated empty temporary directory, close the picker, return to the same scene, and collect another 125 seconds. Write collector outputs outside the viewed directory.",
+    "Only if empty-directory picker differs from the original observation, repeat the original export directory as a targeted control. Keep all attributable helpers in every total."
+  ],
+  "notDone": [
+    "No GUI inputs by verifier",
+    "No signal or termination of helper",
+    "No claim of identified Horizon source-code loop",
+    "No subtraction of helper to declare an idle budget pass"
+  ]
+}

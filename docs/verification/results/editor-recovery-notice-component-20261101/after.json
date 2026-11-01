@@ -1,0 +1,26 @@
+{
+  "kind": "RecoveryNotice and EditorStore async cleanup regression",
+  "phases": [
+    {
+      "name": "continuous dirty edits do not query recovery list again",
+      "passed": true
+    },
+    {
+      "name": "Undo invalidates older list error while checkpoint remains until native clean receipt",
+      "passed": true
+    },
+    {
+      "name": "native cleanup receipt refreshes list and rejects older draft result without leaving a recovery notice",
+      "passed": true
+    },
+    {
+      "name": "current recovery list NOT_FOUND remains visible rather than being swallowed",
+      "passed": true
+    },
+    {
+      "name": "a genuinely missing selected draft remains an actionable recovery error",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

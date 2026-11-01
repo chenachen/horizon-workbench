@@ -1,0 +1,52 @@
+[
+  {
+    "from": "01-pty-command-before-return",
+    "to": "01-pty-prompt-recheck",
+    "completeDiff": "--- 01-pty-command-before-return\n\n+++ 01-pty-prompt-recheck\n\n@@ -151,0 +152,2 @@\n\n+\n+The focused UI element is 116 text entry area (settable) Terminal input, Value: [text entry area: Terminal input]"
+  },
+  {
+    "from": "01-pty-prompt-recheck",
+    "to": "01-pty-cancel-residual",
+    "completeDiff": ""
+  },
+  {
+    "from": "01-pty-cancel-residual",
+    "to": "01-pty-clean-command",
+    "completeDiff": "--- 01-pty-cancel-residual\n\n+++ 01-pty-clean-command\n\n@@ -133,0 +134 @@\n\n+\t\t\t\t\t\t\t# text (settable) printf 'Q1 专用终端\\n'; printf 'shell PID=%s\\n' \"$$\"; pwd"
+  },
+  {
+    "from": "01-pty-clean-command",
+    "to": "01-pty-identity-output",
+    "completeDiff": "--- 01-pty-clean-command\n\n+++ 01-pty-identity-output\n\n@@ -134 +133,0 @@\n\n-\t\t\t\t\t\t\t# text (settable) printf 'Q1 专用终端\\n'; printf 'shell PID=%s\\n' \"$$\"; pwd"
+  },
+  {
+    "from": "01-launch-ready-visible",
+    "to": "01-launch-ready",
+    "completeDiff": ""
+  },
+  {
+    "from": "05-save-recovered",
+    "to": "02-dirty-unsaved",
+    "completeDiff": "--- 05-save-recovered\n\n+++ 02-dirty-unsaved\n\n@@ -40 +40 @@\n\n-\t\t\t\t\t# button 切换到项目 PiQA A · 20261101，运行中, Help: PiQA A · 20261101\n+\t\t\t\t\t# button 切换到项目 PiQA A · 20261101, Help: PiQA A · 20261101\n@@ -114 +114 @@\n\n-\t\t\t\t\t\t# tab (selected) dirty.txt, Help: q1-save-guard/dirty.txt\n+\t\t\t\t\t\t# tab (selected) dirty.txt 未保存, Help: q1-save-guard/dirty.txt · 未保存\n@@ -120,2 +120,2 @@\n\n-\t\t\t\t\t# button (disabled) 保存文件, Help: 保存 ⌘S\n-\t\t\t\t\t# container dirty.txt\n+\t\t\t\t\t# button 保存文件, Help: 保存 ⌘S\n+\t\t\t\t\t# container dirty.txt 未保存\n@@ -144 +144 @@\n\n-\t\t\t\t# text Esc 后按 Tab 离开编辑器\n+\t\t\t\t# text Esc 后按 Tab 离开编辑器 恢复稿已存\n@@ -153,3 +152,0 @@\n\n-\t\t\t# container\n-\t\t\t\t# text 仍有文档未保存成功。请先处理保存错误，再继续。\n-\t\t\t\t# button 关闭错误提示"
+  },
+  {
+    "from": "05-save-recovered",
+    "to": "05-editor-save-error",
+    "completeDiff": "--- 05-save-recovered\n\n+++ 05-editor-save-error\n\n@@ -114 +114 @@\n\n-\t\t\t\t\t\t# tab (selected) dirty.txt, Help: q1-save-guard/dirty.txt\n+\t\t\t\t\t\t# tab (selected) dirty.txt 未保存, Help: q1-save-guard/dirty.txt · 未保存\n@@ -120,2 +120,5 @@\n\n-\t\t\t\t\t# button (disabled) 保存文件, Help: 保存 ⌘S\n-\t\t\t\t\t# container dirty.txt\n+\t\t\t\t\t# button 保存文件, Help: 保存 ⌘S\n+\t\t\t\t\t# container\n+\t\t\t\t\t\t# text Permission denied (os error 13) at path \"/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1-save-guard/.tmpF3PGv8\"\n+\t\t\t\t\t\t# button 重试保存\n+\t\t\t\t\t# container dirty.txt 未保存\n@@ -144 +147 @@\n\n-\t\t\t\t# text Esc 后按 Tab 离开编辑器\n+\t\t\t\t# text Esc 后按 Tab 离开编辑器 恢复稿已存\n@@ -167,2 +170 @@\n\n-The focused UI element is 105 text entry area (settable) q1-save-guard/dirty.txt，代码编辑器, Value: Q1 baseline 20261101\n-Q1_NATIVE_UNSAVED_20261101\n+The focused UI element is 126 text entry area (settable) Terminal input, Value: [text entry area: Terminal input]"
+  },
+  {
+    "from": "05-save-recovered",
+    "to": "07-reopen-initial",
+    "completeDiff": "--- 05-save-recovered\n\n+++ 07-reopen-initial\n\n@@ -40 +40 @@\n\n-\t\t\t\t\t# button 切换到项目 PiQA A · 20261101，运行中, Help: PiQA A · 20261101\n+\t\t\t\t\t# button 切换到项目 PiQA A · 20261101, Help: PiQA A · 20261101\n@@ -131 +131 @@\n\n-\t\t\t\t\t# pop up button 终端会话, Value: zsh · 9823 · 运行中\n+\t\t\t\t\t# pop up button 终端会话, Value: 选择会话\n@@ -134 +134 @@\n\n-\t\t\t\t\t# button 结束进程\n+\t\t\t\t\t# button (disabled) 结束进程\n@@ -138,4 +138,3 @@\n\n-\t\t\t\t\t# container\n-\t\t\t\t\t\t# text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收  · PID  9823  · 运行中\n-\t\t\t\t\t# container 交互式终端；F6 返回编辑器\n-\t\t\t\t\t\t# text entry area (settable) Terminal input, Value: [text entry area: Terminal input]\n+\t\t\t\t\t# text 需要命令行时再启动\n+\t\t\t\t\t# text 新建终端会在此项目目录启动 shell。隐藏面板、切换项目会保留进程。\n+\t\t\t\t\t# button 新建终端\n@@ -148,2 +147 @@\n\n-\t\t\t\t# button (disabled) 启动\n-\t\t\t\t# button 停止\n+\t\t\t\t# button 启动\n@@ -153,3 +150,0 @@\n\n-\t\t\t# container\n-\t\t\t\t# text 仍有文档未保存成功。请先处理保存错误，再继续。\n-\t\t\t\t# button 关闭错误提示\n@@ -167,2 +162 @@\n\n-The focused UI element is 105 text entry area (settable) q1-save-guard/dirty.txt，代码编辑器, Value: Q1 baseline 20261101\n-Q1_NATIVE_UNSAVED_20261101\n+The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+  },
+  {
+    "from": "04-quit-impact",
+    "to": "05-save-failure",
+    "completeDiff": "--- 04-quit-impact\n\n+++ 05-save-failure\n\n@@ -53,0 +54,3 @@\n\n+\t\t\t\t# container\n+\t\t\t\t\t# text 仍有文档未保存成功。请先处理保存错误，再继续。\n+\t\t\t\t\t# button 关闭错误提示\n@@ -65 +68 @@\n\n-The focused UI element is 7 button 关闭弹窗\n+The focused UI element is 3 container 退出 Horizon"
+  },
+  {
+    "from": "04-quit-impact",
+    "to": "06-final-quit-impact",
+    "completeDiff": "--- 04-quit-impact\n\n+++ 06-final-quit-impact\n\n@@ -11,14 +11 @@\n\n-\t\t\t\t# container 1 份未保存文档\n-\t\t\t\t\t# text 1  份未保存文档\n-\t\t\t\t\t# container 未保存文档\n-\t\t\t\t\t\t# container\n-\t\t\t\t\t\t\t# text q1-save-guard/dirty.txt 启动器验收\n-\t\t\t\t\t# container\n-\t\t\t\t\t\t# radio button 保存到原文件, Value: 1\n-\t\t\t\t\t\t# text 保存到原文件\n-\t\t\t\t\t# container\n-\t\t\t\t\t\t# radio button 保留恢复草稿，稍后继续, Value: 0\n-\t\t\t\t\t\t# text 保留恢复草稿，稍后继续\n-\t\t\t\t\t# container\n-\t\t\t\t\t\t# radio button 放弃本次未保存编辑, Value: 0\n-\t\t\t\t\t\t# text 放弃本次未保存编辑\n+\t\t\t\t# text 没有未保存文档\n@@ -53,0 +41,3 @@\n\n+\t\t\t\t# container\n+\t\t\t\t\t# text 仍有文档未保存成功。请先处理保存错误，再继续。\n+\t\t\t\t\t# button 关闭错误提示"
+  }
+]

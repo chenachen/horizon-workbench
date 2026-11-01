@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T07:03:37.547641+00:00",
+  "owner": "/root/appearance_resume",
+  "scope": "本轮真实 macOS 外观与设置功能验收；仅列亲见结果。统一 matrix/evidence 由 verification 写入。",
+  "build": {
+    "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+    "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+    "pid": 40426,
+    "version": "0.1.0",
+    "platform": "macOS aarch64",
+    "identityScope": "从入场到2026-11-01T06:59Z归还GUI；归还后的中央构建不覆盖本证据身份。"
+  },
+  "collection": {
+    "captureCount": 326,
+    "uniqueNames": 326,
+    "originalFormats": [
+      "JPEG"
+    ],
+    "originalsUnmodified": true,
+    "captureManifest": "captures.jsonl",
+    "actionManifest": "actions.jsonl",
+    "correctionManifest": "metadata-corrections.jsonl",
+    "hashAudit": "artifact-integrity.json",
+    "newIndexCounts": {
+      "G03": 8,
+      "F10-upper": 8,
+      "F12-middle": 4,
+      "F12-upper": 4
+    },
+    "metadataNotes": [
+      "前11份760窄窗图曾被旧闭包写成1280元数据；原始图实际760×800，已追加逐图window纠正，未改原图。",
+      "geometry-key-right早期notes提前写268；实际AX为260→261，纠正链保留。Shift+Right为261→271。",
+      "preset-missing-imported-mist是chooser关闭中的过渡帧；依赖结果使用后续warning/拒绝图。",
+      "theme mode=dark不等于配色编辑模式dark；本轮八套F12补区编辑模式均为浅色，和参考的浅色编辑选择对应。"
+    ]
+  },
+  "functional": [
+    {
+      "id": "layout-50",
+      "status": "verified-with-explicit-counter-difference",
+      "result": "恰好50次成功布局应用；paper/orbit/graphite/celadon/iris/sand/aurora/mist六轮再paper/mist。后续功能巡回不计入50。",
+      "observations": [
+        "同一workspace.ts脏稿、原选区、Undo历史及PTY51343保持。50次后仅一次Undo移除原测试标记；未保存至文件。Git草稿只保留后态可见证据，文本匹配预置conditions；未保留独立before可见证据，不能据此闭合50次Git草稿before/after链。",
+        "前后editor对象完全相同：createdViews1/destroyedViews0/viewCount1/openSamples1。所有runtime监听/observer计数一致。",
+        "pluginInstances5→6来自首轮paper B05真实启用搜索。插件中心六运行项editor/files/git/launch/search/terminal；QA声明式布局激活0，卸载后仍6。",
+        "不以此推导全部资源计数完全相等、内存不增长或最终30分钟性能达标。"
+      ],
+      "audit": "layout-50-audit.json",
+      "sequence": "layout-50.jsonl",
+      "evidence": [
+        {
+          "name": "retention-after-50",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-after-50.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-after-50.ax.txt",
+          "sha256": "71f33b696695969129cc34c6cb4b16de517bd6b9108ff16ad228c31fc859538d",
+          "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+          "capturedAt": "2026-11-01T06:32:25.430Z"
+        },
+        {
+          "name": "retention-original-selection-after-50",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-original-selection-after-50.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-original-selection-after-50.ax.txt",
+          "sha256": "5f501841ec94f991f1058f714b3c7ad280826f113addb75f28e63ea9de6d48ee",
+          "axSha256": "f136be68750a3409c0ae3317e9b0461f83d33e7e0c2731fdf62d4246fb922f59",
+          "capturedAt": "2026-11-01T06:35:46.254Z"
+        },
+        {
+          "name": "retention-undo-after-50",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-undo-after-50.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-undo-after-50.ax.txt",
+          "sha256": "7f240866714b9fbc27450bf7cac1ee4c05e4150ee7393e36ab996f768b37a38f",
+          "axSha256": "1bc0c99cd8253abb8c6671dfa52ddd96caf2c432be017e434cab19aa78d6c185",
+          "capturedAt": "2026-11-01T06:35:46.812Z"
+        },
+        {
+          "name": "retention-git-after-50",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-git-after-50.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-git-after-50.ax.txt",
+          "sha256": "a1cefd7fc92a797176b3fb34abf1ede8b4a8ad085c69794fcb24a3cfb95930b2",
+          "axSha256": "a3d7b2441af353f093b2a6c485561211fd3e1ca25b55c060628549408689d4ee",
+          "capturedAt": "2026-11-01T06:32:36.642Z"
+        },
+        {
+          "name": "retention-terminal-after-50",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-terminal-after-50.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/retention-terminal-after-50.ax.txt",
+          "sha256": "2323183f0f0868561fb43f9dac46a781413aeb9db652e56791430a838a640fbb",
+          "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+          "capturedAt": "2026-11-01T06:32:37.851Z"
+        }
+      ]
+    },
+    {
+      "id": "terminal-and-qa-cleanup",
+      "status": "verified",
+      "result": "同一PTY51343在全部E01及50次切换后显式结束；ps确认不存在。自有local.resume-layout-guard卸载，25→24安装包；未动其他扩展。",
+      "limits": "停用布局F14仅为真实已暂停前置失败，当前有效布局保留；不称apply后回滚。停止终端重开出现“此进程没有PTY”已交processes修复。",
+      "audit": "terminal-stop-process-check.json",
+      "evidence": [
+        {
+          "name": "terminal-stopped-confirmed",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/terminal-stopped-confirmed.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/terminal-stopped-confirmed.ax.txt",
+          "sha256": "618c5dc9282a3706f7ad4f22a7c79528921b65ef900ed362aaf760c37fc0c101",
+          "axSha256": "8071877117296f34f82231fa1f4235e80b465dd9c42e1bcf9af041155254a071",
+          "capturedAt": "2026-11-01T06:36:28.208Z"
+        },
+        {
+          "name": "qa-layout-uninstalled",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/qa-layout-uninstalled.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/qa-layout-uninstalled.ax.txt",
+          "sha256": "61689ada41b6c3f363aad035727e93ac7ffb5789770424cee616aacd43c91d10",
+          "axSha256": "04c17f239d36803917e5ec77e36f837922dee558138ba86d119dec023d85dfe4",
+          "capturedAt": "2026-11-01T06:37:50.309Z"
+        },
+        {
+          "name": "diagnostics-after-qa-uninstall",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/diagnostics-after-qa-uninstall.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/diagnostics-after-qa-uninstall.ax.txt",
+          "sha256": "68037cf74b08c8050a9ac2ded0c15ddaadcb2a04cc879daf2082a49c5575b2c5",
+          "axSha256": "b9293dc7bec75a218a44a6a8ce7c746e812190c5e48e6942828102adce7154db",
+          "capturedAt": "2026-11-01T06:37:52.464Z"
+        }
+      ]
+    },
+    {
+      "id": "cache-clear",
+      "status": "verified-nonempty-path-cache",
+      "result": "先前正文搜索未建立此清理范围的缓存，空预览不算非空通过。真实QuickOpen查询建立1项目/5路径；预览1、实际移除1，pathSearchProjects/Paths归0。",
+      "observations": "正文搜索结果4/任务2不在此清理范围，保持不变。未决草稿及checkpoint49796e2f-8639-446a-a5b6-2b4573c0a5e4保留。",
+      "audit": "path-cache-cleanup-observation.json",
+      "evidence": [
+        {
+          "name": "cache-preview-real-one-item",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-preview-real-one-item.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-preview-real-one-item.ax.txt",
+          "sha256": "c01c7c3319e6c20300c6dee99d0af1db5dd86fc5ddbe35b6e1d10ed6ca349684",
+          "axSha256": "68bd5820920f80ba51d7d3c0e87aaed3252d5d941906ba008345fe5392b793b5",
+          "capturedAt": "2026-11-01T06:36:48.834Z"
+        },
+        {
+          "name": "cache-cleared-one-item",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-cleared-one-item.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/cache-cleared-one-item.ax.txt",
+          "sha256": "e36831e0541d11bf2d513e5e24aa583b93c9ac520ea1dad0bb4b2b0184ff5588",
+          "axSha256": "ecf119ce097c202110c3dbcb2237c7233d3aec6aeeaac3498a0826ec39be5863",
+          "capturedAt": "2026-11-01T06:36:51.657Z"
+        },
+        {
+          "name": "dirty-preserved-after-real-cache-clear",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/dirty-preserved-after-real-cache-clear.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/dirty-preserved-after-real-cache-clear.ax.txt",
+          "sha256": "0121df12be4a21c9c0e274129d463df35420378ef429a517905d31f4088ff986",
+          "axSha256": "f27cbc5479ca248475e40481a9c12745403bd4725c046c2c7ed91b52397c4e28",
+          "capturedAt": "2026-11-01T06:36:53.477Z"
+        }
+      ]
+    },
+    {
+      "id": "colors-and-modes",
+      "status": "verified",
+      "result": "非法#GGGGGG保留输入与旧有效颜色；浅色#445566和深色#bbccdd独立保存，编辑深色不切换当前浅色；全量及单字段恢复实际完成。",
+      "evidence": [
+        {
+          "name": "colors-invalid-text-kept",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-invalid-text-kept.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-invalid-text-kept.ax.txt",
+          "sha256": "fc31ab5cfe41fc918ee50fc3f5a476767e22515e48898483bc22ece17e5a97f8",
+          "axSha256": "49db8408d8d5d3aa0fb79945eb9d71472030dc0a90fed661c8104ed87647f582",
+          "capturedAt": "2026-11-01T06:39:13.615Z"
+        },
+        {
+          "name": "colors-dark-edit-independent",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-dark-edit-independent.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-dark-edit-independent.ax.txt",
+          "sha256": "e3ef6bf842a92d8fc6c92bddf6974489eab8df1887ac5b414bab8a5773f4699d",
+          "axSha256": "a2e6d881734e648a47551d1c42ce573585b35419f167deb6da15f4d11a72551f",
+          "capturedAt": "2026-11-01T06:39:34.262Z"
+        },
+        {
+          "name": "colors-light-value-retained",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-light-value-retained.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-light-value-retained.ax.txt",
+          "sha256": "080a34012c368023dc0e6e4d4590eb125d259bdbfb2228d64bc2a2f587d00e08",
+          "axSha256": "3ba1a5ff7557fea5488ffb38ed8655728cdcb49c4b52866eb663899d542af076",
+          "capturedAt": "2026-11-01T06:39:36.247Z"
+        },
+        {
+          "name": "colors-modes-restored",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-modes-restored.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-modes-restored.ax.txt",
+          "sha256": "975e2d4323f360115e9e5a1cb078e5d20f9ad7f65dfa3d96dabc05efb313a943",
+          "axSha256": "4ba361747110c56c6863c8a1c48e3bd5d6b14a6da0ee4747b4e2e032956ebc6d",
+          "capturedAt": "2026-11-01T06:39:39.014Z"
+        },
+        {
+          "name": "colors-single-field-restored",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-single-field-restored.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/colors-single-field-restored.ax.txt",
+          "sha256": "21a5c088a7d0973dbffb52430da87727b21d514c7bb768487632d8a8e9e04ea3",
+          "axSha256": "4ba361747110c56c6863c8a1c48e3bd5d6b14a6da0ee4747b4e2e032956ebc6d",
+          "capturedAt": "2026-11-01T06:39:53.316Z"
+        }
+      ]
+    },
+    {
+      "id": "global-appearance-project-behavior",
+      "status": "verified",
+      "result": "UI15、紧凑密度、代码系统等宽16、Mist侧栏260跨Aurora/ProjectB一致；Aurora缩进4为项目行为覆盖，B仍2。回Aurora后“使用全局设置”恢复2。",
+      "evidence": [
+        {
+          "name": "project-aurora-indent-override",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-aurora-indent-override.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-aurora-indent-override.ax.txt",
+          "sha256": "b1e4e5e4baf71b4fc0056ea97faa2e9e2df77e2bcef367c16a0607906e742f61",
+          "axSha256": "7c4c6b58a3e445d88cf1b39411454219d85a448ae567ed7546dfe7221c369d20",
+          "capturedAt": "2026-11-01T06:42:16.353Z"
+        },
+        {
+          "name": "project-b-global-font-local-indent",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-b-global-font-local-indent.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-b-global-font-local-indent.ax.txt",
+          "sha256": "132f7de3485be67c02f8b27aa4c7a2541a7523fd4023198c618d27de860448ea",
+          "axSha256": "60de915bab53c432f8a34d4187fbb9db5999a51d2f8c5c88410aae5855f4c0c1",
+          "capturedAt": "2026-11-01T06:42:25.259Z"
+        },
+        {
+          "name": "project-b-global-appearance",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-b-global-appearance.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-b-global-appearance.ax.txt",
+          "sha256": "90dd789c4900a2ea9d605d03d37d4b1ebd1a316fdec49ac466a871500895a9d6",
+          "axSha256": "63a9b87e4cb8299772db74743672d5af8146dac99cbe01b0d0a14512217d8a2d",
+          "capturedAt": "2026-11-01T06:42:26.413Z"
+        },
+        {
+          "name": "project-b-global-geometry",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-b-global-geometry.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-b-global-geometry.ax.txt",
+          "sha256": "d15b3a57527e26b8a896e71cd2e2e034f55e0b6e0f46a53d5a5b8d0a2bbf496c",
+          "axSha256": "895d327bcc71bede20a079569abae563641615e8d0aa7c13655f65d88ba8f023",
+          "capturedAt": "2026-11-01T06:42:28.169Z"
+        },
+        {
+          "name": "project-aurora-uses-global-restored",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-aurora-uses-global-restored.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/project-aurora-uses-global-restored.ax.txt",
+          "sha256": "94ee675cd0a50aace7873be341815db20aa865f0d6fd5d326eec3e51b79bfb84",
+          "axSha256": "132490802295cc087abd3b30bd90c5733b5d8683586b13e605292f7f2e2eba9c",
+          "capturedAt": "2026-11-01T06:42:44.737Z"
+        }
+      ]
+    },
+    {
+      "id": "presets",
+      "status": "verified",
+      "result": "保存自有方案后切Paper/UI17/代码18，再应用方案只恢复Mist布局，UI17/代码18保持。删除自有方案保留当前效果。",
+      "missingDependency": "真实导入qa.layout.missing.20261101方案，提示缺依赖；Apply明确拒绝并保留Mist，无自动安装。测试方案随后删除。原有3个同名背景QA方案保留。",
+      "evidence": [
+        {
+          "name": "preset-applied-layout-restored",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-applied-layout-restored.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-applied-layout-restored.ax.txt",
+          "sha256": "d3510c1129f23231e6d71645317f9594b85bee5c4774ce7bb048af1da4ec9ecd",
+          "axSha256": "9f9f333af64d37814d2335c54567a389527078874b53717bbd94a96a17220e41",
+          "capturedAt": "2026-11-01T06:43:24.586Z"
+        },
+        {
+          "name": "preset-kept-ui-font-17",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-kept-ui-font-17.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-kept-ui-font-17.ax.txt",
+          "sha256": "a63fbfb9b370af713c36c35a10dda7618e2db5eea6fa8faad5b6cc5f5a04f449",
+          "axSha256": "5f1d18a07552cd919994e44e0147f0c89e5f1ea5260c14c08d1f410aeb4b9ceb",
+          "capturedAt": "2026-11-01T06:43:25.250Z"
+        },
+        {
+          "name": "preset-kept-code-font-18",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-kept-code-font-18.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-kept-code-font-18.ax.txt",
+          "sha256": "96de5bbeeee5168ac7ce7bdf1d4ecd1d0adf4b46b8d68fbea8eaa5dc593e00cd",
+          "axSha256": "c3b43e7956d400b63f08bc35ecb870c4bad55e448236db220b9ff37d78349080",
+          "capturedAt": "2026-11-01T06:43:25.875Z"
+        },
+        {
+          "name": "preset-delete-preserves-current-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-delete-preserves-current-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-delete-preserves-current-mist.ax.txt",
+          "sha256": "de55738e943b8e2db3311e73539baa63562bef6409ad40ff4edb7f7c1b38f62d",
+          "axSha256": "037a60c19bceff91fe25deab4a6c31c7e7fbaed1721bd2dbba0ff9a4270bdf9f",
+          "capturedAt": "2026-11-01T06:53:03.886Z"
+        },
+        {
+          "name": "preset-missing-dependency-warning-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-missing-dependency-warning-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-missing-dependency-warning-mist.ax.txt",
+          "sha256": "9ef591134e3849e8ad46b4e04362a652df2f79f6c95840fd4c337e39a20624f4",
+          "axSha256": "809ef49f5ca5e0240188b5dd32fd5c5dfb7b9a0e3ab23fca1cb6c5ee570f2752",
+          "capturedAt": "2026-11-01T06:53:31.270Z"
+        },
+        {
+          "name": "preset-missing-apply-rejected-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-missing-apply-rejected-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-missing-apply-rejected-mist.ax.txt",
+          "sha256": "3bbf7414d8125986b93ab3f140c1493f3bd6f2aaf8b82114c15418c353a411cf",
+          "axSha256": "3119497d9218ad0a0e6defa181ffdbea151dbe8d747f77c829fcbe1fd08b7e22",
+          "capturedAt": "2026-11-01T06:53:31.789Z"
+        },
+        {
+          "name": "preset-missing-deleted-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-missing-deleted-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/preset-missing-deleted-mist.ax.txt",
+          "sha256": "8f04ff2ed2ea999a912377361f9ce79697a6222acce59a8090e4d693f7777b78",
+          "axSha256": "037a60c19bceff91fe25deab4a6c31c7e7fbaed1721bd2dbba0ff9a4270bdf9f",
+          "capturedAt": "2026-11-01T06:53:39.392Z"
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "status": "verified-visual-and-persistence",
+      "result": "复用已复制资产，原导入源已不存在仍显示。编辑区contain40/overlay40、侧栏cover30/overlay65/x25/y75、整个工作台三种区域均实际显示；关闭重开设置保值。结束关闭背景，保留资产供原方案使用。",
+      "limits": "未直接测得解码内存释放。隐藏、BlobURL去引用或RSS不能单独等同解码资源释放通过。",
+      "evidence": [
+        {
+          "name": "background-editor-contain",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-editor-contain.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-editor-contain.ax.txt",
+          "sha256": "012079358414e3898aac92586163034e3dd7e78c638cdaa127b6177adc4f4cbc",
+          "axSha256": "113c4169eece96819df5f45eb66c73962419a250748828b7c9125eeb9d8bf8a0",
+          "capturedAt": "2026-11-01T06:44:19.799Z"
+        },
+        {
+          "name": "background-sidebar-cover",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-sidebar-cover.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-sidebar-cover.ax.txt",
+          "sha256": "07173b01504cbbd0697ca59bbc573efcfc1c501b6763eeb4b141e5869d55f0ad",
+          "axSha256": "113c4169eece96819df5f45eb66c73962419a250748828b7c9125eeb9d8bf8a0",
+          "capturedAt": "2026-11-01T06:44:48.460Z"
+        },
+        {
+          "name": "background-values-persisted-reopen",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-values-persisted-reopen.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-values-persisted-reopen.ax.txt",
+          "sha256": "fdb30cf1b28b9fffac4d993522e11c171d0d3b7beb7f474c7cd4cab28a33841f",
+          "axSha256": "a564498cda57ba7b22a8879dc3c7c124dbd488f785ed996e6d6fe1680bb81243",
+          "capturedAt": "2026-11-01T06:45:03.874Z"
+        },
+        {
+          "name": "background-whole-workbench",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-whole-workbench.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-whole-workbench.ax.txt",
+          "sha256": "32592b711bd61e5e7bbeee95f297a88a45836358d435a3c3940ca442e004a5ae",
+          "axSha256": "113c4169eece96819df5f45eb66c73962419a250748828b7c9125eeb9d8bf8a0",
+          "capturedAt": "2026-11-01T06:45:05.562Z"
+        },
+        {
+          "name": "background-disabled-after-tests",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-disabled-after-tests.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/background-disabled-after-tests.ax.txt",
+          "sha256": "b4e9646b18497ce92951401282378db9d21cf46283917ec5632cf4668bbfe753",
+          "axSha256": "60c2729e2b4d341d45605b73728d904475b3b2b7da01d7a0e3e954a2a20dbd40",
+          "capturedAt": "2026-11-01T06:45:35.200Z"
+        }
+      ]
+    },
+    {
+      "id": "shortcuts-and-focus",
+      "status": "verified",
+      "result": "F08搜索快速打开，录Cmd+S出现保存冲突；取消后再次录入并替换，Cmd+S确实打开QuickOpen。分别恢复快速打开与保存默认，Cmd+P重新生效；最终settings.shortcuts为空。",
+      "keyboard": "QuickOpen Enter实际打开已列文件；显式从代码编辑器Cmd+P→Esc后AX焦点回原代码编辑器。反向Tab可到splitter，Right/ShiftRight工作。",
+      "evidence": [
+        {
+          "name": "shortcut-search-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-search-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-search-mist.ax.txt",
+          "sha256": "8e22fabd65a2baafa171127a91edd4cafd5be29976cdcb43d2b6bbaaac8a2aca",
+          "axSha256": "ec436fe05582ec12079bce2fd1bf094735e1a49e111ccce410836e12e6f23722",
+          "capturedAt": "2026-11-01T06:48:40.006Z"
+        },
+        {
+          "name": "shortcut-conflict-cancel-before-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-conflict-cancel-before-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-conflict-cancel-before-mist.ax.txt",
+          "sha256": "ffe812d11062c5277cfce810e33a74294aa96ef6d4a47320c935e7231f4e6632",
+          "axSha256": "21e7010012982c276c0e2ccee2350c7cb2ea8557c242d8e547c3cc2a8a838dbf",
+          "capturedAt": "2026-11-01T06:48:48.976Z"
+        },
+        {
+          "name": "shortcut-conflict-replaced-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-conflict-replaced-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-conflict-replaced-mist.ax.txt",
+          "sha256": "450c9bc1e31662debce4fd2182bbed096e1920831bf8e9bd7bb0e8fddf5eba97",
+          "axSha256": "ac5ee5b4bc9477fb2065ce361c706c4035d0c0a44ea895e58a40ca1dd2d1b663",
+          "capturedAt": "2026-11-01T06:48:54.440Z"
+        },
+        {
+          "name": "shortcut-configured-opens-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-configured-opens-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-configured-opens-mist.ax.txt",
+          "sha256": "a8a8e20a86c2416e5e4019b8a5bfce450fc65ca87deb627c1c097928bc492b8f",
+          "axSha256": "f2b16d6cb853ad0dc7875a469d017d4ba85831c149cd743b06257a8da34dfa78",
+          "capturedAt": "2026-11-01T06:48:58.459Z"
+        },
+        {
+          "name": "shortcut-default-opens-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-default-opens-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/shortcut-default-opens-mist.ax.txt",
+          "sha256": "ba999945c7cd22266f20b04562bf3141bd39ab5cbc1dcb5a4f1949cd53731656",
+          "axSha256": "f2b16d6cb853ad0dc7875a469d017d4ba85831c149cd743b06257a8da34dfa78",
+          "capturedAt": "2026-11-01T06:49:19.607Z"
+        },
+        {
+          "name": "keyboard-quickopen-escape-focus-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/keyboard-quickopen-escape-focus-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/keyboard-quickopen-escape-focus-mist.ax.txt",
+          "sha256": "c59cc4467d3d8bf0301d0ae8062827c4e17d6d7e039dd00738af0bd4a147953e",
+          "axSha256": "f87f8bd3661e2b04ba011a43d51d8faa636c0febc17d6f2b60cafe61ba7a2468",
+          "capturedAt": "2026-11-01T06:49:31.564Z"
+        }
+      ]
+    },
+    {
+      "id": "ime",
+      "status": "partially-verified",
+      "result": "系统设置只读确认ABC/简体拼音及Ctrl+Alt+Space切换键。真实按键n/i/h/a/o显示下划线ni hao；Space提交你好；没有粘贴中文或注入composition。",
+      "unverified": "尚未触发composition期间的布局请求，不能将真实组词等同“请求延后到compositionend”通过。没有为此盲试或伪造事件。",
+      "restore": "最终ABC；最初输入源未单独记录，不能断言已恢复原输入源。系统键盘设置未修改。",
+      "evidence": [
+        {
+          "name": "ime-real-composing-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/ime-real-composing-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/ime-real-composing-mist.ax.txt",
+          "sha256": "a863755fd4466b389c7ba0b930be8ff9f496018ae9f1374f6d889ae327aefcf9",
+          "axSha256": "ef453acf1a16576258bfff30fa6d7347ed4f625d8a608ee79b17d5c9fc974fa6",
+          "capturedAt": "2026-11-01T06:50:28.534Z"
+        },
+        {
+          "name": "ime-real-committed-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/ime-real-committed-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/ime-real-committed-mist.ax.txt",
+          "sha256": "076fac08860c0d10d1b755d970075f91e5a03de98a77a20a03d3570d28f4b484",
+          "axSha256": "378e52c70c91c7d08bef77f0a80e0e107861c0adc08f5f71130ad84e8c224a7c",
+          "capturedAt": "2026-11-01T06:50:37.991Z"
+        }
+      ]
+    },
+    {
+      "id": "geometry",
+      "status": "partial-with-two-failures",
+      "verified": "真实可见divider拖动160→260；Tab聚焦后Right260→261、ShiftRight261→271；设置Mist271→Paper→Mist仍271。设置恢复240，760→1280后可见240与AX/持久化相符。",
+      "failures": [
+        "Esc后可见侧栏回160，但AX aria-valuenow仍271；源码仅apply(saved.current)，未同步状态。",
+        "双击divider恢复默认时出现“外观已更新，请刷新后重试”；随后设置页实值仍160。显式设240并窗口重排后才完全对齐。"
+      ],
+      "limits": "AX点击divider最初引起宽度160，可能含辅助功能click坐标行为；不把该起始变化单独归为产品缺陷。拖动期间pointercancel未单独覆盖。",
+      "evidence": [
+        {
+          "name": "geometry-drag-to260-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-drag-to260-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-drag-to260-mist.ax.txt",
+          "sha256": "36b7cfc020034fde44b67b8506bf0322a4fc4886b27153b7c5ce4d24f0dfd507",
+          "axSha256": "e94bfe26d98445b18abfd1a67eb455281ac783fe5a82f125159013f08a842961",
+          "capturedAt": "2026-11-01T06:50:59.474Z"
+        },
+        {
+          "name": "geometry-key-right-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-key-right-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-key-right-mist.ax.txt",
+          "sha256": "4050c1fd553df0a9cf34c6927ae6183a90c7fd440b70a4feb7d8489821a12370",
+          "axSha256": "2eb8e2d1231ba9dad4fa524a730af7bf78a51b816004d5a7407ac377ad0eda18",
+          "capturedAt": "2026-11-01T06:51:24.528Z"
+        },
+        {
+          "name": "geometry-key-shift-right-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-key-shift-right-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-key-shift-right-mist.ax.txt",
+          "sha256": "ece3b6a81f4a607068b57be81f18bd0f3bb21d496ac70243bcb2b4bff4aba292",
+          "axSha256": "f462bff14fa0559e2582575fece1f8725572e30287f21ce29a281871465bc4ee",
+          "capturedAt": "2026-11-01T06:51:25.060Z"
+        },
+        {
+          "name": "geometry-escape-css-ax-divergence-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-escape-css-ax-divergence-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-escape-css-ax-divergence-mist.ax.txt",
+          "sha256": "74fbd0163b025b371ecf7d4ccb61bf340bba728be82002928d8153440722fd78",
+          "axSha256": "f462bff14fa0559e2582575fece1f8725572e30287f21ce29a281871465bc4ee",
+          "capturedAt": "2026-11-01T06:52:02.056Z"
+        },
+        {
+          "name": "geometry-doubleclick-default-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-doubleclick-default-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-doubleclick-default-mist.ax.txt",
+          "sha256": "5091a445bfca70a055c7b0410fed85e74944632905d6eed1d9a50faec26f1bb3",
+          "axSha256": "8d9b9e6f58f5bf9ff6639f30a196309f3ddf57e56a2ccf815efbc5e89a40f861",
+          "capturedAt": "2026-11-01T06:52:02.847Z"
+        },
+        {
+          "name": "geometry-layout-return271-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-layout-return271-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-layout-return271-mist.ax.txt",
+          "sha256": "393544e0e93a8bd90aed0608b1d1cd62059fa0f40dc0f04c077c9537e5191d98",
+          "axSha256": "2b8437a65eee6b6145e2e99d35a024dd072a04ce6b67b8f74e67d3cfcbfa0947",
+          "capturedAt": "2026-11-01T06:52:33.655Z"
+        },
+        {
+          "name": "geometry-window-return240-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-window-return240-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/geometry-window-return240-mist.ax.txt",
+          "sha256": "865233370fd3f3feefb24b385cb1524ad80a3606119b38b7f2cd0e72705b565a",
+          "axSha256": "698d0e96ae1998b78de5bcfdeb505958b34c78e14458a38356b3351a39ede747",
+          "capturedAt": "2026-11-01T06:56:04.762Z"
+        }
+      ]
+    },
+    {
+      "id": "settings-export",
+      "status": "verified",
+      "result": "真实预览→取消→重开→原生目录选择→horizon-settings.json写入；6244bytes，保存JSON逐字段等于第二次冻结预览，exportedAt完全一致。诊断导出前后另有真实文件。",
+      "audit": "export-settings/audit.json",
+      "limits": "实际数据小于分页阈值，未覆盖大JSON分页。未为分页注入多余私人数据。",
+      "evidence": [
+        {
+          "name": "settings-export-preview-before-cancel-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/settings-export-preview-before-cancel-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/settings-export-preview-before-cancel-mist.ax.txt",
+          "sha256": "914e3aa1cc744c51bdd7019346e774d89121084abdd048788c04058b12c78653",
+          "axSha256": "3a24d3a4ee9a5de7498b8e2d9f52bbf286605344e884380496e2f09ac164292b",
+          "capturedAt": "2026-11-01T06:53:45.082Z"
+        },
+        {
+          "name": "settings-export-reopened-frozen-preview-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/settings-export-reopened-frozen-preview-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/settings-export-reopened-frozen-preview-mist.ax.txt",
+          "sha256": "1a2a550405b3619e2c1fb717d060647c39e1f152ae865d7876f5ee445977b3f4",
+          "axSha256": "fbbc894cb681795441f324dc774aba61347cc75854308f256adb0935fe7518b5",
+          "capturedAt": "2026-11-01T06:53:55.439Z"
+        },
+        {
+          "name": "settings-export-complete-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/settings-export-complete-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/settings-export-complete-mist.ax.txt",
+          "sha256": "df63523ca4633ace3342115629a6dea256129ff9215a8e1a9322a21aad4062c1",
+          "axSha256": "cb9875d05f41c1e74f453fd52a3f00f8597eefd531e3b5c717e7ce969e298763",
+          "capturedAt": "2026-11-01T06:54:14.789Z"
+        }
+      ]
+    },
+    {
+      "id": "narrow-and-zoom",
+      "status": "partially-verified",
+      "result": "原生边框拖1280×800→760×800，侧栏改覆盖层；各设置分类和四外观页签上段均实际点击、拍图。可见控件不横向溢出，关闭与完成固定可见。F08/F09又滚动到下段，底部操作可见。回1280后侧栏首选240恢复。",
+      "limits": [
+        "其余设置页未补所有下段，不能推导全部控件在窄窗均已验。F05图停在检测中，不能作为完成加载的AI页证据。",
+        "当前原生View菜单只有FullScreen；Cmd+Plus实测无效果，无产品缩放入口。真实200%页面缩放和纯文字200%均未验，不能以字体17px替代。",
+        "G06正式760聊天/附件由Pi负责，本组普通窄窗不替代G06。"
+      ],
+      "evidence": [
+        {
+          "name": "narrow-sidebar-overlay-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-sidebar-overlay-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-sidebar-overlay-mist.ax.txt",
+          "sha256": "a65e616444b77e298e835a021da4bab8a638599dc3089efa64741b4c7999341d",
+          "axSha256": "7f53ce1d70971d964238f6a8e62edecb3669d9ea0ee49fb6a694018e4082d197",
+          "capturedAt": "2026-11-01T06:55:16.120Z"
+        },
+        {
+          "name": "narrow-settings-theme-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-theme-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-theme-mist.ax.txt",
+          "sha256": "dae300caac217daa297e48d01901c5675ba6eb9cde1e38dd49faf51a9001c71e",
+          "axSha256": "1befa54f1f522af499cd18f1d6c202b596f597b860557063c9138cc91514dcbc",
+          "capturedAt": "2026-11-01T06:55:30.598Z"
+        },
+        {
+          "name": "narrow-settings-layout-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-layout-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-layout-mist.ax.txt",
+          "sha256": "7dfb04bb136ea7c7cbbe2afa7f6ad8b91490290d8c9f15e0a1c9f7a70219c020",
+          "axSha256": "51eeb3e12abe931b1a9b65ae9ff8f3a8ae29a75eb789595d9682627d688c9869",
+          "capturedAt": "2026-11-01T06:55:31.158Z"
+        },
+        {
+          "name": "narrow-settings-background-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-background-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-background-mist.ax.txt",
+          "sha256": "0f1d7909c056a0d1e98009f06f1a0579ece5b972e92c27323d3ad161521e5fc8",
+          "axSha256": "e23a99babd99222d927c2fc297143ff21b2799753eeb0e8505fbf7cf06c867c0",
+          "capturedAt": "2026-11-01T06:55:31.766Z"
+        },
+        {
+          "name": "narrow-settings-presets-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-presets-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-presets-mist.ax.txt",
+          "sha256": "424d3b04a16865d48258ac525c2fc7020000e1332d162980dffbea27b1e39fb4",
+          "axSha256": "98fb293cbb2954b43dc9d004723490b1d47c6010f0d935f8c05d73e1f4bf6f43",
+          "capturedAt": "2026-11-01T06:55:29.994Z"
+        },
+        {
+          "name": "narrow-settings-editor-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-editor-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-editor-mist.ax.txt",
+          "sha256": "a9566ed5b12a27db0554458b3299cef178994ac2ba9fcfab05e39f001b7316fa",
+          "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+          "capturedAt": "2026-11-01T06:55:32.346Z"
+        },
+        {
+          "name": "narrow-settings-resources-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-resources-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-resources-mist.ax.txt",
+          "sha256": "8ef75e3f53341fe43f91ea93f80b2bed9639b7a53f4fdfcf40df60385ee4fef4",
+          "axSha256": "e84cc705e8ad16c9d31e81c55530611d34a23bfe264b3306aec6f541f0c8333d",
+          "capturedAt": "2026-11-01T06:55:32.946Z"
+        },
+        {
+          "name": "narrow-settings-ai-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-ai-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-ai-mist.ax.txt",
+          "sha256": "f43041a3c4f591a971ad1cc781b07d6b42b80ae960f41b259639ac03f4f1f856",
+          "axSha256": "72c51c88b149fc0e0862e987881446ce1ce4cf966ddf307befb105bf6237cd1d",
+          "capturedAt": "2026-11-01T06:55:33.508Z"
+        },
+        {
+          "name": "narrow-settings-git-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-git-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-git-mist.ax.txt",
+          "sha256": "8631212f5f46861d31280087d69cc5594368c7e531be4d7f41434703e94d917c",
+          "axSha256": "f9f6e91bc201bafd8e6d5bce1c753e8e843153988b33672c57d6a64c9562c8b7",
+          "capturedAt": "2026-11-01T06:55:34.215Z"
+        },
+        {
+          "name": "narrow-settings-shortcuts-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-shortcuts-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-shortcuts-mist.ax.txt",
+          "sha256": "2dd730c2d93e97caeb9e32612def1a984291ff23be38351fe843075a54b319b3",
+          "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+          "capturedAt": "2026-11-01T06:55:34.807Z"
+        },
+        {
+          "name": "narrow-settings-privacy-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-privacy-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-privacy-mist.ax.txt",
+          "sha256": "1ba24417bca475f726f17a2da43ccc22755219c68d7c3f1c979fdc00ed35cad5",
+          "axSha256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09",
+          "capturedAt": "2026-11-01T06:55:35.403Z"
+        },
+        {
+          "name": "narrow-settings-shortcuts-lower-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-shortcuts-lower-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-shortcuts-lower-mist.ax.txt",
+          "sha256": "87c970be6fd72b3b4d9ff34af74e29edc1af402728976eb0c70ace81023cf5f5",
+          "axSha256": "0551cb5a7fb4d83adad37ab9eefe40c1291de8ac6863c771e738c60d74166359",
+          "capturedAt": "2026-11-01T06:55:57.800Z"
+        },
+        {
+          "name": "narrow-settings-privacy-lower-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-privacy-lower-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/narrow-settings-privacy-lower-mist.ax.txt",
+          "sha256": "fe0b663a91b6ac98d8b8df116342a4418e3de12496d1c07f47d49b60df72214e",
+          "axSha256": "65fec5e85af7cb2c0635edc0f5adaf03400616635129fa5d0362f7e0ff558c09",
+          "capturedAt": "2026-11-01T06:55:50.717Z"
+        }
+      ]
+    },
+    {
+      "id": "sleep-g03",
+      "status": "verified-real-state-visual-differences-retained",
+      "result": "06:56Z实际确认无脏稿并休眠Aurora一次；同一睡眠状态巡回8套同名布局/主题，未唤醒项目、未新增PTY。每套均显示2文件元数据和中央恢复入口。",
+      "visualReview": "sleep-and-narrow-visual-review.json",
+      "evidence": [
+        {
+          "name": "G03-mist",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-mist.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-mist.ax.txt",
+          "sha256": "543df8646ab42b9ce61a0e41dbe389cea2b1bd7a92fc92544df3d64a7113e512",
+          "axSha256": "1d9804cc2a16c75eaea916bb175866fdf908ba2aba6417046c8dba88bfea927c",
+          "capturedAt": "2026-11-01T06:56:28.716Z"
+        },
+        {
+          "name": "G03-paper",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-paper.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-paper.ax.txt",
+          "sha256": "8478a10923570085d5940a3faaba3fdd4e2ef5a1acd76279a8a79abafeb5a614",
+          "axSha256": "00b9c1040c06ceea5acb5e9f3a0633c1ff88fc62845b05530b92bcc4ce8c3763",
+          "capturedAt": "2026-11-01T06:57:12.186Z"
+        },
+        {
+          "name": "G03-orbit",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-orbit.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-orbit.ax.txt",
+          "sha256": "65fb56e933efc38f85f11020e19d88186d86c0c25e3ab38225d5efe5401c1e7f",
+          "axSha256": "00b9c1040c06ceea5acb5e9f3a0633c1ff88fc62845b05530b92bcc4ce8c3763",
+          "capturedAt": "2026-11-01T06:57:26.602Z"
+        },
+        {
+          "name": "G03-graphite",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-graphite.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-graphite.ax.txt",
+          "sha256": "0db4a2d08f7746aedcebb436e799125143e47d9390d73bd6d909500f57a30f20",
+          "axSha256": "1d9804cc2a16c75eaea916bb175866fdf908ba2aba6417046c8dba88bfea927c",
+          "capturedAt": "2026-11-01T06:57:49.549Z"
+        },
+        {
+          "name": "G03-celadon",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-celadon.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-celadon.ax.txt",
+          "sha256": "bce261bd5476f702ab5df746415ccadc489fd125475964bf6ca9b68e84778eee",
+          "axSha256": "9ceb04effbeb79c406a1ff86bbf1a6881871489e15c58b8728b869c5f63ea347",
+          "capturedAt": "2026-11-01T06:58:03.088Z"
+        },
+        {
+          "name": "G03-iris",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-iris.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-iris.ax.txt",
+          "sha256": "fee16011e1a343d0c1d38e43c7fc01271fea7e621f9240f12dbf88c17bcf09dc",
+          "axSha256": "1d9804cc2a16c75eaea916bb175866fdf908ba2aba6417046c8dba88bfea927c",
+          "capturedAt": "2026-11-01T06:58:15.932Z"
+        },
+        {
+          "name": "G03-sand",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-sand.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-sand.ax.txt",
+          "sha256": "ca80bb2b87e15a030c3336fc53b426b46ea56c0fbcfdde91a39265bfb14072e6",
+          "axSha256": "1d9804cc2a16c75eaea916bb175866fdf908ba2aba6417046c8dba88bfea927c",
+          "capturedAt": "2026-11-01T06:58:27.287Z"
+        },
+        {
+          "name": "G03-aurora",
+          "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-aurora.jpg",
+          "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G03-aurora.ax.txt",
+          "sha256": "1182dedb23820baeaea9b51616f2263def9d08354a8e9da349db77e4f77582e4",
+          "axSha256": "00b9c1040c06ceea5acb5e9f3a0633c1ff88fc62845b05530b92bcc4ce8c3763",
+          "capturedAt": "2026-11-01T06:58:39.414Z"
+        }
+      ]
+    }
+  ],
+  "handoff": {
+    "at": "2026-11-01T06:59:00Z",
+    "guiReturnedTo": "/root",
+    "state": "1280×800/100%；Iris布局+Mist浅色；UI13/Menlo14；密度跟随主题；减少动效跟随系统；背景关闭；Aurora仍休眠；2文件标签元数据；无dirty/PTY/弹窗。",
+    "sourceBuildOwnership": "已归还root集中修复/测试/构建；此后本agent仅离线报告/原图审查。",
+    "evidence": [
+      {
+        "name": "handoff-restored-appearance-sleeping-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/handoff-restored-appearance-sleeping-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/handoff-restored-appearance-sleeping-iris.ax.txt",
+        "sha256": "caaf077437a0a3e2603656dbd57509c5d10670b454d30a2d2a0dd3c48dc3ca8a",
+        "axSha256": "1d9804cc2a16c75eaea916bb175866fdf908ba2aba6417046c8dba88bfea927c",
+        "capturedAt": "2026-11-01T06:58:59.448Z"
+      }
+    ]
+  },
+  "remaining": [
+    "已知G04四布局空编辑区、F14重复toast、F12输入尺寸及本轮geometry问题由root协调中央修复，旧图保持失败。",
+    "IME组合中请求布局延后、真实200%页面/纯文字缩放、图片解码内存释放、大导出分页、部分窄窗下段仍未验。",
+    "F10-upper交git追加视觉复核；F12补区交plugin；其余A/B/E/F/G视觉结果保留各owner报告，不在本summary外推通过。"
+  ],
+  "evidenceCorrections": [
+    {
+      "at": "2026-11-01T07:17:39.713607+00:00",
+      "id": "layout-50-git-draft-before-gap",
+      "reason": "verification独审后复核全部326份capture AX；Git草稿仅06:32:25 action及06:32:36.642 capture后态可见。06:04条件元数据不作独立before证据。保留后态图，收窄结论，不重做GUI。"
+    }
+  ]
+}

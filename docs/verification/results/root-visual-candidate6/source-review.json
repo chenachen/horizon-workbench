@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-30T20:00:15.405949+00:00",
+  "stage": "source review; candidate6 native retest pending",
+  "references": [
+    "A02-projects",
+    "A03-workspace-create",
+    "A04-project-add",
+    "A06-project-menu"
+  ],
+  "reviewedArtifacts": [
+    "design/exports/png/mist/A02-projects.png",
+    "design/exports/png/mist/A03-workspace-create.png",
+    "design/exports/png/mist/A04-project-add.png",
+    "design/exports/png/mist/A06-project-menu.png",
+    "docs/verification/screenshots/root-candidate5/01-mist-project-overview.png"
+  ],
+  "changes": [
+    "A02 search padding/height and heading gap align reference; recent table columns align hierarchy",
+    "A03/A04 actual form cancel actions and reference dialog geometry, separated footer, honest local-file note",
+    "A06 anchored project action menu with keyboard navigation and focus restoration, pin/rename/reveal/launch/sleep/settings/remove; project settings form remains available"
+  ],
+  "notClaimed": [
+    "A03 default project directory field absent: current v0.1 workspace contract only stores group/name and project order; no inert field added",
+    "A04 Git preflight is not shown before project registration; local-file note reflects actual behavior",
+    "A06 multiwindow is v0.2 (REQ-NEXT-001), no enabled control added",
+    "No candidate6 native screenshots yet"
+  ],
+  "validation": {
+    "typecheck": "npm run desktop:check passed",
+    "nativeProjectReveal": "implemented by native_core; targeted tests wait until lifecycle sampler completes"
+  }
+}

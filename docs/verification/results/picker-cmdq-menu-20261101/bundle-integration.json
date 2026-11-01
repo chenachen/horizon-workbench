@@ -1,0 +1,79 @@
+{
+  "recordedAt": "2026-11-01T04:07:49.937760+00:00",
+  "method": "Copy targeted freshly compiled and signed helper into stopped release bundle; re-sign outer app; no Rust or frontend rebuild because unchanged",
+  "before": {
+    "main": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "bytes": 19778608,
+      "sha256": "d77ced715ee3c3b78d87e552138fc37d33ad9f70027423c0368bdff1c6a53d20"
+    },
+    "mainExecutablePayload": {
+      "bytesBeforeCodeSignature": 19721808,
+      "sha256BeforeCodeSignature": "12bafafe210039aab2ba8d9802071d4a645d7b3f7dc5f8ef9fc6e445908e0388",
+      "signatureSize": 56800
+    },
+    "helper": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+      "bytes": 167456,
+      "sha256": "1fcf424a0bde9cf1eeba84c42f5a3035913b0644fcf26d502725f7ab350dc178"
+    }
+  },
+  "after": {
+    "main": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "bytes": 19778608,
+      "sha256": "abc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b"
+    },
+    "mainExecutablePayload": {
+      "bytesBeforeCodeSignature": 19721808,
+      "sha256BeforeCodeSignature": "12bafafe210039aab2ba8d9802071d4a645d7b3f7dc5f8ef9fc6e445908e0388",
+      "signatureSize": 56800
+    },
+    "helper": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+      "bytes": 166816,
+      "sha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+    }
+  },
+  "mainExecutablePayloadUnchanged": true,
+  "commands": [
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app: replacing existing signature\n"
+    },
+    {
+      "command": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "sourceSha256": "a3948865cb106a70f009a7da60bb0b427153b8f0ecafe585ca36b4ca8d6ebceb",
+  "nativePending": true
+}

@@ -1,0 +1,38 @@
+{
+  "id": "horizon.markdown",
+  "name": "Markdown 预览",
+  "version": "0.1.0",
+  "description": "并排阅读 Markdown 源码与预览，查看目录和项目内图片。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.markdown.view",
+    "onCommand:horizon.markdown.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "project.read"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.markdown.view",
+        "slot": "editor",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.markdown.open",
+        "title": "打开Markdown 预览"
+      }
+    ]
+  }
+}

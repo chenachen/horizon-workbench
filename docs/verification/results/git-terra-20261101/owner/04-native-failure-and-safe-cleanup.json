@@ -1,0 +1,88 @@
+{
+  "kind": "native-functional-failure-write-control-lost-on-project-return",
+  "recordedAt": "2026-11-01T15:45:02.325007+00:00",
+  "status": "FAIL_ORIGINAL_STOP_REQUIRES_FIXED_SOURCE_TARGET",
+  "nativeDoubleClickTime": "2026-11-01T15:06:18.025Z",
+  "nativeInput": "One click(63,{clickCount:2}); no retries",
+  "oneOwnedGroup": [
+    25926
+  ],
+  "startIdentities": {
+    "git": {
+      "pid": 25932,
+      "process": {
+        "pid": 25932,
+        "ppid": 25926,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/Applications/Xcode.app/Contents/Developer/usr/bin/git"
+      },
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/git --no-pager --literal-pathspecs -c core.quotepath=false -c color.ui=false commit -m Git controlled stop 20261101"
+    },
+    "hook": {
+      "pid": 25933,
+      "process": {
+        "pid": 25933,
+        "ppid": 25932,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/bin/sh"
+      },
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "/bin/sh .git/fixture-hooks/pre-commit"
+    },
+    "sleep": {
+      "pid": 25934,
+      "process": {
+        "pid": 25934,
+        "ppid": 25933,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:19 2026",
+        "executable": "sleep"
+      },
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "sleep 300"
+    }
+  },
+  "sameAfterHiddenReturn": {
+    "git": true,
+    "hook": true,
+    "sleep": true
+  },
+  "actualUIFailure": "NONREPO→CORE returned to repository/status/diff reading; original write waiting/Stop disappeared; did not click Stop Read or submit again",
+  "rawFailureCapture": "git-91087-1793541773799-04-return-only-reading",
+  "settingsDuringCommand": "NOT EXECUTED due failure before this step",
+  "originalModalStop": "NOT EXECUTED; unavailable",
+  "cleanupSeparate": {
+    "method": "One native CORE project sleep15:08:51.194Z; no dirty, only known horizon.git25926 in impact list",
+    "allOriginal4Gone": true,
+    "signalsByGitSol": false,
+    "conditionalTERM": "Cancelled, never sent",
+    "hookRemovedSameHash": "04-hook-removal.json",
+    "lateData": {
+      "kind": "owned-hook-post-original-deadline-data-check",
+      "receiptPreparedAt": "2026-11-01T15:14:32.399980+00:00",
+      "actualDataObservedAt": "2026-11-01T15:12:19.725555+00:00",
+      "source": "04-hook-removed-observation.json (existing required removal observation; no extra product run)",
+      "originalDeadline": "2026-11-01T15:11:19.314455+00:00",
+      "checks": {
+        "observedAfterOriginal300Seconds": true,
+        "noLateCommit": true,
+        "logicalIndexRetained": true,
+        "allRefsRetained": true,
+        "knownDiskHashesRetained": true,
+        "remoteHEADRetained": true,
+        "trash65HashReady": true
+      },
+      "allPassed": true,
+      "HEAD": "aed9d697890fc38ce7ac654e6b95a1424ec4594a",
+      "stagedSlowInputRetained": true,
+      "actualOriginalStop": "FAIL; unavailable after project return",
+      "cleanup": "Actual native sleep; four original identities gone; no GitSol signal",
+      "noRetry": true
+    },
+    "noOriginalStopPass": true
+  },
+  "sourceRepairOwner": "root/navigation_sol design/candidate; no old-failure retry; later fixed-source native target only"
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-30T19:17:03Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/",
+  "python": "3.14.3",
+  "scenario": "native-project-panel-plugin-cycles",
+  "build": "release",
+  "build_id": "candidate4b",
+  "root_executables": {
+    "68112": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "3889afae5e71e6f14a4a57297b30b6c0a65d07f0e426bddcdbadf1a261cd3d13"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "appPid": 68112,
+    "window": 13593,
+    "width": 1280,
+    "height": 800,
+    "project": "Aurora Web",
+    "scenario": "actual native GUI lifecycle acceptance through plugins/processes/Pi/Git",
+    "notes": "Plugin state transitions recorded by operator actions and persisted registry; no automated UI synthesis by sampler"
+  },
+  "root_pids": [
+    68112
+  ],
+  "cache_condition": "OS cache unchanged; no cache purge",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "manual log",
+  "activity_log": ".work/candidate4b-cycle/actions.jsonl",
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ],
+  "interrupted": true
+}

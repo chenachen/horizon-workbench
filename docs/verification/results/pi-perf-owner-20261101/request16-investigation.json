@@ -1,0 +1,174 @@
+{
+  "checkedAt": "2026-11-01T12:19:02.787142+00:00",
+  "requestCountInLog": 16,
+  "lastLogMtimeUtc": "2026-11-01T12:15:10.552859+00:00",
+  "requests": [
+    {
+      "ordinal": 14,
+      "path": "/v1/chat/completions",
+      "lastUser": "HORIZON_TEST_RESOURCE_STREAM PERF-one",
+      "roles": [
+        "system",
+        "user"
+      ],
+      "tools": [],
+      "bodySHA": "8219417cf9cc51abe0619a0242a69cf2b5ccbf8ae5fa294e69770dfe5fa44407",
+      "rowSHA": "b629f43beb01bd7f8e811b8eff4221ace260034c4befc15e148b3b8590a7df74",
+      "headerPresenceOnly": {
+        "authorization": "[present]"
+      },
+      "body": {
+        "model": "horizon-fixture",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A\n</cwd>"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "HORIZON_TEST_RESOURCE_STREAM PERF-one"
+              }
+            ]
+          }
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "store": false,
+        "max_completion_tokens": 4096
+      }
+    },
+    {
+      "ordinal": 15,
+      "path": "/v1/chat/completions",
+      "lastUser": "HORIZON_TEST_RESOURCE_STREAM PERF-two",
+      "roles": [
+        "system",
+        "user"
+      ],
+      "tools": [],
+      "bodySHA": "92cad307f4db9b2924ef4de1641552dca5a8c1c986e101fe85a6f96536ae73b9",
+      "rowSHA": "5218d54857469a9678537f48934408ebeb71f25f865e7d492b4c4de3b62d222d",
+      "headerPresenceOnly": {
+        "authorization": "[present]"
+      },
+      "body": {
+        "model": "horizon-fixture",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.\n\n<tools>\n(none)\n\nIn addition to the tools above, you may have access to other custom tools depending on the project.\n</tools>\n\n<rules>\n- Be concise in your responses\n- Show file paths clearly when working with files\n</rules>\n\n<docs>\nPi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):\n- Main documentation: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/README.md\n- Additional docs: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/docs\n- Examples: /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/examples (extensions, custom tools, SDK)\n- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory\n- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)\n- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing\n- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)\n</docs>\n\n<cwd>\n/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-B-unborn\n</cwd>"
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "HORIZON_TEST_RESOURCE_STREAM PERF-two"
+              }
+            ]
+          }
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "store": false,
+        "max_completion_tokens": 4096
+      }
+    },
+    {
+      "ordinal": 16,
+      "path": "/v1/chat/completions",
+      "lastUser": "# Conversation\n[User]: HORIZON_TEST_RESOURCE_STREAM PERF-one\n\n# Instructions\nThe messages above are earlier context from an ongoing conversation. Later messages are stored separately and do not need to be reconstructed.\n\nCreate a concise checkpoint of the user's request and the progress shown above. This checkpoint will be placed before the later messages so the conversation can continue with the necessary context.\n\n## Original Request\n[What did the user ask for?]\n\n## Progress So Far\n- [Key decisions and work completed in these messages]\n\n## Context Needed to Continue\n- [Information from these messages needed to understand the later work]\n\nOnly summarize information explicitly present above. Do not infer or recreate later messages.",
+      "roles": [
+        "system",
+        "user"
+      ],
+      "tools": [],
+      "bodySHA": "d436c0fd1ac369f223370161b906cbe0d7df3b83c241f086a1780202a4f5c3dc",
+      "rowSHA": "c28f45082a3f7e380018e6ed96963867642c08490d3fa5fdcc5b15594394e0eb",
+      "headerPresenceOnly": {
+        "authorization": "[present]"
+      },
+      "body": {
+        "model": "horizon-fixture",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a context summarization assistant. Your task is to read a conversation between a user and an AI assistant, then produce a structured summary following the exact format specified.\n\nDo NOT continue the conversation. Do NOT respond to any questions in the conversation. ONLY output the structured summary."
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "# Conversation\n[User]: HORIZON_TEST_RESOURCE_STREAM PERF-one\n\n# Instructions\nThe messages above are earlier context from an ongoing conversation. Later messages are stored separately and do not need to be reconstructed.\n\nCreate a concise checkpoint of the user's request and the progress shown above. This checkpoint will be placed before the later messages so the conversation can continue with the necessary context.\n\n## Original Request\n[What did the user ask for?]\n\n## Progress So Far\n- [Key decisions and work completed in these messages]\n\n## Context Needed to Continue\n- [Information from these messages needed to understand the later work]\n\nOnly summarize information explicitly present above. Do not infer or recreate later messages."
+              }
+            ]
+          }
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        },
+        "store": false,
+        "max_completion_tokens": 4096
+      }
+    }
+  ],
+  "comparison": {
+    "16sameBodyAs14": false,
+    "16sameBodyAs15": false
+  },
+  "classification": "Investigation only; no cause inferred from counter. Logmtime is lastwrite not per-row timestamp.",
+  "resolution": {
+    "checkedAt": "2026-11-01T12:21:43.525860+00:00",
+    "classification": "Pi-owned automaticcheckpoint/compaction modelcall after normaloriginalassistantcompletion, not repeat of originaluserprompt or newGUI Send/Test.",
+    "evidence": [
+      {
+        "ownAOriginalAssistantCompletedAt": "2026-11-01T12:15:10.540Z",
+        "stopReason": "stop",
+        "errorMessage": null,
+        "assistantTextChars": 126021
+      },
+      {
+        "request16Type": "Distinctcheckpointsummary instructions quote onlyA PERF-one originaluser request",
+        "lastLogWriteAt": "2026-11-01T12:15:10.552859+00:00",
+        "differentBodyThan14And15": true
+      },
+      {
+        "configuredContextWindow": 32768,
+        "configuredMaxTokens": 4096,
+        "source": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/3d3e4cf8-4076-4265-9eda-553f5f4e58c3/horizon/models.json"
+      }
+    ],
+    "eventLimitation": {
+      "persistedCompactionEntryTypes": [],
+      "note": "Own Pi file has normalassistant stop at12:15:10.540, no completedcompaction entry. Do not invent observedauto_compaction_start/finish; distinctcheckpointrequest and supportednativeevent mapping identify internal compaction path. Summary was stillrunning until userStop."
+    },
+    "fixtureRouting": {
+      "summaryContainsResourceMarker": true,
+      "exactApprovedSource": "27:   const messages = body.messages || [];\n28:   const user = [...messages].reverse().find(x => x.role === 'user');\n29:   const prompt = typeof user?.content === 'string' ? user.content : JSON.stringify(user?.content);\n30:   const expectedAuthorization = prompt.includes('HORIZON_TEST_AUTH_RUNTIME') ? 'Bearer fixture-runtime-owned' : prompt.includes('HORIZON_TEST_AUTH_HORIZON') ? 'Bearer fixture-key-not-a-real-provider-secret' : prompt.includes('HORIZON_TEST_AUTH_EXTERNAL') ? 'Bearer horizon-local' : null;\n31:   if (expectedAuthorization && req.headers.authorization !== expectedAuthorization) { res.writeHead(401, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: { message: 'Controlled authentication ownership mismatch', type: 'invalid_api_key' } })); return; }\n32:   if (prompt.includes('HORIZON_TEST_AUTH_FAILURE')) { res.writeHead(401, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: { message: 'Controlled 401 authentication failure', type: 'invalid_api_key' } })); return; }\n33:   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });\n34:   const cid = `chatcmpl-horizon-fixture-${requests}`;\n35:   const send = (delta, finish_reason = null) => res.write(`data: ${JSON.stringify({ id: cid, object: 'chat.completion.chunk', created: Math.floor(Date.now() / 1000), model: body.model, choices: [{ index: 0, delta, finish_reason }] })}\\n\\n`);\n36:   send({ role: 'assistant', content: '' });\n37:   if (prompt.includes('HORIZON_TEST_CANCEL') || prompt.includes('HORIZON_TEST_RESOURCE_STREAM')) {\n38:     let n = 0; const timer = setInterval(() => { send({ content: 'controlled streaming ' }); if (++n > (prompt.includes('HORIZON_TEST_RESOURCE_STREAM') ? 6000 : 300)) { clearInterval(timer); send({}, 'stop'); res.end('data: [DONE]\\n\\n'); } }, 100);\n39:     req.on('close', () => clearInterval(timer)); res.on('close', () => clearInterval(timer)); return;\n40:   }",
+      "conclusion": "Provider converts lastuser content to string then substringincludesRESOURCE_STREAM, so quotedmarker incheckpoint also enters6000-tickresourcebranch. This explains A stillrunning atStop; not newuserprompt replay. Fixture unchanged/no rerun."
+    },
+    "nativeEventMappingSource": "296:                 continue;\n297:             }\n298:             if !is_test&&matches!(kind,\"message_end\"|\"compaction_end\"|\"auto_compaction_end\"){ensure_session_budget(&state,&s.session_id,0)?;}\n299:             match kind {\n300:                 \"agent_start\"=>{if seq==0{emit(&state,&run_id,&s,&mut seq,&run_id,json!({\"type\":\"runStarted\",\"submissionId\":call.params[\"submissionId\"]}))?;}},\n301:                 \"message_start\"=>{if v[\"message\"][\"role\"]==\"assistant\"{current_message=id();current_text.clear();current_recorded=false;}},\n302:                 \"message_update\"=>{let e=&v[\"assistantMessageEvent\"];if e[\"type\"]==\"text_delta\"{let delta=e[\"delta\"].as_str().unwrap_or(\"\");if current_text.len()+delta.len()>MAX_PI_RECORD_BYTES{return Err(err(\"RESOURCE_LIMIT\",\"Pi 单条消息超过 4 MiB 上限；已有内容保留\"));}current_text.push_str(delta);emit(&state,&run_id,&s,&mut seq,&run_id,json!({\"type\":\"textDelta\",\"messageId\":current_message,\"blockIndex\":e[\"contentIndex\"],\"text\":e[\"delta\"]}))?;}},\n303:                 \"message_end\"=>{let message=&v[\"message\"];if message[\"role\"]==\"assistant\" {let text=assistant_text(message);final_text=text.clone();message_final_count+=1;let stop=message[\"stopReason\"].as_str().unwrap_or(\"\");if stop==\"error\"{failed=Some(message[\"errorMessage\"].as_str().unwrap_or(\"模型调用失败\").to_string());}if stop==\"aborted\"{cancelled.store(true,Ordering::SeqCst);}emit(&state,&run_id,&s,&mut seq,&run_id,json!({\"type\":\"messageFinal\",\"messageId\":current_message,\"text\":text,\"stopReason\":stop}))?;if !is_test{append_message(&state,&s.session_id,json!({\"messageId\":current_message,\"role\":\"assistant\",\"text\":text,\"state\":stop}))?;current_recorded=true;}}},\n304:                 \"tool_execution_start\"|\"tool_execution_end\"=>emit(&state,&run_id,&s,&mut seq,&run_id,json!({\"type\":\"toolState\",\"toolCallId\":v[\"toolCallId\"],\"name\":v[\"toolName\"],\"state\":if kind==\"tool_execution_start\"{\"requested\"}else if v[\"isError\"]==true{\"failed\"}else{\"succeeded\"}}))?,\n305:                 \"auto_retry_start\"|\"auto_compaction_start\"=>emit(&state,&run_id,&s,&mut seq,&run_id,json!({\"type\":\"phase\",\"phase\":if kind==\"auto_retry_start\"{\"retrying\"}else{\"compacting\"}}))?,\n306:                 \"extension_ui_request\"=>{let method=v[\"method\"].as_str().unwrap_or(\"\");if ![\"notify\",\"setStatus\",\"setWidget\",\"setTitle\",\"set_editor_text\"].contains(&method){let _=input.send(json!({\"type\":\"extension_ui_response\",\"id\":v[\"id\"],\"cancelled\":true}));}},\n307:                 \"agent_settled\"=>{settled=true;if v[\"aborted\"]==true{cancelled.store(true,Ordering::SeqCst);}break;},",
+    "temporalClassification": {
+      "afterScene2ActualExit": "12:14:44.358Z",
+      "originalACompleteAndCheckpointLog": "12:15:10.540Z / 12:15:10.552859Z",
+      "beforeBStop": "12:15:18.472Z",
+      "beforeAStop": "12:15:48.887Z",
+      "sampleWindowsUnaffected": true
+    },
+    "baselineGoingForward": 16,
+    "q1Requirement": "No automaticrun/modelrequest after actualappquit/reopen remains separate Q1 observation; this preStop internalmodelcall is not rebootreplay."
+  },
+  "ownATranscriptFreeze": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/request16-own-a-session.jsonl",
+    "sha256": "39a846d2c14fa5bfa0968500109b2aea60fe1c4c7e0c1260000cd67e9240745e"
+  }
+}

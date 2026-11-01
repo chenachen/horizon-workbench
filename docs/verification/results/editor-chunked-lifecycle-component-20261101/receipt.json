@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-11-01T05:36:00.966225+00:00",
+  "nativeFailureEvidence": "../file-recovery-native-gui-20261101/024–028 original JPEG/AX and026-chunked-rename.json;029 restored original105906176BsameSHA",
+  "changes": [
+    "hostClosedProject releases chunk cursor/range/loading together with the existing eviction of every buffer mode.",
+    "loadChunk uses existing project generation and buffer identity to reject detached/evicted readers and late responses.",
+    "Chunk read failure becomes accessError and evicted, with no reusable cursor; explicit Retry opens a new reader."
+  ],
+  "targetedCases": 4,
+  "beforeProductAssertions": {
+    "passed": 1,
+    "failed": 3,
+    "note": "unsupported reopen already passed; chunk cursor retention/loading/accessError assertions failed before patch."
+  },
+  "correctedAfter": {
+    "passed": 48,
+    "failed": 0,
+    "exitCode": 0,
+    "report": "after.json",
+    "executionReceipt": "after-run.json"
+  },
+  "sourceAfterSha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+  "scopeLimits": [
+    "Main sleep→wake navigation failure also has a plugin lifecycle ordering cause under separate investigation; this patch alone is not claimed to close native027/030.",
+    "Root owns Workbench rendering and auto-open !accessError guard; store source now frozen.",
+    "No native GUI/build/hot24/30m repeated by this owner."
+  ],
+  "relatedLifecycleOwner": "plugin_resume production service/runtime controlled refresh regression; final evidence path pending owner handoff"
+}

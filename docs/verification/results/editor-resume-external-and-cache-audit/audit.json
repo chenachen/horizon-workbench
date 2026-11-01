@@ -1,0 +1,296 @@
+{
+  "auditedAt": "2026-11-01T03:10:15.404346+00:00",
+  "build": "settings-project95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6 root34128",
+  "method": "Independent original native GUI/disk/F09 review plus production cache source and retained prior native bounded-buffer results",
+  "screenshots": [
+    {
+      "path": "docs/verification/results/editor-resume-20261101/017-clean-external-refresh.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "2a84341552f5e75bb87c8e48f675f929e9d9b9cd35727a4327469768440d5049",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/018-dirty-conflict-save-refused.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "afc4d7a889b5d6c051066e02163319b37e74e51aea5d9f6d63b3f8a4745847c3",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/019-conflict-comparison-both-sides.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "af63fb46c657b04da5fbd7af0900eca8c348983b4d84d86720ad56bd4c6d14c5",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/020-conflict-pauses-focus-autosave.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "8dd6f609337ab6272ca3adb4b9b11e8ba4dad8b99eb203520ed6ecea0ff03c46",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/021-failed-save-keeps-close-dialog-and-draft.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "c8aae419be258b033e75c7416c4c9a4b73da00a94f43075dd49efaece74825f7",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/022-conflict-copy-preserves-original.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "692cf7c41b8284d809698cbfaed49d106591b2073817168fed3496978fd5b81d",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/023-explicit-reload-restores-disk.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "3e75b3313ec653098ad4d3abb012daa5c30a3d1b4a02830ee96602f13e1a30ca",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/029-opened-file-external-delete-retains-text.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "7688bbf9e8caecf2cd1e0231f9c040ae09a697efce1d6019b39f0130aa23adb1",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/034-search-10000-cap.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "980130167673c7ca816d34615434b7e1e3988abf51181618df44bc4dd7496271",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/047-cache-over20-clean-with-dirty-retained.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "fc303ce7362667004259b8ed2f9727294584053f51c2263fbd8e5b67091599f2",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/048-dirty-buffer-survives-clean-eviction.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "c376631841eb6a3c9b0a0524a6b4d61e0e32f2e92fb5344913a21d87d77065d4",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/049-reopen-early-clean-after20.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "5576fd6cd50d11dd42730a6c27b26fbd02ac4a0fec5857f6c21730fe72668f58",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/051-reopen-first-after72MiB.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "057406075e3d97e4d26eb5e2c3070317450dfbd8eaaf531a5922edf0ef91965e",
+      "independentlyViewed": true
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/052-dirty-survives-byte-limit.jpg",
+      "format": "JPEG",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "04d2ade79f08eeef6de5a42df9c0b3fcbd58e55c08c003d793eeae8d59011ce8",
+      "independentlyViewed": true
+    }
+  ],
+  "source": [
+    {
+      "path": "apps/desktop/src/features/editor/CodeSurface.tsx",
+      "copy": "docs/verification/results/editor-resume-external-and-cache-audit/source/apps/desktop/src/features/editor/CodeSurface.tsx",
+      "sha256": "19a055a18ed0ebb66c3c6ce4aeb177ba51a4c0d0bf793f6d841dfcbd4c3f92bf"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/files.rs",
+      "copy": "docs/verification/results/editor-resume-external-and-cache-audit/source/apps/desktop/src-tauri/src/files.rs",
+      "sha256": "d203b3d80b99b3d0cc33eef9c1d79a5ef57f95a821c914661176ea52420d8edf"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/state.rs",
+      "copy": "docs/verification/results/editor-resume-external-and-cache-audit/source/apps/desktop/src-tauri/src/state.rs",
+      "sha256": "19975a801e2269383b7ebd52e21a88dd4719234619cda171f6e7fc8ff384951f"
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "copy": "docs/verification/results/editor-resume-external-and-cache-audit/source/packages/editor/src/store.ts",
+      "sha256": "3e3d7933e25111d63a0eb2f0d2f539d5ad89a3ae4d30b5b092e62a7a018ecdd9"
+    }
+  ],
+  "externalClauses": [
+    {
+      "condition": "Clean external changes refresh",
+      "evidence": "Native017 shows changed external-clean text and clean tab."
+    },
+    {
+      "condition": "Dirty conflict retains both; comparison, reload and copy",
+      "evidence": "Native018 local dirty text;019 separate disk/current values;022 actual62B copy while original42B unchanged;023 explicit reload shows disk and clean tab."
+    },
+    {
+      "condition": "Autosave pauses on conflict",
+      "evidence": "Native020 focus change leaves42B external disk unchanged; actual focus autosave previously works in016."
+    },
+    {
+      "condition": "Deletion retains open content without overwrite",
+      "evidence": "Native029 opened before external move, shows ENOENT and full30B text; corrected026 not used; original path absent and removed copy exactly30B."
+    }
+  ],
+  "cacheClauses": [
+    {
+      "condition": "Default10000 search cap is visible",
+      "evidence": "Native03410000 matches/5000 files/reached-limit label; fixture10000 files with2 matches each. Existing native tests bound resultsets/pathindexes."
+    },
+    {
+      "condition": "20 clean/64MiB initial limits are verifiable",
+      "evidence": "Constructor defaults20/64MiB; after25 clean, early reopen id58 is cold.8x9MiB=72MiB with8clean<20; nativebyte0 reopen id69 is cold, isolating bytes limit. These describe app cache, not OS cache."
+    },
+    {
+      "condition": "Unsaved content is not evicted",
+      "evidence": "Native048/052 retain full DIRTY_CACHE_KEEP_1101 and dirty dot; id60 warm. Operator disk14B at those points. After052, explicit native Save at03:06:47 writes current full33B; this later authorized save is separate."
+    },
+    {
+      "condition": "Chat, terminal and logs are bounded",
+      "evidence": "Prior actual327680B chat plus native32KiB pages/history100 pages/4MiB record rejection/512KiB event ring/32MiB session budget. Actual native PTY/launch GUI plus real reader8MiB retains2MiB in shared production buffer."
+    },
+    {
+      "condition": "No fabricated memory gauge",
+      "evidence": "Actual F09 point-time counts and libproc collector, no claimed live MB UI. Native Document stores metadata only;37 metadata entries do not imply37 retained texts. Actual Close Others reduces count to9."
+    }
+  ],
+  "cacheSpecificOpens": [
+    {
+      "byteLength": 41,
+      "cache": "cold",
+      "durationMs": 35,
+      "editorRevision": 1,
+      "id": 58,
+      "language": "plain",
+      "languageReadyMs": 19,
+      "startedAtMs": 1793502300964,
+      "viewId": 3
+    },
+    {
+      "byteLength": 14,
+      "cache": "warm",
+      "durationMs": 34,
+      "editorRevision": 1,
+      "id": 60,
+      "language": "plain",
+      "startedAtMs": 1793502302380,
+      "viewId": 3
+    },
+    {
+      "byteLength": 9437184,
+      "cache": "cold",
+      "durationMs": 136,
+      "editorRevision": 0,
+      "id": 69,
+      "language": "plain",
+      "languageReadyMs": 117.00000000023284,
+      "startedAtMs": 1793502357287,
+      "viewId": 3
+    }
+  ],
+  "byteFiles": [
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-0.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-1.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-2.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-3.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-4.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-5.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-6.txt",
+      "bytes": 9437184
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA/byte-cache/byte-7.txt",
+      "bytes": 9437184
+    }
+  ],
+  "diagnostic": {
+    "path": "docs/verification/results/editor-resume-20261101/export-byte-cache/horizon-diagnostics.json",
+    "sha256": "f2dfd66395019f9214ae1d36d799a13cb2331b787c00644847e1b0b2da098d4c",
+    "exportedAt": "2026-11-01T03:05:59.010479+00:00",
+    "openDocuments": 9
+  },
+  "dirtyFileAtAudit": {
+    "bytes": 35,
+    "sha256": "edc685d61612e2354e858b68b1918cb384908375e68a8db5f9fd5a7d921efaaa",
+    "meaning": "Explicit native save after052; earlier dirty retention and14B disk supported by timestamped operator log."
+  },
+  "limits": [
+    "F09 is a point-time snapshot; cache cold/warm means Horizon document state, not OS cache.",
+    "Native Document metadata count is distinct from retained text/EditorState capacity.",
+    "026 invalid external-delete observation excluded; use029 and actual missing path.",
+    "Shared production PIPE reader stress proves log bound, not actual GUI8MiB PTY stress.",
+    "RUN006 bound behavior does not close NFR001 budgets or NFR004 CPU/lifecycle.",
+    "Functional captures do not automatically pass visual-reference review."
+  ]
+}

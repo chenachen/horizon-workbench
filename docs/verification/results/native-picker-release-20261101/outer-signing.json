@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-11-01T03:51:15.202234+00:00",
+  "checks": [
+    {
+      "command": [
+        "/usr/bin/codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+      ],
+      "exitCode": 0,
+      "output": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app: replacing existing signature\n"
+    },
+    {
+      "command": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+      ],
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "reason": "Seal the completed outer bundle after helper insertion; ad-hoc local signature only."
+}

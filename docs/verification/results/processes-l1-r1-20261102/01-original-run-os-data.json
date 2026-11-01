@@ -1,0 +1,141 @@
+{
+  "checkedAt": "2026-11-01T16:48:38.695336+00:00",
+  "stage": "L1 first original run only; after native approve once",
+  "nativeApproveUtc": "2026-11-01T16:47:14.230Z",
+  "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+  "runIdFromNative": "awaiting Terra ready AX report",
+  "roles": {
+    "service": 27921,
+    "follower": 27928
+  },
+  "processes": [
+    {
+      "pid": 27921,
+      "ppid": 41657,
+      "pgid": 27921,
+      "lstart": "Mon Nov 2 00:47:14 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node service.mjs"
+    },
+    {
+      "pid": 27928,
+      "ppid": 41657,
+      "pgid": 27928,
+      "lstart": "Mon Nov 2 00:47:14 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node follower.mjs"
+    },
+    {
+      "pid": 41657,
+      "ppid": 1,
+      "pgid": 41657,
+      "lstart": "Mon Nov 2 00:05:09 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "cwd": {
+    "exitCode": 0,
+    "stdout": "p27921\nfcwd\nn/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7\np27928\nfcwd\nn/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7\n",
+    "stderr": ""
+  },
+  "port59133": {
+    "exitCode": 0,
+    "stdout": "COMMAND   PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    27921 chenpengxiang   21u  IPv4 0x3e4f69fd715d677d      0t0  TCP 127.0.0.1:59133 (LISTEN)\n",
+    "stderr": ""
+  },
+  "markers": {
+    "service.pid": "27921",
+    "follower.pid": "27928",
+    "snapshots.jsonl": "{\"role\":\"service\",\"pid\":27921,\"ppid\":41657,\"cwd\":\"/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7\",\"value\":\"original\",\"port\":59133,\"startedAt\":\"2026-11-01T16:47:14.391Z\"}\n{\"role\":\"follower\",\"pid\":27928,\"ppid\":41657,\"cwd\":\"/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7\",\"value\":\"original\",\"startedAt\":\"2026-11-01T16:47:14.604Z\"}\n",
+    "stop-order.jsonl": null
+  },
+  "snapshots": [
+    {
+      "role": "service",
+      "pid": 27921,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "port": 59133,
+      "startedAt": "2026-11-01T16:47:14.391Z"
+    },
+    {
+      "role": "follower",
+      "pid": 27928,
+      "ppid": 41657,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/candidate7",
+      "value": "original",
+      "startedAt": "2026-11-01T16:47:14.604Z"
+    }
+  ],
+  "savedOwnedProfile": {
+    "schemaVersion": 1,
+    "profileId": "profile-1793551533187-1",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 快照 · 自动 URL · 删除（导入）",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "service",
+        "title": "显式 Shell · 快照服务",
+        "dependsOn": [],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' service.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "PORT": "59133",
+          "SNAPSHOT": "original"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "stdout",
+          "pattern": "READY",
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59133/saved",
+          "autoOpenUrl": true
+        }
+      },
+      {
+        "stepId": "follower",
+        "title": "无探针后继",
+        "dependsOn": [
+          "service"
+        ],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' follower.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "SNAPSHOT": "original"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  "profileMatchCount": 1,
+  "profileConfigurationPath": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/launch-profiles/309b0390830fa2f8f231825e6b266b5b92cf8ce39b885509a98232cd1d74ba54.json",
+  "checks": {
+    "twoRolePids": true,
+    "appSameStart": true,
+    "bothLiveChildrenOfApp": true,
+    "separateOwnedGroups": true,
+    "snapshotsOriginalForBoth": true
+  },
+  "ownerActions": "Readonly OS/owned profile/markers only; no env dump/start/signal/GUI/build/sampler"
+}

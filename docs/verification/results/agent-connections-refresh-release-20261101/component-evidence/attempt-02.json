@@ -1,0 +1,519 @@
+{
+  "kind": "real App main-settings close + AgentSettings + AgentPanel + agent store + bridge; controlled Tauri",
+  "startedAt": "2026-11-01T09:25:32.602Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "bcf6aff0d18437d32371012a925cb7b531ec70a2fb55a45a97c5a92eb204429d"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "sha256": "7a588daba9d033532a1533a433e5692d6b59ce04ca85c369835898f417dab953"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/ContextPicker.tsx",
+      "sha256": "c3691678859b33fba683eb7f04814fc08600a599a7560b66e4ffd506e6c18229"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "5043312479ef41069ae3da248211848ec97b0d71478f6fc9b3a083df92bbab45"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/store.ts",
+      "sha256": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    }
+  ],
+  "preparedChange": {
+    "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+    "beforeSha256": "5043312479ef41069ae3da248211848ec97b0d71478f6fc9b3a083df92bbab45",
+    "afterSha256": "e475a8c3370da9c9c9cb6841c63a1b72195bdbf20a2a11b7a1dd26b7d24a1621"
+  },
+  "scenarios": [
+    {
+      "variant": "before",
+      "kind": "add",
+      "bundleSha256": "e1263d9f0422a23d7d747f42d3fdc0f0b3ddf9ac26d40b20952267b83f7b25e3",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "passed": false,
+      "initial": {
+        "phase": "boot",
+        "hostConnections": [
+          {
+            "connectionId": "owned-base",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "model": "owned-base",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "Owned base"
+            }
+          }
+        ],
+        "viewConnections": [
+          {
+            "connectionId": "owned-base",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "model": "owned-base",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "Owned base"
+            }
+          }
+        ],
+        "viewRevision": 3,
+        "loading": false,
+        "preserved": {
+          "draft": "保留当前项目草稿",
+          "attachments": [
+            {
+              "key": "owned-attachment",
+              "label": "owned.ts",
+              "source": "buffer",
+              "fileId": "owned-file",
+              "text": "owned context",
+              "byteLength": 13
+            }
+          ],
+          "messages": [
+            {
+              "messageId": "owned-message",
+              "role": "assistant",
+              "text": "保留会话内容",
+              "state": "streaming"
+            }
+          ],
+          "session": {
+            "sessionId": "owned-session",
+            "projectId": "owned-project",
+            "connectionId": "owned-base",
+            "profile": "chat",
+            "state": "running",
+            "instanceId": "owned-running-instance",
+            "instanceEpoch": 1,
+            "resumeAvailable": true,
+            "reviewId": null
+          },
+          "profile": "chat",
+          "status": "running",
+          "tools": [
+            {
+              "id": "owned-tool",
+              "name": "owned tool",
+              "state": "requested"
+            }
+          ],
+          "reviewId": null,
+          "permission": null,
+          "historyCursor": null,
+          "cancelRequested": false,
+          "taskIdentity": true,
+          "taskId": "owned-task",
+          "connectionId": "owned-base"
+        },
+        "options": [
+          {
+            "value": "owned-base",
+            "label": "Owned base"
+          }
+        ],
+        "draft": "保留当前项目草稿",
+        "dialogOpen": false,
+        "calls": [
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "resource_list",
+            "scope": {
+              "kind": "app"
+            },
+            "params": {}
+          },
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "app_bootstrap",
+            "scope": {
+              "kind": "app"
+            },
+            "params": {
+              "clientVersion": "0.1.0",
+              "protocolVersion": 1
+            }
+          },
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "project_activate",
+            "scope": {
+              "kind": "app"
+            },
+            "params": {
+              "projectId": "owned-project"
+            }
+          },
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "session_update",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-project",
+              "projectEpoch": 1
+            },
+            "params": {
+              "layout": {
+                "panels": {
+                  "primarySidebar": {
+                    "visible": true,
+                    "activeViewId": "files"
+                  },
+                  "auxiliary": {
+                    "visible": true,
+                    "activeViewId": "agent"
+                  },
+                  "bottom": {
+                    "visible": false,
+                    "activeViewId": "terminal"
+                  }
+                },
+                "focusMode": false,
+                "focusRestore": null
+              }
+            }
+          },
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "scope": {
+              "kind": "app"
+            },
+            "params": {}
+          },
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "agent_sessions_list",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-project",
+              "projectEpoch": 1
+            },
+            "params": {}
+          },
+          {
+            "phase": "boot",
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "scope": {
+              "kind": "project",
+              "projectId": "owned-project",
+              "projectEpoch": 1
+            },
+            "params": {}
+          }
+        ]
+      },
+      "failure": {
+        "capture": {
+          "phase": "add",
+          "hostConnections": [
+            {
+              "connectionId": "owned-base",
+              "adapterId": "pi",
+              "revision": 1,
+              "authState": "configured",
+              "authOwner": "external",
+              "runtime": {
+                "source": "managed",
+                "version": "1.4.0"
+              },
+              "provider": {
+                "id": "owned",
+                "api": "openai-completions",
+                "model": "owned-base",
+                "endpoint": "http://127.0.0.1:1/v1",
+                "label": "Owned base"
+              }
+            }
+          ],
+          "viewConnections": [
+            {
+              "connectionId": "owned-base",
+              "adapterId": "pi",
+              "revision": 1,
+              "authState": "configured",
+              "authOwner": "external",
+              "runtime": {
+                "source": "managed",
+                "version": "1.4.0"
+              },
+              "provider": {
+                "id": "owned",
+                "api": "openai-completions",
+                "model": "owned-base",
+                "endpoint": "http://127.0.0.1:1/v1",
+                "label": "Owned base"
+              }
+            }
+          ],
+          "viewRevision": 3,
+          "loading": false,
+          "preserved": {
+            "draft": "保留当前项目草稿",
+            "attachments": [
+              {
+                "key": "owned-attachment",
+                "label": "owned.ts",
+                "source": "buffer",
+                "fileId": "owned-file",
+                "text": "owned context",
+                "byteLength": 13
+              }
+            ],
+            "messages": [
+              {
+                "messageId": "owned-message",
+                "role": "assistant",
+                "text": "保留会话内容",
+                "state": "streaming"
+              }
+            ],
+            "session": {
+              "sessionId": "owned-session",
+              "projectId": "owned-project",
+              "connectionId": "owned-base",
+              "profile": "chat",
+              "state": "running",
+              "instanceId": "owned-running-instance",
+              "instanceEpoch": 1,
+              "resumeAvailable": true,
+              "reviewId": null
+            },
+            "profile": "chat",
+            "status": "running",
+            "tools": [
+              {
+                "id": "owned-tool",
+                "name": "owned tool",
+                "state": "requested"
+              }
+            ],
+            "reviewId": null,
+            "permission": null,
+            "historyCursor": null,
+            "cancelRequested": false,
+            "taskIdentity": true,
+            "taskId": "owned-task",
+            "connectionId": "owned-base"
+          },
+          "options": [
+            {
+              "value": "owned-base",
+              "label": "Owned base"
+            }
+          ],
+          "draft": "保留当前项目草稿",
+          "dialogOpen": true,
+          "calls": [
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "resource_list",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {}
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "app_bootstrap",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              }
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "project_activate",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {
+                "projectId": "owned-project"
+              }
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "session_update",
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-project",
+                "projectEpoch": 1
+              },
+              "params": {
+                "layout": {
+                  "panels": {
+                    "primarySidebar": {
+                      "visible": true,
+                      "activeViewId": "files"
+                    },
+                    "auxiliary": {
+                      "visible": true,
+                      "activeViewId": "agent"
+                    },
+                    "bottom": {
+                      "visible": false,
+                      "activeViewId": "terminal"
+                    }
+                  },
+                  "focusMode": false,
+                  "focusRestore": null
+                }
+              }
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "agent_connections_list",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {}
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "agent_sessions_list",
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-project",
+                "projectEpoch": 1
+              },
+              "params": {}
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "agent_preferences_get",
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-project",
+                "projectEpoch": 1
+              },
+              "params": {}
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "agent_detect",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {
+                "adapterId": "pi"
+              }
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "agent_connections_list",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {}
+            },
+            {
+              "phase": "boot",
+              "command": "horizon_call",
+              "method": "agent_preferences_get",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {}
+            },
+            {
+              "phase": "add",
+              "command": "horizon_call",
+              "method": "resource_list",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {}
+            },
+            {
+              "phase": "add",
+              "command": "horizon_call",
+              "method": "resource_list",
+              "scope": {
+                "kind": "app"
+              },
+              "params": {}
+            }
+          ]
+        },
+        "text": "Horizon\n工作区\nOwned workspace\n搜索文件或命令\n⌘ ⇧ P\n插件\nO\nOwned project\nOwned project\n文件\nGit\n文件树插件尚未启用\n\n安装或恢复插件后即可继续使用。\n\n打开插件中心\nproject\n代码编辑器插件尚未启用\n\n安装或恢复插件后即可继续使用。\n\n打开插件中心\nAI 助手\n聊天\n任务\n工具关闭\nPi\n保留会话内容\nowned tool\n请求工具操作\nPi 正在回复\n停止\nowned.ts\n添加上下文\nOwned base\nOwned project\n终端\n扩展\nmacOS · 0.1.0\n设置\nAI 连接\n\nPi 负责对话与任务。模型连接可供多个项目使用。\n\nπ\nPi runtime\n固定版本 1.4.0 · 官方发行 · 按需运行\n可用\n全局默认连接\n当前项目连接\n项目可单独选择\n模型连接\n添加连接\nOwned base\nowned · owned-base\nHorizon 受管 Pi · 1.4.0\n已配置 · 未验证\n默认\n测试\n上下文范围\n每次发送前明确选择\n手动附加\n项目间对话\n各项目保留独立的会话与附件\n独立\n连接验证\n测试由 Pi 发送固定文本，不含项目内容，可能产生模型费用\n\n首版只实现 Pi。Codex、Claude Code 尚未接入。\n\n添加模型连接\n\n由 Pi 使用这个连接。选择与你的服务一致的 API 协议。\n\n连接名称\n提供商 ID\nAPI 协议\nOpenAI Chat Completions\nOpenAI Responses\nAnthropic Messages\nGoogle Generative AI\n服务地址\n本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。\n模型 ID\n认证归属\nHorizon API key\n本地服务 / 外部认证\nPi 已有认证\nAPI key\n保存为安全引用，不写入连接 JSON。\n凭据保存\n系统钥匙串\n仅本次应用会话\n取消\n保存连接\n完成"
+      }
+    }
+  ],
+  "passed": false,
+  "error": "TimeoutError: locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '添加模型连接', exact: true }).getByLabel('认证归属', { exact: true })\u001b[22m\n",
+  "stack": "locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '添加模型连接', exact: true }).getByLabel('认证归属', { exact: true })\u001b[22m\n\n    at /Users/chenpengxiang/Desktop/Horizon/.work/agent-connections-refresh-20261101/run.mjs:104:239",
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/ContextPicker.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/store.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T09:25:39.410Z",
+  "durationMs": 6808
+}

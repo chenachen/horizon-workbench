@@ -1,0 +1,359 @@
+{
+  "reviewedAt": "2026-11-01T05:21:46.235005+00:00",
+  "method": "Independent original-image comparison of all eight actual/reference pairs. This report records the already completed inspection; no repeated GUI action, test, screenshot alteration or source edit.",
+  "build": {
+    "pid": 52226,
+    "mainSha256": "df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+    "label": "file-recovery unified release df1e"
+  },
+  "sourceActions": "docs/verification/results/file-recovery-native-gui-20261101/actions.jsonl",
+  "commonConditions": {
+    "viewport": [
+      1280,
+      800
+    ],
+    "uiFontSize": 13,
+    "density": "follow theme",
+    "fixture": "never-opened broken symlink file-access-retest/missing-link.ts"
+  },
+  "corrections": [
+    {
+      "id": "G02-COMPACT-CORNERS",
+      "cases": [
+        "graphite/G02"
+      ],
+      "observed": "Recovery action buttons are rounded capsules in the actual compact layout; graphite reference uses small rectangular corners. This is a visual style mismatch independent of the dark/light condition difference.",
+      "sourceBasis": "file-recovery.css fixed21px radius overrides the compact button rule.",
+      "minimalSuggestion": ":root[data-layout='compact'] .file-recovery-buttons>button{border-radius:7px}",
+      "owner": "root",
+      "status": "accepted for next unified build; no new-package visual proof yet"
+    },
+    {
+      "id": "ACTIVE-TAB-AFTER-LAYOUT",
+      "cases": [
+        "iris/G02",
+        "sand/G02"
+      ],
+      "observed": "The same active file remains in the editor, but changing layout narrows the tab viewport without bringing its tab back into view. Iris clips the label at the right edge; sand hides the active tab entirely to the right.",
+      "locations": {
+        "iris/G02": "Upper-right file tab strip: only the beginning of missing-link.ts is visible before the tab viewport ends.",
+        "sand/G02": "Upper file tab strip ends visibly at text-101MiB.txt; missing-link.ts remains the central active file but its tab is offscreen to the right."
+      },
+      "sourceBasis": "EditorWorkbench.tsx activeTab scroll effect depends only on buffer.key.",
+      "minimalSuggestion": "Re-scroll the active tab when the tab-strip width changes; preserve editor state and clean up the observer.",
+      "owner": "root",
+      "status": "accepted for next unified build; no new-package visual proof yet"
+    }
+  ],
+  "nextComparableCapture": [
+    "graphite/G02 light mode after compact-radius fix",
+    "iris/G02 active tab visible after layout change",
+    "sand/G02 active tab visible after layout change"
+  ],
+  "canonicalStatusAssigned": false,
+  "records": [
+    {
+      "case": "mist/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.jpg",
+      "actualSha256": "a218bf25564307cb5c3bc59c3e791b97acb8021a00223e4e194c797e5a4de611",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.txt",
+      "accessibilitySnapshotSha256": "e70b7a5246e108d33c8ebf1e6bbed540eb94b7ab149d68497ee40abe8b7f8f67",
+      "reference": "design/exports/png/mist/G02-file-error.png",
+      "referenceSha256": "3c15aa55a263e926c969efc92d6aa9a44a229200eeaaca78a62a5d4aaf306400",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:16:45.590Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "mist",
+      "theme": "mist",
+      "mode": "light",
+      "referenceMode": "light",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Classic project rail, file sidebar and central blue recovery page remain clearly separated; no obvious central hierarchy, text clipping or control visibility regression observed."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "paper/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.jpg",
+      "actualSha256": "bff0650e71350d3fba6e5cf1a332d35d919e3aea54633691a51fe23f4f4040af",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.txt",
+      "accessibilitySnapshotSha256": "c1affe1a6caf0f7b07c2c5243236c8dadb84137fea4bf7ee676ed922f2daaced",
+      "reference": "design/exports/png/paper/G02-file-error.png",
+      "referenceSha256": "7c7771dc5a4d6e0b7b337e5eb5d973582e02ef2e6f637174d8a4163fcef5d9b1",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:17:15.012Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "paper",
+      "theme": "paper",
+      "mode": "light",
+      "referenceMode": "light",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Unified project/file sidebar and warm green recovery surface remain coherent; no obvious central hierarchy, text clipping or control visibility regression observed."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "orbit/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-orbit-G02.jpg",
+      "actualSha256": "4b9f17789d1d978383c1bb977fa1816017dc00603d134d1f6485c3d4f5b932c2",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-orbit-G02.txt",
+      "accessibilitySnapshotSha256": "c1affe1a6caf0f7b07c2c5243236c8dadb84137fea4bf7ee676ed922f2daaced",
+      "reference": "design/exports/png/orbit/G02-file-error.png",
+      "referenceSha256": "aeb4801a85c464949e338ee664aad239f52cecf6edfea5d3ffcf5bbdd1d92c97",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:17:30.618Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "orbit",
+      "theme": "orbit",
+      "mode": "dark",
+      "referenceMode": "dark",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Top project tabs, file tabs and dark blue recovery page retain distinct levels; no obvious central hierarchy, text clipping or control visibility regression observed."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "graphite/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-graphite-G02.jpg",
+      "actualSha256": "a4fd05ace21844fdc39603539b90cff742b00257a6446bee59d3f5cdc813920c",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-graphite-G02.txt",
+      "accessibilitySnapshotSha256": "e70b7a5246e108d33c8ebf1e6bbed540eb94b7ab149d68497ee40abe8b7f8f67",
+      "reference": "design/exports/png/graphite/G02-file-error.png",
+      "referenceSha256": "00ff66494c186ca6f55c983d80ef8aa4cd187ad627545f68ee59c40b9d7caf8c",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:17:56.494Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "graphite",
+      "theme": "graphite",
+      "mode": "dark",
+      "referenceMode": "light",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Compact icon rail and central recovery content remain legible, but the recovery buttons use rounded capsules instead of the compact reference corners."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata.",
+        "Actual graphite theme is dark; its G02 reference is light. Palette equivalence is not assessed from this pair."
+      ],
+      "correctionIds": [
+        "G02-COMPACT-CORNERS"
+      ],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "celadon/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.jpg",
+      "actualSha256": "2c35b3186df7b1c37fc11d8f95352853ea5f2c360bd47241983ca40f171ba726",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.txt",
+      "accessibilitySnapshotSha256": "e6d8c578e1b7211abf63852ac8920c8a01ce9dd22cc19ff0ff32882ce1a1cf3b",
+      "reference": "design/exports/png/celadon/G02-file-error.png",
+      "referenceSha256": "7cc2fa93d1a3752653e7f3799036e5043ef84b86ea2a8d51f7634d81aef5b74e",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:18:08.367Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "celadon",
+      "theme": "celadon",
+      "mode": "light",
+      "referenceMode": "light",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Project drawer, file tree and rounded editor remain distinct; no obvious central hierarchy, text clipping or control visibility regression observed."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "iris/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-iris-G02.jpg",
+      "actualSha256": "65438a1aa2b450ca48a6d4f6366097652756156626cc14490aebf842f71679f9",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-iris-G02.txt",
+      "accessibilitySnapshotSha256": "e70b7a5246e108d33c8ebf1e6bbed540eb94b7ab149d68497ee40abe8b7f8f67",
+      "reference": "design/exports/png/iris/G02-file-error.png",
+      "referenceSha256": "03c70a9243d852c93201b05fa8096646032fa06db127a216312a362a2400b114",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:18:20.376Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "iris",
+      "theme": "iris",
+      "mode": "light",
+      "referenceMode": "light",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Purple card sections and central recovery page remain coherent; the active missing-link.ts tab is visibly clipped by the right edge of the tab viewport."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [
+        "ACTIVE-TAB-AFTER-LAYOUT"
+      ],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "sand/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-sand-G02.jpg",
+      "actualSha256": "961003050c4a932d44985a98b95713c1723a0d79082d087a454278bb78119cd2",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-sand-G02.txt",
+      "accessibilitySnapshotSha256": "e70b7a5246e108d33c8ebf1e6bbed540eb94b7ab149d68497ee40abe8b7f8f67",
+      "reference": "design/exports/png/sand/G02-file-error.png",
+      "referenceSha256": "02e25620ed02c2661e91fb1e584b035e9902499f343f31f5fb34f971fd82ff67",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:18:27.328Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "sand",
+      "theme": "sand",
+      "mode": "light",
+      "referenceMode": "light",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Expanded project directory and warm recovery page remain coherent; the active missing-link.ts tab is entirely outside the visible right end of the tab strip."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [
+        "ACTIVE-TAB-AFTER-LAYOUT"
+      ],
+      "canonicalStatusAssigned": false
+    },
+    {
+      "case": "aurora/G02",
+      "actual": "docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.jpg",
+      "actualSha256": "9133f7f72963a651bf90c5c2989f441fada6819a2ff7fcd2b7a1e25075608faa",
+      "actualFormat": "JPEG",
+      "accessibilitySnapshot": "docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.txt",
+      "accessibilitySnapshotSha256": "c1affe1a6caf0f7b07c2c5243236c8dadb84137fea4bf7ee676ed922f2daaced",
+      "reference": "design/exports/png/aurora/G02-file-error.png",
+      "referenceSha256": "09e7fd98456131ed7e2f8d635950cd8b70b9430f0b9865cbf66042d0022c8224",
+      "referenceFormat": "PNG",
+      "capturedAt": "2026-11-01T05:18:35.675Z",
+      "viewport": [
+        1280,
+        800
+      ],
+      "layout": "aurora",
+      "theme": "aurora",
+      "mode": "dark",
+      "referenceMode": "dark",
+      "inspectedOriginalActualAndReference": true,
+      "centralRecoveryAssessment": "No obvious central hierarchy, text clipping or action visibility regression observed in this actual screenshot.",
+      "observed": [
+        "Transparent outlined top search, dark turquoise editor and bottom navigation remain coherent; no obvious central hierarchy, text clipping or control visibility regression observed."
+      ],
+      "acceptableContentDifferences": [
+        "The central file-access-retest/missing-link.ts path identifies the actual unavailable file.",
+        "Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible.",
+        "Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference.",
+        "Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior."
+      ],
+      "conditionDifferences": [
+        "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference.",
+        "Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata."
+      ],
+      "correctionIds": [],
+      "canonicalStatusAssigned": false
+    }
+  ]
+}

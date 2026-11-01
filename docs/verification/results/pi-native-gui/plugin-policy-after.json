@@ -1,0 +1,103 @@
+{
+  "at": "2026-10-30T20:57:40.628008+00:00",
+  "record": {
+    "activations": {
+      "c39ad3e0-e44f-4b4b-84c7-5d5177b5719a": "a6bfdb8d-58c4-4192-b923-101156fb8bec"
+    },
+    "builtin": true,
+    "config": {},
+    "directActivations": {
+      "c39ad3e0-e44f-4b4b-84c7-5d5177b5719a": "a6bfdb8d-58c4-4192-b923-101156fb8bec"
+    },
+    "enabledGlobal": true,
+    "errors": {},
+    "grants": [
+      "process.agent",
+      "network"
+    ],
+    "installed": true,
+    "launchOrigins": {},
+    "logs": [
+      {
+        "message": "应用能力预设 minimal",
+        "time": "2026-10-30T19:29:03.589168+00:00"
+      },
+      {
+        "message": "应用能力预设 development",
+        "time": "2026-10-30T19:29:26.406914+00:00"
+      },
+      {
+        "message": "应用能力预设 review",
+        "time": "2026-10-30T19:29:51.233129+00:00"
+      },
+      {
+        "message": "应用能力预设 custom",
+        "time": "2026-10-30T19:30:15.412738+00:00"
+      },
+      {
+        "message": "应用能力预设 review",
+        "time": "2026-10-30T19:32:30.512813+00:00"
+      },
+      {
+        "message": "随应用更新同步内置扩展说明与主题声明",
+        "time": "2026-10-30T20:14:23.480115+00:00"
+      },
+      {
+        "message": "实例按需激活",
+        "time": "2026-10-30T20:31:00.330948+00:00"
+      }
+    ],
+    "manifest": {
+      "activation": [
+        "onView:horizon.agent.view",
+        "onCommand:horizon.agent.open"
+      ],
+      "apiVersion": 1,
+      "author": "Horizon",
+      "capabilities": [
+        "process.agent",
+        "network"
+      ],
+      "contributes": {
+        "commands": [
+          {
+            "id": "horizon.agent.open",
+            "title": "打开Pi Agent"
+          }
+        ],
+        "views": [
+          {
+            "id": "horizon.agent.view",
+            "renderer": "trusted",
+            "slot": "auxiliary"
+          }
+        ]
+      },
+      "description": "通过 Pi 处理对话、工具执行与修改提案，按项目授权操作。",
+      "engines": {
+        "horizon": ">=0.1.0 <0.2.0"
+      },
+      "id": "horizon.agent",
+      "name": "Pi Agent",
+      "optional": {},
+      "requires": {},
+      "runtime": {
+        "kind": "trusted-main"
+      },
+      "version": "0.1.0"
+    },
+    "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/horizon.agent/0.1.0",
+    "pausedGlobal": false,
+    "policyRevision": 6,
+    "projectConfig": {},
+    "projects": {},
+    "revision": 9,
+    "runLeases": {
+      "02979279-94b0-47b2-8ecd-4983edec7544": null
+    },
+    "sleeping": {
+      "c39ad3e0-e44f-4b4b-84c7-5d5177b5719a": false
+    },
+    "stopping": {}
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "kind": "Same-file chunked wake mount regression",
+  "phases": [
+    {
+      "name": "initial mount automatically loads first chunk",
+      "passed": true,
+      "state": {
+        "fileId": "large",
+        "evicted": false,
+        "cursor": "reader-1-next",
+        "text": "automatic first chunk from reader-1",
+        "byteStart": "0",
+        "byteEnd": "262144",
+        "largeFileCount": 1,
+        "loadingMessage": false,
+        "chunkCalls": [
+          {
+            "method": "file_read_chunk",
+            "params": {
+              "fileId": "large",
+              "cursor": "reader-1",
+              "limitBytes": 262144
+            },
+            "projectId": "a"
+          }
+        ]
+      }
+    }
+  ],
+  "pendingWake": {
+    "fileId": "large",
+    "evicted": true,
+    "text": "",
+    "largeFileCount": 1,
+    "loadingMessage": true,
+    "chunkCalls": [
+      {
+        "method": "file_read_chunk",
+        "params": {
+          "fileId": "large",
+          "cursor": "reader-1",
+          "limitBytes": 262144
+        },
+        "projectId": "a"
+      }
+    ]
+  },
+  "passed": false,
+  "error": "TimeoutError: locator.waitFor: Timeout 1500ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('automatic first chunk from reader-2', { exact: true }) to be visible\u001b[22m\n",
+  "errors": [],
+  "finalState": {
+    "fileId": "large",
+    "evicted": false,
+    "cursor": "reader-2",
+    "text": "",
+    "largeFileCount": 1,
+    "loadingMessage": false,
+    "chunkCalls": [
+      {
+        "method": "file_read_chunk",
+        "params": {
+          "fileId": "large",
+          "cursor": "reader-1",
+          "limitBytes": 262144
+        },
+        "projectId": "a"
+      }
+    ]
+  }
+}

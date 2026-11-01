@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-30T18:18:53.699Z",
+  "platform": "darwin",
+  "arch": "arm64",
+  "binary": "/tmp/horizon-pi/pi/pi",
+  "version": "1.4.0",
+  "modelService": "controlled local OpenAI protocol fixture; no real provider credentials",
+  "results": [
+    {
+      "label": "chat no tools",
+      "eventTypes": [
+        "response",
+        "agent_start",
+        "turn_start",
+        "message_start",
+        "message_end",
+        "message_update",
+        "turn_end",
+        "agent_end",
+        "agent_settled"
+      ],
+      "terminal": {
+        "type": "agent_settled",
+        "aborted": false
+      },
+      "stopReason": "stop",
+      "elapsedMs": 438
+    },
+    {
+      "label": "resume without replay",
+      "eventTypes": [
+        "response",
+        "agent_start",
+        "turn_start",
+        "message_start",
+        "message_end",
+        "message_update",
+        "turn_end",
+        "agent_end",
+        "agent_settled"
+      ],
+      "terminal": {
+        "type": "agent_settled",
+        "aborted": false
+      },
+      "stopReason": "stop",
+      "elapsedMs": 305
+    },
+    {
+      "label": "clear queue then abort",
+      "eventTypes": [
+        "response",
+        "agent_start",
+        "turn_start",
+        "message_start",
+        "message_end",
+        "message_update",
+        "queue_update",
+        "turn_end",
+        "agent_end",
+        "agent_settled"
+      ],
+      "terminal": {
+        "type": "agent_settled",
+        "aborted": true
+      },
+      "stopReason": "aborted",
+      "elapsedMs": 423
+    },
+    {
+      "label": "provider authentication failure",
+      "eventTypes": [
+        "response",
+        "agent_start",
+        "turn_start",
+        "message_start",
+        "message_end",
+        "turn_end",
+        "agent_end",
+        "agent_settled"
+      ],
+      "terminal": {
+        "type": "agent_settled",
+        "aborted": false
+      },
+      "stopReason": "error",
+      "elapsedMs": 332
+    },
+    {
+      "label": "chat tools disabled",
+      "requests": 4,
+      "noTools": true,
+      "noAutomaticContext": true,
+      "noAutomaticExtensions": true
+    }
+  ]
+}

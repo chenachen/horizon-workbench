@@ -1,0 +1,3686 @@
+{
+  "startedAt": "2026-11-01T13:02:27.103Z",
+  "kind": "real AgentSettings + Modal + bridge, controlled safe-metadata Tauri",
+  "source": {
+    "sources": [
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "sha256": "e475a8c3370da9c9c9cb6841c63a1b72195bdbf20a2a11b7a1dd26b7d24a1621"
+      }
+    ],
+    "preparedChange": {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "beforeSHA256": "e475a8c3370da9c9c9cb6841c63a1b72195bdbf20a2a11b7a1dd26b7d24a1621",
+      "afterSHA256": "7ae8b63c86e35da409ec8c3c9a28fabb98f5a61d39d395218c34763adac22b12",
+      "patchSHA256": "ed7065972595d04103d473171a28c2fa42ff3cf1af2e832f5f0d228c0dcb5ba4"
+    },
+    "scope": "AgentSettings safecredential metadata display/form only; no secret/API/keychain migration changes."
+  },
+  "scenarios": [
+    {
+      "variant": "before",
+      "kind": "expired",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-expired",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired",
+              "credentialRef": "ref-owned-expired"
+            }
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired-verified",
+              "credentialRef": "ref-owned-expired-verified"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-expired",
+            "credentialRef": "ref-owned-expired",
+            "persistence": "session",
+            "configured": false
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "credentialRef": "ref-owned-expired-verified",
+            "persistence": "session",
+            "configured": false
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-expired",
+            "state": "已配置 · 未验证",
+            "good": false
+          },
+          {
+            "label": "owned-expired-verified",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-expired",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired",
+              "credentialRef": "ref-owned-expired"
+            }
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired-verified",
+              "credentialRef": "ref-owned-expired-verified"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-expired",
+            "credentialRef": "ref-owned-expired",
+            "persistence": "session",
+            "configured": false
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "credentialRef": "ref-owned-expired-verified",
+            "persistence": "session",
+            "configured": false
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-expired",
+            "state": "已配置 · 未验证",
+            "good": false
+          },
+          {
+            "label": "owned-expired-verified",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "owned-expired",
+              "secret": "owned-component-only",
+              "persistence": "system"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-expired",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-expired",
+                  "credentialRef": "ref-owned-expired"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-expired-verified",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired-verified",
+              "credentialRef": "ref-owned-expired-verified"
+            }
+          },
+          {
+            "connectionId": "owned-expired",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-expired",
+              "credentialRef": "ref-owned-expired"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-expired-verified",
+            "credentialRef": "ref-owned-expired-verified",
+            "persistence": "session",
+            "configured": false
+          },
+          {
+            "connectionId": "owned-expired",
+            "credentialRef": "ref-owned-expired",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-expired-verified",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-expired",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "live-session",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-session",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-session",
+              "credentialRef": "ref-owned-session"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-session",
+            "credentialRef": "ref-owned-session",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-session",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-session",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-session",
+              "credentialRef": "ref-owned-session"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-session",
+            "credentialRef": "ref-owned-session",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-session",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-session",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-session",
+                  "credentialRef": "ref-owned-session"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-session",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-session",
+              "credentialRef": "ref-owned-session"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-session",
+            "credentialRef": "ref-owned-session",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-session",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "system",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-system",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-system",
+              "credentialRef": "ref-owned-system"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-system",
+            "credentialRef": "ref-owned-system",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-system",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-system",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-system",
+              "credentialRef": "ref-owned-system"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-system",
+            "credentialRef": "ref-owned-system",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-system",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-system",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-system",
+                  "credentialRef": "ref-owned-system"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-system",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-system",
+              "credentialRef": "ref-owned-system"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-system",
+            "credentialRef": "ref-owned-system",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-system",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "no-ref",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-missing",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-missing"
+            }
+          },
+          {
+            "connectionId": "owned-external",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-external"
+            }
+          },
+          {
+            "connectionId": "owned-runtime",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "runtime",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-runtime"
+            }
+          }
+        ],
+        "credentials": [],
+        "rows": [
+          {
+            "label": "owned-missing",
+            "state": "已配置 · 未验证",
+            "good": false
+          },
+          {
+            "label": "owned-external",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-runtime",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-missing",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-missing"
+            }
+          },
+          {
+            "connectionId": "owned-external",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-external"
+            }
+          },
+          {
+            "connectionId": "owned-runtime",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "runtime",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-runtime"
+            }
+          }
+        ],
+        "credentials": [],
+        "rows": [
+          {
+            "label": "owned-missing",
+            "state": "已配置 · 未验证",
+            "good": false
+          },
+          {
+            "label": "owned-external",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-runtime",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "输入凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-missing",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-missing"
+            }
+          },
+          {
+            "connectionId": "owned-external",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-external"
+            }
+          },
+          {
+            "connectionId": "owned-runtime",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "runtime",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-runtime"
+            }
+          }
+        ],
+        "credentials": [],
+        "rows": [
+          {
+            "label": "owned-missing",
+            "state": "已配置 · 未验证",
+            "good": false
+          },
+          {
+            "label": "owned-external",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-runtime",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "new-system",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [],
+        "credentials": [],
+        "rows": [],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "455d8d1e-49ab-495f-a1e2-e89edb049fbe",
+              "secret": "owned-component-only",
+              "persistence": "system"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 0,
+              "connection": {
+                "connectionId": "455d8d1e-49ab-495f-a1e2-e89edb049fbe",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "horizon-openai",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-new-model",
+                  "label": "Owned new",
+                  "credentialRef": "ref-455d8d1e-49ab-495f-a1e2-e89edb049fbe"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "455d8d1e-49ab-495f-a1e2-e89edb049fbe",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "horizon-openai",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-new-model",
+              "label": "Owned new",
+              "credentialRef": "ref-455d8d1e-49ab-495f-a1e2-e89edb049fbe"
+            },
+            "authOwner": "horizon",
+            "revision": 1,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "455d8d1e-49ab-495f-a1e2-e89edb049fbe",
+            "credentialRef": "ref-455d8d1e-49ab-495f-a1e2-e89edb049fbe",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "Owned new",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "new-session",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [],
+        "credentials": [],
+        "rows": [],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "9fcce281-c3ed-41db-b665-de6dbd15d7ab",
+              "secret": "owned-component-only",
+              "persistence": "session"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 0,
+              "connection": {
+                "connectionId": "9fcce281-c3ed-41db-b665-de6dbd15d7ab",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "horizon-openai",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-new-model",
+                  "label": "Owned new",
+                  "credentialRef": "ref-9fcce281-c3ed-41db-b665-de6dbd15d7ab"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "9fcce281-c3ed-41db-b665-de6dbd15d7ab",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "horizon-openai",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-new-model",
+              "label": "Owned new",
+              "credentialRef": "ref-9fcce281-c3ed-41db-b665-de6dbd15d7ab"
+            },
+            "authOwner": "horizon",
+            "revision": 1,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "9fcce281-c3ed-41db-b665-de6dbd15d7ab",
+            "credentialRef": "ref-9fcce281-c3ed-41db-b665-de6dbd15d7ab",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "Owned new",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "scope-to-session",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "blankScopeChange": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-switch",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-switch",
+                  "credentialRef": "ref-owned-switch"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "before",
+      "kind": "scope-to-system",
+      "passed": true,
+      "bundleSHA": "6d25f493830afd497a732c194ba34e06c21bd35c01ef6f57a06d5da74cef238d",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "blankScopeChange": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-switch",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-switch",
+                  "credentialRef": "ref-owned-switch"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "expired",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-expired",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired",
+              "credentialRef": "ref-owned-expired"
+            }
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired-verified",
+              "credentialRef": "ref-owned-expired-verified"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-expired",
+            "credentialRef": "ref-owned-expired",
+            "persistence": "session",
+            "configured": false
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "credentialRef": "ref-owned-expired-verified",
+            "persistence": "session",
+            "configured": false
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-expired",
+            "state": "会话凭据已过期 · 需重新输入",
+            "good": false
+          },
+          {
+            "label": "owned-expired-verified",
+            "state": "会话凭据已过期 · 需重新输入",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-expired",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired",
+              "credentialRef": "ref-owned-expired"
+            }
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired-verified",
+              "credentialRef": "ref-owned-expired-verified"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-expired",
+            "credentialRef": "ref-owned-expired",
+            "persistence": "session",
+            "configured": false
+          },
+          {
+            "connectionId": "owned-expired-verified",
+            "credentialRef": "ref-owned-expired-verified",
+            "persistence": "session",
+            "configured": false
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-expired",
+            "state": "会话凭据已过期 · 需重新输入",
+            "good": false
+          },
+          {
+            "label": "owned-expired-verified",
+            "state": "会话凭据已过期 · 需重新输入",
+            "good": false
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key会话凭据已过期，请重新输入 API key。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "会话凭据已过期，请重新输入"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "owned-expired",
+              "secret": "owned-component-only",
+              "persistence": "session"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-expired",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-expired",
+                  "credentialRef": "ref-owned-expired"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-expired-verified",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-expired-verified",
+              "credentialRef": "ref-owned-expired-verified"
+            }
+          },
+          {
+            "connectionId": "owned-expired",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-expired",
+              "credentialRef": "ref-owned-expired"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-expired-verified",
+            "credentialRef": "ref-owned-expired-verified",
+            "persistence": "session",
+            "configured": false
+          },
+          {
+            "connectionId": "owned-expired",
+            "credentialRef": "ref-owned-expired",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-expired-verified",
+            "state": "会话凭据已过期 · 需重新输入",
+            "good": false
+          },
+          {
+            "label": "owned-expired",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "live-session",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-session",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-session",
+              "credentialRef": "ref-owned-session"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-session",
+            "credentialRef": "ref-owned-session",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-session",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-session",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-session",
+              "credentialRef": "ref-owned-session"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-session",
+            "credentialRef": "ref-owned-session",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-session",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-session",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-session",
+                  "credentialRef": "ref-owned-session"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-session",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-session",
+              "credentialRef": "ref-owned-session"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-session",
+            "credentialRef": "ref-owned-session",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-session",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "system",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-system",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-system",
+              "credentialRef": "ref-owned-system"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-system",
+            "credentialRef": "ref-owned-system",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-system",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-system",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-system",
+              "credentialRef": "ref-owned-system"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-system",
+            "credentialRef": "ref-owned-system",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-system",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-system",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-system",
+                  "credentialRef": "ref-owned-system"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-system",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-system",
+              "credentialRef": "ref-owned-system"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-system",
+            "credentialRef": "ref-owned-system",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-system",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "no-ref",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-missing",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-missing"
+            }
+          },
+          {
+            "connectionId": "owned-external",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-external"
+            }
+          },
+          {
+            "connectionId": "owned-runtime",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "runtime",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-runtime"
+            }
+          }
+        ],
+        "credentials": [],
+        "rows": [
+          {
+            "label": "owned-missing",
+            "state": "凭据未配置 · 需重新输入",
+            "good": false
+          },
+          {
+            "label": "owned-external",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-runtime",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "form": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-missing",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-missing"
+            }
+          },
+          {
+            "connectionId": "owned-external",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-external"
+            }
+          },
+          {
+            "connectionId": "owned-runtime",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "runtime",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-runtime"
+            }
+          }
+        ],
+        "credentials": [],
+        "rows": [
+          {
+            "label": "owned-missing",
+            "state": "凭据未配置 · 需重新输入",
+            "good": false
+          },
+          {
+            "label": "owned-external",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-runtime",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "输入凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-missing",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-missing"
+            }
+          },
+          {
+            "connectionId": "owned-external",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "external",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-external"
+            }
+          },
+          {
+            "connectionId": "owned-runtime",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "configured",
+            "authOwner": "runtime",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-runtime"
+            }
+          }
+        ],
+        "credentials": [],
+        "rows": [
+          {
+            "label": "owned-missing",
+            "state": "凭据未配置 · 需重新输入",
+            "good": false
+          },
+          {
+            "label": "owned-external",
+            "state": "已验证",
+            "good": true
+          },
+          {
+            "label": "owned-runtime",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "new-system",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [],
+        "credentials": [],
+        "rows": [],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "566bfb3f-904e-41ab-ba7b-72efdfc81e81",
+              "secret": "owned-component-only",
+              "persistence": "system"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 0,
+              "connection": {
+                "connectionId": "566bfb3f-904e-41ab-ba7b-72efdfc81e81",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "horizon-openai",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-new-model",
+                  "label": "Owned new",
+                  "credentialRef": "ref-566bfb3f-904e-41ab-ba7b-72efdfc81e81"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "566bfb3f-904e-41ab-ba7b-72efdfc81e81",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "horizon-openai",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-new-model",
+              "label": "Owned new",
+              "credentialRef": "ref-566bfb3f-904e-41ab-ba7b-72efdfc81e81"
+            },
+            "authOwner": "horizon",
+            "revision": 1,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "566bfb3f-904e-41ab-ba7b-72efdfc81e81",
+            "credentialRef": "ref-566bfb3f-904e-41ab-ba7b-72efdfc81e81",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "Owned new",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "new-session",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [],
+        "credentials": [],
+        "rows": [],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "1528f299-dcca-408c-88e2-4da7248addd6",
+              "secret": "owned-component-only",
+              "persistence": "session"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 0,
+              "connection": {
+                "connectionId": "1528f299-dcca-408c-88e2-4da7248addd6",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "horizon-openai",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-new-model",
+                  "label": "Owned new",
+                  "credentialRef": "ref-1528f299-dcca-408c-88e2-4da7248addd6"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "1528f299-dcca-408c-88e2-4da7248addd6",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "horizon-openai",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-new-model",
+              "label": "Owned new",
+              "credentialRef": "ref-1528f299-dcca-408c-88e2-4da7248addd6"
+            },
+            "authOwner": "horizon",
+            "revision": 1,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "1528f299-dcca-408c-88e2-4da7248addd6",
+            "credentialRef": "ref-1528f299-dcca-408c-88e2-4da7248addd6",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "Owned new",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "scope-to-session",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "blankScopeChange": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话更改凭据保存方式需要重新输入 API key。取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "owned-switch",
+              "secret": "owned-component-only",
+              "persistence": "session"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-switch",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-switch",
+                  "credentialRef": "ref-owned-switch"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    },
+    {
+      "variant": "after",
+      "kind": "scope-to-system",
+      "passed": true,
+      "bundleSHA": "44fab17cb1e5899f8b01c548f75c207d71a2d62e0ba5663561f589c0a8e53f2a",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "initial": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      },
+      "blankScopeChange": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "revision": 1,
+            "authState": "verified",
+            "authOwner": "horizon",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "model": "owned-model",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            }
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "session",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已验证",
+            "good": true
+          }
+        ],
+        "dialogText": "编辑模型连接由 Pi 使用这个连接。选择与你的服务一致的 API 协议。连接名称提供商 IDAPI 协议OpenAI Chat CompletionsOpenAI ResponsesAnthropic MessagesGoogle Generative AI服务地址本地模型使用 loopback 地址；Horizon 不启动或关闭推理服务。模型 ID认证归属Horizon API key本地服务 / 外部认证Pi 已有认证API key保存为安全引用，不写入连接 JSON。凭据保存系统钥匙串仅本次应用会话更改凭据保存方式需要重新输入 API key。取消保存连接",
+        "passwordValue": "",
+        "passwordPlaceholder": "已保存，留空保持原凭据"
+      },
+      "saved": {
+        "calls": [
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_preferences_get",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_set",
+            "params": {
+              "connectionId": "owned-switch",
+              "secret": "owned-component-only",
+              "persistence": "system"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connection_save",
+            "params": {
+              "expectedRevision": 1,
+              "connection": {
+                "connectionId": "owned-switch",
+                "adapterId": "pi",
+                "runtime": {
+                  "source": "managed",
+                  "version": "1.4.0"
+                },
+                "provider": {
+                  "id": "owned",
+                  "api": "openai-completions",
+                  "endpoint": "http://127.0.0.1:1/v1",
+                  "model": "owned-model",
+                  "label": "owned-switch",
+                  "credentialRef": "ref-owned-switch"
+                },
+                "authOwner": "horizon"
+              }
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_detect",
+            "params": {
+              "adapterId": "pi"
+            }
+          },
+          {
+            "command": "horizon_call",
+            "method": "agent_connections_list",
+            "params": {}
+          },
+          {
+            "command": "horizon_call",
+            "method": "credential_list",
+            "params": {}
+          }
+        ],
+        "connections": [
+          {
+            "connectionId": "owned-switch",
+            "adapterId": "pi",
+            "runtime": {
+              "source": "managed",
+              "version": "1.4.0"
+            },
+            "provider": {
+              "id": "owned",
+              "api": "openai-completions",
+              "endpoint": "http://127.0.0.1:1/v1",
+              "model": "owned-model",
+              "label": "owned-switch",
+              "credentialRef": "ref-owned-switch"
+            },
+            "authOwner": "horizon",
+            "revision": 2,
+            "authState": "configured"
+          }
+        ],
+        "credentials": [
+          {
+            "connectionId": "owned-switch",
+            "credentialRef": "ref-owned-switch",
+            "persistence": "system",
+            "configured": true
+          }
+        ],
+        "rows": [
+          {
+            "label": "owned-switch",
+            "state": "已配置 · 未验证",
+            "good": false
+          }
+        ],
+        "dialogText": null,
+        "passwordValue": null,
+        "passwordPlaceholder": null
+      }
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": true,
+  "completedAt": "2026-11-01T13:02:32.706Z",
+  "durationMs": 5603
+}

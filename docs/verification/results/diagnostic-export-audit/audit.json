@@ -1,0 +1,24 @@
+{
+  "reviewedAt": "2026-10-30T20:01:13.903489+00:00",
+  "method": "Independent production data_export validation and three complete native test assertion review, combined with actual candidate5 native exported file",
+  "nativeTestResult": "3 passed /0failed; no rerun by verifier",
+  "rawSHA256": "377e24f0c2d2f17bb47d5c8cb20fad64f6cc572ea71f76dd70ed85c59a81e31e",
+  "sourceSHA256": {
+    "apps/desktop/src-tauri/src/settings.rs": "b1d540afb12ec47f72de3dca668d559a4e1214887bc9ccc262d8b0484e2423c4",
+    "apps/desktop/src-tauri/tests/files_workflow.rs": "b2dc8fcad4f6b09a0be117991f5ba2ff7f704cafc85abcc4b1b7b8e1241b634a",
+    "apps/desktop/src/features/settings/diagnostics.ts": "1fd766fbbee83bf226e4046b0c4b76ce96d17f561afdf48691be242fbb8bfe2c",
+    "apps/desktop/src/features/settings/SettingsPanel.tsx": "504100357dc0672d9676dafa91e9b12da2f0b19e181721305f6172a84d073135"
+  },
+  "assertions": [
+    "Actual export preserves anonymous samples and bytesWritten equals file length; no projectId or root path in payload",
+    "Unknown identifiers/text/path, invalid language, negative/fractional/unsafe numbers,201samples andclientcontrolled measurement are rejected before file creation",
+    "Task/resource/cache counts exported without document/query/path/plan/request records"
+  ],
+  "actualNativeExport": "docs/verification/results/root-candidate5/diagnostics-initial.json",
+  "actualExportSHA256": "3ce410c7490ac22bdbc11efb6f0e152f4430c8f784b52fd466f295f3a0e68936",
+  "limitations": [
+    "This closes only the diagnostic anonymization subcase; secrets in other logs, system credential storage, output preview and selective cleanup remain separate",
+    "Actual native export has3timing samples; no performance percentile claim",
+    "Tests call production dispatch directly; actual GUI export separately proves native picker→frontend→dispatch path"
+  ]
+}

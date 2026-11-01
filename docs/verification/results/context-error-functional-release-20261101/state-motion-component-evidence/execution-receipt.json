@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "command": {
+    "tool": "tools.exec_command",
+    "input": {
+      "cmd": "rtk proxy node .work/state-motion-functional-20261101/run.mjs",
+      "workdir": "/Users/chenpengxiang/Desktop/Horizon",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2500
+    },
+    "result": {
+      "chunk_id": "e20082",
+      "wall_time_seconds": 1.002333416,
+      "session_id": 76403,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "tool": "tools.write_stdin",
+    "input": {
+      "session_id": 76403,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 3500
+    },
+    "result": {
+      "chunk_id": "ceb8a7",
+      "wall_time_seconds": 1.125e-05,
+      "exit_code": 0,
+      "original_token_count": 67,
+      "output": "{\"passed\":true,\"variants\":[{\"variant\":\"before\",\"passed\":true,\"phases\":4},{\"variant\":\"after\",\"passed\":true,\"phases\":4}],\"sourcesUnchanged\":true,\"durationMs\":2948,\"resultPath\":\"/Users/chenpengxiang/Desktop/Horizon/.work/state-motion-functional-20261101/result.json\"}\n"
+    }
+  },
+  "harnessReported": {
+    "startedAt": "2026-11-01T10:20:00.198Z",
+    "completedAt": "2026-11-01T10:20:03.146Z",
+    "durationMs": 2948
+  },
+  "purpose": "Root-requested minimal idle + resultSnapshot partial-results label and original-parameters-restored assertion in existing pending-start case. Same directed harness only.",
+  "provenance": "Retained tool output; timestamps/duration from harness. No independent OS process timestamps or separate stderr stream collected.",
+  "productChanged": false,
+  "nativeGuiUsed": false,
+  "productBuildRun": false
+}

@@ -1,0 +1,38 @@
+{
+  "id": "horizon.search",
+  "name": "项目搜索",
+  "version": "0.1.0",
+  "description": "在项目中查找文件和文本，按文件定位匹配结果。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.search.view",
+    "onCommand:horizon.search.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "project.read"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.search.view",
+        "slot": "primarySidebar",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.search.open",
+        "title": "打开项目搜索"
+      }
+    ]
+  }
+}

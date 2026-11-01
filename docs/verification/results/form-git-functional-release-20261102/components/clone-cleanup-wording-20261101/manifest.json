@@ -1,0 +1,13 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "preparedAt": "2026-11-01T15:36:15.961728+00:00",
+  "path": "apps/desktop/src/features/git/CloneForm.tsx",
+  "beforeSHA256": "4e53822f902f0323a965ff1f21a83e083dd6603144e0db85394a972497dcea93",
+  "afterSHA256": "0c7bfa4bc64f384ac38accda19889c7414e9db7e4b5844c24a6c9f9d77cd669f",
+  "patchSHA256": "e55ac37f7914e4ba1f7e201916f3da99daf9766f77a2549caff68e626e71547c",
+  "change": "Two literal strings only: conditional directory-to-Trash confirmation and idempotent cleanup-complete result. No RPC/API/backend/flow change.",
+  "sourceBasis": "git-service/src/lib.rs clone_cleanup checks owned marker; absent destination is successful no-op plus marker removal. Existing result trashed:true does not distinguish existence. UI must not infer an actual transfer.",
+  "nativeBasis": "Git06 slow clone cancellation; exact processes gone and destination already absent before confirmation, original completed text retained.",
+  "verification": "Literal/source review + ordinary release typecheck/build; reuse existing native flow. No new clone/cleanup loop solely to observe wording.",
+  "boundary": "Actual directory transfer to Trash was not observed in this clone cancellation; separate from completed65B file Trash/Finder recovery."
+}

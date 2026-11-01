@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-11-01T11:59:05Z",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3.1\nBuildVersion:\t\t25D2128",
+  "architecture": "arm64",
+  "hardware": "Mac14,12\n34359738368\n10\nApple M2 Pro",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "revision": "unavailable",
+  "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_status": "?? .gitignore\n?? LICENSE\n?? README.md\n?? THIRD_PARTY_NOTICES.md\n?? apps/\n?? design/\n?? docs/\n?? licenses/\n?? package-lock.json\n?? package.json\n?? packages/\n?? research/\n?? scripts/",
+  "python": "3.14.3",
+  "scenario": "fixed-Pi0-empty-chat-session-credential",
+  "build": "release",
+  "build_id": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d-installed",
+  "root_executables": {
+    "8737": {
+      "path": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+      "sha256": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d"
+    }
+  },
+  "fixture": null,
+  "plugin_state": {
+    "checkedAt": "2026-11-01T11:58:10.596867+00:00",
+    "scene": "PERF-0 zeroPi",
+    "status": "OWNER READY SCENE0",
+    "checks": {
+      "sameInstalledApp": true,
+      "sameOwnedExternalProvider": true,
+      "zeroPi": true,
+      "noOwnedPtyOrLauncherChildren": true,
+      "baselineRequestsThirteen": true
+    },
+    "app": {
+      "pid": 8737,
+      "ppid": 1,
+      "start": "Sun Nov 1 18:41:19 2026",
+      "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    "mainSHA256FromFrozenRelease": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+    "provider": {
+      "pid": 2344,
+      "ppid": 2338,
+      "start": "Sun Nov 1 17:47:30 2026",
+      "executable": "node",
+      "args": "node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs",
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr",
+      "ownership": "externalfixture, not productleak",
+      "scriptSHA256FromFrozenEvidence": "7d477c8db5ca1efc2fff30c9672007e07ece9b4f260b2910d6177c41793c0712"
+    },
+    "piCount": 0,
+    "ptyCount": 0,
+    "launcherCount": 0,
+    "countsBasis": "OwnedApp descendanttree has no shell/script resourcechildren; no Pi globally; GUIowner noPTY/launcher/Send. Fullsampler separately attributes macOSresponsibility helpers.",
+    "ownedAppDescendantTree": [
+      {
+        "pid": 8737,
+        "ppid": 1,
+        "start": "Sun Nov 1 18:41:19 2026",
+        "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+      }
+    ],
+    "fixedConnection": {
+      "connectionId": "3d3e4cf8-4076-4265-9eda-553f5f4e58c3",
+      "credentialRef": "f496a927135859d4857037ebd80270f93684d895403f0ca5d4c8616c8db59b66",
+      "owner": "horizon",
+      "persistence": "session",
+      "authState": "configured",
+      "mode": "chat",
+      "endpoint": "http://127.0.0.1:18763/v1",
+      "provider": "horizon-fixture",
+      "model": "horizon-fixture"
+    },
+    "projects": {
+      "a": "d873ae49-1b78-44c2-b220-6260348ab231",
+      "b": "13eb772b-a7f7-43ca-87ea-c04de5858859"
+    },
+    "gui": {
+      "label": "perf0-before",
+      "time": "2026-11-01T11:56:30.938Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-perf0-before.jpg",
+      "imageSHA256": "c4687eb1d0a60ada8ee1590c20e2a150c714ee281a1e78abfdf0c029f1f9bfc4",
+      "axSHA256": "5db0d7ac5d06b43f94ac2f71494abd94bd3a4b297537ad5f3616d05d950006fb",
+      "window": "Horizon 1280×800",
+      "zoom": "100% 继承状态，尚未新核 View 菜单",
+      "style": "底部导航 / 极光 / 深色，继承状态"
+    },
+    "guiPreparedBasis": "Terra reports A/B newchat fixedfake connection, no composertext/attachments; finalA emptychat senddisabled, exampleclean. GUI nowfrozen.",
+    "httpBefore": {
+      "fixture": true,
+      "requests": 13
+    },
+    "fixtureReference": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/pi-resume-fixture.json",
+      "sha256": "b62a8462a63d9f8f2fd3952b09aa9ca746dde9bba47b8d2a8f74cd57dac63710"
+    },
+    "membersPath": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-perf-owner-20261101/scene0/members.json",
+    "samplingOwner": "root, 125s; no GUI/build/tests; owner onlylight pre/postidentity+health",
+    "metadataSafety": "No fakevalue/credentialvalue; sampler may omit optionalfixture-manifest to avoid embedding wholeoriginalfixture."
+  },
+  "root_pids": [
+    8737
+  ],
+  "cache_condition": "OS cache unchanged; no cache purge",
+  "accounting": "libproc RUSAGE_INFO_V2 physical footprint; ps RSS; CPU Mach ticks converted using mach_timebase_info, delta nanoseconds / wall time",
+  "mach_timebase": {
+    "numer": 125,
+    "denom": 3
+  },
+  "responsibility_spi_available": true,
+  "attribution": "explicit root/member + descendants + macOS responsibility + retained process identity",
+  "cycle_evidence": "none; passive sampling only",
+  "activity_log": null,
+  "stop_file": null,
+  "limits": [
+    "Footprint sum can include shared accounting; RSS sum is not private memory.",
+    "Root descendants default to horizon; label Pi/development/model PIDs explicitly.",
+    "Inspect unassigned WebKit candidates before claiming complete attribution.",
+    "Sampling can miss short-lived processes; listener counts require app diagnostic export."
+  ],
+  "stop_reason": "duration reached"
+}

@@ -1,0 +1,48 @@
+{"at":"2026-11-01T04:18:13.499Z","name":"001-no-match-stop-visible","condition":"native pending no-match search has Stop"}
+{"at":"2026-11-01T04:18:39.929Z","name":"002-no-match-cancelled-query-retained","stopClicks":1,"outcome":"已取消，保留已有结果；query unchanged","firstAttempt":"original001 control visible; first click stale AX after capture and search completed; restarted then one actual Stop click"}
+{"at":"2026-11-01T04:20:12.092Z","name":"003-lifecycle-reading-start","scene":"reading-project 5clean tabs hot4; Git clicked ready main 0changes then File;1280x800 iris+Mistlight","export":"export-start/horizon-diagnostics.json","exportTime":"2026-11-01T04:19:16.444156+00:00"}
+{"at":"2026-11-01T04:21:01.405Z","name":"004-B-wake-saved-text","expected":"Project B\nB-unsaved-1101","state":"clean, Ln2Col15; B manually saved before previous automatic sleep"}
+{"at":"2026-11-01T04:21:14.756Z","name":"005-quickopen-B-only-one-same-name","project":"Project B","expectedResults":1}
+{"at":"2026-11-01T04:21:25.761Z","name":"006-quickopen-C-only-one-same-name","project":"Project C","expectedResults":1}
+{"at":"2026-11-01T04:21:51.640Z","name":"007-quickopen-keyboard-next-previous","observed":"Down selects session-next/state.txt;Up same-name;Down state;shortcut hint visible"}
+{"at":"2026-11-01T04:21:57.527Z","name":"008-lifecycle-reading-sampler-baseline","scene":"ready fixed reading after C quickopen;5clean/hot4, iris+Mistlight; hold awaiting sampler acknowledgment"}
+{"at":"2026-11-01T04:23:31.733Z","name":"009-C-session-tree-selection-before","expectedCaret":"70:31","selected":"projectC SESSION_1101 line 070","tree":"session-next expanded","tabs":["same-name.txt","state.txt"]}
+{"at":"2026-11-01T04:23:43.095Z","name":"010-C-session-search-before","query":"projectC SESSION_1101","expectedMatches":100,"caret":"70:31","selectedLine70":true}
+{"at":"2026-11-01T04:23:56.299Z","name":"011-B-session-tree-selection-before","caret":"40:31","selected":"projectB SESSION_1101 line 040","tabs":["same-name.txt","state.txt"]}
+{"at":"2026-11-01T04:23:57.866Z","name":"012-B-session-search-before","query":"projectB SESSION_1101","expectedMatches":100,"caret":"40:31"}
+{"at":"2026-11-01T04:24:17.696Z","name":"013-A-session-tree-selection-before","caret":"20:25","selected":"qa SESSION_1101 line 020","dirty":"A_DIRTY_SESSION_1101 appended","tabs":["clean-01.txt","state.txt"]}
+{"at":"2026-11-01T04:24:19.156Z","name":"014-A-session-search-before","query":"qa SESSION_1101","expectedMatches":100,"caret":"20:25"}
+{"at":"2026-11-01T04:24:31.643Z","name":"015-B-session-search-return","expectedQuery":"projectB SESSION_1101","expectedCaret":"40:31"}
+{"at":"2026-11-01T04:24:32.375Z","name":"016-B-session-tree-return","expectedTree":"session-next expanded","expectedSelection":"projectB SESSION_1101 line 040"}
+{"at":"2026-11-01T04:24:33.092Z","name":"017-C-session-search-return","expectedQuery":"projectC SESSION_1101","expectedCaret":"70:31"}
+{"at":"2026-11-01T04:24:33.841Z","name":"018-C-session-tree-return","expectedTree":"session-next expanded","expectedSelection":"projectC SESSION_1101 line 070"}
+{"at":"2026-11-01T04:24:34.603Z","name":"019-A-session-search-return","expectedQuery":"qa SESSION_1101","expectedCaret":"20:25","dirtyRetained":true}
+{"at":"2026-11-01T04:24:35.439Z","name":"020-A-session-tree-return","expectedTree":"session-next expanded","expectedSelection":"qa SESSION_1101 line 020"}
+{"at":"2026-11-01T04:25:14.649Z","name":"021-A-close-clean-keeps-dirty-session","closed":"cache/clean-01.txt","retained":"session-next/state.txt dirty"}
+{"at":"2026-11-01T04:25:15.406Z","name":"022-B-after-A-clean-close","tabs":["same-name.txt","state.txt"],"caret":"40:31","knownScrollIssue":true}
+{"at":"2026-11-01T04:25:16.095Z","name":"023-C-after-A-clean-close","tabs":["same-name.txt","state.txt"],"caret":"70:31","knownScrollIssue":true}
+{"at":"2026-11-01T04:25:37.879Z","name":"024-tree-show-hidden","expected":".hidden.txt visible in native AX tree"}
+{"at":"2026-11-01T04:25:38.741Z","name":"025-tree-refresh-selected-retained","selected":"session-next/state.txt","expanded":"session-next"}
+{"at":"2026-11-01T04:25:45.378Z","name":"026-loop-link-does-not-recurse","fixture":"loop symlink to own project root","action":"single native row click","expected":"no recursively expanded tree"}
+{"at":"2026-11-01T04:26:00.843Z","name":"027-one-directory-denied-keeps-siblings","denied":"native-remainder/denied mode000","expected":"permission error with sibling nodes/state tab retained"}
+{"at":"2026-11-01T04:26:17.270Z","name":"028-directory-permission-auto-recovers","restoredMode":"0755","observed":"watcher refresh shows denied/keep.txt and clears error before Retry could be clicked; no Retry-click claim"}
+{"at":"2026-11-01T04:26:28.687Z","name":"029-finder-reveals-visual-ts","action":"Horizon context menu 在 Finder 中显示; Finder selected visual.ts"}
+{"at":"2026-11-01T04:26:56.533Z","name":"030-dirty-trash-refused-dialog-retained","actual":"Native Trash confirmation attempted; dirty document blocks operation; error appears behind still-open popup"}
+{"at":"2026-11-01T04:26:57.240Z","name":"031-dirty-trash-cancel-retains-text","expected":"dirty file exists, local unsaved full text remains; error visible after cancelling popup"}
+{"at":"2026-11-01T04:27:55.239Z","name":"032-native-text-copy-paste","method":"physical CmdHome,CmdShiftRight selects COPY_NATIVE_1101;CmdC;CmdEnd;CmdV; no paste API used for copy result"}
+{"at":"2026-11-01T04:27:55.926Z","name":"033-native-copy-undo","expected":"only initial line"}
+{"at":"2026-11-01T04:27:57.134Z","name":"034-native-copy-redo-save","expected":"COPY_NATIVE_1101\nCOPY_NATIVE_1101","method":"physical Redo then nativeSave"}
+{"at":"2026-11-01T04:29:03.258Z","name":"035-ime-autosave-baseline","setting":"Editor Resume QA afterDelay1000ms","action":"native Return creates third line before composition"}
+{"at":"2026-11-01T04:29:17.983Z","name":"036-ime-marked-with-afterdelay","inputSource":"SCIM Pinyin","method":"physical z h o n g w e n, no paste","visible":"underlined zhong wen","autoSaveDelayMs":1000}
+{"at":"2026-11-01T04:29:28.716Z","name":"037-ime-committed-chinese","method":"physical Space commits 中文","autoSave":"afterDelay remains enabled; no explicit Save"}
+{"at":"2026-11-01T04:29:40.068Z","name":"038-ime-auto-saved-clean","diskBytes":40,"text":"COPY_NATIVE_1101\nCOPY_NATIVE_1101\n中文","explicitSave":false}
+{"at":"2026-11-01T04:30:34.301Z","name":"039-disabled-editor-save-command-no-run","project":"Editor Resume QA","command":">保存","disabledReason":"当前上下文不可用","action":"physicalEnter remains same dialog, no execution"}
+{"at":"2026-11-01T04:30:43.131Z","name":"040-editor-restored-after-disabled-command","editorEnabled":true,"projectOnly":true}
+{"at":"2026-11-01T04:46:15.589Z","name":"041-narrow-markdown-preview","scene":"narrow native window, sidebar collapsed; actual preview segmented tab visible"}
+{"at":"2026-11-01T04:46:17.657Z","name":"042-narrow-preview-after-source-edit","marker":"NARROW_UNDO_1101","expected":"preview sees current unsaved text"}
+{"at":"2026-11-01T04:46:19.061Z","name":"043-narrow-source-undo-preserved","expected":"marker removed,original text clean; no Save executed"}
+{"at":"2026-11-01T04:47:28.385Z","name":"044-recovery-error-after-visual-undo","actual":"After undoing only own visual.ts marker to clean, RecoveryNotice says 恢复草稿暂时无法读取 No such file or directory (os error 2)","state":"Save disabled, own visual.ts baseline restored","noExtraTest":true}
+{"at":"2026-11-01T04:47:33.906Z","name":"045-reading-restored-before-tail","scene":"reading5clean/hot4;Gitready main0changes;iris+Mistlight1280x800","note":"No extra tests; tail only after04:52:33Z"}
+{"at":"2026-11-01T04:51:09.708Z","name":"046-lifecycle-tail-diagnostics-preview","purpose":"actual F09 tail; latest read-only snapshot after completed editor workflow"}
+{"at":"2026-11-01T04:51:39.347Z","name":"047-lifecycle-tail-diagnostics-exported","destination":"/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/editor-native-picker-20261101/export-end/horizon-diagnostics.json","actual":"diagnostics exported toast; recovery page says no drafts"}
+{"at":"2026-11-01T04:51:40.063Z","name":"048-reading-fixed-tail-ready","scene":"reading five clean tabs,hot4,Git ready main0changes,1280x800 iris Mistlight","freeze":"No further GUI actions until verification sampler actually exits"}

@@ -1,0 +1,826 @@
+{
+  "recordedAt": "2026-10-31T03:07:51.568561+00:00",
+  "actualCollectorExitCode": 0,
+  "collectorStart": "2026-10-31T03:05:07.130744+00:00",
+  "collectorCompletion": "2026-10-31T03:07:12.431812+00:00",
+  "sceneValidation": "Original06 before and07 after PNG independently reviewed: same01 project/Git/D-buffer/commit draft at2560x1337. Parent confirms no spontaneous navigation duringB.",
+  "summary": {
+    "sample_count": 118,
+    "requested_duration_seconds": 125.0,
+    "observed_duration_seconds": 125.005,
+    "physical_footprint_bytes": {
+      "count": 117,
+      "median": 312237376,
+      "p95": 312335704,
+      "max": 313367896,
+      "mean": 312234177.7777778
+    },
+    "stable_after_60s_footprint_bytes": {
+      "count": 60,
+      "median": 312237400.0,
+      "p95": 312335704,
+      "max": 312335704,
+      "mean": 312243131.6
+    },
+    "stable_after_60s_rss_sum_bytes": {
+      "count": 61,
+      "median": 785989632,
+      "p95": 786087936,
+      "max": 798326784,
+      "mean": 785966533.2459016
+    },
+    "stable_after_60s_cpu_percent_one_core": {
+      "count": 60,
+      "median": 0.5352245223404482,
+      "p95": 65.20198753068055,
+      "max": 66.40018257394794,
+      "mean": 13.141500137915914
+    },
+    "after_60s_sample_count": 61,
+    "after_60s_observed_seconds": 63.9839,
+    "after_60s_interpretation": "Excludes warm-up by time only; a steady-state claim also requires unchanged scenario and no GUI actions during this window.",
+    "rss_sum_bytes": {
+      "count": 118,
+      "median": 785940480.0,
+      "p95": 786087936,
+      "max": 798326784,
+      "mean": 785827041.6271186
+    },
+    "cpu_percent_one_core": {
+      "count": 116,
+      "median": 0.5722673911182019,
+      "p95": 65.61015326978665,
+      "max": 76.44985004923963,
+      "mean": 14.025754816611057
+    },
+    "footprint_linear_slope_bytes_per_minute": 37208.24368757058,
+    "first_minute_footprint_bytes": {
+      "count": 57,
+      "median": 312188248,
+      "p95": 312335704,
+      "max": 313367896,
+      "mean": 312224752.7017544
+    },
+    "last_minute_footprint_bytes": {
+      "count": 56,
+      "median": 312237388.0,
+      "p95": 312335704,
+      "max": 312335704,
+      "mean": 312239445
+    },
+    "status": "measured; acceptance requires scenario, attribution and release-build review"
+  },
+  "identityCount": 13,
+  "identities": [
+    {
+      "pid": 37993,
+      "start": "Sat Oct 31 10:46:46 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "group": "horizon",
+      "reason": "root PID",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.131706626590474,
+        "p95": 0.6621598632230249,
+        "max": 0.7158387251149155,
+        "mean": 0.19444310447188523
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 51168432,
+        "p95": 51168432,
+        "max": 51168432,
+        "mean": 51168432
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.12798878063250518,
+        "p95": 0.6621598632230249,
+        "max": 0.7158387251149155,
+        "mean": 0.18740435143021233
+      }
+    },
+    {
+      "pid": 38057,
+      "start": "Sat Oct 31 10:46:49 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.05357243799255203,
+        "p95": 0.06581264605666581,
+        "max": 0.07102601796770236,
+        "mean": 0.051957328634081534
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 26051544,
+        "p95": 26051544,
+        "max": 26051544,
+        "mean": 26051544
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.05387032275046642,
+        "p95": 0.06581264605666581,
+        "max": 0.07102601796770236,
+        "mean": 0.05212099085856489
+      }
+    },
+    {
+      "pid": 38058,
+      "start": "Sat Oct 31 10:46:49 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.04753487090875386,
+        "max": 0.05659925914150789,
+        "mean": 0.01195208121052642
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 6521336,
+        "p95": 6521336,
+        "max": 6521336,
+        "mean": 6521336
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.04753487090875386,
+        "max": 0.05659925914150789,
+        "mean": 0.011952881379622228
+      }
+    },
+    {
+      "pid": 38059,
+      "start": "Sat Oct 31 10:46:49 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.1281112064262694,
+        "p95": 0.21982504232816064,
+        "max": 0.22709997551354505,
+        "mean": 0.11940737546671165
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 106185592,
+        "p95": 106234744,
+        "max": 106267512,
+        "mean": 106192306.75409836
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.12667849857209978,
+        "p95": 0.21982504232816064,
+        "max": 0.22709997551354505,
+        "mean": 0.11819414511573652
+      }
+    },
+    {
+      "pid": 38060,
+      "start": "Sat Oct 31 10:46:49 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 3162592,
+        "p95": 3162592,
+        "max": 3162592,
+        "mean": 3162592
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    {
+      "pid": 38061,
+      "start": "Sat Oct 31 10:46:49 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 11043344,
+        "p95": 11043344,
+        "max": 11043344,
+        "mean": 11043344
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    {
+      "pid": 38303,
+      "start": "Sat Oct 31 10:46:56 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 11010648,
+        "p95": 11010648,
+        "max": 11010648,
+        "mean": 11010648
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    {
+      "pid": 38719,
+      "start": "Sat Oct 31 10:47:13 2026",
+      "executable": "/System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 10748360,
+        "p95": 10748360,
+        "max": 10748360,
+        "mean": 10748360
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    {
+      "pid": 55971,
+      "start": "Sat Oct 31 11:00:52 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.04923251490101524,
+        "p95": 65.00836955367242,
+        "max": 66.23055578429884,
+        "mean": 13.058741076009284
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 70796104,
+        "p95": 70845256,
+        "max": 70845256,
+        "mean": 70794758.29508197
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.04733132183386382,
+        "p95": 65.00836955367242,
+        "max": 66.23055578429884,
+        "mean": 12.771827769131777
+      }
+    },
+    {
+      "pid": 55972,
+      "start": "Sat Oct 31 11:00:52 2026",
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 4440496,
+        "p95": 4440496,
+        "max": 4440496,
+        "mean": 4440496
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    {
+      "pid": 56004,
+      "start": "Sat Oct 31 11:00:53 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 11108952,
+        "p95": 11108952,
+        "max": 11108952,
+        "mean": 11108952
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    {
+      "pid": 65393,
+      "start": "Sat Oct 31 11:06:30 2026",
+      "executable": "(horizon-git)",
+      "group": "horizon",
+      "reason": "child of 37993",
+      "samples": 1,
+      "post60Cpu": {
+        "count": 0,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mean": null
+      },
+      "post60Footprint": {
+        "count": 0,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mean": null
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 0,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mean": null
+      }
+    },
+    {
+      "pid": 65433,
+      "start": "Sat Oct 31 11:06:30 2026",
+      "executable": "(git)",
+      "group": "horizon",
+      "reason": "child of 65393",
+      "samples": 1,
+      "post60Cpu": {
+        "count": 0,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mean": null
+      },
+      "post60Footprint": {
+        "count": 0,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mean": null
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 0,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mean": null
+      }
+    }
+  ],
+  "missingRoots": [],
+  "nullMetricSamples": [
+    {
+      "elapsed": 0.0002,
+      "totals": {
+        "process_count": 11,
+        "rss_bytes": 784515072,
+        "footprint_bytes": 312008024,
+        "cpu_percent_one_core": null
+      },
+      "processes": [
+        {
+          "pid": 37993,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 155402240,
+          "start": "Sat Oct 31 10:46:46 2026",
+          "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+          "footprint_bytes": 51135664,
+          "resident_bytes": 155402240,
+          "cpu_mach_ticks": 265370394,
+          "cpu_ns": 11057099750,
+          "start_abstime": 14762075876453,
+          "disk_read_bytes": 7389184,
+          "disk_write_bytes": 7708672,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "root PID"
+        },
+        {
+          "pid": 38057,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 72318976,
+          "start": "Sat Oct 31 10:46:49 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+          "footprint_bytes": 26051544,
+          "resident_bytes": 72318976,
+          "cpu_mach_ticks": 54650900,
+          "cpu_ns": 2277120833,
+          "start_abstime": 14762143853971,
+          "disk_read_bytes": 4542464,
+          "disk_write_bytes": 49152,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 38058,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 13598720,
+          "start": "Sat Oct 31 10:46:49 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+          "footprint_bytes": 6521336,
+          "resident_bytes": 13598720,
+          "cpu_mach_ticks": 4697414,
+          "cpu_ns": 195725583,
+          "start_abstime": 14762144208281,
+          "disk_read_bytes": 1306624,
+          "disk_write_bytes": 28672,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 38059,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 181141504,
+          "start": "Sat Oct 31 10:46:49 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+          "footprint_bytes": 106087288,
+          "resident_bytes": 181141504,
+          "cpu_mach_ticks": 191023095,
+          "cpu_ns": 7959295625,
+          "start_abstime": 14762144284590,
+          "disk_read_bytes": 1552384,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 38060,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 8568832,
+          "start": "Sat Oct 31 10:46:49 2026",
+          "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+          "footprint_bytes": 3162592,
+          "resident_bytes": 8568832,
+          "cpu_mach_ticks": 679430,
+          "cpu_ns": 28309583,
+          "start_abstime": 14762150364101,
+          "disk_read_bytes": 53248,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 38061,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 30343168,
+          "start": "Sat Oct 31 10:46:49 2026",
+          "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+          "footprint_bytes": 11043344,
+          "resident_bytes": 30343168,
+          "cpu_mach_ticks": 36986027,
+          "cpu_ns": 1541084458,
+          "start_abstime": 14762155215492,
+          "disk_read_bytes": 65536,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 38303,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 40173568,
+          "start": "Sat Oct 31 10:46:56 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+          "footprint_bytes": 11010648,
+          "resident_bytes": 40173568,
+          "cpu_mach_ticks": 3245565,
+          "cpu_ns": 135231875,
+          "start_abstime": 14762309260337,
+          "disk_read_bytes": 401408,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 38719,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 16433152,
+          "start": "Sat Oct 31 10:47:13 2026",
+          "executable": "/System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService",
+          "footprint_bytes": 10748360,
+          "resident_bytes": 16433152,
+          "cpu_mach_ticks": 997578,
+          "cpu_ns": 41565750,
+          "start_abstime": 14762708553145,
+          "disk_read_bytes": 385024,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 55971,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 201900032,
+          "start": "Sat Oct 31 11:00:52 2026",
+          "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+          "footprint_bytes": 70763336,
+          "resident_bytes": 201900032,
+          "cpu_mach_ticks": 408572437,
+          "cpu_ns": 17023851541,
+          "start_abstime": 14782382893693,
+          "disk_read_bytes": 9687040,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 55972,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 23478272,
+          "start": "Sat Oct 31 11:00:52 2026",
+          "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+          "footprint_bytes": 4440496,
+          "resident_bytes": 23478272,
+          "cpu_mach_ticks": 1198462,
+          "cpu_ns": 49935916,
+          "start_abstime": 14782386930156,
+          "disk_read_bytes": 49152,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        },
+        {
+          "pid": 56004,
+          "ppid": 1,
+          "uid": 501,
+          "rss_bytes": 41156608,
+          "start": "Sat Oct 31 11:00:53 2026",
+          "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+          "footprint_bytes": 11043416,
+          "resident_bytes": 41156608,
+          "cpu_mach_ticks": 3915169,
+          "cpu_ns": 163132041,
+          "start_abstime": 14782405973087,
+          "disk_read_bytes": 528384,
+          "disk_write_bytes": 0,
+          "cpu_percent_one_core": null,
+          "group": "horizon",
+          "reason": "macOS responsibility SPI → 37993"
+        }
+      ]
+    },
+    {
+      "elapsed": 83.461,
+      "totals": {
+        "process_count": 13,
+        "rss_bytes": 798326784,
+        "footprint_bytes": null,
+        "cpu_percent_one_core": null
+      },
+      "processes": [
+        {
+          "pid": 65393,
+          "ppid": 37993,
+          "uid": 501,
+          "rss_bytes": 6438912,
+          "start": "Sat Oct 31 11:06:30 2026",
+          "executable": "(horizon-git)",
+          "footprint_bytes": null,
+          "cpu_percent_one_core": null,
+          "accounting_error": "No such process",
+          "group": "horizon",
+          "reason": "child of 37993"
+        },
+        {
+          "pid": 65433,
+          "ppid": 65393,
+          "uid": 501,
+          "rss_bytes": 5898240,
+          "start": "Sat Oct 31 11:06:30 2026",
+          "executable": "(git)",
+          "footprint_bytes": null,
+          "cpu_percent_one_core": null,
+          "accounting_error": "No such process",
+          "group": "horizon",
+          "reason": "child of 65393"
+        }
+      ]
+    }
+  ],
+  "savePanelIdentities": [
+    {
+      "pid": 55971,
+      "start": "Sat Oct 31 11:00:52 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 37993",
+      "samples": 118,
+      "post60Cpu": {
+        "count": 61,
+        "median": 0.04923251490101524,
+        "p95": 65.00836955367242,
+        "max": 66.23055578429884,
+        "mean": 13.058741076009284
+      },
+      "post60Footprint": {
+        "count": 61,
+        "median": 70796104,
+        "p95": 70845256,
+        "max": 70845256,
+        "mean": 70794758.29508197
+      },
+      "post60CpuOnValidTotalSamples": {
+        "count": 60,
+        "median": 0.04733132183386382,
+        "p95": 65.00836955367242,
+        "max": 66.23055578429884,
+        "mean": 12.771827769131777
+      }
+    }
+  ],
+  "allSelectedProcessesIncluded": true,
+  "validPost60CpuSampleCount": 60,
+  "validPost60CpuObservedSeconds": 63.9839,
+  "validPost60CpuFirstLastElapsed": [
+    61.0211,
+    125.005
+  ],
+  "comparisonToA": {
+    "aMeanCpuPercentOneCore": 0.43918040805097286,
+    "bMeanCpuPercentOneCore": 13.141500137915914,
+    "meanCpuPercentagePointIncrease": 12.702319729864941,
+    "aMeanFootprintBytes": 203512918.4,
+    "bMeanFootprintBytes": 312243131.6,
+    "meanFootprintIncreaseBytes": 108730213.20000002
+  },
+  "cpuSuggestionComparison": {
+    "suggestionPercentOneCore": 1,
+    "belowSuggestion": false
+  },
+  "originalRawSha256": {
+    "summary.json": "16efdc32c40f97b95d8d670f9acf415b2110af653d720a3dddd32dc7416af7f8",
+    "metadata.json": "5f3580a94bf61b174b93d1bbe6a2337dcb1032ae1e61d335348d7b428dbf5516",
+    "cycle-output.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "samples.jsonl": "583d563377ff9e8d9e0741fe372bacb3ca8258d1d6ecf6b8ee87d40a77519361"
+  },
+  "limits": [
+    "One small TypeScript file/Git scene, not10000-path standard reading fixture.",
+    "Picker did close after actual navigation to prepared empty target, but expired preview rejected export; no successful data export or resource diagnostic snapshot.",
+    "No helper killed/excluded; all attributed processes included.",
+    "Actual directory being repeatedly enumerated bySavePanel is not identified by this sample.",
+    "No source-level fix established by correlation alone; earlier candidate6 CPU failure remains active."
+  ],
+  "cpuContributionBasis": "Per-process post60Cpu uses all available61 own metrics; post60CpuOnValidTotalSamples uses60 fully-accounted total samples, exactly comparable with totalCPU mean13.1415%. One short-livedGit sample totalnull retained.",
+  "confirmedScene": {
+    "observedAt": "2026-10-31T03:04:44.456038+00:00",
+    "build": "candidate7",
+    "pid": 37993,
+    "windowId": 15602,
+    "windowSize": [
+      2560,
+      1337
+    ],
+    "rootActions": [
+      "Explicit native click 01-双基线与提交 project",
+      "Explicit native click Git tab"
+    ],
+    "project": "01-双基线与提交",
+    "editor": "src/workspace.ts visible D-buffer clean, 3 lines; save disabled",
+    "git": "HEAD B, index D, one staged file; notes.txt untracked; draft 跨项目保留的 Git 草稿 visibly restored",
+    "panels": {
+      "primary": "git",
+      "agent": false,
+      "terminal": false
+    },
+    "layout": "mist",
+    "theme": "mist-light",
+    "scale": 1,
+    "noPickerInvokedByRootInThisProcess": false,
+    "screenshot": "docs/verification/screenshots/root-candidate7/06-cpu-b-before.png",
+    "limitations": [
+      "Earlier unexplained project/panel changes before explicit scene setup remain open; check actual scene after interval.",
+      "This is one small file + Git scene, not formal 10000-path reading budget.",
+      "Runtime counters have not yet been exported because that opens a native picker."
+    ],
+    "windowBounds": {
+      "x": 0,
+      "y": 30,
+      "width": 2560,
+      "height": 1337
+    },
+    "dimensionCorrection": {
+      "priorValue": [
+        1280,
+        800
+      ],
+      "reason": "Initial CG bounds before setup were reused incorrectly. Before-sample and after-sample PNG are both2560x1337; post-sample read-only CG confirms identical current bounds. Window was not resized by root during sampling.",
+      "evidence": "docs/verification/screenshots/root-candidate7/03-cpu-a-after.png"
+    },
+    "postIntervalScene": "Same AX and original PNG scene 01 Git D-buffer/indexD/draft; no spontaneous navigation",
+    "picker": {
+      "operation": "F09 diagnostics preview → appearance_preset_pick native Save panel → navigate empty target → Save",
+      "target": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-candidate7-empty-export-12f61h9q",
+      "outcome": "Native panel closed. data_export rejected expired 5 minute preview, no file written. Click Cancel then Settings Done; original Git/editor/draft scene restored.",
+      "limitations": "Wrong appearance SaveAs default horizon-appearance.json; source owner will change to directory picker after B."
+    },
+    "postIntervalScreenshot": "docs/verification/screenshots/root-candidate7/07-cpu-b-after.png",
+    "postIntervalObservedAt": "2026-10-31T03:07:48.506740+00:00"
+  },
+  "beforeAfterScreenshotSha256": {
+    "docs/verification/screenshots/root-candidate7/06-cpu-b-before.png": "2453d75275ecfedc686ebda14307f22504a19423c9873c33e9fcf401a58634f7",
+    "docs/verification/screenshots/root-candidate7/07-cpu-b-after.png": "2453d75275ecfedc686ebda14307f22504a19423c9873c33e9fcf401a58634f7"
+  },
+  "resourceSnapshotStatus": "No export written: actual data_export rejected expired preview; resource counters unmeasured. Original metadata inherited anA limitation phrase; this audit records theactualB reason."
+}

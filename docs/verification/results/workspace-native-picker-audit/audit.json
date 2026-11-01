@@ -1,0 +1,478 @@
+{
+  "auditedAt": "2026-11-01T04:18:31.463995+00:00",
+  "method": "Independent19 original nativeJPEG/fullAX plus owned file/recovery bytes, registry, read-only Git status and narrow root guard source review; no GUI/input/test rerun",
+  "builds": [
+    "Initial W1 root88219 native-picker main d77ced715ee3c3b78d87e552138fc37d33ad9f70027423c0368bdff1c6a53d20",
+    "After actual root quit, picker menu helper patched and outer re-signed; main executable payload unchanged; new root21917 main abc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b"
+  ],
+  "originalImagesIndependentlyViewed": [
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/01-permission-recovery-dialog.jpg",
+      "sha256": "0d3580d30e5a18e859bdd97af2e4712a2df983c8b0558feebf63414a6fadf460"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/02-permission-retry-restored.jpg",
+      "sha256": "d2356ea716dffd501f6cec4014ac36337a89ae48fb66488d0e712cfce9c8212c"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/03-permission-open-owned-file.jpg",
+      "sha256": "2b7bef16351153e9b058e5c4ec4107fde998e5f821225b7cdd82543c44018474"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/05-missing-inactive-root-close-plan.jpg",
+      "sha256": "d3d83156e302c914758df386b3bd89dfe8ec32b10ce73ac0a366231f912fcfc5"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/06-missing-root-exit-cancel-preserved.jpg",
+      "sha256": "affad2a9096c1f9f78e8c4f73455067064d4e473e6f81eec21ed3705733b3764"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/08-missing-root-recovery-dialog.jpg",
+      "sha256": "4ec41dcf6a1113036e0b5923d41b1b71cc41c9e21670be87287bc97b915796f1"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/09-relocate-restored-session.jpg",
+      "sha256": "44066eb6e22b9683b23fbc8c9292fb458012267484a82e0e2fcc4b0e0a0d4166"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/10-renamed-pinned-same-root.jpg",
+      "sha256": "09910dd7062e933e90b2d646f419349aa21bcbbce3588ed84aa018f7a4bd4855"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/11-remove-unsaved-source.jpg",
+      "sha256": "81b7382270b392d2117bcb2273bbf01ca6971a799b63c928bbd67121040ae2b5"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/12-remove-dirty-plan.jpg",
+      "sha256": "9385632aa81a5269d7de3de887a5c5d9945cf2bd397619b059f38bcfbf2bd43f"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/13-remove-cancel-preserved-dirty.jpg",
+      "sha256": "bec56f5c29ef76d0cc8668c3c6dd4b62ecc87c23e78c4695c4f0d714c6e03333"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/14-remove-retain-selected.jpg",
+      "sha256": "e01e2cdb9a47334b1879f02bbd3c4ee0532abc8d139b725c79050481a6fbb0dc"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/15-removed-project-source-retained.jpg",
+      "sha256": "a0408b3cfc746d2dcf02b820cccee8d30793d3ea4b008faed212b4866c71d403"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/16-removed-project-draft-in-privacy.jpg",
+      "sha256": "84e256aaa0cbe3e7540f970ce80fea51f5f0ac7606626ed22c8ce7a264f9b1e3"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/17-removed-project-draft-preview.jpg",
+      "sha256": "ca0a315a95e162ca4e0ee64bb00d4b55370581f147f230ad3f1661897318464b"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/19-single-draft-clean-preview.jpg",
+      "sha256": "0aba266e85dd5a773ce5e88c5090a3a6c71b0be25509531464defe0d2e80e4af"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/20-nested-parent-repository-guard.jpg",
+      "sha256": "d3e338fae972ef970cf400d963e242e0c49cd46148bdf87cff89dd25491a157e"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/21-parent-root-git-usable.jpg",
+      "sha256": "714f27d349477da317d4d2288b977db7d73ce82c44b46365da377b91686e0ecb"
+    },
+    {
+      "path": "docs/verification/results/workspace-native-picker-20261101/22-worktree-independent-branch.jpg",
+      "sha256": "27fd4ee6a53849fc226238721f25e799bec744caec748e150dbd5e9f01011fa1"
+    }
+  ],
+  "axChecks": {
+    "permissionMessage": {
+      "path": "01-permission-recovery-dialog.txt",
+      "presentTerms": [
+        "项目目录需要访问权限",
+        "没有读取这个项目目录的权限",
+        "重新定位目录",
+        "重试"
+      ],
+      "sha256": "b4549a13cb9077521548f5310b5c080b8e8d857e294d7d4d564b08d19146adf3"
+    },
+    "permissionOpened": {
+      "path": "03-permission-open-owned-file.txt",
+      "presentTerms": [
+        "HORIZON_WORKSPACE_DENIED_KEEP"
+      ],
+      "sha256": "3cc6386dc664860adbb83113eac378d97c221a06ac89d6d4d0116ac95320adda"
+    },
+    "missingRootExitPlan": {
+      "path": "05-missing-inactive-root-close-plan.txt",
+      "presentTerms": [
+        "退出 Horizon",
+        "没有未保存文档",
+        "处理并退出"
+      ],
+      "sha256": "86943c2a9514bf185383cee8a76ffad839fe8c0b5cca2300daf8569f453552d0"
+    },
+    "missingRootMessage": {
+      "path": "08-missing-root-recovery-dialog.txt",
+      "presentTerms": [
+        "项目目录不可用",
+        "项目目录已不存在或磁盘未连接",
+        "重新定位目录"
+      ],
+      "sha256": "7d4e97b0a403965ab607457a19d501797c4c541b3e047c0292b3edcd5c544106"
+    },
+    "relocatedSession": {
+      "path": "09-relocate-restored-session.txt",
+      "presentTerms": [
+        "relocated-project",
+        "HORIZON_WORKSPACE_RELOCATE_KEEP"
+      ],
+      "sha256": "b39217a384b5a98631631fd972182aa3a8794cdf6a9c62063475b87fa54346c3"
+    },
+    "displayRename": {
+      "path": "10-renamed-pinned-same-root.txt",
+      "presentTerms": [
+        "Workspace Rename QA",
+        "relocated-project"
+      ],
+      "sha256": "aa8e189b189802aa6b3e2dba46666795313754e930ac7745a73eeb4e76bb12dc"
+    },
+    "dirtyRemovePlan": {
+      "path": "12-remove-dirty-plan.txt",
+      "presentTerms": [
+        "1  份未保存文档",
+        "保留恢复草稿",
+        "磁盘文件保留"
+      ],
+      "sha256": "0535f95798b00d1ebb5e5ff8e84d6b3985d78e97f3e8f8dd0a659e40febc333a"
+    },
+    "cancelPreserved": {
+      "path": "13-remove-cancel-preserved-dirty.txt",
+      "presentTerms": [
+        "W2_UNSAVED_RETAIN_1101"
+      ],
+      "sha256": "d32d0902fc7b14716bcce4e5a8c6d00ff9e928d9ba273d00c4b7625563b2726c"
+    },
+    "retainSelected": {
+      "path": "14-remove-retain-selected.txt",
+      "presentTerms": [
+        "radio button 保留恢复草稿，稍后继续, Value: 1"
+      ],
+      "sha256": "04c0ca7b93cbac103c920c8a0d012e1bdd43c86e3f3ef0604c611952e9f0eefa"
+    },
+    "historyBody": {
+      "path": "17-removed-project-draft-preview.txt",
+      "presentTerms": [
+        "已移除项目",
+        "W2_UNSAVED_RETAIN_1101"
+      ],
+      "sha256": "b8ecf3c22fb9500f675fba4c34dd5f3f0f54a5fcac81859e4b2235e9c107216d"
+    },
+    "cleanupPreviewOnly": {
+      "path": "19-single-draft-clean-preview.txt",
+      "presentTerms": [
+        "e106af23-ae53-415b-b522-560b32e05222, Value: 1",
+        "1  项待清理",
+        "确认清理",
+        "取消"
+      ],
+      "sha256": "9dd0df98a46048e095c604350fcf36c4c40c8683d5d7285d8437491b489907db"
+    },
+    "parentGuard": {
+      "path": "20-nested-parent-repository-guard.txt",
+      "presentTerms": [
+        "项目位于父仓库内",
+        "请单独添加仓库根目录",
+        "避免无提示提交父目录"
+      ],
+      "sha256": "43e798d4e37d36df1fe477719fa999863c09c6b709182c181a394cf95f193cb8"
+    },
+    "parentGit": {
+      "path": "21-parent-root-git-usable.txt",
+      "presentTerms": [
+        "main",
+        "无更改"
+      ],
+      "sha256": "3d564cede74855ae77a3b7081589c0727e7ac7a451e394132b0ebecb9c1c4d55"
+    },
+    "worktreeGit": {
+      "path": "22-worktree-independent-branch.txt",
+      "presentTerms": [
+        "qa-worktree",
+        "无更改"
+      ],
+      "sha256": "e73fa948b26db97c7e2e0b96614eae6f784bea5ccf96dbfbe20414b67e8bdaa3"
+    }
+  },
+  "receipts": {
+    "04-move-receipt.json": {
+      "at": "2026-11-01T04:06:53.227268+00:00",
+      "source": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/relocatable-project",
+      "destination": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/relocated-project",
+      "bytes": 32,
+      "sha256": "9bb1c335680c668b41ec8efaef3590819bda99cfe0a09d3075929688f4b35df4",
+      "sourceExists": false,
+      "targetContentSame": true
+    },
+    "18-post-remove-disk-receipt.json": {
+      "at": "2026-11-01T04:14:03.670703+00:00",
+      "sourcePath": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/relocated-project/keep.txt",
+      "bytes": 32,
+      "sha256": "9bb1c335680c668b41ec8efaef3590819bda99cfe0a09d3075929688f4b35df4",
+      "removedProjectId": "6c0d32d8-26de-4405-b5f3-1c0ef85dac8c",
+      "ownedDraftMarker": "W2_UNSAVED_RETAIN_1101",
+      "markerInDisk": false,
+      "sourceDirectoryStillExists": true
+    },
+    "23-post-workspace-receipt.json": {
+      "recordedAt": "2026-11-01T04:15:37.964760+00:00",
+      "ownedRegisteredProjects": [
+        {
+          "displayName": "scripts-no-auto-run",
+          "id": "ec6de2de-7bd7-44cb-8f5b-945b793b99db",
+          "lastOpenedAt": "2026-11-01T03:36:48.076484+00:00",
+          "pinned": false,
+          "revision": 2,
+          "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run",
+          "state": "registered",
+          "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+        },
+        {
+          "displayName": "readonly-project",
+          "id": "8c4ac639-e83b-4ae0-bc3d-9cc69091f6d2",
+          "lastOpenedAt": "2026-11-01T03:37:53.446935+00:00",
+          "pinned": false,
+          "revision": 2,
+          "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/readonly-project",
+          "state": "registered",
+          "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+        },
+        {
+          "displayName": "denied-project",
+          "id": "a321f094-e1c9-4132-91e9-35fb36f58a56",
+          "lastOpenedAt": "2026-11-01T04:06:17.897822+00:00",
+          "pinned": false,
+          "revision": 1,
+          "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/denied-project",
+          "state": "registered",
+          "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+        },
+        {
+          "displayName": "nested-directory",
+          "id": "2dd718f5-7eb8-48c2-b074-99abd27c50ba",
+          "lastOpenedAt": "2026-11-01T04:14:48.881845+00:00",
+          "pinned": false,
+          "revision": 1,
+          "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository/nested-directory",
+          "state": "idle",
+          "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+        },
+        {
+          "displayName": "parent-repository",
+          "id": "196ac2d9-dd79-4c39-ae57-43769e05c5ed",
+          "lastOpenedAt": "2026-11-01T04:15:14.350250+00:00",
+          "pinned": false,
+          "revision": 1,
+          "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository",
+          "state": "idle",
+          "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+        },
+        {
+          "displayName": "linked-worktree",
+          "id": "38d2adc9-17b6-4e32-8e79-b2bf811da3f2",
+          "lastOpenedAt": "2026-11-01T04:15:23.931565+00:00",
+          "pinned": false,
+          "revision": 1,
+          "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/linked-worktree",
+          "state": "idle",
+          "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+        }
+      ],
+      "removedIdStillRegistered": false,
+      "repositories": {
+        "parentRepo": {
+          "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository",
+          "head": "7bf05201873b9cc6a1b0c1d748c86efdd2dc03f5",
+          "branch": "main",
+          "status": ""
+        },
+        "worktree": {
+          "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/linked-worktree",
+          "head": "7bf05201873b9cc6a1b0c1d748c86efdd2dc03f5",
+          "branch": "qa-worktree",
+          "status": ""
+        },
+        "scriptedProject": {
+          "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run",
+          "head": "742ba18b109bafacc4d313c7130bc12ef4a1d775",
+          "branch": "main",
+          "status": ""
+        }
+      }
+    }
+  },
+  "independentCurrentRead": {
+    "at": "2026-11-01T04:18:31.463995+00:00",
+    "registrySha256": "058a6f68f8f768753b961a72b69c3610589092820342755b8bc540307629c40d",
+    "ownProjects": [
+      {
+        "displayName": "scripts-no-auto-run",
+        "id": "ec6de2de-7bd7-44cb-8f5b-945b793b99db",
+        "lastOpenedAt": "2026-11-01T03:36:48.076484+00:00",
+        "pinned": false,
+        "revision": 2,
+        "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run",
+        "state": "registered",
+        "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+      },
+      {
+        "displayName": "readonly-project",
+        "id": "8c4ac639-e83b-4ae0-bc3d-9cc69091f6d2",
+        "lastOpenedAt": "2026-11-01T03:37:53.446935+00:00",
+        "pinned": false,
+        "revision": 2,
+        "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/readonly-project",
+        "state": "registered",
+        "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+      },
+      {
+        "displayName": "denied-project",
+        "id": "a321f094-e1c9-4132-91e9-35fb36f58a56",
+        "lastOpenedAt": "2026-11-01T04:06:17.897822+00:00",
+        "pinned": false,
+        "revision": 1,
+        "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/denied-project",
+        "state": "registered",
+        "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+      },
+      {
+        "displayName": "nested-directory",
+        "id": "2dd718f5-7eb8-48c2-b074-99abd27c50ba",
+        "lastOpenedAt": "2026-11-01T04:14:48.881845+00:00",
+        "pinned": false,
+        "revision": 1,
+        "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository/nested-directory",
+        "state": "idle",
+        "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+      },
+      {
+        "displayName": "parent-repository",
+        "id": "196ac2d9-dd79-4c39-ae57-43769e05c5ed",
+        "lastOpenedAt": "2026-11-01T04:15:14.350250+00:00",
+        "pinned": false,
+        "revision": 1,
+        "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository",
+        "state": "idle",
+        "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+      },
+      {
+        "displayName": "linked-worktree",
+        "id": "38d2adc9-17b6-4e32-8e79-b2bf811da3f2",
+        "lastOpenedAt": "2026-11-01T04:15:23.931565+00:00",
+        "pinned": false,
+        "revision": 1,
+        "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/linked-worktree",
+        "state": "idle",
+        "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+      }
+    ],
+    "removedProjectIdAbsent": true,
+    "oldSourcePathAbsent": true,
+    "relocatedSourceExists": true,
+    "sourceBytes": 32,
+    "sourceSha256": "9bb1c335680c668b41ec8efaef3590819bda99cfe0a09d3075929688f4b35df4",
+    "dirtyMarkerInSource": false,
+    "recoveryJsonSha256": "ba0aa2018f974a16ec6f14fc406ffa249af59d94afda3e3f1fc8e0c058837d1e",
+    "recoveryTextBytes": 56,
+    "recoveryTextSha256": "2f602a8bc791e609eb4731fee3c8ab2e2cda83d3210f5c6ea0a533cefb96d0ba",
+    "recoveryBaseDiskHashMatches": true,
+    "recoveryStillExistsAfterPreviewCancel": true,
+    "permissionDirectoryMode": "0o700",
+    "permissionFileSha256": "1a9c5fc76992dfa295dd2c935286b55e558d908bee4bc6e8e81fd70d1e37a045",
+    "readonlyFileSha256": "f4ec96c6bf057675b94244fba021bd1eade4892196a1f496a4d5f9bb5c7088d6",
+    "aliasCanonicalProjectId": "ec6de2de-7bd7-44cb-8f5b-945b793b99db",
+    "repositories": {
+      "parentRepo": {
+        "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository",
+        "head": "7bf05201873b9cc6a1b0c1d748c86efdd2dc03f5",
+        "branch": "main",
+        "status": "",
+        "worktreeRoot": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository",
+        "gitDir": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository/.git",
+        "commonDir": ".git"
+      },
+      "worktree": {
+        "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/linked-worktree",
+        "head": "7bf05201873b9cc6a1b0c1d748c86efdd2dc03f5",
+        "branch": "qa-worktree",
+        "status": "",
+        "worktreeRoot": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/linked-worktree",
+        "gitDir": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository/.git/worktrees/linked-worktree",
+        "commonDir": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/parent-repository/.git"
+      },
+      "scriptedProject": {
+        "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run",
+        "head": "742ba18b109bafacc4d313c7130bc12ef4a1d775",
+        "branch": "main",
+        "status": "",
+        "worktreeRoot": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run",
+        "gitDir": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run/.git",
+        "commonDir": ".git"
+      }
+    }
+  },
+  "priorRelocationIdentity": {
+    "displayName": "relocatable-project",
+    "id": "6c0d32d8-26de-4405-b5f3-1c0ef85dac8c",
+    "lastOpenedAt": "2026-11-01T03:43:46.917186+00:00",
+    "pinned": false,
+    "revision": 1,
+    "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/relocatable-project",
+    "state": "idle",
+    "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+  },
+  "nativeQuit": "05 shows actual close plan despite missing inactive root;06 cancellation restores five reading tabs; actions07 reports subsequent normal Quit. Independent post-native-quit.json finds all6 original PID/start identities absent.",
+  "recoveryScope": "New permission and missing-root dialogs have distinct descriptions and Retry/Relocate. Actual Retry after owned0700 restoration and actual Relocate restore correct file body. Combines with earlier native alias/readonly/nonGit to cover WS002.",
+  "removalScope": "Display rename+pin preserve path/body; dirty remove Cancel preserves buffer, Retain removes registry association and keeps exact56B recovery while source32B hash unchanged. F09 previews only selected own recovery; confirmation cancelled, no deletion claimed.",
+  "gitRootScope": "Native nested directory displays explicit parent-repository protection; parent root and linkedworktree separately registered and showmain/qa-worktree; all originalHEADs and cleanstatus independently unchanged.",
+  "gitRootGuardSource": {
+    "path": "apps/git-service/src/lib.rs",
+    "sha256": "e6a808b785c582aed913a6d2ce7b0d27f165d353f498dcfa25bea8aa820e3051",
+    "snippets": [
+      {
+        "lines": [
+          299,
+          322
+        ],
+        "source": "    fn check_root(&self) -> Result<()> {\n        let output = self\n            .string(&[\"rev-parse\", \"--show-toplevel\"])\n            .map_err(|e| {\n                if e.code == \"GIT_COMMAND_FAILED\" {\n                    Error::new(\"NOT_FOUND\", \"当前项目不是 Git 仓库；可单独添加仓库根目录\")\n                        .details(json!({\"notRepository\":true}))\n                } else {\n                    e\n                }\n            })?;\n        if fs::canonicalize(output)? != fs::canonicalize(&self.root)? {\n            return Err(Error::new(\n                \"NOT_FOUND\",\n                \"项目位于父仓库内。请单独添加仓库根目录，避免无提示提交父目录。\",\n            )\n            .details(json!({\"notRepository\":true})));\n        }\n        Ok(())\n    }\n    fn status(&self) -> Result<Value> {\n        self.check_root()?;\n        let output = self.run(&[\n            \"status\","
+      },
+      {
+        "lines": [
+          441,
+          452
+        ],
+        "source": "    fn expected(&self, p: &Value) -> Result<Value> {\n        let s = self.status()?;\n        if let Some(t) = p.get(\"expectedRepoToken\").and_then(Value::as_str) {\n            if s[\"repoToken\"] != t {\n                return Err(Error::new(\n                    \"STALE_VERSION\",\n                    \"仓库已变化，请刷新后重新审查操作范围\",\n                ));\n            }\n        }\n        Ok(s)\n    }"
+      },
+      {
+        "lines": [
+          1029,
+          1041
+        ],
+        "source": "fn mutate(repo: &Repo, p: &Value) -> Result<Value> {\n    let s = repo.expected(p)?;\n    if p[\"expectedRepoToken\"].as_str().is_none() {\n        return Err(Error::new(\"INVALID_ARGUMENT\", \"写操作必须携带仓库版本\"));\n    }\n    if s[\"truncated\"] == true {\n        return Err(Error::new(\n            \"RESOURCE_LIMIT\",\n            \"更改列表超过上限，请在外部 Git 缩小范围后操作\",\n        ));\n    }\n    let operation = text(p, \"operation\")?;\n    let mut args = Vec::<String>::new();"
+      }
+    ],
+    "finding": "All git_mutate operations call expected→status→check_root before operation selection; canonical rev-parse --show-toplevel must equal selected project root. Native blockednested project cannot silently commit inparent. Existing18-test report covers non-root detection; no rerun.",
+    "specification": "PRD54 and INTERACTION_SPEC53 exclude scanning/aggregating nested repositories; this audit does not claim nested-repository scanning."
+  },
+  "limits": [
+    "W2 had a dirty document, not an active managed service; removal with active services remains.",
+    "F09 one-item cleanup preview was cancelled; permanent selective cleanup remains.",
+    "Full WS005 multi-project selection/scroll/Git/chat session state is not inferred from single restored keep.txt.",
+    "Functional originals do not establish eight-layout visual fidelity.",
+    "Current registry is post-W2 removal; earlier identity chain uses retained prior audit and original09/10 images/AX, not a fabricated current pre-removal snapshot.",
+    "Menu close chain passed but direct native CmdQ attempts still failed in separate picker record."
+  ],
+  "laterScopeReassessment": {
+    "at": "2026-11-01T04:24:31.561627+00:00",
+    "record": "MAC-NATIVE-PICKER-CMDQ-SCOPE-OBSERVATION-001",
+    "effect": "Original failed shortcut observations preserved. Mandatory requirement failure classification superseded because native-picker-openCmdQ not separatelyrequired and diagnostictrace neverhit key observationpoints. No successfulCmdQ claim."
+  }
+}

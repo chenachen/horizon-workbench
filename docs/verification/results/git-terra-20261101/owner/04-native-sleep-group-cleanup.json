@@ -1,0 +1,60 @@
+{
+  "kind": "post-native-project-sleep-owned-group-cleanup-check",
+  "checkedAt": "2026-11-01T15:10:09.182809+00:00",
+  "nativeSleepActionTime": "2026-11-01T15:08:51.194Z",
+  "reference": "04-live-start.json",
+  "members": [
+    {
+      "expected": {
+        "pid": 25926,
+        "ppid": 91087,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-git"
+      },
+      "current": null,
+      "ownedIdentityGone": true,
+      "noSignalSentByGitSol": true
+    },
+    {
+      "expected": {
+        "pid": 25932,
+        "ppid": 25926,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/Applications/Xcode.app/Contents/Developer/usr/bin/git"
+      },
+      "current": null,
+      "ownedIdentityGone": true,
+      "noSignalSentByGitSol": true
+    },
+    {
+      "expected": {
+        "pid": 25933,
+        "ppid": 25932,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/bin/sh"
+      },
+      "current": null,
+      "ownedIdentityGone": true,
+      "noSignalSentByGitSol": true
+    },
+    {
+      "expected": {
+        "pid": 25934,
+        "ppid": 25933,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:19 2026",
+        "executable": "sleep"
+      },
+      "current": null,
+      "ownedIdentityGone": true,
+      "noSignalSentByGitSol": true
+    }
+  ],
+  "allOriginalOwnedIdentitiesGone": true,
+  "signalsSentByGitSol": false,
+  "notOriginalStopPass": true,
+  "futureTermFallbackNeeded": false
+}

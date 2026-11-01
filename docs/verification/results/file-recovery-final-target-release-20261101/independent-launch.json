@@ -1,0 +1,80 @@
+{
+  "observedAt": "2026-11-01T05:53:43.982434+00:00",
+  "method": "Single independent newnative process identity/responsibility plus bundleSHA snapshot; no sampler",
+  "newRootPid": 30261,
+  "binarySha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+  "bytes": 19860880,
+  "previousRootKnownIdentitiesGone": true,
+  "previousQuitArtifact": "../file-recovery-wake-native-audit/postquit-identities.json",
+  "identities": [
+    {
+      "pid": 30261,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:52:40 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "group": "horizon",
+      "reason": "root PID",
+      "responsiblePid": 30261
+    },
+    {
+      "pid": 30328,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:52:41 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 30261",
+      "responsiblePid": 30261
+    },
+    {
+      "pid": 30329,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:52:41 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 30261",
+      "responsiblePid": 30261
+    },
+    {
+      "pid": 30330,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:52:41 2026",
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 30261",
+      "responsiblePid": 30261
+    },
+    {
+      "pid": 30331,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:52:41 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 30261",
+      "responsiblePid": 30261
+    },
+    {
+      "pid": 30332,
+      "ppid": 1,
+      "uid": 501,
+      "start": "Sun Nov 1 13:52:41 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 30261",
+      "responsiblePid": 30261
+    }
+  ],
+  "operatorReceipt": {
+    "at": "2026-11-01T05:52:52.965224+00:00",
+    "processRows": [
+      "30261 Sun Nov  1 13:52:40 2026     /Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop"
+    ]
+  },
+  "limits": [
+    "No continuous collector during this launch; this is one current identity snapshot."
+  ]
+}

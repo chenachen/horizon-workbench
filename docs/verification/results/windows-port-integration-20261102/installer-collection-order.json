@@ -1,0 +1,9 @@
+{
+  "createdAt": "2026-11-01T17:08:42.940169+00:00",
+  "path": ".github/workflows/windows-release.yml",
+  "beforeSHA256": "b5eeb0bf78374bc77395f5822d1dafd7d0ddafc0c7030d96a32dee5b96277106",
+  "afterSHA256": "b821332793a5142eda740844b320c8226783edc3b9e8aa8e8486e0251124c868",
+  "change": "Move unchanged installer/checksum collection immediately after successful build. Always-upload artifact can include installers even if a subsequent smoke fails. Automatic prerelease publication still requires all preceding steps to succeed.",
+  "reason": "The user requested an installable trial at the fixed deadline regardless of remaining tests; preserve reviewable build outputs and actual failed check logs without relabeling CI success.",
+  "executed": false
+}

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-31",
+  "requirement": "REQ-EXT-009",
+  "status": "native-fault-injection-test-passed; GUI-stop-and-timeout-evidence-pending",
+  "command": "cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml failed_quickjs_stop_retains_live_resource_and_policy_until_retry -- --nocapture",
+  "cwd": "repository root",
+  "result": {"passed": 1, "failed": 0, "ignored": 0, "testSeconds": 1.45, "compileSeconds": 16.09},
+  "rawLog": "../../raw/plugins-candidate7/ext-009-cleanup-failure.log",
+  "rawLogSha256": "60d93eddd66b8488fc557a555f01eb31892c11aae1c4d1ab7e02aa63cc90cb47",
+  "execution": {
+    "worker": "apps/extension-host/target/debug/horizon-extension-host",
+    "workerSha256": "a8eb883803598e54716c44034a5d89ea60a314aa79816da3591eca4562a64a53",
+    "quickJs": "real child process with successful hello and activate replies; deactivate returns a never-resolving Promise",
+    "eventTransport": "real Tauri AppHandle Emitter/listen with tauri::test::MockRuntime; not Wry GUI",
+    "cleanupPath": "begin_stop_targets -> stop_targets -> stop_resources -> extension_host::stop -> stop_sessions -> Session::terminate",
+    "fault": "cfg(test), per-session AtomicBool, consumed once only after Child::try_wait confirms alive and immediately before Child::kill; returns fixed CLEANUP_FAILED without killing the owned process",
+    "productionSwitchAdded": false,
+    "productionChange": "Four existing event/stop helpers accept AppHandle<R: Runtime>; their behavior is unchanged. Test field, injection and fixture compile only with cfg(test)."
+  },
+  "observed": {
+    "extensionId": "local.cleanup-test.1ff67d42-b707-4987-b06b-d81b2922d69f",
+    "activationId": "18c38608-a2ab-489b-9886-f3036288020b",
+    "pid": 77809,
+    "phases": [
+      {"stage":"pausing", "ownedResourceCount":1, "processAlive":true},
+      {"stage":"cleanupFailed", "ownedResourceCount":1, "processAlive":true, "resourceState":"stopping", "sameActivationAndPid":true, "policyUnchanged":true},
+      {"stage":"retryResourcesReclaimed", "ownedResourceCount":0, "processAlive":false, "osProbe":"kill(pid, 0) = -1 / ESRCH", "policyUnchanged":true}
+    ],
+    "unchangedFields": ["installed", "enabledGlobal", "pausedGlobal", "projects", "activations", "policyRevision", "manifest", "grants", "config", "projectConfig"],
+    "cleanupRetry": "Same production cleanup path, one-shot failure already consumed, real kill/wait, no owned runtime resources remain"
+  },
+  "sourceSha256": {
+    "apps/desktop/src-tauri/src/extensions.rs": "6c34b9f69afe4193283d8f79faf088b68c705f5a7de065596c60b126079f7b87",
+    "apps/desktop/src-tauri/src/extension_host.rs": "0180a29b01c9c4dda746e79e90d35c5e4b1c47cf2ac76d7175e8a60782762118"
+  },
+  "limits": [
+    "This is an injected native cleanup failure with a real live child, not an observed operating-system refusal to kill.",
+    "The test covers production state transitions and retry resource cleanup, not final extension_stop_apply policy commit.",
+    "No native GUI operation or stop-timeout screenshot was performed. Requirement-wide status remains partial."
+  ]
+}

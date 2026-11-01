@@ -1,0 +1,149 @@
+{
+  "kind": "SET007-native-AX-exposure-failure-and-readonly-portal-design-review",
+  "recordedAt": "2026-11-01T16:16:46.939595+00:00",
+  "canonicalRegistered": false,
+  "matrixGenerated": false,
+  "sourceEdited": false,
+  "testsOrGuiExecutedByReviewer": false,
+  "identity": {
+    "mainSHA256": "ca71ca1125f994c19254f5b56866ac64fe3f5f023ab3d2a1784d7611e0f1811a",
+    "pid": 41657,
+    "start": "2026-11-02 00:05:09 +0800",
+    "all7NativeIdentityMatches": true,
+    "release": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-release-20261102"
+  },
+  "nativeSlice": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/form-ca71-segment1-native-slice-sol.json",
+    "sha256": "ebf67a5e0390482cbc1eaf5f9be84894349d4cff6d070255a1da5dd14fb5d0c6",
+    "rows": 7,
+    "allImageAXHashesMatched": true
+  },
+  "review": {
+    "originalsPersonallyViewed": [
+      "01-escape-empty-ax",
+      "01-cmdq-empty-ax"
+    ],
+    "other5OriginalImages": "SHA/pairing checked only; root has reviewed/action-authorized originals, not claimed personallyviewed byverifier.",
+    "AXFull5": [
+      "01-escape-empty-ax",
+      "01-cancel-confirm-empty-ax",
+      "01-cmdq-empty-ax",
+      "01-draft-filled",
+      "01-draft-discarded"
+    ],
+    "AXExactReuse2": [
+      "01-escape-continue",
+      "01-cmdq-continue"
+    ]
+  },
+  "retainedFailure": {
+    "classification": [
+      "REQ-UI-004 actualnativeAXexposure failure",
+      "SET007 functionality separate: dirtyguard visiblyopens, preservation/discard path exists; noAXpass"
+    ],
+    "observed": "Both personallyviewed Escape andAppCmdQ screenshots visiblyshow titledconfirm/Continue/Discard; AXshows onlyHorizonHTMLroot+nativewindow/menu, no webcontrols. All3rawemptyAX identicalSHA446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00.",
+    "emptyAXPairs": [
+      {
+        "label": "01-escape-empty-ax",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-escape-empty-ax.jpg",
+        "imageSHA256": "2e087fb848ba9ab9bd93dd5795d2dc41f9b7e167cbd5455080e79cdb10d11094",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-escape-empty-ax.ax.txt",
+        "axSHA256": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00"
+      },
+      {
+        "label": "01-cancel-confirm-empty-ax",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cancel-confirm-empty-ax.jpg",
+        "imageSHA256": "0a5e46e7ceaa25c37f8bd92da258398c22df55b9aa70e3ae8ffc834a4eee83fc",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cancel-confirm-empty-ax.ax.txt",
+        "axSHA256": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00"
+      },
+      {
+        "label": "01-cmdq-empty-ax",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cmdq-empty-ax.jpg",
+        "imageSHA256": "e25ac4fd4004e35b1a0f9f15401d24791e5502d8e01951aaa49ec8e320ff8f45",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-01-cmdq-empty-ax.ax.txt",
+        "axSHA256": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00"
+      }
+    ],
+    "additionalFreshAX": "Rootreported a secondfreshsame result; not fabricated as another retainedfile.",
+    "rootAuthority": "Rootallowed originalsame-frameimagecoordinates tocontinue already-authorizedfunctionalchain; no extra round."
+  },
+  "functionalTail": {
+    "filledFields": {
+      "connectionName": "OWNED_CLOSE_GUARD_20261101",
+      "model": "owned-no-request",
+      "APIKey": "No credential entered peroperator; nativeplaceholdernotsecretproof."
+    },
+    "escapeContinueAXExactOriginal": true,
+    "cmdQContinueAXExactOriginal": true,
+    "discardedAX": "OuterSettings AIsection remains, no connectionrow; shows Addconnection/emptyintro, no stopplan.",
+    "actions": "OriginalEscape/Continue/CmdQ/Continue/Cancel/Discard sequence root/Terraactionreports; verifier didnotoperate."
+  },
+  "sourceReview": {
+    "UnsavedFrozenSHA256": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17",
+    "UnsavedSHAObservedAtRead": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17",
+    "UnsavedMatchesCa71Release": true,
+    "sourceRefs": [
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/components/UnsavedChanges.tsx",
+        "frozenReleaseSHA256": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/components/Modal.tsx",
+        "frozenReleaseSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/App.tsx",
+        "frozenReleaseSHA256": "a4f9cc7e83f6007722aafca6183eeae37f19fb1e48a835131e52c2b9adc2a445"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/features/agent/AgentSettings.tsx",
+        "frozenReleaseSHA256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/features/processes/index.tsx",
+        "frozenReleaseSHA256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/styles.css",
+        "frozenReleaseSHA256": "f6e5e1d8ba055973cd3912313d876e3012728b97cd788bdf8a2c2f299de4c114"
+      },
+      {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/features/settings/AppearanceProvider.tsx",
+        "frozenReleaseSHA256": "1443e94e1100b027ab1b3e5e28e4c1bab820ec720c850628198f18955b2ef719"
+      }
+    ],
+    "callPaths": [
+      {
+        "path": "ConnectionForm:78→confirmation",
+        "physicalDOM": "SettingsModal→SettingsPanel→AgentSettings→ConnectionForm sibling ofConnectionModal but still descendantofouterSettingsdialog→wrapperdiv→confirmModal"
+      },
+      {
+        "path": "DesktopShell App:470→confirmation",
+        "physicalDOM": "horizon-app grid children: SettingsModal sibling andwrapperdiv→confirmModal; NOT insideSettingsdialog"
+      }
+    ],
+    "sharedModal": "Modal8–15showModal, nativecancelpreventDefault/onCloseRef, cleanupclose/restorepreviousfocus.",
+    "keyboard": "Unsaved24wrapper stopsEscapepropagation without removingnativeModalcancel; App323 globalshortcutsreturnwhenanydialogopen.",
+    "appearance": "AppearanceProvider104–115 writesdocument.documentElement vars/datasets; styles3–30 rootfont/colors andglobalcontrols,168–173global.modal. .settings-modal>.modal-body189isadirect-childrule, notneededforplainconfirmation.",
+    "parentLayout": "styles65 horizon-app isolation/grid/overflowhidden; commonphysicalancestor remains inboth currentfailurepaths."
+  },
+  "designJudgement": {
+    "direction": "Reasonable minimalcandidate; no concrete present-call/style counterexample found.",
+    "minimalScope": "Portal existingwholewrapper+Modal to document.body; keephookresolver/pending, wrapperEscapeisolation, originalModalnativecancel/focuscleanup. No sharedModal rewrite/newRPC/statearchitecture.",
+    "doesNotProveRootCause": "SiblingAppconfirmation alsofailsAX, so nestedHTMLdialogaloneisnot sufficientcause. Wrapper/grid/toplayerplacement are commonfactors; PortalactualAXsuccess remainsnativepending.",
+    "specificCounterexamplesChecked": [
+      "No root-onlyfont/themeinheritance dependence identified: documentElement/globalCSS coversbodyportal.",
+      "Globaldialogquery remainsdocumentwide; nativecancel/onClose behavior remainsownedbyModal.",
+      "ConnectionandLauncher hooks use same helper andkeeptheirlogicalstate/callbackowners; movephysicalplacementonly."
+    ],
+    "followup": "Only rootalreadyassignedshortnativeforactualconfirmAX/Continue/Discard/outersettingstate; no newtest suite or broaderGUIloop."
+  },
+  "priorityOverride": {
+    "authority": "Rootlatestuserinstruction relayed2026-11-02",
+    "WindowsRequiredBy": "2026-11-02 08:45 Asia/Shanghai trial",
+    "pushMainExplicitlyRequested": true,
+    "executionOwner": "Root handles Windowsdelivery/maincommitpush; verifier remainsreadonlyexceptcanonicalverification/privateauditdocs.",
+    "oldWindowsOptionalPriority": "Superseded; originalfullgoal remainsactive,Macpurevisualstillpostponed."
+  }
+}

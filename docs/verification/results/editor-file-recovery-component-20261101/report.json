@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-11-01T05:01:37.710906+00:00",
+  "kind": "Supplemental component/state regression; native UI pending",
+  "sourceHashes": {
+    "packages/editor/src/types.ts": "8683bc39b7ea9bcc2c96ac7d98e153beaa1a0a596ddabc3bf74c3bde44de145a",
+    "packages/editor/src/store.ts": "4b8448ed25ecc92bfdcdd8f20487c4839a8bffeacf3eb9dedf402ce73b6c7c4d",
+    "packages/editor/src/store.test.ts": "687db9a161c7cd19c6597b418e749ba456c1c7fe34d31afafaf121da447f953f",
+    "packages/editor/tests/view-lifecycle.mjs": "42c4548c2969875ee5420d856130046f372dc4ddf98d1e6e81a93ae5e043ec9f",
+    "apps/desktop/src/features/editor/CodeSurface.tsx": "e1a91cb76b63b2d8bf1c8dba474fb87a3e92b601fcb4bfef71a95455c87edf7e",
+    "apps/desktop/src/features/editor/EditorWorkbench.tsx": "b41613ffb282f855d3750d63ae630301d2b4cf9dfea3ef0b91535dc0ac407c6c",
+    "apps/desktop/src/features/editor/FileRecovery.tsx": "e1eb545ba1edb09c80d0ccc7ee2f4a412039e8ed2efc1b233813e8ee5560fd2f",
+    "apps/desktop/src/features/editor/file-recovery.css": "819cfa94b1255a1af1721ba03c610b3451e686da263603044f705070f19f4964"
+  },
+  "checks": [
+    {
+      "command": "rtk test node node_modules/vitest/vitest.mjs run --dir packages/editor/src store.test.ts",
+      "exitCode": 0,
+      "testsPassed": 44,
+      "reportedDurationMs": 134
+    },
+    {
+      "command": "rtk proxy node packages/editor/tests/view-lifecycle.mjs .work/editor-scroll-fix/relocation-after.json",
+      "exitCode": 0,
+      "phasesPassed": 17
+    },
+    {
+      "command": "rtk npm run desktop:check",
+      "exitCode": 0
+    }
+  ],
+  "scope": [
+    "Unopened missing/denied file has its own retryable placeholder; previous draft retained; closing placeholder does not close/save previous document.",
+    "Native-selected relocation comparison, explicit discard or preserve dirty buffer, FileRef rekey and cached CodeMirror state transfer.",
+    "KeepBuffer preserves original buffer identity, text, selection/scroll and real Undo, while clearing old saved-content identity so Undo cannot mark a different target baseline clean.",
+    "Clean checkpoint identity persists until native deletion acknowledgment; acknowledgment emits refreshed state.",
+    "Warm/cold scroll restoration remains verified."
+  ],
+  "runnerCorrection": "Initial vitest substring path also selected archived source test copies under docs and failed module resolution; corrected --dir packages/editor/src isolates the intended production suite.",
+  "nativeReport": "../file-recovery-native-20261101/report.json",
+  "pending": "Central release build and actual G02 retry/locate/cancel/dirty/save-copy/native focus/8-layout captures; 044 Undo recovery and scroll native retests."
+}

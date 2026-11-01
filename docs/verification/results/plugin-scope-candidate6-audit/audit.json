@@ -1,0 +1,28 @@
+{
+  "recordedAt": "2026-10-30T20:59:25.695433+00:00",
+  "build": "candidate6",
+  "before": {
+    "capturedAt": "2026-10-30T20:16:43.189861+00:00",
+    "artifact": "docs/verification/results/candidate6-lifecycle-30m/operator-extensions-initial.json",
+    "sha256": "45c8b5f98b24eddbd73b827557ab582ba135118281e3e60257bc96fb534e72c4",
+    "horizon.agent": {
+      "enabledGlobal": false,
+      "pausedGlobal": false,
+      "projects": {},
+      "revision": 7,
+      "policyRevision": 5
+    }
+  },
+  "after": {
+    "artifact": "operator-after.json",
+    "sha256": "73bd2939dfac69f480b0b0d4ab52f7632b93731a89c42df73aae97266ecc66cd",
+    "producer": "Pi native GUI operator; read-only registry capture around20:57UTC"
+  },
+  "operatorObservation": "At current-project scope, operator clicked ordinary enable once without explicitly changing scope to all projects; enabledGlobal became true. Root reviewed UI source and confirmed scope escalation.",
+  "nativeActionEvidence": "../candidate6-lifecycle-30m/operator-actions.jsonl:20:35:21 and20:38:53 correction",
+  "limits": [
+    "Before is at20:16 and after at20:57, not immediate transactional snapshots.",
+    "No screenshot was captured at the click. Native AX and operator observation establish the interaction; no screenshot is invented.",
+    "Candidate7 scope-source fix does not supersede this actual failure until corresponding native retest."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "auditedAt": "2026-11-01T04:19:46.913005+00:00",
+  "traceRecords": [
+    {
+      "phase": "ready",
+      "pid": 37509,
+      "timestamp": 1793506560.4923239
+    },
+    {
+      "phase": "requestQuit",
+      "pid": 37509,
+      "timestamp": 1793506605.6637502
+    }
+  ],
+  "independentImageViewed": true,
+  "nativeObservation": "Save remains after100msCmdQ withSaveAsfield focused; explicitmenuQuit yieldsChild37509exit0replyquit; diagnosticHostintentionallyalive.",
+  "sourceInspection": "Local key monitor returns original event; menu override calls super; trace onlycommand or physicalQ. No key-event rows means no hitattheseobservationpoints, notproofOS/automationcause.",
+  "scopeConclusion": "REQ-RUN004 and INTERACTION_SPEC597-598 require close/quit protection; no separately mandated combination of CmdQ while a native file picker remains open. Retain unsuccessful shortcut observations as test limitation, not104mandatoryfailure. Main-windowCmdQ and explicitQuitmenu closechain actually exercised.",
+  "limits": [
+    "Diagnostic copy, not runningproduction process.",
+    "Not a CmdQ success claim, nor proof keyboarddelivery root cause.",
+    "No deletion or alteration of original failing record/captures."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-31T03:33:30.692093+00:00",
+  "action": "Open read-10m; click readonly editor, physical x and CmdS; open read-50m, Next chunk then CmdS; open long-line-120k then CmdS; return README tab",
+  "observed": "10MiB and120k single-line enter simplified readonly; Save disabled; 50MiB chunked readonly 0–262144 then262144–524288 with partial-data warning; return README visible Ln5Col1",
+  "pass": true,
+  "files": {
+    "perf/read-10m.txt": {
+      "bytes": 10485760,
+      "sha256": "62694d3d259e72b9020d8ebf38582f8f8369dfcd92e34dcc29fb18043f7a407a",
+      "unchanged": true
+    },
+    "perf/read-50m.txt": {
+      "bytes": 52428800,
+      "sha256": "b83b3e7f3bafabfa4684013ac25e00590b5ee454b470f766c9d95ef1cfe7d388",
+      "unchanged": true
+    },
+    "perf/long-line-120k.txt": {
+      "bytes": 120001,
+      "sha256": "cb650abfad0262448595e2606cd0b9692b0e5736d684b6b5962947da50556f91",
+      "unchanged": true
+    },
+    "README.md": {
+      "bytes": 309,
+      "sha256": "056029db1502987b6c2d13ddb9a78e1bcf1421ba2631b648446dc8dc918b4389",
+      "unchanged": true
+    }
+  },
+  "screenshots": [
+    "17-read-10MiB-readonly.png",
+    "18-B09-read-50MiB-first-chunk.png",
+    "19-B09-read-50MiB-next-chunk.png",
+    "20-long-line-120k-readonly.png"
+  ],
+  "limitations": [
+    "100MiB refusal and exact100k single-line threshold not yet native tested",
+    "Generic readonly banner incorrectly attributes readonly to encoding/permissions, while separate simplified banner correctly explains size/long-line reason"
+  ]
+}

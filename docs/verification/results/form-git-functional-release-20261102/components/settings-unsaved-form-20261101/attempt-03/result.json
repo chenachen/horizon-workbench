@@ -1,0 +1,1964 @@
+{
+  "kind": "real App/SettingsPanel/AgentSettings/LauncherPanel/Modal/bridge/AppearanceProvider; controlled Tauri and unrelated modules",
+  "startedAt": "2026-11-01T14:19:23.964Z",
+  "sources": {
+    "preparedOnly": true,
+    "sources": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "beforeSha256": "b84605a820ee1d2c3746b953f40f7d773c479213622bb295dc45f6aa74ad91c6",
+        "afterSha256": "c39c749ad4f1e249bc4d62f20d6230979fd636e9d36a72c63e446885e838b8c7"
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "beforeSha256": "e211c7c86c387cc9eed991fe88eff18f5bbbc2aecd34f3044918119a420f09d8",
+        "afterSha256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5"
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "beforeSha256": "7ae8b63c86e35da409ec8c3c9a28fabb98f5a61d39d395218c34763adac22b12",
+        "afterSha256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f"
+      },
+      {
+        "path": "apps/desktop/src/features/processes/index.tsx",
+        "beforeSha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25",
+        "afterSha256": "3272d0a3a42fea27983b376796f6f9fd6d3f6a956b37daedc18559a6cc9af9df"
+      }
+    ],
+    "added": [
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "afterSha256": "6032930230ff5256cca949c4d48152a40892cb8b1a7d6260191e6a94b068f120"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "variant": "after",
+      "kind": "launcher-cancel-save-busy",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "profile save failure preserves draft",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "projects",
+          "fields": null,
+          "profileName": "Owned unsaved profile",
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": "受控方案保存失败",
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_save",
+              "params": {
+                "profile": {
+                  "schemaVersion": 1,
+                  "profileId": "6a057c9f-a998-49e6-a08f-42cd3b53af82",
+                  "projectId": "owned-one",
+                  "revision": 0,
+                  "name": "Owned unsaved profile",
+                  "requiredExtensions": [],
+                  "failurePolicy": "stopStarted",
+                  "steps": [
+                    {
+                      "stepId": "4a0294ca-98d4-4553-a8c4-1d6cb5651af8",
+                      "title": "新进程",
+                      "dependsOn": [],
+                      "command": {
+                        "kind": "exec",
+                        "executable": "npm",
+                        "args": [
+                          "run",
+                          "dev"
+                        ]
+                      },
+                      "cwd": ".",
+                      "env": {},
+                      "secretRefs": {},
+                      "mode": "pipe",
+                      "lifecycle": "service",
+                      "ready": {
+                        "kind": "processStarted"
+                      }
+                    }
+                  ]
+                },
+                "expectedRevision": null
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            }
+          ]
+        },
+        {
+          "label": "outer Done cannot remove saving profile in candidate",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "projects",
+          "fields": null,
+          "profileName": "Owned unsaved profile",
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": "受控方案保存失败",
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": true,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_save",
+              "params": {
+                "profile": {
+                  "schemaVersion": 1,
+                  "profileId": "6a057c9f-a998-49e6-a08f-42cd3b53af82",
+                  "projectId": "owned-one",
+                  "revision": 0,
+                  "name": "Owned unsaved profile",
+                  "requiredExtensions": [],
+                  "failurePolicy": "stopStarted",
+                  "steps": [
+                    {
+                      "stepId": "4a0294ca-98d4-4553-a8c4-1d6cb5651af8",
+                      "title": "新进程",
+                      "dependsOn": [],
+                      "command": {
+                        "kind": "exec",
+                        "executable": "npm",
+                        "args": [
+                          "run",
+                          "dev"
+                        ]
+                      },
+                      "cwd": ".",
+                      "env": {},
+                      "secretRefs": {},
+                      "mode": "pipe",
+                      "lifecycle": "service",
+                      "ready": {
+                        "kind": "processStarted"
+                      }
+                    }
+                  ]
+                },
+                "expectedRevision": null
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_save",
+              "params": {
+                "profile": {
+                  "schemaVersion": 1,
+                  "profileId": "6a057c9f-a998-49e6-a08f-42cd3b53af82",
+                  "projectId": "owned-one",
+                  "revision": 0,
+                  "name": "Owned unsaved profile",
+                  "requiredExtensions": [],
+                  "failurePolicy": "stopStarted",
+                  "steps": [
+                    {
+                      "stepId": "4a0294ca-98d4-4553-a8c4-1d6cb5651af8",
+                      "title": "新进程",
+                      "dependsOn": [],
+                      "command": {
+                        "kind": "exec",
+                        "executable": "npm",
+                        "args": [
+                          "run",
+                          "dev"
+                        ]
+                      },
+                      "cwd": ".",
+                      "env": {},
+                      "secretRefs": {},
+                      "mode": "pipe",
+                      "lifecycle": "service",
+                      "ready": {
+                        "kind": "processStarted"
+                      }
+                    }
+                  ]
+                },
+                "expectedRevision": null
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            }
+          ]
+        },
+        {
+          "label": "profile save success clears dirty",
+          "dialogs": [],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": "受控方案保存失败",
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_save",
+              "params": {
+                "profile": {
+                  "schemaVersion": 1,
+                  "profileId": "6a057c9f-a998-49e6-a08f-42cd3b53af82",
+                  "projectId": "owned-one",
+                  "revision": 0,
+                  "name": "Owned unsaved profile",
+                  "requiredExtensions": [],
+                  "failurePolicy": "stopStarted",
+                  "steps": [
+                    {
+                      "stepId": "4a0294ca-98d4-4553-a8c4-1d6cb5651af8",
+                      "title": "新进程",
+                      "dependsOn": [],
+                      "command": {
+                        "kind": "exec",
+                        "executable": "npm",
+                        "args": [
+                          "run",
+                          "dev"
+                        ]
+                      },
+                      "cwd": ".",
+                      "env": {},
+                      "secretRefs": {},
+                      "mode": "pipe",
+                      "lifecycle": "service",
+                      "ready": {
+                        "kind": "processStarted"
+                      }
+                    }
+                  ]
+                },
+                "expectedRevision": null
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_save",
+              "params": {
+                "profile": {
+                  "schemaVersion": 1,
+                  "profileId": "6a057c9f-a998-49e6-a08f-42cd3b53af82",
+                  "projectId": "owned-one",
+                  "revision": 0,
+                  "name": "Owned unsaved profile",
+                  "requiredExtensions": [],
+                  "failurePolicy": "stopStarted",
+                  "steps": [
+                    {
+                      "stepId": "4a0294ca-98d4-4553-a8c4-1d6cb5651af8",
+                      "title": "新进程",
+                      "dependsOn": [],
+                      "command": {
+                        "kind": "exec",
+                        "executable": "npm",
+                        "args": [
+                          "run",
+                          "dev"
+                        ]
+                      },
+                      "cwd": ".",
+                      "env": {},
+                      "secretRefs": {},
+                      "mode": "pipe",
+                      "lifecycle": "service",
+                      "ready": {
+                        "kind": "processStarted"
+                      }
+                    }
+                  ]
+                },
+                "expectedRevision": null
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            }
+          ]
+        }
+      ],
+      "nativeConfirms": [],
+      "passed": true
+    },
+    {
+      "variant": "after",
+      "kind": "project-change-and-quit",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "Continue editing cancels project change without false error",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "projects",
+          "fields": null,
+          "profileName": "Owned unsaved profile",
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-one",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            }
+          ]
+        },
+        {
+          "label": "quit confirmation Escape preserves settings and defers native plan",
+          "dialogs": [
+            "设置"
+          ],
+          "section": "presets",
+          "fields": null,
+          "profileName": null,
+          "presetName": "Owned quit draft",
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-two",
+          "planCount": 0,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            },
+            {
+              "method": "setProject"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-two"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-two"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-two",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-two",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-two"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "discard then actual stop plan",
+          "dialogs": [
+            "退出 Horizon"
+          ],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": null,
+          "activeProjectId": "owned-two",
+          "planCount": 1,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            },
+            {
+              "method": "setProject"
+            },
+            {
+              "method": "flushDrafts"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-two"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-two"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "launch_profile_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-two",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "launch_list",
+              "params": {},
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-two",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-two"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_exit_plan",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        }
+      ],
+      "nativeConfirms": [],
+      "passed": true
+    },
+    {
+      "variant": "after",
+      "kind": "clean-quit-error-locality",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "observations": [
+        {
+          "label": "clean settings enter old stop plan and retain local operation error",
+          "dialogs": [
+            "退出 Horizon"
+          ],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": "其他独立操作错误",
+          "activeProjectId": "owned-one",
+          "planCount": 1,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": true
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            },
+            {
+              "method": "flushDrafts"
+            },
+            {
+              "method": "saveAll"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "session_update",
+              "params": {
+                "layout": {
+                  "panels": {
+                    "primarySidebar": {
+                      "visible": false,
+                      "activeViewId": "files"
+                    },
+                    "auxiliary": {
+                      "visible": false,
+                      "activeViewId": "agent"
+                    },
+                    "bottom": {
+                      "visible": false,
+                      "activeViewId": "terminal"
+                    }
+                  },
+                  "focusMode": false,
+                  "focusRestore": null
+                }
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_exit_plan",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Cancel/new clean stop plan cannot inherit local error",
+          "dialogs": [
+            "退出 Horizon"
+          ],
+          "section": null,
+          "fields": null,
+          "profileName": null,
+          "presetName": null,
+          "conflict": false,
+          "connectionError": null,
+          "globalError": "其他独立操作错误",
+          "activeProjectId": "owned-one",
+          "planCount": 2,
+          "pending": false,
+          "storageContainsKey": false,
+          "codeBuffer": {
+            "text": "OWNED_CODE_DRAFT_UNSAVED",
+            "dirty": false
+          },
+          "editorCalls": [
+            {
+              "method": "setProject"
+            },
+            {
+              "method": "flushDrafts"
+            },
+            {
+              "method": "saveAll"
+            },
+            {
+              "method": "flushDrafts"
+            }
+          ],
+          "calls": [
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "resource_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_bootstrap",
+              "params": {
+                "clientVersion": "0.1.0",
+                "protocolVersion": 1
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "project_activate",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {
+                "projectId": "owned-one"
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "session_update",
+              "params": {
+                "layout": {
+                  "panels": {
+                    "primarySidebar": {
+                      "visible": false,
+                      "activeViewId": "files"
+                    },
+                    "auxiliary": {
+                      "visible": false,
+                      "activeViewId": "agent"
+                    },
+                    "bottom": {
+                      "visible": false,
+                      "activeViewId": "terminal"
+                    }
+                  },
+                  "focusMode": false,
+                  "focusRestore": null
+                }
+              },
+              "scope": {
+                "kind": "project",
+                "projectId": "owned-one",
+                "projectEpoch": 2
+              }
+            },
+            {
+              "method": "settings_get",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_preset_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "appearance_get",
+              "params": {
+                "target": {
+                  "kind": "global"
+                },
+                "windowGeometry": {
+                  "width": 1280,
+                  "height": 900,
+                  "scale": 1
+                }
+              },
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "extension_list",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_exit_plan",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            },
+            {
+              "method": "app_exit_plan",
+              "params": {},
+              "scope": {
+                "kind": "app"
+              }
+            }
+          ]
+        }
+      ],
+      "nativeConfirms": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T14:19:29.541Z",
+  "durationMs": 5577
+}

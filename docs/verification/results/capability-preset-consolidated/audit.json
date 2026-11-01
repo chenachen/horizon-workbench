@@ -1,0 +1,72 @@
+{
+  "requirement": "REQ-EXT-010",
+  "method": "Independent clause-level consolidation of already reviewed native GUI, native production integration and fresh-registry tests; no new execution",
+  "clauses": [
+    {
+      "condition": "Four selectable presets: minimal/review/development/custom",
+      "status": "verified",
+      "evidence": [
+        "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+        "plugins-candidate4b/actions.json entries 17–20"
+      ],
+      "observed": "Actual GUI selected and applied all four; custom all-off preserves host controls."
+    },
+    {
+      "condition": "Default code-review does not start Agent or terminal",
+      "status": "verified",
+      "evidence": [
+        "presets-tests.log: initial_profile_is_review_and_preparing_development_does_not_enable_or_start",
+        "plugins-candidate4b/registry-after.json",
+        "MAC-EXTENSION-NATIVE-003"
+      ],
+      "observed": "Fresh HostState resolves review; terminal remains disabled. Native applied development still has zero terminal/launch/QuickJS resources. Native GUI review leaves Agent/terminal disabled with no such running child."
+    },
+    {
+      "condition": "Before apply lists stopped/added capabilities",
+      "status": "verified",
+      "evidence": [
+        "plugins-candidate4b/018-minimal-plan.png",
+        "plugins-candidate4b/020-all-feature-off-plan.png",
+        "MAC-EXTENSION-NATIVE-003"
+      ],
+      "observed": "Original PNG plans show named stopped capabilities and affected projects; development prepare asserts terminal/launch enableIds before mutation."
+    },
+    {
+      "condition": "Missing package does not automatically install from network",
+      "status": "verified",
+      "evidence": [
+        "plugins-candidate4b/024-preset-missing-default.png",
+        "MAC-EXTENSION-NATIVE-003: custom-preset-reports-missing-and-dependency-closure-without-installing",
+        "presets-tests.log: missing_packages_and_cycles_are_reported_without_installing"
+      ],
+      "observed": "Missing builtin Git disables GUI Apply; explicit Discover restore required. Production missing-package apply rejects and preserves policy/documents/package state."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/verification/results/plugins-candidate4b/actions.json",
+      "sha256": "7d0ebdc6235e19b9954c338730435287b4fb7586df72aeb41740e1c25cb9fe26"
+    },
+    {
+      "path": "docs/verification/results/plugins-candidate4b/registry-after.json",
+      "sha256": "30b59d18c615cdc4dd4b2ac8e8cac5777a42cf48e4362ccdc52478d4c31ded75"
+    },
+    {
+      "path": "docs/verification/results/extension-native-presets/native-smoke.json",
+      "sha256": "68ca7edbe78807cf2009b3bfe281a09c79ee11e6d5db144a35251badfe449647"
+    },
+    {
+      "path": "docs/verification/raw/plugins-2026-10-31/presets.log",
+      "sha256": "53d4ee1e8d6a08b51899d7c9615d702135ee44cf13ec834ca738ac76068c9e8f"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/extensions/presets.rs",
+      "sha256": "c2f750add0d0eb49864300bf8d5d54bbd6f021cf55749b79272df62ca963669d"
+    }
+  ],
+  "limitations": [
+    "This consolidates separate kinds of evidence, not one continuous GUI sequence.",
+    "Native integration has no window; actual UI proof comes from candidate4b original screenshots.",
+    "Only REQ-EXT-010 is fully closed. Other plugin/host requirements retain their individual missing conditions."
+  ]
+}

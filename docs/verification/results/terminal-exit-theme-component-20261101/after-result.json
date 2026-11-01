@@ -1,0 +1,221 @@
+{
+  "kind": "actual TerminalPanel/xterm component regression with controlled RPC",
+  "phases": [
+    {
+      "name": "same real xterm hidden dark to light to dark reopens with current low surface and retained history",
+      "passed": true
+    },
+    {
+      "name": "running to exited updates read-only options without remount; queued input is not sent; history remains",
+      "passed": true
+    },
+    {
+      "name": "closed history hide/reopen refreshes current theme while real ResizeObserver fit sends no native resize/input",
+      "passed": true
+    },
+    {
+      "name": "fresh mount of exited session replays retained output read-only without a PTY call",
+      "passed": true
+    },
+    {
+      "name": "new terminal remains interactive with real xterm input and native resize dispatch",
+      "passed": true
+    }
+  ],
+  "themeChecks": [
+    {
+      "palette": "orbit-dark",
+      "actual": {
+        "instances": 1,
+        "theme": {
+          "background": "#202d40",
+          "foreground": "#e2ebf7",
+          "cursor": "#4b72ad",
+          "selectionBackground": "#d8e4f7",
+          "black": "#38475c",
+          "red": "#c24f59",
+          "green": "#3a8060",
+          "yellow": "#a4782d",
+          "blue": "#4c79b2",
+          "magenta": "#8660ac",
+          "cyan": "#38858b",
+          "white": "#d7dee9"
+        },
+        "panel": "rgb(32, 45, 64)",
+        "xterm": "rgb(32, 45, 64)"
+      }
+    },
+    {
+      "palette": "celadon-light",
+      "actual": {
+        "instances": 1,
+        "theme": {
+          "background": "#f1f7f3",
+          "foreground": "#243e33",
+          "cursor": "#4b72ad",
+          "selectionBackground": "#d8e4f7",
+          "black": "#38475c",
+          "red": "#c24f59",
+          "green": "#3a8060",
+          "yellow": "#a4782d",
+          "blue": "#4c79b2",
+          "magenta": "#8660ac",
+          "cyan": "#38858b",
+          "white": "#d7dee9"
+        },
+        "panel": "rgb(241, 247, 243)",
+        "xterm": "rgb(241, 247, 243)"
+      }
+    },
+    {
+      "palette": "aurora-dark",
+      "actual": {
+        "instances": 1,
+        "theme": {
+          "background": "#263337",
+          "foreground": "#e1f1f1",
+          "cursor": "#4b72ad",
+          "selectionBackground": "#d8e4f7",
+          "black": "#38475c",
+          "red": "#c24f59",
+          "green": "#3a8060",
+          "yellow": "#a4782d",
+          "blue": "#4c79b2",
+          "magenta": "#8660ac",
+          "cyan": "#38858b",
+          "white": "#d7dee9"
+        },
+        "panel": "rgb(38, 51, 55)",
+        "xterm": "rgb(38, 51, 55)"
+      }
+    }
+  ],
+  "passed": true,
+  "sourceSha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25",
+  "calls": [
+    {
+      "method": "process_list",
+      "params": {},
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_attach_view",
+      "params": {
+        "terminalSessionId": "owned-terminal-1",
+        "afterOffset": "0"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_resize",
+      "params": {
+        "terminalSessionId": "owned-terminal-1",
+        "cols": 117,
+        "rows": 31
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_output_ack",
+      "params": {
+        "viewSubscriptionId": "view-1",
+        "throughOffset": "24"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_input",
+      "params": {
+        "terminalSessionId": "owned-terminal-1",
+        "data": "first"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "process_list",
+      "params": {},
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_detach_view",
+      "params": {
+        "viewSubscriptionId": "view-1"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "process_list",
+      "params": {},
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_attach_view",
+      "params": {
+        "terminalSessionId": "owned-terminal-1",
+        "afterOffset": "0"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_output_ack",
+      "params": {
+        "viewSubscriptionId": "view-2",
+        "throughOffset": "24"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_create",
+      "params": {
+        "cwd": "."
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "process_list",
+      "params": {},
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_detach_view",
+      "params": {
+        "viewSubscriptionId": "view-2"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_attach_view",
+      "params": {
+        "terminalSessionId": "owned-terminal-2",
+        "afterOffset": "0"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_resize",
+      "params": {
+        "terminalSessionId": "owned-terminal-2",
+        "cols": 92,
+        "rows": 31
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_output_ack",
+      "params": {
+        "viewSubscriptionId": "view-3",
+        "throughOffset": "24"
+      },
+      "projectId": "qa"
+    },
+    {
+      "method": "terminal_input",
+      "params": {
+        "terminalSessionId": "owned-terminal-2",
+        "data": "new-session-input"
+      },
+      "projectId": "qa"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-11-01T13:06:40.156595+00:00",
+  "mainSha256": "a78cfd8a5523562d6252de96e7ddbaf4af56bdd1c4b46f1eddfbf4bad4365d27",
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/hdiutil",
+        "verify",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg"
+      ],
+      "exitCode": 0,
+      "stdout": "正在检查“Protective Master Boot Record（MBR：0）”的校验和…\nProtective Master Boot Record（MBR：0）：已验证CRC32 $DD154FF0\n正在检查“GPT Header（Primary GPT Header：1）”的校验和…\n    GPT Header（Primary GPT Header：1）：已验证CRC32 $73B375BA\n正在检查“GPT Partition Data（Primary GPT Table：2）”的校验和…\nGPT Partition Data（Primary GPT Table：已验证CRC32 $5A33B165\n正在检查“（Apple_Free：3）”的校验和…\n                      （Apple_Free：3）：已验证CRC32 $00000000\n正在检查“disk image（Apple_APFS：4）”的校验和…\n            disk image（Apple_APFS：4）：已验证CRC32 $C4E66D82\n正在检查“（Apple_Free：5）”的校验和…\n                      （Apple_Free：5）：已验证CRC32 $00000000\n正在检查“GPT Partition Data（Backup GPT Table：6）”的校验和…\nGPT Partition Data（Backup GPT Table：：已验证CRC32 $5A33B165\n正在检查“GPT Header（Backup GPT Header：7）”的校验和…\n     GPT Header（Backup GPT Header：7）：已验证CRC32 $737BA264\n已验证CRC32 $CC587C2F\n",
+      "stderr": "hdiutil: verify: checksum of \"/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg\" is VALID\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "-x",
+        "-k",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-quit-credential-verify-ojv6j3hr"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-quit-credential-verify-ojv6j3hr/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "extractedMainMatches": true
+}

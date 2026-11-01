@@ -1,0 +1,1663 @@
+{
+  "reviewedAt": "2026-11-01T06:51:15.964896+00:00",
+  "reviewer": "/root/processes_resume",
+  "scope": "Independent original-image review of exactly eight native E01/reference pairs (16 original images); terminal component and surrounding layout only.",
+  "method": "Viewed every original actual JPEG and mapped reference PNG with view_image(detail=original), in paired order. Independently verified all24 image/reference/AX hashes and image dimensions. Read terminal AX fields and capture metadata corrections. No GUI, source mutation, build, test, renderer recreation or screenshot modification.",
+  "build": {
+    "pid": 40426,
+    "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87"
+  },
+  "sources": {
+    "captureManifest": "docs/verification/results/appearance-full-native-20261101/captures.jsonl",
+    "captureManifestSha256AtReview": "a223f44452d4e68430011b58fc95d28f37a379649f2e028dc28448bca27551a4",
+    "correctionManifest": "docs/verification/results/appearance-full-native-20261101/metadata-corrections.jsonl",
+    "correctionManifestSha256AtReview": "d1491a9d7a0f52932b0ccb00b607c84dede300ac178cd462563074da4bb0e64e",
+    "visualIndex": "docs/verification/visual-matrix.json"
+  },
+  "primarySelection": {
+    "mist": "E01-mist-clean.jpg (owner recapture after closing unrelated F14 error); original E01-mist remains preserved as supplementary and is not one of the16 reviewed primary originals.",
+    "others": "E01-<style>.jpg"
+  },
+  "summary": {
+    "pairsReviewed": 8,
+    "originalImagesViewed": 16,
+    "artifactHashChecksPassed": 24,
+    "allActualAndReferenceDimensions": [
+      1280,
+      800
+    ],
+    "sameActualShellPidAcrossAX": 51343,
+    "canonicalStatusAssigned": false,
+    "reviewCounts": {
+      "differences": 8,
+      "verified": 0
+    },
+    "themeStaleCases": [
+      "orbit/E01",
+      "graphite/E01",
+      "celadon/E01",
+      "iris/E01",
+      "sand/E01",
+      "aurora/E01"
+    ],
+    "surfaceHierarchyOpenCases": [
+      "mist/E01",
+      "paper/E01",
+      "orbit/E01",
+      "graphite/E01",
+      "celadon/E01",
+      "iris/E01",
+      "sand/E01",
+      "aurora/E01"
+    ],
+    "terminalCardJoinOpenCases": [
+      "celadon/E01",
+      "iris/E01",
+      "aurora/E01"
+    ],
+    "acceptedDifferencesHaveReasonAndObservation": true
+  },
+  "sourceDiagnosisBoundary": {
+    "confirmed": "Native evidence shows stale-looking terminal colors after same-PTY hidden/layout/theme cycles. Existing TerminalView mutates xterm options from a documentElement observer, while its visible fit path does not reread theme.",
+    "correctedInference": "applyAppearance does write document.documentElement, so a wrong observed DOM node is not established as root cause. Hidden-node/theme timing remains inference, not confirmed diagnosis.",
+    "proposedMinimalFollowup": "Root requested independent theme-visible patch: sync theme inside sendResize after positive dimensions and before fit; no remount/restart. Component harness and actual samePTY dark→light→dark reopen must verify live and closed history.",
+    "separateSurfaceIssue": "theme-visible update alone does not change current --surface vs reference --h-low mapping; this open visual difference remains."
+  },
+  "records": [
+    {
+      "case": "mist/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-mist-clean.jpg",
+      "actualSha256": "d596fadec048461bdb98ac691a4203c5cfc25377111bc850ce7aa6fa089b51ec",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-mist-clean.ax.txt",
+      "accessibilitySnapshotSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+      "reference": "design/exports/png/mist/E01-terminal.png",
+      "referenceSha256": "26d425f834f82b977b7e9ed19411eb652bf6cc79066e8da19c0f8290eff00d47",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "mist",
+        "styleName": "雾蓝",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/mist/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "mist/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "26d425f834f82b977b7e9ed19411eb652bf6cc79066e8da19c0f8290eff00d47",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/mist/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "舒适"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-mist-clean",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-mist-clean.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-mist-clean.ax.txt",
+        "format": "jpg",
+        "sha256": "d596fadec048461bdb98ac691a4203c5cfc25377111bc850ce7aa6fa089b51ec",
+        "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+        "capturedAt": "2026-11-01T06:08:39.810Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "关闭F14残留错误提示后的终端原图；同PID51343，先前E01保留补充。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 34,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [],
+      "capturedAt": "2026-11-01T06:08:39.810Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "127 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "128 button 新建终端",
+        "130 button 结束进程",
+        "132 button 启动方案",
+        "133 button 隐藏终端面板",
+        "135 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "136 container 交互式终端；F6 返回编辑器",
+        "143 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "经典侧栏、文件侧栏、编辑器与底部终端层级清楚；终端约从y554展开，标题/会话/新建/结束/返回编辑器/方案/隐藏均在同一工具栏。实际终端为近白底，参考为淡蓝灰低层表面。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "实际终端面板与正文近白，未呈现参考低层表面的淡蓝灰/暖米色。",
+          "expected": "本套参考终端为--h-low #f3f6fb，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。"
+      ]
+    },
+    {
+      "case": "paper/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-paper.jpg",
+      "actualSha256": "a4fa8f4193f66e3a67f731e1492e6160208253f110b8de1a25abcdd418ae61ea",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-paper.ax.txt",
+      "accessibilitySnapshotSha256": "a9f367cefe38c94c3278e2ade05ec24cea04fc647ac91e0642c9910285bcb944",
+      "reference": "design/exports/png/paper/E01-terminal.png",
+      "referenceSha256": "cb69633d2de0216574c376da25cf2bcf798d500dd916769c5c3321e6ee481439",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "paper",
+        "styleName": "暖纸",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/paper/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "paper/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "cb69633d2de0216574c376da25cf2bcf798d500dd916769c5c3321e6ee481439",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/paper/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "舒适"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "a4fa8f4193f66e3a67f731e1492e6160208253f110b8de1a25abcdd418ae61ea",
+        "axSha256": "a9f367cefe38c94c3278e2ade05ec24cea04fc647ac91e0642c9910285bcb944",
+        "capturedAt": "2026-11-01T06:13:39.333Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "固定序列第1次布局后展开同一PTY51343；真实中文输出与cwd保留。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 34,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [
+        {
+          "at": "2026-11-01T06:14:09.270Z",
+          "files": [
+            "B01-paper.jpg",
+            "E01-paper.jpg"
+          ],
+          "field": "conditions.themeId",
+          "recorded": "mist",
+          "actual": "paper",
+          "reason": "CUA REPL closure captured prior conditions object after reassignment. UI selected暖纸, screenshot visiblypaper; rawimagesunchanged. All future captures require explicitconditionsargument."
+        }
+      ],
+      "capturedAt": "2026-11-01T06:13:39.333Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "125 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "126 button 新建终端",
+        "128 button 结束进程",
+        "130 button 启动方案",
+        "131 button 隐藏终端面板",
+        "133 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "134 container 交互式终端；F6 返回编辑器",
+        "141 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "一体侧栏和暖纸色系明确，终端在编辑区正下方且控制可见；实际终端近白底，参考为暖纸浅米色。实际主区左边约x256，参考约x240，非同一几何宽度。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "实际终端面板与正文近白，未呈现参考低层表面的淡蓝灰/暖米色。",
+          "expected": "本套参考终端为--h-low #f8f6f0，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。"
+      ]
+    },
+    {
+      "case": "orbit/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-orbit.jpg",
+      "actualSha256": "1bf04b2c91456bda7c22446d1942d2d877a952ec44abf03e997e48287e63fe13",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-orbit.ax.txt",
+      "accessibilitySnapshotSha256": "a9f367cefe38c94c3278e2ade05ec24cea04fc647ac91e0642c9910285bcb944",
+      "reference": "design/exports/png/orbit/E01-terminal.png",
+      "referenceSha256": "03ff707f5f95022b059cea0eb72eb5781b0bfe88a7405a2a93c8122e647859c1",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "orbit",
+        "styleName": "深空",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/orbit/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "orbit/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "03ff707f5f95022b059cea0eb72eb5781b0bfe88a7405a2a93c8122e647859c1",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/orbit/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "dark",
+          "density": "标准"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "1bf04b2c91456bda7c22446d1942d2d877a952ec44abf03e997e48287e63fe13",
+        "axSha256": "a9f367cefe38c94c3278e2ade05ec24cea04fc647ac91e0642c9910285bcb944",
+        "capturedAt": "2026-11-01T06:17:33.920Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "同一真实PTY51343、中文/cwd输出保留；未新建shell。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 34,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [],
+      "capturedAt": "2026-11-01T06:17:33.920Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "125 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "126 button 新建终端",
+        "128 button 结束进程",
+        "130 button 启动方案",
+        "131 button 隐藏终端面板",
+        "133 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "134 container 交互式终端；F6 返回编辑器",
+        "141 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "顶部项目标签、深空编辑区、底部终端结构完整；当前编辑区深蓝，而终端正文是明显棕色底及暖白文字，和参考深蓝终端不符。实际项目标签较多，但新建入口仍在右端。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-THEME-STALE-ON-REOPEN",
+          "category": "terminal-theme-refresh",
+          "status": "open",
+          "severity": "major",
+          "observation": "当前orbit/dark页面中，持续同一PTY的正文为棕色（视觉上接近前一paper深色表面）；与当前工具栏、编辑器及参考明显不一致。",
+          "reason": "该差异覆盖整块背景和文字，不属于JPEG压缩、运行内容或密度条件。前一主题对应关系是视觉推断；未据静态图断言具体更新时机原因。",
+          "recommendation": "最小方向：sendResize确认可见尺寸后同步terminal.options.theme=theme()再fit；保持同实例/PID/历史，另做隐藏跨主题/明暗→重新可见定向复验。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "终端外层工具栏跟随当前editor surface，正文另有色板滞后；即使消除滞后，现source仍指定surface而非参考低层表面。",
+          "expected": "本套参考终端为--h-low #202d40，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。",
+        "实际跟随主题行密度34px；参考31px（design/source/atlas.css）。保留真实条件差异，不称标准标签完全等价。"
+      ]
+    },
+    {
+      "case": "graphite/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-graphite.jpg",
+      "actualSha256": "61689586153662962fba765a5bb6cf2fc2b48d88c4a432b6c92af49d75f7038f",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-graphite.ax.txt",
+      "accessibilitySnapshotSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+      "reference": "design/exports/png/graphite/E01-terminal.png",
+      "referenceSha256": "0a3bac42a339f9157e7f877f58ae49a31ffdc2e1fba5f8baf84ce7416b9ae263",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "graphite",
+        "styleName": "石墨",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/graphite/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "graphite/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "0a3bac42a339f9157e7f877f58ae49a31ffdc2e1fba5f8baf84ce7416b9ae263",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/graphite/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "紧凑"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "61689586153662962fba765a5bb6cf2fc2b48d88c4a432b6c92af49d75f7038f",
+        "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+        "capturedAt": "2026-11-01T06:18:57.253Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "同一真实PTY51343，中文输出与工作目录保留。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 28,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [],
+      "capturedAt": "2026-11-01T06:18:57.253Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "127 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "128 button 新建终端",
+        "130 button 结束进程",
+        "132 button 启动方案",
+        "133 button 隐藏终端面板",
+        "135 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "136 container 交互式终端；F6 返回编辑器",
+        "143 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "左侧仅字母项目按钮符合紧凑结构，灰白页面与青色选中态清楚；终端正文却保留深蓝底/浅字，参考为浅灰白终端。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-THEME-STALE-ON-REOPEN",
+          "category": "terminal-theme-refresh",
+          "status": "open",
+          "severity": "major",
+          "observation": "当前graphite/light页面中，持续同一PTY的正文为深蓝（视觉上接近前一orbit深色表面）；与当前工具栏、编辑器及参考明显不一致。",
+          "reason": "该差异覆盖整块背景和文字，不属于JPEG压缩、运行内容或密度条件。前一主题对应关系是视觉推断；未据静态图断言具体更新时机原因。",
+          "recommendation": "最小方向：sendResize确认可见尺寸后同步terminal.options.theme=theme()再fit；保持同实例/PID/历史，另做隐藏跨主题/明暗→重新可见定向复验。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "终端外层工具栏跟随当前editor surface，正文另有色板滞后；即使消除滞后，现source仍指定surface而非参考低层表面。",
+          "expected": "本套参考终端为--h-low #f7f8f8，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。"
+      ]
+    },
+    {
+      "case": "celadon/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-celadon.jpg",
+      "actualSha256": "216cf1303f286246e3b0af8eeb56c44acfc601e8aaa8450efe1288e80c35a6a2",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-celadon.ax.txt",
+      "accessibilitySnapshotSha256": "b456b597a952fd4616935e6c14b8938a6322ee3c3dedc46885f824b9ad1c7e8f",
+      "reference": "design/exports/png/celadon/E01-terminal.png",
+      "referenceSha256": "6eed43bba89235b17115fef5aa9b6977f7a33d3e34d421d8f89ee017643b8212",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "celadon",
+        "styleName": "青瓷",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/celadon/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "celadon/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "6eed43bba89235b17115fef5aa9b6977f7a33d3e34d421d8f89ee017643b8212",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/celadon/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "舒适"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "216cf1303f286246e3b0af8eeb56c44acfc601e8aaa8450efe1288e80c35a6a2",
+        "axSha256": "b456b597a952fd4616935e6c14b8938a6322ee3c3dedc46885f824b9ad1c7e8f",
+        "capturedAt": "2026-11-01T06:22:57.424Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "同一真实 PTY 51343/cwd；中文与 shell PID 输出仍在。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 34,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [],
+      "capturedAt": "2026-11-01T06:22:57.424Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "114 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "115 button 新建终端",
+        "117 button 结束进程",
+        "119 button 启动方案",
+        "120 button 隐藏终端面板",
+        "122 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "123 container 交互式终端；F6 返回编辑器",
+        "130 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "折叠导航、更多项目入口、青瓷编辑区可见；终端正文深灰底/浅字，与浅绿页面和参考浅绿终端明显不符。编辑器底角先封圆，约8px间隙后出现独立终端，参考为连续上下分区。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-THEME-STALE-ON-REOPEN",
+          "category": "terminal-theme-refresh",
+          "status": "open",
+          "severity": "major",
+          "observation": "当前celadon/light页面中，持续同一PTY的正文为深灰（视觉上接近前一graphite深色表面）；与当前工具栏、编辑器及参考明显不一致。",
+          "reason": "该差异覆盖整块背景和文字，不属于JPEG压缩、运行内容或密度条件。前一主题对应关系是视觉推断；未据静态图断言具体更新时机原因。",
+          "recommendation": "最小方向：sendResize确认可见尺寸后同步terminal.options.theme=theme()再fit；保持同实例/PID/历史，另做隐藏跨主题/明暗→重新可见定向复验。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "终端外层工具栏跟随当前editor surface，正文另有色板滞后；即使消除滞后，现source仍指定surface而非参考低层表面。",
+          "expected": "本套参考终端为--h-low #f1f7f3，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        },
+        {
+          "id": "E01-TERMINAL-CARD-JOIN",
+          "category": "terminal-containment",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "参考终端紧接中央编辑器作为连续上下分区；实际编辑区底部圆角闭合，之后有间隙再开始独立终端。",
+          "reason": "此为同一E01场景中可见的组件边界差异，不能用真实shell内容差异解释。",
+          "recommendation": "保留记录，由布局/宿主owner确认边界规则；本模块不擅自重构App布局。"
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。"
+      ]
+    },
+    {
+      "case": "iris/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-iris.jpg",
+      "actualSha256": "4bd55f8791797319d12fa70b63af62a67467d33cfddcbcec0525c0b60c0b0ed2",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-iris.ax.txt",
+      "accessibilitySnapshotSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+      "reference": "design/exports/png/iris/E01-terminal.png",
+      "referenceSha256": "37f6ca54ef74e88062c8dc2b2e63ab8d4f863b0b40c2cd50c8eb801b0e2490b6",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "iris",
+        "styleName": "鸢尾",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/iris/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "iris/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "37f6ca54ef74e88062c8dc2b2e63ab8d4f863b0b40c2cd50c8eb801b0e2490b6",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/iris/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "宽松"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "4bd55f8791797319d12fa70b63af62a67467d33cfddcbcec0525c0b60c0b0ed2",
+        "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+        "capturedAt": "2026-11-01T06:26:16.327Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "同一PTY51343及中文输出。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 38,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "E01-iris.jpg",
+            "recorded": "comfortable (follow theme)",
+            "actual": "spacious (follow theme)",
+            "themeId": "iris",
+            "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "capturedAt": "2026-11-01T06:26:16.327Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "127 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "128 button 新建终端",
+        "130 button 结束进程",
+        "132 button 启动方案",
+        "133 button 隐藏终端面板",
+        "135 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "136 container 交互式终端；F6 返回编辑器",
+        "143 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "紫色卡片布局及宽松导航可见；终端正文深绿底/浅字，与当前紫色浅主题和参考淡紫终端不符。编辑器圆角在底部闭合后另起终端卡片，参考终端连在同一中央面板中。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-THEME-STALE-ON-REOPEN",
+          "category": "terminal-theme-refresh",
+          "status": "open",
+          "severity": "major",
+          "observation": "当前iris/light页面中，持续同一PTY的正文为深绿（视觉上接近前一celadon深色表面）；与当前工具栏、编辑器及参考明显不一致。",
+          "reason": "该差异覆盖整块背景和文字，不属于JPEG压缩、运行内容或密度条件。前一主题对应关系是视觉推断；未据静态图断言具体更新时机原因。",
+          "recommendation": "最小方向：sendResize确认可见尺寸后同步terminal.options.theme=theme()再fit；保持同实例/PID/历史，另做隐藏跨主题/明暗→重新可见定向复验。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "终端外层工具栏跟随当前editor surface，正文另有色板滞后；即使消除滞后，现source仍指定surface而非参考低层表面。",
+          "expected": "本套参考终端为--h-low #f7f0fd，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        },
+        {
+          "id": "E01-TERMINAL-CARD-JOIN",
+          "category": "terminal-containment",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "参考终端紧接中央编辑器作为连续上下分区；实际编辑区底部圆角闭合，之后有间隙再开始独立终端。",
+          "reason": "此为同一E01场景中可见的组件边界差异，不能用真实shell内容差异解释。",
+          "recommendation": "保留记录，由布局/宿主owner确认边界规则；本模块不擅自重构App布局。"
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。"
+      ]
+    },
+    {
+      "case": "sand/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-sand.jpg",
+      "actualSha256": "4baf582cf15ca37903e413411a6d0d2d4f78a4f53cd147efb6b01cfcaab6c727",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-sand.ax.txt",
+      "accessibilitySnapshotSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+      "reference": "design/exports/png/sand/E01-terminal.png",
+      "referenceSha256": "acb1808c0c3de93d5c6432366a70eac715cc942aed0fc2b3b67d848fe01964fc",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "sand",
+        "styleName": "砂岩",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/sand/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "sand/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "acb1808c0c3de93d5c6432366a70eac715cc942aed0fc2b3b67d848fe01964fc",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/sand/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "标准"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "4baf582cf15ca37903e413411a6d0d2d4f78a4f53cd147efb6b01cfcaab6c727",
+        "axSha256": "e0ecd45045f3e069a2ec9f70bdd202b1555594101b29164615af12dc06f60be8",
+        "capturedAt": "2026-11-01T06:27:50.440Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "同一PTY51343与中文输出。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 34,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [],
+      "capturedAt": "2026-11-01T06:27:50.440Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "127 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "128 button 新建终端",
+        "130 button 结束进程",
+        "132 button 启动方案",
+        "133 button 隐藏终端面板",
+        "135 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "136 container 交互式终端；F6 返回编辑器",
+        "143 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "展开项目目录与暖砂色页面可见；终端正文深紫底/浅字，与暖砂浅色参考明显不符。长真实shell命令在较窄终端中自然换行，保留中文、PID和目录。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-THEME-STALE-ON-REOPEN",
+          "category": "terminal-theme-refresh",
+          "status": "open",
+          "severity": "major",
+          "observation": "当前sand/light页面中，持续同一PTY的正文为深紫（视觉上接近前一iris深色表面）；与当前工具栏、编辑器及参考明显不一致。",
+          "reason": "该差异覆盖整块背景和文字，不属于JPEG压缩、运行内容或密度条件。前一主题对应关系是视觉推断；未据静态图断言具体更新时机原因。",
+          "recommendation": "最小方向：sendResize确认可见尺寸后同步terminal.options.theme=theme()再fit；保持同实例/PID/历史，另做隐藏跨主题/明暗→重新可见定向复验。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "终端外层工具栏跟随当前editor surface，正文另有色板滞后；即使消除滞后，现source仍指定surface而非参考低层表面。",
+          "expected": "本套参考终端为--h-low #f8f1e9，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。",
+        "实际跟随主题行密度34px；参考33px（design/source/atlas.css）。保留真实条件差异，不称标准标签完全等价。"
+      ]
+    },
+    {
+      "case": "aurora/E01",
+      "review": "differences",
+      "canonicalStatusAssigned": false,
+      "inspectedOriginalActual": true,
+      "inspectedOriginalReference": true,
+      "manualPairReview": true,
+      "actual": "docs/verification/results/appearance-full-native-20261101/E01-aurora.jpg",
+      "actualSha256": "82839727c40b8447321abd5e1ef4e03ec314633943906a4a13f842f73cab07b7",
+      "actualImage": {
+        "format": "JPEG",
+        "width": 1280,
+        "height": 800
+      },
+      "accessibilitySnapshot": "docs/verification/results/appearance-full-native-20261101/E01-aurora.ax.txt",
+      "accessibilitySnapshotSha256": "a9f367cefe38c94c3278e2ade05ec24cea04fc647ac91e0642c9910285bcb944",
+      "reference": "design/exports/png/aurora/E01-terminal.png",
+      "referenceSha256": "c179cd2ff88cb5f9992fcc7d96cc751ed7a95997207bcf1f1da5a72418519d89",
+      "referenceImage": {
+        "format": "PNG",
+        "width": 1280,
+        "height": 800
+      },
+      "referenceIndex": {
+        "style": "aurora",
+        "styleName": "极光",
+        "id": "E01",
+        "group": "终端",
+        "key": "terminal",
+        "title": "按需终端",
+        "note": "底部终端绑定项目目录；关闭面板和结束进程是不同操作。",
+        "file": "png/aurora/E01-terminal.png",
+        "width": 1280,
+        "height": 800,
+        "case": "aurora/E01",
+        "scope": "macOS-product",
+        "status": "unverified",
+        "captures": [],
+        "reference_sha256": "c179cd2ff88cb5f9992fcc7d96cc751ed7a95997207bcf1f1da5a72418519d89",
+        "reference_pixels": [
+          1280,
+          800
+        ],
+        "reference_url": "../../design/exports/png/aurora/E01-terminal.png",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "dark",
+          "density": "舒适"
+        }
+      },
+      "captureMetadataOriginal": {
+        "name": "E01-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/E01-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "82839727c40b8447321abd5e1ef4e03ec314633943906a4a13f842f73cab07b7",
+        "axSha256": "a9f367cefe38c94c3278e2ade05ec24cea04fc647ac91e0642c9910285bcb944",
+        "capturedAt": "2026-11-01T06:29:11.390Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "E01"
+        },
+        "notes": "同一PTY51343与中文输出。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "E01",
+        "densityTokenPx": 34,
+        "densityTokenBasis": "Corrected owner metadata and builtin density mapping; not a measurement of terminal row height."
+      },
+      "appliedMetadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "item": {
+            "file": "E01-aurora.jpg",
+            "recorded": "compact (follow theme)",
+            "actual": "comfortable (follow theme)",
+            "themeId": "aurora",
+            "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+          },
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。",
+          "reason": "部分采集条件人工写错，尤其iris被写comfortable、aurora被写compact；缺省density补全。"
+        }
+      ],
+      "capturedAt": "2026-11-01T06:29:11.390Z",
+      "artifactChecks": {
+        "actualShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "referenceShaMatchesIndex": true,
+        "same1280x800": true,
+        "nativeSession51343RunningInAX": true
+      },
+      "accessibilityObservations": [
+        "125 pop up button 终端会话, Value: zsh · 51343 · 运行中",
+        "126 button 新建终端",
+        "128 button 结束进程",
+        "130 button 启动方案",
+        "131 button 隐藏终端面板",
+        "133 text /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web  · PID  51343  · 运行中",
+        "134 container 交互式终端；F6 返回编辑器",
+        "141 pop up button 启动方案, Value: 在设置添加启动方案"
+      ],
+      "manual_observed": "底部项目导航、深青色编辑器与终端工具栏可见；终端正文是棕色底而非参考深青低层表面。实际终端位于底部导航上方，编辑器底角与终端之间有细间隔；控制未被导航遮挡。",
+      "differences": [
+        {
+          "id": "E01-REAL-SHELL-CONTENT",
+          "category": "terminal-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "参考是静态pnpm test及绿色成功行；实际为同一真实zsh PID51343的中文printf、pwd、命令回显和系统目录，保留之前中断后的提示符。",
+          "reason": "本轮要求真实自有PTY，并已由root批准无害中文/PID/cwd命令；不执行示例测试来复制静态日志。此接受仅限真实内容和自然换行，不接受色板错误。"
+        },
+        {
+          "id": "E01-REAL-WORKSPACE-CONTENT",
+          "category": "workspace-fixture-content",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际为macOS 完整验收1101工作区、多于三个QA项目、workspace.ts未保存圆点和选区、未跟踪文件标记；参考只有三个示例项目和M标记。",
+          "reason": "自有QA项目和状态是同一50次保持验收现场；数量、文件状态、用户名和路径差异无需伪造参考内容。相关几何差异仍单列，未从此接受推导像素一致。"
+        },
+        {
+          "id": "E01-REAL-RESOURCE-CONTROLS",
+          "category": "runtime-context-controls",
+          "status": "accepted",
+          "severity": "minor",
+          "observation": "实际会话下拉直接显示zsh/PID/运行中，额外一行cwd/PID及工作目录、返回编辑器、启动方案按钮；原参考只显示zsh与简短项目路径和三图标。当前1280×800下全部关键按钮可见，AX有可访问名称。",
+          "reason": "真实终端的可选择会话、归属目录、结束进程和项目启动方案需要可见入口；此接受限实际信息与操作入口，不接受错误表面层级、空间遮挡或缺失的参考呈现。"
+        },
+        {
+          "id": "E01-THEME-STALE-ON-REOPEN",
+          "category": "terminal-theme-refresh",
+          "status": "open",
+          "severity": "major",
+          "observation": "当前aurora/dark页面中，持续同一PTY的正文为棕色（视觉上接近前一sand深色表面）；与当前工具栏、编辑器及参考明显不一致。",
+          "reason": "该差异覆盖整块背景和文字，不属于JPEG压缩、运行内容或密度条件。前一主题对应关系是视觉推断；未据静态图断言具体更新时机原因。",
+          "recommendation": "最小方向：sendResize确认可见尺寸后同步terminal.options.theme=theme()再fit；保持同实例/PID/历史，另做隐藏跨主题/明暗→重新可见定向复验。"
+        },
+        {
+          "id": "E01-SURFACE-HIERARCHY",
+          "category": "terminal-surface",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "终端外层工具栏跟随当前editor surface，正文另有色板滞后；即使消除滞后，现source仍指定surface而非参考低层表面。",
+          "expected": "本套参考终端为--h-low #263337，与编辑器表面区分。",
+          "basis": [
+            "design/source/base.css:91 terminal background var(--h-low)",
+            "apps/desktop/src/features/processes/processes.css: terminal-panel/process-xterm final overrides use var(--surface)",
+            "apps/desktop/src/features/processes/index.tsx: theme background token --surface"
+          ],
+          "recommendation": "在中央批准后统一terminal panel/xterm背景映射到参考低层表面；本审查不修改源码，不将theme-visible修复自动当此差异已关闭。"
+        },
+        {
+          "id": "E01-REFERENCE-SECONDARY-LABELS",
+          "category": "toolbar-scope-difference",
+          "status": "open",
+          "severity": "minor",
+          "observation": "八套参考在“终端”旁有“输出”“问题”文字，实际只显示终端标题。",
+          "reason": "参考app.js70中两者是非交互span；本轮没有对应业务语义，不据截图要求新增假页签。当前作为未批准的呈现范围差异保留，需明确设计处置。",
+          "recommendation": null
+        },
+        {
+          "id": "E01-TERMINAL-CARD-JOIN",
+          "category": "terminal-containment",
+          "status": "open",
+          "severity": "moderate",
+          "observation": "参考终端紧接中央编辑器作为连续上下分区；实际编辑区底部圆角闭合，之后有间隙再开始独立终端。",
+          "reason": "此为同一E01场景中可见的组件边界差异，不能用真实shell内容差异解释。",
+          "recommendation": "保留记录，由布局/宿主owner确认边界规则；本模块不擅自重构App布局。"
+        }
+      ],
+      "limits": [
+        "本报告只审E01 still images及AX，不将截图当输入、停止、恢复或性能通过。",
+        "运行中PID51343八图与后续退出后此进程没有PTY缺陷分开；后退出功能问题见.work/process-terminal-exit-fix.md。",
+        "当前1280×800下观察控制完整；窄窗、200%字体、IME、选择复制、隐藏后运行身份需各自功能证据。",
+        "原JPEG和PNG均保留原字节，未裁切、拼贴、重绘、压缩或修改；未做逐像素颜色相等断言。",
+        "项目数、选区、字体栅格和实际几何宽度与静态参考不完全相同；本报告不声称整页像素一致。"
+      ]
+    }
+  ],
+  "notCovered": [
+    "F04 launcher details; no standalone launcher reference exists.",
+    "Eight-layout closed-history behavior; E01 captures show running sessions.",
+    "Terminal input/copy/IME/resize runtime outcomes, service launch and Q1 exit lifecycle.",
+    "Tiny exact-color/antialiasing parity; original JPEG is adequate for the observed full-area color mismatch."
+  ],
+  "canonicalStatusAssigned": false,
+  "mutations": "Only this independent review artifact and .work preparation files; no canonical matrix, product source, reference or capture changes."
+}

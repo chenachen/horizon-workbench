@@ -1,0 +1,64 @@
+{
+  "kind": "React + real CodeMirror browser regression",
+  "phases": [
+    {
+      "name": "initial mount",
+      "editors": 1,
+      "text": "content for a",
+      "status": "Esc 后按 Tab 离开编辑器行 1，列 1TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 1,
+        "createdViews": 1,
+        "destroyedViews": 0,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:33:35.873Z",
+            "languageReadyMs": 53.700000047683716,
+            "durationMs": 61.10000002384186,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dispose then reactivate while React stays mounted",
+      "editors": 0,
+      "text": "",
+      "status": "Esc 后按 Tab 离开编辑器恢复稿已存行 1，列 29TXTUTF8 · LF",
+      "diagnostics": {
+        "schemaVersion": 1,
+        "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+        "viewCount": 0,
+        "createdViews": 1,
+        "destroyedViews": 1,
+        "opens": [
+          {
+            "id": 1,
+            "projectId": "a",
+            "fileId": "one",
+            "cache": "cold",
+            "startedAt": "2026-10-30T19:33:35.873Z",
+            "languageReadyMs": 53.700000047683716,
+            "durationMs": 61.10000002384186,
+            "byteLength": "20",
+            "editorRevision": 0,
+            "viewId": 1,
+            "language": "plain"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: dispose then reactivate while React stays mounted: live EditorView DOM count\n\n0 !== 1\n",
+  "pageErrors": []
+}

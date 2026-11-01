@@ -1,0 +1,1993 @@
+{
+  "correctedAt": "2026-11-01T06:59:25.279202+00:00",
+  "sourceReviewSha256": "c55dcd64ac2bdb37112f646542f0c4a560f7f173c186d63d694dc9e40ce2dd7f",
+  "oldReviewSha256": "ecfea781cdffe761eeb29fdd43d21370b6db74f5de613767738eb0ddc5521edf",
+  "method": "Read exact native/reference row CSS and corrected owner report; all32 native/reference/AX capture bindings unchanged. Update only F08/F09 SL01 and their text. Preserve old review/findings in this receipt.",
+  "sources": [
+    {
+      "path": "apps/desktop/src/features/settings/settings.css",
+      "sha256": "b04fb24e3150dc4e306df017bb722cd45c46e1db9f72387755572e1b8bb34583",
+      "matchingRows": [
+        ".setting-row{display:flex;align-items:center;gap:15px;justify-content:space-between;padding:14px 0;min-height:52px;border-bottom:1px solid var(--border);font-size:12px;min-width:0}",
+        ".shortcut-row{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:12px}"
+      ]
+    },
+    {
+      "path": "design/source/base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0",
+      "matchingRows": [
+        "#horizon-atlas .hz .setting-row{display:flex;align-items:center;gap:15px;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--h-line);font-size:12px}",
+        "#horizon-atlas .hz .shortcut-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--h-line);font-size:12px;gap:10px}"
+      ]
+    }
+  ],
+  "changedRecords": [
+    {
+      "case": "mist/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "capture-focus-state",
+          "reason": "键盘焦点可视化属于真实可访问性状态，不能为匹配无焦点参考移除focus样式。",
+          "observation": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "category": "capture-focus-state-3",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "capture-focus-state",
+          "reason": "键盘焦点可视化属于真实可访问性状态，不能为匹配无焦点参考移除focus样式。",
+          "observation": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "category": "capture-focus-state-3",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "mist/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "capture-focus-state",
+          "reason": "键盘焦点可视化属于真实可访问性状态，不能为匹配无焦点参考移除focus样式。",
+          "observation": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "category": "capture-focus-state-3",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "mist/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "mist/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "mist/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "capture-focus-state",
+          "reason": "键盘焦点可视化属于真实可访问性状态，不能为匹配无焦点参考移除focus样式。",
+          "observation": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "category": "capture-focus-state-3",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "原图对话框外有蓝色focus ring；相应AX明确focused UI element为设置container。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "paper/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "paper/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "paper/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "paper/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "paper/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "orbit/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "orbit/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "orbit/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "orbit/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "orbit/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "graphite/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "graphite/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "graphite/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "graphite/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "graphite/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "celadon/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "celadon/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "celadon/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "celadon/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "celadon/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "iris/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "iris/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "iris/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "iris/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "iris/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "sand/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "sand/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "sand/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "sand/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "sand/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "aurora/F08",
+      "oldObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；行文字偏小，参考列示七条较粗动作。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "搜索框、前七条命令、右侧编辑图标/键位/恢复默认与完成footer可读；原生搜索框约36px，参考约40px。主体字号均12px，撤回字号/字重缺陷。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F08 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F08 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "实际注册命令比参考示例完整；每项全局来源及恢复默认属于实际快捷键配置，不应删除以凑参考行数。",
+          "observation": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "category": "real-data-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "首屏为快速打开⌘P、命令面板⌘⇧P、保存⌘S、保存全部、关闭、设置等；AX共11个修改入口和11个恢复默认按钮，录入/冲突态未在这组图触发。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference shortcut search field height40px; both native/reference body row fonts remain12px",
+          "actual": "原生快捷键搜索框约36px高，参考约40px。重新核源码后，原生与参考shortcut-row及setting-row都明确12px；撤回原报告“参考继承13px”的归因，视觉字重差异不据此改全局字号。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅将快捷键搜索框恢复40px。F08/F09主体12px与字重不变。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    },
+    {
+      "case": "aurora/F09",
+      "oldObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "oldDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-01",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "各主题原生快捷键动作名及隐私行标签比参考更小、更轻；源码 shortcut-row/setting-row 明确12px，参考行继承13px。原生快捷键搜索框约36px高，参考约40px。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "仅恢复这两类主体行的13px文字和快捷键搜索框40px高度；保留真实命令、来源及单项恢复操作。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ],
+      "newObserved": "上区六类操作与恢复稿列表首行可读；配置/清缓存按钮无参考图标且形状较方；底部凭据/保留原目录说明仅AX存在。",
+      "newDifferences": [
+        {
+          "kind": "approved-interaction",
+          "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+          "observation": "aurora/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "category": "approved-interaction-0",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F09 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data",
+          "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+          "observation": "aurora/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "category": "real-data-1",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "aurora/F09 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "kind": "real-data-and-required-function",
+          "reason": "SET-008/NFR-005要求真实脱敏导出和选择性清理；SETTINGS_FIDELITY.md:27明确不虚构诊断上传开关。",
+          "observation": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "category": "real-data-and-required-function-2",
+          "expected": "Approved settings structure with real fixture data retained",
+          "actual": "实图为AI连接入口、配置导出、诊断导出、缓存、聊天及0.6KiB真实恢复稿；AX有未选草稿和无凭据，清理所选按钮禁用。参考诊断开关和单一凭据展示不替代真实动作。",
+          "severity": "minor",
+          "status": "accepted",
+          "fix_evidence": null
+        },
+        {
+          "category": "SL-02",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生导出配置、清理缓存是无图标的短矩形按钮；参考分别有下载/废纸篓图标，除Graphite外采用更圆的轻描边/色调按钮。现有功能扩展不能解释这些公共动作的图标和形状退化。",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "在现有按钮内补Download/Trash2图标，复用按布局的outline/tonal形状；保留Graphite紧凑圆角，不更换数据/清理handler。",
+          "evidence_kind": "independent-original-image-review"
+        },
+        {
+          "category": "SL-06",
+          "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+          "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+          "evidence_kind": "independent-original-image-review"
+        }
+      ]
+    }
+  ],
+  "statusesChanged": false,
+  "productCodeChanged": false,
+  "newImagesViewed": 0
+}

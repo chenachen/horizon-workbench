@@ -1,0 +1,15 @@
+--- a/apps/desktop/src/styles.css
++++ b/apps/desktop/src/styles.css
+@@ -411,6 +411,12 @@
+ :root[data-layout='dock'] .horizon-app.sidebar-closed { grid-template-columns: 0 minmax(0,1fr) 0; }
+ :root[data-layout='dock'] .horizon-app.sidebar-closed.ai-open { grid-template-columns: 0 minmax(320px,1fr) var(--auxiliary-width); }
+ 
++.horizon-app.terminal-open:not(.focus-mode) > .editor-region {
++  margin-bottom: 0;
++  border-bottom-left-radius: 0;
++  border-bottom-right-radius: 0;
++}
++
+ /* Imported images are separate layers; text always remains opaque. */
+ :root[data-background='workbench'] .horizon-app::before, :root[data-background='sidebar'] .primary-sidebar::before, :root[data-background='editor'] .editor-region::before { content: ''; position: absolute; inset: 0; background-image: var(--background-image); background-size: var(--background-fit, cover); background-position: var(--background-position, center); background-repeat: no-repeat; opacity: var(--background-opacity, .12); z-index: -1; pointer-events: none; }
+ :root[data-background='workbench'] .horizon-app::after, :root[data-background='sidebar'] .primary-sidebar::after, :root[data-background='editor'] .editor-region::after { content: ''; position: absolute; inset: 0; background: var(--background); opacity: var(--background-overlay, .85); z-index: -1; pointer-events: none; }

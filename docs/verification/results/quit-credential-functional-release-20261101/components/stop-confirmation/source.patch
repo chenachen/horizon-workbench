@@ -1,0 +1,42 @@
+--- a/apps/desktop/src/App.tsx
++++ b/apps/desktop/src/App.tsx
+@@ -358,8 +358,7 @@
+       }
+       await store.hostClosedProject(stopPlan.project?.id, decision === 'discard' ? 'discard' : 'retainCheckpoint');
+       if (stopPlan.action !== 'exit') { await refresh(); if (projectId === stopPlan.project?.id) props.clearProject(); setStopPlan(undefined); }
+-    } catch (reason) { reportError(reason); }
+-    finally { setStopBusy(false); }
++    } finally { setStopBusy(false); }
+   };
+ 
+   const manageProject = (item: Project, trigger = document.activeElement as HTMLElement | null) => {
+@@ -450,7 +449,7 @@
+     }} onReveal={() => { const id = projectMenu.project.id; setProjectMenu(undefined); void call('project_reveal', { projectId: id }).catch(reportError); }} onLaunch={() => {
+       const id = projectMenu.project.id; setProjectMenu(undefined); void activate(id).then(opened => { if (opened) openSettings('launch'); });
+     }} onStop={action => { const item = projectMenu.project; setProjectMenu(undefined); void prepareStop(action, item); }} /> : null}
+-    {stopPlan ? <Modal title={stopPlan.action === 'exit' ? '退出 Horizon' : `${stopPlan.action === 'sleep' ? '休眠' : '移除'}项目`} onClose={() => { if (!stopBusy) setStopPlan(undefined); }}><StopConfirmation {...stopPlan} projects={projects} busy={stopBusy} apply={decision => void applyStop(decision)} cancel={() => setStopPlan(undefined)} /></Modal> : null}
++    {stopPlan ? <Modal title={stopPlan.action === 'exit' ? '退出 Horizon' : `${stopPlan.action === 'sleep' ? '休眠' : '移除'}项目`} onClose={() => { if (!stopBusy) setStopPlan(undefined); }}><StopConfirmation key={stopPlan.plan.planId} {...stopPlan} projects={projects} busy={stopBusy} apply={applyStop} cancel={() => setStopPlan(undefined)} /></Modal> : null}
+   </div>;
+ }
+ 
+@@ -562,8 +561,10 @@
+     <p className="command-help">↑↓ 选择 · Enter 执行 · Esc 返回</p>
+   </div>;
+ }
+-function StopConfirmation({ plan, project, projects, action, busy, apply, cancel }: { plan: StopPlan; project?: Project; projects: Project[]; action: 'exit' | 'sleep' | 'remove'; busy: boolean; apply: (decision: 'save' | 'retainCheckpoint' | 'discard') => void; cancel: () => void }) {
++function StopConfirmation({ plan, project, projects, action, busy, apply, cancel }: { plan: StopPlan; project?: Project; projects: Project[]; action: 'exit' | 'sleep' | 'remove'; busy: boolean; apply: (decision: 'save' | 'retainCheckpoint' | 'discard') => Promise<void>; cancel: () => void }) {
+   const [decision, setDecision] = useState<'save' | 'retainCheckpoint' | 'discard'>('save');
++  const [operationError, setOperationError] = useState('');
++  const submit = async () => { setOperationError(''); try { await apply(decision); } catch (reason) { setOperationError(errorMessage(reason)); } };
+   const projectName = (id?: string) => projects.find(item => item.id === id)?.displayName ?? '本地项目';
+   const resourceNames: Record<string, string> = { terminal: '终端', launchProcess: '项目进程', agent: 'Pi 任务', agentCommand: 'Pi 工具进程', git: 'Git 操作', search: '项目搜索', extension: '扩展进程' };
+   const stateNames: Record<string, string> = { running: '运行中', starting: '启动中', stopping: '停止中', waiting: '等待中', failed: '异常' };
+@@ -576,6 +577,7 @@
+       <label className="radio-label"><input type="radio" checked={decision === 'discard'} onChange={() => setDecision('discard')} />放弃本次未保存编辑</label>
+     </fieldset> : <p className="success-note"><Check size={15} />没有未保存文档</p>}
+     {plan.resources.length ? <div className="stop-resources"><h3>将停止以下资源</h3>{plan.resources.map(resource => <div key={resource.resourceId}><Terminal size={14} /><span className="stop-resource-copy"><strong>{resource.title || resourceNames[resource.kind] || resource.ownerExtensionId}</strong><small>{projectName(resource.projectId ?? resource.owner?.projectId)} · {resource.ownerExtensionId}{resource.pid ? ` · PID ${resource.pid}` : ''}</small></span><span className="stop-resource-state">{stateNames[resource.state] ?? resource.state}</span></div>)}</div> : null}
+-    <footer className="form-actions"><button onClick={cancel} disabled={busy}>取消</button><button className={decision === 'discard' ? 'danger-button' : 'primary-button'} disabled={busy} onClick={() => apply(decision)}>{busy ? '正在处理…' : action === 'exit' ? '处理并退出' : action === 'sleep' ? '休眠项目' : '移除记录'}</button></footer>
++    {operationError ? <p className="editor-error" role="alert">{operationError}</p> : null}
++    <footer className="form-actions"><button onClick={cancel} disabled={busy}>取消</button><button className={decision === 'discard' ? 'danger-button' : 'primary-button'} disabled={busy} onClick={() => void submit()}>{busy ? '正在处理…' : action === 'exit' ? '处理并退出' : action === 'sleep' ? '休眠项目' : '移除记录'}</button></footer>
+   </div>;
+ }

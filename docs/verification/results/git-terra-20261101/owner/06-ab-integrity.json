@@ -1,0 +1,28 @@
+{
+  "kind": "native-existing-reject-and-auth401-small-audit",
+  "recordedAt": "2026-11-01T15:29:28.706810+00:00",
+  "checks": {
+    "keep47OriginalSHA": true,
+    "existingDirectoryOnlyKeep": true,
+    "nativeAuthRequestsObserved": true,
+    "noSlowObjectStartedYet": true,
+    "slowTargetStillAbsent": true
+  },
+  "allPassed": true,
+  "httpRecordCount": 1,
+  "auth401HandlerRecords": [
+    {
+      "time": 1793546691.065645,
+      "path": "/auth401.git/info/refs?service=git-upload-pack",
+      "auth401": true,
+      "delayed": false
+    }
+  ],
+  "actualResponseBasis": "Frozen provider helper auth401 branch returns HTTP401; native error requests Username with terminal prompts disabled; no CLI requests sent",
+  "nativeExistingAttempt": "One15:24:10Z; no overwrite/no false residue; editable form",
+  "nativeAuthAttempt": "One15:24:50.906Z; fields retained; no credentials entered",
+  "authTargetExists": false,
+  "authTargetEntries": [],
+  "slowURL": "http://127.0.0.1:51109/slow.git",
+  "slowName": "cancelled-native-clone"
+}

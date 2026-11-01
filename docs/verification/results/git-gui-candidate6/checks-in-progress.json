@@ -1,0 +1,32 @@
+{
+  "recordedAt": 1793395395.684572,
+  "kind": "read-only audit of real native GUI outcomes",
+  "passed": [
+    "staged-only commit B leaves disk C and untracked notes",
+    "fetch leaves local HEAD/disk unchanged",
+    "ff-only pull advances to remote B",
+    "native commit and push C update bare remote",
+    "divergent push and ff-only pull leave HEAD and stashes unchanged",
+    "native branch create and switch main",
+    "hook failure retains index; native retry retains Chinese message",
+    "native stop reaps hook+sleep; HEAD/index preserved",
+    "conflict choose changes only worktree before explicit stage",
+    "manual result saved then staged and committed with two merge parents",
+    "discard cancel unchanged; tracked discard restores index and preserves staged state"
+  ],
+  "failed": [
+    "untracked trash via Finder times out (-1712); original retained; native GUI retry needed with NsFileManager fix"
+  ],
+  "guiOnlyCovered": [
+    "history page 30 then 7 more to root commit",
+    "deleted directory/file historical diff text readable",
+    "root commit file switch README to workspace.ts",
+    "arbitrary refs history/earlier to HEAD shows history27→35"
+  ],
+  "guiLimitations": [
+    "nested branch+compare dialogs make AX tree empty; coordinate click successfully opens comparison",
+    "C07 raw errors duplicate modal/sidebar/toast and can obscure action",
+    "busy discard modal has no stop button in candidate6"
+  ],
+  "evidenceDirectory": "docs/verification/results/git-gui-candidate6"
+}

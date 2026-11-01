@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-31",
+  "status": "source-and-native-regressions-passed; real-QuickJS-GUI-failure-pending",
+  "closesSourceFinding": "PRIVACY-03 in privacy-network-source-audit/audit.json",
+  "scope": "Only external QuickJS failure persistence and its legacy error/log records in extensions.rs. The trusted-main host failure channel, settings, source files, package content and normal code rendering are unchanged.",
+  "newFailureBehavior": {
+    "rawMessage": "Ignored for QuickJS persistent errors and logs; no substring replacement or truncated exception text is retained",
+    "code": "EXTENSION_FAILED",
+    "reason": "runtimeFailure",
+    "message": "扩展执行失败。原始异常内容未写入日志；请重试或停用该扩展。",
+    "ownership": ["extensionId", "activationId", "projectId"],
+    "ownershipSource": "Host record and matching activation lease are validated before persistence",
+    "leaseCleanup": "The failed activation is revoked; the other project activation and its in-flight ownership remain separate"
+  },
+  "legacyMigration": {
+    "trigger": "initialize, or the first QuickJS failure write when the record predates the privacy marker",
+    "marker": "runtimeLogPrivacyVersion=1",
+    "errors": "Old EXTENSION_FAILED text becomes the fixed safe summary; missing historical activation identity stays null",
+    "logs": "Only exact complete fixed host lifecycle messages survive; all other legacy messages become a fixed redacted diagnostic entry. Entries are reconstructed from allowed fields; arbitrary extra fields are discarded. Valid timestamps are retained.",
+    "preserved": ["enabledGlobal", "pausedGlobal", "projects", "grants", "config", "projectConfig", "manifest", "installed"],
+    "idempotent": true
+  },
+  "test": {
+    "command": "rtk proxy cargo test --lib failure_privacy_tests",
+    "cwd": "apps/desktop/src-tauri",
+    "passed": 4,
+    "failed": 0,
+    "filtered": 50,
+    "durationSeconds": 0.12,
+    "raw": "../../raw/plugins-candidate7/privacy.log",
+    "cases": [
+      "Fake token, absolute path and source-body marker are absent from persisted registry bytes and the production log snapshot",
+      "Structured safe reason and verified instance/project attribution survive; another project activation remains",
+      "Stale activation rejection leaves registry byte-identical",
+      "Legacy exact-message allowlist rejects message prefixes containing private content; policy and settings stay unchanged; migration is idempotent",
+      "Trusted-main error text and logs retain their prior behavior"
+    ],
+    "boundary": "Tests call the production persistence helper and log-snapshot helper used by runtime_failed/extension_logs. They do not claim a real QuickJS throw or GUI interaction."
+  },
+  "initialBuildAttempt": {
+    "result": "Failed before tests because an old settings.rs test still referenced removed sanitize during the parallel settings repair. The settings owner removed that stale test; this command then passed.",
+    "raw": "../../raw/plugins-candidate7/privacy-initial-compile-error.log"
+  },
+  "candidate7NativeFollowup": "Use a self-authored QuickJS test Error containing fake token/path/body markers, inspect visible fixed error and logs, then verify the on-disk record and another project's independent operation. No real credential is needed."
+}

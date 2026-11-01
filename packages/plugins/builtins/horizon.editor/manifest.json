@@ -1,0 +1,39 @@
+{
+  "id": "horizon.editor",
+  "name": "代码编辑器",
+  "version": "0.1.0",
+  "description": "编辑代码与文本，查找替换并保存；未保存内容可保留恢复稿。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "trusted-main"
+  },
+  "activation": [
+    "onView:horizon.editor.view",
+    "onCommand:horizon.editor.open"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [
+    "project.read",
+    "project.write.reviewed"
+  ],
+  "contributes": {
+    "views": [
+      {
+        "id": "horizon.editor.view",
+        "slot": "editor",
+        "renderer": "trusted"
+      }
+    ],
+    "commands": [
+      {
+        "id": "horizon.editor.open",
+        "title": "打开代码编辑器"
+      }
+    ]
+  }
+}

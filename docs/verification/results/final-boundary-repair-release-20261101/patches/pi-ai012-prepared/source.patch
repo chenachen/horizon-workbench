@@ -1,0 +1,50 @@
+--- a/apps/desktop/src-tauri/src/agent.rs
++++ b/apps/desktop/src-tauri/src/agent.rs
+@@ -86,12 +86,16 @@
+     if result["supported"] != true { result["diagnostics"] = json!(["此版本尚未通过 Horizon 适配验证；仅支持 Pi 1.4.0"]); } Ok(result)
+ }
+ async fn install(state: &HostState, request: &str) -> Result<Value> {
++    let (name, digest, _) = asset();
++    install_from(state, request, &format!("https://github.com/earendil-works/pi/releases/download/v{VERSION}/{name}"), digest).await
++}
++async fn install_from(state: &HostState, request: &str, url: &str, digest: &str) -> Result<Value> {
+     if !cfg!(target_os="macos") { return Err(err("CAPABILITY_UNSUPPORTED", "首版运行时安装仅支持 macOS")); }
+     let path = managed_executable(state); if path.exists() { return detect(state, &json!({})).await; }
+-    let (name, digest, _) = asset(); let target = path.parent().unwrap().parent().unwrap(); let parent = target.parent().unwrap(); private_dir(parent)?;
++    let (name, _, _) = asset(); let target = path.parent().unwrap().parent().unwrap(); let parent = target.parent().unwrap(); private_dir(parent)?;
+     let staging = parent.join(format!("download-{}",id())); private_dir(&staging)?;
+     let result = async { state.emit_task_data(request,"agent.install",json!({"phase":"downloading","version":VERSION}))?;
+-        let response = reqwest::Client::builder().timeout(Duration::from_secs(180)).build().map_err(|e| err("NETWORK_ERROR",e.to_string()))?.get(format!("https://github.com/earendil-works/pi/releases/download/v{VERSION}/{name}")).send().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?.error_for_status().map_err(|e|err("NETWORK_ERROR",e.to_string()))?;
++        let response = reqwest::Client::builder().timeout(Duration::from_secs(180)).build().map_err(|e| err("NETWORK_ERROR",e.to_string()))?.get(url).send().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?.error_for_status().map_err(|e|err("NETWORK_ERROR",e.to_string()))?;
+         let bytes = response.bytes().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?; if hash(&bytes) != digest { return Err(err("INTEGRITY_ERROR","Pi 官方发行文件摘要不匹配，未激活")); }
+         if state.is_cancelled(request) { return Err(err("CANCELLED","已取消安装")); }
+         fs::write(staging.join(name), &bytes)?;
+@@ -511,6 +515,28 @@
+         let sid=id();let dir=data(&state).unwrap().join("sessions").join(&sid);private_dir(&dir).unwrap();let s=Session{created_at:now_ms(),session_id:sid.clone(),project_id:project_id.clone(),connection_id:c.connection_id.clone(),profile:"chat".into(),state:"dormant".into(),instance_id:None,instance_epoch:0,resume_available:false,pi_file:dir.join("session.jsonl").to_string_lossy().into_owned(),review_id:None,messages:vec![]};memory().lock().unwrap().store.sessions.insert(sid.clone(),s.clone());let call=call_for(&project_id,"agent_submit",json!({"sessionId":sid,"submissionId":id()}));register_task(&state,&call);tokio::spawn(async move{run_pi(state,&call,s,c,"HORIZON_TEST_CANCEL instance limit".into(),None,false).await})
+     }
+     async fn wait_instances(count:usize){let deadline=tokio::time::Instant::now()+Duration::from_secs(10);loop{if memory().lock().unwrap().runs.len()==count{break;}assert!(tokio::time::Instant::now()<deadline,"instance count did not reach {count}");tokio::time::sleep(Duration::from_millis(20)).await;}}
++    #[cfg(target_os="macos")]
++    #[tokio::test]
++    async fn runtime_install_rejects_corrupt_archive_before_extract_or_execute(){
++        let tmp=tempfile::tempdir().unwrap();let state=HostState::new(tmp.path().join("data")).unwrap();
++        let call=call_for("fixture-project","agent_runtime_install",json!({}));register_task(&state,&call);
++        let corrupt=b"corrupt Pi archive bytes";let digest=hash(b"known expected Pi archive bytes");assert_ne!(hash(corrupt),digest);
++        let listener=tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();let url=format!("http://{}/pi.tar.gz",listener.local_addr().unwrap());
++        let server=tokio::spawn(async move{
++            let (mut socket,_)=listener.accept().await.unwrap();let mut headers=Vec::new();
++            while !headers.windows(4).any(|part|part==b"\r\n\r\n"){
++                let mut buffer=[0u8;1024];let count=socket.read(&mut buffer).await.unwrap();assert!(count>0);headers.extend_from_slice(&buffer[..count]);
++            }
++            let head=format!("HTTP/1.1 200 OK\r\nContent-Length: {}\r\nConnection: close\r\n\r\n",corrupt.len());
++            socket.write_all(head.as_bytes()).await.unwrap();socket.write_all(corrupt).await.unwrap();
++        });
++        let error=install_from(&state,&call.request_id,&url,&digest).await.unwrap_err();server.await.unwrap();
++        assert_eq!(error.code,"INTEGRITY_ERROR");assert_eq!(error.message,"Pi 官方发行文件摘要不匹配，未激活");
++        let managed=managed_executable(&state);assert!(!managed.exists(),"corrupt archive must not activate an executable");
++        let parent=managed.parent().unwrap().parent().unwrap().parent().unwrap();
++        assert!(fs::read_dir(parent).unwrap().next().is_none(),"digest rejection must clean staging and leave no extracted files");
++        // INTEGRITY_ERROR returns before archive write, tar extraction, or the executable version probe.
++    }
+     #[test]
+     fn path_boundary_rejects_escape_and_symlinks(){let root=tempfile::tempdir().unwrap();assert!(confined(root.path(),"../secret").is_err());assert!(confined(root.path(),"/etc/passwd").is_err());assert!(confined(root.path(),".git/config").is_err());#[cfg(unix)]{std::os::unix::fs::symlink("/tmp",root.path().join("escape")).unwrap();assert!(confined(root.path(),"escape/file").is_err());}assert!(confined(root.path(),"nested/new.txt").is_ok());}
+     #[test]

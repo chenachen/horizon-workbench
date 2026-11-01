@@ -1,0 +1,58 @@
+{
+  "observedAt": "2026-10-30T19:11:02.954425+00:00",
+  "candidate": "4a",
+  "registrySha256": "5cda91eaaedc8ef42da9c497c6656542159bd601108ed9191eb6edff422ecf97",
+  "workspaces": [
+    {
+      "id": "cb6ac1b6-9d76-462c-bde7-1c50a05e95d0",
+      "name": "默认工作区",
+      "projectIds": [
+        "dfef65be-3750-41c6-9173-0395df536fc2",
+        "3ec76062-57e4-4c0b-9e96-6a09d498249e"
+      ],
+      "revision": 6
+    }
+  ],
+  "projectRoots": [
+    {
+      "id": "3ec76062-57e4-4c0b-9e96-6a09d498249e",
+      "name": "Aurora Web",
+      "pinned": false,
+      "workspaceId": "cb6ac1b6-9d76-462c-bde7-1c50a05e95d0",
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/aurora-web",
+      "exists": true
+    },
+    {
+      "id": "dfef65be-3750-41c6-9173-0395df536fc2",
+      "name": "UI Kit",
+      "pinned": true,
+      "workspaceId": "cb6ac1b6-9d76-462c-bde7-1c50a05e95d0",
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit",
+      "exists": true
+    }
+  ],
+  "rootNativeReport": [
+    "Welcome > overview > create 验收·空工作区; empty group becomes current",
+    "Rename group 验收·项目分组",
+    "Manage UI Kit: move to new group and pin; save: one project only in group/navigation",
+    "Remove new group with explicit migration-to-default and preserve-disk notice",
+    "Default group now contains2projects; move UI Kit upward to order UI Kit,Aurora Web"
+  ],
+  "screenshots": [
+    "docs/verification/screenshots/recovery-candidate4a/03-workspace-moved-project.png",
+    "docs/verification/screenshots/recovery-candidate4a/04-workspace-remove-reorder.png"
+  ],
+  "limits": [
+    "Screenshots show moved project and final group/order, intermediate create/rename/confirmation supplied by native operator",
+    "Project removal, display-name rename and retained-history cleanup not tested by workspace deletion",
+    "Full project-directory contents not rehashed; both roots exist and independent prior51byte document baseline retained"
+  ],
+  "sourceReview": {
+    "workspace_create/update/remove": "Mutates only Registry workspace/project reference fields then HostState.persist; no project filesystem deletion/move/write",
+    "default_workspace": "Registry::default creates named default group; workspace_remove rejects its ID",
+    "sourceSha256": {
+      "apps/desktop/src-tauri/src/projects.rs": "62472a31698da4f0cda86f0992620bd45b0495bf00eb37a22be4d7d55b3225ea",
+      "apps/desktop/src-tauri/src/state.rs": "61b1c8c79e5a8b757b22be5f80f610de744650349f8a4d64a976031f27feb301"
+    }
+  }
+}

@@ -1,0 +1,3136 @@
+{
+  "auditedAt": "2026-11-01T03:20:22.631693+00:00",
+  "method": "Independent full JSONL identity/resources/phase review after actual collector exit0; no synthetic rows, no helper terminated",
+  "sourceDirectory": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-panel-20261101-cabos0oj/ACTIVE",
+  "actualCollectorExitCode": 0,
+  "sampleCount": 867,
+  "durationSeconds": 1800.0051,
+  "rootMissingRows": 0,
+  "binaryShaAtStartAndEnd": "95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6",
+  "rootPid": 34128,
+  "sampleIntervalSeconds": {
+    "median": 2.0818499999999744,
+    "min": 1.5921000000000731,
+    "max": 2.46929999999999,
+    "requested": 2
+  },
+  "processIdentities": [
+    {
+      "pid": 34128,
+      "start": "Sun Nov 1 10:33:56 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "root PID",
+      "finalReason": "root PID",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 73796950.68973471,
+      "footprintPeakBytes": 218727768,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 1.8660228141754687
+    },
+    {
+      "pid": 34195,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 31981492.198385235,
+      "footprintPeakBytes": 66847608,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 0.679149832591024
+    },
+    {
+      "pid": 34196,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 6424997.324106113,
+      "footprintPeakBytes": 6570488,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 0.0266120089937546
+    },
+    {
+      "pid": 34197,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 162819518.6343714,
+      "footprintPeakBytes": 478283144,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 2.6725282551435194
+    },
+    {
+      "pid": 34198,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 3036536.489042676,
+      "footprintPeakBytes": 3047856,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 0.0
+    },
+    {
+      "pid": 34199,
+      "start": "Sun Nov 1 10:33:57 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 9014737.780853517,
+      "footprintPeakBytes": 9667112,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 0.07401770710414535
+    },
+    {
+      "pid": 40868,
+      "start": "Sun Nov 1 10:37:22 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 63177348.92733564,
+      "footprintPeakBytes": 76792624,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 6.245407609738763
+    },
+    {
+      "pid": 40869,
+      "start": "Sun Nov 1 10:37:22 2026",
+      "executable": "/System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 5465501.905420992,
+      "footprintPeakBytes": 5947800,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 0.0025806306181638317
+    },
+    {
+      "pid": 40938,
+      "start": "Sun Nov 1 10:37:24 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 867,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 867,
+      "footprintMeanBytes": 12753809.790080737,
+      "footprintPeakBytes": 13648448,
+      "cpuValidCount": 866,
+      "cpuMeanPercentOneCore": 0.02602154088397989
+    },
+    {
+      "pid": 66058,
+      "start": "Sun Nov 1 10:49:57 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "firstElapsedSeconds": 16.5108,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 859,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 859,
+      "footprintMeanBytes": 11621009.061699651,
+      "footprintPeakBytes": 13107776,
+      "cpuValidCount": 858,
+      "cpuMeanPercentOneCore": 0.02583959164882975
+    },
+    {
+      "pid": 68509,
+      "start": "Sun Nov 1 10:51:08 2026",
+      "executable": "/System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService",
+      "firstElapsedSeconds": 87.3615,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 825,
+      "group": "horizon",
+      "initialReason": "macOS responsibility SPI → 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 825,
+      "footprintMeanBytes": 10138231.418181818,
+      "footprintPeakBytes": 10584472,
+      "cpuValidCount": 824,
+      "cpuMeanPercentOneCore": 0.0005190250437215115
+    },
+    {
+      "pid": 84288,
+      "start": "Sun Nov 1 10:59:10 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-rg",
+      "firstElapsedSeconds": 569.481,
+      "lastElapsedSeconds": 569.481,
+      "samples": 1,
+      "group": "horizon",
+      "initialReason": "child of 34128",
+      "finalReason": "child of 34128",
+      "footprintValidCount": 1,
+      "footprintMeanBytes": 17891664,
+      "footprintPeakBytes": 17891664,
+      "cpuValidCount": 0,
+      "cpuMeanPercentOneCore": null
+    },
+    {
+      "pid": 2538,
+      "start": "Sun Nov 1 11:08:07 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-rg",
+      "firstElapsedSeconds": 1105.7996,
+      "lastElapsedSeconds": 1109.9212,
+      "samples": 3,
+      "group": "horizon",
+      "initialReason": "child of 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 2,
+      "footprintMeanBytes": 3932472,
+      "footprintPeakBytes": 4161848,
+      "cpuValidCount": 1,
+      "cpuMeanPercentOneCore": 86.01823223700057
+    },
+    {
+      "pid": 4293,
+      "start": "Sun Nov 1 11:09:00 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-rg",
+      "firstElapsedSeconds": 1159.7858,
+      "lastElapsedSeconds": 1159.7858,
+      "samples": 1,
+      "group": "horizon",
+      "initialReason": "child of 34128",
+      "finalReason": "child of 34128",
+      "footprintValidCount": 1,
+      "footprintMeanBytes": 3850576,
+      "footprintPeakBytes": 3850576,
+      "cpuValidCount": 0,
+      "cpuMeanPercentOneCore": null
+    },
+    {
+      "pid": 4363,
+      "start": "Sun Nov 1 11:09:02 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-rg",
+      "firstElapsedSeconds": 1161.8498,
+      "lastElapsedSeconds": 1161.8498,
+      "samples": 1,
+      "group": "horizon",
+      "initialReason": "child of 34128",
+      "finalReason": "child of 34128",
+      "footprintValidCount": 1,
+      "footprintMeanBytes": 3719480,
+      "footprintPeakBytes": 3719480,
+      "cpuValidCount": 0,
+      "cpuMeanPercentOneCore": null
+    },
+    {
+      "pid": 6323,
+      "start": "Sun Nov 1 11:10:03 2026",
+      "executable": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-rg",
+      "firstElapsedSeconds": 1222.1344,
+      "lastElapsedSeconds": 1224.1899,
+      "samples": 2,
+      "group": "horizon",
+      "initialReason": "child of 34128",
+      "finalReason": "previously attributed; same process start",
+      "footprintValidCount": 2,
+      "footprintMeanBytes": 3834180,
+      "footprintPeakBytes": 3981648,
+      "cpuValidCount": 1,
+      "cpuMeanPercentOneCore": 109.19884695653653
+    }
+  ],
+  "unassignedWebKitCandidates": [
+    {
+      "pid": 863,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 645,
+      "samples": 867
+    },
+    {
+      "pid": 891,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 645,
+      "samples": 867
+    },
+    {
+      "pid": 909,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 645,
+      "samples": 867
+    },
+    {
+      "pid": 929,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732,
+      "samples": 867
+    },
+    {
+      "pid": 1364,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 732,
+      "samples": 867
+    },
+    {
+      "pid": 1365,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 732,
+      "samples": 867
+    },
+    {
+      "pid": 1427,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732,
+      "samples": 867
+    },
+    {
+      "pid": 1517,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732,
+      "samples": 867
+    }
+  ],
+  "unassignedAttribution": "All8 candidateWebKit identities have explicit responsibility645(CCSwitch)or732(Safari); foreign parent process snapshot attached. No Horizon-responsible candidate excluded.",
+  "resourceSnapshots": [
+    {
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 559.084,
+      "samples": 270,
+      "snapshot": null
+    },
+    {
+      "firstElapsedSeconds": 561.147,
+      "lastElapsedSeconds": 866.6589,
+      "samples": 148,
+      "snapshot": {
+        "capturedAt": "2026-11-01T02:51:21.122853+00:00",
+        "source": "docs/verification/results/editor-resume-20261101/export-before/horizon-diagnostics.json",
+        "sourceSha256": "cd72bcdfe57f7080d4b10c89bebc53c47bde5c11ce2c3e5e010c867c5c5df758",
+        "recordedInSamplerControlAt": "2026-11-01T02:59:02.592845+00:00",
+        "semantics": "Point-time export preview snapshot; repeated rows do not mean live counts and snapshot may age as GUI changes",
+        "diagnostics": {
+          "architecture": "aarch64",
+          "caches": {
+            "entityRevisionEntries": 1,
+            "idempotencyEntries": 10,
+            "operationPlans": 0,
+            "pathSearchPaths": 0,
+            "pathSearchProjects": 0,
+            "searchResultItems": 0,
+            "searchResultTasks": 0
+          },
+          "cursors": 0,
+          "frontend": {
+            "editor": {
+              "coldOpenMedianMs": 0,
+              "coldOpenP95Ms": 0,
+              "coldOpenSamples": 0,
+              "createdViews": 0,
+              "destroyedViews": 0,
+              "languageReadyP95Ms": 0,
+              "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+              "openMedianMs": 0,
+              "openP95Ms": 0,
+              "openSamples": 0,
+              "opens": [],
+              "schemaVersion": 1,
+              "viewCount": 0,
+              "warmOpenMedianMs": 0,
+              "warmOpenP95Ms": 0,
+              "warmOpenSamples": 0
+            },
+            "runtime": {
+              "activationErrorObservers": 1,
+              "cordisPluginListeners": 0,
+              "cordisRootListeners": 3,
+              "eventListenerDisposalFailures": 0,
+              "eventListeners": 13,
+              "eventListenersDisposing": 0,
+              "pluginInstances": 3,
+              "pluginInstancesDisposing": 0,
+              "pluginStoreObservers": 11,
+              "schemaVersion": 1,
+              "workerAbortListeners": 0,
+              "workerCommandObservers": 1,
+              "workerCommands": 0,
+              "workerEventListeners": 0,
+              "workerViews": 0
+            }
+          },
+          "openDocuments": 0,
+          "platform": "macos",
+          "subscriptions": 2,
+          "taskRecords": {
+            "active": 0,
+            "completedCached": 5,
+            "total": 5
+          },
+          "version": "0.1.0",
+          "watchers": 1
+        }
+      }
+    },
+    {
+      "firstElapsedSeconds": 868.748,
+      "lastElapsedSeconds": 1022.6436,
+      "samples": 75,
+      "snapshot": {
+        "capturedAt": "2026-11-01T03:03:39.125029+00:00",
+        "source": "docs/verification/results/editor-resume-20261101/export-cache/horizon-diagnostics.json",
+        "sourceSha256": "0c712a292aa14555f1fd97419cf9d273df773a6f28e2c1a5adf60842694b734e",
+        "recordedInSamplerControlAt": "2026-11-01T03:04:09.374832+00:00",
+        "semantics": "Point-time preview snapshot; sample repetition is not live counts",
+        "diagnostics": {
+          "architecture": "aarch64",
+          "caches": {
+            "entityRevisionEntries": 43,
+            "idempotencyEntries": 126,
+            "operationPlans": 0,
+            "pathSearchPaths": 10041,
+            "pathSearchProjects": 1,
+            "searchResultItems": 5,
+            "searchResultTasks": 4
+          },
+          "cursors": 3,
+          "frontend": {
+            "editor": {
+              "coldOpenMedianMs": 37,
+              "coldOpenP95Ms": 49,
+              "coldOpenSamples": 42,
+              "createdViews": 3,
+              "destroyedViews": 2,
+              "languageReadyP95Ms": 26,
+              "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+              "openMedianMs": 36.99999999976717,
+              "openP95Ms": 49,
+              "openSamples": 48,
+              "opens": [
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 1,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793501512268,
+                  "viewId": 1
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "id": 2,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501555576,
+                  "viewId": 2
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 22,
+                  "editorRevision": 0,
+                  "id": 3,
+                  "language": "plain",
+                  "languageReadyMs": 13,
+                  "startedAtMs": 1793501563066,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 32,
+                  "editorRevision": 1,
+                  "id": 4,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793501566940,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 0,
+                  "cache": "cold",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "id": 5,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501592273,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 0,
+                  "cache": "cold",
+                  "durationMs": 18,
+                  "editorRevision": 0,
+                  "id": 6,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501596058,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 7,
+                  "language": "plain",
+                  "languageReadyMs": 10,
+                  "startedAtMs": 1793501667458,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 41,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 1,
+                  "id": 8,
+                  "language": "plain",
+                  "startedAtMs": 1793501720992,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 35,
+                  "cache": "cold",
+                  "durationMs": 24,
+                  "editorRevision": 0,
+                  "id": 9,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793501733177,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 63,
+                  "cache": "warm",
+                  "durationMs": 23,
+                  "editorRevision": 3,
+                  "id": 10,
+                  "language": "plain",
+                  "startedAtMs": 1793501751197,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 42,
+                  "cache": "warm",
+                  "durationMs": 12,
+                  "editorRevision": 1,
+                  "id": 11,
+                  "language": "plain",
+                  "startedAtMs": 1793501751743,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 62,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 12,
+                  "language": "plain",
+                  "languageReadyMs": 26,
+                  "startedAtMs": 1793501768749,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 42,
+                  "cache": "warm",
+                  "durationMs": 13.00000000023283,
+                  "editorRevision": 1,
+                  "id": 13,
+                  "language": "plain",
+                  "startedAtMs": 1793501787597,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 146,
+                  "editorRevision": 0,
+                  "id": 14,
+                  "language": "plain",
+                  "languageReadyMs": 133,
+                  "startedAtMs": 1793501799482,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 30,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 15,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793501896961,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 16,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793501903489,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 38,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 18,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793501916103,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 28,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 19,
+                  "language": "plain",
+                  "languageReadyMs": 13,
+                  "startedAtMs": 1793501928921,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 38,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 1,
+                  "id": 21,
+                  "language": "plain",
+                  "startedAtMs": 1793502013489,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100000,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 22,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502015422,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100001,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 23,
+                  "language": "plain",
+                  "startedAtMs": 1793502016815,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100002,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 24,
+                  "language": "plain",
+                  "startedAtMs": 1793502018189,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 29,
+                  "editorRevision": 0,
+                  "id": 31,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793502132445,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 32,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502133128,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 16,
+                  "editorRevision": 0,
+                  "id": 33,
+                  "language": "plain",
+                  "languageReadyMs": 10,
+                  "startedAtMs": 1793502135019,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 36.99999999976717,
+                  "editorRevision": 0,
+                  "id": 34,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502164597,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 35,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502165930,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 27,
+                  "editorRevision": 0,
+                  "id": 36,
+                  "language": "plain",
+                  "languageReadyMs": 16.00000000023283,
+                  "startedAtMs": 1793502167370,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 42.99999999976717,
+                  "editorRevision": 0,
+                  "id": 37,
+                  "language": "plain",
+                  "languageReadyMs": 13.99999999976717,
+                  "startedAtMs": 1793502168713,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 38,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502170027,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 39,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502171330,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 51.99999999976717,
+                  "editorRevision": 0,
+                  "id": 40,
+                  "language": "plain",
+                  "languageReadyMs": 29.99999999976717,
+                  "startedAtMs": 1793502172733,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 41,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502174094,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 36,
+                  "editorRevision": 0,
+                  "id": 42,
+                  "language": "plain",
+                  "languageReadyMs": 19,
+                  "startedAtMs": 1793502175429,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 43,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502176725,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 44,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502178054,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 43,
+                  "editorRevision": 0,
+                  "id": 45,
+                  "language": "plain",
+                  "languageReadyMs": 22,
+                  "startedAtMs": 1793502179385,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 46,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793502180686,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 48,
+                  "editorRevision": 0,
+                  "id": 47,
+                  "language": "plain",
+                  "languageReadyMs": 24.00000000023283,
+                  "startedAtMs": 1793502182034,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 48,
+                  "language": "plain",
+                  "languageReadyMs": 23.99999999976717,
+                  "startedAtMs": 1793502183377,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 49,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502184709,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 28,
+                  "editorRevision": 0,
+                  "id": 50,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502186138,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 51,
+                  "language": "plain",
+                  "languageReadyMs": 22,
+                  "startedAtMs": 1793502187456,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 49,
+                  "editorRevision": 0,
+                  "id": 52,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502188795,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 42,
+                  "editorRevision": 0,
+                  "id": 53,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793502190151,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 29,
+                  "editorRevision": 0,
+                  "id": 54,
+                  "language": "plain",
+                  "languageReadyMs": 17.00000000023283,
+                  "startedAtMs": 1793502191418,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 49,
+                  "editorRevision": 0,
+                  "id": 55,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502192756,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "warm",
+                  "durationMs": 42.99999999976717,
+                  "editorRevision": 1,
+                  "id": 57,
+                  "language": "plain",
+                  "startedAtMs": 1793502217347,
+                  "viewId": 3
+                }
+              ],
+              "schemaVersion": 1,
+              "viewCount": 1,
+              "warmOpenMedianMs": 16,
+              "warmOpenP95Ms": 42.99999999976717,
+              "warmOpenSamples": 6
+            },
+            "runtime": {
+              "activationErrorObservers": 1,
+              "cordisPluginListeners": 0,
+              "cordisRootListeners": 3,
+              "eventListenerDisposalFailures": 0,
+              "eventListeners": 13,
+              "eventListenersDisposing": 0,
+              "pluginInstances": 4,
+              "pluginInstancesDisposing": 0,
+              "pluginStoreObservers": 11,
+              "schemaVersion": 1,
+              "workerAbortListeners": 0,
+              "workerCommandObservers": 1,
+              "workerCommands": 0,
+              "workerEventListeners": 0,
+              "workerViews": 0
+            }
+          },
+          "openDocuments": 37,
+          "platform": "macos",
+          "subscriptions": 2,
+          "taskRecords": {
+            "active": 0,
+            "completedCached": 10,
+            "total": 10
+          },
+          "version": "0.1.0",
+          "watchers": 1
+        }
+      }
+    },
+    {
+      "firstElapsedSeconds": 1024.7302,
+      "lastElapsedSeconds": 1348.9812,
+      "samples": 157,
+      "snapshot": {
+        "capturedAt": "2026-11-01T03:05:59.010479+00:00",
+        "source": "docs/verification/results/editor-resume-20261101/export-byte-cache/horizon-diagnostics.json",
+        "sourceSha256": "f2dfd66395019f9214ae1d36d799a13cb2331b787c00644847e1b0b2da098d4c",
+        "recordedInSamplerControlAt": "2026-11-01T03:06:45.150711+00:00",
+        "semantics": "Point-time preview snapshot; repeated samples do not meanlive counts",
+        "diagnostics": {
+          "architecture": "aarch64",
+          "caches": {
+            "entityRevisionEntries": 52,
+            "idempotencyEntries": 147,
+            "operationPlans": 0,
+            "pathSearchPaths": 10049,
+            "pathSearchProjects": 1,
+            "searchResultItems": 5,
+            "searchResultTasks": 4
+          },
+          "cursors": 3,
+          "frontend": {
+            "editor": {
+              "coldOpenMedianMs": 39,
+              "coldOpenP95Ms": 134,
+              "coldOpenSamples": 52,
+              "createdViews": 3,
+              "destroyedViews": 2,
+              "languageReadyP95Ms": 123,
+              "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+              "openMedianMs": 37,
+              "openP95Ms": 134,
+              "openSamples": 59,
+              "opens": [
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 1,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793501512268,
+                  "viewId": 1
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "id": 2,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501555576,
+                  "viewId": 2
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 22,
+                  "editorRevision": 0,
+                  "id": 3,
+                  "language": "plain",
+                  "languageReadyMs": 13,
+                  "startedAtMs": 1793501563066,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 32,
+                  "editorRevision": 1,
+                  "id": 4,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793501566940,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 0,
+                  "cache": "cold",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "id": 5,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501592273,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 0,
+                  "cache": "cold",
+                  "durationMs": 18,
+                  "editorRevision": 0,
+                  "id": 6,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501596058,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 7,
+                  "language": "plain",
+                  "languageReadyMs": 10,
+                  "startedAtMs": 1793501667458,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 41,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 1,
+                  "id": 8,
+                  "language": "plain",
+                  "startedAtMs": 1793501720992,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 35,
+                  "cache": "cold",
+                  "durationMs": 24,
+                  "editorRevision": 0,
+                  "id": 9,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793501733177,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 63,
+                  "cache": "warm",
+                  "durationMs": 23,
+                  "editorRevision": 3,
+                  "id": 10,
+                  "language": "plain",
+                  "startedAtMs": 1793501751197,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 42,
+                  "cache": "warm",
+                  "durationMs": 12,
+                  "editorRevision": 1,
+                  "id": 11,
+                  "language": "plain",
+                  "startedAtMs": 1793501751743,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 62,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 12,
+                  "language": "plain",
+                  "languageReadyMs": 26,
+                  "startedAtMs": 1793501768749,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 42,
+                  "cache": "warm",
+                  "durationMs": 13.00000000023283,
+                  "editorRevision": 1,
+                  "id": 13,
+                  "language": "plain",
+                  "startedAtMs": 1793501787597,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 146,
+                  "editorRevision": 0,
+                  "id": 14,
+                  "language": "plain",
+                  "languageReadyMs": 133,
+                  "startedAtMs": 1793501799482,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 30,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 15,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793501896961,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 16,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793501903489,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 38,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 18,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793501916103,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 28,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 19,
+                  "language": "plain",
+                  "languageReadyMs": 13,
+                  "startedAtMs": 1793501928921,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 38,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 1,
+                  "id": 21,
+                  "language": "plain",
+                  "startedAtMs": 1793502013489,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100000,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 22,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502015422,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100001,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 23,
+                  "language": "plain",
+                  "startedAtMs": 1793502016815,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100002,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 24,
+                  "language": "plain",
+                  "startedAtMs": 1793502018189,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 29,
+                  "editorRevision": 0,
+                  "id": 31,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793502132445,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 32,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502133128,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 16,
+                  "editorRevision": 0,
+                  "id": 33,
+                  "language": "plain",
+                  "languageReadyMs": 10,
+                  "startedAtMs": 1793502135019,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 36.99999999976717,
+                  "editorRevision": 0,
+                  "id": 34,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502164597,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 35,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502165930,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 27,
+                  "editorRevision": 0,
+                  "id": 36,
+                  "language": "plain",
+                  "languageReadyMs": 16.00000000023283,
+                  "startedAtMs": 1793502167370,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 42.99999999976717,
+                  "editorRevision": 0,
+                  "id": 37,
+                  "language": "plain",
+                  "languageReadyMs": 13.99999999976717,
+                  "startedAtMs": 1793502168713,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 38,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502170027,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 39,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502171330,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 51.99999999976717,
+                  "editorRevision": 0,
+                  "id": 40,
+                  "language": "plain",
+                  "languageReadyMs": 29.99999999976717,
+                  "startedAtMs": 1793502172733,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 41,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502174094,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 36,
+                  "editorRevision": 0,
+                  "id": 42,
+                  "language": "plain",
+                  "languageReadyMs": 19,
+                  "startedAtMs": 1793502175429,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 43,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502176725,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 44,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502178054,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 43,
+                  "editorRevision": 0,
+                  "id": 45,
+                  "language": "plain",
+                  "languageReadyMs": 22,
+                  "startedAtMs": 1793502179385,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 46,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793502180686,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 48,
+                  "editorRevision": 0,
+                  "id": 47,
+                  "language": "plain",
+                  "languageReadyMs": 24.00000000023283,
+                  "startedAtMs": 1793502182034,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 48,
+                  "language": "plain",
+                  "languageReadyMs": 23.99999999976717,
+                  "startedAtMs": 1793502183377,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 49,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502184709,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 28,
+                  "editorRevision": 0,
+                  "id": 50,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502186138,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 51,
+                  "language": "plain",
+                  "languageReadyMs": 22,
+                  "startedAtMs": 1793502187456,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 49,
+                  "editorRevision": 0,
+                  "id": 52,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502188795,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 42,
+                  "editorRevision": 0,
+                  "id": 53,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793502190151,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 29,
+                  "editorRevision": 0,
+                  "id": 54,
+                  "language": "plain",
+                  "languageReadyMs": 17.00000000023283,
+                  "startedAtMs": 1793502191418,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 49,
+                  "editorRevision": 0,
+                  "id": 55,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502192756,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "warm",
+                  "durationMs": 42.99999999976717,
+                  "editorRevision": 1,
+                  "id": 57,
+                  "language": "plain",
+                  "startedAtMs": 1793502217347,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 41,
+                  "cache": "cold",
+                  "durationMs": 35,
+                  "editorRevision": 1,
+                  "id": 58,
+                  "language": "plain",
+                  "languageReadyMs": 19,
+                  "startedAtMs": 1793502300964,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "warm",
+                  "durationMs": 34,
+                  "editorRevision": 1,
+                  "id": 60,
+                  "language": "plain",
+                  "startedAtMs": 1793502302380,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 134,
+                  "editorRevision": 0,
+                  "id": 61,
+                  "language": "plain",
+                  "languageReadyMs": 123,
+                  "startedAtMs": 1793502345363,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 133,
+                  "editorRevision": 0,
+                  "id": 62,
+                  "language": "plain",
+                  "languageReadyMs": 112,
+                  "startedAtMs": 1793502346911,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 133,
+                  "editorRevision": 0,
+                  "id": 63,
+                  "language": "plain",
+                  "languageReadyMs": 118,
+                  "startedAtMs": 1793502348379,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 131,
+                  "editorRevision": 0,
+                  "id": 64,
+                  "language": "plain",
+                  "languageReadyMs": 108,
+                  "startedAtMs": 1793502349929,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 130,
+                  "editorRevision": 0,
+                  "id": 65,
+                  "language": "plain",
+                  "languageReadyMs": 120,
+                  "startedAtMs": 1793502351464,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 129,
+                  "editorRevision": 0,
+                  "id": 66,
+                  "language": "plain",
+                  "languageReadyMs": 117,
+                  "startedAtMs": 1793502352919,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 134,
+                  "editorRevision": 0,
+                  "id": 67,
+                  "language": "plain",
+                  "languageReadyMs": 123.00000000023284,
+                  "startedAtMs": 1793502354368,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 120,
+                  "editorRevision": 0,
+                  "id": 68,
+                  "language": "plain",
+                  "languageReadyMs": 109,
+                  "startedAtMs": 1793502355836,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 136,
+                  "editorRevision": 0,
+                  "id": 69,
+                  "language": "plain",
+                  "languageReadyMs": 117.00000000023284,
+                  "startedAtMs": 1793502357287,
+                  "viewId": 3
+                }
+              ],
+              "schemaVersion": 1,
+              "viewCount": 1,
+              "warmOpenMedianMs": 16,
+              "warmOpenP95Ms": 42.99999999976717,
+              "warmOpenSamples": 7
+            },
+            "runtime": {
+              "activationErrorObservers": 1,
+              "cordisPluginListeners": 0,
+              "cordisRootListeners": 3,
+              "eventListenerDisposalFailures": 0,
+              "eventListeners": 13,
+              "eventListenersDisposing": 0,
+              "pluginInstances": 4,
+              "pluginInstancesDisposing": 0,
+              "pluginStoreObservers": 11,
+              "schemaVersion": 1,
+              "workerAbortListeners": 0,
+              "workerCommandObservers": 1,
+              "workerCommands": 0,
+              "workerEventListeners": 0,
+              "workerViews": 0
+            }
+          },
+          "openDocuments": 9,
+          "platform": "macos",
+          "subscriptions": 2,
+          "taskRecords": {
+            "active": 0,
+            "completedCached": 11,
+            "total": 11
+          },
+          "version": "0.1.0",
+          "watchers": 1
+        }
+      }
+    },
+    {
+      "firstElapsedSeconds": 1351.0645,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 217,
+      "snapshot": {
+        "capturedAt": "2026-11-01T03:11:13.530473+00:00",
+        "source": "docs/verification/results/editor-resume-20261101/export-hot24/horizon-diagnostics.json",
+        "sourceSha256": "2081163939a9c6b542c00654b93659969c25bf44da61bc8e13a87bdc4691c551",
+        "recordedInSamplerControlAt": "2026-11-01T03:12:12.517702+00:00",
+        "semantics": "Point-time diagnostic preview snapshot; repeatedrows notlive counts",
+        "diagnostics": {
+          "architecture": "aarch64",
+          "caches": {
+            "entityRevisionEntries": 55,
+            "idempotencyEntries": 155,
+            "operationPlans": 0,
+            "pathSearchPaths": 110000,
+            "pathSearchProjects": 2,
+            "searchResultItems": 2069,
+            "searchResultTasks": 4
+          },
+          "cursors": 3,
+          "frontend": {
+            "editor": {
+              "coldOpenMedianMs": 39,
+              "coldOpenP95Ms": 134,
+              "coldOpenSamples": 58,
+              "createdViews": 5,
+              "destroyedViews": 4,
+              "languageReadyP95Ms": 123,
+              "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+              "openMedianMs": 30.00000000046566,
+              "openP95Ms": 133,
+              "openSamples": 90,
+              "opens": [
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 1,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793501512268,
+                  "viewId": 1
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "id": 2,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501555576,
+                  "viewId": 2
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 22,
+                  "editorRevision": 0,
+                  "id": 3,
+                  "language": "plain",
+                  "languageReadyMs": 13,
+                  "startedAtMs": 1793501563066,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 32,
+                  "editorRevision": 1,
+                  "id": 4,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793501566940,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 0,
+                  "cache": "cold",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "id": 5,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501592273,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 0,
+                  "cache": "cold",
+                  "durationMs": 18,
+                  "editorRevision": 0,
+                  "id": 6,
+                  "language": "plain",
+                  "languageReadyMs": 8,
+                  "startedAtMs": 1793501596058,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 18,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 7,
+                  "language": "plain",
+                  "languageReadyMs": 10,
+                  "startedAtMs": 1793501667458,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 41,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 1,
+                  "id": 8,
+                  "language": "plain",
+                  "startedAtMs": 1793501720992,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 35,
+                  "cache": "cold",
+                  "durationMs": 24,
+                  "editorRevision": 0,
+                  "id": 9,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793501733177,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 63,
+                  "cache": "warm",
+                  "durationMs": 23,
+                  "editorRevision": 3,
+                  "id": 10,
+                  "language": "plain",
+                  "startedAtMs": 1793501751197,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 42,
+                  "cache": "warm",
+                  "durationMs": 12,
+                  "editorRevision": 1,
+                  "id": 11,
+                  "language": "plain",
+                  "startedAtMs": 1793501751743,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 62,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 12,
+                  "language": "plain",
+                  "languageReadyMs": 26,
+                  "startedAtMs": 1793501768749,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 42,
+                  "cache": "warm",
+                  "durationMs": 13.00000000023283,
+                  "editorRevision": 1,
+                  "id": 13,
+                  "language": "plain",
+                  "startedAtMs": 1793501787597,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 146,
+                  "editorRevision": 0,
+                  "id": 14,
+                  "language": "plain",
+                  "languageReadyMs": 133,
+                  "startedAtMs": 1793501799482,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 30,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 15,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793501896961,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 10,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 16,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793501903489,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 38,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 18,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793501916103,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 28,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 19,
+                  "language": "plain",
+                  "languageReadyMs": 13,
+                  "startedAtMs": 1793501928921,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 38,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 1,
+                  "id": 21,
+                  "language": "plain",
+                  "startedAtMs": 1793502013489,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100000,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 22,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502015422,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100001,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 23,
+                  "language": "plain",
+                  "startedAtMs": 1793502016815,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 100002,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 24,
+                  "language": "plain",
+                  "startedAtMs": 1793502018189,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 29,
+                  "editorRevision": 0,
+                  "id": 31,
+                  "language": "plain",
+                  "languageReadyMs": 12,
+                  "startedAtMs": 1793502132445,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "id": 32,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502133128,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 16,
+                  "editorRevision": 0,
+                  "id": 33,
+                  "language": "plain",
+                  "languageReadyMs": 10,
+                  "startedAtMs": 1793502135019,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 36.99999999976717,
+                  "editorRevision": 0,
+                  "id": 34,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502164597,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 35,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502165930,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 27,
+                  "editorRevision": 0,
+                  "id": 36,
+                  "language": "plain",
+                  "languageReadyMs": 16.00000000023283,
+                  "startedAtMs": 1793502167370,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 42.99999999976717,
+                  "editorRevision": 0,
+                  "id": 37,
+                  "language": "plain",
+                  "languageReadyMs": 13.99999999976717,
+                  "startedAtMs": 1793502168713,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 38,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502170027,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 39,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502171330,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "cold",
+                  "durationMs": 51.99999999976717,
+                  "editorRevision": 0,
+                  "id": 40,
+                  "language": "plain",
+                  "languageReadyMs": 29.99999999976717,
+                  "startedAtMs": 1793502172733,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "id": 41,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502174094,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 36,
+                  "editorRevision": 0,
+                  "id": 42,
+                  "language": "plain",
+                  "languageReadyMs": 19,
+                  "startedAtMs": 1793502175429,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 43,
+                  "language": "plain",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502176725,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 44,
+                  "language": "plain",
+                  "languageReadyMs": 20,
+                  "startedAtMs": 1793502178054,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 43,
+                  "editorRevision": 0,
+                  "id": 45,
+                  "language": "plain",
+                  "languageReadyMs": 22,
+                  "startedAtMs": 1793502179385,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 34,
+                  "editorRevision": 0,
+                  "id": 46,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793502180686,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 48,
+                  "editorRevision": 0,
+                  "id": 47,
+                  "language": "plain",
+                  "languageReadyMs": 24.00000000023283,
+                  "startedAtMs": 1793502182034,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 39,
+                  "editorRevision": 0,
+                  "id": 48,
+                  "language": "plain",
+                  "languageReadyMs": 23.99999999976717,
+                  "startedAtMs": 1793502183377,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "id": 49,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502184709,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 28,
+                  "editorRevision": 0,
+                  "id": 50,
+                  "language": "plain",
+                  "languageReadyMs": 16,
+                  "startedAtMs": 1793502186138,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 41,
+                  "editorRevision": 0,
+                  "id": 51,
+                  "language": "plain",
+                  "languageReadyMs": 22,
+                  "startedAtMs": 1793502187456,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 49,
+                  "editorRevision": 0,
+                  "id": 52,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502188795,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 42,
+                  "editorRevision": 0,
+                  "id": 53,
+                  "language": "plain",
+                  "languageReadyMs": 18,
+                  "startedAtMs": 1793502190151,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 29,
+                  "editorRevision": 0,
+                  "id": 54,
+                  "language": "plain",
+                  "languageReadyMs": 17.00000000023283,
+                  "startedAtMs": 1793502191418,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 15,
+                  "cache": "cold",
+                  "durationMs": 49,
+                  "editorRevision": 0,
+                  "id": 55,
+                  "language": "plain",
+                  "languageReadyMs": 21,
+                  "startedAtMs": 1793502192756,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "warm",
+                  "durationMs": 42.99999999976717,
+                  "editorRevision": 1,
+                  "id": 57,
+                  "language": "plain",
+                  "startedAtMs": 1793502217347,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 41,
+                  "cache": "cold",
+                  "durationMs": 35,
+                  "editorRevision": 1,
+                  "id": 58,
+                  "language": "plain",
+                  "languageReadyMs": 19,
+                  "startedAtMs": 1793502300964,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "warm",
+                  "durationMs": 34,
+                  "editorRevision": 1,
+                  "id": 60,
+                  "language": "plain",
+                  "startedAtMs": 1793502302380,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 134,
+                  "editorRevision": 0,
+                  "id": 61,
+                  "language": "plain",
+                  "languageReadyMs": 123,
+                  "startedAtMs": 1793502345363,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 133,
+                  "editorRevision": 0,
+                  "id": 62,
+                  "language": "plain",
+                  "languageReadyMs": 112,
+                  "startedAtMs": 1793502346911,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 133,
+                  "editorRevision": 0,
+                  "id": 63,
+                  "language": "plain",
+                  "languageReadyMs": 118,
+                  "startedAtMs": 1793502348379,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 131,
+                  "editorRevision": 0,
+                  "id": 64,
+                  "language": "plain",
+                  "languageReadyMs": 108,
+                  "startedAtMs": 1793502349929,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 130,
+                  "editorRevision": 0,
+                  "id": 65,
+                  "language": "plain",
+                  "languageReadyMs": 120,
+                  "startedAtMs": 1793502351464,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 129,
+                  "editorRevision": 0,
+                  "id": 66,
+                  "language": "plain",
+                  "languageReadyMs": 117,
+                  "startedAtMs": 1793502352919,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 134,
+                  "editorRevision": 0,
+                  "id": 67,
+                  "language": "plain",
+                  "languageReadyMs": 123.00000000023284,
+                  "startedAtMs": 1793502354368,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 120,
+                  "editorRevision": 0,
+                  "id": 68,
+                  "language": "plain",
+                  "languageReadyMs": 109,
+                  "startedAtMs": 1793502355836,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 9437184,
+                  "cache": "cold",
+                  "durationMs": 136,
+                  "editorRevision": 0,
+                  "id": 69,
+                  "language": "plain",
+                  "languageReadyMs": 117.00000000023284,
+                  "startedAtMs": 1793502357287,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 14,
+                  "cache": "warm",
+                  "durationMs": 28,
+                  "editorRevision": 1,
+                  "id": 71,
+                  "language": "plain",
+                  "startedAtMs": 1793502406697,
+                  "viewId": 3
+                },
+                {
+                  "byteLength": 68,
+                  "cache": "cold",
+                  "durationMs": 54,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 65,
+                  "id": 72,
+                  "language": "ts",
+                  "languageReadyMs": 46,
+                  "startedAtMs": 1793502460028,
+                  "viewId": 4
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "cold",
+                  "durationMs": 30.00000000046566,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 30.00000000046566,
+                  "id": 73,
+                  "language": "ts",
+                  "languageReadyMs": 15,
+                  "startedAtMs": 1793502610975,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "cold",
+                  "durationMs": 26.99999999953434,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 26.99999999953434,
+                  "id": 74,
+                  "language": "ts",
+                  "languageReadyMs": 11.99999999953434,
+                  "startedAtMs": 1793502612371,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "cold",
+                  "durationMs": 37,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 37,
+                  "id": 75,
+                  "language": "ts",
+                  "languageReadyMs": 17,
+                  "startedAtMs": 1793502613762,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "cold",
+                  "durationMs": 38,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 38,
+                  "id": 76,
+                  "language": "ts",
+                  "languageReadyMs": 17,
+                  "startedAtMs": 1793502615148,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "cold",
+                  "durationMs": 40,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 40,
+                  "id": 77,
+                  "language": "ts",
+                  "languageReadyMs": 19,
+                  "startedAtMs": 1793502616520,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 26,
+                  "id": 78,
+                  "language": "ts",
+                  "startedAtMs": 1793502650335,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 16,
+                  "id": 79,
+                  "language": "ts",
+                  "startedAtMs": 1793502650906,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 16.00000000046566,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 16.00000000046566,
+                  "id": 80,
+                  "language": "ts",
+                  "startedAtMs": 1793502651518,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 18,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 18,
+                  "id": 81,
+                  "language": "ts",
+                  "startedAtMs": 1793502652077,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 26.00000000046566,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 26.00000000046566,
+                  "id": 82,
+                  "language": "ts",
+                  "startedAtMs": 1793502652682,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 15,
+                  "id": 83,
+                  "language": "ts",
+                  "startedAtMs": 1793502653294,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 24,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 24,
+                  "id": 84,
+                  "language": "ts",
+                  "startedAtMs": 1793502653912,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 23,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 23,
+                  "id": 85,
+                  "language": "ts",
+                  "startedAtMs": 1793502654513,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 13,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 13,
+                  "id": 86,
+                  "language": "ts",
+                  "startedAtMs": 1793502655111,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 26,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 26,
+                  "id": 87,
+                  "language": "ts",
+                  "startedAtMs": 1793502655710,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 23,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 23,
+                  "id": 88,
+                  "language": "ts",
+                  "startedAtMs": 1793502656274,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 16,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 16,
+                  "id": 89,
+                  "language": "ts",
+                  "startedAtMs": 1793502656908,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 15,
+                  "id": 90,
+                  "language": "ts",
+                  "startedAtMs": 1793502657509,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 24,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 24,
+                  "id": 91,
+                  "language": "ts",
+                  "startedAtMs": 1793502658100,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 25,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 25,
+                  "id": 92,
+                  "language": "ts",
+                  "startedAtMs": 1793502658700,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 24.99999999953434,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 24.99999999953434,
+                  "id": 93,
+                  "language": "ts",
+                  "startedAtMs": 1793502659312,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 18,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 18,
+                  "id": 94,
+                  "language": "ts",
+                  "startedAtMs": 1793502659921,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 27,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 27,
+                  "id": 95,
+                  "language": "ts",
+                  "startedAtMs": 1793502660539,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 15,
+                  "id": 96,
+                  "language": "ts",
+                  "startedAtMs": 1793502661163,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 15,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 15,
+                  "id": 97,
+                  "language": "ts",
+                  "startedAtMs": 1793502661762,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 25,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 25,
+                  "id": 98,
+                  "language": "ts",
+                  "startedAtMs": 1793502662341,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 26.00000000046566,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 26.00000000046566,
+                  "id": 99,
+                  "language": "ts",
+                  "startedAtMs": 1793502662941,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 23,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 23,
+                  "id": 100,
+                  "language": "ts",
+                  "startedAtMs": 1793502663543,
+                  "viewId": 5
+                },
+                {
+                  "byteLength": 184320,
+                  "cache": "warm",
+                  "durationMs": 25,
+                  "editorRevision": 0,
+                  "highlightReadyMs": 25,
+                  "id": 101,
+                  "language": "ts",
+                  "startedAtMs": 1793502664142,
+                  "viewId": 5
+                }
+              ],
+              "schemaVersion": 1,
+              "viewCount": 1,
+              "warmOpenMedianMs": 23,
+              "warmOpenP95Ms": 34,
+              "warmOpenSamples": 32
+            },
+            "runtime": {
+              "activationErrorObservers": 1,
+              "cordisPluginListeners": 0,
+              "cordisRootListeners": 3,
+              "eventListenerDisposalFailures": 0,
+              "eventListeners": 13,
+              "eventListenersDisposing": 0,
+              "pluginInstances": 11,
+              "pluginInstancesDisposing": 0,
+              "pluginStoreObservers": 11,
+              "schemaVersion": 1,
+              "workerAbortListeners": 0,
+              "workerCommandObservers": 1,
+              "workerCommands": 0,
+              "workerEventListeners": 0,
+              "workerViews": 0
+            }
+          },
+          "openDocuments": 7,
+          "platform": "macos",
+          "subscriptions": 2,
+          "taskRecords": {
+            "active": 0,
+            "completedCached": 16,
+            "total": 16
+          },
+          "version": "0.1.0",
+          "watchers": 3
+        }
+      }
+    }
+  ],
+  "invalidTotalSamples": [
+    {
+      "sampleIndex": 0,
+      "elapsedSeconds": 0.0002,
+      "totals": {
+        "process_count": 9,
+        "rss_bytes": 560939008,
+        "footprint_bytes": 188733056,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 34128,
+          "error": null,
+          "footprintBytes": 36963384,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 34195,
+          "error": null,
+          "footprintBytes": 18203344,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 34196,
+          "error": null,
+          "footprintBytes": 5734904,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 34197,
+          "error": null,
+          "footprintBytes": 55509712,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 34198,
+          "error": null,
+          "footprintBytes": 3047856,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 34199,
+          "error": null,
+          "footprintBytes": 7504424,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 40868,
+          "error": null,
+          "footprintBytes": 46187264,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 40869,
+          "error": null,
+          "footprintBytes": 4669848,
+          "cpuPercentOneCore": null
+        },
+        {
+          "pid": 40938,
+          "error": null,
+          "footprintBytes": 10912320,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 8,
+      "elapsedSeconds": 16.5108,
+      "totals": {
+        "process_count": 10,
+        "rss_bytes": 580714496,
+        "footprint_bytes": 232134896,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 66058,
+          "error": null,
+          "footprintBytes": 10682944,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 42,
+      "elapsedSeconds": 87.3615,
+      "totals": {
+        "process_count": 11,
+        "rss_bytes": 631898112,
+        "footprint_bytes": 263494328,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 68509,
+          "error": null,
+          "footprintBytes": 10584472,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 274,
+      "elapsedSeconds": 569.481,
+      "totals": {
+        "process_count": 12,
+        "rss_bytes": 1135755264,
+        "footprint_bytes": 449994528,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 84288,
+          "error": null,
+          "footprintBytes": 17891664,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 532,
+      "elapsedSeconds": 1105.7996,
+      "totals": {
+        "process_count": 12,
+        "rss_bytes": 1340309504,
+        "footprint_bytes": 443555784,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 2538,
+          "error": null,
+          "footprintBytes": 3703096,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 534,
+      "elapsedSeconds": 1109.9212,
+      "totals": {
+        "process_count": 12,
+        "rss_bytes": 1135591424,
+        "footprint_bytes": null,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 2538,
+          "error": null,
+          "footprintBytes": null,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 558,
+      "elapsedSeconds": 1159.7858,
+      "totals": {
+        "process_count": 12,
+        "rss_bytes": 1136443392,
+        "footprint_bytes": 703356896,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 4293,
+          "error": null,
+          "footprintBytes": 3850576,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 559,
+      "elapsedSeconds": 1161.8498,
+      "totals": {
+        "process_count": 12,
+        "rss_bytes": 1141014528,
+        "footprint_bytes": 723673032,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 4363,
+          "error": null,
+          "footprintBytes": 3719480,
+          "cpuPercentOneCore": null
+        }
+      ]
+    },
+    {
+      "sampleIndex": 588,
+      "elapsedSeconds": 1222.1344,
+      "totals": {
+        "process_count": 12,
+        "rss_bytes": 1153908736,
+        "footprint_bytes": 734945224,
+        "cpu_percent_one_core": null
+      },
+      "processErrors": [
+        {
+          "pid": 6323,
+          "error": null,
+          "footprintBytes": 3686712,
+          "cpuPercentOneCore": null
+        }
+      ]
+    }
+  ],
+  "phases": {
+    "editor-native-workflow": {
+      "firstElapsedSeconds": 0.0002,
+      "lastElapsedSeconds": 53.7666,
+      "samples": 27
+    },
+    "editor-fixture-workspace": {
+      "firstElapsedSeconds": 55.8521,
+      "lastElapsedSeconds": 559.084,
+      "samples": 243
+    },
+    "editor-file-workflows": {
+      "firstElapsedSeconds": 561.147,
+      "lastElapsedSeconds": 793.9674,
+      "samples": 113
+    },
+    "editor-cache-and-limits": {
+      "firstElapsedSeconds": 796.0211,
+      "lastElapsedSeconds": 1263.6566,
+      "samples": 226
+    },
+    "editor-reading-prewarm": {
+      "firstElapsedSeconds": 1265.7298,
+      "lastElapsedSeconds": 1307.2859,
+      "samples": 21
+    },
+    "editor-hot24": {
+      "firstElapsedSeconds": 1309.3732,
+      "lastElapsedSeconds": 1348.9812,
+      "samples": 20
+    },
+    "editor-hot24-complete": {
+      "firstElapsedSeconds": 1351.0645,
+      "lastElapsedSeconds": 1396.858,
+      "samples": 23
+    },
+    "appearance-baseline-8": {
+      "firstElapsedSeconds": 1398.9274,
+      "lastElapsedSeconds": 1800.0051,
+      "samples": 194
+    }
+  },
+  "summary": {
+    "sample_count": 867,
+    "requested_duration_seconds": 1800.0,
+    "observed_duration_seconds": 1800.0051,
+    "physical_footprint_bytes": {
+      "count": 866,
+      "median": 378346996.0,
+      "p95": 695115408,
+      "max": 781393600,
+      "mean": 389320121.7921478
+    },
+    "stable_after_60s_footprint_bytes": {
+      "count": 837,
+      "median": 384458240,
+      "p95": 695115408,
+      "max": 781393600,
+      "mean": 395364627.8422939
+    },
+    "stable_after_60s_rss_sum_bytes": {
+      "count": 838,
+      "median": 1144905728.0,
+      "p95": 1299677184,
+      "max": 1395294208,
+      "mean": 1068848814.7398568
+    },
+    "stable_after_60s_cpu_percent_one_core": {
+      "count": 831,
+      "median": 7.627643374150765,
+      "p95": 34.41516162940029,
+      "max": 215.38675481567887,
+      "mean": 11.534159711555596
+    },
+    "after_60s_sample_count": 838,
+    "after_60s_observed_seconds": 1739.9838,
+    "after_60s_interpretation": "Excludes warm-up by time only; a steady-state claim also requires unchanged scenario and no GUI actions during this window.",
+    "rss_sum_bytes": {
+      "count": 867,
+      "median": 1142063104,
+      "p95": 1299611648,
+      "max": 1395294208,
+      "mean": 1052710531.6908882
+    },
+    "cpu_percent_one_core": {
+      "count": 858,
+      "median": 7.863927046668747,
+      "p95": 34.9909830281908,
+      "max": 215.38675481567887,
+      "mean": 11.684510872826975
+    },
+    "footprint_linear_slope_bytes_per_minute": 9877789.93317096,
+    "first_minute_footprint_bytes": {
+      "count": 29,
+      "median": 217110792,
+      "p95": 239524104,
+      "max": 247847176,
+      "mean": 214863171.31034482
+    },
+    "last_minute_footprint_bytes": {
+      "count": 30,
+      "median": 421281544.0,
+      "p95": 465248008,
+      "max": 490430216,
+      "mean": 429783201.6
+    },
+    "status": "measured; acceptance requires scenario, attribution and release-build review"
+  },
+  "nativeActionEvidence": [
+    "docs/verification/results/editor-resume-20261101/actions.jsonl",
+    "docs/verification/results/editor-resume-20261101/summary.json",
+    "docs/verification/results/editor-resume-20261101/hot24-actions.json"
+  ],
+  "interpretation": [
+    "Same unchanged release remained present1800.0051s; all attributed process identities retained, including OpenSavePanel40868 and later SafariPlatform66058/MTLCompiler68509.",
+    "GUI scenes and loaded data changed: welcome, projects/drafts,100k search,25clean files,8x9MiB,reading tabs,8layout captures. Whole-run slope and start/end memory are descriptive, not same-state leak acceptance.",
+    "Controlphase labels are report-time markers. Exacthot24actions03:10:50.148Z–03:11:04.598Z override late phase-file labeling; no duration inferred from phase label.",
+    "Resources are4 distinct actual point-time F09 snapshots plus initiallynull, carried forward after receipt; not live per-row listener measurements and never backfilled.",
+    "Fixturegeneration early and isolatedAppKitprobe compile later are external machine load, not Horizon process accounting or fixed-idle timing.",
+    "No Pi/provider/session benchmark, no final-build30m acceptance, no idleCPU budget and no post-quit release proof from this run."
+  ],
+  "rawFiles": [
+    {
+      "path": "cycle-output.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "foreign-responsible-processes.txt",
+      "bytes": 226,
+      "sha256": "8cc2feda62c0a48de665747327d75f1acc51f927dc169a0e858f8554a01b501e"
+    },
+    {
+      "path": "metadata.json",
+      "bytes": 3304,
+      "sha256": "93196c5275b4329f37e4122348840b7b2a66dbaff78c3257fefc10d0c12d0a41"
+    },
+    {
+      "path": "samples.jsonl",
+      "bytes": 13950078,
+      "sha256": "db4e81cff6d442a0d0a600cf2b3dc11a15a05eb597c0652a1e45a81f74995818"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 1805,
+      "sha256": "66c75bb49f53dce8ba21146cc76d70eeb03936bb0eae3906a8e28c45845f0655"
+    }
+  ],
+  "fixtureManifest": {
+    "path": ".work/editor-resume/fixture.json",
+    "sha256": "8b92ae957264f60fbcde398b61a82c23877c09718e8fba5c34bd726a0232c75e",
+    "scope": "Created after collector start; raw collector metadata fixture remains null. Actual editor native action log and retained fixture manifest provide scenario provenance."
+  }
+}

@@ -1,0 +1,1031 @@
+{
+  "auditedAt": "2026-11-01T07:05:21.158160+00:00",
+  "method": "Reuse independent8-new-native/8-reference review; verify24 artifact hashes,8 capturebindings and exactAX size values. Read normative layout-default permission and two manifest declarations. No repeated images or GUI/product tests.",
+  "reviewSha256": "e64847f266693934eb035dea37d452f5bd8c9b680174d2191ff7b286d2d975d8",
+  "checks": [
+    {
+      "case": "mist/F10",
+      "capture": {
+        "name": "F10-upper-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "98e04e534cdd05dbb8f6e95752c6e7a13156031defc471d8c8b74534749e9bd3",
+        "axSha256": "b8d0f68c23b9532f5615869e5ff8633011e9edf416d789c7bc3a3765fe7b780d",
+        "capturedAt": "2026-11-01T06:56:37.217Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement actualfirstsize rows sidebar/navigation/topbar/tab/auxiliary; olderupperjump omitted these"
+      },
+      "actualSha256": "98e04e534cdd05dbb8f6e95752c6e7a13156031defc471d8c8b74534749e9bd3",
+      "axSha256": "b8d0f68c23b9532f5615869e5ff8633011e9edf416d789c7bc3a3765fe7b780d",
+      "referenceSha256": "4111c21f85da1519053f8dce876630100357335c466cd7945733d4d4ec875164",
+      "previous": {
+        "notCovered": [],
+        "conditionMismatches": [],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "mist/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "mist/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "mist/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "mist/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320,
+        "项目导航": 64
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "paper/F10",
+      "capture": {
+        "name": "F10-upper-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "5836e56ae331506c6ddea0d8c86b14ee709f2f0fb20846c45ac37fbf9260b4d5",
+        "axSha256": "16560a4e0f2a54d5c820180cf2397e0d93f5493c29aef195726d0b5657c1ddd9",
+        "capturedAt": "2026-11-01T06:57:15.166Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "5836e56ae331506c6ddea0d8c86b14ee709f2f0fb20846c45ac37fbf9260b4d5",
+      "axSha256": "16560a4e0f2a54d5c820180cf2397e0d93f5493c29aef195726d0b5657c1ddd9",
+      "referenceSha256": "ebe27f338be92cba6e1d5a31f7e5240e2215a548e3d46a3807e099aa7ab48721",
+      "previous": {
+        "notCovered": [],
+        "conditionMismatches": [],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "paper/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "paper/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "paper/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "paper/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "orbit/F10",
+      "capture": {
+        "name": "F10-upper-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "a37faa52a45ff7365b30a98e6b3027ed615422f96d0ead3437e310139dd7b727",
+        "axSha256": "491a0daa09dd81cd213f995919a383bf6672ac2f44addd6a169ea38a8a25d1d8",
+        "capturedAt": "2026-11-01T06:57:29.537Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "a37faa52a45ff7365b30a98e6b3027ed615422f96d0ead3437e310139dd7b727",
+      "axSha256": "491a0daa09dd81cd213f995919a383bf6672ac2f44addd6a169ea38a8a25d1d8",
+      "referenceSha256": "feb9e26a0483035cd8b11490ead1ab06914ed2b5efa1427014f026ce3305b04c",
+      "previous": {
+        "notCovered": [],
+        "conditionMismatches": [
+          {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard31px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          }
+        ],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "orbit/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "orbit/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "orbit/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "orbit/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "graphite/F10",
+      "capture": {
+        "name": "F10-upper-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "810fcbf9501f1f2d39234e899bcbc6aa0fbbb2393b5ac38732d54d5b23c9a18e",
+        "axSha256": "806c5560d62bbfa5b3b885ec020f05088c575f8c5a1f32f766641300074e2483",
+        "capturedAt": "2026-11-01T06:57:52.521Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (28px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "810fcbf9501f1f2d39234e899bcbc6aa0fbbb2393b5ac38732d54d5b23c9a18e",
+      "axSha256": "806c5560d62bbfa5b3b885ec020f05088c575f8c5a1f32f766641300074e2483",
+      "referenceSha256": "3a404aeaf420459298cb6f0eeb4ed09deeed31a56255cc31d13474344a7e5257",
+      "previous": {
+        "notCovered": [
+          "区域尺寸标题/当前布局说明",
+          "文件侧栏与顶部区域的目视排版",
+          "项目导航尺寸的目视排版"
+        ],
+        "conditionMismatches": [
+          {
+            "kind": "scroll-region",
+            "actual": "Both retained primary and supplemental captures show the lower region",
+            "reference": "Reference upper controls and heading must be visible for that region comparison",
+            "observation": "F10-graphite.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+          }
+        ],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "graphite/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "graphite/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "graphite/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "graphite/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "pending-upper-capture",
+            "expected": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+            "actual": "F10-graphite.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          },
+          {
+            "category": "value-difference-unresolved",
+            "expected": "当前AX项目导航值与参考不同，原生上区尚未看见，不能直接接受为批准修订。",
+            "actual": "AX项目导航为55px，参考图64px；需与已批准布局几何规范核对后定性，不要求盲改为64。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320,
+        "项目导航": 55
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "celadon/F10",
+      "capture": {
+        "name": "F10-upper-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "8e4c03b0c4e818e902a2b52dec5f93b752972f74916c04e7829ba3b899878aa9",
+        "axSha256": "bbf685ffb4451fe0891f1ec01728a7b69b29edbd95aec8c80bbd2f06b7390773",
+        "capturedAt": "2026-11-01T06:58:05.122Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "8e4c03b0c4e818e902a2b52dec5f93b752972f74916c04e7829ba3b899878aa9",
+      "axSha256": "bbf685ffb4451fe0891f1ec01728a7b69b29edbd95aec8c80bbd2f06b7390773",
+      "referenceSha256": "b2b31411005248a3744dc4eb07a8435f4b79e90ef200977dc90df70e219891de",
+      "previous": {
+        "notCovered": [
+          "区域尺寸标题/当前布局说明",
+          "文件侧栏与顶部区域的目视排版"
+        ],
+        "conditionMismatches": [
+          {
+            "kind": "scroll-region",
+            "actual": "Both retained primary and supplemental captures show the lower region",
+            "reference": "Reference upper controls and heading must be visible for that region comparison",
+            "observation": "F10-celadon.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+          }
+        ],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "celadon/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "celadon/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "celadon/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "celadon/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "pending-upper-capture",
+            "expected": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+            "actual": "F10-celadon.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "iris/F10",
+      "capture": {
+        "name": "F10-upper-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "74fda5d892a960a8e0a9130b6ccc8526321a0b976006d3ab921240fa1c3d9766",
+        "axSha256": "cb89e37cbfffc5abd3552527de0d4145d6bfc03eadb450ab4bc9390cb82062d2",
+        "capturedAt": "2026-11-01T06:58:18.004Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "spacious (38px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "74fda5d892a960a8e0a9130b6ccc8526321a0b976006d3ab921240fa1c3d9766",
+      "axSha256": "cb89e37cbfffc5abd3552527de0d4145d6bfc03eadb450ab4bc9390cb82062d2",
+      "referenceSha256": "5f1044e41bc8ba8087e845900ac5970982c04b54dadd9a812db75210a69f5661",
+      "previous": {
+        "notCovered": [
+          "区域尺寸标题/当前布局说明",
+          "文件侧栏与顶部区域的目视排版",
+          "项目导航尺寸的目视排版"
+        ],
+        "conditionMismatches": [
+          {
+            "kind": "scroll-region",
+            "actual": "Both retained primary and supplemental captures show the lower region",
+            "reference": "Reference upper controls and heading must be visible for that region comparison",
+            "observation": "F10-iris.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+          }
+        ],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "iris/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "iris/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "iris/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "iris/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "pending-upper-capture",
+            "expected": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+            "actual": "F10-iris.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          },
+          {
+            "category": "value-difference-unresolved",
+            "expected": "当前AX项目导航值与参考不同，原生上区尚未看见，不能直接接受为批准修订。",
+            "actual": "AX项目导航为94px，参考图64px；需与已批准布局几何规范核对后定性，不要求盲改为64。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320,
+        "项目导航": 94
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "sand/F10",
+      "capture": {
+        "name": "F10-upper-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "56270191b2a7a612417b3bfca3aa2ed42237cf3bfb39b47199dd9715b72ba9a0",
+        "axSha256": "f886d1657f7cfe5fb206028a74b566cab6a11a8f67131e498ea8cbec63ddfa07",
+        "capturedAt": "2026-11-01T06:58:29.442Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "56270191b2a7a612417b3bfca3aa2ed42237cf3bfb39b47199dd9715b72ba9a0",
+      "axSha256": "f886d1657f7cfe5fb206028a74b566cab6a11a8f67131e498ea8cbec63ddfa07",
+      "referenceSha256": "27514e79281c99ba704adea700eb3b59107c7d42321f06d82489ec20c53d4526",
+      "previous": {
+        "notCovered": [
+          "区域尺寸标题/当前布局说明",
+          "文件侧栏与顶部区域的目视排版",
+          "项目导航尺寸的目视排版"
+        ],
+        "conditionMismatches": [
+          {
+            "kind": "scroll-region",
+            "actual": "Both retained primary and supplemental captures show the lower region",
+            "reference": "Reference upper controls and heading must be visible for that region comparison",
+            "observation": "F10-sand.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+          },
+          {
+            "kind": "density",
+            "actual": "comfortable34px (follow theme)",
+            "reference": "standard33px",
+            "observation": "Native theme manifest and reference density differ; accepted content does not waive this condition."
+          }
+        ],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "sand/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "sand/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "sand/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "sand/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "pending-upper-capture",
+            "expected": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+            "actual": "F10-sand.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320,
+        "项目导航": 180
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    },
+    {
+      "case": "aurora/F10",
+      "capture": {
+        "name": "F10-upper-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F10-upper-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "c6f0872e2c4fd60ff1a3c71778952d2951613159a1d36f19142321b21d4b9e2d",
+        "axSha256": "5022826b3598875c020207dcc9056402bf0bf297ccc58cc51cfec61fc8a4314c",
+        "capturedAt": "2026-11-01T06:58:41.512Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (34px theme default)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": null,
+          "dirtyMarker": null,
+          "selection": null,
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "projectState": "sleeping; one explicit sleep at2026-11-01T06:56Z",
+          "index": "F10-upper"
+        },
+        "notes": "Supplement firstsize rows afteractualscroll0.45; allsupportedcontrols inspectedinAX"
+      },
+      "actualSha256": "c6f0872e2c4fd60ff1a3c71778952d2951613159a1d36f19142321b21d4b9e2d",
+      "axSha256": "5022826b3598875c020207dcc9056402bf0bf297ccc58cc51cfec61fc8a4314c",
+      "referenceSha256": "f4d3ab71e4dcb15f7fdf397f3c07e25ee874f07b05db6cbaeab8660ef48980fc",
+      "previous": {
+        "notCovered": [
+          "区域尺寸标题/当前布局说明",
+          "文件侧栏与顶部区域的目视排版"
+        ],
+        "conditionMismatches": [
+          {
+            "kind": "scroll-region",
+            "actual": "Both retained primary and supplemental captures show the lower region",
+            "reference": "Reference upper controls and heading must be visible for that region comparison",
+            "observation": "F10-aurora.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。"
+          }
+        ],
+        "differences": [
+          {
+            "kind": "approved-interaction",
+            "reason": "2026-10-31用户修订：设置侧栏只保留一个外观入口，四页签承载外观细项。EXECUTION_GOAL.md:38–48 / SETTINGS_FIDELITY.md:7–11。",
+            "observation": "aurora/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "category": "approved-interaction-0",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "aurora/F10 原生侧栏为外观、编辑器、项目与资源、AI连接、Git、快捷键、数据与隐私七项；参考为十二项，不按旧位置恢复。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "real-data",
+            "reason": "本轮操作发生在专用QA工作区，参考背后是演示三项目；模糊工作台数据不应硬编码为示例。",
+            "observation": "aurora/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "category": "real-data-1",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "aurora/F10 原图背后含本轮项目和实际Aurora Web，窗口仍1280×800/100%，不把背景项目差异当modal控件通过或失败。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "kind": "approved-interaction",
+            "reason": "用户批准外观和几何尺寸全局共用、布局改结构名称、细项就地展开；不恢复旧项目覆盖选择器。",
+            "observation": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "category": "approved-interaction-2",
+            "expected": "Approved settings structure with real fixture data retained",
+            "actual": "原生布局与尺寸页签及区域尺寸折叠区显示全局来源/恢复默认，结构名称由所选布局产生；参考单独区域尺寸页及恢复继承已被修订。",
+            "severity": "minor",
+            "status": "accepted",
+            "fix_evidence": null
+          },
+          {
+            "category": "SL-03",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "每张原生尺寸/背景图的滑块都显示白色横椭圆thumb，参考是主题accent实心圆；深色Orbit/Aurora未填轨道偏黑灰，参考更细浅线。原生数字框约36px高并始终显示stepper，参考约30–32px、无常驻stepper。",
+            "severity": "moderate",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "在custom-range内统一WebKit track/thumb及number外观；保持真实input、键盘增减、label、min/max及数值handler，勿用绘制假控件替代。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "SL-06",
+            "expected": "Reference common control typography,geometry,icons and complete visible primary fields",
+            "actual": "原生modal外工作台更明亮且偏蓝灰，深色Orbit/Aurora尤为明显；参考外围更暗、更中性。背景项目数量/布局确有真实数据差异，故本项只比较遮罩质感，不声称精确像素差。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null,
+            "recommendation": "核对共享modal backdrop与参考overlay的色/透明度，统一修复时保持主题面板本身颜色；不要为此改动真实工作台内容。",
+            "evidence_kind": "independent-original-image-review"
+          },
+          {
+            "category": "pending-upper-capture",
+            "expected": "主图与lower补图都从文件标签高度开始，未显示文件侧栏/顶部等上区。",
+            "actual": "F10-aurora.jpg 的滚动条已在下端；不能从AX中240/56等值推出该上区视觉通过。",
+            "severity": "minor",
+            "status": "open",
+            "fix_evidence": null
+          }
+        ]
+      },
+      "visibleValues": {
+        "文件侧栏": 240,
+        "顶部区域": 56,
+        "文件标签高度": 40,
+        "文件标签最小宽": 120,
+        "辅助面板": 320
+      },
+      "conditionBoundary": "同一build342256/PID40426/1280×800/100%。项目在06:56显式休眠，shell/dirty/selection字段为空；这是补图捕获状态，不能据此推断编辑状态丢失或保持。密度文案规范化差异不代表设置变化。"
+    }
+  ],
+  "sources": [
+    {
+      "path": "docs/ux/CUSTOMIZATION_DESIGN.md",
+      "sha256": "58e86cf47016d4e6ca43872269ca482f6c1cb2e8af45bfc267d4cb3f5771b30b",
+      "basis": "Section2 permits layout-specific initial sizes within public bounds"
+    },
+    {
+      "path": "packages/plugins/builtins/horizon.layout.graphite/manifest.json",
+      "snapshot": "docs/verification/results/settings-lower-one-visual-audit-20261101/f10-layout-defaults-graphite-manifest.json",
+      "sha256": "dd1113610aefb6cf03998cc7b667bc81c3148184f86496613bbaf8f17d7feb71",
+      "navigationWidth": {
+        "initial": 55,
+        "min": 48,
+        "max": 280,
+        "step": 1
+      }
+    },
+    {
+      "path": "packages/plugins/builtins/horizon.layout.iris/manifest.json",
+      "snapshot": "docs/verification/results/settings-lower-one-visual-audit-20261101/f10-layout-defaults-iris-manifest.json",
+      "sha256": "076007779974259dc665cd573c9e3618b60fd6ddd924ebb7f90921983f02b4b0",
+      "navigationWidth": {
+        "initial": 94,
+        "min": 48,
+        "max": 280,
+        "step": 1
+      }
+    }
+  ],
+  "coverageCasesClosed": 5,
+  "layoutDefaultDifferencesAccepted": 2,
+  "ownerDecision": "Root explicitly accepts Graphite55/Iris94 with normative section2 and manifest evidence; retain original question, do not change values to64.",
+  "productFindingsClosed": 0,
+  "passClaimed": false
+}

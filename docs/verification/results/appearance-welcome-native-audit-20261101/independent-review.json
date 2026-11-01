@@ -1,0 +1,499 @@
+{
+  "reviewedAt": "2026-11-01T06:18:36.553331+00:00",
+  "method": "Root independently viewed all8 originalnativeJPEG plus8 exactreferencePNG usingview_image; read8AX andmatchedSHA/dimensions. NoGUI/source/imageedit.",
+  "buildSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+  "cases": [
+    {
+      "case": "mist/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "a80f084537bed237db444a47662706710441f9bb169d03af36156cf5388327d6",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:01:29.463Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；本工作区实际QA最近列表，不匹配参考示例名称。"
+      },
+      "reference": "design/exports/png/mist/A01-welcome.png",
+      "referenceSha256": "9132bf01dbc71fc8f60a2c5b890030482020dd3a3ad1672b585b90a72f8765f7",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "paper/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "fdee3dfbf09d75bd5ac8534ee1b46a5a742ff2d8c7f8c605f73f70d87cfe2975",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:02:02.183Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；QA最近项目列表与参考示例不同。"
+      },
+      "reference": "design/exports/png/paper/A01-welcome.png",
+      "referenceSha256": "e923aacec912480d8915927113311c9b8d0c09c5548eef4495d58acecf1a47ae",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        },
+        {
+          "category": "topbar bottom separator",
+          "expected": "Paper/Graphite1px theme border at bottom of topbar; atlas.css302/317.",
+          "actual": "Absent in native image and current topbar/layout source.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Addborder-bottom on unified/compact topbar, retain configuredheight; native recheck."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "orbit/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "4911ff7bbbcd9b63e7232d68d7bed71b49db01b3af05f123128bb88c50fff44d",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:02:27.394Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；QA最近项目列表与参考示例不同。"
+      },
+      "reference": "design/exports/png/orbit/A01-welcome.png",
+      "referenceSha256": "9e4ddafc5a89f514113c4e7507aa278f13170e1eebe103b8bd8bc35410af7f40",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "graphite/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "64c11d6a2c3a00948bd1127279970c890ca319574f62916492f282ef15815a80",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:02:39.493Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "石墨显式浅色；真实无activeproject欢迎页。"
+      },
+      "reference": "design/exports/png/graphite/A01-welcome.png",
+      "referenceSha256": "13facc5eefd53789a3ba115b1df41647c5bc390582188c46dfc0c9c68d5d0a72",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        },
+        {
+          "category": "topbar bottom separator",
+          "expected": "Paper/Graphite1px theme border at bottom of topbar; atlas.css302/317.",
+          "actual": "Absent in native image and current topbar/layout source.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Addborder-bottom on unified/compact topbar, retain configuredheight; native recheck."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "celadon/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "a9b12a696a154231c91145fd9beac06c72a3da6bf79759282e305c5778ab1530",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:02:43.254Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；QA最近项目列表与参考示例不同。"
+      },
+      "reference": "design/exports/png/celadon/A01-welcome.png",
+      "referenceSha256": "551177de76d8f1484b532f897c131fdcdb4d9c03dcf41130d5152767a8fd748d",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "iris/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "bbd72c97ba436954a705476558a8f59366d64460afbb6a89ff855c0253b6f85f",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:02:47.170Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "spacious (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；QA最近项目列表与参考示例不同。"
+      },
+      "reference": "design/exports/png/iris/A01-welcome.png",
+      "referenceSha256": "dd9a4f41bfda09a931555f894903921ef39694e0088757046079ab4ec8a0cffc",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "sand/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "df38f3bbdbbb06cabb2cfb1207d9f64996489df584b8fe0d15a169b97162c466",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:02:51.008Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；QA最近项目列表与参考示例不同。"
+      },
+      "reference": "design/exports/png/sand/A01-welcome.png",
+      "referenceSha256": "8a7b1da1b363586e2a19ac341e69b9a570ef957f415c37f11b1532524c620be6",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    },
+    {
+      "case": "aurora/A01",
+      "review": "differences",
+      "sourceCapture": {
+        "name": "A01-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/A01-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "d4c773f4148a50e600d8b8800de918d8801bfd08e29272a04c1add2c0954f7a2",
+        "axSha256": "ed35df92c610e347b001aaf4eec85fdd755073f51717627aab2ace3b0417e041",
+        "capturedAt": "2026-11-01T06:03:00.446Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": null
+        },
+        "notes": "真实无activeproject欢迎页；QA最近项目列表与参考示例不同。"
+      },
+      "reference": "design/exports/png/aurora/A01-welcome.png",
+      "referenceSha256": "dff405cda87200899dd26fe6a4c38a0d914a6783e9d543bc934f6b95b5f933ce",
+      "actualIndependentlyViewed": true,
+      "referenceIndependentlyViewed": true,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "observed": "Correct unframedWelcome, centeredtwo-column brand/actions+divider/recentlist, same-nametheme and correctlight/dark; Graphite squaredcontrols andAurora outlinedsearch visible.",
+      "differences": [
+        {
+          "category": "welcome title and primary action sizing",
+          "expected": "Reference title38px/weight500/line-height1.3; primary action approximately40px; centered700px dual-column group.",
+          "actual": "All8 nativeimages keep correct composition; title slightly heavier/lower and primary action about38px. Current h1=600/no explicit line-height and action min-height38; reference atlas.css23/250, base.css filled differ.",
+          "severity": "minor",
+          "status": "open",
+          "suggestedFix": "Welcome-only h1 weight500/line-height1.3, primary action40px; preserve secondary38px and sharedcontrols. Native recheck after next necessary build."
+        }
+      ],
+      "conditionNotes": [
+        "Five real recentQA projects vs threeillustrative projects; naturalcolumnheight remainscentered/readable; names/pathsnotfabricated.",
+        "Noactiveproject: localworkbench footer replacesprototype hardcodedbranch/change/languagedata; actualterminal/extensions/versionaffordancesretained.",
+        "ActualCmd+Shift+P label/native trafficlights/cursorcapturehalo retained.",
+        "OriginalJPEGbytes preserved; manualstructuralreview, notlosslesspixel equality."
+      ]
+    }
+  ],
+  "registration": "Notcanonical; verificationsolewriter.",
+  "next": "Merge minorfixes into nextnecessarybuild afterappearancelease; do notinterrupt50sequence.",
+  "preparationNote": "Initialauditcommand requiredunavailablePIL beforewritinganything; reusedexistingstdlibimage_info instead, noinstall.",
+  "sourceFiles": [
+    {
+      "path": "apps/desktop/src/styles.css",
+      "snapshot": "docs/verification/results/appearance-welcome-native-review-20261101/source/apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138"
+    },
+    {
+      "path": "design/source/atlas.css",
+      "snapshot": "docs/verification/results/appearance-welcome-native-review-20261101/source/design/source/atlas.css",
+      "sha256": "9566a3af7029984542edeabefb69eeff661b4c3c42da954885342a88f3121339"
+    },
+    {
+      "path": "design/source/base.css",
+      "snapshot": "docs/verification/results/appearance-welcome-native-review-20261101/source/design/source/base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0"
+    }
+  ]
+}

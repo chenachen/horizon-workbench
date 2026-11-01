@@ -1,0 +1,4336 @@
+{
+  "kind": "real AppearanceProvider + SettingsPanel/backgroundObjectUrl/applyAppearance/bridge; controlled Tauri only",
+  "startedAt": "2026-11-01T08:30:06.305Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "bytes": 9674,
+      "sha256": "1443e94e1100b027ab1b3e5e28e4c1bab820ec720c850628198f18955b2ef719"
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "bytes": 73387,
+      "sha256": "e211c7c86c387cc9eed991fe88eff18f5bbbc2aecd34f3044918119a420f09d8"
+    },
+    {
+      "path": "apps/desktop/src/features/settings/background.ts",
+      "bytes": 455,
+      "sha256": "d91c75a6e3112748a83a64a285fa3b519678f3e5d5d70864d13de1ec86eac710"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "bytes": 6902,
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "bytes": 7368,
+      "sha256": "57e135d0818a7cb0d231f2b720ee246125b2c41f2e3bb9bd4b35f86fb53ac8a8"
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "bytes": 2033,
+      "sha256": "07093d9e4e619f1f9d1ad98a196076f23465213b4d9df7c38de1cbb17c62a1cb"
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "bytes": 72554,
+      "sha256": "27f0cf56343e51877985e0f3d3e3bade830947786f5a7641af340db20197fee4"
+    }
+  ],
+  "phases": [
+    {
+      "name": "UI008 loaded images -> actual close action clears both React states/CSS and revokes every created URL once",
+      "passed": true,
+      "loaded": {
+        "phase": "loaded-image",
+        "providerSnapshot": {
+          "revision": 10,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": "owned-image",
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 10,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": "owned-image",
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": {
+            "assetId": "owned-image",
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+          },
+          "SettingsPanel": {
+            "assetId": "owned-image",
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5"
+          }
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: url(\"blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab\"); --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "rail",
+        "background": "workbench",
+        "backgroundCss": "url(\"blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab\")",
+        "previewInline": "url(\"blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5\")",
+        "previewComputed": "url(\"blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5\")",
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [],
+        "errors": []
+      },
+      "cleared": {
+        "phase": "loaded-image",
+        "providerSnapshot": {
+          "revision": 10,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 10,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "rail",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": "",
+        "previewComputed": "linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))",
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [],
+        "errors": []
+      }
+    },
+    {
+      "name": "UI008 both reads resolved after assetId null create zero new object URLs",
+      "passed": true,
+      "pending": {
+        "phase": "late-read",
+        "providerSnapshot": {
+          "revision": 12,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": "owned-late-image",
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 12,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": "owned-late-image",
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "rail",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": "",
+        "previewComputed": "linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))",
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 3,
+            "owner": "SettingsPanel",
+            "assetId": "owned-late-image",
+            "state": "pending"
+          },
+          {
+            "id": 4,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-late-image",
+            "state": "pending"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 10,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [],
+        "errors": []
+      },
+      "lateCleared": {
+        "phase": "late-read",
+        "providerSnapshot": {
+          "revision": 12,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 12,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "rail",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": "",
+        "previewComputed": "linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))",
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 3,
+            "owner": "SettingsPanel",
+            "assetId": "owned-late-image",
+            "state": "pending"
+          },
+          {
+            "id": 4,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-late-image",
+            "state": "pending"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 10,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [],
+        "errors": []
+      },
+      "afterLateRead": {
+        "phase": "late-read",
+        "providerSnapshot": {
+          "revision": 13,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 13,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "rail",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": "",
+        "previewComputed": "linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))",
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 3,
+            "owner": "SettingsPanel",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          },
+          {
+            "id": 4,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 10,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 12,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [],
+        "errors": []
+      }
+    },
+    {
+      "name": "UI011 actual selectLayout waits for provider compositionend then prepares/applies exactly once",
+      "passed": true,
+      "composing": {
+        "phase": "composition-held",
+        "providerSnapshot": {
+          "revision": 13,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 13,
+          "effective": {
+            "layoutId": "horizon.layout.mist",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": true,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "rail",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": null,
+        "previewComputed": null,
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 3,
+            "owner": "SettingsPanel",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          },
+          {
+            "id": 4,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 10,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 12,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [],
+        "errors": []
+      },
+      "switched": {
+        "phase": "composition-ended",
+        "providerSnapshot": {
+          "revision": 14,
+          "effective": {
+            "layoutId": "horizon.layout.orbit",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 14,
+          "effective": {
+            "layoutId": "horizon.layout.orbit",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "tabs",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": null,
+        "previewComputed": null,
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 3,
+            "owner": "SettingsPanel",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          },
+          {
+            "id": 4,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 10,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 12,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_layout_prepare",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 13,
+              "layoutId": "horizon.layout.orbit"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_layout_apply",
+            "params": {
+              "planId": "owned-plan-0",
+              "digest": "owned-digest"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          }
+        ],
+        "commits": [
+          {
+            "phase": "composition-ended",
+            "layoutId": "horizon.layout.orbit",
+            "revision": 14
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "UI011 rejected apply before commit preserves exact provider/panel snapshot and root style; no post-commit rollback claimed",
+      "passed": true,
+      "rejected": {
+        "phase": "apply-rejected-before-commit",
+        "providerSnapshot": {
+          "revision": 14,
+          "effective": {
+            "layoutId": "horizon.layout.orbit",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "panelSnapshot": {
+          "revision": 14,
+          "effective": {
+            "layoutId": "horizon.layout.orbit",
+            "themeId": "horizon.theme.mist",
+            "mode": "light",
+            "geometryByLayout": {},
+            "colorsByTheme": {},
+            "background": {
+              "assetId": null,
+              "region": "workbench",
+              "fit": "cover",
+              "opacity": 0.12,
+              "overlay": 0.85,
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              }
+            }
+          },
+          "effectiveGeometry": {},
+          "sources": [],
+          "layoutSource": "global",
+          "notices": []
+        },
+        "composing": false,
+        "assetState": {
+          "AppearanceProvider": null,
+          "SettingsPanel": null
+        },
+        "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+        "layout": "tabs",
+        "background": "none",
+        "backgroundCss": "none",
+        "previewInline": null,
+        "previewComputed": null,
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+            "owner": "SettingsPanel",
+            "readId": 1,
+            "bytes": 68,
+            "type": "image/png"
+          },
+          {
+            "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+            "owner": "AppearanceProvider",
+            "readId": 2,
+            "bytes": 68,
+            "type": "image/png"
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+          "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+        ],
+        "reads": [
+          {
+            "id": 1,
+            "owner": "SettingsPanel",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 2,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-image",
+            "state": "resolved"
+          },
+          {
+            "id": 3,
+            "owner": "SettingsPanel",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          },
+          {
+            "id": 4,
+            "owner": "AppearanceProvider",
+            "assetId": "owned-late-image",
+            "state": "resolved"
+          }
+        ],
+        "calls": [
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 10,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "loaded-image",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_preset_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "settings_get",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image",
+              "thumbnail": true
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_background_read",
+            "params": {
+              "previewToken": "owned-late-image"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_patch",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 12,
+              "changes": [
+                {
+                  "field": {
+                    "kind": "background"
+                  },
+                  "operation": "set",
+                  "value": {
+                    "assetId": null,
+                    "region": "workbench",
+                    "fit": "cover",
+                    "opacity": 0.12,
+                    "overlay": 0.85,
+                    "position": {
+                      "x": 0.5,
+                      "y": 0.5
+                    }
+                  }
+                }
+              ]
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "late-read",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_layout_prepare",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 13,
+              "layoutId": "horizon.layout.orbit"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_layout_apply",
+            "params": {
+              "planId": "owned-plan-0",
+              "digest": "owned-digest"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "composition-ended",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "apply-rejected-before-commit",
+            "command": "horizon_call",
+            "method": "extension_list",
+            "params": {},
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "apply-rejected-before-commit",
+            "command": "horizon_call",
+            "method": "appearance_get",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "windowGeometry": {
+                "width": 1280,
+                "height": 800,
+                "scale": 1
+              }
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "apply-rejected-before-commit",
+            "command": "horizon_call",
+            "method": "appearance_layout_prepare",
+            "params": {
+              "target": {
+                "kind": "global"
+              },
+              "expectedRevision": 14,
+              "layoutId": "horizon.layout.mist"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "ok"
+          },
+          {
+            "phase": "apply-rejected-before-commit",
+            "command": "horizon_call",
+            "method": "appearance_layout_apply",
+            "params": {
+              "planId": "owned-plan-1",
+              "digest": "owned-digest"
+            },
+            "scope": {
+              "kind": "app"
+            },
+            "outcome": "rejected-before-commit"
+          }
+        ],
+        "commits": [
+          {
+            "phase": "composition-ended",
+            "layoutId": "horizon.layout.orbit",
+            "revision": 14
+          }
+        ],
+        "errors": []
+      }
+    }
+  ],
+  "browserErrors": [],
+  "consoleErrors": [],
+  "passed": true,
+  "bundleSha256": "db0d3b23e1e46dd9e288f2406b2646eb031a06bda47fe4e360486e81f50f14b8",
+  "bundleWarnings": [],
+  "final": {
+    "phase": "apply-rejected-before-commit",
+    "providerSnapshot": {
+      "revision": 14,
+      "effective": {
+        "layoutId": "horizon.layout.orbit",
+        "themeId": "horizon.theme.mist",
+        "mode": "light",
+        "geometryByLayout": {},
+        "colorsByTheme": {},
+        "background": {
+          "assetId": null,
+          "region": "workbench",
+          "fit": "cover",
+          "opacity": 0.12,
+          "overlay": 0.85,
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      },
+      "effectiveGeometry": {},
+      "sources": [],
+      "layoutSource": "global",
+      "notices": []
+    },
+    "composing": false,
+    "assetState": {},
+    "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+    "layout": "tabs",
+    "background": "none",
+    "backgroundCss": "none",
+    "previewInline": null,
+    "previewComputed": null,
+    "created": [
+      {
+        "url": "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+        "owner": "SettingsPanel",
+        "readId": 1,
+        "bytes": 68,
+        "type": "image/png"
+      },
+      {
+        "url": "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab",
+        "owner": "AppearanceProvider",
+        "readId": 2,
+        "bytes": 68,
+        "type": "image/png"
+      }
+    ],
+    "revoked": [
+      "blob:http://127.0.0.1:42760/c0b951fe-01d4-4c08-992d-5759c939edc5",
+      "blob:http://127.0.0.1:42760/18e9ed5a-fbdf-4c6a-bb85-66201ad039ab"
+    ],
+    "reads": [
+      {
+        "id": 1,
+        "owner": "SettingsPanel",
+        "assetId": "owned-image",
+        "state": "resolved"
+      },
+      {
+        "id": 2,
+        "owner": "AppearanceProvider",
+        "assetId": "owned-image",
+        "state": "resolved"
+      },
+      {
+        "id": 3,
+        "owner": "SettingsPanel",
+        "assetId": "owned-late-image",
+        "state": "resolved"
+      },
+      {
+        "id": 4,
+        "owner": "AppearanceProvider",
+        "assetId": "owned-late-image",
+        "state": "resolved"
+      }
+    ],
+    "calls": [
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "settings_get",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_preset_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "settings_get",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_background_read",
+        "params": {
+          "previewToken": "owned-image",
+          "thumbnail": true
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_background_read",
+        "params": {
+          "previewToken": "owned-image"
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 10,
+          "changes": [
+            {
+              "field": {
+                "kind": "background"
+              },
+              "operation": "set",
+              "value": {
+                "assetId": null,
+                "region": "workbench",
+                "fit": "cover",
+                "opacity": 0.12,
+                "overlay": 0.85,
+                "position": {
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              }
+            }
+          ]
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "loaded-image",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "settings_get",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_preset_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "settings_get",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_background_read",
+        "params": {
+          "previewToken": "owned-late-image",
+          "thumbnail": true
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_background_read",
+        "params": {
+          "previewToken": "owned-late-image"
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_patch",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 12,
+          "changes": [
+            {
+              "field": {
+                "kind": "background"
+              },
+              "operation": "set",
+              "value": {
+                "assetId": null,
+                "region": "workbench",
+                "fit": "cover",
+                "opacity": 0.12,
+                "overlay": 0.85,
+                "position": {
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              }
+            }
+          ]
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "late-read",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "composition-ended",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "composition-ended",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "composition-ended",
+        "command": "horizon_call",
+        "method": "appearance_layout_prepare",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 13,
+          "layoutId": "horizon.layout.orbit"
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "composition-ended",
+        "command": "horizon_call",
+        "method": "appearance_layout_apply",
+        "params": {
+          "planId": "owned-plan-0",
+          "digest": "owned-digest"
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "composition-ended",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "composition-ended",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "apply-rejected-before-commit",
+        "command": "horizon_call",
+        "method": "extension_list",
+        "params": {},
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "apply-rejected-before-commit",
+        "command": "horizon_call",
+        "method": "appearance_get",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "windowGeometry": {
+            "width": 1280,
+            "height": 800,
+            "scale": 1
+          }
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "apply-rejected-before-commit",
+        "command": "horizon_call",
+        "method": "appearance_layout_prepare",
+        "params": {
+          "target": {
+            "kind": "global"
+          },
+          "expectedRevision": 14,
+          "layoutId": "horizon.layout.mist"
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "ok"
+      },
+      {
+        "phase": "apply-rejected-before-commit",
+        "command": "horizon_call",
+        "method": "appearance_layout_apply",
+        "params": {
+          "planId": "owned-plan-1",
+          "digest": "owned-digest"
+        },
+        "scope": {
+          "kind": "app"
+        },
+        "outcome": "rejected-before-commit"
+      }
+    ],
+    "commits": [
+      {
+        "phase": "composition-ended",
+        "layoutId": "horizon.layout.orbit",
+        "revision": 14
+      }
+    ],
+    "errors": []
+  },
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/background.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T08:30:07.902Z",
+  "durationMs": 1597
+}

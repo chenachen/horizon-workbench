@@ -1,0 +1,1782 @@
+[
+  {
+    "variant": "before",
+    "passed": true,
+    "phases": [
+      {
+        "name": "timestamp at request start; option changes keep explicit historical result; cache restores inputs/scroll without request",
+        "passed": true,
+        "pending": {
+          "summary": "正在搜索… ",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "completed": {
+          "summary": "100 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 26,
+          "visibleRowsSHA256": "82bf3d34b2e1634cc3ba5d1cdb3ba778b146f782351cf3f3e37a1a5b2bd99c66"
+        },
+        "changed": {
+          "summary": "100 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 300,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 22,
+          "visibleRowsSHA256": "f03144be9e989bc452643dd5be4ca30c260c0a8da4c36dd632b1cd92d80e2367"
+        },
+        "cached": {
+          "summary": "100 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 300,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 27,
+          "visibleRowsSHA256": "d200cd81dee4e19fc45fb418b7480b06f02907963aaafbeb4f2991441675aa4b"
+        }
+      },
+      {
+        "name": "pending start + restored original parameters still label partial results; old events/result isolation without OS-stopped claim",
+        "passed": true,
+        "beforeAck": {
+          "summary": "正在搜索… 2 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 0,
+              "held": true
+            }
+          ],
+          "visibleRowCount": 2,
+          "visibleRowsSHA256": "0bb3f61ef7add475872c0eef0632373ff49682d3dec0f66fec8b5ceb6ed77b0f"
+        },
+        "restoredParameters": {
+          "summary": "正在搜索… 2 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 0,
+              "held": true
+            }
+          ],
+          "visibleRowCount": 2,
+          "visibleRowsSHA256": "0bb3f61ef7add475872c0eef0632373ff49682d3dec0f66fec8b5ceb6ed77b0f"
+        },
+        "afterAck": {
+          "summary": "正在搜索… 2 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 2,
+          "visibleRowsSHA256": "0bb3f61ef7add475872c0eef0632373ff49682d3dec0f66fec8b5ceb6ed77b0f"
+        },
+        "newest": {
+          "summary": "1 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401287,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "09f2ff22f1d6f5b77933310088dfecf8c195dddc242d866c128e0dbbb51f3a61"
+        },
+        "afterOldResult": {
+          "summary": "1 处匹配 · 1 个文件",
+          "time": null,
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401287,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "09f2ff22f1d6f5b77933310088dfecf8c195dddc242d866c128e0dbbb51f3a61"
+        }
+      },
+      {
+        "name": "zero result belongs to original plain-text request; invalid regex issues no task; new/empty query clears old metadata/error",
+        "passed": true,
+        "zero": {
+          "summary": "",
+          "time": null,
+          "query": "[",
+          "error": "",
+          "empty": "没有找到结果“[”在当前范围内没有匹配。试试修改搜索文字或匹配选项。",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401287,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 3,
+              "params": {
+                "query": "[",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "zero",
+              "requestedAt": 1793528401375,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "invalid": {
+          "summary": "",
+          "time": null,
+          "query": "[",
+          "error": "正则表达式无效：Invalid regular expression: /[/: Unterminated character class",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401287,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 3,
+              "params": {
+                "query": "[",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "zero",
+              "requestedAt": 1793528401375,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "cleared": {
+          "summary": "输入文字，搜索当前项目。",
+          "time": null,
+          "query": "",
+          "error": "正则表达式无效：Invalid regular expression: /[/: Unterminated character class",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528400611,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401052,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528401287,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 3,
+              "params": {
+                "query": "[",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "zero",
+              "requestedAt": 1793528401375,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      {
+        "name": "real AppearanceProvider on/off/system with both OS settings; global/Agent/Git/settings/plugin pseudo/editor CSS",
+        "passed": true,
+        "motion": [
+          {
+            "preference": "on",
+            "system": false,
+            "resolved": "true",
+            "spinner": {
+              "name": "spin",
+              "duration": "0.7s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "agent-spin",
+              "duration": "1.1s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "git-refresh-spin",
+              "duration": "0.8s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.15s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.2s",
+              "scroll": "smooth"
+            }
+          },
+          {
+            "preference": "off",
+            "system": false,
+            "resolved": "false",
+            "spinner": {
+              "name": "spin",
+              "duration": "0.7s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "agent-spin",
+              "duration": "1.1s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "git-refresh-spin",
+              "duration": "0.8s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.15s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.12s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.2s",
+              "scroll": "smooth"
+            }
+          },
+          {
+            "preference": "system",
+            "system": false,
+            "resolved": "false",
+            "spinner": {
+              "name": "spin",
+              "duration": "0.7s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "agent-spin",
+              "duration": "1.1s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "git-refresh-spin",
+              "duration": "0.8s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.15s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.12s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.2s",
+              "scroll": "smooth"
+            }
+          },
+          {
+            "preference": "on",
+            "system": true,
+            "resolved": "true",
+            "spinner": {
+              "name": "spin",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "0s",
+              "scroll": "auto"
+            }
+          },
+          {
+            "preference": "off",
+            "system": true,
+            "resolved": "false",
+            "spinner": {
+              "name": "spin",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "0s",
+              "scroll": "auto"
+            }
+          },
+          {
+            "preference": "system",
+            "system": true,
+            "resolved": "true",
+            "spinner": {
+              "name": "spin",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "1e-06s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "1e-06s",
+              "transition": "0s",
+              "scroll": "auto"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "variant": "after",
+    "passed": true,
+    "phases": [
+      {
+        "name": "timestamp at request start; option changes keep explicit historical result; cache restores inputs/scroll without request",
+        "passed": true,
+        "pending": {
+          "summary": "正在搜索…  · 搜索发起于 11/1/2026, 6:20:01 PM · 结果为该次搜索快照。",
+          "time": "2026-11-01T10:20:01.972Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "completed": {
+          "summary": "100 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:01 PM · 结果为该次搜索快照。",
+          "time": "2026-11-01T10:20:01.972Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 26,
+          "visibleRowsSHA256": "82bf3d34b2e1634cc3ba5d1cdb3ba778b146f782351cf3f3e37a1a5b2bd99c66"
+        },
+        "changed": {
+          "summary": "100 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:01 PM · 搜索条件已更改，请重新搜索。",
+          "time": "2026-11-01T10:20:01.972Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 300,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 21,
+          "visibleRowsSHA256": "9d65347056d7be0e53f17577da530a2898e53e29ce1b19e2af4d14409dd77a15"
+        },
+        "cached": {
+          "summary": "100 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:01 PM · 搜索条件已更改，请重新搜索。",
+          "time": "2026-11-01T10:20:01.972Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 300,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 26,
+          "visibleRowsSHA256": "46883b7265c42218ce267177aa7ee9a2c1834123ade0c190dd6a1663494cd261"
+        }
+      },
+      {
+        "name": "pending start + restored original parameters still label partial results; old events/result isolation without OS-stopped claim",
+        "passed": true,
+        "beforeAck": {
+          "summary": "仅显示此前已接收的部分结果。1 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:02 PM · 搜索条件已更改，请重新搜索。",
+          "time": "2026-11-01T10:20:02.386Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 0,
+              "held": true
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "24f1b5d5cbbdcab6de23e21f561da66675644c14a23e12f7d8a3577aa8a8bdd1"
+        },
+        "restoredParameters": {
+          "summary": "仅显示此前已接收的部分结果。1 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:02 PM · 结果为该次搜索快照。",
+          "time": "2026-11-01T10:20:02.386Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 0,
+              "held": true
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "24f1b5d5cbbdcab6de23e21f561da66675644c14a23e12f7d8a3577aa8a8bdd1"
+        },
+        "afterAck": {
+          "summary": "仅显示此前已接收的部分结果。1 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:02 PM · 搜索条件已更改，请重新搜索。",
+          "time": "2026-11-01T10:20:02.386Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 1,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "24f1b5d5cbbdcab6de23e21f561da66675644c14a23e12f7d8a3577aa8a8bdd1"
+        },
+        "newest": {
+          "summary": "1 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:02 PM · 结果为该次搜索快照。",
+          "time": "2026-11-01T10:20:02.668Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402669,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "09f2ff22f1d6f5b77933310088dfecf8c195dddc242d866c128e0dbbb51f3a61"
+        },
+        "afterOldResult": {
+          "summary": "1 处匹配 · 1 个文件 · 搜索发起于 11/1/2026, 6:20:02 PM · 结果为该次搜索快照。",
+          "time": "2026-11-01T10:20:02.668Z",
+          "query": "needle",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402669,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 1,
+          "visibleRowsSHA256": "09f2ff22f1d6f5b77933310088dfecf8c195dddc242d866c128e0dbbb51f3a61"
+        }
+      },
+      {
+        "name": "zero result belongs to original plain-text request; invalid regex issues no task; new/empty query clears old metadata/error",
+        "passed": true,
+        "zero": {
+          "summary": " · 搜索发起于 11/1/2026, 6:20:02 PM · 结果为该次搜索快照。",
+          "time": "2026-11-01T10:20:02.766Z",
+          "query": "[",
+          "error": "",
+          "empty": "没有找到结果“[”在当前范围内没有匹配。试试修改搜索文字或匹配选项。",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402669,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 3,
+              "params": {
+                "query": "[",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "zero",
+              "requestedAt": 1793528402766,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "invalid": {
+          "summary": " · 搜索发起于 11/1/2026, 6:20:02 PM · 搜索条件已更改，请重新搜索。",
+          "time": "2026-11-01T10:20:02.766Z",
+          "query": "[",
+          "error": "正则表达式无效：Invalid regular expression: /[/: Unterminated character class",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402669,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 3,
+              "params": {
+                "query": "[",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "zero",
+              "requestedAt": 1793528402766,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "cleared": {
+          "summary": "输入文字，搜索当前项目。",
+          "time": null,
+          "query": "",
+          "error": "",
+          "empty": "",
+          "scrollTop": 0,
+          "tasks": [
+            {
+              "id": 0,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "cache",
+              "requestedAt": 1793528401973,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 1,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402386,
+              "cancelRequests": 1,
+              "held": false
+            },
+            {
+              "id": 2,
+              "params": {
+                "query": "needle",
+                "regex": false,
+                "caseSensitive": true,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "race",
+              "requestedAt": 1793528402669,
+              "cancelRequests": 0,
+              "held": false
+            },
+            {
+              "id": 3,
+              "params": {
+                "query": "[",
+                "regex": false,
+                "caseSensitive": false,
+                "wholeWord": false,
+                "includeGlobs": [],
+                "excludeGlobs": [],
+                "includeIgnored": false,
+                "maxMatches": 10000
+              },
+              "projectId": "zero",
+              "requestedAt": 1793528402766,
+              "cancelRequests": 0,
+              "held": false
+            }
+          ],
+          "visibleRowCount": 0,
+          "visibleRowsSHA256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      {
+        "name": "real AppearanceProvider on/off/system with both OS settings; global/Agent/Git/settings/plugin pseudo/editor CSS",
+        "passed": true,
+        "motion": [
+          {
+            "preference": "on",
+            "system": false,
+            "resolved": "true",
+            "spinner": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            }
+          },
+          {
+            "preference": "off",
+            "system": false,
+            "resolved": "false",
+            "spinner": {
+              "name": "spin",
+              "duration": "0.7s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "agent-spin",
+              "duration": "1.1s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "git-refresh-spin",
+              "duration": "0.8s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.15s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.12s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.2s",
+              "scroll": "smooth"
+            }
+          },
+          {
+            "preference": "system",
+            "system": false,
+            "resolved": "false",
+            "spinner": {
+              "name": "spin",
+              "duration": "0.7s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "agent-spin",
+              "duration": "1.1s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "git-refresh-spin",
+              "duration": "0.8s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.15s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.12s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.2s",
+              "scroll": "smooth"
+            }
+          },
+          {
+            "preference": "on",
+            "system": true,
+            "resolved": "true",
+            "spinner": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            }
+          },
+          {
+            "preference": "off",
+            "system": true,
+            "resolved": "false",
+            "spinner": {
+              "name": "spin",
+              "duration": "0.7s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "agent-spin",
+              "duration": "1.1s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "git-refresh-spin",
+              "duration": "0.8s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.15s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.12s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0.2s",
+              "scroll": "smooth"
+            }
+          },
+          {
+            "preference": "system",
+            "system": true,
+            "resolved": "true",
+            "spinner": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "agent": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "git": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "plugin": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "settings": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            },
+            "editor": {
+              "name": "none",
+              "duration": "0s",
+              "transition": "0s",
+              "scroll": "auto"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

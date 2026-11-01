@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-11-01T12:17:14.776129+00:00",
+  "phase": "PERF2 onepost after GUI StopBthenA",
+  "status": "HOLD",
+  "checks": {
+    "piZero": true,
+    "bothKnownPiGone": true,
+    "providerSameOwnedProcessAlive": true,
+    "httpStillFifteenNoExtraRequest": false,
+    "appSameInstalledRun": true
+  },
+  "provider": {
+    "pid": 2344,
+    "ppid": 2338,
+    "start": "Sun Nov 1 17:47:30 2026",
+    "executable": "node",
+    "args": "node /var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-write-stream.mjs"
+  },
+  "app": {
+    "pid": 8737,
+    "ppid": 1,
+    "start": "Sun Nov 1 18:41:19 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "args": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "piPids": [],
+  "knownPiPsAfter": "",
+  "http": {
+    "fixture": true,
+    "requests": 16
+  },
+  "guiStopFacts": {
+    "B": {
+      "pid": 81050,
+      "clickedAt": "2026-11-01T12:15:18.472Z",
+      "count": 1,
+      "nativeTerminal": "已中断"
+    },
+    "A": {
+      "pid": 68652,
+      "clickedAt": "2026-11-01T12:15:48.887Z",
+      "count": 1,
+      "nativeBeforeClick": "Pi 正在回复",
+      "nativeTerminal": "已中断"
+    },
+    "classification": "Both actualnormalGUI Stop once; neither reported as naturalcompletion or OSsignal. Sampling ended before conservativeAdeadline, laterStopwalltime does not alter sampleeligibility."
+  },
+  "rootSamplerReceipt": {
+    "scene2StartUtc": "2026-11-01T12:12:39.023Z",
+    "actualExit0Utc": "2026-11-01T12:14:44.358Z",
+    "durationSeconds": 125.0051
+  },
+  "nativeManifest": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-manifest.jsonl",
+  "next": "Provider stays alive for Q1/reopen/10b; no history/credential clear performed."
+}

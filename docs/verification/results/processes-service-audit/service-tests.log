@@ -1,0 +1,38 @@
+warning: unused import: `Manager`
+    --> src/processes.rs:2444:31
+     |
+2444 |         use tauri::{Listener, Manager};
+     |                               ^^^^^^^
+     |
+     = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `horizon-desktop` (lib test) generated 1 warning (run `cargo fix --lib -p horizon-desktop --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.56s
+     Running unittests src/lib.rs (apps/desktop/src-tauri/target/debug/deps/horizon_host-75c8e9d043c0aa41)
+
+running 22 tests
+test processes::tests::authorization_snapshot_rejects_changed_script_and_missing_approval ... ok
+test processes::tests::background_service_exit_stops_siblings_and_releases_lease ... ok
+test processes::tests::bounded_bytes_keep_utf8_raw ... ok
+test processes::tests::cancellation_stops_owned_run_even_when_failure_policy_keeps_processes ... ok
+test processes::tests::credential_redaction_handles_split_output ... ok
+test processes::tests::cwd_rejects_escape ... ok
+test processes::tests::direct_terminal_lease_releases_after_natural_exit ... ok
+test processes::tests::discovery_reads_nested_scripts_without_executing ... ok
+test processes::tests::hidden_output_is_continuously_consumed_with_bounded_history ... ok
+test processes::tests::http_fixture_server ... ignored, child process fixture, invoked by owned_http_readiness
+test processes::tests::interactive_pty_accepts_chinese_input_and_applies_actual_size ... ok
+test processes::tests::launch_failure_and_timeout_stop_only_owned_run ... ok
+test processes::tests::launch_lease_uses_actual_activation_and_releases_its_origin ... ok
+test processes::tests::launch_waits_for_dependencies_and_stops_in_reverse_order ... ok
+test processes::tests::owned_http_readiness_and_restart_preflight_accept_only_owned_port ... ok
+test processes::tests::owned_pty_handles_chinese_resize_and_stop ... ok
+test processes::tests::port_preflight_leaves_external_listener_alive ... ok
+test processes::tests::profile_export_omits_secrets_and_local_authorization ... ok
+test processes::tests::rejects_cycles_and_unknown_dependencies ... ok
+test processes::tests::stopping_terminal_releases_pty_dependencies_and_preserves_other_project ... ok
+test processes::tests::tauri_app_handle_delivers_process_transport_events ... ok
+test processes::tests::terminal_input_backpressure_does_not_block_stop ... ok
+
+test result: ok. 21 passed; 0 failed; 1 ignored; 0 measured; 20 filtered out; finished in 5.16s
+

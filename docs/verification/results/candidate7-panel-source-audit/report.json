@@ -1,0 +1,101 @@
+{
+  "evidenceId": "MAC-PANEL-LIFECYCLE-CANDIDATE8-EXPERIMENT",
+  "recordedAt": "2026-10-31T03:21:30.400773+00:00",
+  "status": "Source experiment frozen and cargo-check passed; actual candidate8 A/B still required. Root cause is not proven.",
+  "observations": {
+    "candidate7BeforePicker": {
+      "aggregateCpuPercent": 0.43918,
+      "evidence": "../candidate7-panel-cpu-a-125s/"
+    },
+    "candidate7AfterPicker": {
+      "aggregateCpuPercent": 13.1415,
+      "panelCpuPercent": 12.77183,
+      "otherCpuPercent": 0.36967,
+      "basis": "Same60 valid post-warmup aggregate samples; verification audit uses own61 samples for some per-PID summaries, not mixed here.",
+      "evidence": "../candidate7-panel-cpu-b-125s/"
+    },
+    "currentSample": {
+      "pid": 55971,
+      "durationSeconds": 6,
+      "result": "Closed-picker helper again sampled in TNode::HandleSync -> SynchronizeChildren -> TFSInfoSynchronizer::FetchChildren -> _GetDirectoryURLs. Physical footprint65.5MB.",
+      "log": "panel-55971-sample.txt",
+      "coordination": "Editor owner confirmed no hot24 interval, prior F09 picker closed, host37993 unchanged.",
+      "exactDirectory": "Not identified. vRefNum boot-volume queue and cwd / are not evidence that root directory or selected empty directory is the enumerated target."
+    },
+    "filesystemTrace": "Unprivileged fs_usage returned must be run as root; no privileged tracing attempted.",
+    "guiAndProcesses": "No GUI action, new product process, helper termination, or current-window action performed."
+  },
+  "sourceFindings": [
+    "Host picker branches await plugin result, convert FilePath into owned PathBuf and store only path/token/time. No native panel handle retained in HostState.",
+    "Tauri dialog2.8.4 blocking APIs wait on a channel around AsyncFileDialog. Main-thread construction and continuing Tauri/AppKit event loop remain active.",
+    "rfd0.17.2 ModalFuture completion already takes and drops its Rust Panel and waiter. Its Panel contains Retained<NSSavePanel> but no explicit orderOut/close lifecycle action.",
+    "Native result delivery, Rust ownership release and completed native dismissal are separate events. Source inspection does not establish which macOS observer holds the repeating directory work.",
+    "Upstream issue270 reports service persistence in rfd and Chrome but establishes neither leak nor CPU cause. Issue354 concerns native event processing stopping in standalone applications; Horizon continues its framework event loop, so that diagnosis is not assumed here."
+  ],
+  "primarySources": [
+    {
+      "url": "https://developer.apple.com/documentation/appkit/nssavepanel/beginsheetmodal(for:completionhandler:)",
+      "relevance": "Completion can run while sheet remains onscreen; documents orderOut(nil) for explicit dismissal."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/appkit/nswindow/orderout(_:)",
+      "relevance": "Hides/removes window and detaches child; does not itself release the object."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/appkit/nswindow/close()",
+      "relevance": "Close may be sent to hidden windows, posts willClose notification; NSPanel defaults to not being released on close."
+    },
+    {
+      "url": "https://github.com/PolyMeilex/rfd/issues/270",
+      "relevance": "Primary upstream report of persistent Open and Save Panel Service on Tahoe; unresolved and not proof of a leak."
+    },
+    {
+      "url": "https://github.com/PolyMeilex/rfd/issues/354",
+      "relevance": "Primary standalone reproduction distinguishes native result, wrapper release and AppKit animation completion; event-loop-stopped condition differs from Horizon."
+    }
+  ],
+  "experiment": {
+    "vendor": "vendor/rfd",
+    "upstreamVersion": "0.17.2",
+    "registryChecksum": "20dafead71c16a34e1ff357ddefc8afc11e7d51d6d2b9fbd07eaa48e3e540220",
+    "originalSourceTreeSha256": "1ad1dacf335a931571ffecb7ac6b94c7b9cfe79b845d70d567e995e63e83d312",
+    "license": "Original MIT LICENSE retained. Root owns updated license inventory generation.",
+    "changedUpstreamSourceFiles": [
+      "src/backend/macos/file_dialog/panel_ffi.rs",
+      "src/backend/macos/modal_future.rs"
+    ],
+    "patch": "vendor/rfd/horizon-macos-panel-lifecycle.patch",
+    "behavior": "On the main-thread completion path, take the modal exactly once and release its state mutex, copy the selected result, then finish only this NSSavePanel/NSOpenPanel with releasedWhenClosed(false), orderOut(nil), close, and Rust drop. Store result and wake only afterward. Re-entrant duplicate completion finds no modal and does nothing.",
+    "unchanged": "No added native dismissal actions for NSAlert; default finish hook is a no-op. Non-macOS source files are byte-identical to upstream. No global window enumeration, private AppKit APIs, helper termination, process exclusions or new dependency versions.",
+    "compile": {
+      "command": "cargo check --lib --offline",
+      "result": "passed",
+      "durationSeconds": 9.27,
+      "log": "vendor-cargo-check.log",
+      "warnings": "Existing upstream rfd unused_unsafe warnings become visible for a local path dependency; no broad upstream cleanup made."
+    },
+    "pendingAcceptance": [
+      "In candidate8 validate OpenPanel file and directory success/cancel, SavePanel success/cancel, then repeat opening in the same host. Confirm selection/output correctness and no stuck sheet or duplicate callbacks.",
+      "Run unchanged125s before/after picker CPU comparison in the same restored scene, with the same responsible-process inclusion and warmup policy. Include both OpenPanel and SavePanel; switching F09 to directory picker alone must not mask the original SavePanel case.",
+      "Keep candidate7 evidence. If periodic directory CPU remains or dialog behavior regresses, remove patch/vendor from production and restore registry rfd0.17.2; do not treat helper process disappearance as the sole success criterion."
+    ],
+    "rollback": "Remove the Cargo.toml [patch.crates-io] entry for rfd and re-resolve rfd precisely0.17.2 from the recorded registry checksum; root coordinates candidate builds and keeps evidence."
+  },
+  "sourceHashes": {
+    "apps/desktop/src-tauri/src/lib.rs": "03bacc9bb96010b4fd20eae66c09f5052dbf13735d1bde22a0e312443ddc3750",
+    "apps/desktop/src-tauri/src/appearance.rs": "d31c9dc8e81ea0cad63e554d1c548af89085695400309a102bbff367d1cab5b9",
+    "apps/desktop/src-tauri/Cargo.toml": "216da1c9ba9a3ee7a029cd4336158ca90338cab0134fecfd4ada67d41a4495a0",
+    "apps/desktop/src-tauri/Cargo.lock": "e26007a7a1d0fa5d431dc029f18ca81616a1b615e6461816fbdf78168f5eb8d8",
+    "vendor/rfd/src/backend/macos/modal_future.rs": "b4b5637710a906b12959979ad5fbdbc28f2f917be97940d4f59b2bb0a596b43c",
+    "vendor/rfd/src/backend/macos/file_dialog/panel_ffi.rs": "9cf175d987a5fc0c7cd0545690f682f5f17772feb3c9220c12c94274fa65ba4e",
+    "vendor/rfd/HORIZON_PROVENANCE.json": "c48fd2967137381d514d37e469714e5d286a936c67548bf9ec329c1fb6b5ab0f",
+    "vendor/rfd/horizon-macos-panel-lifecycle.patch": "353afcb9dc652e96db270d35f69b1513907c7af8d3ffd58d4d94bdea34e000b1"
+  },
+  "evidenceHashes": {
+    "panel-55971-lsof.txt": "d6850e33ff67c4c1913d18b9b4dbf9a3378644115d8fe2d89430987523f6ae19",
+    "panel-55971-fs-usage.txt": "74ca640f114ab0b89651b77693d4ed1136405d7281e9c0f9f64d3e66d377c14d",
+    "vendor-cargo-check.log": "f92e03f3c615cf1b69ff75119254b124203826cb007d848e6370abe517ab4d30",
+    "panel-55971-sample.txt": "5af9247851037c98c62d7db7075845da663f7d002e593cc08a04dea205884b94",
+    "sample-command.json": "5e944af6824788bd06b47bbab1a9476498877ae4ae3aeb179d2dd71fa6dc207c"
+  }
+}

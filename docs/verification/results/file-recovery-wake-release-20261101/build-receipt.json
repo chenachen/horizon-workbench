@@ -1,0 +1,64 @@
+{
+  "startedAt": "2026-11-01T05:38:44.623377+00:00",
+  "command": [
+    "rtk",
+    "proxy",
+    "node",
+    "scripts/desktop-run.mjs",
+    "build",
+    "--bundles",
+    "app"
+  ],
+  "sourceHashes": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "f8b54d7e674d15623f3fe2709519af1abc9b21fc24c77ee74bf95d9d1eb33692"
+    },
+    {
+      "path": "apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138"
+    },
+    {
+      "path": "apps/desktop/src/components/SleepingProjectPage.tsx",
+      "sha256": "0f2f6ca0c2c04088c9888052b096058f86b07d1c85aff4cda593cb1135f8ab87"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "6911c1e0732d36d6e99d8ca0c2c13b664b4dd5598c84bf9f3bd22a60c6763453"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/FileRecovery.tsx",
+      "sha256": "ad8ff227a546c4f5e6ff7d1c7e3a031c752640cfd27188001cecbfbd654c879b"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/file-recovery.css",
+      "sha256": "30c736595d23de9e2bdd1175ae5dff457ecf742c941def7f19fd335f60e7895d"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/service.ts",
+      "sha256": "4a79ff7a81e070441798ffa5192ecb905d1391724df5ebd14f05ea2586d93612"
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1"
+    }
+  ],
+  "buildExitCode": 0,
+  "wrapperExitCode": 1,
+  "wrapperError": "FileNotFoundError: .../Contents/MacOS/Horizon; wrapper assumed app display name instead of reading CFBundleExecutable.",
+  "finishedAt": null,
+  "observedCompleteAt": "2026-11-01T05:41:25.858488+00:00",
+  "exitReason": "desktop-run returned0; receipt wrapper entered success branch then failed while hashing wrong executable path. No build rerun.",
+  "bundle": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+    "executable": "horizon-desktop",
+    "mainSha256": "d70952fe156c6f2027ab0eb184846db3ced7ef634548a83d3ad19155f9464645",
+    "mainBytes": 19860880,
+    "note": "App only; DMG/ZIP retain previous build until final packaging."
+  },
+  "independentSignatureCheck": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

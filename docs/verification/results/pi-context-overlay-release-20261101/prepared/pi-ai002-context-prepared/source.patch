@@ -1,0 +1,96 @@
+--- a/apps/desktop/src/App.tsx
++++ b/apps/desktop/src/App.tsx
+@@ -428,7 +428,7 @@
+       {projectId && !fullPageOpen && !conflictOpen && !(gitEnabled && reviews[projectId]) ? <button className="editor-focus icon-button" aria-label={panels.focus ? '退出专注模式' : '进入专注模式'} title={panels.focus ? '退出专注模式' : '进入专注模式'} onClick={() => updatePanels({ focus: !panels.focus })}>{panels.focus ? <Minimize size={15} /> : <Maximize size={15} />}</button> : null}
+     </main>
+ 
+-    <aside className="auxiliary-panel" hidden={fullPageOpen || !projectId || !panels.ai || panels.focus} aria-label="AI 助手" data-focus-region="ai"><header className="panel-heading"><Sparkles size={16} /><strong>AI 助手</strong><span className="spacer" /><button className="icon-button" aria-label="AI 连接设置" onClick={() => openSettings('agent')}><Settings2 size={15} /></button><button className="icon-button" aria-label="隐藏 AI 面板" onClick={() => updatePanels({ ai: false })}><X size={16} /></button></header>{wasAI && projectId ? agentEnabled ? lazyPanel('AI 助手', <AgentPanel projectId={projectId} onError={reportError} />) : featureMissing('Pi 助手') : <EmptyState title="先选择项目">对话与任务分别保留在各自项目中。</EmptyState>}<ResizeHandle label="AI 面板宽度" variable="--auxiliary-width" currentValue={appearance.snapshot?.effectiveGeometry.auxiliaryWidth ?? 320} min={240} max={560} defaultValue={320} reverse onCommit={v => saveGeometry('auxiliaryWidth', v)} /></aside>
++    <aside className="auxiliary-panel" hidden={fullPageOpen || !projectId || !panels.ai || panels.focus} aria-label="AI 助手" data-focus-region="ai"><header className="panel-heading"><Sparkles size={16} /><strong>AI 助手</strong><span className="spacer" /><button className="icon-button" aria-label="AI 连接设置" onClick={() => openSettings('agent')}><Settings2 size={15} /></button><button className="icon-button" aria-label="隐藏 AI 面板" onClick={() => updatePanels({ ai: false })}><X size={16} /></button></header>{wasAI && projectId ? agentEnabled ? lazyPanel('AI 助手', <AgentPanel projectId={projectId} projectName={project?.displayName ?? '项目名称暂不可用'} onError={reportError} />) : featureMissing('Pi 助手') : <EmptyState title="先选择项目">对话与任务分别保留在各自项目中。</EmptyState>}<ResizeHandle label="AI 面板宽度" variable="--auxiliary-width" currentValue={appearance.snapshot?.effectiveGeometry.auxiliaryWidth ?? 320} min={240} max={560} defaultValue={320} reverse onCommit={v => saveGeometry('auxiliaryWidth', v)} /></aside>
+ 
+     <section className="bottom-panel" hidden={fullPageOpen || !projectId || !panels.terminal || panels.focus} aria-label="终端" data-focus-region="terminal"><ResizeHandle label="终端高度" variable="--bottom-height" currentValue={appearance.snapshot?.effectiveGeometry.bottomHeight ?? 220} direction="vertical" min={120} max={480} defaultValue={220} reverse onCommit={v => saveGeometry('bottomHeight', v)} />{!(wasTerminal && projectId && terminalEnabled) ? <header className="panel-heading"><Terminal size={15} /><strong>终端</strong><span className="panel-project">{project?.displayName}</span><span className="spacer" /><button className="text-button" onClick={() => openSettings('launch')}>启动方案</button><button className="icon-button" aria-label="隐藏终端面板" onClick={() => updatePanels({ terminal: false })}><X size={15} /></button></header> : null}{wasTerminal && projectId ? terminalEnabled ? lazyPanel('终端', <TerminalPanel projectId={projectId} onError={reportError} onOpenLauncher={() => openSettings('launch')} onClose={() => updatePanels({ terminal: false })} />) : featureMissing('终端') : <EmptyState title="先选择项目" />}</section>
+ 
+--- a/apps/desktop/src/features/agent/AgentPanel.tsx
++++ b/apps/desktop/src/features/agent/AgentPanel.tsx
+@@ -24,7 +24,7 @@
+   const answer = async (decision: 'allowOnce' | 'deny') => { setBusy(true); try { await answerPermission(projectId, decision); } catch (e) { onError(e); setBusy(false); } };
+   return <><section className="agent-permission-card" aria-label="待授权操作"><header><ShieldCheck size={18} /><div><strong>{request.title}</strong><small>来源 Pi · 等待本次操作授权</small></div></header><button className="outline-button" onClick={() => setExpanded(true)}>{expired ? '查看过期请求' : '查看授权请求'}</button></section>{expanded ? <Modal title={operation.kind === 'exec' ? '允许 Pi 运行这条命令？' : '允许 Pi 写入任务副本？'} onClose={() => setExpanded(false)} className="agent-permission-modal"><div className="agent-permission-details"><p className="agent-form-intro">{request.title} · 来源 Pi。关闭弹窗后仍保留待处理请求。</p>{operation.kind === 'exec' ? <><pre>{operation.executable}{operation.argv?.map(a => ` ${JSON.stringify(a)}`).join('')}</pre><div className="agent-permission-cwd">工作目录 <code>{operation.cwd}</code></div><p className="agent-footnote">命令拥有当前用户系统权限。仅一次授权，不是 OS 沙箱；不传入模型密钥。</p></> : <div className="agent-permission-files">{operation.files?.map(f => <div key={f.file.displayPath}><FileText size={14} /><code>{f.file.displayPath}</code><small>{Number(f.bytes).toLocaleString()} B</small></div>)}</div>}<div className="agent-permission-actions"><button className="outline-button" disabled={busy || expired} onClick={() => void answer('deny')}>拒绝</button><button className="filled" disabled={busy || expired} onClick={() => void answer('allowOnce')}>{expired ? '授权已过期' : busy ? '正在确认…' : '允许一次'}</button></div></div></Modal> : null}</>;
+ }
+-export function AgentPanel({ projectId, onError }: { projectId: string; onError?: (error: string) => void }) {
++export function AgentPanel({ projectId, projectName, onError }: { projectId: string; projectName: string; onError?: (error: string) => void }) {
+   const state = useAgent(projectId), [settings, setSettings] = useState(false), [context, setContext] = useState(false), [review, setReview] = useState<{ projectId: string; reviewId: string } | null>(null), [history, setHistory] = useState(false), [following, setFollowing] = useState(true), [fullMessage, setFullMessage] = useState<Message | null>(null), list = useRef<HTMLDivElement>(null), composing = useRef(false);
+   useEffect(() => { const release = retainAgentView(projectId); void loadAgent(projectId); return release; }, [projectId]);
+   useEffect(() => { setReview(null); setFullMessage(null); setContext(false); setHistory(false); }, [projectId]);
+@@ -53,7 +53,7 @@
+     </>}
+     {fullMessage ? <MessagePages message={fullMessage} projectId={projectId} onClose={() => setFullMessage(null)} /> : null}
+     {settings ? <Modal title="AI 连接" onClose={() => { setSettings(false); void loadAgent(projectId); }} className="agent-settings-modal"><AgentSettings projectId={projectId} onError={onError} /></Modal> : null}
+-    {context ? <ContextPicker projectId={projectId} onClose={() => setContext(false)} /> : null}
++    {context ? <ContextPicker projectId={projectId} projectName={projectName} onClose={() => setContext(false)} /> : null}
+     {review?.projectId === projectId && review.reviewId === state.reviewId ? <AgentReview key={`${review.projectId}:${review.reviewId}`} projectId={review.projectId} reviewId={review.reviewId} onClose={() => setReview(null)} onDiscard={() => agentView.patch(review.projectId, { reviewId: null, session: null })} /> : null}
+     {history ? <Modal title="项目会话" onClose={() => setHistory(false)}><div className="agent-session-list">{state.sessions.length ? [...state.sessions].reverse().map(s => <button key={s.sessionId} onClick={() => { void selectSession(projectId, s).then(() => setHistory(false)).catch(fail); }}><MessageSquare size={17} /><span>{s.profile === 'chat' ? '聊天' : '任务'}<small>{s.sessionId.slice(0, 8)} · {s.resumeAvailable ? '可恢复，继续时不重发历史输入' : '尚无消息'}</small></span></button>) : <p>这个项目还没有会话。</p>}</div></Modal> : null}
+   </section>;
+--- a/apps/desktop/src/features/agent/ContextPicker.tsx
++++ b/apps/desktop/src/features/agent/ContextPicker.tsx
+@@ -1,15 +1,28 @@
+-import { useEffect, useState } from 'react';
++import { useEffect, useMemo, useState } from 'react';
+ import { FileText, Plus, Search, X } from 'lucide-react';
+ import { call, errorMessage } from '../../bridge';
+ import { Modal } from '../../components/Modal';
+ import { editorStore } from '../editor/store';
+ import { agentView } from './store';
+ import type { Attachment } from './types';
+-export function ContextPicker({ projectId, onClose }: { projectId: string; onClose: () => void }) {
++function contextDescription(a: Attachment) {
++  const source = a.source === 'buffer' ? a.bufferDirty === true ? '编辑快照 · 附加时未保存' : a.bufferDirty === false ? '编辑快照 · 附加时已保存' : '编辑内容快照' : a.source === 'gitDiff' ? '冻结 Git 差异' : '磁盘内容';
++  if (!a.range || a.text === undefined) return source;
++  let first = 1, last = 1;
++  const end = Math.max(a.range.fromUtf16, a.range.toUtf16 - 1);
++  for (let offset = 0; offset < end; offset++) {
++    if (a.text.charCodeAt(offset) !== 10) continue;
++    if (offset < a.range.fromUtf16) first++;
++    last++;
++  }
++  return `${source} · 选区 第 ${first}${first === last ? '' : `–${last}`} 行`;
++}
++export function ContextPicker({ projectId, projectName, onClose }: { projectId: string; projectName: string; onClose: () => void }) {
+   const [selected, setSelected] = useState<Attachment[]>(() => [...agentView.get(projectId).attachments]), [query, setQuery] = useState(''), [paths, setPaths] = useState<{ file: { fileId: string; displayPath: string } }[]>([]), [error, setError] = useState(''), [busy, setBusy] = useState('');
+   const buffers = [...editorStore.getSnapshot().buffers.values()].filter(b => b.projectId === projectId && b.mode === 'editor');
+   useEffect(() => { let live = true; const timer = setTimeout(() => { void call<{ items: typeof paths }>('path_query', { query, generation: Date.now(), limit: 40 }, projectId).then(r => { if (live) setPaths(r.items); }).catch(e => { if (live) setError(errorMessage(e)); }); }, 120); return () => { live = false; clearTimeout(timer); }; }, [query, projectId]);
+   const total = selected.reduce((sum, a) => sum + a.byteLength, 0);
++  const descriptions = useMemo(() => selected.map(contextDescription), [selected]);
+   const add = async (fileId: string, label: string, source: 'disk' | 'buffer', selection = false) => {
+     setError(''); setBusy(fileId);
+     try {
+@@ -19,7 +32,7 @@
+         if (buffer.evicted) await editorStore.openFile(fileId, { projectId, activate: false });
+         await editorStore.flushDrafts(projectId);
+         const text = buffer.getText(), range = selection && buffer.selection.anchor !== buffer.selection.head ? { fromUtf16: Math.min(buffer.selection.anchor, buffer.selection.head), toUtf16: Math.max(buffer.selection.anchor, buffer.selection.head) } : undefined;
+-        item = { key: fileId, label, source, fileId, documentId: buffer.meta.documentId, editorRevision: buffer.version, text, range, byteLength: new TextEncoder().encode(range ? text.slice(range.fromUtf16, range.toUtf16) : text).byteLength };
++        item = { key: fileId, label, source, fileId, documentId: buffer.meta.documentId, editorRevision: buffer.version, bufferDirty: buffer.dirty, text, range, byteLength: new TextEncoder().encode(range ? text.slice(range.fromUtf16, range.toUtf16) : text).byteLength };
+       } else {
+         const stat = await call<{ revision: { byteLength: string } }>('file_stat', { fileId }, projectId);
+         item = { key: fileId, label, source, fileId, expectedDiskRevision: stat.revision, byteLength: Number(stat.revision.byteLength) };
+@@ -28,9 +41,9 @@
+     } catch (e) { setError(errorMessage(e)); } finally { setBusy(''); }
+   };
+   return <Modal title="选择本次上下文" onClose={onClose} className="agent-context-modal"><div className="agent-context-picker">
+-    <p className="agent-form-intro">发送冻结快照。聊天仅接收附加文本；任务可读取整个工作副本。</p>
++    <p className="agent-form-intro">当前项目：<strong>{projectName}</strong>。发送冻结快照。聊天仅接收附加文本；任务可读取整个工作副本。</p>
+     <div className="agent-context-budget"><span>{selected.length} / 20 项</span><span>{Math.ceil(total / 1024)} / 256 KiB</span></div>
+-    <div className="agent-selected-context">{selected.length ? selected.map(a => <div key={a.key}><FileText size={14} /><span>{a.label}<small>{a.source === 'buffer' ? '当前编辑内容' : a.source === 'gitDiff' ? '冻结 Git 差异' : '磁盘内容'}{a.range ? ' · 选区' : ''}</small></span><button className="icon-button" aria-label={`移除 ${a.label}`} onClick={() => setSelected(items => items.filter(i => i.key !== a.key))}><X size={14} /></button></div>) : <p className="agent-muted">尚未选择上下文。</p>}</div>
++    <div className="agent-selected-context">{selected.length ? selected.map((a, index) => <div key={a.key}><FileText size={14} /><span>{a.label}<small>{descriptions[index]}</small></span><button className="icon-button" aria-label={`移除 ${a.label}`} onClick={() => setSelected(items => items.filter(i => i.key !== a.key))}><X size={14} /></button></div>) : <p className="agent-muted">尚未选择上下文。</p>}</div>
+     {buffers.length ? <><h4>已打开文档</h4><div className="agent-context-files">{buffers.map(b => <div key={b.fileId}><span><FileText size={14} />{b.path}<small>{b.dirty ? '含未保存编辑' : '已保存'}</small></span><div><button disabled={!!busy} onClick={() => void add(b.fileId, b.path, 'disk')}>磁盘</button><button disabled={!!busy} onClick={() => void add(b.fileId, b.path, 'buffer')}>编辑内容</button>{b.selection.anchor !== b.selection.head ? <button disabled={!!busy} onClick={() => void add(b.fileId, b.path, 'buffer', true)}>选区</button> : null}</div></div>)}</div></> : null}
+     <label className="agent-path-search"><Search size={15} /><input aria-label="查找上下文文件" value={query} onChange={e => setQuery(e.target.value)} placeholder="搜索项目文件" /></label>
+     <div className="agent-path-results">{paths.map(({ file }) => <button key={file.fileId} disabled={!!busy} onClick={() => void add(file.fileId, file.displayPath, 'disk')}><FileText size={14} /><span>{file.displayPath}</span><Plus size={14} /></button>)}</div>
+--- a/apps/desktop/src/features/agent/types.ts
++++ b/apps/desktop/src/features/agent/types.ts
+@@ -6,7 +6,7 @@
+ }
+ export interface AgentSession { sessionId: string; projectId: string; connectionId: string; profile: Profile; state: string; instanceId: string | null; instanceEpoch: number; resumeAvailable: boolean; reviewId: string | null }
+ export interface Message { messageId: string; role: 'user' | 'assistant'; text: string; state: string; contentRef?: { sessionId: string; messageId: string }; truncated?: boolean }
+-export interface Attachment { key: string; label: string; source: 'disk' | 'buffer' | 'gitDiff'; diffId?: string; expectedRepoToken?: string; fileId: string; documentId?: string; editorRevision?: number; expectedDiskRevision?: unknown; text?: string; range?: { fromUtf16: number; toUtf16: number }; byteLength: number }
++export interface Attachment { key: string; label: string; source: 'disk' | 'buffer' | 'gitDiff'; diffId?: string; expectedRepoToken?: string; fileId: string; documentId?: string; editorRevision?: number; expectedDiskRevision?: unknown; bufferDirty?: boolean; text?: string; range?: { fromUtf16: number; toUtf16: number }; byteLength: number }
+ export interface PermissionRequest { interactionId: string; sessionId: string; runId: string; kind: string; title: string; message?: string; permission: { operationDigest: string; expiresAt: number; operation: { kind: 'exec' | 'write'; executable?: string; argv?: string[]; cwd?: string; files?: { file: { displayPath: string }; bytes: string }[] } } }
+ export interface ReviewFile { file: { projectId: string; fileId: string; displayPath: string }; relativePath: string; baselineHash: string | null; afterHash: string | null; expectedDiskRevision: unknown; expectedEditorRevision?: number; kind: string; canApply: boolean; applied: boolean; reason?: string }
+ export interface Review { reviewId: string; origin: 'taskCopy'; baseline: string; files: ReviewFile[] }

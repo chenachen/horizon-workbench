@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-11-01T11:05:26.547623+00:00",
+  "phase": "06 WRITE retry actual allowed tool, before natural finish",
+  "status": "PROVIDER FINISH READY",
+  "checks": {
+    "exactSevenRequests": true,
+    "exactToolSuccess": true,
+    "matchingRealToolCall": true,
+    "samePrompt": true,
+    "taskAConnection": true,
+    "newIndependentAttempt": true,
+    "exactOwnedPi": true,
+    "copyExactlyWritten42Bytes": true,
+    "originalUnwritten": true,
+    "originalIndexUnchanged": true,
+    "copyContextUntouched": true,
+    "controlledStreamExactTool": true,
+    "notSuspended": true
+  },
+  "sessionId": "da0fb7c2-ff35-4874-8890-22c568b10c41",
+  "review": {
+    "reviewId": "c3140b18-4a6b-4a8a-9ca9-6bc02c659658",
+    "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "sessionId": "da0fb7c2-ff35-4874-8890-22c568b10c41",
+    "copy": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/c3140b18-4a6b-4a8a-9ca9-6bc02c659658/worktree",
+    "completed": false,
+    "discarded": false
+  },
+  "pi": {
+    "pid": 52331,
+    "ppid": 8737,
+    "start": "Sun Nov  1 19:04:19 2026",
+    "args": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/da0fb7c2-ff35-4874-8890-22c568b10c41/session.jsonl --no-builtin-tools --tools horizon_read,horizon_list,horizon_write,horizon_exec -e /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/58453d41-2186-44c9-aca5-9a8694590d85/external/horizon-policy.ts",
+    "comm": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi",
+    "cwd": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/c3140b18-4a6b-4a8a-9ca9-6bc02c659658/worktree",
+    "stat": "S"
+  },
+  "http": {
+    "fixture": true,
+    "requests": 7
+  },
+  "stream": [
+    {
+      "streamId": "chatcmpl-horizon-fixture-7",
+      "startedAt": "2026-11-01T11:04:54.109Z",
+      "toolCallId": "tool-6"
+    }
+  ],
+  "toolResult": {
+    "role": "tool",
+    "content": "Written to the task copy. Original project unchanged.",
+    "tool_call_id": "tool-6"
+  },
+  "actualToolCall": {
+    "id": "tool-6",
+    "type": "function",
+    "function": {
+      "name": "horizon_write",
+      "arguments": "{\"path\":\"example.txt\",\"content\":\"changed by real Pi through Horizon broker\\n\"}"
+    }
+  },
+  "originalHashes": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "a9f9e6d754cf9112dd0c2abb35870e17d49fd00a740c6540eaf73504deace004"
+  },
+  "copyHashes": {
+    "context.ts": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+    "example.txt": "f142b7fd157d1f4550ccdbd55f7453c5278a6f0d28d195ab8e9052f9c25fa3b0"
+  },
+  "expectedContentSHA": "f142b7fd157d1f4550ccdbd55f7453c5278a6f0d28d195ab8e9052f9c25fa3b0",
+  "requestRowSHAs": [
+    "7a99c795e04fe069af072d4c3d16bdf9db5b5febaea6a6925e3baa49073f245e",
+    "32183cf075200903593352473552944cad3d8c68b11307ce59da6327508123ca"
+  ],
+  "authorization": "Root one independentWRITE retry, actual matching UI immediateallow. No Pi signals. Finish only this controlled stream after checks.",
+  "collectorNote": "Actual OpenAI user content is a text-block array; prompt check uses its exact text. The initial scalar-only collector mismatch was not a product failure.",
+  "guiToolSuccessAX": "docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06b-tool-write-success.ax.txt"
+}

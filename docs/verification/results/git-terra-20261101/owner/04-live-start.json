@@ -1,0 +1,112 @@
+{
+  "kind": "owned-hook-readonly-process-snapshot",
+  "label": "04-live-start",
+  "recordedAt": "2026-11-01T15:06:41.642182+00:00",
+  "repo": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+  "pidFiles": {
+    "hook": {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验/.git/horizon-slow-hook.pid",
+      "pid": 25933,
+      "mtimeNs": 1793545579313750613
+    },
+    "sleep": {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验/.git/horizon-slow-child.pid",
+      "pid": 25934,
+      "mtimeNs": 1793545579314454486
+    }
+  },
+  "identities": {
+    "git": {
+      "pid": 25932,
+      "process": {
+        "pid": 25932,
+        "ppid": 25926,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/Applications/Xcode.app/Contents/Developer/usr/bin/git"
+      },
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/git --no-pager --literal-pathspecs -c core.quotepath=false -c color.ui=false commit -m Git controlled stop 20261101"
+    },
+    "hook": {
+      "pid": 25933,
+      "process": {
+        "pid": 25933,
+        "ppid": 25932,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:18 2026",
+        "executable": "/bin/sh"
+      },
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "/bin/sh .git/fixture-hooks/pre-commit"
+    },
+    "sleep": {
+      "pid": 25934,
+      "process": {
+        "pid": 25934,
+        "ppid": 25933,
+        "pgid": 25926,
+        "start": "Sun Nov 1 23:06:19 2026",
+        "executable": "sleep"
+      },
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "sleep 300"
+    }
+  },
+  "group": [
+    {
+      "pid": 25926,
+      "ppid": 91087,
+      "pgid": 25926,
+      "start": "Sun Nov 1 23:06:18 2026",
+      "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-git"
+    },
+    {
+      "pid": 25932,
+      "ppid": 25926,
+      "pgid": 25926,
+      "start": "Sun Nov 1 23:06:18 2026",
+      "executable": "/Applications/Xcode.app/Contents/Developer/usr/bin/git"
+    },
+    {
+      "pid": 25933,
+      "ppid": 25932,
+      "pgid": 25926,
+      "start": "Sun Nov 1 23:06:18 2026",
+      "executable": "/bin/sh"
+    },
+    {
+      "pid": 25934,
+      "ppid": 25933,
+      "pgid": 25926,
+      "start": "Sun Nov 1 23:06:19 2026",
+      "executable": "sleep"
+    }
+  ],
+  "ownedCommitProcesses": [
+    {
+      "pid": 25932,
+      "ppid": 25926,
+      "pgid": 25926,
+      "start": "Sun Nov 1 23:06:18 2026",
+      "executable": "/Applications/Xcode.app/Contents/Developer/usr/bin/git",
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-git-resume-20261101-evdd1emz/01-Git补验",
+      "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/git --no-pager --literal-pathspecs -c core.quotepath=false -c color.ui=false commit -m Git controlled stop 20261101"
+    }
+  ],
+  "ownedCommitGroupIds": [
+    25926
+  ],
+  "app91087": {
+    "pid": 91087,
+    "ppid": 1,
+    "pgid": 91087,
+    "start": "Sun Nov 1 21:07:16 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "reference": null,
+  "sameIdentitiesAsReference": {},
+  "referenceOwnedIdentitiesGone": {},
+  "signalsSent": false,
+  "fixtureWrites": false
+}

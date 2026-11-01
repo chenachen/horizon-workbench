@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-11-01T10:40:55.858323+00:00",
+  "mainSha256": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/hdiutil",
+        "verify",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg"
+      ],
+      "exitCode": 0,
+      "stdout": "\u6b63\u5728\u68c0\u67e5\u201cProtective Master Boot Record\uff08MBR\uff1a0\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\nProtective Master Boot Record\uff08MBR\uff1a0\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $8B71FFD8\n\u6b63\u5728\u68c0\u67e5\u201cGPT Header\uff08Primary GPT Header\uff1a1\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n    GPT Header\uff08Primary GPT Header\uff1a1\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $CBCAD51C\n\u6b63\u5728\u68c0\u67e5\u201cGPT Partition Data\uff08Primary GPT Table\uff1a2\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\nGPT Partition Data\uff08Primary GPT Table\uff1a\u5df2\u9a8c\u8bc1CRC32 $6C6CDC5C\n\u6b63\u5728\u68c0\u67e5\u201c\uff08Apple_Free\uff1a3\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n                      \uff08Apple_Free\uff1a3\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $00000000\n\u6b63\u5728\u68c0\u67e5\u201cdisk image\uff08Apple_APFS\uff1a4\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n            disk image\uff08Apple_APFS\uff1a4\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $CCAB3B3A\n\u6b63\u5728\u68c0\u67e5\u201c\uff08Apple_Free\uff1a5\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n                      \uff08Apple_Free\uff1a5\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $00000000\n\u6b63\u5728\u68c0\u67e5\u201cGPT Partition Data\uff08Backup GPT Table\uff1a6\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\nGPT Partition Data\uff08Backup GPT Table\uff1a\uff1a\u5df2\u9a8c\u8bc1CRC32 $6C6CDC5C\n\u6b63\u5728\u68c0\u67e5\u201cGPT Header\uff08Backup GPT Header\uff1a7\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n     GPT Header\uff08Backup GPT Header\uff1a7\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $F58A9D74\n\u5df2\u9a8c\u8bc1CRC32 $FEC424B5\n",
+      "stderr": "hdiutil: verify: checksum of \"/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg\" is VALID\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "-x",
+        "-k",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-context-release-verify-2ijjd3_h"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-context-release-verify-2ijjd3_h/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "extractedMainMatches": true
+}

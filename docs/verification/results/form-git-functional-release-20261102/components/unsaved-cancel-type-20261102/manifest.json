@@ -1,0 +1,162 @@
+{
+  "status": "PREPARED_SCOPED_TS_AND_TWO_AFTER_COMPONENT_GROUPS_PASSED",
+  "change": {
+    "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+    "beforeSha256": "6032930230ff5256cca949c4d48152a40892cb8b1a7d6260191e6a94b068f120",
+    "afterSha256": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17"
+  },
+  "patch": {
+    "path": "source.patch",
+    "sha256": "849117879dee708de73d393255724cae26a90d55349433610b3f1c56cbe59542",
+    "scope": "delete only redundant invalid div.onCancel; retain keydown isolation and shared Modal"
+  },
+  "sources": {
+    "preparedOnly": true,
+    "changePath": "apps/desktop/src/components/UnsavedChanges.tsx",
+    "sources": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "beforeSha256": "a4f9cc7e83f6007722aafca6183eeae37f19fb1e48a835131e52c2b9adc2a445",
+        "afterSha256": "a4f9cc7e83f6007722aafca6183eeae37f19fb1e48a835131e52c2b9adc2a445"
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "beforeSha256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5",
+        "afterSha256": "4445092a5690b05508da3f0eac877ffd63a19e287fef22a1410680fe8d0059c5"
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "beforeSha256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f",
+        "afterSha256": "64f13b466f465b6b83d47a8b7d637feb2cbf0ac9c17a02737bd280e0dd44de0f"
+      },
+      {
+        "path": "apps/desktop/src/features/processes/index.tsx",
+        "beforeSha256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b",
+        "afterSha256": "02c123cd700da130da774e331ed0d0fa5cb4b001b2b8f3190ae5448b0deef41b"
+      },
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "beforeSha256": "6032930230ff5256cca949c4d48152a40892cb8b1a7d6260191e6a94b068f120",
+        "afterSha256": "bbbee0de938704f4f1eb27b136ad765247d201ebb3e60944cf3e427f3aa44b17"
+      }
+    ],
+    "support": [
+      {
+        "path": "apps/desktop/src/components/Modal.tsx",
+        "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33"
+      },
+      {
+        "path": "apps/desktop/src/bridge.ts",
+        "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+      },
+      {
+        "path": "apps/desktop/tsconfig.json",
+        "sha256": "a074d7381ee08a4c76c8575917e0f47ce29e0686b7453638288ef4e07b2b4283"
+      }
+    ],
+    "firstReleaseFailure": {
+      "original": "docs/verification/results/form-git-functional-release-20261102/release-build.log",
+      "copy": "source/release-build-first-failure.log",
+      "sha256": "02caba46c186b96a2e2e3baac3a81581cf64e73ae23eac4cc37d6497d373fb20"
+    }
+  },
+  "nativeCancelBoundary": "ConnectionForm/form and settings parent have no React onCancel; actual shared Modal listens on each native dialog, prevents default and calls current onClose. Helper div cancel attribute is redundant.",
+  "typecheck": {
+    "compilerVersion": "5.9.3",
+    "rootOnly": "apps/desktop/src/components/UnsavedChanges.tsx",
+    "realDependency": "apps/desktop/src/components/Modal.tsx",
+    "noEmit": true,
+    "beforeCodes": [
+      2322,
+      7006
+    ],
+    "afterDiagnostics": [],
+    "fullProductBuildRun": false
+  },
+  "componentAfterGroups": [
+    {
+      "kind": "connection-close",
+      "passed": true
+    },
+    {
+      "kind": "outer-close-and-hidden",
+      "passed": true
+    }
+  ],
+  "runs": [
+    {
+      "kind": "typecheck",
+      "command": "rtk proxy node .work/unsaved-cancel-type-20261102/run-typecheck.mjs",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T15:55:39.962Z",
+      "completedAt": "2026-11-01T15:55:40.929Z",
+      "durationMs": 967,
+      "rawReport": "typecheck-result.json",
+      "rawScript": "run-typecheck.mjs",
+      "sha256": {
+        "run-typecheck.mjs": "54c40a680179c3ea8e6a39f6c2663ff0d5afd0b45245d451bb0d0e9e71c4f898",
+        "typecheck-result.json": "2101590c2d8e049992a8ea85d0a98227cc419eedc2fc92b34ca5d9dced72597a",
+        "source-sha.json": "f17e3ca83eb48067a2aa6ac12b42a035fd36bce44e921a3b237d1a4eb9d0e45a"
+      }
+    },
+    {
+      "kind": "component-after",
+      "command": "rtk proxy node .work/unsaved-cancel-type-20261102/run.mjs",
+      "cwd": "/Users/chenpengxiang/Desktop/Horizon",
+      "exitCode": 0,
+      "startedAt": "2026-11-01T15:55:53.263Z",
+      "completedAt": "2026-11-01T15:56:00.962Z",
+      "durationMs": 7699,
+      "rawReport": "result.json",
+      "rawScript": "run.mjs",
+      "sha256": {
+        "run.mjs": "b07df2c5618492b0d400ab6a3bca43ac41a0d27889caf38532c0dfbc189cac42",
+        "result.json": "7f329357c949ac3a7898b94c79e42c38a5fb76f5b8e4ab22fde9f3b469faecb0",
+        "source-sha.json": "f17e3ca83eb48067a2aa6ac12b42a035fd36bce44e921a3b237d1a4eb9d0e45a"
+      }
+    }
+  ],
+  "originalFirstReleaseFailurePreserved": {
+    "original": "docs/verification/results/form-git-functional-release-20261102/release-build.log",
+    "copy": "source/release-build-first-failure.log",
+    "sha256": "02caba46c186b96a2e2e3baac3a81581cf64e73ae23eac4cc37d6497d373fb20"
+  },
+  "oldTenGroupsUnmodified": true,
+  "productAndSupportUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/tsconfig.json",
+      "unchanged": true
+    }
+  ],
+  "productEditsBuildInstallNativeGui": false,
+  "componentProcessesCompleted": true
+}

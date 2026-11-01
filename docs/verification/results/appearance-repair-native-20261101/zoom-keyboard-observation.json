@@ -1,0 +1,13 @@
+{
+  "scope": "Native page zoom keyboard observation only",
+  "build": "aa010d289eadc486167225d2eae8c9fb65bc9abdab7d19848cf88fc3fbbd2101",
+  "menuActions": "125/150/175/200 and reset100 observed",
+  "keyboard": "CUA super+equal and super+plus did not change menu status, including after native Raise and body click. Cause unresolved; not claimed physical-keyboard product failure.",
+  "sourceReview": {
+    "tauri": "tauri 2.12.5 menu/normal.rs: accelerator uses muda parser",
+    "muda": "muda 0.20.0 parses CmdOrCtrl, Equal and Digit0; macOS maps Equal to =, Digit0 to 0",
+    "location": "apps/desktop/src-tauri/src/lib.rs install_page_zoom_menu"
+  },
+  "otherToolObservation": "Native menu Escape also remained open in CUA; exposed Cancel action succeeded. Terminal CUA typeText later omitted underscores/backslash before Return; no altered command executed.",
+  "followup": "Retain menu-driven zoom evidence; keyboard accelerator remains unverified. No speculative frontend fallback added."
+}

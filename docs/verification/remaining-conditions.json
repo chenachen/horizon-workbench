@@ -1,0 +1,5465 @@
+{
+  "recordedAt": "2026-11-01T17:11:25.686474+00:00",
+  "scope": "104 canonicalv0.1 requirements; macOS goal resumedNov1; Oct31 globalappearance/font amendment applies; Windows last",
+  "baselineEvidenceRecords": 255,
+  "counts": {
+    "partial": 45,
+    "failed": 2,
+    "verified": 57
+  },
+  "rules": [
+    "Reuse exact existing nativeGUI/native/source invariants; no duplicate tests or verifier GUI operation.",
+    "Source closes narrow invariants only; one functional screenshot does not close visual review or eight layouts.",
+    "Original PNG/JPEG are both acceptable for manual visual comparison; compression uncertainty limited to affected detail.",
+    "Appearance/layout/fonts/density/motion are global; editorbehavior mayprojectoverride; oldprojectappearance evidence remains historical.",
+    "Five prior pickerCPU failures retained historically and superseded only by actual native-picker A/B reading retest; picker-open CmdQ unsuccessful observations retained as unrequired-combination/input-delivery limitation, not a new hard failure.",
+    "Currentsettings-project ACTIVE30m completedactualexit0/1800.0051s; changing-scene observation does not replace final-buildsame-state loop orpostquit."
+  ],
+  "rows": [
+    {
+      "proven": "全停后设置/插件/恢复稿预览导出可用；无QuickJS",
+      "remaining": "全停状态实际管理工作区/项目；零文件树/Git/Agent实例计数",
+      "owner": "plugin_runtime+root",
+      "action": "P1",
+      "id": "REQ-HOST-001",
+      "title": "最小宿主保持可管理",
+      "status": "partial",
+      "acceptance": "停用全部功能扩展后仍能管理工作区/项目、打开设置、安装恢复扩展、查看/导出恢复草稿；无文件树/Git/Agent 常驻实例",
+      "evidence": [
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "独立注册、Git卸载恢复、代码停用保稿",
+      "remaining": "文件树卸载/恢复；Git卸载期间无刷新/实例",
+      "owner": "plugin_runtime",
+      "action": "P1",
+      "id": "REQ-HOST-002",
+      "title": "默认能力真实可拆",
+      "status": "partial",
+      "acceptance": "文件树、代码、搜索、Git 分别作为默认附带扩展；Git 卸载后无 Git 刷新，恢复安装后原项目可继续；代码停用不丢恢复数据",
+      "evidence": [
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "安装零执行、按命令激活、休眠不启进程",
+      "remaining": "详情/同一视图重复打开不新增实例的同identity计数",
+      "owner": "plugin_runtime",
+      "action": "P1",
+      "id": "REQ-HOST-003",
+      "title": "按激活事件运行",
+      "status": "partial",
+      "acceptance": "新装未启用、已启用休眠、打开扩展详情均不启动服务；仅相应命令/文件类型/视图触发实例，重复打开不重复启动",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "A暂停只停A、B继续；全局影响列A/B/PID",
+      "remaining": "外部占用的界面归属与外部PID存活对照；任意TUI附着明确不支持",
+      "owner": "processes+plugin_runtime",
+      "action": "L1",
+      "id": "REQ-HOST-004",
+      "title": "实例归属可追踪",
+      "status": "partial",
+      "acceptance": "同扩展在 A/B 两项目运行时，暂停 A 只释放 A 的资源；显示自有与外部附着进程；全局停用列全量影响",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "生产stop拒外来/过时稿；retain最新稿；宿主导出稿",
+      "remaining": "导出失败/不支持时界面阻止停用并列具体文档",
+      "owner": "plugin_runtime+editor",
+      "action": "P2",
+      "id": "REQ-HOST-005",
+      "title": "扩展状态与恢复接口",
+      "status": "partial",
+      "acceptance": "编辑扩展退出前交出恢复数据；不支持状态导出时阻止危险停用并列具体文档；仅有包目录或 UI 开关不能通过验收",
+      "evidence": [
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "ZIP来源/版本/权限；损坏/环/不兼容原生校验；安装不执行",
+      "remaining": "已装版本上失败更新后旧版本/配置仍可用的GUI链",
+      "owner": "plugin_runtime",
+      "action": "P2",
+      "id": "REQ-EXT-001",
+      "title": "安装与兼容校验",
+      "status": "partial",
+      "acceptance": "本地包显示来源、版本、能力、兼容范围；损坏包/依赖环/不兼容在激活前失败，既有版本仍可用；安装本身不执行扩展代码",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-UNINSTALLED-EXTENSION-PERMISSION-PREVIEW-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "Git默认包卸载/恢复且项目保留",
+      "remaining": "文件树默认包卸载→宿主恢复",
+      "owner": "plugin_runtime",
+      "action": "P1",
+      "id": "REQ-EXT-002",
+      "title": "默认扩展恢复",
+      "status": "partial",
+      "acceptance": "文件树/Git 卸载后从宿主入口恢复可信默认包；不要求重新安装整个应用；用户项目和配置仍在；默认包同样经过依赖/权限检查",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "项目暂停隔离、生产重建保暂停、显式恢复新实例",
+      "remaining": "实际app重开仍暂停；活动任务先处理的取消/停止界面",
+      "owner": "plugin_runtime+root",
+      "action": "P1+Q1",
+      "id": "REQ-EXT-003",
+      "title": "暂停与恢复",
+      "status": "partial",
+      "acceptance": "当前项目/所有项目暂停范围明确；活动资源释放，重启后仍不自动激活；显式恢复才按需重建；保留启用策略与配置；有活动任务先处理",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全局硬门/项目隔离原生校验",
+      "remaining": "候选6项目启用越级global失败的7实机复测；禁用重开与来源显示",
+      "owner": "plugin_runtime",
+      "action": "P1+Q1",
+      "id": "REQ-EXT-004",
+      "title": "全局/项目禁用",
+      "status": "failed",
+      "acceptance": "项目禁用跨重启保留且不影响其他项目；全局禁用停止所有实例并禁止项目覆盖绕过；UI 展示实际生效来源",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-PROJECT-ENABLE-SCOPE-C6-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "影响清单/包注册移除；默认保私有配置和项目",
+      "remaining": "取消卸载零变化；勾清私有设置仅清该扩展",
+      "owner": "plugin_runtime",
+      "action": "P2",
+      "id": "REQ-EXT-005",
+      "title": "卸载语义",
+      "status": "partial",
+      "acceptance": "卸载全局移除活动包与注册，先列项目/依赖影响；取消不改状态；配置清理另选；不删除源码或卸载系统 Git/Agent CLI",
+      "evidence": [
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "必需缺失/暂停/环/版本拒绝；依赖停止计划",
+      "remaining": "optional缺失降级；依赖禁用不被消费动作重开；取消计划保实例",
+      "owner": "plugin_runtime",
+      "action": "P2",
+      "id": "REQ-EXT-006",
+      "title": "依赖影响与冲突",
+      "status": "partial",
+      "acceptance": "必需依赖缺失不能激活；可选依赖只降级；禁用依赖提供同时停用依赖者/取消；用户禁用的依赖不自动重启；循环与版本冲突可定位",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "首装/更新授权门与未授权调用拒绝",
+      "remaining": "首次权限页明确取消后无包/注册/进程",
+      "owner": "plugin_runtime",
+      "action": "P2",
+      "id": "REQ-EXT-007",
+      "title": "权限与来源透明",
+      "status": "partial",
+      "acceptance": "安装前说明权限/作用域，拒绝取消安装；已安装包启用权限不足则不激活；未授权调用被拒绝；更新新增权限重新确认；不宣称 OS 强沙箱",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-UNINSTALLED-EXTENSION-PERMISSION-PREVIEW-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实更新/回滚、旧进程退出、配置保留",
+      "remaining": "失败更新保旧版且无双版本同时运行",
+      "owner": "plugin_runtime",
+      "action": "P2",
+      "id": "REQ-EXT-008",
+      "title": "更新可恢复",
+      "status": "partial",
+      "acceptance": "本地安装新版本先停止旧实例、校验兼容与权限；失败保留旧配置与可恢复版本，不同时运行两版；不要求公共市场",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "未启用/休眠/运行/暂停/禁用/异常可见；真实QuickJS注入停止失败保同PID/activation/资源1，retry资源0/ESRCH",
+      "remaining": "补实际短暂停止中；失败资源直显可与原生注入+窄渲染不变量组合，不要求制造OS拒杀",
+      "owner": "plugin_runtime+processes",
+      "action": "R2",
+      "id": "REQ-EXT-009",
+      "title": "状态真实区分",
+      "status": "partial",
+      "acceptance": "已安装未启用/休眠/运行/暂停/禁用/停止中/异常分别显示；停止超时仍显示占用资源，不因为面板消失标已停止",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-STOP-FAILURE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-CAPABILITY-PRESET-CONSOLIDATED-001"
+      ],
+      "id": "REQ-EXT-010",
+      "title": "轻量预设",
+      "status": "verified",
+      "acceptance": "极简阅读、代码审查、项目开发、自定义可选择；默认代码审查不启动 Agent/终端；应用前列停止/新增能力；缺包不自动联网安装",
+      "evidence": [
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CAPABILITY-PRESET-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "外部ZIP真实Git命令/视图及暂停恢复禁用卸载",
+      "remaining": "各阶段实际订阅数与恢复新activation归属",
+      "owner": "plugin_runtime",
+      "action": "P1",
+      "id": "REQ-EXT-011",
+      "title": "外部扩展真实闭环",
+      "status": "partial",
+      "acceptance": "本地安装只读更改列表扩展，命令首次激活读取真实状态；暂停/恢复/禁用/卸载后分别验证命令、视图、订阅、进程；不是内置假数据",
+      "evidence": [
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "扩展A异常、B继续、owned子进程回收",
+      "remaining": "异常后独立编辑保存；手动重试；实际安全日志与无无限重启",
+      "owner": "plugin_runtime+editor",
+      "action": "P2",
+      "id": "REQ-EXT-012",
+      "title": "故障隔离",
+      "status": "partial",
+      "acceptance": "让可选扩展异常退出，宿主及独立文件/代码扩展仍响应；错误归属清楚，有脱敏日志与重试/停用，不无限自动重启",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-WORKSPACE-GUI-001"
+      ],
+      "id": "REQ-WS-001",
+      "title": "工作区组织",
+      "status": "verified",
+      "acceptance": "创建/改名/排序只改分组信息；默认工作区自动存在；删其他工作区明确迁移项目到默认工作区，不删除磁盘目录",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-GUI-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "旧alias同规范单ID/只读非Git+新包权限Retry/缺目录Relocate同ID正文全部实测",
+      "remaining": "无；组合闭合WS002，三项目全会话另属WS005",
+      "owner": "root+native_core",
+      "action": "W1",
+      "id": "REQ-WS-002",
+      "title": "添加本地项目与去重",
+      "status": "verified",
+      "acceptance": "同规范化路径再次添加定位已有项目；路径别名不产生冲突编辑；只读/非 Git 项目能打开；权限/路径失效有分别恢复入口",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-BOM-CRLF-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-ADD-ALIAS-READONLY-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-PERMISSION-RECOVERY-SETTINGS-PROJECT-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-WORKSPACE-NORMALIZATION-RECOVERY-FULL-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "非空47B保留/401保表单/慢cloneStop四gone/仅本次marker清理/成功才注册/noautorun闭合；W父picker为操作者既有动作澄清，无独立picker帧/精确UTC。ca71两literal源修正不冒充新clone。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-WS-003",
+      "title": "克隆仓库",
+      "status": "verified",
+      "acceptance": "显示地址、目标、进度；非空目标不覆盖；成功才注册项目；取消展示本次新建残留目录，删除须显式选择；认证失败保留表单",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-CLONE-RESIDUE-CANDIDATE6-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CLONE-PARENT-PICKER-DISABLED-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-CLONE-ABSENT-TRASH-WORDING-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-CLONE-CANCEL-AUTH-PICKER-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "显示名rename/pin不改根；dirtyRemove Cancel/Retain；56B恢复稿与原32B盘分离，F09单稿清理预览",
+      "remaining": "仅L1末同owned活动service项目Remove前处理/清退/只去关联保源；不把StopDelete profile或AppQuit当projectRemove。所选自有恢复稿实际清理并Q2尾，旧dirtyRemove/Cancel/Retain不重复。",
+      "owner": "root",
+      "action": "W2+Q1+D1",
+      "id": "REQ-WS-004",
+      "title": "项目操作",
+      "status": "partial",
+      "acceptance": "固定只改排序、改名只改显示名；移除处理未保存与活跃服务后移除关联，不删源码；保留历史可在 F09 单独清理",
+      "evidence": [
+        {
+          "id": "MAC-PROJECT-MEMBERSHIP-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-REMOVE-RETAIN-DRAFT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有三项目编辑完整会话+Pi上下文/审查隔离，补ca71 Git草稿跨NONREPO返回/设置与Stop仍保留，postrefresh AX同before，原句闭合。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "editor+agent_pi",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-WS-005",
+      "title": "切换与会话归属",
+      "status": "verified",
+      "acceptance": "三个项目往返后标签/选区/滚动/树展开/搜索/提交草稿/聊天各自恢复；切换不强制保存、不切分支、不把新项目上下文送给旧 Agent",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-NATIVE-PROJECT-SEARCH-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RECOVERY-RELAUNCH-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-CLOSE-STALE-SESSION-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RECOVERY-RELAUNCH-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SLEEP-QUIT-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-BLANK-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-VIEW-RESTORE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-STALE-SCOPE-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RETURN-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RECOVERY-SETTINGS-PROJECT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-THREE-PROJECT-SCROLL-NATIVE-PICKER-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-SCROLL-COMPONENT-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-THREE-PROJECT-SCROLL-SELECTION-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-OVERVIEW-CURRENT-PROJECT-STALE-LAUNCHER-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-OVERVIEW-ACTIVATION-ORDER-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TASK-HIDE-CROSSPROJECT-IDENTITY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-SNAPSHOT-PARAMETERS-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-ALLOW-NATURAL-REVIEW-CROSSPROJECT-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-WRITE-STOP-SETTINGS-SESSION-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "nested目录明确父repo保护；parent/main与linkedworktree/qa独立ID，HEADclean不变；写前canonical根校验",
+      "remaining": "无；不含PRD明确排除的嵌套扫描/多仓库聚合",
+      "owner": "root+git",
+      "action": "W1",
+      "id": "REQ-WS-006",
+      "title": "单根与仓库范围",
+      "status": "verified",
+      "acceptance": "一个项目一个根；父仓库/嵌套仓库明确提示并可单独添加；不无提示在父目录提交；不同 worktree 可独立添加",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-ROOT-SCOPE-WORKTREE-FULL-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "100k按层导航+单目录read_dir/展开加载源码；新原生隐藏/刷新保选中/循环链接不递归/单目录失败保树与恢复",
+      "remaining": "已按正文完整组合闭合，不重复。",
+      "owner": "editor",
+      "action": "—",
+      "id": "REQ-FILE-001",
+      "title": "按层文件树",
+      "status": "verified",
+      "acceptance": "打开只读必要层；展开才读子项；单目录失败不清空全树；刷新保留有效选中；符号链接不无限递归；隐藏项可显式查看",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-BOM-CRLF-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-BLANK-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-VIEW-RESTORE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-TREE-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "新建改名冲突/标签/复制路径/真实Trash旧证据；新Finder选中、脏Trash拒绝保22B与正文；错误无永久删回退",
+      "remaining": "已按正文完整组合闭合，不重复。",
+      "owner": "editor",
+      "action": "—",
+      "id": "REQ-FILE-002",
+      "title": "文件操作",
+      "status": "verified",
+      "acceptance": "新建/重命名不覆盖冲突路径；打开标签随改名更新；复制路径、系统中显示可用；删除走废纸篓，失败不降为永久删除；脏文件先处理",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-HOST-TRASH-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-OPERATIONS-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "预览复用20→20→21/编辑固定/已有标签定位；A clean关闭保dirty，B/C相对紧邻前态标签/活动/树/caret/scroll不变",
+      "remaining": "已按正文完整组合闭合，不重复。 首轮项目切换scroll失败仍归WS005。",
+      "owner": "editor",
+      "action": "—",
+      "id": "REQ-FILE-003",
+      "title": "标签与预览",
+      "status": "verified",
+      "acceptance": "单击复用一个干净预览标签；编辑即固定；同一文件定位已有标签；项目标签隔离；关闭干净标签不丢其他项目状态",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PROJECT-SEARCH-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-TABS-CLEAN-CLOSE-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "旧>模式/查询记忆/Escape焦点；新B/C当前项目限定、Up/Down/Enter提示、禁用Save实际不执行",
+      "remaining": "已按正文完整组合闭合，不重复。",
+      "owner": "editor",
+      "action": "—",
+      "id": "REQ-FILE-004",
+      "title": "快速打开/命令",
+      "status": "verified",
+      "acceptance": "文件搜索限定当前项目；`>` 切到命令；键盘选择、快捷键提示和取消返回焦点；未启用扩展的命令不暗中运行",
+      "evidence": [
+        {
+          "id": "MAC-SEARCH-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-SEARCH-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-QUICKOPEN-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-QUICKOPEN-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部原句已由原生搜索+同SHA取消/正则测试及守卫闭合",
+      "remaining": "无本条新增动作；新包真实Stop/cancel仍归STATE003",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-005",
+      "title": "项目文本搜索",
+      "status": "verified",
+      "acceptance": "查询按文件分组并定位行；支持大小写/全词/正则/路径范围；新查询取消旧结果；错误正则不启动；无结果不清输入；明确搜索磁盘内容",
+      "evidence": [
+        {
+          "id": "MAC-SEARCH-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-NATIVE-PROJECT-SEARCH-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-PENDING-STOP-SETTINGS-PROJECT-OBSERVATION-001",
+          "outcome": "not_run",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-STOP-COMPONENT-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SEARCH-CONSOLIDATED-20261101-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "UTF8输入/查找替换/未知语言/中文整次Undo；新原生Copy→Paste/Undo/Redo/Save与marked组合暂停自动保存→中文40B自动落盘",
+      "remaining": "已按正文完整组合闭合，不重复。 旧focus.ts未归因观察保留，不升格为未证实产品失败。",
+      "owner": "editor",
+      "action": "—",
+      "id": "REQ-FILE-006",
+      "title": "基础编辑",
+      "status": "verified",
+      "acceptance": "UTF-8 文件可输入、撤销/重做、查找/替换、复制粘贴、保存；中文组合输入不拆坏字符；未知语言纯文本可读；无需 LSP",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-BOM-CRLF-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PROJECT-SEARCH-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-UNDO-DIRTY-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-ROUNDTRIP-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-IME-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-BASIC-EDIT-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-BASIC-EDIT-COPY-IME-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-007",
+      "title": "保存版本校验",
+      "status": "verified",
+      "acceptance": "只在磁盘基线匹配时保存；失败保留全文/圆点；保存期间继续输入后新编辑仍脏；同文件重复保存不交错覆盖",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RECOVERY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-IME-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SAVE-VERSION-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-008",
+      "title": "外部变更",
+      "status": "verified",
+      "acceptance": "干净文件外变可刷新；脏文件外变保留双方并进入比较/重载/另存；自动保存暂停；删除仍保留打开内容，不能静默覆盖",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-EXTERNAL-CHANGE-CONSOLIDATED-20261101-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-DISPATCH-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-GUI-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-009",
+      "title": "未保存与关闭",
+      "status": "verified",
+      "acceptance": "保存/放弃本次编辑/取消语义独立；保存失败不关闭；取消恢复原上下文；放弃缓冲区不执行 Git 放弃更改；批量关闭逐项报告",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-PROJECT-SEARCH-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-UNDO-DIRTY-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-CLOSE-FOCUS-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CLOSE-FOCUS-CANDIDATE7-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CLOSE-CONSOLIDATED-20261101-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开；823×800窄窗源码/预览页签与未保存内容/Undo原文补证",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-010",
+      "title": "可选预览与基础结构",
+      "status": "verified",
+      "acceptance": "启用预览后 Markdown 分栏/标题定位可用，源码始终可读；脚本及默认远程资源禁用；暂停扩展释放预览，不启动语义服务",
+      "evidence": [
+        {
+          "id": "MAC-MARKDOWN-PREVIEW-CONSOLIDATED-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-MARKDOWN-NARROW-NATIVE-PICKER-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-011",
+      "title": "大文件和二进制",
+      "status": "verified",
+      "acceptance": "10 MiB、50 MiB、100k 字符单行边界分别验证降级；显示大小、加载范围和只读原因；部分加载不可保存覆盖全文件；二进制可系统打开",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-LARGEFILES-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-READONLY-REASON-CANDIDATE7-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-LARGEFILES-CONSOLIDATED-20261101-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "BOM/CRLF与新UTF8/LF、无末换行、unsupported保原件及配置不批改已组合闭合",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-FILE-012",
+      "title": "编码与换行",
+      "status": "verified",
+      "acceptance": "UTF-8 BOM、LF/CRLF、末行换行保存保持；新文件默认 UTF-8/LF；非支持编码只读提示，不乱码保存；配置变化不批量改写文件",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-BOM-CRLF-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-ENCODING-CONSOLIDATED-20261101-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "正常保稿退出/比较不写盘；最新checkpoint原生；Nov1实际sleep/wake保稿且Save清RecoveryNotice；df1e新包两轮checkpoint→Undo至clean无旧ENOENT、1280B稿实际删除、原盘304B同SHA；缺盘dirty64B另存副本/重定位保稿与Undo已真实完成；既有同SHA48/48中精确两条组件断言覆盖2s idle/生产10s max与checkpoint失败拒绝释放保正文；342256真实非空路径缓存1项目/5路径清至0，同一恢复稿ID/14:36:31/0.6KiB及dirty正文保留，成功后recovery_list已刷新",
+      "remaining": "受控异常退出后恢复最后落盘文本并比较磁盘不自动覆盖。2s/10s节奏、checkpoint失败不放行、清缓存保未决稿和044 clean-Undo已有对应证据，不重复。",
+      "owner": "editor+root",
+      "action": "Q2",
+      "id": "REQ-FILE-013",
+      "title": "草稿与崩溃恢复",
+      "status": "partial",
+      "acceptance": "草稿按 PRD 节奏持久化；切换/休眠前确保恢复数据；模拟异常退出能恢复最后落盘文本；恢复先比较磁盘，不自动覆盖；清缓存不删未解决草稿",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RECOVERY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RECOVERY-RELAUNCH-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RECOVERY-RELAUNCH-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RETURN-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-RECOVERY-STALE-CANDIDATE7-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RECOVERY-SETTINGS-PROJECT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CLEAN-UNDO-RECOVERY-NATIVE-PICKER-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RECOVERY-NOTICE-UNDO-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-DISPATCH-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CLEAN-UNDO-RECOVERY-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-GUI-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CHECKPOINT-CADENCE-AND-RELEASE-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CACHE-CLEAR-PRESERVES-UNRESOLVED-DRAFT-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "已有nonrepo/unborn/detached/根目录，实际F07无效Git→stale禁写→恢复有效路径/版本；新ca71同OID分支列表自动更新正确。",
+      "remaining": "仅P1既定停用Git扩展后无刷新；不重做路径/快照/分支链。",
+      "owner": "git+plugin_runtime",
+      "action": "P1停用策略原条件",
+      "id": "REQ-GIT-001",
+      "title": "Git 检测与状态",
+      "status": "partial",
+      "acceptance": "缺 Git/非仓库/空仓库/detached HEAD 状态不同；可配置路径；展示仓库根/分支；失败快照标过期；停用 Git 扩展后不刷新",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-GIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-PRESSURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-BRANCH-LIST-SAME-OID-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-DETECTION-STAGED-HISTORY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-BRANCH-LIST-SAME-OID-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "旧A/B/C/D与删改名二进制大diff，加a78c首行1/760自动行内原生闭合；纯视觉不混算。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git+appearance",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-GIT-002",
+      "title": "双基线差异",
+      "status": "verified",
+      "acceptance": "A→B 已暂存、B→C 未暂存样例同时正确；脏缓冲区 D 不混入磁盘 diff；未跟踪/删除/重命名/二进制/大 diff 有明确呈现；窄窗行内",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-GIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-STALE-DIFF-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-PRESSURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-STALE-DIFF-CANDIDATE6-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-DIFF-REBASE-EXISTING-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-GIT-STAGING-CONSOLIDATED-001"
+      ],
+      "id": "REQ-GIT-003",
+      "title": "文件级暂存/取消",
+      "status": "verified",
+      "acceptance": "暂存只取磁盘；脏文件明确保存后暂存/仅磁盘/取消；取消暂存不改磁盘；空仓库首次暂存可取消；已有部分暂存正确保留",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-GIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-STAGING-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-GIT-COMMIT-CONSOLIDATED-001"
+      ],
+      "id": "REQ-GIT-004",
+      "title": "提交准确与失败恢复",
+      "status": "verified",
+      "acceptance": "空说明/无暂存/冲突禁用；提交前范围变化须再次核对；提交只含已暂存；hooks/签名失败保留说明与真实状态；成功显示提交标识，不自动推送",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-GIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-COMMIT-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-DETECTION-STAGED-HISTORY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-GIT-HISTORY-CONSOLIDATED-001"
+      ],
+      "id": "REQ-GIT-005",
+      "title": "提交历史",
+      "status": "verified",
+      "acceptance": "分页历史、提交详情及父提交差异可用；浅历史显示范围；读取历史不改当前分支、缓冲区或暂存区",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-HISTORY-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-DETECTION-STAGED-HISTORY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实起点/切换/脏盘及18integration锁/dirty拒绝、ca71编译源dirty_documents保护、同名失败输入保持组合闭合；新03同OID列表修复。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-GIT-006",
+      "title": "分支操作",
+      "status": "verified",
+      "acceptance": "新分支显示起点，默认当前 HEAD；切换要求无脏缓冲区且磁盘/暂存干净；同名/锁失败可恢复；不自动 stash、丢弃或改分支",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-BRANCH-REMOTE-SAFETY-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有实际fetch/ffpull/push+系统Git认证；nonFF不force保本地、无上游目标门与401表单保留组合闭合。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-GIT-007",
+      "title": "获取/拉取/推送",
+      "status": "verified",
+      "acceptance": "fetch 不改文件；pull 明示仅快进；push 明确 remote/branch，上游缺失先选择；非快进不自动 force；认证沿用系统流程；失败不丢本地改动",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-BRANCH-REMOTE-SAFETY-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有手动结果保存/明确暂存/残标记拒绝，加实际rebase stage2/3及外部处理说明闭合。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-GIT-008",
+      "title": "最小冲突处理",
+      "status": "verified",
+      "acceptance": "冲突列表与标记可定位，手动结果先保存再明确暂存标已解决；Git 仍冲突不能显示成功；外部 merge/rebase 模式可见并可外部处理",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-DIFF-REBASE-EXISTING-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "tracked/index/dirty边界及真实65B Trash→Finder owned-copy同SHA闭合；不冒充目录Trash或忙碌阶段。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-GIT-009",
+      "title": "放弃更改范围",
+      "status": "verified",
+      "acceptance": "对已跟踪文件恢复到暂存区，保留已暂存内容；未跟踪文件移废纸篓；显示清单与后果；先处理未保存；危险按钮不默认聚焦",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-TRASH-CANDIDATE6-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-TRASH-RECOVERY-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "原生串行/基线/未知lock；真实Stop后HEAD/index核对",
+      "remaining": "一次受控慢写重复点击核单组/单提交；取消晚到结果核对",
+      "owner": "git",
+      "action": "G2",
+      "id": "REQ-GIT-010",
+      "title": "串行操作与取消核对",
+      "status": "partial",
+      "acceptance": "同仓库写操作排队并重验，重复点击不重复提交；取消后核对 HEAD/暂存/远端再定结果；不把杀进程等同回滚，不自动删除未知锁",
+      "evidence": [
+        {
+          "id": "MAC-GIT-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "受管/外部1.4.0、未配/验证/401；固定文本测试；495ab同A主设置保存后真实已配置未验证、关闭即新连接；删同temp关闭即未连接，精确替代旧01bcache失败；02managed1.4/9.9.9版本未验证/仅1.4说明/恢复与检测期无模型请求，结合原生配置状态组合full",
+      "remaining": "当前macOS功能原句组合闭合；03后续真实Pi功能独立验收，纯视觉后置，不重复02检测或旧验证401",
+      "owner": "agent_pi",
+      "action": "I1",
+      "id": "REQ-AI-001",
+      "title": "程序检测与连接配置",
+      "status": "verified",
+      "acceptance": "Pi 显示受管/自有路径、版本、兼容范围；未安装/未配置/未验证/认证失败分别呈现；检测不生成请求或改用户全局配置；已配置不冒充已验证",
+      "evidence": [
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-DELETE-STALE-PANEL-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-CACHE-COMPONENT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-CACHE-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-RUNTIME-DETECTION-AND-CONNECTION-STATE-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-MAIN-CONNECTION-EXPLICIT-TEST-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-AUTH-FAILURE-EXPLICIT-RETRY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SYSTEM-SESSION-CREDENTIAL-OWNERSHIP-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "新495 D03项目/第2行/已保存编辑快照/冻结Git方向真实可见；移除后真实HTTP仅精确选区+diff，三marker排除/tools空；与当前快照/UTF16/版本源码和既有buffer集成证据组合闭合",
+      "remaining": "本条功能组合闭合；纯D03视觉八布局后置，不重复上下文发送",
+      "owner": "agent_pi",
+      "action": "I1",
+      "id": "REQ-AI-002",
+      "title": "上下文显式交付",
+      "status": "verified",
+      "acceptance": "发送前显示项目、文件/行/差异基线；未保存文本标注来源；可移除；发送固定快照；不自动附整仓；附件范围与 Agent 实际访问范围分别说明",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-CONTEXT-LINES-REMOVAL-HTTP-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-PI-CONTEXT-BUDGET-CONSOLIDATED-001"
+      ],
+      "id": "REQ-AI-003",
+      "title": "附件上限",
+      "status": "verified",
+      "acceptance": "20 文件/256 KiB 初始预算超限时要求删减或分批；不静默截断；不代替 Agent 改写记忆；无精确 token 计数时标估算",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-CONTEXT-BUDGET-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-PI-MESSAGE-MODE-CONSOLIDATED-001"
+      ],
+      "id": "REQ-AI-004",
+      "title": "真实消息与模式",
+      "status": "verified",
+      "acceptance": "同会话不并发/排队新回合；聊天关闭项目工具与自动资源发现；收到输入成功不等于完成，重试/压缩结束后才判终态；普通 stdout 不伪造成结构化记录",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-STREAM-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-MESSAGE-MODE-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实流Stop/待授权取消/退出；草稿和既有修改保留；新495精确SIGSTOP自有Pi后实际stopping→已中断/OSgone/外部provider保留/无重放/副本保持；新Bchat精确断连保部分正文/效果未知、109.183693s无自动重放、同session一次手动继续成功；旧pendingCancel/I1强回收/clearqueue组合齐",
+      "remaining": "取消/断连/停止原句组合闭合；Q1综合退出/凭据期限仍按RUN004/AI013实际流程，不新增本条重测。",
+      "owner": "agent_pi",
+      "action": "I2",
+      "id": "REQ-AI-005",
+      "title": "取消、断连与停止",
+      "status": "verified",
+      "acceptance": "停止清理待发队列与授权并请求中断，结束证据后才停止；超时可结束自有进程；断连先核对原任务；保留已有修改，不稍后续跑旧输入",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-UNACKNOWLEDGED-STOP-OWNED-REAP-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-DISCONNECT-MANUAL-RESUME-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TWO-INSTANCE-STOP-CHECKPOINT-CLASSIFICATION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-PI-CAPABILITIES-RESUME-CONSOLIDATED-001"
+      ],
+      "id": "REQ-AI-006",
+      "title": "启动/恢复与能力表",
+      "status": "verified",
+      "acceptance": "固定 Pi 版本的 RPC 消息/授权/取消/恢复逐项验证；首版附着任意 TUI 为不支持；运行时与实例归属可见；空闲退出可恢复会话但不重发任务",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-STREAM-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-CAPABILITIES-RESUME-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-PI-AUTHORIZATION-CONSOLIDATED-001"
+      ],
+      "id": "REQ-AI-007",
+      "title": "授权转接",
+      "status": "verified",
+      "acceptance": "Pi 原生不等于逐操作审批；受控任务工具在执行前请求，显示动作/路径/目录/来源；拒绝无副作用，过期/断桥拒绝；未知工具不可绕过；不宣称 OS 沙箱",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-STREAM-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-AUTHORIZATION-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-PERMISSION-EXPIRED-WITHOUT-WRITE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-ALLOW-NATURAL-REVIEW-CROSSPROJECT-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实任务副本/打开文档未保存/撤销/保存；原生stale守卫；新12ed正常tool-6副本写/自然审查A-B-A、后编辑陈旧应用拒绝/X保留、核定副本放弃及无HEAD只聊天已实机补齐",
+      "remaining": "本条功能按新原生与既有成功applyUndoRedo/dirty基线/版本/分支index保护组合闭合；纯D06多布局视觉后置，不增功能复跑。",
+      "owner": "agent_pi",
+      "action": "I1",
+      "id": "REQ-AI-008",
+      "title": "修改审查与版本检查",
+      "status": "verified",
+      "acceptance": "Pi 任务副本含原磁盘改动及用户选取的未保存快照，不改原分支/index；无有效 HEAD 只聊天；应用检查原磁盘/编辑版本，打开文档保留可撤销未保存状态；不自动提交",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-WRITE-REVIEW-STALE-UNBORN-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-PI-ARCHITECTURE-001"
+      ],
+      "id": "REQ-AI-009",
+      "title": "不自研 Agent",
+      "status": "verified",
+      "acceptance": "实现与依赖检查确认规划、工具执行循环、记忆由外部工具承担；Horizon 仅适配；无“模型 API 自动循环执行工具”路径；不假设统一 ACP",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-ARCHITECTURE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "原生单项目1/显式全局2/第3拒；GUI历史无重放/独立草稿；真实删除旧连接保9历史与Pi自有认证/外部安装边界说明；新temp删后同9集合不变；组件运行task/草稿/附件/session保留（非原生运行Pi）；新495 I1隐藏/A→B→A原PID/session/cwd/2附件保持，B无会话/请求；新正常任务A审查→B无A内容→返A同review，Bchat断连原session/cwd与一次manualcontinue保持；新显式A/B双Pi固定125s逐帧2、A原PIDstart/session/cwd不变；StopB/A后精确Pi0；额外16是采样后/Stop前内部checkpoint，非原prompt重放；新Q1同包noReplay17；新a78c A8/B2实际范围清理/旧9集合保留、两个核定copy先discard、两QA0/0影响删除与外部认证/历史保留说明；既有单项目1/全局2/I1上下文组合齐",
+      "remaining": "本条按原句与真实native/组件/直接源码组合闭合，不新增复跑；原图保各自12ed/a78c/旧accepted构建身份。真实厂商/OAuth实际登录未测单列，不伪造已测或另加登录门槛。",
+      "owner": "agent_pi+appearance",
+      "action": "I1+D1",
+      "id": "REQ-AI-010",
+      "title": "项目会话与恢复",
+      "status": "verified",
+      "acceptance": "切换项目不改变旧目录/上下文；每项目一个任务、全局最多2个运行实例且不自动启动第二个；恢复不重放命令；删除 Horizon 记录不声称删除外部认证/历史",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-CACHE-COMPONENT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-CACHE-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TASK-HIDE-CROSSPROJECT-IDENTITY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-ALLOW-NATURAL-REVIEW-CROSSPROJECT-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TWO-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TWO-INSTANCE-STOP-CHECKPOINT-CLASSIFICATION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SESSION-RECOVERY-OWNERSHIP-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "唯一Pi候选；无Codex/Claude假可用入口/自研loop；managed1.4.0已有版本/策略证据上新增0/1/2Pi固定125s资源分账，单Pi实际总峰320.952224MB/双Pi424.434432MB，外部provider另列",
+      "remaining": "本机macOS发布默认仍按既有完整版本/策略/资源组合门槛判定，本批只闭合受控activePi资源子项；Windows/macOS x64保未测计划，不阻塞本机交付，不新增其他Agent或重复本批采样。",
+      "owner": "root",
+      "action": "N1+X1",
+      "id": "REQ-AI-011",
+      "title": "Pi 与其他 Agent 分期",
+      "status": "partial",
+      "acceptance": "本次 macOS 发布中 Pi 通过本机版本/策略/资源门槛后才标发布默认；Windows/macOS x64 保留覆盖计划及未实测声明，不阻塞本次 macOS 交付；Codex/Claude 首期只交付能力/接口设计，不出现假可用入口；Pi 未通过不转为自研 Agent 或悄然扩大首期适配",
+      "evidence": [
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SINGLE-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TWO-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "受管安装/外部路径不改；活动卸载拒绝；零Pi与历史保留；生产共享helper坏包精确事务1pass/133filtered，staging清空/不激活；managed已有路径install只detect不写，02Cancel/恢复/idle0与既有活动卸载ownership组合full",
+      "remaining": "当前固定1.4应用职责组合闭合，无动态跨版本升级入口；原05a人为缺失路径install已取消未执行。信息/失败框纯视觉后置，不追加GUI补门槛",
+      "owner": "agent_pi",
+      "action": "I2",
+      "id": "REQ-AI-012",
+      "title": "运行时安装与所有权",
+      "status": "verified",
+      "acceptance": "首次使用明确安装/定位；显示固定版本/来源/大小，校验失败不激活；升级不切正在运行实例；卸载只清无人使用的受管运行时，不删用户全局 Pi；不用时进程为零",
+      "evidence": [
+        {
+          "id": "MAC-PI-FIXED-STREAM-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-RUNTIME-CORRUPT-ARCHIVE-PRODUCTION-TRANSACTION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-FIXED-RUNTIME-INSTALL-OWNERSHIP-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "连接/provider/model；真实系统Keyring与authOwner隔离；外部服务不误停；真实no-key loopback/external连接保存/选择性删除、同项目cache立即同步；旧9历史仍保留、无新请求；新Ac74受控401请求10→明确manual11仍失败/needsAuthentication、draft+唯一44B上下文保留，非自动修复；新installed12ed主连接显式Test12恢复；自有假凭据system配置→Test13验证→同ref session/rev2、旧系统item absent，实际SDK14/15会话引用，Pi已有认证说明预览Cancel；Q1真sessionexpiry；a78c安全metadata列表/表单修复；ordinarypaste/rev4变有效后真1ref清理、source/index不变/provider最后owner显式停，原系统/会话/固定Test与归属组合齐",
+      "remaining": "本条按原句与真实native/组件/直接源码组合闭合，不新增复跑；原图保各自12ed/a78c/旧accepted构建身份。真实厂商/OAuth实际登录未测单列，不伪造已测或另加登录门槛。",
+      "owner": "agent_pi+appearance",
+      "action": "D1",
+      "id": "REQ-AI-013",
+      "title": "模型连接与凭据归属",
+      "status": "verified",
+      "acceptance": "配置 provider/协议/endpoint/model，测试不发项目内容；API key 系统存储且不进入任务命令环境/日志；Pi OAuth 另标归属；模型调用由 Pi 执行，本地服务不被擅自启动/停止",
+      "evidence": [
+        {
+          "id": "MAC-PI-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-KEYRING-EXPORT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-DELETE-STALE-PANEL-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-CACHE-COMPONENT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-MAIN-SETTINGS-CONNECTION-CACHE-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-MAIN-CONNECTION-EXPLICIT-TEST-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-AUTH-FAILURE-EXPLICIT-RETRY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SYSTEM-SESSION-CREDENTIAL-OWNERSHIP-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SESSION-CREDENTIAL-EDIT-METADATA-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-CREDENTIAL-OWNERSHIP-SETTINGS-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "独立扩展、紧凑底栏/设置详情；Nov1Add实际无dev/postinstall标记/无node_modules",
+      "remaining": "启动器卸载/恢复入口；与全停流程合并",
+      "owner": "plugin_runtime",
+      "action": "P1",
+      "id": "REQ-LAUNCH-001",
+      "title": "可选扩展与项目入口",
+      "status": "partial",
+      "acceptance": "快速启动独立扩展，可停用/卸载；工作台只显示方案选择与启动/停止；详细配置进设置；打开项目不启动进程",
+      "evidence": [
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-CANDIDATE6-REGRESSION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-ADD-ALIAS-READONLY-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "GUI发现选择保存授权链零提前执行；原生nested只读",
+      "remaining": "带脚本项目Add/Clone均不执行/不安装依赖的标记与进程检查",
+      "owner": "processes+root+git",
+      "action": "L1+W1",
+      "id": "REQ-LAUNCH-002",
+      "title": "发现但不执行",
+      "status": "partial",
+      "acceptance": "用户点击发现后只读取脚本声明并显示原始命令/来源/目录；必须选择和保存；检测、添加/克隆项目均不执行脚本或自动安装依赖",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "多进程依赖/TCP/HTTP/超时URL；环拒绝；原生快照v1→v2",
+      "remaining": "显式shell/cwd/环境引用表单与版本提示；运行中改保存仅下次使用",
+      "owner": "processes",
+      "action": "L1",
+      "id": "REQ-LAUNCH-003",
+      "title": "保存运行方案",
+      "status": "partial",
+      "acceptance": "可保存名称、所需扩展、多个进程、参数/显式 shell、目录、环境引用、顺序/依赖、就绪条件、超时、URL；拒绝依赖环；运行实例持有配置快照",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "授权复用/脚本变化重审；外部端口拒绝不杀",
+      "remaining": "缺包/禁用/暂停/无程序各有可处理UI且不静默启用",
+      "owner": "processes",
+      "action": "L1",
+      "id": "REQ-LAUNCH-004",
+      "title": "启动预检与授权",
+      "status": "partial",
+      "acceptance": "缺扩展、全局禁用、暂停、无程序、端口占用分别可处理；不静默启用/安装/杀别的进程；命令或脚本来源变化需重新审阅；未变方案可一键复用授权",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实依赖就绪/PID/log/once退出；端口归属",
+      "remaining": "无探针运行未验证文字；失败/超时已spawn PID显示",
+      "owner": "processes",
+      "action": "L1",
+      "id": "REQ-LAUNCH-005",
+      "title": "多进程与就绪",
+      "status": "partial",
+      "acceptance": "两进程按依赖启动并显示各自 PID/状态/日志；一次性命令成功退出与常驻就绪区分；无探针只标运行未验证；不能把旧进程端口响应当本次就绪",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-LAUNCH-006",
+      "title": "失败策略",
+      "status": "verified",
+      "acceptance": "必需进程失败后不启动其依赖者，默认停止本次新启动进程；原有外部进程不受影响；停止失败显示部分失败仍运行；保留排错可显式配置",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESS-CONTROLLED-STOP-FAILURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-FAILURE-POLICY-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实逆序树停/新PID重启；native同run拒绝；受控停止失败保原组且retry清退",
+      "remaining": "未停妥重复启动/重启不重复组；运行中保存新配置的变更提示",
+      "owner": "processes",
+      "action": "L1+R2",
+      "id": "REQ-LAUNCH-007",
+      "title": "停止与重启",
+      "status": "partial",
+      "acceptance": "按依赖逆序停止自有进程树，停止未确认不启动重复实例；重启使用已保存配置并展示变更；重复点击定位/合并现有操作；不回滚脚本副作用",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESS-CONTROLLED-STOP-FAILURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "手动URL/PTY定位/pipe日志；原生auto仅就绪一次",
+      "remaining": "实际自动打开一次；日志其他URL不导航",
+      "owner": "processes",
+      "action": "L1",
+      "id": "REQ-LAUNCH-008",
+      "title": "打开终端与 URL",
+      "status": "partial",
+      "acceptance": "终端定位本次进程；只有明确保存的 URL 可打开；默认手动，选择自动后仅就绪时开一次；不自动打开任意日志 URL；无终端可看日志",
+      "evidence": [
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-CANDIDATE6-REGRESSION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "A/B隔离/隐藏继续/lease共享原生",
+      "remaining": "活动方案阻止自动睡眠；禁用/退出先处理；人为改策略后不回滚",
+      "owner": "processes+root",
+      "action": "R1+Q1",
+      "id": "REQ-LAUNCH-009",
+      "title": "所有权与跨项目生命周期",
+      "status": "partial",
+      "acceptance": "切换/隐藏不停止，活跃方案阻止休眠；退出/禁用先处理自有组；结束仅释放本次使用权，无其他使用者/人为改设置才恢复扩展原策略；不误杀共享/外部进程",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "导入未授权/导出脱敏；原生活动删除和平台路径；失败停止保配置",
+      "remaining": "活动删除取消/停止后仅删配置的GUI；Windows格式macOS提示",
+      "owner": "processes",
+      "action": "L1",
+      "id": "REQ-LAUNCH-010",
+      "title": "删除与平台差异",
+      "status": "partial",
+      "acceptance": "活跃方案删除前停止或取消；只删配置不删代码；Windows/macOS 命令差异启动前可见；导入方案默认未授权，密钥导出脱敏",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESS-CONTROLLED-STOP-FAILURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "终端隐藏/专注/跨项目同PID/cwd；空AI零Pi；新495活动AI隐藏返回/切B返A同Pi36311与session/cwd，A运行标记可见",
+      "remaining": "活动Git隐藏返回同任务仍按G1/G2既有工作流；终端/AI本分支复用已完成证据",
+      "owner": "agent_pi+git",
+      "action": "I1+G2",
+      "id": "REQ-RUN-001",
+      "title": "隐藏不停止",
+      "status": "partial",
+      "acceptance": "隐藏 AI/终端/Git 或进入专注后运行任务继续且项目有标记；再开定位原实例，不重复启动；空面板展开不启动 Agent",
+      "evidence": [
+        {
+          "id": "MAC-TERMINAL-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TASK-HIDE-CROSSPROJECT-IDENTITY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实Stop组/PTY/授权；外部保留；QuickJS与启动器真实子进程受控清理失败保identity/状态并retry回收；新495精确SIGSTOP Pi后实际Stop→stopping→已中断+OSgone，外部provider保留",
+      "remaining": "其余运行类型按Git/L1/Q1已安排真实终态/停止失败链组合；不重复本次Pi强回收",
+      "owner": "processes+agent_pi+plugin_runtime",
+      "action": "R2",
+      "id": "REQ-RUN-002",
+      "title": "停止有真实结果",
+      "status": "partial",
+      "acceptance": "自有服务收到停止后显示停止中；退出/协议确认后才完成；超时可进一步处理；断开附着不杀外部进程；不把停止等同撤回",
+      "evidence": [
+        {
+          "id": "MAC-DEBUG-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-PRESSURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-CANCEL-PROBE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-STOP-FAILURE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESS-CONTROLLED-STOP-FAILURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-UNACKNOWLEDGED-STOP-OWNED-REAP-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "Nov1手动sleep/wake保稿；B/C继承5min实际自动sleep；scope守卫；新包实际wakeB精确24B/clean已过；d709缺路径101MiB唤醒/FileRecovery/QuickOpen/tab/Retry两块已实际复验；342256正常存在路径Resume自动首块/Next和休眠偏好路由已实际复验",
+      "remaining": "资源释放/暂停策略按L1与plugin现成链；活跃资源同周期阻挡；未落盘稿按HOST005实际checkpoint失败保dirty+495 lib286直接guard组合。当前所有nonclean含已checkpoint dirty均保守阻止自动sleep；原文未要求其必须自动睡眠，无新增5min等待。HOST005精确故障arm待root。",
+      "owner": "editor+root+plugin_runtime",
+      "action": "E1+R1",
+      "id": "REQ-RUN-003",
+      "title": "项目休眠与唤醒",
+      "status": "partial",
+      "acceptance": "后台 5 分钟无阻止项可休眠；监听/扫描/可恢复服务停止；未落盘草稿、活跃进程阻止；唤醒重验磁盘；手动暂停/禁用不被唤醒覆盖",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CLOSE-STALE-SESSION-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-SLEEP-QUIT-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-STALE-SCOPE-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RETURN-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RECOVERY-SETTINGS-PROJECT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-AUTOSAVE-AUTOSLEEP-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-AUTOSLEEP-WAKE-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-SLEEP-WAKE-RECOVERY-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-LIFECYCLE-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-MISSING-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-VALID-WAKE-FIRST-READ-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-CHUNKED-VALID-WAKE-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-MAIN-SLEEP-G03-EIGHT-LAYOUT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "缺失inactive项目根仍正常closeplan/Cancel/确认退出，6身份消失；picker菜单Quit回同保护链；7ba同16574显式Stop后OS消失，末clean CmdQ后89459/16574两精确身份消失（非新全helper清单）；Q1实际dirty+PTY/API-child/Web/Pi全影响清单，Cancel/savefail同6存活→Save47B→root12全部gone/同包42567重开markers与HTTP17无重放；a78c局部错误窄复验精确闭合旧提示",
+      "remaining": "原句已由既有证据与本批精确组合闭合；纯视觉与后写P1策略重开各按既定队列，不重整Q1/8layout。",
+      "owner": "root+各owner",
+      "action": "Q1",
+      "id": "REQ-RUN-004",
+      "title": "关闭/退出",
+      "status": "verified",
+      "acceptance": "退出列全部未保存与自有运行组/终端/Agent；保存失败或取消留在应用；自有进程停妥，附着断开；重启不自动执行原命令",
+      "evidence": [
+        {
+          "id": "MAC-DEBUG-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RECOVERY-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RECOVERY-RELAUNCH-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-CLOSE-STALE-SESSION-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RECOVERY-RELAUNCH-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SLEEP-QUIT-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NORMAL-QUIT-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-MISSING-ROOT-EXIT-SETTINGS-PROJECT-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-NORMAL-QUIT-SETTINGS-PROJECT-IDENTITIES-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-CMDQ-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-WORKSPACE-MISSING-ROOT-NORMAL-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-CMDQ-SCOPE-OBSERVATION-001",
+          "outcome": "not_run",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-MENU-QUIT-CHAIN-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-EDITOR-LIFECYCLE-NORMAL-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-THREE-PROJECT-SCROLL-SELECTION-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NORMAL-QUIT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-MISSING-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-VALID-WAKE-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-OWNED-PTY-STOP-AND-NORMAL-QUIT-AFTER-MAIN-TOUR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-UNIFIED-QUIT-CANCEL-SAVEFAIL-REAP-REOPEN-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "原全部终端子句组合证据保留；342256同51343经50布局保持并显式结束，ps确认消失；新aa010原生退出12504重开只读历史/resize无NoPTY，结合实际xterm5阶段撤销旧失败",
+      "remaining": "当前macOS原句已闭合；最终Q1全资源PID/start退出审计仍独立进行，不把本次12504事后absence外推",
+      "owner": "processes+root",
+      "action": "新包终端定向复测",
+      "fullEvidence": [
+        "MAC-TERMINAL-CONSOLIDATED-001"
+      ],
+      "id": "REQ-RUN-005",
+      "title": "按需终端",
+      "status": "verified",
+      "acceptance": "首次新建才启动 shell，显示项目/目录；中文输入输出与 resize 可用；切项目不改旧 cwd；面板隐藏继续，结束会话结束受管进程；日志有界",
+      "evidence": [
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-CANDIDATE6-REGRESSION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-EXPLICIT-STOP-AFTER-LAYOUT-50-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-CLOSED-REOPEN-NOPTY-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-TERMINAL-EXIT-THEME-PRODUCTION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-CLOSED-HISTORY-REOPEN-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-OWNED-PTY-STOP-AND-NORMAL-QUIT-AFTER-MAIN-TOUR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "id": "REQ-RUN-006",
+      "title": "有界资源",
+      "status": "verified",
+      "acceptance": "搜索 10,000 匹配截断可见；干净文档 20 份/64 MiB 初始上限可验证；聊天/终端/日志有界；未保存不淘汰；无伪造内存仪表",
+      "evidence": [
+        {
+          "id": "MAC-SEARCH-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-PRESSURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-SERVICE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-STREAM-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-RESOURCE-BOUNDS-CONSOLIDATED-20261101-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "原生global2→4/A项目8保持/UseGlobal后A4明确链已闭合；项目折行Aon/Boff隔离、往返保持及resetoff；来源默认/全局/项目可见；既有两项目全局字体/外观共用与无workspace层保留；b077补齐保存延迟独立UseGlobal，实际1000→500/project→reset1000/default、autosaveoff，最终磁盘投影无覆盖；该条macOS组合闭合",
+      "remaining": "无该条macOS剩余条件；global2→4/A8、字体、折行与保存延迟reset均已有明确证据，不重复",
+      "owner": "appearance",
+      "action": "A1",
+      "id": "REQ-SET-001",
+      "title": "全局与项目继承",
+      "status": "verified",
+      "acceptance": "允许项目覆盖的编辑与仓库行为遵循默认→全局→项目，每覆盖项有来源与“使用全局设置”；全局缩进宽度 2→4、A 覆盖 8 时 A 不变，使用全局设置后 A=4；外观与字体仅全局共用，没有隐含工作区层",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-INHERIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PLUGIN-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-GLOBAL-SCOPE-AND-PROJECT-SELECTOR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-GLOBAL-FONTS-PROJECT-BEHAVIOR-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-EXACT-INDENT-AND-WRAP-INHERITANCE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SAVE-DELAY-RESET-AND-INHERITANCE-COMPOSITE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全局布局/尺寸两项目共用；实际divider260→261→271、Mist271→Paper→Mist271；50次布局切换同EditorView/原选区/Undo/PTY保持；既有globalgeometry+三项目会话+50/8layout View与scroll/selection/Git+terminalfocus实际同PTY；当前focus-onlymerge不改panel flags/geometry组合闭合",
+      "remaining": "原句已由既有证据与本批精确组合闭合；纯视觉与后写P1策略重开各按既定队列，不重整Q1/8layout。",
+      "owner": "appearance",
+      "action": "A1",
+      "id": "REQ-SET-002",
+      "title": "布局与会话分离",
+      "status": "verified",
+      "acceptance": "布局插件/该布局尺寸全局共用，拖动更新全局首选值；显示/隐藏和光标归会话；切预设不重建文档/发请求；专注退出恢复原布局",
+      "evidence": [
+        {
+          "id": "MAC-APPEARANCE-INHERIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-GLOBAL-SCOPE-AND-PROJECT-SELECTOR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-LAYOUT-50-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-GLOBAL-FONTS-PROJECT-BEHAVIOR-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-GEOMETRY-INPUT-PERSIST-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAYOUT-SESSION-SEPARATION-EXISTING-EVIDENCE-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全局字体共用、项目缩进/折行覆盖隔离与恢复；默认autosaveoff、开启不写既有dirty、delay/focus写入、外部冲突暂停及真实marked Pinyin暂停/提交后精确40B保存；换行保持由既有原生字节与设置重配源码组合闭合",
+      "remaining": "无该条macOS剩余条件；SET001保存延迟独立恢复入口另列，不重复既有自动保存/IME链",
+      "owner": "editor+appearance",
+      "action": "A1",
+      "id": "REQ-SET-003",
+      "title": "编辑偏好与自动保存",
+      "status": "verified",
+      "acceptance": "字体全局共用，缩进/折行可项目覆盖；默认自动保存关；开启延迟保存不立刻批量写已有脏文件；IME/外部冲突期间暂停，不暗改换行",
+      "evidence": [
+        {
+          "id": "MAC-SETTINGS-GLOBAL-SCOPE-AND-PROJECT-SELECTOR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-AUTOSAVE-AUTOSLEEP-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-IME-AUTOSAVE-PAUSE-NATIVE-REMAINDER-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-GLOBAL-FONTS-PROJECT-BEHAVIOR-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-PREFERENCES-COMPOSITE-NATIVE-CLOSED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实两层连接/项目默认继承/删除影响；新a78c过期列表/blankhint/实际session方式；安全metadata16状态、有效ref清理/QA连接0/0影响与外部保留说明，原runtime/连接/全局项目引用组合齐",
+      "remaining": "本条按原句与真实native/组件/直接源码组合闭合，不新增复跑；原图保各自12ed/a78c/旧accepted构建身份。真实厂商/OAuth实际登录未测单列，不伪造已测或另加登录门槛。",
+      "owner": "agent_pi+appearance",
+      "action": "I1+D1",
+      "id": "REQ-SET-004",
+      "title": "Agent 设置范围",
+      "status": "verified",
+      "acceptance": "运行时→模型连接两层；全局配置与项目引用分离，删引用列影响；Pi provider 配置与OAuth/系统密钥归属清楚；未支持字段不伪造；检测/验证/运行分开",
+      "evidence": [
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SESSION-CREDENTIAL-EDIT-METADATA-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-CREDENTIAL-OWNERSHIP-SETTINGS-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "F07来源/有效无效路径/默认off/身份/ffOnly与运行中autoRefresh off→reset，原四身份不变且rev49→51恢复原键缺省，闭合。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-SET-005",
+      "title": "Git 偏好",
+      "status": "verified",
+      "acceptance": "Git 路径/差异/刷新来源可见；自动 fetch 默认关；身份沿用仓库配置；改设置不改变运行中 Git 命令，拉取策略显示明确",
+      "evidence": [
+        {
+          "id": "MAC-GIT-WRITE-STOP-SETTINGS-SESSION-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "F08按操作搜索、真实录CmdS冲突取消/替换、单项恢复后CmdP；导出shortcuts={}；macOS⌘显示与mouse/keyboard同openQuickFiles",
+      "remaining": "macOS原句已闭合；Windows Ctrl显示/行为列可选平台未验，不冒充通过",
+      "owner": "appearance+editor",
+      "action": "K1",
+      "id": "REQ-SET-006",
+      "title": "快捷键",
+      "status": "verified",
+      "acceptance": "按操作搜索、录入、冲突显示替换/取消、单项恢复默认；macOS Cmd 与 Windows Ctrl 显示正确，鼠标与键盘触发同一动作",
+      "evidence": [
+        {
+          "id": "MAC-EDITOR-QUICKOPEN-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-SHORTCUTS-NATIVE-MACOS-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有即时偏好/显式保存/有效性边界，加ca71连接Escape/CmdQ继续保字段、放弃不保存；真实Q1方案Done继续/放弃重开原名，1767B/rev1/SHA43b501…9项完全相同；最终编辑AX不变。功能原句full，旧source-only失败精确替代。",
+      "remaining": "功能已闭合，不重做Pi/方案链。段1确认AX为空单独归UI004，Portal新源码仍待原生，不用功能pass掩盖该失败。",
+      "owner": "appearance+agent_pi+processes",
+      "action": "已闭合；UI004确认AX另追踪",
+      "id": "REQ-SET-007",
+      "title": "表单有效性与保存",
+      "status": "verified",
+      "acceptance": "偏好即时生效，连接/启动方案显式保存；无效表单不破坏上一配置；关闭未保存表单可继续编辑，代码内容不受影响",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-CANDIDATE6-REGRESSION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-UNSAVED-SETTINGS-FORM-CLOSE-SOURCE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-UNSAVED-SETTINGS-FORM-SAVE-DISCARD-NATIVE-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实恢复稿/诊断导出；本轮设置6244B与原AX冻结预览JSON相同，已知密钥/正文/绝对路径不在输出；removed稿清理预览Cancel；非空路径缓存清1归0保同未决稿；新10b有效假凭据1ref/A8B2项目聊天分别实际确认清理，旧9/源/index保留、外部认证历史说明齐；未清恢复稿",
+      "remaining": "只余Q2尾精确选中自有checkpoint实际clear：Restore后Sleep保留Q2稿释放liveDocument→F09最新1项/blocked0确认，其他稿/源保留。旧大JSON文字不新增fixture/硬门槛；已成功设置导出/缓存/聊天/凭据不重复。",
+      "owner": "appearance+root",
+      "action": "D1",
+      "id": "REQ-SET-008",
+      "title": "数据清理与导出",
+      "status": "partial",
+      "acceptance": "设置导出默认无密钥/正文/绝对路径；缓存、聊天、草稿、凭据可分开清理；未解决草稿不作缓存删除；外部 Agent 数据未清理须说明",
+      "evidence": [
+        {
+          "id": "MAC-HOST-RECOVERY-PRESET-GUI-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-DIAGNOSTIC-EXPORT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-KEYRING-EXPORT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-DIAGNOSTICS-GUI-CANDIDATE7-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-REMOVE-RETAIN-DRAFT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CACHE-CLEAR-PRESERVES-UNRESOLVED-DRAFT-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-EXPORT-FROZEN-PREVIEW-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SELECTIVE-CREDENTIAL-HISTORY-CLEAR-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-DEFAULT-WORKBENCH-CONSOLIDATED-001"
+      ],
+      "id": "REQ-UI-001",
+      "title": "默认界面聚焦",
+      "status": "verified",
+      "acceptance": "默认附带扩展启用时主界面显示项目/文件/代码，AI/终端收起；配置集中设置；快速启动只保留紧凑入口；无需登录即可阅读",
+      "evidence": [
+        {
+          "id": "MAC-NATIVE-INITIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PROCESSES-CANDIDATE6-REGRESSION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-DEFAULT-WORKBENCH-CONSOLIDATED-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "当前包八套B01原JPEG逐对已审；重复状态行/贴边直角/抽屉等子项成立，128核心token一致；7ba Mist/Paper34主case独审，24视觉pass/6定点几何差异/4精确条件不符，相关旧settings及Paperfocus子项已闭合；7ba Orbit/Graphite34主case独审，22视觉pass/8差异/4条件不符，Orbit31密度/代码可见/终端及Graphite形状已核实，独立editoroverlay仍open；7ba Celadon/Iris32case独审，23pass/7差异/2条件不符，终端containment/主题和settings旧控件/恢复/overlay具体闭合；Iris三表单外角仍open；7ba Sand/Aurora33主case独审，22视觉pass/8差异/3条件不符，Sand33密度/代码可见/终端及Aurora主题已核实，独立editoroverlay仍open；main8全133case已独审登记；八G03已独审均pass，旧sleep rhythm/actionsize闭合，Celadon半行仅保留真实滚动位置观察；e597/8124独审15新图，sharedCSS24项尺寸组合闭合、真IrisA03A04外角及4darkoverlay独立闭合，30复核29pass1差异",
+      "remaining": "按最新用户指令后置：IrisA05自然clone外角/F13空态/B01隐藏终端/PaperB05scope、已冻结8D01与auxiliary样式候选及其余矩阵。纯视觉不作为明日可用候选包前置；当前506条既有视觉事实与未验保持，完整goal范围不删减。",
+      "owner": "verification; visual after functional candidate",
+      "action": "V-DEFERRED",
+      "id": "REQ-UI-002",
+      "title": "共用主题行为",
+      "status": "partial",
+      "acceptance": "八套布局共用浅深主题、密度与字体；第二套主题资源不改业务代码；同一编辑/Git/Agent 状态在主题间语义一致；八套布局插件与独立主题全部交付",
+      "evidence": [
+        {
+          "id": "MAC-PLUGIN-POLICY-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-ROUNDTRIP-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-B01-SETTINGS-PROJECT-REVIEW-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-EXIT-THEME-PRODUCTION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-MAIN-MIST-PAPER-VISUAL-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-MAIN-ORBIT-GRAPHITE-VISUAL-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-MAIN-CELADON-IRIS-VISUAL-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-MAIN-SAND-AURORA-VISUAL-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-MAIN-SLEEP-G03-EIGHT-LAYOUT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SHARED-PROJECT-FORM-AND-EDITOR-OVERLAY-REPAIR-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "deferred-visual"
+    },
+    {
+      "proven": "823×800Markdown切换/Undo；760×800原生侧栏浮层、四外观/七分类可见控件与固定关闭/完成、F08/F09上下段；aa010菜单100→200与SettingsDone/Add滚动Cancel实机已独审；b077真实Welcome/Overview菜单200标题完整2x及Welcome动作滚动可达，冻结CSS不再窄屏缩小h1，已恢复100%；ca71实际760无连接AI引导/配置隐藏可见、F6往返和恢复1280前后AX相同；无composer条件，不冒充输入验证。",
+      "remaining": "Git760行内与无连接AI引导原条件已登记；Windows125%/150%仍未验，按08:45Windows试用硬优先，不用work/源码冒充平台实现。",
+      "owner": "appearance+git",
+      "action": "Git已有原证登记+Windows原条件",
+      "id": "REQ-UI-003",
+      "title": "窄窗与缩放",
+      "status": "partial",
+      "acceptance": "窄窗侧栏浮层/AI 覆盖、diff 行内；关键操作可达；长中文名、200% 字体及 Windows 125%/150% 缩放不遮挡主要内容",
+      "evidence": [
+        {
+          "id": "MAC-MARKDOWN-NARROW-NATIVE-PICKER-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-NARROW-SETTINGS-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PAGE-ZOOM-200-REACHABILITY-PARTIAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PAGE-ZOOM-200-HEADING-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NARROW-AI-ONBOARDING-SEARCH-FOCUS-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有QuickOpen/取消编辑后立即键入焦点恢复、快捷键冲突替换/恢复、原生splitter Right/ShiftRight已过；495源码绑定支持核心命名/非纯色状态和Esc仅关闭UI，不追加整套K1；新12ed绑定Provider+CSS六motion组合生效，两个Git分页名称仅源改已核；12ed原生motion system→on→system与既有六计算样式组合闭合该子项；ca71窄搜索名称实际修复、F6/ShiftF6焦点已见；Q1 Done具名确认可读。；旧Git引用/clone单层Modal与Esc+Tab焦点已精确复验，新Stop Modal可读。",
+      "remaining": "仅保ca71未保存连接/AppCmdQ确认可见但AX空的原生失败，Portal后续新包最短复验；03 Tab未证明pull/push焦点，未虚报全键盘通过。",
+      "owner": "git+navigation_sol；verification复用既有证据",
+      "action": "确认AX最短复验；无新K1轮",
+      "id": "REQ-UI-004",
+      "title": "键盘与可访问状态",
+      "status": "failed",
+      "acceptance": "核心操作键盘可达；弹窗聚焦与恢复正确；图标有名称；圆点/M/冲突不只靠颜色；减少动画有效；Esc 不暗中停止任务",
+      "evidence": [
+        {
+          "id": "MAC-GIT-NESTED-MODAL-CANDIDATE6-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-CLOSE-FOCUS-CANDIDATE7-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-QUICKOPEN-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-PRODUCT-LIFECYCLE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-CMDQ-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-CMDQ-SCOPE-OBSERVATION-001",
+          "outcome": "not_run",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-MENU-QUIT-CHAIN-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-REAL-IME-BASIC-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-REDUCED-MOTION-PAGER-NAMES-COMPONENT-SOURCE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-REDUCED-MOTION-SETTING-NATIVE-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NARROW-QUICK-OPEN-NAME-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-UNSAVED-FORM-CONFIRMATION-AX-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NARROW-AI-ONBOARDING-SEARCH-FOCUS-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-SINGLE-MODAL-FOCUS-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "全部子句已组合闭合；功能证据与视觉/平台范围仍分开",
+      "remaining": "无本条新增动作",
+      "owner": "已闭合",
+      "action": "不重跑",
+      "fullEvidence": [
+        "MAC-FLOW-MAPPING-001"
+      ],
+      "id": "REQ-UI-005",
+      "title": "流程映射完整",
+      "status": "verified",
+      "acceptance": "打开项目、Git 交付、外部 Agent 审查、扩展恢复、快速启动五条路径均能追到需求/页面/失败恢复；新增 ID 更新映射不重排需求编号",
+      "evidence": [
+        {
+          "id": "MAC-FLOW-MAPPING-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "八布局实际可切；统一插件注册/停止恢复源证据",
+      "remaining": "停用/卸载当前布局实际替代或宿主恢复页；主题不随布局改变",
+      "owner": "appearance+plugin_runtime",
+      "action": "A1+P1",
+      "id": "REQ-UI-006",
+      "title": "布局均为插件",
+      "status": "partial",
+      "acceptance": "八套预装布局经相同安装/启停/卸载接口；换布局不换主题；停用当前布局有替代或宿主恢复页",
+      "evidence": [
+        {
+          "id": "MAC-LAYOUT-APPLY-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-ROUNDTRIP-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "旧native范围校验；全局两项目同尺寸；真实drag260/Right261/ShiftRight271、Mist271跨布局返回、显式240后760→1280回240；新包终端高度220→260→双击220实机通过；新aa010真实Right261/ShiftRight271/普通Esc保271视觉与AX同步，fresh AX双击271→240无STALE；旧两反例已定向闭合",
+      "remaining": "区域/范围/键盘/普通Esc/双击/760钳制证据复用；非default尺寸freshprocess持久化若缺并final20首轮，不另重启/八布局。拖动中Esc原生未执行、组件6阶段如实保留，不增CUA不可执行硬门槛。",
+      "owner": "appearance",
+      "action": "A1+K1+Q1",
+      "id": "REQ-UI-007",
+      "title": "区域尺寸设置",
+      "status": "partial",
+      "acceptance": "侧栏/顶部/标签/辅助/底部/状态区依布局可调；范围校验、键盘拖动、重启恢复；窄窗钳制不反写首选值",
+      "evidence": [
+        {
+          "id": "MAC-APPEARANCE-INHERIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-GLOBAL-SCOPE-AND-PROJECT-SELECTOR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-GEOMETRY-INPUT-PERSIST-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-GEOMETRY-ESC-AX-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-GEOMETRY-DOUBLECLICK-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RESIZE-GEOMETRY-PRODUCTION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-CLOSED-HISTORY-REOPEN-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SIDEBAR-ORDINARY-ESC-SYNCHRONIZED-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SIDEBAR-DOUBLECLICK-DEFAULT-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "本地图片复制且源移动后显示；本轮editor contain40/40、sidebar cover30/65/x25/y75、整个workbench与关闭重开保值；两个真实effect应用asset/CSS清空，2URL各释放1，迟到2read无新URL；结合已审真实关闭/导入/三区域/持久化，应用持有资源释放闭合",
+      "remaining": "当前macOS原句按应用职责组合闭合；未测WebKit物理decoded cache即时归零，不新增该硬门槛，最终发布平台按既定流程",
+      "owner": "appearance",
+      "action": "A1",
+      "id": "REQ-UI-008",
+      "title": "本地图片背景",
+      "status": "verified",
+      "acceptance": "导入本地静态图片并复制资产、缩放；区域/显示方式/透明度/遮罩可调；原文件移动后仍可显示，关闭释放解码资源",
+      "evidence": [
+        {
+          "id": "MAC-APPEARANCE-ASSET-PRESET-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-BACKGROUND-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-RAPID-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-BACKGROUND-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-BACKGROUND-REGIONS-NATIVE-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-BACKGROUND-OWNED-RESOURCE-CLEANUP-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "原生布局/主题混搭；浅#445566深#bbccdd分离，非法#GGGGGG保旧，单项恢复#b2cdf8；对比13.8/11.5可见且源码计算对应",
+      "remaining": "当前macOS原句已闭合；视觉配色/字体保真仍按独立视觉矩阵",
+      "owner": "appearance",
+      "action": "A1",
+      "id": "REQ-UI-009",
+      "title": "自定义主题颜色",
+      "status": "verified",
+      "acceptance": "布局与配色独立；浅深色分别覆盖语义令牌，非法输入不破坏旧值；单项恢复、对比提示可用",
+      "evidence": [
+        {
+          "id": "MAC-APPEARANCE-INHERIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-COLOR-MODES-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "按layoutId/themeId键保存；两项目全局共用；真实保存/应用/删除保当前值，UI17/code18保持；原生946B导出导入，缺包JSON提示/拒绝且Mist保留",
+      "remaining": "当前macOS原句已由本轮与已审历史原生组合闭合；不外推UI008解码释放或最终打包",
+      "owner": "appearance",
+      "action": "A1",
+      "id": "REQ-UI-010",
+      "title": "外观组合与继承",
+      "status": "verified",
+      "acceptance": "按 layoutId/themeId 保留全局偏好，所有项目共用；组合保存/应用/导入导出有全局范围和缺依赖提示",
+      "evidence": [
+        {
+          "id": "MAC-APPEARANCE-INHERIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-ASSET-PRESET-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-RAPID-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-BACKGROUND-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SETTINGS-GLOBAL-SCOPE-AND-PROJECT-SELECTOR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-PRODUCT-LIFECYCLE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-PRESET-GLOBAL-COMPOSITE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "恰好50次布局应用，原选区与同一EditorView1/created1/destroyed0/openSamples1保持；17Tab取回焦点后一次Undo去原marker；PTY51343保持；后态Git草稿匹配操作者预置文本；真实ni hao组合→你好提交已亲见；7ba同八布局Git前后完整同值/0staged，追加非零Aurora→Mist→Aurora原图首4末17保持，同EditorView1/created1/destroyed0/openSamples3及runtime计数不变；4组件边界独审：composition持有0prepare/apply、end后各1；提交前失败snapshot/style/commit精确保持；CSS-only与稳定Editor/Agent依赖source组合闭合",
+      "remaining": "当前应用原句组合闭合；组件合成composition与已审真实中文分别保留，不声称物理原生组词期间点击布局或postcommit半运行回滚；不重复50次",
+      "owner": "appearance+editor+agent_pi",
+      "action": "A1",
+      "id": "REQ-UI-011",
+      "title": "外观切换保留工作",
+      "status": "verified",
+      "acceptance": "切布局保留 EditorState/撤销/滚动/Git 草稿/任务；IME 期间延后，失败恢复上个布局；换色/尺寸不重开文件或发请求",
+      "evidence": [
+        {
+          "id": "MAC-APPEARANCE-ROUNDTRIP-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-LAYOUT-50-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-REAL-IME-BASIC-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-EIGHT-LAYOUT-WORK-STATE-COMPOSITE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-WORK-STATE-IME-FAILURE-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "空workspace/project/Git/Pi/缺包真实图；无假示例；权限/缺目录不同恢复dialog，真实Retry/Relocate且原reading保留；G02首次缺失/权限不同文案、同tabRetry、native/compareCancel、仅关错误tab均真实通过",
+      "remaining": "其余对应错误输入保留按原证据组合审核；权限/缺路径区分已补齐",
+      "owner": "root+editor",
+      "action": "W1+E1",
+      "id": "REQ-STATE-001",
+      "title": "空与不可用状态",
+      "status": "partial",
+      "acceptance": "空工作区/空项目/无更改/无 Agent/缺扩展各有正确入口；权限与路径失效分开；无数据不生成假示例；错误不清用户输入",
+      "evidence": [
+        {
+          "id": "MAC-FILES-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-PERMISSION-MISSING-STATES-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-DISPATCH-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-GUI-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有Editor/Search时间-stale/取消/基线拒绝，加Git stale禁写/Trash正常完成/当前cache同OID修复与真实writeStop四gone/迟到门无commit，原句闭合。",
+      "remaining": "原功能条款已组合闭合；保留每项真实未观测边界，不新增重复测试。后续Windows/插件/确认AX按其独立原条件追踪。",
+      "owner": "git+editor",
+      "action": "已闭合；不重跑旧Git/Pi/编辑组",
+      "id": "REQ-STATE-002",
+      "title": "渐进加载与过期数据",
+      "status": "verified",
+      "acceptance": "局部任务先显示结构，真实进度或不定进度；取消可用；旧结果标时间/过期；依赖最新基线的写入不可直接执行",
+      "evidence": [
+        {
+          "id": "MAC-GIT-STALE-DIFF-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-STALE-DIFF-CANDIDATE6-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-TRASH-CANDIDATE6-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-RECOVERY-STALE-CANDIDATE7-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RECOVERY-SETTINGS-PROJECT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CLEAN-UNDO-RECOVERY-NATIVE-PICKER-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RECOVERY-NOTICE-UNDO-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-CLEAN-UNDO-RECOVERY-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-GUI-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-LIFECYCLE-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-SNAPSHOT-STALE-GENERATION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-SNAPSHOT-PARAMETERS-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-BRANCH-LIST-SAME-OID-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-WRITE-CONTROL-PROJECT-RETURN-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-BRANCH-LIST-SAME-OID-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-WRITE-STOP-SETTINGS-SESSION-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "真实Pi/Git/启动取消边界；Nov1实际sleep后无旧epoch错误；生产晚回调守卫；新包原生零match Stop一次→已取消、query保留",
+      "remaining": "Pi/进程实际停止中至OS确认；clone取消晚结果；搜索真实Stop新包路径已完成，不重复",
+      "owner": "editor+processes+git",
+      "action": "E1+R2+G2",
+      "id": "REQ-STATE-003",
+      "title": "取消请求与完成分离",
+      "status": "partial",
+      "acceptance": "点击停止立即反馈，但等实际完成再变终态；已产生文件/远端结果不承诺回滚；过晚回调不覆盖新项目/新查询状态",
+      "evidence": [
+        {
+          "id": "MAC-SEARCH-INTEGRATION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-GIT-CANCEL-PROBE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-INTEGRATION-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EXTENSION-NATIVE-003",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-STALE-SCOPE-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-EDITOR-SLEEP-RECOVERY-SETTINGS-PROJECT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-PENDING-STOP-SETTINGS-PROJECT-OBSERVATION-001",
+          "outcome": "not_run",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-STOP-COMPONENT-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-STOP-NATIVE-PICKER-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-PASSIVE-HYDRATION-ERROR-COMPONENT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-SNAPSHOT-STALE-GENERATION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SEARCH-SNAPSHOT-PARAMETERS-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "Pi401/重测、Git hook重试、process来源变化修正、插件故障归属；文件不可用/重定位源码与dispatch及8条原生流程已独审，含只读载入、保稿Undo、显式Save与候选冲突拒绝；d709 chunked缺路径唤醒恢复页/Retry及原失效后导航已实机通过；已退出终端NoPTY与尺寸普通Esc/双击STALE旧反例均由新包定向原生复验闭合；总览返回当前项目引发launcher/global旧scope错误亦由7ba原生与真实组件调序复验闭合；新12ed绑定真实AgentPanel/store/bridge20组件场景保错误/取消/草稿附件并隔离迟到history，正常/草稿加载保持；新12ed真实stale-buffer保具体错误/草稿附件/X，修正后同session手动重发到真Pi授权；旧expiredDiff+同error组件+新native组合精确替代吞错失败",
+      "remaining": "错误恢复原句按既有多模块证据与本轮精确组合闭合；正常WRITE执行/修改审查另属AI008现成链，不从首次过期授权推导通过。",
+      "owner": "PiSol+root；verification独审登记",
+      "action": "06错误恢复定点修复→原Pi连续链",
+      "id": "REQ-STATE-004",
+      "title": "错误可恢复",
+      "status": "verified",
+      "acceptance": "用户能选择重试、修改配置、重新定位、打开日志或关闭；危险写操作不盲目自动重试；错误归属到项目/扩展/运行实例",
+      "evidence": [
+        {
+          "id": "MAC-LAUNCH-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-DISPATCH-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NATIVE-GUI-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-SLEEP-WAKE-RECOVERY-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-LIFECYCLE-COMPONENT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-MISSING-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-CLOSED-REOPEN-NOPTY-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-GEOMETRY-ESC-AX-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-APPEARANCE-GEOMETRY-DOUBLECLICK-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-RESIZE-GEOMETRY-PRODUCTION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-EXIT-THEME-PRODUCTION-COMPONENT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-CLOSED-HISTORY-REOPEN-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SIDEBAR-ORDINARY-ESC-SYNCHRONIZED-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-SIDEBAR-DOUBLECLICK-DEFAULT-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-OVERVIEW-CURRENT-PROJECT-STALE-LAUNCHER-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-OVERVIEW-ACTIVATION-ORDER-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-CONTEXT-PREPARE-ERROR-SWALLOWED-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PI-PASSIVE-HYDRATION-ERROR-COMPONENT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-CONTEXT-ERROR-RECOVERY-NATIVE-COMPOSITE-001",
+          "outcome": "pass",
+          "coverage": "full",
+          "active": true
+        },
+        {
+          "id": "MAC-QUIT-SAVE-RECOVERY-STALE-GLOBAL-ERROR-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-QUIT-OPERATION-ERROR-LOCALITY-NATIVE-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-CLONE-ABSENT-TRASH-WORDING-NATIVE-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有30min全责任进程；Pi单流/零实例分组；Nov1A/B/C/D全helper保留；native-picker同root阅读A144.291/B151.627MB、CPU0.360/0.218%，全helper计；新12ed固定0/1/2Pi各125s/117样本、post60各61，Horizon+Pi逐样本总量median189.748312/275.584928/380.263168MB、外部provider单列；单Pi全窗peak320.952224MB，双Pi424.434432MB；Git固定125秒/117raw逐进程归属齐，115完整footprint/稳态59完整，2短Git缺失保null；完整观测peak227218376B，自动刷新仍开。",
+      "remaining": "仅既定alloff-host场景/必要其余平台资源原条件；已测reading/Pi0–2/Git125不重采，短进程未捕获峰如实保留。",
+      "owner": "verification+root+agent_pi",
+      "action": "N1",
+      "id": "REQ-NFR-001",
+      "title": "基础资源测量",
+      "status": "partial",
+      "acceptance": "按 PRD 12 统计全关联进程；建议空≤200 MB、阅读≤350 MB、Horizon 差异+会话≤450 MB；单 Pi 工作流总量建议≤600 MB；第二实例/开发进程/本地模型另报总量；未测不填实测数",
+      "evidence": [
+        {
+          "id": "MAC-DEBUG-RESOURCE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-DIAGNOSTIC-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-FIXED-STREAM-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-IDLE-CPU-CANDIDATE7-A-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PANEL-SETTINGS-PROJECT-A-125S-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-ACTIVE-WORKFLOW-SETTINGS-PROJECT-30M-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-READING-A-125S-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-READING-B-125S-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-ZERO-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SINGLE-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TWO-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-2000-LINE-FIXED-RESOURCE-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "10/50/101MiB/100k单行、100000路径末文件/1031搜索已归档；热24P95 26ms代理；df1e新包实际24热标签IDs10–33逐项落在CUA窗内，median17/P95 26/max27ms，10000tracked/五184320B原SHA/单view4",
+      "remaining": "最终20次独立启动；最终包条件一致性与剩余压力归档；现有热24/100k不重做",
+      "owner": "verification+editor+root",
+      "action": "N1+E2",
+      "id": "REQ-NFR-002",
+      "title": "响应与压力场景",
+      "status": "partial",
+      "acceptance": "20 次冷启动记录中位数/P95，建议≤2s；≤200 KB 热文件打开建议 P95≤150ms；1万/10万路径、大文件/长行均有测试记录；原型不计证据",
+      "evidence": [
+        {
+          "id": "MAC-GIT-PRESSURE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-GIT-NATIVE-GUI-CANDIDATE6-FINAL-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-LARGEFILES-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-HOT24-SETTINGS-PROJECT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-HOT24-RECOVERY-RELEASE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "macarm64原生PTY/路径/CRLF/Keyring/树停；系统最低版本文档",
+      "remaining": "本机macOS行为证据归档；macOS x64/Windows x64覆盖计划与未测状态单列，Windows最后可选且不阻塞macOS",
+      "owner": "root",
+      "action": "X1",
+      "id": "REQ-NFR-003",
+      "title": "双端实际行为",
+      "status": "partial",
+      "acceptance": "macOS arm64/x64、Windows x64 覆盖计划与实测状态明确；IME、路径、换行、占用、凭据、进程树停止通过；最低系统版本在 M0 固定；本次按本机 macOS 实测交付，未测架构单列，Windows 最后可选且不阻塞 macOS",
+      "evidence": [
+        {
+          "id": "MAC-TERMINAL-GUI-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-EDITOR-IME-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "既有3轮30min及完整归属；新产品7个picker+21服务全自然消失；同root阅读A0.360/B0.218%，旧5条面板CPU失败已按真实复测替代；本轮32.15min/928采样+同active-reading85s尾段0.322%/214.49MB，实际F09监听/worker稳定、实例/watchers减少，末picker4身份全消失；正常退出后七个基线PID/start独立全消失；7ba同16574显式Stop后OS消失，末clean CmdQ后89459/16574两精确身份消失（非新全helper清单）；新zeroPi空chat静态CPUmean0.2810297359%单核；两activePi正常Stop后精确身份全消失/provider保活，原HOLD与额外内部checkpoint16因果完整保留；Q1 root12PID/start/birth全gone；10bexternalprovider最后owner精确SIGTERM/端口空/launcherjoin0与productreap分开",
+      "remaining": "活动资源暂停/停用/退出后的实际进程/监听/订阅释放仍需对应owner证据；本轮30min和真实F09尾段已完成，不自动重跑。后续源码改动按相关性安排新包局部复验。",
+      "owner": "native_core+verification+root",
+      "action": "R1+N1+Q1",
+      "id": "REQ-NFR-004",
+      "title": "运行资源释放",
+      "status": "partial",
+      "acceptance": "30 分钟项目/扩展/面板循环无持续增长趋势；暂停/停用/退出后的自有进程、监听、订阅实测消失；空闲 CPU 建议≤单核1%",
+      "evidence": [
+        {
+          "id": "MAC-DEBUG-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-DIAGNOSTIC-4B-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-CANDIDATE5-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-URL-CHILD-REAP-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PROCESSES-CANDIDATE6-REGRESSION-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-LIFECYCLE-CANDIDATE6-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-IDLE-CPU-PANEL-CANDIDATE6-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-KEYRING-EXPORT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-IDLE-CPU-CANDIDATE7-A-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-IDLE-CPU-PANEL-CANDIDATE7-B-FAIL-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-DIAGNOSTICS-GUI-CANDIDATE7-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NORMAL-QUIT-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PANEL-SETTINGS-PROJECT-A-125S-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PANEL-SETTINGS-PROJECT-B-125S-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PANEL-SETTINGS-PROJECT-C-125S-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-PANEL-SETTINGS-PROJECT-D-125S-001",
+          "outcome": "fail",
+          "coverage": "partial",
+          "active": false
+        },
+        {
+          "id": "MAC-ACTIVE-WORKFLOW-SETTINGS-PROJECT-30M-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PICKER-LIFETIME-ISOLATED-PROBE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NORMAL-QUIT-SETTINGS-PROJECT-IDENTITIES-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-READING-A-125S-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-READING-B-125S-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-PRODUCT-LIFECYCLE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-MISSING-ROOT-NORMAL-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-MENU-QUIT-CHAIN-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-EDITOR-LIFECYCLE-30M-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-NATIVE-PICKER-EDITOR-LIFECYCLE-NORMAL-QUIT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-FILE-RECOVERY-NORMAL-QUIT-20261101-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-WAKE-MISSING-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-CHUNKED-VALID-WAKE-AND-QUIT-RETEST-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-APPEARANCE-LAYOUT-50-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-TERMINAL-EXPLICIT-STOP-AFTER-LAYOUT-50-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-OWNED-PTY-STOP-AND-NORMAL-QUIT-AFTER-MAIN-TOUR-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-ZERO-INSTANCE-FIXED-RESOURCE-12ED-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-TWO-INSTANCE-STOP-CHECKPOINT-CLASSIFICATION-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-Q1-ALL-OWNED-IDENTITIES-AND-INSTALLED-REOPEN-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "无默认上传源审计；真实Keyring/no明文；7预览/导出严格投影；removed稿56B保留与原盘32B分离/单选清理预览；新有效假ref/仅QA聊天选择性清理、旧9/源/index保留、外部归属说明；未触真实secret/globalauth",
+      "remaining": "F09选择性清理边界；QuickJS实际安全日志；连接UI凭据归属（不重测后端）",
+      "owner": "appearance+plugin_runtime+agent_pi",
+      "action": "D1+P2",
+      "id": "REQ-NFR-005",
+      "title": "本地数据与凭据",
+      "status": "partial",
+      "acceptance": "Horizon 不默认上传源码或采集遥测；自管密钥系统安全存储、失败不落明文；诊断日志脱敏；输出导出可预览；会话/草稿清理边界明确",
+      "evidence": [
+        {
+          "id": "MAC-DIAGNOSTIC-EXPORT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-KEYRING-EXPORT-NATIVE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-DIAGNOSTICS-GUI-CANDIDATE7-002",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-WORKSPACE-REMOVE-RETAIN-DRAFT-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PI-SELECTIVE-CREDENTIAL-HISTORY-CLEAR-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    },
+    {
+      "proven": "候选包替换保项目/稿/配置；Git默认恢复；7DMGZIP逐文件一致；当前495DMG/ZIP候选打包/2hash+ZIP内3entry匹配，rootarchiveverify/deepstrict通过，尚未从最终安装位置启动；新12ed安装owned最终路径真实8737启动保A/editor/Git/旧chat/偏好，无模型重放；新archive/安装回执复用已归档；原installed12ed实际Q1同包新42567保47B/noReplay；新a78c DMGZIP/root校验与91087安装位置实际启动/138源不变",
+      "remaining": "已确认新候选安装位置实际运行/本次保留状态；完整打包/离线/升级其他原有边界按既有交付链保留，未由单次startup自动宣称全部验收。",
+      "owner": "root",
+      "action": "Q1+X1",
+      "id": "REQ-NFR-006",
+      "title": "安装、升级与离线",
+      "status": "partial",
+      "acceptance": "双端安装运行时依赖可见；升级保留配置/草稿/扩展状态；卸载不删项目；默认扩展可恢复；离线文件与本地 Git 工作，远程能力单独失败；本次交付要求本机 macOS 条件实测，其他平台/架构单列未测，Windows 最后可选",
+      "evidence": [
+        {
+          "id": "MAC-RELEASE-BUNDLE-PERSISTENCE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-PACKAGE-CANDIDATE7-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-USABLE-CANDIDATE-MACOS-ARM64-PACKAGE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-INSTALLED-CANDIDATE-PERSISTED-STARTUP-NATIVE-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        },
+        {
+          "id": "MAC-Q1-ALL-OWNED-IDENTITIES-AND-INSTALLED-REOPEN-001",
+          "outcome": "pass",
+          "coverage": "partial",
+          "active": true
+        }
+      ],
+      "priority": "functional-or-established-acceptance"
+    }
+  ],
+  "actionBlocks": {
+    "P1": {
+      "owner": "plugin_runtime；与root最终重开合并",
+      "action": "全功能停用→实际管理空工作区/项目并读真实零实例；分别卸载恢复文件树/Git/启动器/当前布局；外部示例复用已有包，补各阶段activation/订阅与重复打开计数；暂停/项目禁用状态留到统一重开。"
+    },
+    "P2": {
+      "owner": "plugin_runtime",
+      "action": "同一外部示例串联首次权限取消、损坏/不兼容更新、optional依赖、卸载取消/勾清私有配置、故障后编辑保存/安全日志/手动重试；编辑恢复导出失败用现有可控夹具，保具体文档与原状态。"
+    },
+    "E1": {
+      "owner": "editor；下一包相关GUI复测",
+      "action": "既有FILE/scroll/选区/重启/hot24/G02/chunkedwake/偏好证据不重复；Search时间/参数/旧部分结果/generation组件+12ed原生2→case旧提示→新1条时间→B返A已闭合。WS005聊天/Git草稿沿各owner；纯视觉后置。"
+    },
+    "E2": {
+      "owner": "editor；verification整理",
+      "action": "10000搜索cap、clean20/64MiB、dirty保留、100000路径末文件/1031结果及两包相关热24已归档；余20次真实独立进程启动，不重复既有编辑/搜索压力动作。"
+    },
+    "W1": {
+      "owner": "root；git/native_core复核",
+      "action": "WS002与WS006已组合闭合；Add脚本不执行、alias去重、只读、权限Retry、根失效Relocate、父repo保护与worktree独立、missing-root主窗退出均有实际证据。不重复既有路径；Clone不执行归Git批次。"
+    },
+    "W2": {
+      "owner": "root",
+      "action": "仅L1末同owned活动service项目Remove前处理/清退/只去关联保源；不把StopDelete profile或AppQuit当projectRemove。所选自有恢复稿实际清理并Q2尾，旧dirtyRemove/Cancel/Retain不重复。"
+    },
+    "G1": {
+      "owner": "git",
+      "action": "普通00–07+ca71 target03/04及迟到门已一轮登记，Git原功能缺口闭合；仅GIT001停用无刷新并P1。旧失败/实际Stop未知终态/未见中间态/键盘与目录Trash限制保留，不重跑。"
+    },
+    "G2": {
+      "owner": "git",
+      "action": "普通00–07+ca71 target03/04及迟到门已一轮登记，Git原功能缺口闭合；仅GIT001停用无刷新并P1。旧失败/实际Stop未知终态/未见中间态/键盘与目录Trash限制保留，不重跑。"
+    },
+    "I1": {
+      "owner": "agent_pi",
+      "action": "AI010/AI013/SET004本批原句组合闭合；Pi03–10b真实协议/副本/认证/凭据/历史边界不重跑，真实厂商/OAuth登录未测单列，纯视觉后置。"
+    },
+    "I2": {
+      "owner": "agent_pi",
+      "action": "AI005按原生pendingCancel/I1未确认abort强回收+新Bchat精确断连109s无auto/同sessionmanual组合已full；AI012坏包事务/固定1.4/ownership也full。不重复SIGSTOP/SIGKILL/下载。Q1综合退出/凭据期限另按RUN004/AI013，纯D07/E07视觉后置。"
+    },
+    "A1": {
+      "owner": "appearance",
+      "action": "SET002/UI008/UI011既有与本批原句组合已闭合；50/8tour/scroll/Git/View/IME/背景资源/失败不重复。纯视觉536原范围后置；UI007非defaultpersist可并final20首轮，普通Esc/双击已闭合，nativehelddrag未执行界限保留。"
+    },
+    "K1": {
+      "owner": "appearance；editor/git配合",
+      "action": "Git旧单层AX/焦点已登记，窄名称/AI引导完成；仅当前未保存确认AX空等Portal新包最短复验。03 Tab不冒充pull/push键盘，免全K1。"
+    },
+    "D1": {
+      "owner": "appearance；agent_pi/root配合",
+      "action": "配置导出/缓存保未决稿已有；新10b有效credential1ref/A8B2聊天实际清/旧9保留/外部说明齐。只余Q2尾Sleep retain释放liveDocument后精确选ownedcheckpoint1项/blocked0实际clear，别稿/源保留。大JSON不新增fixture/硬门槛。"
+    },
+    "L1": {
+      "owner": "processes",
+      "action": "现有候选7方案一次串联：显式shell/cwd/env引用+运行快照新旧版本、无探针/失败PID、缺包/暂停/缺程序预检、自动URL只开一次且不解析日志、活动删除取消/停止后仅删配置、平台路径提示。"
+    },
+    "R1": {
+      "owner": "root；verification采样",
+      "action": "已有真实5min clean自动sleep/wake、缺路径/normalchunked恢复及偏好完成不重复；L1活跃资源同周期、plugin HOST005 checkpoint失败/保dirty与当前all-dirty直接guard组合，资源释放与暂停策略沿现成链。checkpointed dirty也阻止自动sleep；无新增5min/30min周期，HOST005精确arm待root。"
+    },
+    "R2": {
+      "owner": "processes/plugin_runtime/agent_pi",
+      "action": "复用已完成QuickJS真实子进程故障测试：同PID/activation/策略与资源保留、retry真实回收。GUI只补短暂停止中和后续处理；启动器/Pi仍各保其具体停止路径。成功SIGKILL不能替代失败证据，也不要求制造OS拒杀。"
+    },
+    "Q1": {
+      "owner": "root；各owner准备资源",
+      "action": "已完成原12ed完整dirty/resources Cancel→savefail→restoreSave→12归属gone→同包reopen/noReplay17；a78c仅两信息缺陷定点已过。后写P1策略另在既定最终重开证，不倒填本次Q1；不重整资源链。"
+    },
+    "Q2": {
+      "owner": "root+editor",
+      "action": "仅既有专用65B源→native追加→真实checkpoint→精确主PID受控crash→同包Compare/Restore dirty且盘不变。证据冻后Sleep保留Q2稿释放liveDocument，再F09精确最新checkpoint1项/blocked0→只清它，别稿/源保留；无5min等待。"
+    },
+    "N1": {
+      "owner": "verification协调root/agent_pi",
+      "action": "reading/hot24/30min/50layout与Pi0–2/Git125计量均复用不重采；既定alloff-host与最终20真实独立启动保留，首轮可合非default尺寸持久化。"
+    },
+    "X1": {
+      "owner": "root",
+      "action": "用户最新硬截止：2026-11-02 08:45 Asia/Shanghai Windows试用并明确push main，root负责构建交付/提交推送。Windows当前work/源码候选不计实现或原生平台通过，实际未验保留；旧Windows可选优先已撤销。"
+    }
+  },
+  "latestUserPriorityOverride": {
+    "recordedAt": "2026-11-01T16:32:47.644564+00:00",
+    "source": "Latest explicit user deadline relayed by Root: Windows08:45 trial + push main.",
+    "priorityOrder": [
+      "Required Windows trial by2026-11-02 08:45 Asia/Shanghai and explicit main push, owned by Root",
+      "Continue functional blockers/delivery without repeating passed groups",
+      "Mac pure visual last; full104req/39tasks/536visual goal retained"
+    ],
+    "constraints": [
+      "No Windows implementation/platform pass from work/source-only material",
+      "ca71 native cannot prove later Portal/Windows source",
+      "Verification runs no GUI/build/test/sampler"
+    ],
+    "scopeOrStatusReduced": false,
+    "previousVisualLastOverride": {
+      "recordedAt": "2026-11-01T09:46:45.171636+00:00",
+      "source": "Root relayed latest explicit user side-chat: visual last; finish functional testing/usable candidate first for work tomorrow.",
+      "priorityOrder": [
+        "Functionality and usage blockers: cache/runtime, Pi/Git/process/plugins, Q1Q2 and necessary performance gaps",
+        "Concrete reviewable installable macOS candidate package using passed/related checks",
+        "Deferred visual fidelity including frozen8D01/auxiliary and remaining matrix states; complete original goal retained"
+      ],
+      "constraints": [
+        "No pure8D01 image-by-image review or visual backfill as installable-candidate gate",
+        "Auxiliary prepared CSS not applied/built for visual-only reasons",
+        "Previously completed longperformance/30min/50layout/hot24 evidence reused;20independentnativeprocessstarts remain untested and keep their existing final-freeze workflow"
+      ],
+      "scopeOrStatusReduced": false
+    }
+  }
+}

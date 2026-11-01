@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-10-31T03:25:00.903018+00:00",
+  "candidate": "8 source; candidate7 app unchanged",
+  "scope": "Editor open/session restore isolation across host close and epoch replacement",
+  "tests": [
+    {
+      "command": "rtk proxy /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node node_modules/vitest/vitest.mjs run packages/editor/src/store.test.ts",
+      "exitCode": 0,
+      "passed": 37,
+      "durationMs": 239,
+      "rawLog": "store-tests.log",
+      "rawLogProvenance": "Exact stdout returned by exec_command, preserved without reconstructing per-test details."
+    },
+    {
+      "command": "rtk npm run desktop:check",
+      "exitCode": 0,
+      "rawLog": "desktop-check.log",
+      "includes": "editor lifecycle signal.aborted guard and App pre-await ticket integration"
+    }
+  ],
+  "behavior": [
+    "Host close and project epoch replacement invalidate prior project tickets; ordinary A-to-B navigation preserves A pending reads.",
+    "A pre-close restore ticket cannot clear detached state; a fresh activation at the same epoch can reopen retained tabs.",
+    "Every awaited open stage verifies epoch/generation and attached state before continuing.",
+    "Stale open completion cannot delete a newer in-flight open for the same key.",
+    "Interrupted session restore leaves pending tabs restorable; old cleanup cannot clear a new restore barrier.",
+    "Inactive A read failures do not publish global error over project B.",
+    "The preview replacement close chain validates ticket and exact buffer ownership after each wait; an old document_close response cannot delete the rebound same-key buffer or tab."
+  ],
+  "limitations": [
+    "No native app or GUI execution performed for these changes. Candidate8 visible sleep/wake regression remains separate."
+  ],
+  "sourceHashes": {
+    "packages/editor/src/store.ts": "3e3d7933e25111d63a0eb2f0d2f539d5ad89a3ae4d30b5b092e62a7a018ecdd9",
+    "packages/editor/src/store.test.ts": "27f2c962ad7a9e5941f27d76516ca04dd170229677d29d507ee4eb1d6519a075",
+    "apps/desktop/src/features/editor/index.ts": "21879b91b4fd4547a33be3f8c11debafa53e6db5742ed1afbd29e56cdb5aaaac",
+    "apps/desktop/src/App.tsx": "4693aff23e6e5cc6ebaac332c0108e8984cbc221f0dc9190a0b3b6d0d3c5e84d"
+  },
+  "finalRecordedAt": "2026-10-31T03:25:50.815116+00:00",
+  "finalTests": [
+    {
+      "command": "rtk proxy /Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node node_modules/vitest/vitest.mjs run packages/editor/src/store.test.ts",
+      "exitCode": 0,
+      "rawLog": "store-tests-final.log",
+      "passed": 38
+    },
+    {
+      "command": "rtk npm run desktop:check",
+      "exitCode": 0,
+      "rawLog": "desktop-check-final.log"
+    }
+  ]
+}

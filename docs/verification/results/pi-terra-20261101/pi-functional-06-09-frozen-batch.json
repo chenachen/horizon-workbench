@@ -1,0 +1,241 @@
+{
+  "frozenAt": "2026-11-01T11:44:05.202944+00:00",
+  "scope": "New normalWRITE/06c/07–09 only, after old14 batch. Functional evidence, no purevisual8layout verdict.",
+  "mainSHA256": "12ed732bf4205d38ca54b7ccd640f099e869b13541455c8ba55c4a55b3d4af5d",
+  "appPid": 8737,
+  "sourceManifest": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-manifest.jsonl",
+  "frozenManifestSlice": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/pi-functional-06-09-frozen-manifest.jsonl",
+  "frozenManifestSHA256": "5b8a7767433d01fd45ec46830e780008219bb902588622c6a0706c293735fbef",
+  "captureCount": 17,
+  "captures": [
+    {
+      "label": "06-retry-permission-before-allow",
+      "time": "2026-11-01T11:04:54.022Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-06-retry-permission-before-allow.jpg",
+      "imageSHA256": "df73b52dfbd67ac6bafe5a74e5c22f5c497b1bf80167344080fea0e4d9217772",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06-retry-permission-before-allow.ax.txt",
+      "axSHA256": "c4b9d30e53f67eb5283f35f81e763f1fd03433ee4adee9ae7c56433dc42a536c",
+      "note": "新任务写入权限，允许前真实 AX/图"
+    },
+    {
+      "label": "06b-tool-write-success",
+      "time": "2026-11-01T11:05:08.825Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-06b-tool-write-success.jpg",
+      "imageSHA256": "f3418210042762660c65fd84fe68730d0d14d305d3073e9596cbb819de853f0f",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06b-tool-write-success.ax.txt",
+      "axSHA256": "53538d89509866953715805b15e7af6bd91e61bd6f07d007a68588a5be6bec08",
+      "note": "一次允许后显示 write 已完成、写入工具返回成功，Pi 正在回复；未停止"
+    },
+    {
+      "label": "06c-natural-settled",
+      "time": "2026-11-01T11:06:19.475Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-06c-natural-settled.jpg",
+      "imageSHA256": "81cbbe26f27a481f00af508c4b3b4942321265065f521cb9af2ac6a5eb221448",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06c-natural-settled.ax.txt",
+      "axSHA256": "86f97b9f690ae0e478f11c070065214f2454f136adebf4520a76fd9b05e935e7",
+      "note": "外部夹具自然结束后，任务显示已完成及审查任务修改；未点停止"
+    },
+    {
+      "label": "06c-review-A",
+      "time": "2026-11-01T11:07:36.642Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-06c-review-A.jpg",
+      "imageSHA256": "216df451d676bd1af3efdfe4db08be365675740027ca7070ebbf94887ea51121",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06c-review-A.ax.txt",
+      "axSHA256": "523f8136335aa8496605922e59f08944b49f9943baffacc16f9226d2af326748",
+      "note": "真实任务审查：example.txt −磁盘旧内容 +副本实际写入内容，未接受/放弃"
+    },
+    {
+      "label": "06c-review-switch-B",
+      "time": "2026-11-01T11:08:10.626Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-06c-review-switch-B.jpg",
+      "imageSHA256": "5a474f5f6f45d140639e5c438cbb6beaf35ccf355b1fd621a3f451b9670975af",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06c-review-switch-B.ax.txt",
+      "axSHA256": "015f64b8d257afa0915c5894ce57e71bb2d0071f83d783da3090b5bfd7a1f3d7",
+      "note": "切 B 仅观察；AX 未见 A 审查与差异内容，未发送"
+    },
+    {
+      "label": "06c-review-return-A",
+      "time": "2026-11-01T11:08:37.803Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-06c-review-return-A.jpg",
+      "imageSHA256": "15e48405fb3e25cecf1beac1762b7d44c53aed7c617f09c76a445e94b2636465",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-06c-review-return-A.ax.txt",
+      "axSHA256": "11fab02b6382fc27ce16e5d7dde63953da8b6fc45999f1e0f006362cfd50474c",
+      "note": "B 返回 A 后重开原 example.txt 审查，差异一致；未接受或放弃"
+    },
+    {
+      "label": "07-stale-buffer-before",
+      "time": "2026-11-01T11:11:00.218Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-stale-buffer-before.jpg",
+      "imageSHA256": "00ae63ccdde571d45e75f630b45b17794669eea03dd9ed23f2bf2df0b8ae388a",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-stale-buffer-before.ax.txt",
+      "axSHA256": "8f91a1d03e10718872f5990228d1e1b090d19e1a3eb577ebb641af2816fb7bcd",
+      "note": "example.txt 原文本末尾单个 X 未保存；原审查尚未接受"
+    },
+    {
+      "label": "07-stale-apply-rejected",
+      "time": "2026-11-01T11:12:03.678Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-stale-apply-rejected.jpg",
+      "imageSHA256": "608d24c0e634ddde3083c79ff2c3012465e91519b152ab954db9ed609f83403e",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-stale-apply-rejected.ax.txt",
+      "axSHA256": "92df938b35ca1428150b207e0f0e4961563727ced7aeca8019dfcf2467c0a585",
+      "note": "接受本文件一次后显示“文档编辑版本已变化 / 0个文件已应用”，原审查保留"
+    },
+    {
+      "label": "07-stale-buffer-preserved",
+      "time": "2026-11-01T11:12:38.939Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-stale-buffer-preserved.jpg",
+      "imageSHA256": "237ee1920234ef0cfa205c36eb5c6df02caba2371fbcab395d7b753ecdb82c0a",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-stale-buffer-preserved.ax.txt",
+      "axSHA256": "4b5112903b6671ace48f2e402fb6dd7e015b87785cb08d10e64c6a56181cb501",
+      "note": "拒绝后原 example.txt 的单 X 仍在且未保存"
+    },
+    {
+      "label": "07-example-clean-after-undo",
+      "time": "2026-11-01T11:14:38.301Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-example-clean-after-undo.jpg",
+      "imageSHA256": "fbcaee32eae79e11d0227af2202a042125b48fe451919b8b00b24c5201ff48fb",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-example-clean-after-undo.ax.txt",
+      "axSHA256": "52e41446530257421372241181307ac92f7f60d28b47acf6b3b98ee135539647",
+      "note": "一次 Undo 后 example.txt AX 文本与基线相同，保存 disabled"
+    },
+    {
+      "label": "07-discard-exact-copy",
+      "time": "2026-11-01T11:17:08.947Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-07-discard-exact-copy.jpg",
+      "imageSHA256": "0281c3e87d81467b147b38e36802061af581cdebe6393f0be7580ab6e7868733",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-07-discard-exact-copy.ax.txt",
+      "axSHA256": "296294bb63ac85db80b23088c358a2fd60a59f51074595cfc8e9b29f7e54c3b3",
+      "note": "确认放弃核定任务副本后回到 clean example.txt；未处理其他副本"
+    },
+    {
+      "label": "08a-unborn-task-rejected",
+      "time": "2026-11-01T11:20:54.033Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-08a-unborn-task-rejected.jpg",
+      "imageSHA256": "faa11a5d996a0a0b95b391505d8448d69296b51dfda3eb0a58f4663fb4509548",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08a-unborn-task-rejected.ax.txt",
+      "axSHA256": "37248c39247add47cfd07b1d8e05fe525c35ae90c5b683ace863b73ac8b6b411",
+      "note": "B 任务一次发送后：此项目没有有效 Git HEAD，首版仅支持聊天；输入保留"
+    },
+    {
+      "label": "08a-unborn-chat-running",
+      "time": "2026-11-01T11:23:41.478Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-08a-unborn-chat-running.jpg",
+      "imageSHA256": "5ae074c720dc2acc8892df69f8addd515f2e7ac98df41731a91d44219331c49a",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08a-unborn-chat-running.ax.txt",
+      "axSHA256": "19bc4676647d370ff3c0ed1d3f908d30c2720eb938c808aaf0b6cc80b4403f82",
+      "note": "B 聊天一次发送后显示 controlled streaming 与 Pi 正在回复；未停止"
+    },
+    {
+      "label": "08b-disconnect-error",
+      "time": "2026-11-01T11:25:18.764Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-08b-disconnect-error.jpg",
+      "imageSHA256": "4e88bc949a5b62866138b73ae29883cdd3bd2784036964c88252c587c322a5d5",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08b-disconnect-error.ax.txt",
+      "axSHA256": "78e8506323e0531a2394413ca37388b3b6ef1882f99e0922508ebdddb187356c",
+      "note": "B 独立聊天被注入异常退出：Pi 在终态前退出；任务效果未知；部分正文保留"
+    },
+    {
+      "label": "08b-manual-continue-complete",
+      "time": "2026-11-01T11:28:13.826Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-08b-manual-continue-complete.jpg",
+      "imageSHA256": "c8325bb15b6da03178aba35879a13be0009ebdf5adaa71e3026ac8e6c7c1e7ad",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-08b-manual-continue-complete.ax.txt",
+      "axSHA256": "e8eb24d6dc99bdf50acdbc9100c7d89f1fcc4d1371a74e9b120917c67671413d",
+      "note": "B 同一聊天手动继续一次后 UI 已完成；未自动重放由 Sol 核"
+    },
+    {
+      "label": "09a-auth-error-first",
+      "time": "2026-11-01T11:32:29.000Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-09a-auth-error-first.jpg",
+      "imageSHA256": "0d184dbec972465a1750ee4b60374496bf60f4fa31802772de0b90969e1ecb20",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-09a-auth-error-first.ax.txt",
+      "axSHA256": "50584082c88feae7ed2f316d2aca96e5d0f6662ce37fcdfdb0ab0a9b6926db58",
+      "note": "A 聊天一次发送后模型连接认证失败；错误详情折叠，输入与唯一 example.txt 附件保留"
+    },
+    {
+      "label": "09a-auth-error-manual-retry",
+      "time": "2026-11-01T11:34:43.971Z",
+      "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/screenshots/pi-terra-20261101/context-fix-1793529728678-09a-auth-error-manual-retry.jpg",
+      "imageSHA256": "0c3baf3030e75e3bf4710dcae9f978027900a78d6a95a0e5b216990a7e032add",
+      "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/context-fix-1793529728678-09a-auth-error-manual-retry.ax.txt",
+      "axSHA256": "3b9f165ee569bc77277cca27ad560316c45c63491dc640a340a1d3cdb7535039",
+      "note": "手动重新发送一次后再次认证失败，输入与唯一 example.txt 附件保留，详情折叠"
+    }
+  ],
+  "nonCaptureRecords": [
+    {
+      "label": "06-retry-allow-once-action",
+      "time": "2026-11-01T11:04:54.023Z",
+      "action": "click 允许一次",
+      "index": 14,
+      "sourceAX": "14 button 允许一次",
+      "note": "匹配 Pi / 写入任务副本 / example.txt / 42 B"
+    }
+  ],
+  "dataArtifacts": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/06b-write-retry-stream.json",
+      "sha256": "63c3a037eda2ee8c06b094696603fb6806c2aac0e315e87da44c67862a587ff6"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/06b-write-retry-http.json",
+      "sha256": "5268847632623c770e8040d3028778fd37db079f474e9cf6125e8a8e50e786fb"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/06b-write-retry-finish.json",
+      "sha256": "5411cd08b2c5bf00aa3b234d6299c75e3f68ac45f32e17737188e53b4c0300cb"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/06c-review-isolation.json",
+      "sha256": "d7d018c53f949a3f5ede42770c90eb8981b740dfccc30e40cc2250fe52ebceff"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/07-stale-review.json",
+      "sha256": "bc41d4b664770d2c3ed5df960f598772029ffb2fa7721c33adf3721a63edc8db"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/08-baseline.json",
+      "sha256": "384ecd3e2042defb5d600f0b20a2b754eb8ba9c4efee1dc627e171646a2cecee"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/08a-unborn.json",
+      "sha256": "3561649316e6bf8aa58057f0be3fb37b86b68688c0769b77b1125ee92b98c38f"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/08b-disconnect.json",
+      "sha256": "19c445c24c72bc7a64d3c4c7af82236d19e4c85e61a69de271ce820ccd3a9c96"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/09-baseline.json",
+      "sha256": "42d986918ad122e2005e54ef9686f67b21385f016355d054c8e0f21609b15d5f"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/pi-terra-20261101/09a-auth-retry.json",
+      "sha256": "824c38fe4e63657446cc85e08046432b4863e004e8bf56eac781c418760c1c7e"
+    }
+  ],
+  "explicitlyExcluded": [
+    "old14 native Search/motion/stale/recovery/firstexpiredpermission batch already independentlyaudited",
+    "09b-main-test-restored.json and 09-main-connection-reverified image (separate explicitTest request12 after two401)",
+    "10a allrecords, PERF/Q1/10b not yet performed"
+  ],
+  "requestCounts": {
+    "normalWriteInitialAndToolReturn": [
+      6,
+      7
+    ],
+    "BchatAndManual": [
+      8,
+      9
+    ],
+    "authFailureAndManualRetry": [
+      10,
+      11
+    ]
+  },
+  "primaryFunctionalCaptureCount": 16,
+  "authorizationSupplementLabels": [
+    "06-retry-permission-before-allow"
+  ],
+  "countExplanation": "16 postapproval functionalimages +1 actual beforeallow matchingpermissionimage, plus1 nonimageallow actionrecord. All existing, no newGUI/recapture."
+}

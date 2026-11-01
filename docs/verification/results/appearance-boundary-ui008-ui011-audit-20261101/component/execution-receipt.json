@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "command": {
+    "tool": "tools.exec_command",
+    "input": {
+      "cmd": "rtk proxy node .work/appearance-boundary-ui008-ui011-20261101/run.mjs",
+      "workdir": "/Users/chenpengxiang/Desktop/Horizon",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2500
+    },
+    "result": {
+      "chunk_id": "5a609a",
+      "wall_time_seconds": 1.001386125,
+      "session_id": 34316,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "tool": "tools.write_stdin",
+    "input": {
+      "session_id": 34316,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 3000
+    },
+    "result": {
+      "chunk_id": "90d2a5",
+      "wall_time_seconds": 1.9208e-05,
+      "exit_code": 0,
+      "original_token_count": 170,
+      "output": "{\"passed\":true,\"phases\":[{\"name\":\"UI008 loaded images -> actual close action clears both React states/CSS and revokes every created URL once\",\"passed\":true},{\"name\":\"UI008 both reads resolved after assetId null create zero new object URLs\",\"passed\":true},{\"name\":\"UI011 actual selectLayout waits for provider compositionend then prepares/applies exactly once\",\"passed\":true},{\"name\":\"UI011 rejected apply before commit preserves exact provider/panel snapshot and root style; no post-commit rollback claimed\",\"passed\":true}],\"sourcesUnchanged\":true,\"durationMs\":1597,\"resultPath\":\"/Users/chenpengxiang/Desktop/Horizon/.work/appearance-boundary-ui008-ui011-20261101/result.json\"}\n"
+    }
+  },
+  "harnessReported": {
+    "startedAt": "2026-11-01T08:30:06.305Z",
+    "completedAt": "2026-11-01T08:30:07.902Z",
+    "durationMs": 1597
+  },
+  "firstAttempt": {
+    "command": {
+      "tool": "tools.exec_command",
+      "input": {
+        "cmd": "rtk proxy node .work/appearance-boundary-ui008-ui011-20261101/run.mjs",
+        "workdir": "/Users/chenpengxiang/Desktop/Horizon",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2500
+      },
+      "result": {
+        "chunk_id": "9c5e8f",
+        "wall_time_seconds": 1.001664583,
+        "session_id": 98749,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    "completion": {
+      "tool": "tools.write_stdin",
+      "input": {
+        "session_id": 98749,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2500
+      },
+      "result": {
+        "chunk_id": "d92e4a",
+        "wall_time_seconds": 1.6125e-05,
+        "exit_code": 1,
+        "original_token_count": 92,
+        "output": "{\"passed\":false,\"phases\":[],\"sourcesUnchanged\":true,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n+ actual - expected\\n\\n+ 'linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))'\\n- 'none'\\n\",\"durationMs\":944,\"resultPath\":\"/Users/chenpengxiang/Desktop/Horizon/.work/appearance-boundary-ui008-ui011-20261101/result.json\"}\n"
+      }
+    },
+    "reason": "Fixture expected computed preview backgroundImage none; product restores its existing gradient. Changed only this expectation to no blob URL."
+  },
+  "provenance": "UTC timestamps/duration from harness report. Exec completion output retained; no independent OS start/end times or separate stderr stream were collected.",
+  "nativeAppTouched": false,
+  "productSourcesChanged": false,
+  "canonicalChanged": false
+}

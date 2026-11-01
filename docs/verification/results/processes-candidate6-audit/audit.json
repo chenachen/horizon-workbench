@@ -1,0 +1,87 @@
+{
+  "build": "candidate6",
+  "mainSha256": "25e407375f1f112e4d111d5b088065af3034cefb9ce9b4e087c805e6e0b288b5",
+  "method": "独立审核原生操作记录、原始PNG、OS父子进程结果与本方持续被动采样",
+  "observations": {
+    "manualUrlOpens": 3,
+    "allLocalSavedUrl": "http://127.0.0.1:59131/",
+    "zombiesAfterEachOpen": [
+      [],
+      [],
+      []
+    ],
+    "retainedDirectChildrenAfterEach": "仅当前API/Web服务；无open或Z状态",
+    "sampledFromStartThroughElapsed": 801.5224,
+    "sampledDefunctProcesses": [],
+    "terminalEndButton": {
+      "at": "2026-10-30T20:23:36.614831+00:00",
+      "pid": 41752,
+      "psExit": 1,
+      "ps": "",
+      "gone": true,
+      "action": {
+        "at": "2026-10-30T20:23:36.614831+00:00",
+        "actor": "processes",
+        "action": "Imported PTY04 as new draft, renamed PTY candidate6, saved; import warning cleared; close settings footer immediately selects new profile; launch footer review approve -> auto focus single terminal header with PID41752 no null exit; EndProcess actual click -> exited(1)",
+        "pid": 41752
+      }
+    },
+    "finalOwnedPidChecks": {
+      "at": "2026-10-30T20:27:02.393911+00:00",
+      "pids": [
+        41752,
+        43698,
+        43699,
+        43703
+      ],
+      "checks": [
+        {
+          "pid": 41752,
+          "gone": true,
+          "ps": ""
+        },
+        {
+          "pid": 43698,
+          "gone": true,
+          "ps": ""
+        },
+        {
+          "pid": 43699,
+          "gone": true,
+          "ps": ""
+        },
+        {
+          "pid": 43703,
+          "gone": true,
+          "ps": ""
+        }
+      ]
+    },
+    "diagnosticsBefore": {
+      "at": "2026-10-30T20:16:55.462076+00:00",
+      "watchers": 1,
+      "subscriptions": 2
+    },
+    "diagnosticsAfter": {
+      "at": "2026-10-30T20:27:52.628650+00:00",
+      "watchers": 1,
+      "subscriptions": 2
+    },
+    "ui": "原生新导入PTY方案保存后警告清除、底栏立即选择；底栏启动并自动定位；单标题且运行中无null退出码。"
+  },
+  "artifactHashes": {
+    "docs/verification/results/processes-gui/candidate6-open-url.jsonl": "b9c438e9dd0270a47f65210f8e940a083044740fa4334d649286aa14521dd5fc",
+    "docs/verification/results/processes-gui/candidate6-pty-stop.json": "eadedad347044c0ce0d8d0b8f455d35b0c7c1251abf48bf3a2d9842b8a66ea52",
+    "docs/verification/results/processes-gui/candidate6-all-stopped.json": "baeb6a20a8b1cd05d87902392fe1c300e987d27295183cb40bf6b6b25f306cfd",
+    "docs/verification/results/processes-gui/candidate6-before-processes.json": "00a42d3143512e95dcb287011090bb592bdd4fbd262198921fc31dea80164504",
+    "docs/verification/results/processes-gui/candidate6-after-processes.json": "80c47c922364f19f19e73ccdf564f503d65457c223b2886f56dcea83f1ef0d24",
+    "docs/verification/results/processes-gui/candidate6-dualservice.json": "5c12d074046d87486eca770c64fd6632002e7c44d641db2108f0e9d9e3ee6eaa"
+  },
+  "limitations": [
+    "独立采样仍在继续，此文件只绑定已完成的processes阶段；不是最终30分钟结论。",
+    "3次点击后的OS快照和持续采样证明旧僵尸问题未复现，不将未采到的短命进程解释为从未存在。",
+    "watchers1/subscriptions2在两份实际快照相同；不能外推所有插件/项目资源长期不增长。",
+    "失败/超时提前PID与历史排序未在本次GUI重复，仍按源码/服务覆盖记录。",
+    "023原PNG包含系统窗口阴影；功能证据有效，视觉同尺寸比较需另取原生无阴影截图。"
+  ]
+}

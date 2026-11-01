@@ -1,0 +1,318 @@
+{
+  "kind": "real AppearanceProvider + SettingsPanel/backgroundObjectUrl/applyAppearance/bridge; controlled Tauri only",
+  "startedAt": "2026-11-01T08:29:22.210Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "bytes": 9674,
+      "sha256": "1443e94e1100b027ab1b3e5e28e4c1bab820ec720c850628198f18955b2ef719"
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "bytes": 73387,
+      "sha256": "e211c7c86c387cc9eed991fe88eff18f5bbbc2aecd34f3044918119a420f09d8"
+    },
+    {
+      "path": "apps/desktop/src/features/settings/background.ts",
+      "bytes": 455,
+      "sha256": "d91c75a6e3112748a83a64a285fa3b519678f3e5d5d70864d13de1ec86eac710"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "bytes": 6902,
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "bytes": 7368,
+      "sha256": "57e135d0818a7cb0d231f2b720ee246125b2c41f2e3bb9bd4b35f86fb53ac8a8"
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "bytes": 2033,
+      "sha256": "07093d9e4e619f1f9d1ad98a196076f23465213b4d9df7c38de1cbb17c62a1cb"
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "bytes": 72554,
+      "sha256": "27f0cf56343e51877985e0f3d3e3bade830947786f5a7641af340db20197fee4"
+    }
+  ],
+  "phases": [],
+  "browserErrors": [],
+  "consoleErrors": [],
+  "passed": false,
+  "bundleSha256": "db0d3b23e1e46dd9e288f2406b2646eb031a06bda47fe4e360486e81f50f14b8",
+  "bundleWarnings": [],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))'\n- 'none'\n",
+  "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))'\n- 'none'\n\n    at assertCleared (file:///Users/chenpengxiang/Desktop/Horizon/.work/appearance-boundary-ui008-ui011-20261101/run.mjs:96:52)\n    at file:///Users/chenpengxiang/Desktop/Horizon/.work/appearance-boundary-ui008-ui011-20261101/run.mjs:116:33",
+  "failureCapture": {
+    "state": {
+      "phase": "loaded-image",
+      "providerSnapshot": {
+        "revision": 10,
+        "effective": {
+          "layoutId": "horizon.layout.mist",
+          "themeId": "horizon.theme.mist",
+          "mode": "light",
+          "geometryByLayout": {},
+          "colorsByTheme": {},
+          "background": {
+            "assetId": null,
+            "region": "workbench",
+            "fit": "cover",
+            "opacity": 0.12,
+            "overlay": 0.85,
+            "position": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          }
+        },
+        "effectiveGeometry": {},
+        "sources": [],
+        "layoutSource": "global",
+        "notices": []
+      },
+      "panelSnapshot": {
+        "revision": 10,
+        "effective": {
+          "layoutId": "horizon.layout.mist",
+          "themeId": "horizon.theme.mist",
+          "mode": "light",
+          "geometryByLayout": {},
+          "colorsByTheme": {},
+          "background": {
+            "assetId": null,
+            "region": "workbench",
+            "fit": "cover",
+            "opacity": 0.12,
+            "overlay": 0.85,
+            "position": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          }
+        },
+        "effectiveGeometry": {},
+        "sources": [],
+        "layoutSource": "global",
+        "notices": []
+      },
+      "composing": false,
+      "assetState": {
+        "AppearanceProvider": null,
+        "SettingsPanel": null
+      },
+      "rootStyle": "--h-row: 34px; color-scheme: light; --background: #edf1f7; --surface: #fcfdff; --text: #202c40; --muted: #65738a; --border: #dde4ee; --accent: #496793; --on-accent: #ffffff; --selection: #d8e5fb; --success: #39674e; --warning: #684c25; --error: #9e4245; --h-low: #f3f6fb; --h-high: #e2e8f2; --h-on-tonal: #19365e; --h-green-bg: #edf6ee; --h-red-bg: #fceced; --radius: 18px; --sidebar-width: 240px; --navigation-width: 64px; --topbar-height: 56px; --tab-height: 40px; --tab-min-width: 120px; --auxiliary-width: 320px; --bottom-height: 220px; --status-height: 26px; --ui-font-size: 13px; --code-font-size: 14px; --background-image: none; --background-opacity: 0.12; --background-overlay: 0.85; --background-fit: cover; --background-position: 50% 50%; --code-font-family: \"Menlo\", SFMono-Regular, monospace;",
+      "layout": "rail",
+      "background": "none",
+      "backgroundCss": "none",
+      "previewInline": "",
+      "previewComputed": "linear-gradient(135deg, rgb(216, 229, 251), rgb(237, 241, 247))",
+      "created": [
+        {
+          "url": "blob:http://127.0.0.1:42760/14d78632-182a-477f-8d6f-4f95930aa259",
+          "owner": "SettingsPanel",
+          "readId": 1,
+          "bytes": 68,
+          "type": "image/png"
+        },
+        {
+          "url": "blob:http://127.0.0.1:42760/28eb411e-1a4e-4fc0-ad2d-6939ae13f950",
+          "owner": "AppearanceProvider",
+          "readId": 2,
+          "bytes": 68,
+          "type": "image/png"
+        }
+      ],
+      "revoked": [
+        "blob:http://127.0.0.1:42760/14d78632-182a-477f-8d6f-4f95930aa259",
+        "blob:http://127.0.0.1:42760/28eb411e-1a4e-4fc0-ad2d-6939ae13f950"
+      ],
+      "reads": [
+        {
+          "id": 1,
+          "owner": "SettingsPanel",
+          "assetId": "owned-image",
+          "state": "resolved"
+        },
+        {
+          "id": 2,
+          "owner": "AppearanceProvider",
+          "assetId": "owned-image",
+          "state": "resolved"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "settings_get",
+          "params": {},
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "appearance_get",
+          "params": {
+            "target": {
+              "kind": "global"
+            },
+            "windowGeometry": {
+              "width": 1280,
+              "height": 800,
+              "scale": 1
+            }
+          },
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "appearance_preset_list",
+          "params": {},
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "settings_get",
+          "params": {},
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "appearance_get",
+          "params": {
+            "target": {
+              "kind": "global"
+            },
+            "windowGeometry": {
+              "width": 1280,
+              "height": 800,
+              "scale": 1
+            }
+          },
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "extension_list",
+          "params": {},
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "appearance_get",
+          "params": {
+            "target": {
+              "kind": "global"
+            },
+            "windowGeometry": {
+              "width": 1280,
+              "height": 800,
+              "scale": 1
+            }
+          },
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "extension_list",
+          "params": {},
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "appearance_background_read",
+          "params": {
+            "previewToken": "owned-image",
+            "thumbnail": true
+          },
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        },
+        {
+          "phase": "loaded-image",
+          "command": "horizon_call",
+          "method": "appearance_background_read",
+          "params": {
+            "previewToken": "owned-image"
+          },
+          "scope": {
+            "kind": "app"
+          },
+          "outcome": "ok"
+        }
+      ],
+      "commits": [],
+      "errors": []
+    },
+    "text": "外观\n编辑器\nGit\n快捷键\n数据与隐私\n外观\n\n选择本地图片，调节区域与可见度。\n\n主题与配色\n布局与尺寸\n背景图片\n外观方案\n选择一张喜欢的图片\nPNG / JPEG / WebP · 最大 20 MiB\n选择图片\n显示区域\n整个工作台\n文件侧栏\n编辑区\n适应方式\n填满\n完整显示\n图片可见度\n%\n表面遮罩\n%\n水平位置\n%\n垂直位置\n%\n关闭背景\n移除图片资产\n恢复默认\n文字保持清晰\n图片只作用于所选表面。对话框、权限与错误提示使用实色背景。导入后会复制到应用资产目录。\n偏好即时生效"
+  },
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/background.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T08:29:23.154Z",
+  "durationMs": 944
+}

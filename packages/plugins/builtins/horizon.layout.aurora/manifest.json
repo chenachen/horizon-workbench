@@ -1,0 +1,150 @@
+{
+  "id": "horizon.layout.aurora",
+  "name": "底部导航布局",
+  "version": "0.1.0",
+  "description": "项目切换集中到底部，顶部保留搜索和当前工作。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "views": [],
+    "commands": [],
+    "layouts": [
+      {
+        "id": "horizon.layout.aurora",
+        "apiVersion": 1,
+        "label": "底部导航",
+        "navigation": "dock",
+        "root": {
+          "id": "root",
+          "kind": "column",
+          "children": [
+            {
+              "id": "body",
+              "kind": "row",
+              "children": [
+                {
+                  "id": "primarySidebar",
+                  "kind": "slot",
+                  "slot": "primarySidebar",
+                  "sizing": "sidebarWidth"
+                },
+                {
+                  "id": "work",
+                  "kind": "column",
+                  "children": [
+                    {
+                      "id": "editor",
+                      "kind": "slot",
+                      "slot": "editor",
+                      "grow": 1
+                    },
+                    {
+                      "id": "bottom",
+                      "kind": "slot",
+                      "slot": "bottom",
+                      "sizing": "bottomHeight"
+                    }
+                  ]
+                },
+                {
+                  "id": "auxiliary",
+                  "kind": "slot",
+                  "slot": "auxiliary",
+                  "sizing": "auxiliaryWidth"
+                }
+              ]
+            },
+            {
+              "id": "status",
+              "kind": "slot",
+              "slot": "status",
+              "sizing": "statusHeight"
+            },
+            {
+              "id": "navigation",
+              "kind": "slot",
+              "slot": "navigation"
+            }
+          ]
+        },
+        "requiredSlots": [
+          "editor"
+        ],
+        "geometry": {
+          "sidebarWidth": {
+            "initial": 240,
+            "min": 160,
+            "max": 480,
+            "step": 1
+          },
+          "topbarHeight": {
+            "initial": 56,
+            "min": 40,
+            "max": 88,
+            "step": 1
+          },
+          "tabHeight": {
+            "initial": 40,
+            "min": 28,
+            "max": 64,
+            "step": 1
+          },
+          "tabMinWidth": {
+            "initial": 120,
+            "min": 80,
+            "max": 240,
+            "step": 1
+          },
+          "auxiliaryWidth": {
+            "initial": 320,
+            "min": 240,
+            "max": 560,
+            "step": 1
+          },
+          "bottomHeight": {
+            "initial": 220,
+            "min": 120,
+            "max": 480,
+            "step": 1
+          },
+          "statusHeight": {
+            "initial": 26,
+            "min": 20,
+            "max": 40,
+            "step": 1
+          },
+          "uiFontSize": {
+            "initial": 13,
+            "min": 11,
+            "max": 20,
+            "step": 1
+          },
+          "codeFontSize": {
+            "initial": 14,
+            "min": 10,
+            "max": 28,
+            "step": 1
+          }
+        },
+        "narrow": {
+          "breakpoint": 900,
+          "collapse": [
+            "auxiliary",
+            "primarySidebar"
+          ],
+          "minimumEditorWidth": 320
+        }
+      }
+    ]
+  }
+}

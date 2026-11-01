@@ -1,0 +1,39 @@
+{
+  "recordedAt": "2026-10-31T03:41:43.454100+00:00",
+  "method": "Independent source, raw three-phase log, report and hashes audit; no rerun/GUI by verifier",
+  "sourceChecks": [
+    {
+      "path": "apps/desktop/src-tauri/src/processes.rs",
+      "sha256": "6d45f35e44d5fbe9432d1961269b55d6c2b9c0118bbbd4d80a693e79be68e7b6",
+      "matchesOperator": true,
+      "copy": "docs/verification/results/processes-stop-failure-candidate8-audit/source/apps/desktop/src-tauri/src/processes.rs"
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "sha256": "5b280452613f95533dd67f2cb089adbc237a8c6d7da012e7a371387c08ea40d3",
+      "matchesOperator": true,
+      "copy": "docs/verification/results/processes-stop-failure-candidate8-audit/source/apps/desktop/src/features/processes/index.tsx"
+    }
+  ],
+  "logSha256": "87fc14332b04f7bb84f347edf3a8d6b7612311387a8d91f71dee87cf544e2b73",
+  "eventsMatchRawLog": true,
+  "phaseInvariants": {
+    "sameRootPidRetained": true,
+    "runPartialAndStepStopping": true,
+    "stopErrorPresent": true,
+    "duplicateAndDeleteBlocked": true,
+    "realRetryRootChildGroupGone": true,
+    "leaseRetainedThenReleased": "Actual testassertions read; not inferred onlyfromlog"
+  },
+  "sourceInvariants": [
+    "Background cleanup marks failed only when stop_run returns failed[] empty; injected cleanup error cannot overwrite partial.",
+    "stop_run retains failed resources and requirements lease, leaves step stopping with stopError; clear occurs only on success.",
+    "Actual UI renders run/step state, PID and 停止未确认:stopError; partialrun remains active so停止全部 can retry."
+  ],
+  "conclusion": "LAUNCH006 last backend condition is now covered by actualownedprocess injectedfailure+same productionretry and explicit UI render invariant; previous actualGUI covers failurepolicy/externalpreservation.",
+  "limits": [
+    "Not a real OS permission-denied or unkillable-process reproduction.",
+    "Not a GUI test; stopping/error rendering requires existing GUI evidence plus source invariant or candidate8 check.",
+    "Failure seam is cfg(test) only, keyed to this runId and consumed once; no release switch."
+  ]
+}

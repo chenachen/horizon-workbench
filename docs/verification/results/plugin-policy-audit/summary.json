@@ -1,0 +1,47 @@
+{
+  "platform": "macOS arm64",
+  "scope": "Automated integration; GUI not implied",
+  "results": [
+    {
+      "name": "runtime",
+      "command": [
+        "npx",
+        "tsx",
+        "--test",
+        "packages/plugins/tests/runtime.test.ts"
+      ],
+      "started_at": "2026-10-30T18:30:09.342366+00:00",
+      "exit_code": 0,
+      "log": "docs/verification/raw/plugins-2026-10-31/runtime.log"
+    },
+    {
+      "name": "policy",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/desktop/src-tauri/Cargo.toml",
+        "--test",
+        "extensions_policy"
+      ],
+      "started_at": "2026-10-30T18:32:02.112086+00:00",
+      "exit_code": 0,
+      "log": "docs/verification/raw/plugins-2026-10-31/policy.log"
+    },
+    {
+      "name": "package",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/desktop/src-tauri/Cargo.toml",
+        "package_tests",
+        "--lib"
+      ],
+      "started_at": "2026-10-30T18:32:09.761852+00:00",
+      "exit_code": 0,
+      "log": "docs/verification/raw/plugins-2026-10-31/package.log"
+    }
+  ],
+  "earlier_block": "agent.rs E0502 from parallel Pi work; fixed by owning messageId"
+}

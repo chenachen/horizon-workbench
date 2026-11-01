@@ -1,0 +1,159 @@
+{
+  "createdAt": "2026-11-01T04:33:05.325057+00:00",
+  "classification": "production React/CodeMirror component regression; native retest pending",
+  "sourceSHA256": "81784283603420b271ad335b481d7276882446c6ac5335bca9f89f0c15c075d5",
+  "observedNativeFailure": "editor-native-picker-20261101 three-project images009–023; Btop28→1,C58→78,A8→14",
+  "diagnosis": [
+    "Hiding the host before reading scrollTop discarded the previous position.",
+    "A raw pixel assignment immediately after EditorView.setState was adjusted by the subsequent CodeMirror layout measurement."
+  ],
+  "change": "Capture visible viewport before hiding; retain CodeMirror scrollSnapshot with each cached EditorState and map it through document edits. Restore through the CodeMirror scroll effect. Hidden/detached views preserve the last visible offset.",
+  "before": {
+    "name": "three project viewport restoration",
+    "before": [
+      {
+        "projectId": "scroll-a",
+        "top": 700,
+        "savedTop": 700,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-b",
+        "top": 1450,
+        "savedTop": 1450,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-c",
+        "top": 2300,
+        "savedTop": 2300,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      }
+    ],
+    "after": [
+      {
+        "projectId": "scroll-a",
+        "top": 0,
+        "savedTop": 0,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-b",
+        "top": 0,
+        "savedTop": 0,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-c",
+        "top": 4146,
+        "savedTop": 4146,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      }
+    ]
+  },
+  "after": {
+    "name": "three project viewport restoration",
+    "before": [
+      {
+        "projectId": "scroll-a",
+        "top": 700,
+        "savedTop": 700,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-b",
+        "top": 1450,
+        "savedTop": 1450,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-c",
+        "top": 2300,
+        "savedTop": 2300,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      }
+    ],
+    "after": [
+      {
+        "projectId": "scroll-a",
+        "top": 700,
+        "savedTop": 700,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-b",
+        "top": 1450,
+        "savedTop": 1450,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      },
+      {
+        "projectId": "scroll-c",
+        "top": 2300,
+        "savedTop": 2300,
+        "selection": {
+          "anchor": 0,
+          "head": 0
+        }
+      }
+    ]
+  },
+  "desktopTypecheck": "npm run desktop:check exit0 after final source change, 2026-11-01T04:35Z",
+  "limits": [
+    "Not yet integrated into the running native bundle; real three-project scroll and restart restoration retest pending."
+  ],
+  "finalizedAt": "2026-11-01T04:35:17.241007+00:00",
+  "finalSourceSHA256": "e889979ec35877fc22bf631890d17835fc0c1e5fc541c9aa2416257f2e1c460e",
+  "finalPhases": 15,
+  "coldBefore": {
+    "name": "persisted session viewport restoration",
+    "expected": 1800,
+    "top": 3243,
+    "selection": {
+      "anchor": 200,
+      "head": 205
+    }
+  },
+  "coldAfter": {
+    "name": "persisted session viewport restoration",
+    "expected": 1800,
+    "top": 1800,
+    "selection": {
+      "anchor": 200,
+      "head": 205
+    }
+  },
+  "coldChange": "Fresh restored sessions reset the outgoing scroll anchor and apply the saved pixel offset in CodeMirror requestMeasure after document geometry is available."
+}

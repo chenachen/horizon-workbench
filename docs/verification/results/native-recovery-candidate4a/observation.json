@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-10-30T19:07:31.459645+00:00",
+  "candidate": "4a",
+  "source": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit/src/换行测试.txt",
+  "bytes": 51,
+  "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+  "bom": true,
+  "crlf": 3,
+  "bareLf": 0,
+  "text": "第一行\r\n第二行\r\n第三行：中文保存\r\n",
+  "rootNativeReport": [
+    "Start candidate4a Aurora then switch formerly sleeping UI Kit; disk 3 lines displayed normally, cursor line4, no Selection error",
+    "Click restore: dirty fourth line returns and recovery saved indicator",
+    "Cmd+Q retain, apply, root ps confirms no Horizon process",
+    "Relaunch UI Kit: original disk 3 lines plus one recovery notice, cursor line4, no Selection error"
+  ],
+  "screenshot": null,
+  "nativePid": 58213,
+  "nativeWindow": 13510,
+  "limitations": [
+    "Native operation sequence supplied by root; verifier only captures and reads disk",
+    "Retained-quit/relaunch path, not abnormal crash proof",
+    "Candidate4a awaits separate theme registry/Pi changes; not final build",
+    "Recovery prompt screenshot missed: by capture time window13510 no longer existed; no image artifact claimed"
+  ]
+}

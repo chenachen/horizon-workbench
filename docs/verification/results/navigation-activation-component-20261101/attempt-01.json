@@ -1,0 +1,48 @@
+{
+  "kind": "actual App + LauncherToolbar + bridge; held Tauri activation reply after host epoch increment",
+  "startedAt": "2026-11-01T07:53:54.086Z",
+  "sources": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "2f2f56b8eb55007a433e808e13516428ba52fdef5c01621d7eb7216104233185"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25"
+    }
+  ],
+  "scenarios": [
+    {
+      "variant": "before",
+      "inMemoryAppSha256": "2f2f56b8eb55007a433e808e13516428ba52fdef5c01621d7eb7216104233185",
+      "bundleSha256": "83e020b79cce5c7a017702c2aa4a15070653f084d62a95f7fc7bb4b0238d40ab",
+      "warnings": [],
+      "browserErrors": [],
+      "consoleErrors": [],
+      "passed": false
+    }
+  ],
+  "passed": false,
+  "error": "TimeoutError: page.waitForFunction: Timeout 5000ms exceeded.",
+  "stack": "page.waitForFunction: Timeout 5000ms exceeded.\n    at /Users/chenpengxiang/Desktop/Horizon/.work/navigation-activation-component.mjs:102:18",
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T07:53:59.917Z",
+  "durationMs": 5831
+}

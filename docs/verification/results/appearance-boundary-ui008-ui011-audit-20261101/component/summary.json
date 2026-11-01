@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "componentConditionsPassed": 4,
+  "UI008": {
+    "ownedUrlsCreated": 2,
+    "ownedUrlsRevokedExactlyOnce": 2,
+    "providerAndPanelAssetStateCleared": true,
+    "lateReadsCreateUrls": 0,
+    "physicalDecodedCacheRelease": "not measured; no claim"
+  },
+  "UI011": {
+    "compositionPendingPrepare": 0,
+    "compositionPendingApply": 0,
+    "compositionEndPrepare": 1,
+    "compositionEndApply": 1,
+    "beforeCommitRejectedApplyRetainsSnapshotAndStyle": true,
+    "postCommitRollback": "not tested; no claim",
+    "physicalNativeCompositionLayoutRequest": "not newly tested"
+  },
+  "real": [
+    "AppearanceProvider",
+    "SettingsPanel",
+    "backgroundObjectUrl",
+    "applyAppearance",
+    "useSettings",
+    "bridge"
+  ],
+  "controlled": [
+    "Tauri core/event response boundary",
+    "own PNG asset reads",
+    "pre-commit apply rejection",
+    "synthetic document CompositionEvents"
+  ],
+  "readOnlyObservation": "React fiber hook states observed only; React state/effects not mocked",
+  "sourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/settings/background.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/appearance/src/index.ts",
+      "unchanged": true
+    },
+    {
+      "path": "packages/plugins/src/builtins.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "unchanged": true
+    }
+  ],
+  "reusedNativeEvidence": [
+    "docs/verification/results/appearance-full-native-20261101/functional-summary.json#background",
+    "docs/verification/results/appearance-full-native-20261101/functional-summary.json#ime",
+    "docs/verification/results/appearance-full-native-20261101/functional-summary.json#layout-50"
+  ]
+}

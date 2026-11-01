@@ -1,0 +1,19 @@
+{
+  "id": "local.read-only-changes",
+  "name": "只读更改列表",
+  "version": "0.1.0",
+  "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+  "author": "Horizon SDK example",
+  "apiVersion": 1,
+  "engines": { "horizon": ">=0.1.0 <0.2.0" },
+  "runtime": { "kind": "quickjs", "entry": "index.js" },
+  "activation": ["onCommand:local.read-only-changes.refresh"],
+  "requires": { "horizon.git": "^0.1.0" },
+  "optional": {},
+  "capabilities": ["git.read", "storage"],
+  "contributes": {
+    "commands": [{ "id": "local.read-only-changes.refresh", "title": "读取更改列表" }],
+    "views": [{ "id": "local.read-only-changes.list", "slot": "primarySidebar", "renderer": "declarative" }],
+    "settings": [{ "key": "includeUntracked", "label": "显示未跟踪文件", "type": "boolean", "default": true }]
+  }
+}

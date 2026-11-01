@@ -1,0 +1,189 @@
+{
+  "recordedAt": "2026-10-30T21:36:54.189129+00:00",
+  "kind": "read-only audit paired with native CUA actions and window PNG evidence",
+  "passed": [
+    "staged-only commit B leaves disk C and untracked notes",
+    "fetch leaves local HEAD/disk unchanged",
+    "ff-only pull advances to remote B",
+    "native commit and push C update bare remote",
+    "divergent push and ff-only pull leave HEAD and stashes unchanged",
+    "native branch create and switch main",
+    "hook failure retains index; native retry retains Chinese message",
+    "native stop reaps hook+sleep; HEAD/index preserved",
+    "conflict choose changes only worktree before explicit stage",
+    "manual result saved then staged and committed with two merge parents",
+    "discard cancel unchanged; tracked discard restores index and preserves staged state",
+    "rename unstage restores old index path and removes new index path; disk rename retained",
+    "unborn stage then unstage preserves file bytes and does not create HEAD",
+    "dirty buffer disk-only stage selects C without saving D",
+    "save-then-stage writes D to disk and index; HEAD B unchanged",
+    "native clone HEAD equals local bare remote main; existing nonempty directory bytes retained",
+    "nonrepository stays without .git after native inspection"
+  ],
+  "failed": [
+    "untracked trash via Finder times out (-1712); original retained; native GUI retry needed with NsFileManager fix"
+  ],
+  "guiOnlyCovered": [
+    "history page 30 then 7 more to root commit",
+    "deleted directory/file historical diff text readable",
+    "root commit file switch README to workspace.ts",
+    "arbitrary refs history/earlier to HEAD shows history27→35",
+    "binary explicit message; UTF-8 Chinese path and deleted text rendered",
+    "120k long line readable; 18MiB diff shows bounded warning and next/previous page",
+    "detached HEAD state explicit",
+    "Chinese commit draft and unsaved D buffer retained across 10 project changes"
+  ],
+  "guiLimitations": [
+    "nested branch+compare dialogs make AX tree empty; coordinate click successfully opens comparison",
+    "C07 raw errors duplicate modal/sidebar/toast and can obscure action",
+    "busy discard modal has no stop button in candidate6",
+    "untracked added-line numbering starts at 0 in candidate6; candidate7 hunk fix pending native review",
+    "clone preflight INVALID_ARGUMENT incorrectly suggests residue cleanup; native marker guard protects existing directory; candidate7 UI correction pending",
+    "after save-and-stage, prior recovery checkpoint banner appears while editor is clean; recorded for editor owner; no restart verification",
+    "missing-Git real GUI and live clone cancellation not performed; covered only by existing service tests",
+    "all native screenshots one Mist/light/comfortable/100-percent/1280x800 configuration; eight-layout matrix not claimed"
+  ],
+  "evidenceDirectory": "docs/verification/results/git-gui-candidate6",
+  "supplementalObservations": {
+    "clonePath": "/private/tmp/horizon-git-native-gui-1107m_cg/克隆目标父目录/原生克隆项目",
+    "cloneHead": "ab29220c1c1d83f7f465749c0f4ae130bfbdcd14",
+    "cloneRemote": "file:///private/tmp/horizon-git-native-gui-1107m_cg/remote.git",
+    "existingFileSha256": "e5a2be76c57c4a52d32b5feaa48148eae1b50e337f84c087f6e60c2b57c41d90",
+    "nativeAppPid": 33304,
+    "nativeWindowId": 14467,
+    "endProject": "01-双基线与提交",
+    "endBuffer": "D saved and staged; HEAD B; draft retained; no running Git task"
+  },
+  "screenshots": [
+    {
+      "path": "docs/verification/screenshots/git-candidate6/01-staged-A-to-B.png",
+      "sha256": "1ba28f72493dc7f5a2f61c1da7038c87a5b7160c4b86a2976bf9811969378ff6",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/02-unstaged-B-to-C-split.png",
+      "sha256": "0f0efd4c1d5e8ee596541657c198ddc3d6a42310f1b9a3bb618f84e8f847fb63",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/03-dirty-buffer-stage-choice.png",
+      "sha256": "82950612d33db2ab0f7e27c795e6f2437a1b335dede8419b4d928f9e81ab6ac3",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/04-C02-staged-before-commit.png",
+      "sha256": "54ebcadc1a24dbf1f6ff5736ac46af2c66fe6fdf397a94beff85ad18524c4b65",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/05-staged-diff-cleared-after-commit.png",
+      "sha256": "22a1bcd0b31f71d9a82f9ba12f35633073beaa606a6c94bb5a1eecdf6e8e0957",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/06-C04-fetched-remote-behind1.png",
+      "sha256": "dd55d7f63f46c45c7fb9bed59fa32c49aeb9674cf8cb56da2c8462f2805a3371",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/07-C07-push-rejected-duplicate-toast.png",
+      "sha256": "1d9e383807a39554497d72f773622cab53cd3dbe3589e696cc913991e9965f96",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/08-dirty-branch-switch-refused.png",
+      "sha256": "0e3f29f231cd366d5690c9aaf573f3a412bd2a168d7b421ef4a58d374d5637de",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/09-hook-failure-draft-retained.png",
+      "sha256": "e670bcf2ecc4da54fcadf621b333828f66581621b01fa9ceb8adc70505555ad5",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/10-C05-conflict-sources-result.png",
+      "sha256": "ec6273c9d73569bd7993544a360d7da50ddc2d98a1595b0d65ebac75c597d7a1",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/11-conflict-chosen-still-unmerged.png",
+      "sha256": "7463be536ec07f3b4f6caced8a7ad947db3148fd0bc68d9650348336e9d45923",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/12-C06-discard-plan.png",
+      "sha256": "a77df56cdf64e6c490df7eaab1e91ceb9bd52b7be138f18baa45268ca4ab0f1f",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/13-trash-finder-hang-no-stop.png",
+      "sha256": "e874d2253fad5c58ec5c3c09d152f1a7574daeb532fd0ac98f82257f6967123e",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/14-trash-appleevent-timeout.png",
+      "sha256": "632037e1439ce2cb3eca923a50c7c3d11aec338b8b61d00ffabb6698b15a93d4",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/15-C03-deleted-history-file.png",
+      "sha256": "879d674d89f62e900835549143ea7f752b4ead421985ac0fd91d76b760147459",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/16-history-second-page-root-commit.png",
+      "sha256": "aef5b5baf4bf0ae411c35ceea7a59703696ad80d3927f8bc8fc72bb1a30ccfd3",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/17-ref-compare-nested-dialog.png",
+      "sha256": "7bac1be9387efeb786bc47e14c5a42f917873b84ea69d8c948177a1d4a05bdce",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/18-binary-diff.png",
+      "sha256": "1e9ce6ca21b6fd42418c6a459f53c42539d531f07610a47a9258cfe62384aeed",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/19-large-diff-second-page.png",
+      "sha256": "cdff2492a84b0f5defcd91aee69445a145f539159f155a07c68ff3ae70ab1a93",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/20-unborn-unstaged.png",
+      "sha256": "7d463bda56eb27186bf15e265f9f87e8baa8374217ded61479d1033f3bed5f5b",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/21-detached-head.png",
+      "sha256": "784d060e02bbeab7f0afa9646002b4423a27c6d3e881ccb05b983b9d52c83170",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/22-non-repository.png",
+      "sha256": "cc95c1bf2e314f4657fcb88f50edadf32add37aeff2c6457ba94577b85e259ce",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/23-clone-existing-target-refused.png",
+      "sha256": "a4c17c3ff2ac52b55b22d2f6ddd47dc96bf094b106c9539900b82aa72928a596",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/24-clone-success-registered.png",
+      "sha256": "0dec50129d34f319d4ec7844c0f8c5c6852133e800739025f99e4dd25752a419",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/25-draft-buffer-retained-across-projects.png",
+      "sha256": "4a60e6a8fc955293141aa25edf6a79e6d2661c65568c18e98f8e149447aefea3",
+      "pngSignature": true
+    },
+    {
+      "path": "docs/verification/screenshots/git-candidate6/26-save-and-stage-D.png",
+      "sha256": "ca400a097d2005b7d0f94bd7ee19681fd5cb3fe7a7c2eda7b5283bc9a755d1aa",
+      "pngSignature": true
+    }
+  ]
+}

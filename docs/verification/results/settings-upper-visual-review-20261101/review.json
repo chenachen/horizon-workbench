@@ -1,0 +1,3994 @@
+{
+  "reviewedAt": "2026-11-01T06:51:41.465640+00:00",
+  "reviewer": "independent editor reviewer",
+  "method": "Read-only manual original-image pair review and full AX reading, then byte/dimension checks. All32 pairs were viewed individually at original detail; no collage, crop, image conversion, product action, new capture, source edit, build, or product test in this assignment.",
+  "scope": {
+    "indices": [
+      "F01",
+      "F02",
+      "F03",
+      "F04"
+    ],
+    "styles": [
+      "mist",
+      "paper",
+      "orbit",
+      "graphite",
+      "celadon",
+      "iris",
+      "sand",
+      "aurora"
+    ],
+    "pairs": 32,
+    "originalImagesViewed": 64,
+    "axFilesReadInFull": 32,
+    "reviewedViewport": "1280×800 first viewport",
+    "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+    "pid": 40426,
+    "centralMatrixModified": false
+  },
+  "commonObservations": {
+    "shell": "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+    "navigation": "参考左侧拆分外观、布局插件、区域尺寸、背景图片、自定义配色、外观组合；实际合为外观单入口及主题与配色/布局与尺寸/背景图片/外观方案四页签，左侧共七分类。该结构与全局外观范围为用户明确批准的后续设计决定。",
+    "fonts": "当前逐项来源标签和恢复默认按钮增加信息与横向占用。源码核对设置弹窗标题为22px/500、内容标题16px/550、行文字12px；不依据截图的视觉粗细单独提出字体加粗修复。",
+    "scrolling": "当前右侧内容区域有滚动条；本报告审查已拍摄首屏。AX 中存在的下方控件只证明结构存在，不等同本轮实际滚动、键盘或点击验证。"
+  },
+  "acceptedDifferences": [
+    {
+      "id": "F01-approved-navigation-and-scope",
+      "applies": [
+        "F01",
+        "F02",
+        "F03",
+        "F04"
+      ],
+      "observation": "参考左侧拆分外观、布局插件、区域尺寸、背景图片、自定义配色、外观组合；实际合为外观单入口及主题与配色/布局与尺寸/背景图片/外观方案四页签，左侧共七分类。该结构与全局外观范围为用户明确批准的后续设计决定。",
+      "decision": "accepted-user-design-decision",
+      "basis": "父任务确认用户已批准外观单入口四页签、布局语义命名、全局外观。批准范围不扩大到所有控件或功能。"
+    },
+    {
+      "id": "F01-preview-and-state",
+      "applies": [
+        "F01"
+      ],
+      "observation": "实际预览显示当前布局语义名和主题名，并按布局呈现分栏/卡片/底部栏；参考使用旧主题同名布局和示例源码。实际明暗值为本次保存状态，增加减少动效跟随系统与逐项来源/重置；自定义配色折叠。",
+      "decision": "accepted-current-data-and-approved-structure",
+      "basis": "布局与主题独立且语义命名已批准；保留真实选值，不为匹配参考改写状态。下方折叠字段不在本轮视觉范围。"
+    },
+    {
+      "id": "F02-real-layout-catalog",
+      "applies": [
+        "F02"
+      ],
+      "observation": "前八张布局卡完整呈现四列两行，正确当前卡有选中边框及使用中。第九张验收布局·暂停门槛是真实 F14 测试插件，只在首屏露出上部；较长说明换行为两行，使首排较参考略高，管理/恢复/尺寸等区域位于下方。",
+      "decision": "accepted-real-catalog-and-scroll-layout",
+      "basis": "布局语义名称已批准；真实插件列表允许增加条目和滚动，不伪删 QA 卡以凑八张。首八卡未被遮挡，下方操作的实际滚动可达性不由静态图证明。"
+    },
+    {
+      "id": "F03-real-scope-defaults-and-sources",
+      "applies": [
+        "F03"
+      ],
+      "observation": "实际设置对象全局默认；Menlo14、行号开、换行关、2空格，另有缩进字符空格。参考当前项目/系统等宽13/换行开。逐项来源与恢复默认使字段左移、行高增加，自动保存和语言增强在首屏以下，AX 仍显示关闭和管理扩展。",
+      "decision": "accepted-real-values-and-required-source-affordance",
+      "basis": "后续用户决定字体/字号全局共用，行为仍可项目覆盖；PRD114建议默认14、2空格、换行关闭、自动保存关闭。捕获值不应替换为参考演示值；本报告不验证切换或保存行为。"
+    },
+    {
+      "id": "F04-real-projects-and-required-entries",
+      "applies": [
+        "F04"
+      ],
+      "observation": "实际全局默认、后台5分钟；参考当前项目15分钟。实际工作区 macOS完整验收1101 有12项目，首屏只显示 Editor Resume QA 尚未打开；AX 中 Aurora Web 活动中。能力预设自定义/管理预设和下方项目启动方案增加滚动内容。",
+      "decision": "accepted-real-workspace-data-and-spec-required-content",
+      "basis": "PRD115与INTERACTION_SPEC487建议5分钟；INTERACTION_SPEC486要求能力预设，PRD118要求项目启动方案。真实项目数和状态保留；不从首项尚未打开推断全工作区不活动，下方启动方案未获本轮视觉覆盖。"
+    },
+    {
+      "id": "F04-fixed-policy-presentation",
+      "applies": [
+        "F04"
+      ],
+      "observation": "参考恢复会话开关/终端策略选择器，实际为只读自动恢复/运行任务保持活动标签，并分别解释恢复文件标签阅读位置面板、切换项目不中断已运行命令。",
+      "decision": "accepted-presentation-of-current-fixed-policy-only",
+      "basis": "父任务接受清晰呈现当前固定策略；SettingsPanel490/492与实际AX一致。INTERACTION_SPEC486要求恢复能力但未硬性要求可关开关；PRD172要求恢复只恢复UI和文档、不重放任务。不存在用户逐控件批准的声称。真实恢复与禁止自动重放的Q1/Q2功能结论须由独立行为链关闭，静态标签不构成功能通过。"
+    },
+    {
+      "id": "mist-keyboard-focus-state",
+      "applies": [
+        "F01-mist",
+        "F03-mist",
+        "F04-mist"
+      ],
+      "observation": "Mist部分首屏弹窗外圈蓝色focus ring参考未出现；AX焦点位于设置container。F02-mist和其余样式没有同样外圈。",
+      "decision": "accepted-captured-focus-state",
+      "basis": "保留实际键盘焦点反馈，不通过去掉焦点样式匹配无焦点参考。"
+    }
+  ],
+  "openFindings": [
+    {
+      "id": "F03-toggle-geometry",
+      "severity": "visual",
+      "status": "open-in-captured-build",
+      "cases": [
+        "F03-mist",
+        "F03-paper",
+        "F03-orbit",
+        "F03-graphite",
+        "F03-celadon",
+        "F03-iris",
+        "F03-sand",
+        "F03-aurora"
+      ],
+      "observed": "八种样式的显示行号与自动换行轨道约32px高，参考23px；选中行号滑块仍13px且靠上，参考选中滑块17px居中。未选中滑块13px符合参考，不要求放大。",
+      "sourceCause": "styles.css25全局button min-height32；settings.css43只给height23没有min-height覆盖。settings.css44/46选中后仍13px，只平移15px；reference base.css147–152明确23px轨道、选中17px/top2/left17。",
+      "minimalCorrection": "为settings-switch明确min-height23，checked span使用17px并调整位置保持居中；未选中13px保留。父任务已有准备补丁，本审查未重复创建或应用。",
+      "closure": "需统一构建后实际native对应控件确认；准备补丁或源码修改不能让此批旧图通过。"
+    },
+    {
+      "id": "F03-graphite-toggle-radius",
+      "severity": "visual",
+      "status": "open-in-captured-build",
+      "cases": [
+        "F03-graphite"
+      ],
+      "observed": "Graphite实际开关为小圆角矩形，参考仍为胶囊轨道。",
+      "sourceCause": "styles.css349 :root[data-layout=compact] button 的radius5覆盖settings.css43的radius20。",
+      "minimalCorrection": "与上述开关修复一并让专用switch的pill圆角优先级高于compact全局button；不要改变Graphite其他方形按钮和卡片。",
+      "closure": "需新包原生Graphite开关图；本报告不声称修复完成。"
+    }
+  ],
+  "sourceCrosscheck": [
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "sha256": "6119001ee95f42f9d5961b44568b5291bf0b519c46410c8fd786feea88677745",
+      "lines": [
+        {
+          "line": 43,
+          "text": "function Row({ label, description, source, children, onReset }: { label: string; description?: string; source?: string; children: ReactNode; onReset?: () => void }) {"
+        },
+        {
+          "line": 48,
+          "text": "  return <button type=\"button\" role=\"switch\" className=\"settings-switch\" aria-label={label} aria-checked={value} onClick={() => onChange(!value)}><span /></button>;"
+        },
+        {
+          "line": 50,
+          "text": "function MiniPreview({ layout, theme, colors }: { layout: LayoutDefinition; theme: ThemeDefinition; colors?: Partial<Record<ThemeToken, string>> }) {"
+        },
+        {
+          "line": 490,
+          "text": "          <Row label=\"会话恢复\" description=\"重新打开项目时恢复文件标签、阅读位置与面板。\"><span className=\"settings-pill\">自动恢复</span></Row>"
+        },
+        {
+          "line": 492,
+          "text": "          <Row label=\"终端任务\" description=\"切换项目不会中断已运行的命令。\"><span className=\"settings-pill\">运行任务保持活动</span></Row>"
+        },
+        {
+          "line": 494,
+          "text": "          {summaryWorkspace ? <section className=\"settings-group\" aria-label=\"当前工作区项目\"><h3 className=\"settings-group-label\">当前工作区 · {summaryWorkspace.name}</h3>{summaryProjects.length ? summaryProjects.map(project => <Row key={project.id} label={project.displayName}><span className={`settings-pill settings-project-state state-${project.state}`}>{projectStateLabels[project.state]}</span></Row>) : <p className=\"settings-secondary\">尚无项目</p>}</section> : null}"
+        },
+        {
+          "line": 497,
+          "text": "          <Row label=\"代码字体\" source={settingSource('editor.fontFamily')} onReset={() => void writeSettings({}, ['editor.fontFamily'])}><select aria-label=\"代码字体\" value={String(setting('editor.fontFamily', 'system'))} onChange={event => void writeSettings({ 'editor.fontFamily': event.target.value })}><option value=\"system\">系统等宽字体</option><option value=\"Menlo\">Menlo</option><option value=\"JetBrains Mono\">JetBrains Mono</option></select></Row>"
+        },
+        {
+          "line": 506,
+          "text": "          <Note>字体和字号全局共用；编辑行为可按项目覆盖。换行符保留文件原值，保存失败仍保留编辑内容。</Note>"
+        }
+      ]
+    },
+    {
+      "path": "apps/desktop/src/features/settings/settings.css",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/apps/desktop/src/features/settings/settings.css",
+      "sha256": "b04fb24e3150dc4e306df017bb722cd45c46e1db9f72387755572e1b8bb34583",
+      "lines": [
+        {
+          "line": 5,
+          "text": ".modal.settings-modal>.modal-header h2{font-size:22px;font-weight:500;letter-spacing:-.4px}"
+        },
+        {
+          "line": 16,
+          "text": ".settings-heading h2{font-size:16px;font-weight:550;margin:0 0 4px;line-height:1.5;letter-spacing:-.15px}"
+        },
+        {
+          "line": 34,
+          "text": ".setting-row{display:flex;align-items:center;gap:15px;justify-content:space-between;padding:14px 0;min-height:52px;border-bottom:1px solid var(--border);font-size:12px;min-width:0}"
+        },
+        {
+          "line": 43,
+          "text": ".settings-content .settings-switch{position:relative;width:38px;height:23px;padding:0;border:1px solid var(--muted);border-radius:20px;background:var(--border);flex-shrink:0}"
+        },
+        {
+          "line": 44,
+          "text": ".settings-switch span{position:absolute;left:3px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--muted);transition:transform .12s}"
+        },
+        {
+          "line": 45,
+          "text": ".settings-content .settings-switch[aria-checked=true]{border-color:var(--accent);background:var(--accent)}"
+        },
+        {
+          "line": 46,
+          "text": ".settings-switch[aria-checked=true] span{background:var(--on-accent);transform:translateX(15px)}"
+        }
+      ]
+    },
+    {
+      "path": "apps/desktop/src/styles.css",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138",
+      "lines": [
+        {
+          "line": 25,
+          "text": "button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 32px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); cursor: pointer; line-height: 1.25; white-space: nowrap; font-weight: 500; }"
+        },
+        {
+          "line": 349,
+          "text": ":root[data-layout='compact'] button { border-radius: 5px; }"
+        }
+      ]
+    },
+    {
+      "path": "design/source/base.css",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/design/source/base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0",
+      "lines": [
+        {
+          "line": 147,
+          "text": "#horizon-atlas .hz .toggle{position:relative;width:38px;height:23px;display:block;flex-shrink:0}"
+        },
+        {
+          "line": 148,
+          "text": "#horizon-atlas .hz .toggle input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;z-index:1;cursor:inherit}"
+        },
+        {
+          "line": 149,
+          "text": "#horizon-atlas .hz .toggle .track{position:absolute;inset:0;background:var(--h-line);border:1px solid var(--h-muted);border-radius:20px}"
+        },
+        {
+          "line": 150,
+          "text": "#horizon-atlas .hz .toggle .track:after{content:\"\";position:absolute;left:3px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--h-muted)}"
+        },
+        {
+          "line": 151,
+          "text": "#horizon-atlas .hz .toggle input:checked+.track{background:var(--h-accent);border-color:var(--h-accent)}"
+        },
+        {
+          "line": 152,
+          "text": "#horizon-atlas .hz .toggle input:checked+.track:after{background:var(--h-on-accent);width:17px;height:17px;top:2px;left:17px}"
+        }
+      ]
+    },
+    {
+      "path": "design/source/atlas.css",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/design/source/atlas.css",
+      "sha256": "9566a3af7029984542edeabefb69eeff661b4c3c42da954885342a88f3121339",
+      "lines": [
+        {
+          "line": 141,
+          "text": "#horizon-atlas .hz .settings-nav{gap:3px;overflow:auto;max-height:540px}"
+        },
+        {
+          "line": 142,
+          "text": "#horizon-atlas .hz .settings-nav button{padding:10px 13px;font-size:12px;min-height:38px}"
+        },
+        {
+          "line": 309,
+          "text": "#horizon-atlas .hz[data-style=\"paper\"] .settings-nav button{border-radius:8px}"
+        },
+        {
+          "line": 347,
+          "text": "#horizon-atlas .hz[data-style=\"iris\"] .settings-nav button{padding:12px 14px;min-height:42px}"
+        }
+      ]
+    },
+    {
+      "path": "docs/ux/INTERACTION_SPEC.md",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/docs/ux/INTERACTION_SPEC.md",
+      "sha256": "9344895d4ac7649c098d083e7e86dcb4888cef82290829f9019f8c9a3251ae1d",
+      "lines": [
+        {
+          "line": 474,
+          "text": "### F03 编辑器偏好 · 核心批次 基础；语义语言能力后续扩展 · REQ-UXI-004/010"
+        },
+        {
+          "line": 477,
+          "text": "- **区域/显隐：**字体、字号、缩进、软换行、自动保存、语言扩展入口；语言服务默认未启动。"
+        },
+        {
+          "line": 486,
+          "text": "- **区域/显隐：**会话恢复、后台休眠策略、各项目扩展与活动进程、缓存清理；极简阅读/代码审查/项目开发/自定义轻量预设；尚无采样时不显示 MB/CPU 假数字。"
+        },
+        {
+          "line": 487,
+          "text": "- **行为/状态：**建议后台 5 分钟且无活动进程/写操作/未落盘草稿后休眠；手动休眠列阻塞项；只停可恢复服务；先确认恢复稿已落盘。预设应用前列启停影响，缺包不自动联网安装；项目开发预设不自动运行方案。清缓存不清文档/凭据；失败保留旧状态与采样时间。"
+        }
+      ]
+    },
+    {
+      "path": "docs/product/PRD.md",
+      "copy": "docs/verification/results/settings-upper-visual-review-20261101/source/docs/product/PRD.md",
+      "sha256": "d063221c57ffa4b5b6f488d31732556ed781a040a9115299d5db562f67133c77",
+      "lines": [
+        {
+          "line": 114,
+          "text": "| 编辑 F03 | 字号 14、缩进 2 空格、长行不自动折行、自动保存关闭 | 是：字体/字号、缩进、折行、自动保存 | 影响后续编辑行为；不得为满足新缩进/换行偏好静默重写已有文件 |"
+        },
+        {
+          "line": 115,
+          "text": "| 项目与资源 F04 | 恢复上次会话；后台 5 分钟可休眠；干净文档缓存有界 | 是：休眠延迟、是否保持该项目运行 | 降低缓存上限只驱逐干净可恢复文档；未保存内容不进入自动淘汰 |"
+        },
+        {
+          "line": 118,
+          "text": "| 快速启动 F04/A06 | 无自动运行；打开项目不启动开发进程 | 仅项目配置；可选全局模板复制后独立保存 | 修改方案不改正在运行实例；下次启动生效；重启需明确使用新配置 |"
+        },
+        {
+          "line": 172,
+          "text": "恢复会话只恢复 UI 与文档：不重放终端命令、不重发 AI 请求、不恢复被终止进程、不自动继续 Git 操作。未完成任务标记“上次会话中断”，用户核对当前状态后再重试。退出时若有活跃任务/终端，列出对象与影响，选择“停止并退出/取消”；不能因关闭窗口悄悄继续运行无入口管理的服务。"
+        }
+      ]
+    }
+  ],
+  "sourceAuthorityNote": "PRD旧表中的外观/字体项目覆盖描述被用户后续全局决定替代；仅使用其中仍适用的默认值、运行与恢复约束。源码只核对呈现与CSS原因，不能替代真实功能验收。",
+  "records": [
+    {
+      "case": "F01-mist",
+      "index": "F01",
+      "style": "mist",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-mist.jpg",
+        "sha256": "388636568797e9aaa123c30181f625003325d303e315ce48867ee20604985257",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F01-settings-appearance.png",
+        "sha256": "b79f6f776ffd04c77820aca255527177f63f15ce176b42f8dad6fc218da96112",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-mist.ax.txt",
+        "sha256": "bbbce44493d75cdb70c0774953ee274ff3a41edcaf28de699b88014404790e72",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "388636568797e9aaa123c30181f625003325d303e315ce48867ee20604985257",
+        "axSha256": "bbbce44493d75cdb70c0774953ee274ff3a41edcaf28de699b88014404790e72",
+        "capturedAt": "2026-11-01T06:06:42.958Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "用户批准外观单入口四页签；本图主题与配色上半页。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "雾蓝浅色；经典侧栏预览与当前卡一致。F01/F03/F04有额外蓝色弹窗focus ring，F02无该外圈。",
+        "经典侧栏 · 雾蓝预览；主题选值匹配。实际模式light；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state",
+        "mist-keyboard-focus-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-mist",
+      "index": "F02",
+      "style": "mist",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-mist.jpg",
+        "sha256": "76b8e6137ee1204ea21297ffcb65df027b6715b08494d168db9c5cf521fff0d6",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F02-settings-layout.png",
+        "sha256": "2bf02a50ecf50e3bf33bb521c8bc7447de09a82e30a16cc73c2c6b4990bdf25c",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-mist.ax.txt",
+        "sha256": "3672c0f630cf338c2f6bb84828b0a78d4bf4b67a2edf3bbf0eab8e2209de2fbf",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "76b8e6137ee1204ea21297ffcb65df027b6715b08494d168db9c5cf521fff0d6",
+        "axSha256": "3672c0f630cf338c2f6bb84828b0a78d4bf4b67a2edf3bbf0eab8e2209de2fbf",
+        "capturedAt": "2026-11-01T06:07:09.073Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "四页签布局卡区，经典侧栏使用中；第9张自有暂停门槛QA卡为F14测试夹具。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "雾蓝浅色；经典侧栏预览与当前卡一致。F01/F03/F04有额外蓝色弹窗focus ring，F02无该外圈。",
+        "经典侧栏卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-mist",
+      "index": "F03",
+      "style": "mist",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-mist.jpg",
+        "sha256": "d031b2c8e8c0d1ede119c121afaf82e36fdb77a6bd2462cee369cca71308d87a",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F03-settings-editor.png",
+        "sha256": "d6484a5fdbc9bd986ab3ba5412f53ca01525cea0cbb29940b22e77803618e760",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-mist.ax.txt",
+        "sha256": "a9db479e1d04e64b5872394cc57fc7ee0ba013a919a63da81dc3152bcb247211",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "d031b2c8e8c0d1ede119c121afaf82e36fdb77a6bd2462cee369cca71308d87a",
+        "axSha256": "a9db479e1d04e64b5872394cc57fc7ee0ba013a919a63da81dc3152bcb247211",
+        "capturedAt": "2026-11-01T06:06:36.626Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "编辑器首屏，设置对象为全局默认；字体Menlo14全局，行为仍有对象范围。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "雾蓝浅色；经典侧栏预览与当前卡一致。F01/F03/F04有额外蓝色弹窗focus ring，F02无该外圈。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources",
+        "mist-keyboard-focus-state"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-mist",
+      "index": "F04",
+      "style": "mist",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-mist.jpg",
+        "sha256": "d46792bf09e5732285f87e0b7e3b5dffefdbc2f7e8700d2a733ad60c96849ced",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/F04-settings-projects.png",
+        "sha256": "efe6bbe8f82ffabdb031f90e9ae702bdcc402180d53828bfc71e2c71417ae7dd",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-mist.ax.txt",
+        "sha256": "bfbdc3fddf1794b5b613090c75e54d1b248f8cb88e697bc5c4c39569c9edc7b0",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "d46792bf09e5732285f87e0b7e3b5dffefdbc2f7e8700d2a733ad60c96849ced",
+        "axSha256": "bfbdc3fddf1794b5b613090c75e54d1b248f8cb88e697bc5c4c39569c9edc7b0",
+        "capturedAt": "2026-11-01T06:06:41.845Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "项目与资源首屏，全局默认，后台5分钟，运行任务保持活动。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "雾蓝浅色；经典侧栏预览与当前卡一致。F01/F03/F04有额外蓝色弹窗focus ring，F02无该外圈。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation",
+        "mist-keyboard-focus-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-paper",
+      "index": "F01",
+      "style": "paper",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-paper.jpg",
+        "sha256": "331ccdaca4ae55e931167783ea26dccb10c3b6fc2523a801d9fbd643fbcc656a",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F01-settings-appearance.png",
+        "sha256": "0d47779263659fc09b46a79168ce151fcb3f53900d7f81a8bde7154b29e8dd1b",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-paper.ax.txt",
+        "sha256": "04279052fb9e015b019efa84d25b757adb2d4f2e36a78a8fa3ec537383497b3f",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "331ccdaca4ae55e931167783ea26dccb10c3b6fc2523a801d9fbd643fbcc656a",
+        "axSha256": "04279052fb9e015b019efa84d25b757adb2d4f2e36a78a8fa3ec537383497b3f",
+        "capturedAt": "2026-11-01T06:16:40.542Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "四页签外观：暖纸主题+浅色，独立一体侧栏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "暖纸浅色；一体侧栏预览和当前卡一致。纸色面板、较小圆角和导航处理可辨。",
+        "一体侧栏 · 暖纸预览；主题选值匹配。实际模式light；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-paper",
+      "index": "F02",
+      "style": "paper",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-paper.jpg",
+        "sha256": "fec42838b2ca3e2a04c0c60805029edd8b84fecad1c81fb64753b8215fb5fda6",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F02-settings-layout.png",
+        "sha256": "43ad4241cc5fe7646c71db88abd3abe042fb32f736c2c7241468731483cdd803",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-paper.ax.txt",
+        "sha256": "dbacbc30e26b0e7fef8fb5d994646da51cb82ea8f2a85e0e00090ffed4e7f445",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "fec42838b2ca3e2a04c0c60805029edd8b84fecad1c81fb64753b8215fb5fda6",
+        "axSha256": "dbacbc30e26b0e7fef8fb5d994646da51cb82ea8f2a85e0e00090ffed4e7f445",
+        "capturedAt": "2026-11-01T06:17:03.247Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "一体侧栏当前布局卡；第9张QA暂停布局为本轮F14夹具。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "暖纸浅色；一体侧栏预览和当前卡一致。纸色面板、较小圆角和导航处理可辨。",
+        "一体侧栏卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-paper",
+      "index": "F03",
+      "style": "paper",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-paper.jpg",
+        "sha256": "7c2dd68f30601cd27f897527288c7477b4d68ae9722054ac1d90797172877b8a",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F03-settings-editor.png",
+        "sha256": "904bd00199cb01c7d4ed5f751e6ae2c9e8d924377ffd44b5f76ca9a24740a11f",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-paper.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "7c2dd68f30601cd27f897527288c7477b4d68ae9722054ac1d90797172877b8a",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:16:37.717Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "全局默认对象，字体全局；实际编辑器首屏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "暖纸浅色；一体侧栏预览和当前卡一致。纸色面板、较小圆角和导航处理可辨。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-paper",
+      "index": "F04",
+      "style": "paper",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-paper.jpg",
+        "sha256": "682a3681f3cfc41815e9706ee9e36046054fe60dc13986d2036a3459d5537199",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/F04-settings-projects.png",
+        "sha256": "df0fcd770c557ac352b210f99a87d8e5c32e01833750aa6d29cb8c9da63276a9",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-paper.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "682a3681f3cfc41815e9706ee9e36046054fe60dc13986d2036a3459d5537199",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:16:38.301Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "全局默认资源设置首屏，运行任务保持活动。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "暖纸浅色；一体侧栏预览和当前卡一致。纸色面板、较小圆角和导航处理可辨。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-orbit",
+      "index": "F01",
+      "style": "orbit",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-orbit.jpg",
+        "sha256": "eb84997ee8582ecbaa088b13fa59810ec81af92c5b6223f232f175cbdbb6fbf3",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F01-settings-appearance.png",
+        "sha256": "959fa4e9cd21eae7e3d5a7bbede8c88b095e6a774cac0de211562f61a0be2ac3",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-orbit.ax.txt",
+        "sha256": "ef552a6e5a54fcd30f9754d7af02acad1361b57ae1795962f858c8c03fc98cf0",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "eb84997ee8582ecbaa088b13fa59810ec81af92c5b6223f232f175cbdbb6fbf3",
+        "axSha256": "ef552a6e5a54fcd30f9754d7af02acad1361b57ae1795962f858c8c03fc98cf0",
+        "capturedAt": "2026-11-01T06:18:11.473Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "四页签外观，顶部标签+深空深色。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "深空深色；顶部标签预览和当前卡一致。首屏主题和深色选值明确。",
+        "顶部标签 · 深空预览；主题选值匹配。实际模式dark；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-orbit",
+      "index": "F02",
+      "style": "orbit",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-orbit.jpg",
+        "sha256": "083a7a395c751b6c90e66e2692b6c4eaf3c11053e5388fba3301f1cd71fdb603",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F02-settings-layout.png",
+        "sha256": "aac73426c899f6bf7f152987b28c04f7b384134befe7253d4bf7c39d6647cf24",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-orbit.ax.txt",
+        "sha256": "7d6ea597b86e913605cab6c14ec16a25c64d2f3eb9c40c88a70c50f6465eebb3",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "083a7a395c751b6c90e66e2692b6c4eaf3c11053e5388fba3301f1cd71fdb603",
+        "axSha256": "7d6ea597b86e913605cab6c14ec16a25c64d2f3eb9c40c88a70c50f6465eebb3",
+        "capturedAt": "2026-11-01T06:18:29.031Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "顶部标签布局卡使用中，QA暂停卡额外存在。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "深空深色；顶部标签预览和当前卡一致。首屏主题和深色选值明确。",
+        "顶部标签卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-orbit",
+      "index": "F03",
+      "style": "orbit",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-orbit.jpg",
+        "sha256": "3d07df438f6329f3755b646dc63b50dd3049436c06543757374af27b0fda6872",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F03-settings-editor.png",
+        "sha256": "dc75fa246b5ddacc3f347c7e001631a7499911ba8e2805abd7625f40b044c680",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-orbit.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "3d07df438f6329f3755b646dc63b50dd3049436c06543757374af27b0fda6872",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:18:08.591Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "真实编辑器首屏，全局默认对象；本轮未清理或修改行为。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "深空深色；顶部标签预览和当前卡一致。首屏主题和深色选值明确。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-orbit",
+      "index": "F04",
+      "style": "orbit",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-orbit.jpg",
+        "sha256": "357ba77b2e647280f3c1e5f191f0f801d346a4e3006e60f9142bb020b2881747",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/F04-settings-projects.png",
+        "sha256": "914c30050de203512ccf6a3c340517c0bef1be75b609b50fecf949108c4ade39",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-orbit.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "357ba77b2e647280f3c1e5f191f0f801d346a4e3006e60f9142bb020b2881747",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:18:09.182Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "真实项目与资源首屏，全局默认对象；本轮未清理或修改行为。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "深空深色；顶部标签预览和当前卡一致。首屏主题和深色选值明确。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-graphite",
+      "index": "F01",
+      "style": "graphite",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-graphite.jpg",
+        "sha256": "4c157a4f6b1eba111983305dd775d4f8825053236c2a5c81121a833afcd87ab0",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F01-settings-appearance.png",
+        "sha256": "6f5df88156874db721b77bc768146bc3fba13b5f0bae3b46280212c1581e1713",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-graphite.ax.txt",
+        "sha256": "f492664f3df554fcaab8528f6c20ce5639c1670e89481ad6a46673740bb7be65",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "4c157a4f6b1eba111983305dd775d4f8825053236c2a5c81121a833afcd87ab0",
+        "axSha256": "f492664f3df554fcaab8528f6c20ce5639c1670e89481ad6a46673740bb7be65",
+        "capturedAt": "2026-11-01T06:19:34.085Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "四页签主题与配色首屏；同名主题，实际模式见AX。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "石墨浅色、compact密度；紧凑工具栏预览/当前卡一致，方形卡与完成按钮符合该样式；F03专用开关被方形全局规则误覆盖，独立列为问题。",
+        "紧凑工具栏 · 石墨预览；主题选值匹配。实际模式light；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-graphite",
+      "index": "F02",
+      "style": "graphite",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-graphite.jpg",
+        "sha256": "33168e8142893d07264e237e2f74c515aad8d0ad674807f3e6280a1f44bc1a32",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F02-settings-layout.png",
+        "sha256": "e4011ca06536e081896aaa155992e288fcd33a7b7dc95502950b6fd55af9ce95",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-graphite.ax.txt",
+        "sha256": "a0ba35d88623f2a70a523562cc48669c6555a9a1c5c25a9e70c51decf4e2d372",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "33168e8142893d07264e237e2f74c515aad8d0ad674807f3e6280a1f44bc1a32",
+        "axSha256": "a0ba35d88623f2a70a523562cc48669c6555a9a1c5c25a9e70c51decf4e2d372",
+        "capturedAt": "2026-11-01T06:21:50.079Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "布局卡、当前布局状态与几何尺寸页。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "石墨浅色、compact密度；紧凑工具栏预览/当前卡一致，方形卡与完成按钮符合该样式；F03专用开关被方形全局规则误覆盖，独立列为问题。",
+        "紧凑工具栏卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-graphite",
+      "index": "F03",
+      "style": "graphite",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-graphite.jpg",
+        "sha256": "aad10b444da48b8224ed68e0805483dbb43505de9c9321ee2194348275e264a5",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F03-settings-editor.png",
+        "sha256": "f7db8d50977a7978757ac4912601ec85b3069631eb22c1f199c273e1f550d219",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-graphite.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "aad10b444da48b8224ed68e0805483dbb43505de9c9321ee2194348275e264a5",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:19:31.162Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "真实编辑器首屏；全局默认对象，未改行为或清理。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "石墨浅色、compact密度；紧凑工具栏预览/当前卡一致，方形卡与完成按钮符合该样式；F03专用开关被方形全局规则误覆盖，独立列为问题。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry",
+        "F03-graphite-toggle-radius"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-graphite",
+      "index": "F04",
+      "style": "graphite",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-graphite.jpg",
+        "sha256": "84d418d90be1771c2cdedd58943c40a7cd6b90bc2ce5558c486b6b9783dd8b58",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/F04-settings-projects.png",
+        "sha256": "29f14062b7816f495b497c53d39929a05d8fd94832e3e0a02b87e879e54ad1e5",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-graphite.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "84d418d90be1771c2cdedd58943c40a7cd6b90bc2ce5558c486b6b9783dd8b58",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:19:31.765Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "真实项目与资源首屏；全局默认对象，未改行为或清理。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "石墨浅色、compact密度；紧凑工具栏预览/当前卡一致，方形卡与完成按钮符合该样式；F03专用开关被方形全局规则误覆盖，独立列为问题。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-celadon",
+      "index": "F01",
+      "style": "celadon",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-celadon.jpg",
+        "sha256": "6faa6a1d235731c9f3bdeaa0e27fd490313a3b67df6aef68ff51eaf43102b4fc",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F01-settings-appearance.png",
+        "sha256": "b34b6c4d9b83ee9c0b11d01b47e31a6fab3e583cd561624c4ad13c52ade9b041",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-celadon.ax.txt",
+        "sha256": "275fb26e52d29a3c5672b059b2575af1b3f3a75e850c0f84ab06d0a2a4dacd85",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "6faa6a1d235731c9f3bdeaa0e27fd490313a3b67df6aef68ff51eaf43102b4fc",
+        "axSha256": "275fb26e52d29a3c5672b059b2575af1b3f3a75e850c0f84ab06d0a2a4dacd85",
+        "capturedAt": "2026-11-01T06:25:39.293Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "主题、明暗和减少动效设置。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "青瓷浅色；折叠导航预览与当前卡一致；浅绿表面和圆角可辨。",
+        "折叠导航 · 青瓷预览；主题选值匹配。实际模式light；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-celadon",
+      "index": "F02",
+      "style": "celadon",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-celadon.jpg",
+        "sha256": "a96e80bffd39cfb90c886f6cb2ee00d047a2e02aac9641bedf76eace467b3343",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F02-settings-layout.png",
+        "sha256": "b03a570ae717b1bd7ce992344aa41b3fccb2ccf357d7ee1ea015ad35110ddbe9",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-celadon.ax.txt",
+        "sha256": "1584c3954bf643fb11191b1002679fd144e3bc8ee5463a64c4bfaf04851cbc09",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "a96e80bffd39cfb90c886f6cb2ee00d047a2e02aac9641bedf76eace467b3343",
+        "axSha256": "1584c3954bf643fb11191b1002679fd144e3bc8ee5463a64c4bfaf04851cbc09",
+        "capturedAt": "2026-11-01T06:25:42.336Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "布局卡与实际使用中状态。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "青瓷浅色；折叠导航预览与当前卡一致；浅绿表面和圆角可辨。",
+        "折叠导航卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-celadon",
+      "index": "F03",
+      "style": "celadon",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-celadon.jpg",
+        "sha256": "536a0a97f76f1dbd41c2e2a3af9c0e39011e824b65d4e7425246d28340114d34",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F03-settings-editor.png",
+        "sha256": "c5e38b79c03006a4dacd477bdc79661c011a134af1b78ab35565c35ff897b433",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-celadon.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "536a0a97f76f1dbd41c2e2a3af9c0e39011e824b65d4e7425246d28340114d34",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:25:19.620Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "全局代码字体、编辑行为与设置对象。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "青瓷浅色；折叠导航预览与当前卡一致；浅绿表面和圆角可辨。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-celadon",
+      "index": "F04",
+      "style": "celadon",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-celadon.jpg",
+        "sha256": "2970a52f01f246621554ba6de35cf6ac039aecc0bb70b2c045f912eeab6f1856",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/F04-settings-projects.png",
+        "sha256": "cc39ab902d9b1b6690832066879281b6f9ff9a4c340064d1e0fe1d6f9315176f",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-celadon.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "2970a52f01f246621554ba6de35cf6ac039aecc0bb70b2c045f912eeab6f1856",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:25:20.245Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "全局项目资源策略及当前 Aurora 启动方案。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "青瓷浅色；折叠导航预览与当前卡一致；浅绿表面和圆角可辨。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-iris",
+      "index": "F01",
+      "style": "iris",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-iris.jpg",
+        "sha256": "5be66c46b195ede5c51c08f20aac6e710b1d1d6b2cc62e805692b074117249eb",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F01-settings-appearance.png",
+        "sha256": "8cc673a06f7989af36a528c9e28710a951bf210c237b361e70ac55abb1e5ca92",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-iris.ax.txt",
+        "sha256": "b01a76736a9c8d8da7bdae66e2d1edafb2024cf473b21a5358f2b7ae9c53e4cd",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "5be66c46b195ede5c51c08f20aac6e710b1d1d6b2cc62e805692b074117249eb",
+        "axSha256": "b01a76736a9c8d8da7bdae66e2d1edafb2024cf473b21a5358f2b7ae9c53e4cd",
+        "capturedAt": "2026-11-01T06:27:20.119Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "同名鸢尾主题及明暗控制。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F01-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "鸢尾浅色；卡片分区预览与当前卡一致；spacious密度修正已采用，导航约42px及更宽松行距不记作意外偏移。",
+        "卡片分区 · 鸢尾预览；主题选值匹配。实际模式light；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-iris",
+      "index": "F02",
+      "style": "iris",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-iris.jpg",
+        "sha256": "58daf543ee503a51745fcd2c5c308bbde5324c35e73d3856ac665c082168be36",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F02-settings-layout.png",
+        "sha256": "d33c7021d090e7627e4913cd3868250c533394005fea1aca68ffcfb12f9c7e03",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-iris.ax.txt",
+        "sha256": "2b54b2368bbdd02c411c3acf7cb3f5b8dad38e5d2232721430a32fb11309c2e2",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "58daf543ee503a51745fcd2c5c308bbde5324c35e73d3856ac665c082168be36",
+        "axSha256": "2b54b2368bbdd02c411c3acf7cb3f5b8dad38e5d2232721430a32fb11309c2e2",
+        "capturedAt": "2026-11-01T06:27:23.163Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "布局卡与使用中状态。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F02-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "鸢尾浅色；卡片分区预览与当前卡一致；spacious密度修正已采用，导航约42px及更宽松行距不记作意外偏移。",
+        "卡片分区卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-iris",
+      "index": "F03",
+      "style": "iris",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-iris.jpg",
+        "sha256": "04afe062b0a4623d692aca9d3e1b148e089584f1aac2db1281c38bd8a9befb88",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F03-settings-editor.png",
+        "sha256": "8170c1abb3db4fd4aa8d8030309793bec28fa0f47405ccd60ff19b03f679e1f5",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-iris.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "04afe062b0a4623d692aca9d3e1b148e089584f1aac2db1281c38bd8a9befb88",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:27:17.241Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "全局字体与可覆盖编辑行为。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F03-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "鸢尾浅色；卡片分区预览与当前卡一致；spacious密度修正已采用，导航约42px及更宽松行距不记作意外偏移。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-iris",
+      "index": "F04",
+      "style": "iris",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-iris.jpg",
+        "sha256": "9ed807c273cb92d2dc07046c70bb0fdeb53d7bb22158c4e303fda88674e60756",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/F04-settings-projects.png",
+        "sha256": "bc885a9ea1fe1300debbeac7f284d087e48ff6fc64cab58d97feeb15822b321d",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-iris.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "9ed807c273cb92d2dc07046c70bb0fdeb53d7bb22158c4e303fda88674e60756",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:27:17.841Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "资源策略与当前Aurora启动方案。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F04-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "鸢尾浅色；卡片分区预览与当前卡一致；spacious密度修正已采用，导航约42px及更宽松行距不记作意外偏移。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-sand",
+      "index": "F01",
+      "style": "sand",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-sand.jpg",
+        "sha256": "8e4782cd70733223a22275e1b4041f3ac54e66fdab3bcacb0977a2f3105f68d2",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F01-settings-appearance.png",
+        "sha256": "aab209d21dce186b8cd592f6fb88755a47556e0a41bbc6b2d691beac88769d88",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-sand.ax.txt",
+        "sha256": "874971d2c4aada69f9d45f3fce33dd6cd6a6b422b303dacb1c6c879800155180",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "8e4782cd70733223a22275e1b4041f3ac54e66fdab3bcacb0977a2f3105f68d2",
+        "axSha256": "874971d2c4aada69f9d45f3fce33dd6cd6a6b422b303dacb1c6c879800155180",
+        "capturedAt": "2026-11-01T06:28:48.220Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "砂岩主题、明暗与减少动效。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "砂岩浅色；展开式项目目录预览和当前卡一致，宽侧目录与暖色可辨。",
+        "展开式项目目录 · 砂岩预览；主题选值匹配。实际模式light；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-sand",
+      "index": "F02",
+      "style": "sand",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-sand.jpg",
+        "sha256": "1518763c33d491a1deddc8085998e7ec0f4d6b454ce31501959ddd2a101fc839",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F02-settings-layout.png",
+        "sha256": "27336844e0a307b2bdc4c76ec99fae574d71b1ac1fe42405ea7359519c52813f",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-sand.ax.txt",
+        "sha256": "128593a55ef3c9d2db2fa6d19d3af26f371ae7b6c494f9962a8dc417eaa00e4f",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "1518763c33d491a1deddc8085998e7ec0f4d6b454ce31501959ddd2a101fc839",
+        "axSha256": "128593a55ef3c9d2db2fa6d19d3af26f371ae7b6c494f9962a8dc417eaa00e4f",
+        "capturedAt": "2026-11-01T06:28:51.286Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "布局卡与使用中状态。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "砂岩浅色；展开式项目目录预览和当前卡一致，宽侧目录与暖色可辨。",
+        "展开式项目目录卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-sand",
+      "index": "F03",
+      "style": "sand",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-sand.jpg",
+        "sha256": "ccc6fc8317c0b3298d0eeab30ca0a3563117e23f2c9661b943003679f613bfc2",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F03-settings-editor.png",
+        "sha256": "5c869b5818c0d7b2a084925cd18109d2e4a4092ef8b2f16cb1ebf0a2f0005b47",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-sand.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "ccc6fc8317c0b3298d0eeab30ca0a3563117e23f2c9661b943003679f613bfc2",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:28:45.379Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "全局字体、项目行为设置。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "砂岩浅色；展开式项目目录预览和当前卡一致，宽侧目录与暖色可辨。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-sand",
+      "index": "F04",
+      "style": "sand",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-sand.jpg",
+        "sha256": "cf9689757890387ccc928fe05d9f043f531b2099cd956dd528f992257377e90a",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F04-settings-projects.png",
+        "sha256": "3206f9a775eb85a1e4ca314033ff54e0f4496b9a055e4ed265a79b1005fadcfa",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-sand.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "cf9689757890387ccc928fe05d9f043f531b2099cd956dd528f992257377e90a",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:28:45.956Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "项目资源与Aurora启动方案。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "砂岩浅色；展开式项目目录预览和当前卡一致，宽侧目录与暖色可辨。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    },
+    {
+      "case": "F01-aurora",
+      "index": "F01",
+      "style": "aurora",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-aurora.jpg",
+        "sha256": "e29e5481484dbcc2d9c043f7be808e89b4fc688ee362176de4e3e0cea4b9322a",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F01-settings-appearance.png",
+        "sha256": "478951f58b7155b7fbdc61fb84fb33f52928102a2187eb5063fbc965da8e5d26",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-aurora.ax.txt",
+        "sha256": "32bfd1c93c6f31edcc694a14560bfad845d010471c85fd3ddca15c35a89c3930",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F01-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F01-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "e29e5481484dbcc2d9c043f7be808e89b4fc688ee362176de4e3e0cea4b9322a",
+        "axSha256": "32bfd1c93c6f31edcc694a14560bfad845d010471c85fd3ddca15c35a89c3930",
+        "capturedAt": "2026-11-01T06:30:05.351Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F01"
+        },
+        "notes": "极光主题、深色模式、减少动效。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F01"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F01-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "极光深色；底部导航预览和当前卡一致；实际深色选值、减少动效跟随系统明确。密度按更正为comfortable，未沿用原compact误记。",
+        "底部导航 · 极光预览；主题选值匹配。实际模式dark；减少动效为跟随系统，自定义配色折叠。四页签与来源/恢复默认均存在。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F01-preview-and-state"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "自定义配色折叠字段未视觉审查；主题/模式/动效切换行为未由此图测试。"
+      ]
+    },
+    {
+      "case": "F02-aurora",
+      "index": "F02",
+      "style": "aurora",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-aurora.jpg",
+        "sha256": "d5ca52df31edf0a04c6782497e9afaa608e9b5a6f5d471aeeadf1ef3729dcdad",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F02-settings-layout.png",
+        "sha256": "51368e38e514d53328ace104e314243c2ed92611f90580ba3d54002777089ab9",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-aurora.ax.txt",
+        "sha256": "d46e18f3898efca758b5a15f5e517ca6267514e71968bb49c8b129ca74ca4d10",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F02-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F02-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "d5ca52df31edf0a04c6782497e9afaa608e9b5a6f5d471aeeadf1ef3729dcdad",
+        "axSha256": "d46e18f3898efca758b5a15f5e517ca6267514e71968bb49c8b129ca74ca4d10",
+        "capturedAt": "2026-11-01T06:30:08.323Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F02"
+        },
+        "notes": "布局卡与使用中状态。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F02"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F02-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "极光深色；底部导航预览和当前卡一致；实际深色选值、减少动效跟随系统明确。密度按更正为comfortable，未沿用原compact误记。",
+        "底部导航卡使用中且有选中边框；八内置卡完整，QA第九卡部分可见；AX密度跟随主题，UI字号13px，区域尺寸折叠。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F02-real-layout-catalog"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "恢复/管理布局及字号、密度、区域尺寸在首屏下方；AX结构存在不等于实际滚动和交互通过。"
+      ]
+    },
+    {
+      "case": "F03-aurora",
+      "index": "F03",
+      "style": "aurora",
+      "status": "visual-reviewed-with-open-finding",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-aurora.jpg",
+        "sha256": "191c159dee06783b466a1b96b2918e7b48f05509f63ae90fbd5594f9192fce12",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F03-settings-editor.png",
+        "sha256": "b26033ed7db2f7c8e6e493f34fead5d03c1f0fc3aaa52d988d0a610782b57d42",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-aurora.ax.txt",
+        "sha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F03-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F03-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "191c159dee06783b466a1b96b2918e7b48f05509f63ae90fbd5594f9192fce12",
+        "axSha256": "e6aa692a6985a66de886d804a1ff8de8abf62896ad0a60fc1d272bbe423cda1a",
+        "capturedAt": "2026-11-01T06:30:02.489Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F03"
+        },
+        "notes": "全局字体及项目行为设置。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F03"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F03-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "极光深色；底部导航预览和当前卡一致；实际深色选值、减少动效跟随系统明确。密度按更正为comfortable，未沿用原compact误记。",
+        "全局默认对象、Menlo14、行号开、换行关、2空格和缩进字符空格；来源/恢复默认可见。轨道过高与checked thumb偏小明确可见。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F03-real-scope-defaults-and-sources"
+      ],
+      "openFindingIds": [
+        "F03-toggle-geometry"
+      ],
+      "limits": [
+        "自动保存/语言增强位于首屏以下，AX显示关闭/管理扩展；本轮不声称此下方区域视觉或行为通过。"
+      ]
+    },
+    {
+      "case": "F04-aurora",
+      "index": "F04",
+      "style": "aurora",
+      "status": "visual-reviewed-accepted-differences",
+      "native": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-aurora.jpg",
+        "sha256": "06ba89054f590406fd6d8cf4c6d58ec3305a4a6b2e78b72582f4876010d6c807",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "JPEG"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/F04-settings-projects.png",
+        "sha256": "140336fbdbbd00a36a010f497569c65b0d05f1b4b27918ca7bb2b5b356c95797",
+        "pixels": [
+          1280,
+          800
+        ],
+        "format": "PNG"
+      },
+      "ax": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-aurora.ax.txt",
+        "sha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "readInFull": true
+      },
+      "nativeAndReferenceIndependentlyViewedAtOriginalDetail": true,
+      "capture": {
+        "name": "F04-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/F04-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "06ba89054f590406fd6d8cf4c6d58ec3305a4a6b2e78b72582f4876010d6c807",
+        "axSha256": "1abb2a2b7bf5fd34eee3c2d6efe65a3ef5b3bdcf1db700a33e6d9976dcf4df8a",
+        "capturedAt": "2026-11-01T06:30:03.088Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "F04"
+        },
+        "notes": "项目资源策略及Aurora启动方案。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "F04"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "F04-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+        }
+      ],
+      "observations": [
+        "独立逐对查看原始 native JPEG 与原始 reference PNG，均为 1280×800。设置弹窗约 x245/y55、790×690；标题、关闭、底部完成均在屏内。当前首屏没有新增重叠或文字被横向截断。背景为真实 Aurora Web 项目，参考为演示工作区；背景内容不作精确数据同屏比较。",
+        "极光深色；底部导航预览和当前卡一致；实际深色选值、减少动效跟随系统明确。密度按更正为comfortable，未沿用原compact误记。",
+        "全局默认、5分钟；固定策略标签与说明清晰。能力预设自定义、管理预设可见；真实12项目首项Editor Resume QA尚未打开在首屏，Aurora Web活动中仅在完整AX下方。"
+      ],
+      "acceptedDifferenceIds": [
+        "F01-approved-navigation-and-scope",
+        "F04-real-projects-and-required-entries",
+        "F04-fixed-policy-presentation"
+      ],
+      "openFindingIds": [],
+      "limits": [
+        "其余项目/启动方案未获得此首屏视觉覆盖；Q1恢复、Q2不自动重放任务与现有进程继续运行均不是此静态图的功能结论。"
+      ]
+    }
+  ],
+  "artifactAudit": {
+    "nativeAndReferenceImageHashes": 64,
+    "axHashes": 32,
+    "nativeAndAxCaptureHashesMatched": 64,
+    "allPixels1280x800": true,
+    "allOriginalFormatsRetained": true,
+    "checks": [
+      {
+        "case": "F01-mist",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-mist",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-mist",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-mist",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-paper",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-paper",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-paper",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-paper",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-orbit",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-orbit",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-orbit",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-orbit",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-graphite",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-graphite",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-graphite",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-graphite",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-celadon",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-celadon",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-celadon",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-celadon",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-iris",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-iris",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-iris",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-iris",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-sand",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-sand",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-sand",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-sand",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F01-aurora",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F02-aurora",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F03-aurora",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      },
+      {
+        "case": "F04-aurora",
+        "nativeShaMatchesCapture": true,
+        "axShaMatchesCapture": true,
+        "nativePixels": [
+          1280,
+          800
+        ],
+        "referencePixels": [
+          1280,
+          800
+        ],
+        "sameFrozenBuildAndPid": true
+      }
+    ]
+  },
+  "metadataCorrections": {
+    "path": "docs/verification/results/appearance-full-native-20261101/metadata-corrections.jsonl",
+    "sha256": "d1491a9d7a0f52932b0ccb00b607c84dede300ac178cd462563074da4bb0e64e",
+    "recordCountRead": 3,
+    "appliedItems": [
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F01-iris.jpg",
+        "recorded": "comfortable (follow theme)",
+        "actual": "spacious (follow theme)",
+        "themeId": "iris",
+        "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F02-iris.jpg",
+        "recorded": "comfortable (follow theme)",
+        "actual": "spacious (follow theme)",
+        "themeId": "iris",
+        "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F03-iris.jpg",
+        "recorded": "comfortable (follow theme)",
+        "actual": "spacious (follow theme)",
+        "themeId": "iris",
+        "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F04-iris.jpg",
+        "recorded": "comfortable (follow theme)",
+        "actual": "spacious (follow theme)",
+        "themeId": "iris",
+        "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F01-aurora.jpg",
+        "recorded": "compact (follow theme)",
+        "actual": "comfortable (follow theme)",
+        "themeId": "aurora",
+        "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F02-aurora.jpg",
+        "recorded": "compact (follow theme)",
+        "actual": "comfortable (follow theme)",
+        "themeId": "aurora",
+        "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F03-aurora.jpg",
+        "recorded": "compact (follow theme)",
+        "actual": "comfortable (follow theme)",
+        "themeId": "aurora",
+        "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+      },
+      {
+        "at": "2026-11-01T06:30:44.568848+00:00",
+        "field": "conditions.density",
+        "file": "F04-aurora.jpg",
+        "recorded": "compact (follow theme)",
+        "actual": "comfortable (follow theme)",
+        "themeId": "aurora",
+        "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f"
+      }
+    ],
+    "originalCaptureRecordsPreserved": true
+  },
+  "summary": {
+    "reviewed": 32,
+    "acceptedWithDocumentedDifferences": 24,
+    "reviewedWithOpenF03SwitchFinding": 8,
+    "unreviewedPairs": 0,
+    "functionalPassesClaimed": 0,
+    "nextRequiredVisualWork": "统一修复构建后只复核受影响的开关，Graphite必须包含圆角；旧图不回写为修复通过。"
+  }
+}

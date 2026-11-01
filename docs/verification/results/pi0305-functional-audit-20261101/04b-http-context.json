@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-01T10:03:46.112797+00:00",
+  "card": "04b",
+  "status": "context chat passed; TASK STREAM READY05a",
+  "checks": {
+    "oneChatRequestAfterTest": true,
+    "expectedPrompt": true,
+    "selectedLineIncluded": true,
+    "frozenGitBeforeAndAfterIncluded": true,
+    "excludedMarkersAbsent": true,
+    "chatToolsEmpty": true,
+    "oneActualAChatSession": true,
+    "oldNinePreserved": true,
+    "sourceFilesUnchanged": true,
+    "indexUnchanged": true,
+    "chatPiExited": true
+  },
+  "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+  "chatSessionId": "10ab47ff-3a4d-46d7-9b6e-e9dc4417ea9e",
+  "session": {
+    "sessionId": "10ab47ff-3a4d-46d7-9b6e-e9dc4417ea9e",
+    "projectId": "d873ae49-1b78-44c2-b220-6260348ab231",
+    "connectionId": "58453d41-2186-44c9-aca5-9a8694590d85",
+    "profile": "chat",
+    "state": "dormant",
+    "instanceId": null,
+    "instanceEpoch": 1,
+    "piFile": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/10ab47ff-3a4d-46d7-9b6e-e9dc4417ea9e/session.jsonl"
+  },
+  "http": {
+    "count": 2,
+    "requestPath": "/v1/chat/completions",
+    "model": "horizon-fixture",
+    "userTexts": [
+      "HORIZON_TEST_VISUAL 请说明选区与这份冻结差异。\n\nAttached context (source=\"gitDiff\", file=\"example.txt\", SHA256=\"ec0554a439514069cf842fcf1edb59fb427d95198c12a8051dbb0402ae91897f\"):\ndiff --git a/example.txt b/example.txt\nindex cf52603..d8de38f 100644\n--- a/example.txt\n+++ b/example.txt\n@@ -1 +1 @@\n-original Pi resume fixture baseline\n+disk change for frozen Git context 20261101\n\n\nAttached context (source=\"buffer\", file=\"context.ts\", SHA256=\"59daa835fc3a5054c8742f02d2bbd36cf506ba090206162ef34b1ff76373c5aa\"):\nexport const selected = \"只附此行中文\";"
+    ],
+    "tools": [],
+    "log": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/provider-requests.jsonl"
+  },
+  "uiEvidence": "docs/verification/results/pi-terra-20261101/01c-1793525687778-04b-context-chat-complete.ax.txt",
+  "limits": "No pure visual rotation. Original frozen diff label direction came from existing UI; opaque IDs not interpreted. Chat session retained for subsequent history/isolation."
+}

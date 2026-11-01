@@ -1,0 +1,3491 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "root",
+  "reviewedAt": "2026-11-01T06:51:09.162138+00:00",
+  "scope": "B01/G04/G05 × 8; 24 paired original native JPEG/design PNG. B01mist uses clean capture, earlier toast image retained at source.",
+  "status": "complete",
+  "counts": {
+    "reviewedPairs": 24,
+    "originalImagesManuallyViewed": 48,
+    "nativeAndAxHashChecks": 48,
+    "referenceHashesRecorded": 24
+  },
+  "sourceFrozen": true,
+  "sourceChangesApplied": false,
+  "guiActionsPerformed": false,
+  "summaryFindings": [
+    {
+      "id": "focus-editor-invisible",
+      "styles": [
+        "paper",
+        "orbit",
+        "celadon",
+        "aurora"
+      ],
+      "status": "open",
+      "severity": "major"
+    },
+    {
+      "id": "focus-unnecessary-status",
+      "styles": [
+        "mist",
+        "paper",
+        "orbit",
+        "graphite",
+        "celadon",
+        "iris",
+        "sand",
+        "aurora"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "topbar-bottom-divider",
+      "styles": [
+        "paper",
+        "graphite"
+      ],
+      "status": "open",
+      "preparedPatch": ".work/appearance-small-fixes-prepared/source.patch"
+    }
+  ],
+  "sourceBasis": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/styles.css",
+      "sha256": "e8d5f8aeb089f6a8e86ca773b207c471a668812e053ab449cd475e9cef422138"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/App.tsx",
+      "sha256": "2c7268d56013f43e8cabd50b674676356b4ecb0dcb7999ef9042b2df12721f5f"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/features/editor/CodeSurface.tsx",
+      "sha256": "e1a91cb76b63b2d8bf1c8dba474fb87a3e92b601fcb4bfef71a95455c87edf7e"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/ux/INTERACTION_SPEC.md",
+      "sha256": "9344895d4ac7649c098d083e7e86dcb4888cef82290829f9019f8c9a3251ae1d"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/docs/ux/CUSTOMIZATION_DESIGN.md",
+      "sha256": "58e86cf47016d4e6ca43872269ca482f6c1cb2e8af45bfc267d4cb3f5771b30b"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/design/source/base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/design/source/atlas.css",
+      "sha256": "9566a3af7029984542edeabefb69eeff661b4c3c42da954885342a88f3121339"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/design/source/app.js",
+      "sha256": "33f3ee778f6458411cda509441c93a58b946caa6fe07cb59cd6d41e5e96d1f5c"
+    }
+  ],
+  "limitations": [
+    "未改中央矩阵；实际review+条件由verification归集。",
+    "图像审查不代替50次切换或资源生命周期功能验收。",
+    "字体与新版默认几何差异明确接受，不声明像素完全一致；Orbit/Sand密度与CeladonG05展开状态保留条件不符。"
+  ],
+  "records": [
+    {
+      "case": "B01",
+      "style": "mist",
+      "capture": {
+        "name": "B01-mist-clean",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-mist-clean.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-mist-clean.ax.txt",
+        "format": "jpg",
+        "sha256": "371c92ba6057df595d0c017dae659f8584886be50f309f3e7da1c7edd1e39a0f",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:08:39.158Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "关闭F14残留错误提示后的标准工作台原图；先前B01-mist保留为提示状态补充，不作清洁主图。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-mist-clean.jpg",
+        "sha256": "371c92ba6057df595d0c017dae659f8584886be50f309f3e7da1c7edd1e39a0f",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-mist-clean.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/B01-home.png",
+        "sha256": "01a39b482012375bc1c65a3370720a34190b5c730afec029260e8134841c71ce",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "独立窄项目栏、文件侧栏、浅蓝选中态及右侧编辑区结构清晰；主区x304与参考接近，明暗配色层次一致。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "独立窄项目栏、文件侧栏、浅蓝选中态及右侧编辑区结构清晰；主区x304与参考接近，明暗配色层次一致。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    },
+    {
+      "case": "G04",
+      "style": "mist",
+      "capture": {
+        "name": "G04-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "0a426d742e89ba0c9d921a15e5c46021d40a20ad8d0bff678e7ed1d3113bbd0f",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+        "capturedAt": "2026-11-01T06:08:38.513Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "真实进入专注，项目栏/侧栏隐藏，双标签及未保存稿保持；已显式关闭F14错误提示。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-mist.jpg",
+        "sha256": "0a426d742e89ba0c9d921a15e5c46021d40a20ad8d0bff678e7ed1d3113bbd0f",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-mist.ax.txt",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/G04-focus.png",
+        "sha256": "3cd3c3388a11c1d295f356bfba8b7bd773c1d73866e1999bddabd5e27d1d5230",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "专注后项目/文件侧栏隐藏，双文件标签、代码与未保存状态可见；非必要状态栏尚未隐藏。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "独立窄项目栏、文件侧栏、浅蓝选中态及右侧编辑区结构清晰；主区x304与参考接近，明暗配色层次一致。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "mist",
+      "capture": {
+        "name": "G05-mist",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-mist.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-mist.ax.txt",
+        "format": "jpg",
+        "sha256": "3931eb83a0262197af807839d1c26208a7962cc61fb3b04661bc8229013709b6",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:09:32.098Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "mist",
+          "themeId": "mist",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "同名雾蓝主题显式深色；保留同一编辑稿/终端，背景未启用。"
+      },
+      "effectiveConditions": {
+        "layoutId": "mist",
+        "themeId": "mist",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-mist.jpg",
+        "sha256": "3931eb83a0262197af807839d1c26208a7962cc61fb3b04661bc8229013709b6",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-mist.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/mist/G05-dark.png",
+        "sha256": "55133a8f33a1130cdb35aab7f8ebf0a681503711c79d90e79af5a35982604f7c",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "独立窄项目栏、文件侧栏、浅蓝选中态及右侧编辑区结构清晰；主区x304与参考接近，明暗配色层次一致。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "独立窄项目栏、文件侧栏、浅蓝选中态及右侧编辑区结构清晰；主区x304与参考接近，明暗配色层次一致。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    },
+    {
+      "case": "B01",
+      "style": "paper",
+      "capture": {
+        "name": "B01-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "2a4f472e8c009385a12ae3e160d3daa299cee29b8f89d5b92fd8068c61416c09",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+        "capturedAt": "2026-11-01T06:13:38.666Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "mist",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "固定序列第1次布局成功后；同一脏稿、双标签，终端隐藏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:14:09.270Z",
+          "files": [
+            "B01-paper.jpg",
+            "E01-paper.jpg"
+          ],
+          "field": "conditions.themeId",
+          "recorded": "mist",
+          "actual": "paper",
+          "reason": "CUA REPL closure captured prior conditions object after reassignment. UI selected暖纸, screenshot visiblypaper; rawimagesunchanged. All future captures require explicitconditionsargument."
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-paper.jpg",
+        "sha256": "2a4f472e8c009385a12ae3e160d3daa299cee29b8f89d5b92fd8068c61416c09",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-paper.ax.txt",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/B01-home.png",
+        "sha256": "47175b834113660330b109c49b9205b876abbb3219904f607a8a4414d937568a",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "一体侧栏及直角编辑面成立；当前侧栏256px，参考约240px；实际更多项目在上部有限高度列表内滚动，选中Aurora可见。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "34 tab (selected) 文件",
+        "35 tab (selectable) Git",
+        "36 tab (selectable) 搜索",
+        "83 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "85 tab (selectable) theme.css, Help: src/theme.css",
+        "93 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "119 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "122 button main 5 个更改",
+        "126 pop up button 启动方案, Value: 在设置添加启动方案",
+        "128 button 切换终端",
+        "130 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "一体侧栏及直角编辑面成立；当前侧栏256px，参考约240px；实际更多项目在上部有限高度列表内滚动，选中Aurora可见。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "topbar-bottom-divider",
+          "status": "open",
+          "observation": "顶栏底部缺参考的一像素分隔线。",
+          "reason": "已有appearance-small-fixes-prepared/source.patch待中央应用。",
+          "severity": "minor"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G04",
+      "style": "paper",
+      "capture": {
+        "name": "G04-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "a1adb6a98266fade998852213b4b1d95c1a32a629fac6535c2380af61492062c",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+        "capturedAt": "2026-11-01T06:14:29.364Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "实际专注模式隐藏项目和侧栏；同稿保留。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-paper.jpg",
+        "sha256": "a1adb6a98266fade998852213b4b1d95c1a32a629fac6535c2380af61492062c",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-paper.ax.txt",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/G04-focus.png",
+        "sha256": "2429bf4bc6a2f7f5446cc5885bc9ce4d07cb11e8ffa09f74a989aef447d3fcba",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "实际可见退出专注，但主区全空白；此状态明确失败，不能以AX存在内容判视觉通过。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value:",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "一体侧栏及直角编辑面成立；当前侧栏256px，参考约240px；实际更多项目在上部有限高度列表内滚动，选中Aurora可见。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "topbar-bottom-divider",
+          "status": "open",
+          "observation": "顶栏底部缺参考的一像素分隔线。",
+          "reason": "已有appearance-small-fixes-prepared/source.patch待中央应用。",
+          "severity": "minor"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        },
+        {
+          "id": "focus-editor-invisible",
+          "status": "open",
+          "observation": "原生图整个编辑区空白，看不到标签和代码；同一AX仍含双标签、代码节点和未保存标记。",
+          "reason": "focus只强制四列却保留这些布局三列grid-template-areas，editor落到0宽列；须统一focus完整grid并实机复测。",
+          "severity": "major"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "paper",
+      "capture": {
+        "name": "G05-paper",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-paper.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-paper.ax.txt",
+        "format": "jpg",
+        "sha256": "5718c731a8583a15d44c4511df094187039c6c9abecd6802f6e42e6359538341",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+        "capturedAt": "2026-11-01T06:17:11.329Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "paper",
+          "themeId": "paper",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "同名暖纸主题显式深色；同一未保存稿/终端。"
+      },
+      "effectiveConditions": {
+        "layoutId": "paper",
+        "themeId": "paper",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-paper.jpg",
+        "sha256": "5718c731a8583a15d44c4511df094187039c6c9abecd6802f6e42e6359538341",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-paper.ax.txt",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/paper/G05-dark.png",
+        "sha256": "b0792587cd1c1e0be0ed857e314a56bce5d2811f8e2eebc83166f07a2edcdecf",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "一体侧栏及直角编辑面成立；当前侧栏256px，参考约240px；实际更多项目在上部有限高度列表内滚动，选中Aurora可见。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "34 tab (selected) 文件",
+        "35 tab (selectable) Git",
+        "36 tab (selectable) 搜索",
+        "83 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "85 tab (selectable) theme.css, Help: src/theme.css",
+        "93 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "119 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "122 button main 5 个更改",
+        "126 pop up button 启动方案, Value: 在设置添加启动方案",
+        "128 button 切换终端",
+        "130 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "一体侧栏及直角编辑面成立；当前侧栏256px，参考约240px；实际更多项目在上部有限高度列表内滚动，选中Aurora可见。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "topbar-bottom-divider",
+          "status": "open",
+          "observation": "顶栏底部缺参考的一像素分隔线。",
+          "reason": "已有appearance-small-fixes-prepared/source.patch待中央应用。",
+          "severity": "minor"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "B01",
+      "style": "orbit",
+      "capture": {
+        "name": "B01-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "259c70b719ebbba9eed6b02083c8b792df66c4c08df6a3d6160d868921b30550",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+        "capturedAt": "2026-11-01T06:17:33.235Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "固定序列第2次成功；深空同名主题深色；双标签未保存稿保留。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-orbit.jpg",
+        "sha256": "259c70b719ebbba9eed6b02083c8b792df66c4c08df6a3d6160d868921b30550",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-orbit.ax.txt",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/B01-home.png",
+        "sha256": "9bd5a613f48adb24b52e7286c7df85d82e941d642a0d1a5b99529b2496bbedcf",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "顶部项目标签、下方文件标签及深蓝工作台结构成立；实际更多QA标签横向滚动，选中Aurora可见；真实长文档区域显示滚动条。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/31px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ],
+      "axEvidence": [
+        "34 tab (selected) 文件",
+        "35 tab (selectable) Git",
+        "36 tab (selectable) 搜索",
+        "83 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "85 tab (selectable) theme.css, Help: src/theme.css",
+        "93 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "119 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "122 button main 5 个更改",
+        "126 pop up button 启动方案, Value: 在设置添加启动方案",
+        "128 button 切换终端",
+        "130 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "顶部项目标签、下方文件标签及深蓝工作台结构成立；实际更多QA标签横向滚动，选中Aurora可见；真实长文档区域显示滚动条。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "condition-mismatch"
+    },
+    {
+      "case": "G04",
+      "style": "orbit",
+      "capture": {
+        "name": "G04-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "4fb5265f45b8ee77a13b8b65728f9a5d7cec5756df6b7baf848c3e392fc97c06",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+        "capturedAt": "2026-11-01T06:17:35.194Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "实际专注模式，侧栏/项目栏隐藏；同一脏稿。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-orbit.jpg",
+        "sha256": "4fb5265f45b8ee77a13b8b65728f9a5d7cec5756df6b7baf848c3e392fc97c06",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-orbit.ax.txt",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/G04-focus.png",
+        "sha256": "7266946d42a44cf6fb813c93bd5c4412ce9d2e36203a545a263c8c516303710a",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "实际可见退出专注，但主区全空白；此状态明确失败，不能以AX存在内容判视觉通过。",
+      "conditionAssessment": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/31px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value:",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "顶部项目标签、下方文件标签及深蓝工作台结构成立；实际更多QA标签横向滚动，选中Aurora可见；真实长文档区域显示滚动条。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        },
+        {
+          "id": "focus-editor-invisible",
+          "status": "open",
+          "observation": "原生图整个编辑区空白，看不到标签和代码；同一AX仍含双标签、代码节点和未保存标记。",
+          "reason": "focus只强制四列却保留这些布局三列grid-template-areas，editor落到0宽列；须统一focus完整grid并实机复测。",
+          "severity": "major"
+        },
+        {
+          "id": "focus-project-tabs-hidden",
+          "status": "accepted",
+          "observation": "实际专注隐藏顶部项目导航；参考G04仍保留顶部项目标签。",
+          "reason": "当前INTERACTION_SPEC3.3明确隐藏项目导航，按交互规范接受此差别；不能用参考保留导航掩盖真正编辑区空白。"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "orbit",
+      "capture": {
+        "name": "G05-orbit",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-orbit.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-orbit.ax.txt",
+        "format": "jpg",
+        "sha256": "2d59795cac98aaa1597fa611250ef62457e07acfea77664240e17cae1c7c6ae7",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+        "capturedAt": "2026-11-01T06:17:34.562Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "orbit",
+          "themeId": "orbit",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "深空同名主题显式深色；与B01同态独立索引。"
+      },
+      "effectiveConditions": {
+        "layoutId": "orbit",
+        "themeId": "orbit",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-orbit.jpg",
+        "sha256": "2d59795cac98aaa1597fa611250ef62457e07acfea77664240e17cae1c7c6ae7",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-orbit.ax.txt",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/orbit/G05-dark.png",
+        "sha256": "9bd5a613f48adb24b52e7286c7df85d82e941d642a0d1a5b99529b2496bbedcf",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "顶部项目标签、下方文件标签及深蓝工作台结构成立；实际更多QA标签横向滚动，选中Aurora可见；真实长文档区域显示滚动条。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/31px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ],
+      "axEvidence": [
+        "34 tab (selected) 文件",
+        "35 tab (selectable) Git",
+        "36 tab (selectable) 搜索",
+        "83 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "85 tab (selectable) theme.css, Help: src/theme.css",
+        "93 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "119 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "122 button main 5 个更改",
+        "126 pop up button 启动方案, Value: 在设置添加启动方案",
+        "128 button 切换终端",
+        "130 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "顶部项目标签、下方文件标签及深蓝工作台结构成立；实际更多QA标签横向滚动，选中Aurora可见；真实长文档区域显示滚动条。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "condition-mismatch"
+    },
+    {
+      "case": "B01",
+      "style": "graphite",
+      "capture": {
+        "name": "B01-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "db2e7b8d7d0f9106323fb459bd7fb773d96da9ca200ece13378aa6ab6822a665",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:18:41.046Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "固定序列第3次成功；紧凑工具栏+石墨显式浅色，真实同稿双标签。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-graphite.jpg",
+        "sha256": "db2e7b8d7d0f9106323fb459bd7fb773d96da9ca200ece13378aa6ab6822a665",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-graphite.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/B01-home.png",
+        "sha256": "e439126e93b7b850e080b8411a9e0dba324c3a23b03336ed7de29e898423de30",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "窄字母导航已无旧多余项目名，文件区小圆角、直角编辑区与细分隔成立；当前导航55px、侧栏240px，参考编辑区起点约304px。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "窄字母导航已无旧多余项目名，文件区小圆角、直角编辑区与细分隔成立；当前导航55px、侧栏240px，参考编辑区起点约304px。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "topbar-bottom-divider",
+          "status": "open",
+          "observation": "顶栏底部缺参考的一像素分隔线。",
+          "reason": "已有appearance-small-fixes-prepared/source.patch待中央应用。",
+          "severity": "minor"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G04",
+      "style": "graphite",
+      "capture": {
+        "name": "G04-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "dd29a4f9a01785c49dff72163298e3466792de4aef372e8527d9bc47cc137c77",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+        "capturedAt": "2026-11-01T06:18:58.467Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "light",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "实际进入专注再退出，同一脏稿；未另建编辑视图。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "light",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-graphite.jpg",
+        "sha256": "dd29a4f9a01785c49dff72163298e3466792de4aef372e8527d9bc47cc137c77",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-graphite.ax.txt",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/G04-focus.png",
+        "sha256": "683aa45a952c6539ca9dd83c8d87fe54dcdb76479aa78a0821f4bcdfe99142d0",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "专注后项目/文件侧栏隐藏，双文件标签、代码与未保存状态可见；非必要状态栏尚未隐藏。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "窄字母导航已无旧多余项目名，文件区小圆角、直角编辑区与细分隔成立；当前导航55px、侧栏240px，参考编辑区起点约304px。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "topbar-bottom-divider",
+          "status": "open",
+          "observation": "顶栏底部缺参考的一像素分隔线。",
+          "reason": "已有appearance-small-fixes-prepared/source.patch待中央应用。",
+          "severity": "minor"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "graphite",
+      "capture": {
+        "name": "G05-graphite",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-graphite.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-graphite.ax.txt",
+        "format": "jpg",
+        "sha256": "cbbc655a9c693f2fff7b6649a60c8ff4c6089d3e7c59eed1d906064a384a7651",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:22:33.004Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "graphite",
+          "themeId": "graphite",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "同名石墨主题显式深色的实际工作台。"
+      },
+      "effectiveConditions": {
+        "layoutId": "graphite",
+        "themeId": "graphite",
+        "mode": "dark",
+        "density": "compact (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-graphite.jpg",
+        "sha256": "cbbc655a9c693f2fff7b6649a60c8ff4c6089d3e7c59eed1d906064a384a7651",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-graphite.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/graphite/G05-dark.png",
+        "sha256": "74b311f176d5772b8b8ae2630936376f1500fa1ea2c7355631aebc0abe878ca2",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "窄字母导航已无旧多余项目名，文件区小圆角、直角编辑区与细分隔成立；当前导航55px、侧栏240px，参考编辑区起点约304px。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "窄字母导航已无旧多余项目名，文件区小圆角、直角编辑区与细分隔成立；当前导航55px、侧栏240px，参考编辑区起点约304px。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "topbar-bottom-divider",
+          "status": "open",
+          "observation": "顶栏底部缺参考的一像素分隔线。",
+          "reason": "已有appearance-small-fixes-prepared/source.patch待中央应用。",
+          "severity": "minor"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "B01",
+      "style": "celadon",
+      "capture": {
+        "name": "B01-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "5b75a4c08c8c01f1f15262b06c97ee4b6dd8517ff138756122ff275e6bf11720",
+        "axSha256": "690655ee20a9c2911c2a3cf7f1327a813614bfddf1dc3c5aced6e214843b6513",
+        "capturedAt": "2026-11-01T06:22:47.289Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "折叠导航；同一 Aurora 文件、脏标记与选区，终端隐藏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-celadon.jpg",
+        "sha256": "5b75a4c08c8c01f1f15262b06c97ee4b6dd8517ff138756122ff275e6bf11720",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-celadon.ax.txt",
+        "axSha256": "690655ee20a9c2911c2a3cf7f1327a813614bfddf1dc3c5aced6e214843b6513"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/B01-home.png",
+        "sha256": "56bff0e6afdb7723cc2937ecb0122e36cba8223eff4203958d81aff80d5c7e44",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "折叠项目卡和文件侧栏结构成立，编辑区底部圆角完整；浅青/深绿表面、选中态与参考同族。G05实际展开项目卡，需保留状态差异。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "23 tab (selected) 文件",
+        "24 tab (selectable) Git",
+        "25 tab (selectable) 搜索",
+        "72 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "74 tab (selectable) theme.css, Help: src/theme.css",
+        "82 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "108 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "111 button main 5 个更改",
+        "115 pop up button 启动方案, Value: 在设置添加启动方案",
+        "117 button 切换终端",
+        "119 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "折叠项目卡和文件侧栏结构成立，编辑区底部圆角完整；浅青/深绿表面、选中态与参考同族。G05实际展开项目卡，需保留状态差异。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    },
+    {
+      "case": "G04",
+      "style": "celadon",
+      "capture": {
+        "name": "G04-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "cf582415b1af4f938e4c4ee2134f1477fa8134e66fcad18635ea0fa33db9a6ab",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+        "capturedAt": "2026-11-01T06:22:58.607Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "真实进入专注；同一文档与脏稿。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-celadon.jpg",
+        "sha256": "cf582415b1af4f938e4c4ee2134f1477fa8134e66fcad18635ea0fa33db9a6ab",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-celadon.ax.txt",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/G04-focus.png",
+        "sha256": "b5175378fdecdc4f79271439fb06640e6699f328be3b598ed2389a2246c9e314",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "实际可见退出专注，但主区全空白；此状态明确失败，不能以AX存在内容判视觉通过。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value:",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "折叠项目卡和文件侧栏结构成立，编辑区底部圆角完整；浅青/深绿表面、选中态与参考同族。G05实际展开项目卡，需保留状态差异。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        },
+        {
+          "id": "focus-editor-invisible",
+          "status": "open",
+          "observation": "原生图整个编辑区空白，看不到标签和代码；同一AX仍含双标签、代码节点和未保存标记。",
+          "reason": "focus只强制四列却保留这些布局三列grid-template-areas，editor落到0宽列；须统一focus完整grid并实机复测。",
+          "severity": "major"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "celadon",
+      "capture": {
+        "name": "G05-celadon",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-celadon.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-celadon.ax.txt",
+        "format": "jpg",
+        "sha256": "c42e8e1bd5391b516038cdc7fbdf4eb7392d9eca15cc7cc272e47588168d9cfe",
+        "axSha256": "cd7cb4ae88448fa67482c4efe1d5e1c738d3c4834e1e9ac22f0654c55a1fa4e3",
+        "capturedAt": "2026-11-01T06:26:03.985Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "celadon",
+          "themeId": "celadon",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "同名青瓷主题显式深色工作台。"
+      },
+      "effectiveConditions": {
+        "layoutId": "celadon",
+        "themeId": "celadon",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-celadon.jpg",
+        "sha256": "c42e8e1bd5391b516038cdc7fbdf4eb7392d9eca15cc7cc272e47588168d9cfe",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-celadon.ax.txt",
+        "axSha256": "cd7cb4ae88448fa67482c4efe1d5e1c738d3c4834e1e9ac22f0654c55a1fa4e3"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/celadon/G05-dark.png",
+        "sha256": "9a67be1c25b23e4cefad790cbcd4a2b3690bca5799aa982369ec79575efecd1f",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "折叠项目卡和文件侧栏结构成立，编辑区底部圆角完整；浅青/深绿表面、选中态与参考同族。G05实际展开项目卡，需保留状态差异。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [
+        {
+          "kind": "navigation-state",
+          "actual": "expanded project drawer",
+          "reference": "collapsed project drawer",
+          "status": "mismatch",
+          "observation": "实际更多项目区域展开到约407px，参考只有当前项目卡到约185px。深色配色仍可审，整体布局状态未对齐。"
+        }
+      ],
+      "axEvidence": [
+        "35 tab (selected) 文件",
+        "36 tab (selectable) Git",
+        "37 tab (selectable) 搜索",
+        "84 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "86 tab (selectable) theme.css, Help: src/theme.css",
+        "94 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "120 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "123 button main 5 个更改",
+        "127 pop up button 启动方案, Value: 在设置添加启动方案",
+        "129 button 切换终端",
+        "131 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "折叠项目卡和文件侧栏结构成立，编辑区底部圆角完整；浅青/深绿表面、选中态与参考同族。G05实际展开项目卡，需保留状态差异。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "condition-mismatch"
+    },
+    {
+      "case": "B01",
+      "style": "iris",
+      "capture": {
+        "name": "B01-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "7ac79085f47706578b74747ad546b08d6fcd2a988d175577fd080cd51b4bfd90",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:26:10.269Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "同一文件脏稿选区；终端隐藏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "B01-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481",
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。"
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-iris.jpg",
+        "sha256": "7ac79085f47706578b74747ad546b08d6fcd2a988d175577fd080cd51b4bfd90",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-iris.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/B01-home.png",
+        "sha256": "298a2f0c89af1041997bd3cba5cedc1b54130f605cfa9124fa32ed29accd195b",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "导航、文件区、编辑区独立卡片及大圆角成立；当前导航94px、编辑卡x334/y64，相比参考x316/y56有当前几何与留白差异。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "导航、文件区、编辑区独立卡片及大圆角成立；当前导航94px、编辑卡x334/y64，相比参考x316/y56有当前几何与留白差异。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    },
+    {
+      "case": "G04",
+      "style": "iris",
+      "capture": {
+        "name": "G04-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "a9809f3f66321bb5c9338cd05bc0a0d10fed16d34742740753bd39ac0471093e",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+        "capturedAt": "2026-11-01T06:26:17.574Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "真实专注模式；后退出还原。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "light",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "G04-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481",
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。"
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-iris.jpg",
+        "sha256": "a9809f3f66321bb5c9338cd05bc0a0d10fed16d34742740753bd39ac0471093e",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-iris.ax.txt",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/G04-focus.png",
+        "sha256": "9ad667a313de8726e6959ee8f8ffab912ea9b178569ff8326dcf34433af94ceb",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "专注后项目/文件侧栏隐藏，双文件标签、代码与未保存状态可见；非必要状态栏尚未隐藏。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "导航、文件区、编辑区独立卡片及大圆角成立；当前导航94px、编辑卡x334/y64，相比参考x316/y56有当前几何与留白差异。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "iris",
+      "capture": {
+        "name": "G05-iris",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-iris.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-iris.ax.txt",
+        "format": "jpg",
+        "sha256": "4fa0cb84f0743b66a812683f1cdcaf7d86d464fa33933aa5fa0b4117cf83c0c7",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:27:43.675Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "iris",
+          "themeId": "iris",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "同名鸢尾主题显式深色工作台。"
+      },
+      "effectiveConditions": {
+        "layoutId": "iris",
+        "themeId": "iris",
+        "mode": "dark",
+        "density": "spacious (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "G05-iris.jpg",
+          "recorded": "comfortable (follow theme)",
+          "actual": "spacious (follow theme)",
+          "themeId": "iris",
+          "manifestSha256": "937845eb210c16c7cc24f88a6b68bca68e9d654f10bc9206e96cf6ac103cd481",
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。"
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-iris.jpg",
+        "sha256": "4fa0cb84f0743b66a812683f1cdcaf7d86d464fa33933aa5fa0b4117cf83c0c7",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-iris.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/iris/G05-dark.png",
+        "sha256": "0cd2ea5d89eb7dd59d550563597c821b219df8c88742cbb4032fcfac48adb09b",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "导航、文件区、编辑区独立卡片及大圆角成立；当前导航94px、编辑卡x334/y64，相比参考x316/y56有当前几何与留白差异。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "导航、文件区、编辑区独立卡片及大圆角成立；当前导航94px、编辑卡x334/y64，相比参考x316/y56有当前几何与留白差异。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    },
+    {
+      "case": "B01",
+      "style": "sand",
+      "capture": {
+        "name": "B01-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "42304df50338921467d06f3d30bebd711cd565eaa316c84ad79c2788bb6373c4",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:27:49.793Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "同一脏稿和选区，终端隐藏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-sand.jpg",
+        "sha256": "42304df50338921467d06f3d30bebd711cd565eaa316c84ad79c2788bb6373c4",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-sand.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/B01-home.png",
+        "sha256": "0e25a213bcb1f73a34502c5537c66573a63fe4298610d2a6747bd7920ab107b9",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "展开项目名称与文件侧栏成立；180px导航符合0.4.1当前默认，编辑区x420、参考约430；真实12项目密度与示例3项目不同。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/33px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "展开项目名称与文件侧栏成立；180px导航符合0.4.1当前默认，编辑区x420、参考约430；真实12项目密度与示例3项目不同。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "condition-mismatch"
+    },
+    {
+      "case": "G04",
+      "style": "sand",
+      "capture": {
+        "name": "G04-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "a2cb3016a54abe85082ae06329a52be697b2da4c53bc5a56362e5b19efaa3521",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89",
+        "capturedAt": "2026-11-01T06:27:51.708Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "light",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "真实专注模式，后退出还原。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "light",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-sand.jpg",
+        "sha256": "a2cb3016a54abe85082ae06329a52be697b2da4c53bc5a56362e5b19efaa3521",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-sand.ax.txt",
+        "axSha256": "b71c0ce9b3919e300235a19145e9afa93cceec80f7f31b6d6265c4793c908f89"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/G04-focus.png",
+        "sha256": "778e6e6571a5e7f72b961ced8111027a2437348e95415bc40a3bc0de08ac3da1",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "专注后项目/文件侧栏隐藏，双文件标签、代码与未保存状态可见；非必要状态栏尚未隐藏。",
+      "conditionAssessment": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/33px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "展开项目名称与文件侧栏成立；180px导航符合0.4.1当前默认，编辑区x420、参考约430；真实12项目密度与示例3项目不同。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "sand",
+      "capture": {
+        "name": "G05-sand",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-sand.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-sand.ax.txt",
+        "format": "jpg",
+        "sha256": "038b563f39896e2ff94a84f88ef25588aa6838518c124e589b085cb450f2caae",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a",
+        "capturedAt": "2026-11-01T06:29:06.375Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "sand",
+          "themeId": "sand",
+          "mode": "dark",
+          "density": "comfortable (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "同名砂岩主题显式深色。"
+      },
+      "effectiveConditions": {
+        "layoutId": "sand",
+        "themeId": "sand",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-sand.jpg",
+        "sha256": "038b563f39896e2ff94a84f88ef25588aa6838518c124e589b085cb450f2caae",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-sand.ax.txt",
+        "axSha256": "4aed178a6ad8476747f103fdd9c8e0b94b014e97875a68d5443015758db5767a"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/G05-dark.png",
+        "sha256": "6e21b7266b1e99384920d7b022cee4d0c900c2f81aeb26b0af2eb96dccf55f86",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "展开项目名称与文件侧栏成立；180px导航符合0.4.1当前默认，编辑区x420、参考约430；真实12项目密度与示例3项目不同。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [
+        {
+          "kind": "density",
+          "actual": "comfortable/34px (follow theme)",
+          "reference": "standard/33px",
+          "status": "mismatch",
+          "observation": "当前主题manifest与参考atlas.css行密度不相同，不能把标准与舒适无证据归一。"
+        }
+      ],
+      "axEvidence": [
+        "36 tab (selected) 文件",
+        "37 tab (selectable) Git",
+        "38 tab (selectable) 搜索",
+        "85 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "87 tab (selectable) theme.css, Help: src/theme.css",
+        "95 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "121 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "124 button main 5 个更改",
+        "128 pop up button 启动方案, Value: 在设置添加启动方案",
+        "130 button 切换终端",
+        "132 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "展开项目名称与文件侧栏成立；180px导航符合0.4.1当前默认，编辑区x420、参考约430；真实12项目密度与示例3项目不同。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "condition-mismatch"
+    },
+    {
+      "case": "B01",
+      "style": "aurora",
+      "capture": {
+        "name": "B01-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "5e365600f458c7c9f13d45e59ff665eec11a6ad16bc5f8e5da1e67e2676b7c63",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+        "capturedAt": "2026-11-01T06:29:10.639Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "B01"
+        },
+        "notes": "极光深色底部导航；同一脏稿/选区，终端隐藏。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "B01"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "B01-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f",
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。"
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-aurora.jpg",
+        "sha256": "5e365600f458c7c9f13d45e59ff665eec11a6ad16bc5f8e5da1e67e2676b7c63",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/B01-aurora.ax.txt",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/B01-home.png",
+        "sha256": "b49fdef145c13a3cb15014c2b9e31f4cfbd2a6bf2a537a56f08b225bf65f3d41",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "底部项目导航、编辑圆角及轮廓搜索框成立，已无额外满宽底板；真实12项目横向分布，不能用3示例项目要求居中相同位置。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "34 tab (selected) 文件",
+        "35 tab (selectable) Git",
+        "36 tab (selectable) 搜索",
+        "83 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "85 tab (selectable) theme.css, Help: src/theme.css",
+        "93 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "119 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "122 button main 5 个更改",
+        "126 pop up button 启动方案, Value: 在设置添加启动方案",
+        "128 button 切换终端",
+        "130 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "底部项目导航、编辑圆角及轮廓搜索框成立，已无额外满宽底板；真实12项目横向分布，不能用3示例项目要求居中相同位置。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    },
+    {
+      "case": "G04",
+      "style": "aurora",
+      "capture": {
+        "name": "G04-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "7e5932bad29942f77a458a6c085148b698490d39fd63142a1df0f93c3833438b",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d",
+        "capturedAt": "2026-11-01T06:29:12.586Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G04"
+        },
+        "notes": "真实专注模式，后退出还原。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G04"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "G04-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f",
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。"
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-aurora.jpg",
+        "sha256": "7e5932bad29942f77a458a6c085148b698490d39fd63142a1df0f93c3833438b",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G04-aurora.ax.txt",
+        "axSha256": "41271e99a5d3be9c599fb456b95c8678d0804e7128dbccbb9f6e755f64a8253d"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/G04-focus.png",
+        "sha256": "15b8fbabb5f5550a12798ee129f03afb9e4a0e11625f55e0ccb9aac06959daf1",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "实际可见退出专注，但主区全空白；此状态明确失败，不能以AX存在内容判视觉通过。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "11 button 退出专注",
+        "15 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "17 tab (selectable) theme.css, Help: src/theme.css",
+        "25 text entry area (settable) src/workspace.ts，代码编辑器, Value:",
+        "51 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "52 button 退出专注模式",
+        "54 button main 5 个更改",
+        "58 pop up button 启动方案, Value: 在设置添加启动方案",
+        "60 button 切换终端",
+        "62 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "底部项目导航、编辑圆角及轮廓搜索框成立，已无额外满宽底板；真实12项目横向分布，不能用3示例项目要求居中相同位置。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        },
+        {
+          "id": "focus-unnecessary-status",
+          "status": "open",
+          "observation": "专注时仍显示Git更改、启动方案、终端、扩展、平台信息；参考底部空白。",
+          "reason": "INTERACTION_SPEC3.3要求隐藏非必要状态信息；最小保留编辑保存/位置/编码，隐藏其余项。",
+          "severity": "moderate"
+        },
+        {
+          "id": "focus-editor-invisible",
+          "status": "open",
+          "observation": "原生图整个编辑区空白，看不到标签和代码；同一AX仍含双标签、代码节点和未保存标记。",
+          "reason": "focus只强制四列却保留这些布局三列grid-template-areas，editor落到0宽列；须统一focus完整grid并实机复测。",
+          "severity": "major"
+        }
+      ],
+      "review": "differences"
+    },
+    {
+      "case": "G05",
+      "style": "aurora",
+      "capture": {
+        "name": "G05-aurora",
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-aurora.jpg",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-aurora.ax.txt",
+        "format": "jpg",
+        "sha256": "ea61bfc9ade2ceda40c49d7a5aa6589b7a8cf0d8f5dde731f0905f9613ea3a5a",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820",
+        "capturedAt": "2026-11-01T06:29:10.704Z",
+        "bundle": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "mainSha256": "342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+        "pid": 40426,
+        "window": {
+          "width": 1280,
+          "height": 800,
+          "zoom": "100%"
+        },
+        "conditions": {
+          "layoutId": "aurora",
+          "themeId": "aurora",
+          "mode": "dark",
+          "density": "compact (follow theme)",
+          "uiFontPx": 13,
+          "codeFont": "Menlo",
+          "codeFontPx": 14,
+          "project": "Aurora Web",
+          "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+          "shellPid": 51343,
+          "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+          "selection": "import type { Project } from \"./types\";",
+          "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+          "index": "G05"
+        },
+        "notes": "极光同名主题显式深色。"
+      },
+      "effectiveConditions": {
+        "layoutId": "aurora",
+        "themeId": "aurora",
+        "mode": "dark",
+        "density": "comfortable (follow theme)",
+        "uiFontPx": 13,
+        "codeFont": "Menlo",
+        "codeFontPx": 14,
+        "project": "Aurora Web",
+        "projectPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "shellPid": 51343,
+        "dirtyMarker": "// appearance-retention-20261101: 中文未保存标记",
+        "selection": "import type { Project } from \"./types\";",
+        "gitDraft": "外观切换50次 · 草稿保持 · 20261101",
+        "index": "G05"
+      },
+      "metadataCorrections": [
+        {
+          "at": "2026-11-01T06:30:44.568848+00:00",
+          "field": "conditions.density",
+          "file": "G05-aurora.jpg",
+          "recorded": "compact (follow theme)",
+          "actual": "comfortable (follow theme)",
+          "themeId": "aurora",
+          "manifestSha256": "976a0782f80754a7d967b32147539e8dc656e899c646650b6e8288b39111f29f",
+          "basis": "各布局 F02 的界面密度均实示跟随主题；本轮未变更ui.density。按内置同名theme manifest核实：graphite compact28px/iris spacious38px/其余comfortable34px。仅更正metadata，不改原图；Orbit原型31px/Sand33px与产品34px仍为真实差异。"
+        }
+      ],
+      "actual": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-aurora.jpg",
+        "sha256": "ea61bfc9ade2ceda40c49d7a5aa6589b7a8cf0d8f5dde731f0905f9613ea3a5a",
+        "format": "JPEG",
+        "pixels": [
+          1280,
+          800
+        ],
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/appearance-full-native-20261101/G05-aurora.ax.txt",
+        "axSha256": "82df31218554070bafdf336d2968ca48d687031f374cc73e229df4184786a820"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/aurora/G05-dark.png",
+        "sha256": "b49fdef145c13a3cb15014c2b9e31f4cfbd2a6bf2a537a56f08b225bf65f3d41",
+        "format": "PNG",
+        "pixels": [
+          1280,
+          800
+        ]
+      },
+      "manualReview": {
+        "nativeOriginalViewed": true,
+        "referenceOriginalViewed": true,
+        "imageCount": 2,
+        "axReview": "原始AX经只读解析，核对双tab、代码/未保存标记、focus/状态栏及焦点相关行；不声称全文件逐字人工阅读。"
+      },
+      "observed": "底部项目导航、编辑圆角及轮廓搜索框成立，已无额外满宽底板；真实12项目横向分布，不能用3示例项目要求居中相同位置。 双标签、保存/查找入口、语法配色可见，无新增文字重叠或主操作裁切。",
+      "conditionAssessment": [],
+      "axEvidence": [
+        "34 tab (selected) 文件",
+        "35 tab (selectable) Git",
+        "36 tab (selectable) 搜索",
+        "83 tab (selected) workspace.ts 未保存, Help: src/workspace.ts · 未保存",
+        "85 tab (selectable) theme.css, Help: src/theme.css",
+        "93 text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from \"./store\";",
+        "// appearance-retention-20261101: 中文未保存标记",
+        "119 text (settable) // appearance-retention-20261101: 中文未保存标记",
+        "122 button main 5 个更改",
+        "126 pop up button 启动方案, Value: 在设置添加启动方案",
+        "128 button 切换终端",
+        "130 text macOS · 0.1.0",
+        "The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost"
+      ],
+      "differences": [
+        {
+          "id": "real-data-and-buffer",
+          "status": "accepted",
+          "observation": "实际工作区名、QA项目数量、文件排序、5个未跟踪更改、双标签、第二行选区与末尾未保存测试标记不同于3项目/2更改/无脏稿示例。",
+          "reason": "真实状态不伪造为参考示例；所有可见主操作仍完整，数据差异不要求删除测试项目或改变缓冲区。"
+        },
+        {
+          "id": "working-editor-controls",
+          "status": "accepted",
+          "observation": "实际侧栏保留目录/结构、创建文件/文件夹、刷新、搜索入口；编辑区有查找/保存和标签菜单；参考静态图部分操作置于不同位置。",
+          "reason": "这些是实现完整编辑/树/搜索的可用入口，尺寸紧凑且未遮正文；root接受当前交互安排，不声明为用户逐控件批准。"
+        },
+        {
+          "id": "font-and-live-highlighter",
+          "status": "accepted",
+          "observation": "实际使用已记录Menlo14，当前规范默认14；参考source为13px及SFMono/Consolas/LiberationMono。实际关键字/字符串/注释真实解析，截图字体观感和行内容不完全相同。",
+          "reason": "CUSTOMIZATION_DESIGN0.4.1规定全局代码字体偏好14，保持用户偏好；reference CSS keyword也没有font-weight，不据栅格观感强加粗体。"
+        },
+        {
+          "id": "geometry-defaults",
+          "status": "accepted",
+          "observation": "底部项目导航、编辑圆角及轮廓搜索框成立，已无额外满宽底板；真实12项目横向分布，不能用3示例项目要求居中相同位置。",
+          "reason": "当前几何按CUSTOMIZATION_DESIGN0.4.1的sidebar240/topbar56/tab40/status26和布局声明，保留参考作为结构对照；不声称像素重合。"
+        },
+        {
+          "id": "native-window-and-pointer",
+          "status": "accepted",
+          "observation": "实际macOS交通灯有系统颜色，截图可能保留指针光晕；参考交通灯为装饰色。",
+          "reason": "真实系统窗体及指针均保留原图，不通过修图抹掉；不影响产品控件比较。"
+        }
+      ],
+      "review": "pass"
+    }
+  ]
+}

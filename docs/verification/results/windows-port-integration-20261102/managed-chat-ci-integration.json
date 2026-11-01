@@ -1,0 +1,29 @@
+{
+  "prepared_at_utc": "2026-11-01T16:47:46.202076+00:00",
+  "status": "INTEGRATED_NOT_WINDOWS_RUN",
+  "files": [
+    {
+      "path": ".github/workflows/windows-release.yml",
+      "before_sha256": "48ba8189d56504f3dcc9652b9abe42cba9eef96dcafeb7b29e808a3ccd933381",
+      "after_sha256": "b5eeb0bf78374bc77395f5822d1dafd7d0ddafc0c7030d96a32dee5b96277106",
+      "live_matches_before": true
+    }
+  ],
+  "patch_sha256": "9c63b6f5bffb0777ba95d532fda382be26cf884bd168f7444fabc810d0e16382",
+  "only_change": "one separate exact ignored Windows managed chat CI filter; all four existing Pi checks preserved byte for byte",
+  "test_filter": "agent::tests::windows_managed_pi_chat_roundtrip",
+  "test_flags": [
+    "--exact",
+    "--ignored",
+    "--nocapture"
+  ],
+  "receipt_source": "PiSol final test name/ignore contract; Root authorized real managed chat smoke",
+  "not_run": [
+    "tests",
+    "build",
+    "old static verification",
+    "product or remote mutation"
+  ],
+  "locks_changed": false,
+  "integratedAt": "2026-11-01T16:48:22.516663+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-10-30T21:40:25.560182+00:00",
+  "scope": "candidate7 Git source fixes after actual candidate6 GUI; no release rebuild or native GUI pass claimed",
+  "files": {
+    "apps/git-service/src/lib.rs": "e6a808b785c582aed913a6d2ce7b0d27f165d353f498dcfa25bea8aa820e3051",
+    "apps/git-service/tests/workflow.rs": "8cf51b75b7686869bf4cf6d1df564926d8bb305c5625e24294a77240e638f6ce",
+    "apps/desktop/src/features/git/Modal.tsx": "3d110a81c3be6fd4d09d3b2fad4683603e1a6267d6d0786c78b154a1891e2bac",
+    "apps/desktop/src/features/git/GitPanel.tsx": "e5702348f86f0c5d4cc164b39760450c75d47bad2a6aed8ed032193655e69b60",
+    "apps/desktop/src/features/git/DiffViewer.tsx": "771b27aaa2efc3ed1ac9c84e046d5c81be628b906de6323d03d88b188d776627",
+    "apps/desktop/src/features/git/ConflictViewer.tsx": "665d766c85700f1dd04ab6a914f199ee663b6a6d7b9f64a1104437cc05e59832",
+    "apps/desktop/src/features/git/CloneForm.tsx": "b4a18f3d82dbea7b423fe2bc0a50bd9d946770146bf61a124589238edecf06b1",
+    "apps/desktop/src/features/git/git.css": "f33016f38461d80b2bc8d54040114b510ad4c15a6988fe17b06454753d567831"
+  },
+  "tests": {
+    "nativeTrash": "1 passed; 18 filtered; 0.56s",
+    "diffPagination": "1 passed; 18 filtered; 0.32s",
+    "remoteBranches": "1 passed; 18 filtered; 3.67s",
+    "cloneOwnership": "1 passed; 18 filtered; 0.16s",
+    "desktopTypecheck": "npm run typecheck --workspace @horizon/desktop; exit 0 after clone confirmation flattening; raw log typecheck-clone-confirmation.log"
+  },
+  "nativeRetestRequired": true,
+  "report": "docs/verification/GIT_GUI.md",
+  "followup": "Clone residue cleanup now replaces the form within the existing parent dialog; no GitModal or second showModal; cancel/path/danger action preserved. No native GUI claim."
+}

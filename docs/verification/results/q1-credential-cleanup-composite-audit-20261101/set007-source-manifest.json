@@ -1,0 +1,40 @@
+{
+  "observedAt": "2026-11-01T14:05:06.235311+00:00",
+  "scope": "SET007 source-only failure; no native dirtyform-close action ortest executed",
+  "buildSHA256": "a78cfd8a5523562d6252de96e7ddbaf4af56bdd1c4b46f1eddfbf4bad4365d27",
+  "files": [
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "copy": "docs/verification/results/q1-credential-cleanup-composite-audit-20261101/set007-source/apps/desktop/src/components/Modal.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0967e421bdf1a004c70666cd237e0fdce815d921c78f2215e2174662bcd5af25",
+      "copy": "docs/verification/results/q1-credential-cleanup-composite-audit-20261101/set007-source/apps/desktop/src/features/processes/index.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "sha256": "e211c7c86c387cc9eed991fe88eff18f5bbbc2aecd34f3044918119a420f09d8",
+      "copy": "docs/verification/results/q1-credential-cleanup-composite-audit-20261101/set007-source/apps/desktop/src/features/settings/SettingsPanel.tsx"
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "b84605a820ee1d2c3746b953f40f7d773c479213622bb295dc45f6aa74ad91c6",
+      "copy": "docs/verification/results/quit-credential-functional-release-20261101/components/stop-confirmation/after/apps/desktop/src/App.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "7ae8b63c86e35da409ec8c3c9a28fabb98f5a61d39d395218c34763adac22b12",
+      "copy": "docs/verification/results/quit-credential-functional-release-20261101/components/credential-metadata/after/apps/desktop/src/features/agent/AgentSettings.tsx"
+    }
+  ],
+  "requirement": "REQ-SET-007; docs/product/PRD.md:127",
+  "facts": [
+    "App closeModal directlysetModal(null); outerSettingsModal usescloseModal, no draftguard/onDirtyChange passed",
+    "Agent ConnectionForm owns localinputstate, innerModal onClose→parentsetEditing(null); modifiedform closeswithoutdiscard/continue",
+    "Launcher own Cancel confirmsdiscard, but outerSettingsunmount/categoryswitch hasno launcherDraftreport",
+    "Preparing futurepatch notapplied/notpassed; newnativecomponentproof awaits root"
+  ],
+  "rootAcceptance": "Root explicitly confirmed sourcegap and authorized source-onlyfail with nativeunexecuted, later exactsupersession."
+}

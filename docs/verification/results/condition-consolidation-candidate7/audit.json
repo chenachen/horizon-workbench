@@ -1,0 +1,166 @@
+{
+  "recordedAt": "2026-10-31T03:16:27.891964+00:00",
+  "method": "Clause-level independent consolidation of existing nativeGUI, production nativeintegration and narrowly verified source invariants; no new execution",
+  "sourceFiles": [
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "c49312a36ab6e4da1e85651272c0406048ac7ce2d3b6d36051b45262c399d096",
+      "candidate7BuildSnapshotSha256": "c49312a36ab6e4da1e85651272c0406048ac7ce2d3b6d36051b45262c399d096",
+      "matchesCandidate7Snapshot": true,
+      "copy": "docs/verification/results/condition-consolidation-candidate7/source/apps/desktop/src/App.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/git/GitPanel.tsx",
+      "sha256": "e5702348f86f0c5d4cc164b39760450c75d47bad2a6aed8ed032193655e69b60",
+      "candidate7BuildSnapshotSha256": "e5702348f86f0c5d4cc164b39760450c75d47bad2a6aed8ed032193655e69b60",
+      "matchesCandidate7Snapshot": true,
+      "copy": "docs/verification/results/condition-consolidation-candidate7/source/apps/desktop/src/features/git/GitPanel.tsx"
+    },
+    {
+      "path": "apps/git-service/src/lib.rs",
+      "sha256": "e6a808b785c582aed913a6d2ce7b0d27f165d353f498dcfa25bea8aa820e3051",
+      "candidate7BuildSnapshotSha256": "e6a808b785c582aed913a6d2ce7b0d27f165d353f498dcfa25bea8aa820e3051",
+      "matchesCandidate7Snapshot": true,
+      "copy": "docs/verification/results/condition-consolidation-candidate7/source/apps/git-service/src/lib.rs"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/agent.rs",
+      "sha256": "1ffd65c5938d0c3bc516413d4518304afe9f18ed51f401aaa3aec6f64a3d467a",
+      "candidate7BuildSnapshotSha256": "1ffd65c5938d0c3bc516413d4518304afe9f18ed51f401aaa3aec6f64a3d467a",
+      "matchesCandidate7Snapshot": true,
+      "copy": "docs/verification/results/condition-consolidation-candidate7/source/apps/desktop/src-tauri/src/agent.rs"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "aa46e37aa533c6de764ea5a1ca9eee83f4805f35868e87807dbb76fc71772420",
+      "candidate7BuildSnapshotSha256": "aa46e37aa533c6de764ea5a1ca9eee83f4805f35868e87807dbb76fc71772420",
+      "matchesCandidate7Snapshot": true,
+      "copy": "docs/verification/results/condition-consolidation-candidate7/source/apps/desktop/src/features/agent/AgentSettings.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentPanel.tsx",
+      "sha256": "03e7cd7b5ef2428012acf115aee8dff4c05e24d92c2ff1be6ed6198fe9146958",
+      "candidate7BuildSnapshotSha256": "03e7cd7b5ef2428012acf115aee8dff4c05e24d92c2ff1be6ed6198fe9146958",
+      "matchesCandidate7Snapshot": true,
+      "copy": "docs/verification/results/condition-consolidation-candidate7/source/apps/desktop/src/features/agent/AgentPanel.tsx"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-GIT-004",
+      "clauses": [
+        {
+          "clause": "空说明/无暂存/冲突禁用",
+          "proof": "NativeGUI precommit/staged cases and current GitPanel.tsx:129 disable busy/stale/blank/no-staged/conflict/truncated; service lib.rs:1102-1129 rejects blank/empty/conflict independently.",
+          "kind": "native GUI plus source invariant"
+        },
+        {
+          "clause": "提交前范围变化须再次核对",
+          "proof": "Real native stale_snapshot_and_unreviewed_commit_refused retained18-test pass; production actual reviewed path-set comparison returnsSTALE_VERSION.",
+          "kind": "production native integration"
+        },
+        {
+          "clause": "提交只含已暂存",
+          "proof": "Candidate6 actual B-onlycommit: HEAD exactlypriorindexB; worktreeC anduntrackednotes preserved; 16checks initial-audit.",
+          "kind": "native GUI plus independent disk/ref checks"
+        },
+        {
+          "clause": "hooks/签名失败保留说明与真实状态",
+          "proof": "Candidate6 real hookfailure/retry retainsdraft/index/HEAD; GitProcess lib.rs:266+ routes ALL nonzero exits (including signing) through sameerror; GitPanel run catches/refreshes and commit clearsdraft only aftertrue success. No signing-specific mutation or draftclear branch.",
+          "kind": "actual hook GUI + shared failure source invariant; not an executed signingfailure"
+        },
+        {
+          "clause": "成功显示提交标识，不自动推送",
+          "proof": "Candidate6 commit success snapshot plus GitPanel:88 commitOid notice and explicitnotpushed; service commit executes onlygitcommit and returnsref; pushseparateoperation.",
+          "kind": "native GUI plus source invariant"
+        }
+      ],
+      "artifacts": [
+        "docs/verification/results/git-gui-candidate6-audit/initial-audit.json",
+        "docs/verification/screenshots/git-candidate6/04-C02-staged-before-commit.png",
+        "docs/verification/screenshots/git-candidate6/05-staged-diff-cleared-after-commit.png",
+        "docs/verification/screenshots/git-candidate6/09-hook-failure-draft-retained.png",
+        "docs/verification/results/git-integration-final/test-report.json"
+      ],
+      "limits": [
+        "No real signingfailure executed; explicitlyclosed by same productionnonzeroexit/draft-retention invariant validated throughactualhook failure.",
+        "Doesnotclose otherGit visual/cancel/Trash/clone conditions."
+      ]
+    },
+    {
+      "id": "REQ-AI-006",
+      "clauses": [
+        {
+          "clause": "固定Pi版本RPC消息/授权/取消/恢复逐项验证",
+          "proof": "ActualPi1.4.0 native32checks + realGUI structuredmessages/deny/allow/stop/history.",
+          "kind": "real Pi native integration and nativeGUI"
+        },
+        {
+          "clause": "首版附着任意TUI不支持；能力表",
+          "proof": "agent.rs:76 capabilities declaresprotocolpi-rpc,structuredMessages,profiletools/permissions,sessionResume,attach=false,modelSelection/auth/input/changes/cancel; dispatchagent_connect returnsit. CurrentUIhas noTUIattach action; architecturePI_AGENT_RESEARCH147 documentsfalse.",
+          "kind": "protocol declaration/source invariant, not fake TUI test"
+        },
+        {
+          "clause": "运行时与实例归属可见",
+          "proof": "ActualGUI external andmanagedruntime card namesownership/version/path; activeprojectPi session andactivity marker present; nativepayload session/project/instance ownership matches recordedmanagedPiPID andstop.",
+          "kind": "nativeGUI + independently auditedactualruntime/session/process identities"
+        },
+        {
+          "clause": "空闲退出可恢复会话但不重发任务",
+          "proof": "history-before20:52:52 requests16→history-after20:53:08 requests16/ownedPi[]; restoredSession346e59a9; productionagent_session_resume returnspublicmetadata withoutspawn/submit.",
+          "kind": "nativeGUI + actualprovider count/Piabsence + source invariant"
+        }
+      ],
+      "artifacts": [
+        "docs/verification/results/pi-native-candidate7/audit.json",
+        "docs/verification/results/pi-native-candidate7/pi-native.json",
+        "docs/verification/results/pi-native-gui-audit/audit.json",
+        "docs/verification/results/pi-native-gui/history-before.json",
+        "docs/verification/results/pi-native-gui/history-after.json",
+        "docs/verification/results/pi-native-gui/stream-stop.json",
+        "docs/architecture/PI_AGENT_RESEARCH.md"
+      ],
+      "limits": [
+        "ThisrequirementasksidlePi exit/resume; itdoesnotadd wholeOS/apprestart. Apprestartretention remainsseparatewhereexplicitlyrequired.",
+        "ControlledHTTPmodelprovider, realPi runtime; no livevendorcredentialclaim.",
+        "Original6GUIimagesJPEGmisnamedPNG, functionalonly; visualPNGfidelity remainsopen."
+      ]
+    },
+    {
+      "id": "REQ-UI-001",
+      "clauses": [
+        {
+          "clause": "默认扩展主界面项目/文件/代码",
+          "proof": "Actualcandidate3Mist/editor andcandidate7 nativeEditorQA PNG showprojectnavigation/filetree/editortext; nativefreshregistryreviewpreset enablesfiles/editor/search/Git.",
+          "kind": "nativeGUI + productionfreshregistrydefault"
+        },
+        {
+          "clause": "AI/终端默认收起",
+          "proof": "App.tsx:78-87 newprojectsession defaultsprimaryfiles/sidebartrue,auxiliaryfalse,bottomfalse; nativefreshreviewpresetAgent/terminalinactive andactualmainreadingshotscollapsed.",
+          "kind": "sourceinitial-state invariant + nativeGUI/defaultpreset"
+        },
+        {
+          "clause": "配置集中设置，启动只留紧凑入口",
+          "proof": "Actualprocesses6footerselectedprofile/start andSettingsfullscheme; App.tsx:401 footerLauncherToolbar;404 fullLauncherPanel onlySettings.",
+          "kind": "nativeGUI plus render-route invariant"
+        },
+        {
+          "clause": "无需登录阅读",
+          "proof": "Nativeprojectopen/edit occurredwithoutaccountworkflow; Appwelcome425 explicitlylocal/no-login andprojectactivationpath72-89 noauthenticationgate.",
+          "kind": "nativeGUI plus sourcegate audit"
+        }
+      ],
+      "artifacts": [
+        "docs/verification/results/capability-preset-consolidated/audit.json",
+        "docs/verification/screenshots/appearance-candidate3/01-mist.png",
+        "docs/verification/screenshots/editor-candidate7/06-close-cancel-immediate-key-q.png",
+        "docs/verification/results/processes-candidate6-audit/audit.json",
+        "docs/verification/screenshots/processes/023-candidate6-single-header-live.png"
+      ],
+      "limits": [
+        "Functionaldefaultinformationhierarchy only; no eight-layoutvisualfidelityclaim.",
+        "Lateruserchosenrestoredpanelsmayopen; defaultfalse clause appliesnewsession/noexplicitpreference."
+      ]
+    }
+  ]
+}

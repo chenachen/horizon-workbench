@@ -1,0 +1,403 @@
+{
+  "evidenceId": "MAC-PRIVACY-NETWORK-SOURCE-001",
+  "recordedAt": "2026-10-30T20:43:18.742398+00:00",
+  "kind": "read-only source and pinned bundled-dependency documentation audit",
+  "requirements": [
+    "REQ-NFR-005",
+    "REQ-SET-008"
+  ],
+  "execution": {
+    "compiled": false,
+    "startedProductProcesses": false,
+    "operatedGui": false,
+    "usedRealCredentials": false,
+    "packetCapture": false
+  },
+  "conclusion": {
+    "defaultNetworkEntryAudit": "closed at source level for current production entry paths and managed Pi 1.4.0 configuration",
+    "privacyAcceptance": "not complete: export preview/redaction, extension error logs, session credential fallback, and actual system credential verification need closure"
+  },
+  "networkEntries": [
+    {
+      "id": "startup",
+      "trigger": "Application startup and 30-second maintenance",
+      "path": "lib::run -> HostState::new / extensions::initialize / start_maintenance",
+      "behavior": "Startup initializes local state and extensions. Maintenance trims local caches, expires plans and sleeps inactive project resources. No remote client is invoked by these paths. Release WebView connect-src permits only IPC; remote images/fonts/frames are excluded by CSP.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/lib.rs",
+          "lines": "184-229"
+        },
+        {
+          "file": "apps/desktop/src-tauri/tauri.conf.json",
+          "lines": "25-26"
+        }
+      ]
+    },
+    {
+      "id": "pi-install",
+      "trigger": "Explicit Install Pi button",
+      "path": "AgentSettings.install -> start(agent_runtime_install) -> agent::dispatch -> install",
+      "behavior": "GET fixed GitHub v1.4.0 platform archive, verify fixed SHA-256 before extraction/activation. No project text is sent. Merely opening settings invokes local --version detection, not install.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "lines": "21-27"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "77-102,449"
+        }
+      ]
+    },
+    {
+      "id": "pi-model",
+      "trigger": "Explicit connection Test or message Send",
+      "path": "AgentSettings.test / sendAgent -> agent_connection_test / agent_submit -> run_pi -> Pi RPC prompt",
+      "behavior": "Connection test uses a fixed diagnostic prompt, no snapshot, isolated empty cwd and --no-session. Submitted conversation includes explicit text and selected context snapshots; task-mode read/list responses can become model context only after the user starts the task. Pi performs provider requests against saved HTTP(S) endpoint. HTTP is restricted to loopback; endpoint userinfo and query are rejected.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "lines": "23,31"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/store.ts",
+          "lines": "77-90"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "104-125,258-291,462,468-470"
+        }
+      ]
+    },
+    {
+      "id": "pi-automatic-network",
+      "trigger": "Each managed Pi detection/run",
+      "path": "detect / run_pi -> fixed Pi 1.4.0 CLI and environment",
+      "behavior": "Detection sets PI_OFFLINE=1 and PI_TELEMETRY=0. Runs use env_clear, --offline, PI_OFFLINE=1, PI_SKIP_VERSION_CHECK=1, PI_TELEMETRY=0, dedicated PI_CODING_AGENT_DIR; automatic context files/MCP/extensions/skills/themes/templates are disabled. Only the bundled policy is explicitly loaded for task mode. Pinned Pi documentation defines offline as disabling automatic network/catalog activity and telemetry=0 as disabling install/update reporting and provider attribution headers. These controls do not block intended provider calls.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "19,80-85,115-125,269-274"
+        },
+        {
+          "file": "/tmp/horizon-pi/pi/docs/environment-variables.md",
+          "lines": "84-86"
+        },
+        {
+          "file": "/tmp/horizon-pi/pi/docs/cli.md",
+          "lines": "241-242"
+        },
+        {
+          "file": "/tmp/horizon-pi/pi/docs/settings.md",
+          "lines": "165-170"
+        },
+        {
+          "file": "research/verification/pi-provenance.json",
+          "lines": "1-25"
+        }
+      ]
+    },
+    {
+      "id": "launcher-probes",
+      "trigger": "Explicit launch preparation/start of configured plan",
+      "path": "launch_prepare -> preflight; launch_start -> checked_plan -> start_plan -> wait_ready",
+      "behavior": "TCP accepts only 127.0.0.1/::1. HTTP readiness accepts loopback hosts only; probe Client uses no_proxy and no redirects. Port ownership is verified before readiness. Requests contain configured readiness URL only, no project/source payload. No probes run from opening/saving a profile.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/processes.rs",
+          "lines": "581-616,628-647,1320-1359,1435-1439,1478-1501,2308,2363-2365"
+        }
+      ]
+    },
+    {
+      "id": "external-url",
+      "trigger": "User clicks Markdown external link or a ready launcher step saved URL",
+      "path": "Preview link onClick -> url_open_external; launch_open_url -> saved ready step -> /usr/bin/open",
+      "behavior": "External browser/application owns subsequent network. HTTP(S) and mailto are accepted for preview links; launcher opens only its saved HTTP(S) URL after readiness. Source text is not posted. Log text is not parsed into URL navigation in this path.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/editor/Preview.tsx",
+          "lines": "31"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/lib.rs",
+          "lines": "135"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/processes.rs",
+          "lines": "2405-2439"
+        }
+      ]
+    },
+    {
+      "id": "previews-backgrounds",
+      "trigger": "Editor preview / AI response rendering / appearance background rendering",
+      "path": "PreviewContent / MessageItem / AppearanceProvider -> local asset IPC",
+      "behavior": "Markdown preview skipHtml blocks raw HTML; img renders text, not remote image. AI Markdown replaces both links and images with text. Standalone image preview reads a local file through image_read. Background import reads selected local file and encodes retained asset as PNG data URL; frontend creates blob URL and revokes it. CSP additionally excludes remote images/fonts and all frames.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/editor/Preview.tsx",
+          "lines": "20-31"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/AgentPanel.tsx",
+          "lines": "13"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/appearance.rs",
+          "lines": "562-567,713-727,1004-1016"
+        },
+        {
+          "file": "apps/desktop/src/features/settings/AppearanceProvider.tsx",
+          "lines": "69-75"
+        },
+        {
+          "file": "apps/desktop/src/features/settings/background.ts",
+          "lines": "1-8"
+        },
+        {
+          "file": "apps/desktop/src-tauri/tauri.conf.json",
+          "lines": "26"
+        }
+      ]
+    },
+    {
+      "id": "external-extension",
+      "trigger": "Explicitly enabled/activated local extension",
+      "path": "validate_manifest -> QuickJS process -> closed SDK -> broker_call/sdk_call",
+      "behavior": "Third-party manifests permit only declarative or QuickJS runtimes and capabilities project.read/git.read/storage. QuickJS creates an ECMAScript context with only private send callback; no browser/Node networking bridge is installed. Both host layers whitelist project.read, git.status, storage.get/set and settings.get. settings.get is confined to that extension declarations. Unknown methods, including network, are denied.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/extensions.rs",
+          "lines": "715-740,2115-2147"
+        },
+        {
+          "file": "apps/extension-host/src/main.rs",
+          "lines": "82-98,231-250"
+        },
+        {
+          "file": "apps/extension-host/src/bootstrap.js",
+          "lines": "17-36"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/extension_host.rs",
+          "lines": "260-289"
+        }
+      ]
+    },
+    {
+      "id": "git-and-user-processes",
+      "trigger": "Explicit remote Git operation or authorized terminal/launcher/task command",
+      "path": "git service operation dispatch -> fetch/pull/push/clone; process spawn after plan/operation approval",
+      "behavior": "Remote Git uses configured remotes or explicit clone address. User-authorized programs may perform their own network I/O; task command UI explicitly states ordinary user OS permissions and no model key inheritance. This is an external-program boundary, not a default background upload route.",
+      "sources": [
+        {
+          "file": "apps/git-service/src/lib.rs",
+          "lines": "1125-1167,1287-1324"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/AgentPanel.tsx",
+          "lines": "25"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/processes.rs",
+          "lines": "2363-2365"
+        }
+      ]
+    }
+  ],
+  "credentialAndDataBoundaries": [
+    {
+      "id": "horizon-key",
+      "finding": "UI sends key to credential_set, saves only credentialRef in normal connection form. System mode calls OS keyring set_password; errors return CREDENTIAL_UNAVAILABLE without plaintext fallback. Session mode uses HostState memory. credential-index.json records reference/connection/persistence, not secret. Lookup is memory then keyring; see session-fallback gap.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "lines": "45-47,56"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/settings.rs",
+          "lines": "108-122"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/state.rs",
+          "lines": "89,110,263-265"
+        }
+      ]
+    },
+    {
+      "id": "pi-key-and-auth",
+      "finding": "models.json stores $HORIZON_MODEL_KEY, never resolved Horizon key. run_pi supplies key only in isolated Pi environment. Horizon/runtime/external modes get separate per-connection directories. Runtime auth.json belongs to Pi inside dedicated Horizon directory, and UI explains this ownership. Managed runtime deletion preserves connections/credentials/sessions and user-installed Pi.",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "115-125,269-274,450,455"
+        },
+        {
+          "file": "apps/desktop/src/features/agent/AgentSettings.tsx",
+          "lines": "36-37,56"
+        }
+      ]
+    },
+    {
+      "id": "local-session-storage",
+      "finding": "Chat prompt/history, full message bodies, Pi session JSONL, and task copy/review baselines are local app data. Opening/restoring a session does not submit a model prompt; submission explicitly sends user text plus selected snapshots. Agent draft text stays in frontend View until submit. These local bodies are user data, not anonymous diagnostics.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/agent/store.ts",
+          "lines": "4-9,77-90"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "27-28,71-73,264-270,395-417,464-470"
+        }
+      ]
+    },
+    {
+      "id": "separate-cleanup",
+      "finding": "F09 separates cache, agentHistory, recoveryDrafts and selected credentials. Native cache resolves only app cache plus memory-path-cache. Draft cleanup requires explicit IDs and blocks active documents. Agent history blocks active runs and pending reviews, checks fingerprint, then removes only selected Horizon session/transcript/message paths. Cleanup response identifies Pi OAuth/external Agent history as untouched.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "lines": "261-276,447-452"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/settings.rs",
+          "lines": "132-151"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "425-434"
+        }
+      ]
+    },
+    {
+      "id": "diagnostics-vs-logs",
+      "finding": "Anonymous editor diagnostics use explicit numeric/language projection; existing native diagnostic export evidence remains applicable. Pi stderr is capped at 64 KiB in memory and its task is aborted, not saved. Pi settled error replaces current Horizon secret. Extension failure logs are not sanitized; see gap.",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/settings/diagnostics.ts",
+          "lines": "46-63"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/agent.rs",
+          "lines": "282,317-326"
+        },
+        {
+          "file": "docs/verification/results/diagnostic-export-audit/native-tests.log",
+          "lines": "existing evidence"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/extensions.rs",
+          "lines": "2263-2271"
+        }
+      ]
+    }
+  ],
+  "confirmedSourceGaps": [
+    {
+      "id": "PRIVACY-01",
+      "requirement": "REQ-NFR-005",
+      "title": "Configuration export lacks preview",
+      "path": "SettingsPanel direct directory pick -> data_export -> create_new/write",
+      "evidence": "SettingsPanel lines 430-445 export without an intermediate preview; native data_export builds and writes final payload directly.",
+      "status": "reported to parent; repair owned by other agent",
+      "sources": [
+        {
+          "file": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+          "lines": "430-445"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/settings.rs",
+          "lines": "124-130"
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-02",
+      "requirement": "REQ-SET-008",
+      "title": "Accepted arbitrary connections data survives export sanitizer",
+      "evidence": "settings validate(connections) accepts arbitrary objects except exact secret/apiKey/password/token keys. accessToken and notes are accepted. sanitize excludes secret/password/apikey/credential names, but not token; strings only redact when beginning with an absolute path. A value such as connections:[{accessToken:\"qa-fake\",notes:\"source text at /Users/example/project/file.ts\"}] is accepted and exported.",
+      "status": "reported to parent; repair owned by other agent",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/settings.rs",
+          "lines": "37,42-46,128"
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-03",
+      "requirement": "REQ-NFR-005 / REQ-EXT-012",
+      "title": "Extension failure text is persisted and returned unsanitized",
+      "evidence": "runtime_failed truncates message to 512 chars, stores errors.message, calls append_log and writes registry; extension_logs returns logs/error. A plugin Error containing a source excerpt, token or absolute path remains present. This is logging of extension-supplied content; no claim that QuickJS can read system credentials.",
+      "suggestedFixture": "throw Error(\"token=qa-fake /Users/qa/project/private.ts source: const PRIVATE_MARKER = 1\");",
+      "status": "reported to parent; no runtime fixture executed during fixed sampling",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/extensions.rs",
+          "lines": "1169-1177,2106-2109,2246-2271"
+        }
+      ]
+    },
+    {
+      "id": "PRIVACY-04",
+      "requirement": "REQ-NFR-005 / REQ-AI-013",
+      "title": "Session mode can fall back to older keyring secret after restart",
+      "evidence": "credentialRef is deterministic from connectionId. Saving system A then session B under same connection writes B to memory but leaves keyring A. New HostState empties memory; credential_secret ignores index.persistence and reads A from keyring even while credential_list reports the session entry unconfigured.",
+      "suggestedFixture": [
+        "Use dedicated fake connectionId and fake key A in system mode",
+        "Switch same connectionId to fake key B in session mode",
+        "Assert B in current HostState",
+        "Recreate HostState; assert credential lookup must be unavailable, not A",
+        "Remove dedicated fake key and index entry"
+      ],
+      "status": "reported to parent; actual keyring test not run",
+      "sources": [
+        {
+          "file": "apps/desktop/src-tauri/src/settings.rs",
+          "lines": "110-119"
+        },
+        {
+          "file": "apps/desktop/src-tauri/src/state.rs",
+          "lines": "110,263-265"
+        }
+      ]
+    }
+  ],
+  "remainingValidation": [
+    "Real macOS keyring fake-key save/read/remove and failure path; does not require genuine provider credentials",
+    "Repair/retest the four listed source gaps",
+    "Visible F09 preview/cleanup evidence after repair",
+    "Network packet capture is not claimed by source audit",
+    "User-installed arbitrary programs and explicit approved shell commands retain their own OS/network behavior; audit conclusion is scoped to shipped host and configured managed Pi paths"
+  ],
+  "sourceHashes": {
+    "/tmp/horizon-pi/pi/docs/cli.md": "c45e59f31574de71770a71c9a7c9b6ac03bf9cad4928aa31bb6614d661733679",
+    "/tmp/horizon-pi/pi/docs/environment-variables.md": "097f2101e285f51f509be0b176d458825b83b929a635ae29d2a43703168170dd",
+    "/tmp/horizon-pi/pi/docs/settings.md": "2915d26f91f4c46ab1b92e63cbc46b8d48888fa0e491168642a5a90f973bd814",
+    "apps/desktop/src-tauri/src/agent.rs": "0b340a75745822519a82a84f3eaf3baa499142b32f1743a4f769f7048861e1d6",
+    "apps/desktop/src-tauri/src/appearance.rs": "d31c9dc8e81ea0cad63e554d1c548af89085695400309a102bbff367d1cab5b9",
+    "apps/desktop/src-tauri/src/extension_host.rs": "1e5039b37dbd15d3261194fbd4fac711cf62060f6e3d0cddf4abf86332e35072",
+    "apps/desktop/src-tauri/src/extensions.rs": "ac364489830556be18a23fe97953f7e6f8d0158288e24a6c1300da8db3482f42",
+    "apps/desktop/src-tauri/src/lib.rs": "1d14e93ce55189979de2776e0880f42c8966a016c30e9ab5b0005dba99602366",
+    "apps/desktop/src-tauri/src/processes.rs": "5c36105f1a132fb3bd4b161c259d03b93a770023b2ead1d7a90c3b9266fa31f5",
+    "apps/desktop/src-tauri/src/settings.rs": "8d1967a940aafd23db4b93c0b8003225ca830632c3f35c33836150bd02c59ba5",
+    "apps/desktop/src-tauri/src/state.rs": "61b1c8c79e5a8b757b22be5f80f610de744650349f8a4d64a976031f27feb301",
+    "apps/desktop/src-tauri/tauri.conf.json": "74215a9b1fbfa617f06e4e6e8721ea1ef85558d1070049596f764b5b843a8cf3",
+    "apps/desktop/src/features/agent/AgentPanel.tsx": "c27fa6fecd58dc8610a9a0e8937b00a5dc7ec21fc5035ef14c49c909ed0ecd15",
+    "apps/desktop/src/features/agent/AgentSettings.tsx": "aa46e37aa533c6de764ea5a1ca9eee83f4805f35868e87807dbb76fc71772420",
+    "apps/desktop/src/features/agent/store.ts": "f497698443a42d20162d478bccfd1db90a679695e1ff78e2dbd0c5271d355fc6",
+    "apps/desktop/src/features/editor/Preview.tsx": "52175732e04dc7f2ba86ca7434c6b0f124adec0540330fd339ca9a3dd78447c2",
+    "apps/desktop/src/features/settings/AppearanceProvider.tsx": "38115c6f84526d6d3bcc65180b2ce09b3a0e9b109b5cf9968e531d9dfabd161f",
+    "apps/desktop/src/features/settings/SettingsPanel.tsx": "e02d61a8e1bee64d30415cefb5564a5be852e7acd2176cd463c2458902a7f804",
+    "apps/desktop/src/features/settings/background.ts": "d91c75a6e3112748a83a64a285fa3b519678f3e5d5d70864d13de1ec86eac710",
+    "apps/desktop/src/features/settings/diagnostics.ts": "1fd766fbbee83bf226e4046b0c4b76ce96d17f561afdf48691be242fbb8bfe2c",
+    "apps/extension-host/src/bootstrap.js": "d4e874210ab236f5abf6eea6bc8ade7c7fc435a773b64af287136afa0b39415e",
+    "apps/extension-host/src/main.rs": "19bc211e3ee47a71f639dbd3d1fcd90ba961b9ca91e7784fc75110459d351b4f",
+    "apps/git-service/src/lib.rs": "e304fcb0a38e2b341766fcebd958876e1a97ae7e204f66c3c398f1840a904e4a",
+    "docs/verification/results/diagnostic-export-audit/native-tests.log": "377e24f0c2d2f17bb47d5c8cb20fad64f6cc572ea71f76dd70ed85c59a81e31e",
+    "research/verification/pi-provenance.json": "35abad73776c7e03644d3e9c6b5f03f4476a08de275f15e905ad3d9bb48ba3e8"
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "evidenceId": "SETTINGS-PROJECT-PANEL-SOURCE-AUDIT-ROLLBACK",
+  "recordedAt": "2026-11-01T02:50:52.800774+00:00",
+  "status": "Lifecycle experiment removed from source; root locked/offline metadata and regenerated license archive complete; post-dismissal CPU remains above suggestion and final build/measurement pending.",
+  "measuredBuild": {
+    "sha256": "95deaa5bb3d6d04bb7f7471d35bb6d07d313b12601df3534cac2080eb4423be6",
+    "label": "settings-project, includes old experimental lifecycle patch",
+    "rootPid": 34128,
+    "panelPid": 40868,
+    "os": "macOS26.3.1(25D2128)",
+    "scene": "1280x800 welcome, no active project; not all-features-off budget evidence"
+  },
+  "phases": {
+    "A": {
+      "evidence": "settings-project-panel-a-125s/audit.json",
+      "validCpuRows": 61,
+      "cpuMeanPercent": 0.22182301534052304,
+      "panelCpuMeanPercent": null,
+      "physicalFootprintMeanBytes": 98414738.8852459,
+      "responsibleProcessCounts": {
+        "6": 117
+      }
+    },
+    "B": {
+      "evidence": "settings-project-panel-b-125s/audit.json",
+      "validCpuRows": 61,
+      "cpuMeanPercent": 3.4249339322659282,
+      "panelCpuMeanPercent": 3.190866940270098,
+      "physicalFootprintMeanBytes": 168645883.40983605,
+      "responsibleProcessCounts": {
+        "9": 117
+      }
+    },
+    "C": {
+      "evidence": "settings-project-panel-c-125s/audit.json",
+      "validCpuRows": 62,
+      "cpuMeanPercent": 6.430523554371943,
+      "panelCpuMeanPercent": 6.2494573894442045,
+      "physicalFootprintMeanBytes": 173898545.29032257,
+      "responsibleProcessCounts": {
+        "9": 118
+      }
+    },
+    "D": {
+      "evidence": "settings-project-panel-d-125s/audit.json",
+      "validCpuRows": 61,
+      "cpuMeanPercent": 4.215005246250021,
+      "panelCpuMeanPercent": 3.998779016806936,
+      "physicalFootprintMeanBytes": 172465259.54098362,
+      "responsibleProcessCounts": {
+        "9": 117
+      }
+    }
+  },
+  "profile": {
+    "command": [
+      "sample",
+      "40868",
+      "8",
+      "-file",
+      "/tmp/horizon-panel-40868-post-c-sample.txt"
+    ],
+    "exitCode": 0,
+    "startedAt": "2026-11-01T10:44:35.896+08:00",
+    "durationSeconds": 8,
+    "log": "panel-40868-post-c-sample.txt",
+    "stackHitsNotCpuPercent": {
+      "TNode::HandleSync": 334,
+      "TFSInfoSynchronizer::FetchChildren": 239,
+      "_GetDirectoryURLsBranch": 200
+    },
+    "hotPath": "TNode::HandleSync -> SynchronizeChildren -> TFSInfoSynchronizer::FetchChildren -> _GetDirectoryURLs -> file properties/access checks",
+    "exactEnumeratedDirectory": null,
+    "responsibility": "C/D raw audits: macOS responsibility SPI ->34128; sample andps match helper PID/start.",
+    "processMetadata": "panel-post-c-process-metadata.json",
+    "procinfo": "Unprivileged procinfo rejected because root required; no escalation.",
+    "guiActions": false,
+    "processTermination": false
+  },
+  "interpretation": {
+    "proven": "Post-dismissal CPU concentrated in attributed system helper directory enumeration. Lifecycle experiment did not eliminate it.",
+    "notProven": [
+      "Apple bug or exact observer/panel retention owner",
+      "Exact enumerated directory",
+      "C-to-D CPU decrease caused by view mode alone",
+      "Per-open accumulation or absence of accumulation",
+      "Improvement relative to older13% scene"
+    ],
+    "viewModeEvidence": "C AX contains ancestor columns and166Titems; D removes ancestor columns in current ListView but prior panel history remains in same helper."
+  },
+  "sourceEvidence": [
+    {
+      "path": "/Users/chenpengxiang/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rfd-0.17.2/src/backend/macos/modal_future.rs",
+      "sha256": "8c35c28a6d71da71982a13d5cb4f55f1a4331830ba6d07f83a00734bfd1ae615",
+      "lines": "54-65,79-102"
+    },
+    {
+      "path": "/Users/chenpengxiang/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rfd-0.17.2/src/backend/macos/file_dialog/panel_ffi.rs",
+      "sha256": "a23506c5a4bf03a4e1ab7c4a1a75321477f6c21f84254f8994fb00f32063ef64",
+      "lines": "39,168,197,223"
+    },
+    {
+      "path": "/Users/chenpengxiang/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-dialog-2.8.4/src/desktop.rs",
+      "sha256": "a6cbe8dd5ff87b4f8952ee52e20507309eb12d60e310e170765f96b815804f69",
+      "lines": "178-180,208-210"
+    },
+    {
+      "path": "/Users/chenpengxiang/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-dialog-2.8.4/src/lib.rs",
+      "sha256": "c29a3141a0416f0cae9f5624ee41ab4893d42726801c3db453ebb100bf5f891c",
+      "lines": "738-740,783-785"
+    }
+  ],
+  "sdkEvidence": [
+    {
+      "path": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h",
+      "resolvedPath": "/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSSavePanel.h",
+      "sha256": "45367914e5eb5a57d02e68d79ab921d9830a2f408dc2a2584bc8821670f123e9",
+      "lines": "144-159"
+    },
+    {
+      "path": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenPanel.h",
+      "resolvedPath": "/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSOpenPanel.h",
+      "sha256": "aab8cd77950781ee415d25413f8be1230cc838a3600e2a55b0d7473ff54c1d35",
+      "lines": "22"
+    }
+  ],
+  "primaryDocs": [
+    "https://developer.apple.com/documentation/appkit/nssavepanel/beginsheetmodal(for:completionhandler:)",
+    "https://developer.apple.com/documentation/appkit/nswindow/orderout(_:)",
+    "https://developer.apple.com/documentation/appkit/nswindow/close()",
+    "https://developer.apple.com/documentation/appkit/nsopenpanel",
+    "https://developer.apple.com/documentation/appkit/nsopenpanel/openpanel",
+    "https://developer.apple.com/documentation/appkit/nssavepanel/savepanel",
+    "https://github.com/PolyMeilex/rfd/issues/270",
+    "https://github.com/PolyMeilex/rfd/issues/354"
+  ],
+  "rollback": {
+    "removedVendorSourceFiles": 63,
+    "manifest": "removed-vendor-files.json",
+    "archive": "experiment",
+    "productionFilesChanged": [
+      "apps/desktop/src-tauri/Cargo.toml",
+      "apps/desktop/src-tauri/Cargo.lock",
+      "THIRD_PARTY_NOTICES.md"
+    ],
+    "sourceHashesAfter": {
+      "apps/desktop/src-tauri/Cargo.toml": "85b4a9c439a15c44c4c9071080d62694631ab27f89ae1d8b7748f8e8fffe45da",
+      "apps/desktop/src-tauri/Cargo.lock": "0cec472668539cea1981f2eb26e1ad9a5b58110c32c1e2d753038a330ab09dad",
+      "THIRD_PARTY_NOTICES.md": "d7bbcc15fdf00abeed350a72230d81935cb9464efee42b348d2c9f5903467a80"
+    },
+    "registryLock": {
+      "name": "rfd",
+      "version": "0.17.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "20dafead71c16a34e1ff357ddefc8afc11e7d51d6d2b9fbd07eaa48e3e540220"
+    },
+    "cachedOriginalArchiveChecksumMatched": true,
+    "vendorPathExistsAfter": false,
+    "newNativeCalls": false,
+    "testsOrBuildsRun": false,
+    "notACpuFix": true,
+    "pending": [
+      "Root-owned final affected build",
+      "Final fixed-scene measurements retain all responsible helpers"
+    ]
+  },
+  "artifactHashes": {
+    "README.md": "567973819134180d6f11a7b9a6b5d5d6fa2feede50672e5522025c7558051034",
+    "experiment/HORIZON_PROVENANCE.json": "c48fd2967137381d514d37e469714e5d286a936c67548bf9ec329c1fb6b5ab0f",
+    "experiment/LICENSE": "65fc947f4bac882a2cd104ef73c246b1b037059df9f2b3a58b7f77f0b9e56071",
+    "experiment/horizon-macos-panel-lifecycle.patch": "353afcb9dc652e96db270d35f69b1513907c7af8d3ffd58d4d94bdea34e000b1",
+    "experiment/src/backend/macos/file_dialog/panel_ffi.rs": "9cf175d987a5fc0c7cd0545690f682f5f17772feb3c9220c12c94274fa65ba4e",
+    "experiment/src/backend/macos/modal_future.rs": "b4b5637710a906b12959979ad5fbdbc28f2f917be97940d4f59b2bb0a596b43c",
+    "panel-40868-post-c-sample.txt": "9c81b93173e332a258368ce1f8407963fd5785b70971a53338fd69fd5c8ad1a1",
+    "panel-post-c-process-metadata.json": "1e5c29f25ef357d68d2e3a49b2e8b56ffbc00ecc3b389129d2a9e65e49a0abc9",
+    "removed-vendor-files.json": "60c73cf9fe70f8f481e9dac240b020a17add513ce1138cec3f8150239ce9999a"
+  },
+  "rootFollowup": {
+    "cargoMetadata": {
+      "command": "cargo metadata --locked --offline --no-deps --format-version 1 --manifest-path apps/desktop/src-tauri/Cargo.toml",
+      "exitCode": 0
+    },
+    "licenseArchive": {
+      "command": "python3 scripts/archive-licenses.py",
+      "exitCode": 0,
+      "npmPackages": 197,
+      "cargoCrates": 335,
+      "files": 2086,
+      "bytes": 9088185,
+      "missingNotices": 0,
+      "rfdRegistrySourceAndChecksumVerified": true,
+      "removedUnusedVendorBranchFromScript": true
+    },
+    "currentRunningBinaryUnchanged": true,
+    "rebuildPending": true
+  },
+  "postRollbackFollowup": {
+    "recordedAt": "2026-11-01T03:06:30.587177+00:00",
+    "owner": "root",
+    "cargoMetadata": "Root reported cargo metadata locked/offline completed; this agent did not build or test.",
+    "licenseArchive": {
+      "packagesByEcosystem": {
+        "cargo": 335,
+        "npm": 197
+      },
+      "fileCount": 2086,
+      "inventorySha256": "2f72bb79aa6bee6d2eb7c41d24cd727b7d66ca92b1f0f38c01dcf845d480e0f6",
+      "rfdSource": "registry+https://github.com/rust-lang/crates.io-index",
+      "rfdChecksum": "20dafead71c16a34e1ff357ddefc8afc11e7d51d6d2b9fbd07eaa48e3e540220"
+    },
+    "originalMeasurementIdentityUnchanged": true
+  }
+}

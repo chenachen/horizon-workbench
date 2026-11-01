@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-10-30T18:24:30.222914+00:00",
+  "source_path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-ui-qa-7rvjqo02/ui-kit/src/换行测试.txt",
+  "bytes": 51,
+  "sha256": "77fbe3adb6b5117f9ce42396a4c93f542b608fa0d7f4d9c5c55667bbe64b32d3",
+  "decoded_text": "第一行\r\n第二行\r\n第三行：中文保存\r\n",
+  "contains_unsaved_fourth_line": false,
+  "method": "independent disk read after root native project-switch/undo-redo/close-cancel/search interaction",
+  "native_operator_report": [
+    "Append unsaved fourth line 未保存：跨项目保留 plus newline to UI Kit file",
+    "Switch to Aurora; workspace.ts restored",
+    "Switch back to UI Kit; dirty buffer, cursor at line 5 column 1 and expanded tree restored",
+    "Cmd+Z removes fourth line; Cmd+Shift+Z restores it",
+    "Cmd+W opens three-way unsaved confirmation; cancel retains editor contents",
+    "Search disk content 中文保存 and press Return; one result in one file; clicking line 3 result returns to existing dirty buffer at line 3 column 5"
+  ],
+  "operator_reported_issues": [
+    "After undo reaches identical saved text, tab remains dirty",
+    "After canceling close, keyboard focus returns to HTML root rather than editor"
+  ],
+  "limits": [
+    "Verifier did not send GUI actions; operation sequence and failure moments reported by root.",
+    "Screenshot 007 independently shows dirty fourth line, one disk-search result, line 3/column 5 and saved-recovery indicator; it does not depict the earlier undo or close dialog.",
+    "Two-project sub-scope only; complete three-project state and chat isolation not yet tested."
+  ]
+}

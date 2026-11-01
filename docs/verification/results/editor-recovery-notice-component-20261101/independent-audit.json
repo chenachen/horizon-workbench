@@ -1,0 +1,59 @@
+{
+  "auditedAt": "2026-11-01T04:57:34.646803+00:00",
+  "method": "Independentretainedbefore/afterJSON,receipt/sourcehash and completeproductionReact+EditorStoreharnessread;no rerun",
+  "sourceSnapshots": {
+    "apps/desktop/src/features/editor/RecoveryNotice.tsx": {
+      "sha256": "b48f02fc3911550f7767d0bf4b69550b831cde80ec2f916643751b81abfdc39a",
+      "bytes": 7214,
+      "copy": "RecoveryNotice.tsx"
+    },
+    "packages/editor/src/store.ts": {
+      "sha256": "38af736d41bf1672cc1c9c2b3a09261d5d53322c002cc7ca1ccd02d96936e987",
+      "bytes": 38759,
+      "copy": "store.ts"
+    },
+    "packages/editor/tests/recovery-notice.mjs": {
+      "sha256": "a64146fe39f74335df05be1411137d56c491ac4fc5c103ed463b02110129b372",
+      "bytes": 8082,
+      "copy": "recovery-notice.mjs"
+    }
+  },
+  "before": {
+    "passed": false,
+    "phases": 1,
+    "error": "TimeoutError: page.waitForFunction: Timeout 1500ms exceeded."
+  },
+  "after": {
+    "kind": "RecoveryNotice and EditorStore async cleanup regression",
+    "phases": [
+      {
+        "name": "continuous dirty edits do not query recovery list again",
+        "passed": true
+      },
+      {
+        "name": "Undo invalidates older list error while checkpoint remains until native clean receipt",
+        "passed": true
+      },
+      {
+        "name": "native cleanup receipt refreshes list and rejects older draft result without leaving a recovery notice",
+        "passed": true
+      },
+      {
+        "name": "current recovery list NOT_FOUND remains visible rather than being swallowed",
+        "passed": true
+      },
+      {
+        "name": "a genuinely missing selected draft remains an actionable recovery error",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "sourceFinding": "Dirty transition invalidatesolderlist request before nativecleanreceipt; successfulcleanreceipt clearscheckpoint andemit triggers list refresh. Realcurrent NOT_FOUND/selectedmissingdraft errorsremainvisible.",
+  "limitations": [
+    "ControlledRPCcomponenttest,notactualnativecleanuporfile-raceproof.",
+    "Virtualbefore removesonlynotice dirtydependency whileusingcurrentfixedstore,peroperatorreceipt; itisnotfulloldbundle reconstruction.",
+    "No independentnewexecution;retainedresultsandfinalharness/source audited.",
+    "Native044FILE013/STATE002failure remainsactiveuntilpackagedtargetedretest."
+  ]
+}
