@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-01T20:08:10.822340+00:00",
+  "status": "APPLIED_NATIVE_PENDING",
+  "files": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711",
+      "afterSHA256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "beforeSHA256": "1e8fc244735213f4bc68cb98a930e8fadb4e3766ae2fae98fc280f184d801b6f",
+      "afterSHA256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4"
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "beforeSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "afterSHA256": "2267146cd7a19bf7f97d9b26f8c9d35e251ec29282567faa28f01f6b0c88dec3"
+    }
+  ],
+  "review": "Full three-file patch and native helper/caller path reviewed by root. All manifest artifacts hash/bytes matched, live baseline matched. Shared Modal Escape fix preserves child defaultPrevented/stopPropagation and original native cancel listener.",
+  "validation": "Existing TypeScript two overlays 0 diagnostics and hook/bridge 5 groups plus original fast browser Escape/Enter/Discard chain passed. Original two failures retained. No Rust/native execution in this integration.",
+  "nativePlan": ".work/platform-confirmation-native-card.md",
+  "buildBoundary": "Only after plugin fault disarmed, alloff125 actual exit and default restoration."
+}

@@ -13,7 +13,11 @@ export function Modal({ title, children, onClose, wide = false, className = '' }
     dialog.addEventListener('cancel', cancel);
     return () => { dialog.removeEventListener('cancel', cancel); dialog.close(); previous?.focus(); };
   }, []);
-  return <dialog ref={ref} aria-labelledby={titleId} className={`modal ${wide ? 'modal-wide' : ''} ${className}`}>
+  return <dialog ref={ref} aria-labelledby={titleId} className={`modal ${wide ? 'modal-wide' : ''} ${className}`} onKeyDown={event => {
+    if (event.key === 'Escape' && !event.defaultPrevented && !event.nativeEvent.isComposing) {
+      event.preventDefault(); event.stopPropagation(); onCloseRef.current();
+    }
+  }}>
     <header className="modal-header"><h2 id={titleId}>{title}</h2><button className="icon-button" aria-label="关闭弹窗" onClick={onClose}><X size={18} /></button></header>
     <div className="modal-body">{children}</div>
   </dialog>;

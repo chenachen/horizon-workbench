@@ -1,0 +1,11 @@
+--- a/apps/desktop/src/components/Modal.tsx
++++ b/apps/desktop/src/components/Modal.tsx
+@@ -14,7 +14,7 @@
+     return () => { dialog.removeEventListener('cancel', cancel); dialog.close(); previous?.focus(); };
+   }, []);
+   return <dialog ref={ref} aria-labelledby={titleId} className={`modal ${wide ? 'modal-wide' : ''} ${className}`} onKeyDown={event => {
+-    if (event.key === 'Escape' && !event.defaultPrevented) {
++    if (event.key === 'Escape' && !event.defaultPrevented && !event.nativeEvent.isComposing) {
+       event.preventDefault(); event.stopPropagation(); onCloseRef.current();
+     }
+   }}>

@@ -1,0 +1,71 @@
+{
+  "status": "PREPARED_TS_NATIVE_HOOK_PASS_BROWSER_FALLBACK_FAIL",
+  "changes": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711",
+      "afterSHA256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "beforeSHA256": "1e8fc244735213f4bc68cb98a930e8fadb4e3766ae2fae98fc280f184d801b6f",
+      "afterSHA256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4"
+    }
+  ],
+  "support": [
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33"
+    },
+    {
+      "path": "apps/desktop/src/components/ErrorNotice.tsx",
+      "sha256": "6445f78f4e560d11a321614eb9c7d34874b859b794edf8e8d443915132e2064f"
+    },
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667"
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "sha256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6"
+    },
+    {
+      "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b"
+    },
+    {
+      "path": "apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb"
+    },
+    {
+      "path": "apps/desktop/tsconfig.json",
+      "sha256": "a074d7381ee08a4c76c8575917e0f47ce29e0686b7453638288ef4e07b2b4283"
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.toml",
+      "sha256": "3481ade772280f820b2ad447b56412985c998dab78285285181ed386da1edef7"
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.lock",
+      "sha256": "81c687d99c52ffa962fbd0b4583cb47ca26b829be6b49c0a3c9c3442c232bbd3"
+    },
+    {
+      "path": "apps/desktop/src-tauri/capabilities/main.json",
+      "sha256": "b9559f4c2101276a761a87af43d31b957866353542c41f96f8303c7a451dfd0b"
+    },
+    {
+      "path": "apps/desktop/src-tauri/permissions/horizon.toml",
+      "sha256": "8db4ed81251b4e51e6122365cdaf972c3f720cdaf0be5c30fb01c1682674497e"
+    }
+  ],
+  "lockedAPI": {
+    "tauri-plugin-dialog": "2.8.4",
+    "rfd": "0.17.2",
+    "buttons": [
+      "继续编辑",
+      "放弃修改",
+      "Cancel"
+    ],
+    "resultRule": "Only MessageDialogResult::Custom(\"放弃修改\") is true; every other result false"
+  }
+}

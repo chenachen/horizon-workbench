@@ -1,0 +1,294 @@
+{
+  "kind": "real useDiscardConfirmation/bridge/Modal/ErrorNotice; controlled Tauri invoke; no Rust/native dialog execution",
+  "startedAt": "2026-11-01T19:59:07.829Z",
+  "observations": [
+    {
+      "label": "clean and busy require no RPC",
+      "native": true,
+      "calls": [],
+      "results": {
+        "clean": true,
+        "busy": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        }
+      ],
+      "focusedId": "",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [
+        "Owned model form"
+      ],
+      "alerts": []
+    },
+    {
+      "label": "native false restores element captured at call time; same-owner pending guarded; second hook false does not settle first",
+      "native": true,
+      "calls": [
+        {
+          "protocolVersion": 1,
+          "requestId": "4ee8a006-f68e-4e9b-88a5-3e1fa7aa8db3",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "97006161-2d42-4343-a79c-377b66c961f5"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "0678c3fc-5bf2-4cd3-9ca4-7acd90b6843f",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "b39c0ceb-b9d6-4230-9a64-ef7d5319d86d"
+        }
+      ],
+      "results": {
+        "clean": true,
+        "busy": false,
+        "same-owner-pending": false,
+        "other-owner-cancel": false,
+        "native-false": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        }
+      ],
+      "focusedId": "owned-model",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [
+        "Owned model form"
+      ],
+      "alerts": []
+    },
+    {
+      "label": "native failure is false and visible ErrorNotice; no HTML confirmation fallback",
+      "native": true,
+      "calls": [
+        {
+          "protocolVersion": 1,
+          "requestId": "4ee8a006-f68e-4e9b-88a5-3e1fa7aa8db3",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "97006161-2d42-4343-a79c-377b66c961f5"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "0678c3fc-5bf2-4cd3-9ca4-7acd90b6843f",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "b39c0ceb-b9d6-4230-9a64-ef7d5319d86d"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "78c66abd-b553-432b-bd7d-cc6259063cff",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "31a92630-49ae-42e2-af73-de3a65aa5bf1"
+        }
+      ],
+      "results": {
+        "clean": true,
+        "busy": false,
+        "same-owner-pending": false,
+        "other-owner-cancel": false,
+        "native-false": false,
+        "native-error": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        }
+      ],
+      "focusedId": "owned-model",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [
+        "Owned model form"
+      ],
+      "alerts": [
+        "确认未完成，修改已保留。请重试。受控原生确认失败"
+      ]
+    },
+    {
+      "label": "unmount resolves false without focus; late true reply cannot discard or resurrect",
+      "native": true,
+      "calls": [
+        {
+          "protocolVersion": 1,
+          "requestId": "4ee8a006-f68e-4e9b-88a5-3e1fa7aa8db3",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "97006161-2d42-4343-a79c-377b66c961f5"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "0678c3fc-5bf2-4cd3-9ca4-7acd90b6843f",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "b39c0ceb-b9d6-4230-9a64-ef7d5319d86d"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "78c66abd-b553-432b-bd7d-cc6259063cff",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "31a92630-49ae-42e2-af73-de3a65aa5bf1"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "02db60fa-fb91-4bda-848a-69ca81e11904",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "9e89c3df-2ce2-4122-a519-9c3dd09c4348"
+        }
+      ],
+      "results": {
+        "clean": true,
+        "busy": false,
+        "same-owner-pending": false,
+        "other-owner-cancel": false,
+        "native-false": false,
+        "native-error": false,
+        "unmounted": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        }
+      ],
+      "focusedId": "owned-other",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [
+        "Owned model form"
+      ],
+      "alerts": []
+    },
+    {
+      "label": "explicit native true reaches caller; caller unmounts form without helper revival",
+      "native": true,
+      "calls": [
+        {
+          "protocolVersion": 1,
+          "requestId": "4ee8a006-f68e-4e9b-88a5-3e1fa7aa8db3",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "97006161-2d42-4343-a79c-377b66c961f5"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "0678c3fc-5bf2-4cd3-9ca4-7acd90b6843f",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "b39c0ceb-b9d6-4230-9a64-ef7d5319d86d"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "78c66abd-b553-432b-bd7d-cc6259063cff",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "31a92630-49ae-42e2-af73-de3a65aa5bf1"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "02db60fa-fb91-4bda-848a-69ca81e11904",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "9e89c3df-2ce2-4122-a519-9c3dd09c4348"
+        },
+        {
+          "protocolVersion": 1,
+          "requestId": "7c215063-6c14-469c-940b-e164d32e4cd7",
+          "method": "form_discard_confirm",
+          "scope": {
+            "kind": "app"
+          },
+          "params": {},
+          "idempotencyKey": "f985a65b-a935-4e9e-a1ec-67be4810ec24"
+        }
+      ],
+      "results": {
+        "clean": true,
+        "busy": false,
+        "same-owner-pending": false,
+        "other-owner-cancel": false,
+        "native-false": false,
+        "native-error": false,
+        "unmounted": false,
+        "native-true": true
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        },
+        {
+          "operation": "close",
+          "title": "Owned model form"
+        }
+      ],
+      "focusedId": "",
+      "model": null,
+      "formPresent": false,
+      "dialogs": [],
+      "alerts": []
+    }
+  ],
+  "browserErrors": [],
+  "consoleErrors": [],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n",
+  "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at file:///Users/chenpengxiang/Desktop/Horizon/.work/unsaved-native-confirm-20261102/run-hook-check.mjs:56:176",
+  "completedAt": "2026-11-01T19:59:09.270Z",
+  "durationMs": 1441
+}

@@ -23,7 +23,7 @@ function runtimeLabel(state: ExtensionState) {
   if (state.installState === 'absent') return '未安装';
   if (!state.effectiveEnabled) return '已禁用';
   if (state.effectivePaused) return '已暂停';
-  if (state.runState === 'failed') return '启动失败';
+  if (state.runState === 'failed') return '异常';
   if (state.runState === 'cleanupFailed') return '清理失败';
   if (state.manifest?.runtime.kind === 'declarative') return '无需进程';
   return ({ active: '运行中', activating: '启动中', sleeping: '已休眠', stopped: '待激活', pausing: '正在停止', paused: '已暂停' } as Record<string, string>)[state.runState] ?? state.runState;

@@ -1,0 +1,281 @@
+{
+  "passed": false,
+  "error": "TimeoutError: page.waitForFunction: Timeout 5000ms exceeded.",
+  "observations": [
+    {
+      "label": "parent-close-0",
+      "native": false,
+      "calls": [],
+      "results": {
+        "parent-close-0": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        },
+        {
+          "operation": "showModal",
+          "title": "放弃未保存的修改？"
+        },
+        {
+          "operation": "close",
+          "title": "放弃未保存的修改？"
+        }
+      ],
+      "focusedId": "owned-model",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [
+        "Owned model form"
+      ],
+      "alerts": [],
+      "domDialogs": [
+        {
+          "open": true,
+          "modal": true,
+          "connected": true,
+          "title": "Owned model form"
+        }
+      ]
+    },
+    {
+      "label": "second popup before Enter",
+      "native": false,
+      "calls": [],
+      "results": {
+        "parent-close-0": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        },
+        {
+          "operation": "showModal",
+          "title": "放弃未保存的修改？"
+        },
+        {
+          "operation": "close",
+          "title": "放弃未保存的修改？"
+        },
+        {
+          "operation": "showModal",
+          "title": "放弃未保存的修改？"
+        }
+      ],
+      "focusedId": "",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [
+        "放弃未保存的修改？"
+      ],
+      "alerts": [],
+      "domDialogs": [
+        {
+          "open": false,
+          "modal": false,
+          "connected": true,
+          "title": "Owned model form"
+        },
+        {
+          "open": true,
+          "modal": true,
+          "connected": true,
+          "title": "放弃未保存的修改？"
+        }
+      ]
+    },
+    {
+      "label": "immediate second Enter snapshot",
+      "native": false,
+      "calls": [],
+      "results": {
+        "parent-close-0": false,
+        "parent-close-1": false
+      },
+      "pendingRequests": [],
+      "nativeCalls": [
+        {
+          "operation": "showModal",
+          "title": "Owned model form"
+        },
+        {
+          "operation": "showModal",
+          "title": "放弃未保存的修改？"
+        },
+        {
+          "operation": "close",
+          "title": "放弃未保存的修改？"
+        },
+        {
+          "operation": "showModal",
+          "title": "放弃未保存的修改？"
+        },
+        {
+          "operation": "close",
+          "title": "放弃未保存的修改？"
+        }
+      ],
+      "focusedId": "",
+      "model": "owned-no-request",
+      "formPresent": true,
+      "dialogs": [],
+      "alerts": [],
+      "domDialogs": [
+        {
+          "open": false,
+          "modal": false,
+          "connected": true,
+          "title": "Owned model form"
+        }
+      ]
+    }
+  ],
+  "finalState": {
+    "native": false,
+    "results": {
+      "parent-close-0": false,
+      "parent-close-1": false
+    },
+    "nativeCalls": [
+      {
+        "operation": "showModal",
+        "title": "Owned model form"
+      },
+      {
+        "operation": "showModal",
+        "title": "放弃未保存的修改？"
+      },
+      {
+        "operation": "close",
+        "title": "放弃未保存的修改？"
+      },
+      {
+        "operation": "showModal",
+        "title": "放弃未保存的修改？"
+      },
+      {
+        "operation": "close",
+        "title": "放弃未保存的修改？"
+      }
+    ],
+    "model": "owned-no-request",
+    "formPresent": true,
+    "dialogs": [],
+    "events": [
+      {
+        "type": "focusin",
+        "target": "owned-model",
+        "title": "Owned model form",
+        "active": "owned-model",
+        "time": 118.5
+      },
+      {
+        "type": "keydown",
+        "key": "Escape",
+        "target": "owned-model",
+        "title": "Owned model form",
+        "active": "owned-model",
+        "time": 120.19999998807907
+      },
+      {
+        "type": "cancel",
+        "target": "Owned model formModelOther control",
+        "title": "Owned model form",
+        "active": "owned-model",
+        "time": 120.29999999701977
+      },
+      {
+        "type": "focusin",
+        "target": "关闭弹窗",
+        "title": "放弃未保存的修改？",
+        "active": "",
+        "time": 126.3999999910593
+      },
+      {
+        "type": "focusin",
+        "target": "继续编辑",
+        "title": "放弃未保存的修改？",
+        "active": "继续编辑",
+        "time": 126.59999999403954
+      },
+      {
+        "type": "keydown",
+        "key": "Escape",
+        "target": "继续编辑",
+        "title": "放弃未保存的修改？",
+        "active": "继续编辑",
+        "time": 134.5
+      },
+      {
+        "type": "cancel",
+        "target": "放弃未保存的修改？未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。继续编辑放弃修改",
+        "title": "放弃未保存的修改？",
+        "active": "继续编辑",
+        "time": 134.59999999403954
+      },
+      {
+        "type": "focusin",
+        "target": "owned-model",
+        "title": "Owned model form",
+        "active": "owned-model",
+        "time": 135.29999999701977
+      },
+      {
+        "type": "keydown",
+        "key": "Escape",
+        "target": "owned-model",
+        "title": "Owned model form",
+        "active": "owned-model",
+        "time": 138.8999999910593
+      },
+      {
+        "type": "cancel",
+        "target": "Owned model formModelOther control",
+        "title": "Owned model form",
+        "active": "owned-model",
+        "time": 139
+      },
+      {
+        "type": "focusin",
+        "target": "关闭弹窗",
+        "title": "放弃未保存的修改？",
+        "active": "",
+        "time": 140.19999998807907
+      },
+      {
+        "type": "focusin",
+        "target": "继续编辑",
+        "title": "放弃未保存的修改？",
+        "active": "继续编辑",
+        "time": 140.19999998807907
+      },
+      {
+        "type": "keydown",
+        "key": "Enter",
+        "target": "继续编辑",
+        "title": "放弃未保存的修改？",
+        "active": "继续编辑",
+        "time": 143.8999999910593
+      },
+      {
+        "type": "click",
+        "target": "继续编辑",
+        "title": "放弃未保存的修改？",
+        "active": "继续编辑",
+        "time": 144.09999999403954
+      },
+      {
+        "type": "close",
+        "target": "Owned model formModelOther control",
+        "title": "Owned model form",
+        "active": "OutsideOwned model formModelOther control(() => {\n  var __create = Object.create",
+        "time": 190.79999999701977
+      }
+    ]
+  },
+  "boundary": "Browser fallback failed; original reports retained. Native/Rust dialog was not executed."
+}

@@ -1,10 +1,10 @@
 # Horizon Windows 试用版
 
-面向 Windows x64。[首个试用版已发布](https://github.com/chenachen/horizon-workbench/releases/tag/windows-0042f3f54780)，对应 commit `0042f3f54780bb840b04376705f2306cb08bf1b2`。后续构建见[发行列表](https://github.com/chenachen/horizon-workbench/releases)。
+面向 Windows x64。[当前试用版已发布](https://github.com/chenachen/horizon-workbench/releases/tag/windows-ae6bdba42eff)，对应 commit `ae6bdba42eff324c3e409c3d046d648aec1f0d6b`。后续构建见[发行列表](https://github.com/chenachen/horizon-workbench/releases)。
 
 ## 安装
 
-下载 [setup.exe](https://github.com/chenachen/horizon-workbench/releases/download/windows-0042f3f54780/Horizon_0.1.0_x64-setup.exe) 或 [MSI](https://github.com/chenachen/horizon-workbench/releases/download/windows-0042f3f54780/Horizon_0.1.0_x64_en-US.msi)，选择一种安装即可。两份安装器已下载并核对 [SHA256SUMS.txt](https://github.com/chenachen/horizon-workbench/releases/download/windows-0042f3f54780/SHA256SUMS.txt)。
+下载 [setup.exe](https://github.com/chenachen/horizon-workbench/releases/download/windows-ae6bdba42eff/Horizon_0.1.0_x64-setup.exe) 或 [MSI](https://github.com/chenachen/horizon-workbench/releases/download/windows-ae6bdba42eff/Horizon_0.1.0_x64_en-US.msi)，选择一种安装即可。两份安装器已下载并核对 [SHA256SUMS.txt](https://github.com/chenachen/horizon-workbench/releases/download/windows-ae6bdba42eff/SHA256SUMS.txt)。
 
 应用运行无需 Node.js 或 Rust。安装器会检查 WebView2；缺少时需要联网下载其安装程序。当前为未签名试用版，公司电脑能否安装取决于公司的软件策略。
 
@@ -21,7 +21,7 @@ Git 面板需要 Git for Windows。在“设置 → Git”检测 Git；未找到
 
 ## 验证范围
 
-该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、存储、Pi 通信与凭据等 8 项测试各实际通过 1 次，包括真实 Pi 运行时的受控短会话。主进程启动 5 秒后仍存活，Horizon 窗口存在且响应。完整结果见[构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41334392501)。尚无 Windows 桌面人工操作验收；macOS 功能记录见[验收入口](verification/README.md)。
+该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、终端、存储、Pi 通信与凭据等 9 项测试各实际通过 1 次，包括真实终端的中文输出、窗口尺寸调整与停止，以及真实 Pi 运行时的受控短会话。主进程启动 5 秒后仍存活，Horizon 窗口存在且响应。完整结果见[构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41345035358)。尚无 Windows 桌面人工操作验收；macOS 功能记录见[验收入口](verification/README.md)。
 
 完整首版功能与八套布局视觉验收继续进行。你的模型供应商连接仍需在应用内测试。
 

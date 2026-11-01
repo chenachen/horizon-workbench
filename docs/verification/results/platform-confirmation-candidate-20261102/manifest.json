@@ -1,0 +1,209 @@
+{
+  "status": "PREPARED_FOCUSED_CHECKS_PASS_NATIVE_PENDING",
+  "sealedAt": "2026-11-01T20:07:18.883342+00:00",
+  "scope": "Candidate only; exactly three product files authorized by root; no live edits/native GUI/build/compile/appdata changes",
+  "changes": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711",
+      "afterSHA256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "beforeSHA256": "1e8fc244735213f4bc68cb98a930e8fadb4e3766ae2fae98fc280f184d801b6f",
+      "afterSHA256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4"
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "beforeSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "afterSHA256": "2267146cd7a19bf7f97d9b26f8c9d35e251ec29282567faa28f01f6b0c88dec3"
+    }
+  ],
+  "checks": {
+    "typescript": "PASS, 0 diagnostics, 871ms; two overlays",
+    "patchApply": "PASS at unchanged baseline",
+    "realNativeBranchHookObservations": "5 groups PASS; real hook/bridge + controlled Tauri invoke only",
+    "browserFallbackAfterModalEscapeFix": "PASS original fast Escape/Enter/Discard chain; parent and precise input focus retained on false",
+    "latestHookCombined": "PASS 6 observations, 1407ms, no browser/console errors",
+    "firstHookRun": "FAIL preserved checks/run01 and hook-result.json",
+    "secondDirectedFallback": "FAIL preserved checks/run02 and browser-fallback-result.json",
+    "rust": "NOT EXECUTED",
+    "nativeDialogDefaultEscapeGuardAXFocus": "NOT EXECUTED"
+  },
+  "artifacts": [
+    {
+      "path": "source.patch",
+      "sha256": "edfd2dc5d8aa07083849a37a4bda609a30250df2523e68c6442d132bcdc8ac13",
+      "bytes": 12298
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "97cb38bbc02957975b15210eadfc188bda144d4b79afd81fca9f56909d45e830",
+      "bytes": 2621
+    },
+    {
+      "path": "README.md",
+      "sha256": "ae8dd266c47f07f5896af9de5689b658158d1bce93e924e48ff36a6fa5778e7a",
+      "bytes": 4458
+    },
+    {
+      "path": "entry.tsx",
+      "sha256": "d36e718974aeb642039f4fa8ba94ecf45cb46864dc68d7ff3ebca59fedfde19c",
+      "bytes": 3500
+    },
+    {
+      "path": "run-hook-check.mjs",
+      "sha256": "c9c040d433af1ad8342f2b9fded5d4594ab1d4d3bd539d58c00214565ab67f0d",
+      "bytes": 10469
+    },
+    {
+      "path": "hook-result.json",
+      "sha256": "d1e2c28ff0595a08cdc965b52f5eea49faad79c44d5fc680b47ca4fd4b8b4715",
+      "bytes": 8467
+    },
+    {
+      "path": "run-typecheck.mjs",
+      "sha256": "5c754ed8f138c5c8a5d2f9d3ae776a9e307490aaef22e1aa7dced07e25682f1c",
+      "bytes": 3381
+    },
+    {
+      "path": "typecheck-result.json",
+      "sha256": "ebb3246f2d183b0a1b43474e6d809d2a2cfefd735dd193b38f748d20c7bfd00a",
+      "bytes": 1713
+    },
+    {
+      "path": "run-browser-fallback-check.mjs",
+      "sha256": "74b4b9bf60c2542034de9a908c11102f99eb7a9de71403ff415459a6d22b46b6",
+      "bytes": 6438
+    },
+    {
+      "path": "browser-fallback-result.json",
+      "sha256": "875950cd3f6c714686f6b8c2a412bbff5d703155856082b4fd28e5274470905d",
+      "bytes": 2593201
+    },
+    {
+      "path": "browser-fallback-summary.json",
+      "sha256": "2a2929150d448170ae4a3c7e8edd41efebffa4887ee46acdf2b1793f97abd1d0",
+      "bytes": 7101
+    },
+    {
+      "path": "run-modal-escape-hook-check.mjs",
+      "sha256": "f21c926f10fb189e353e1a6c8bdc468fb0f3baf6318d5e5a34a74d17e171e401",
+      "bytes": 10586
+    },
+    {
+      "path": "modal-escape-hook-result.json",
+      "sha256": "8b8dde2df51e30dbc8d146619e8b017104b20077d004708a79b15da04ffefcaf",
+      "bytes": 9445
+    },
+    {
+      "path": "patch-check-result.json",
+      "sha256": "afab4f435779c5844e163b17271701d55b06617c44459a8da2fcb9a0e818a39a",
+      "bytes": 246
+    },
+    {
+      "path": "after/apps/desktop/src-tauri/src/lib.rs",
+      "sha256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4",
+      "bytes": 31657
+    },
+    {
+      "path": "after/apps/desktop/src/components/Modal.tsx",
+      "sha256": "2267146cd7a19bf7f97d9b26f8c9d35e251ec29282567faa28f01f6b0c88dec3",
+      "bytes": 1767
+    },
+    {
+      "path": "after/apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17",
+      "bytes": 3322
+    },
+    {
+      "path": "before/apps/desktop/src-tauri/src/lib.rs",
+      "sha256": "1e8fc244735213f4bc68cb98a930e8fadb4e3766ae2fae98fc280f184d801b6f",
+      "bytes": 29792
+    },
+    {
+      "path": "before/apps/desktop/src/components/Modal.tsx",
+      "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "bytes": 1596
+    },
+    {
+      "path": "before/apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711",
+      "bytes": 5304
+    },
+    {
+      "path": "checks/run01/entry.tsx",
+      "sha256": "d36e718974aeb642039f4fa8ba94ecf45cb46864dc68d7ff3ebca59fedfde19c",
+      "bytes": 3500
+    },
+    {
+      "path": "checks/run01/hook-result.json",
+      "sha256": "d1e2c28ff0595a08cdc965b52f5eea49faad79c44d5fc680b47ca4fd4b8b4715",
+      "bytes": 8467
+    },
+    {
+      "path": "checks/run01/run-hook-check.mjs",
+      "sha256": "c9c040d433af1ad8342f2b9fded5d4594ab1d4d3bd539d58c00214565ab67f0d",
+      "bytes": 10469
+    },
+    {
+      "path": "checks/run01/run-typecheck.mjs",
+      "sha256": "5c754ed8f138c5c8a5d2f9d3ae776a9e307490aaef22e1aa7dced07e25682f1c",
+      "bytes": 3381
+    },
+    {
+      "path": "checks/run01/typecheck-result.json",
+      "sha256": "6f2477e8bfc8915c87df99c0007149b2008374c7c1ecceddc2826846b258e03e",
+      "bytes": 1472
+    },
+    {
+      "path": "checks/run02/README.md",
+      "sha256": "1eb27df0ba60e0551bc2cd0ff1fddca5a5a41ca41ec934ce6d2e3be3420cc023",
+      "bytes": 3210
+    },
+    {
+      "path": "checks/run02/browser-fallback-result.json",
+      "sha256": "875950cd3f6c714686f6b8c2a412bbff5d703155856082b4fd28e5274470905d",
+      "bytes": 2593201
+    },
+    {
+      "path": "checks/run02/browser-fallback-summary.json",
+      "sha256": "2a2929150d448170ae4a3c7e8edd41efebffa4887ee46acdf2b1793f97abd1d0",
+      "bytes": 7101
+    },
+    {
+      "path": "checks/run02/manifest.json",
+      "sha256": "683508e638a2c7a9ff3e4f1941e5ac5cb3a6920ae288d616d55864985428384f",
+      "bytes": 3112
+    },
+    {
+      "path": "checks/run02/run-browser-fallback-check.mjs",
+      "sha256": "74b4b9bf60c2542034de9a908c11102f99eb7a9de71403ff415459a6d22b46b6",
+      "bytes": 6438
+    },
+    {
+      "path": "checks/run02/source-sha.json",
+      "sha256": "c6cf8bd1c005c96e9faac2ae26c2330a36f5a7ec5e1540e300d418f0275cefb3",
+      "bytes": 2533
+    },
+    {
+      "path": "checks/run02/source.patch",
+      "sha256": "6816ac36e105ae8456b906c8b618483a365c77d07acf7171b7f371d495734bee",
+      "bytes": 11380
+    }
+  ],
+  "liveBaselineStillMatches": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "matches": true
+    }
+  ]
+}

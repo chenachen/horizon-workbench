@@ -1,0 +1,171 @@
+--- a/apps/desktop/src/components/UnsavedChanges.tsx
++++ b/apps/desktop/src/components/UnsavedChanges.tsx
+@@ -1,6 +1,7 @@
+-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
++import { useCallback, useEffect, useRef, useState } from 'react';
+ import { createPortal } from 'react-dom';
+-import { X } from 'lucide-react';
++import { call, errorMessage, nativeAvailable } from '../bridge';
++import { ErrorNotice } from './ErrorNotice';
+ import { Modal } from './Modal';
+ 
+ export type FormDirtyListener = (dirty: boolean, busy?: boolean) => void;
+@@ -11,59 +12,47 @@
+   useEffect(() => () => listener.current?.(false, false), []);
+ }
+ 
+-function restoreAttribute(element: Element, name: string, value: string | null) {
+-  if (value === null) element.removeAttribute(name); else element.setAttribute(name, value);
++function BrowserDiscardConfirmation({ onFinish }: { onFinish(discard: boolean): void }) {
++  const continueButton = useRef<HTMLButtonElement>(null);
++  useEffect(() => { continueButton.current?.focus(); }, []);
++  return createPortal(<div onKeyDown={event => { if (event.key === 'Escape') event.stopPropagation(); }}>
++    <Modal title="放弃未保存的修改？" onClose={() => onFinish(false)}>
++      <p>未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。</p>
++      <div className="form-actions"><button type="button" ref={continueButton} onClick={() => onFinish(false)}>继续编辑</button><button type="button" className="danger-button" onClick={() => onFinish(true)}>放弃修改</button></div>
++    </Modal>
++  </div>, document.body);
+ }
+ 
+-function DiscardConfirmation({ onFinish }: { onFinish(discard: boolean): void }) {
+-  const [host] = useState(() => document.activeElement?.closest<HTMLDialogElement>('dialog:modal') ?? [...document.querySelectorAll<HTMLDialogElement>('dialog:modal')].at(-1));
+-  const surface = useRef<HTMLDivElement>(null), continueButton = useRef<HTMLButtonElement>(null);
+-  const titleId = useId(), descriptionId = useId();
+-  useLayoutEffect(() => {
+-    if (!host || !surface.current) return;
+-    const previous = document.activeElement as HTMLElement | null;
+-    const confirmation = surface.current;
+-    const names = ['aria-label', 'aria-labelledby', 'aria-describedby'].map(name => [name, host.getAttribute(name)] as const);
+-    const background = [...host.children].filter((element): element is HTMLElement => element !== confirmation && element instanceof HTMLElement).map(element => ({ element, attributes: ['inert', 'aria-hidden', 'style'].map(name => [name, element.getAttribute(name)] as const) }));
+-    host.setAttribute('aria-label', '放弃未保存的修改？'); host.removeAttribute('aria-labelledby'); host.setAttribute('aria-describedby', descriptionId);
+-    const cancel = (event: Event) => { if (confirmation.inert) return; event.preventDefault(); event.stopImmediatePropagation(); onFinish(false); };
+-    host.addEventListener('cancel', cancel, true);
+-    continueButton.current?.focus({ preventScroll: true });
+-    for (const { element } of background) { element.inert = true; element.setAttribute('aria-hidden', 'true'); element.style.setProperty('display', 'none', 'important'); }
+-    return () => {
+-      host.removeEventListener('cancel', cancel, true);
+-      for (const { element, attributes } of background) for (const [name, value] of attributes) restoreAttribute(element, name, value);
+-      for (const [name, value] of names) restoreAttribute(host, name, value);
+-      if (host.isConnected && host.open && previous?.isConnected) previous.focus({ preventScroll: true });
+-    };
+-  }, [host, onFinish, descriptionId]);
+-  const keyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+-    if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); onFinish(false); }
+-    else if (event.key === 'Tab') {
+-      event.preventDefault(); event.stopPropagation();
+-      const buttons = [...event.currentTarget.querySelectorAll<HTMLButtonElement>('button:not(:disabled)')];
+-      const index = buttons.indexOf(document.activeElement as HTMLButtonElement);
+-      buttons[(index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length]?.focus();
+-    }
+-  };
+-  const content = <><p id={descriptionId}>未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。</p><div className="form-actions"><button type="button" ref={continueButton} autoFocus={!host} onClick={() => onFinish(false)}>继续编辑</button><button type="button" className="danger-button" onClick={() => onFinish(true)}>放弃修改</button></div></>;
+-  return host ? createPortal(<div ref={surface} role="alertdialog" aria-modal="true" aria-labelledby={titleId} aria-describedby={descriptionId} onKeyDown={keyDown}>
+-    <header className="modal-header"><h2 id={titleId}>放弃未保存的修改？</h2><button type="button" className="icon-button" aria-label="关闭弹窗" onClick={() => onFinish(false)}><X size={18} /></button></header><div className="modal-body">{content}</div>
+-  </div>, host) : createPortal(<div onKeyDown={event => { if (event.key === 'Escape') event.stopPropagation(); }}><Modal title="放弃未保存的修改？" onClose={() => onFinish(false)}>{content}</Modal></div>, document.body);
+-}
++type PendingDiscard = { resolve(discard: boolean): void; focus: HTMLElement | null };
+ 
+ export function useDiscardConfirmation() {
+-  const [pending, setPending] = useState<((discard: boolean) => void) | null>(null);
+-  const resolver = useRef<((discard: boolean) => void) | null>(null);
++  const [pending, setPending] = useState<PendingDiscard | null>(null);
++  const [error, setError] = useState('');
++  const resolver = useRef<PendingDiscard | null>(null);
++  const complete = useCallback((request: PendingDiscard, discard: boolean) => {
++    if (resolver.current !== request) return;
++    resolver.current = null; setPending(null);
++    if (!discard && request.focus?.isConnected) request.focus.focus({ preventScroll: true });
++    request.resolve(discard);
++  }, []);
+   const confirmDiscard = useCallback((dirty: boolean, busy = false): Promise<boolean> => {
++    const focus = document.activeElement as HTMLElement | null;
+     if (busy || resolver.current) return Promise.resolve(false);
++    setError('');
+     if (!dirty) return Promise.resolve(true);
+-    return new Promise(resolve => { resolver.current = resolve; setPending(() => resolve); });
+-  }, []);
+-  const finish = useCallback((discard: boolean) => {
+-    const resolve = resolver.current; resolver.current = null; setPending(null); resolve?.(discard);
+-  }, []);
+-  useEffect(() => () => { resolver.current?.(false); resolver.current = null; }, []);
+-  const confirmation = pending ? <DiscardConfirmation onFinish={finish} /> : null;
++    return new Promise(resolve => {
++      const request = { resolve, focus }; resolver.current = request;
++      if (nativeAvailable()) {
++        void call<{ discard: boolean }>('form_discard_confirm').then(result => complete(request, result.discard === true), reason => {
++          if (resolver.current !== request) return;
++          setError(`确认未完成，修改已保留。请重试。${errorMessage(reason)}`);
++          complete(request, false);
++        });
++      } else setPending(request);
++    });
++  }, [complete]);
++  const finish = useCallback((discard: boolean) => { if (resolver.current) complete(resolver.current, discard); }, [complete]);
++  useEffect(() => () => { const request = resolver.current; resolver.current = null; request?.resolve(false); }, []);
++  const confirmation = pending || error ? <>{pending ? <BrowserDiscardConfirmation onFinish={finish} /> : null}{error ? <ErrorNotice message={error} onClose={() => setError('')} /> : null}</> : null;
+   return { confirmDiscard, confirmation };
+ }
+--- a/apps/desktop/src-tauri/src/lib.rs
++++ b/apps/desktop/src-tauri/src/lib.rs
+@@ -22,6 +22,34 @@
+ use serde_json::{json,Value};
+ use std::{collections::VecDeque,sync::{atomic::{AtomicBool,Ordering},Arc}};
+ use tauri::{ipc::Channel,AppHandle,Emitter,Manager,WebviewWindow};
++
++static FORM_DISCARD_ACTIVE: AtomicBool = AtomicBool::new(false);
++struct FormDiscardGuard;
++impl FormDiscardGuard {
++    fn acquire() -> Option<Self> {
++        FORM_DISCARD_ACTIVE.compare_exchange(false, true, Ordering::AcqRel, Ordering::Acquire).ok().map(|_| Self)
++    }
++}
++impl Drop for FormDiscardGuard {
++    fn drop(&mut self) { FORM_DISCARD_ACTIVE.store(false, Ordering::Release); }
++}
++fn form_discard_result(result: tauri_plugin_dialog::MessageDialogResult) -> bool {
++    matches!(result, tauri_plugin_dialog::MessageDialogResult::Custom(label) if label == "放弃修改")
++}
++async fn confirm_form_discard(app: &AppHandle) -> Result<bool, HostError> {
++    use tauri_plugin_dialog::{DialogExt, MessageDialogButtons, MessageDialogKind};
++    let Some(guard) = FormDiscardGuard::acquire() else { return Ok(false); };
++    let window = app.get_webview_window("main").ok_or_else(|| HostError::new("NOT_FOUND", "主窗口已关闭，修改未放弃"))?;
++    let (send, receive) = tokio::sync::oneshot::channel();
++    app.dialog()
++        .message("未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。")
++        .title("放弃未保存的修改？")
++        .kind(MessageDialogKind::Warning)
++        .buttons(MessageDialogButtons::YesNoCancelCustom("继续编辑".into(), "放弃修改".into(), "Cancel".into()))
++        .parent(&window)
++        .show_with_result(move |result| { let _guard = guard; let _ = send.send(form_discard_result(result)); });
++    receive.await.map_err(|_| HostError::new("IO_ERROR", "确认窗口未能完成，修改未放弃"))
++}
+ 
+ fn is_write(method:&str)->bool{
+     matches!(method,"workspace_create"|"workspace_update"|"workspace_remove"|"project_register"|"project_update"|"project_close_apply"|"file_create"|"file_rename"|"file_trash"|"document_mark_dirty"|"document_checkpoint"|"document_reload"|"document_save"|"document_save_as"|"document_relocate_apply"|"document_close"|"settings_patch"|"credential_set"|"credential_remove"|"recovery_export"|"data_export"|"data_clear_apply"|"git_mutate"|"git_clone"|"app_exit_apply")
+@@ -134,6 +162,11 @@
+             }
+         }
+         "subscription_close"=>{allowed(&call.params,&["subscriptionId"])?;state.subscriptions.lock().unwrap().remove(string(&call.params,"subscriptionId")?);Ok(json!({"closed":true}))}
++        "form_discard_confirm"=>{
++            allowed(&call.params,&[])?;
++            if call.scope["kind"]!="app" { return Err(HostError::new("PERMISSION_DENIED","表单确认需应用作用域")); }
++            Ok(json!({"discard":confirm_form_discard(&app).await?}))
++        }
+         "url_open_external"=>{allowed(&call.params,&["url"])?;let url=string(&call.params,"url")?;if url.len()>8192{return Err(HostError::new("INVALID_ARGUMENT","链接过长"));}let parsed=reqwest::Url::parse(url).map_err(|_|HostError::new("INVALID_ARGUMENT","链接无效"))?;if !["https","http","mailto"].contains(&parsed.scheme()){return Err(HostError::new("PERMISSION_DENIED","只允许HTTP、HTTPS或邮件链接"));}#[cfg(windows)] {
+                 let target = url.to_owned();
+                 tauri::async_runtime::spawn_blocking(move || tauri_plugin_opener::open_url(target, None::<&str>))
+--- a/apps/desktop/src/components/Modal.tsx
++++ b/apps/desktop/src/components/Modal.tsx
+@@ -13,7 +13,11 @@
+     dialog.addEventListener('cancel', cancel);
+     return () => { dialog.removeEventListener('cancel', cancel); dialog.close(); previous?.focus(); };
+   }, []);
+-  return <dialog ref={ref} aria-labelledby={titleId} className={`modal ${wide ? 'modal-wide' : ''} ${className}`}>
++  return <dialog ref={ref} aria-labelledby={titleId} className={`modal ${wide ? 'modal-wide' : ''} ${className}`} onKeyDown={event => {
++    if (event.key === 'Escape' && !event.defaultPrevented) {
++      event.preventDefault(); event.stopPropagation(); onCloseRef.current();
++    }
++  }}>
+     <header className="modal-header"><h2 id={titleId}>{title}</h2><button className="icon-button" aria-label="关闭弹窗" onClick={onClose}><X size={18} /></button></header>
+     <div className="modal-body">{children}</div>
+   </dialog>;

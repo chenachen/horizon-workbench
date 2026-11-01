@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-01T20:11:21.953416+00:00",
+  "path": "apps/desktop/src/components/Modal.tsx",
+  "beforeSHA256": "2267146cd7a19bf7f97d9b26f8c9d35e251ec29282567faa28f01f6b0c88dec3",
+  "afterSHA256": "0d192cd3db225c7b93c76408dc99ebb6ff0532a562a4a788beb04f51755ebb59",
+  "reason": "The new explicit Escape handler must leave active IME composition to the browser, preserving the established Chinese input behavior; otherwise it calls onClose even for composing keydown. Scope is one nativeEvent.isComposing condition.",
+  "verification": "Source review; no repeated component suite. Final integrated TypeScript/release and targeted native confirmation remain pending. Agent candidate/raw checks retained at original hashes."
+}

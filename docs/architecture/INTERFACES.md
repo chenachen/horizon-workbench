@@ -220,6 +220,7 @@ interface FileRelocationResult {
 | 方法 / 所有者 | 请求 params | 响应 data | 特定错误 / 页面 |
 | --- | --- | --- | --- |
 | `app_bootstrap` / kernel | `{clientVersion,protocolVersion:1}` | `{protocolVersion:1,schemaHash,workspaces:Workspace[],projects:Project[],availableServices:string[]}` | PROTOCOL_UNSUPPORTED；A01/G01 |
+| `form_discard_confirm` / kernel（app scope） | `{}` | `{discard:boolean}`；仅明确选择“放弃修改”为 true，继续编辑、取消或已有确认在途为 false；只询问，不改业务数据 | NOT_FOUND/IO_ERROR；主窗口系统确认，F03/F05/F07 |
 | `workspace_create`* / kernel | `{name:string}` | `Workspace` | INVALID_ARGUMENT；A03 |
 | `workspace_update`* / kernel | `{workspaceId,expectedRevision,name?,projectOrder?:Id[]}` | `Workspace` | STALE_VERSION；A02 |
 | `workspace_remove`* / kernel | `{workspaceId,expectedRevision,moveToWorkspaceId}` | `{removedId,movedProjects:Id[]}` | RESOURCE_BUSY；不能移除默认工作区 |

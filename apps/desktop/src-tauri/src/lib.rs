@@ -23,6 +23,34 @@ use serde_json::{json,Value};
 use std::{collections::VecDeque,sync::{atomic::{AtomicBool,Ordering},Arc}};
 use tauri::{ipc::Channel,AppHandle,Emitter,Manager,WebviewWindow};
 
+static FORM_DISCARD_ACTIVE: AtomicBool = AtomicBool::new(false);
+struct FormDiscardGuard;
+impl FormDiscardGuard {
+    fn acquire() -> Option<Self> {
+        FORM_DISCARD_ACTIVE.compare_exchange(false, true, Ordering::AcqRel, Ordering::Acquire).ok().map(|_| Self)
+    }
+}
+impl Drop for FormDiscardGuard {
+    fn drop(&mut self) { FORM_DISCARD_ACTIVE.store(false, Ordering::Release); }
+}
+fn form_discard_result(result: tauri_plugin_dialog::MessageDialogResult) -> bool {
+    matches!(result, tauri_plugin_dialog::MessageDialogResult::Custom(label) if label == "放弃修改")
+}
+async fn confirm_form_discard(app: &AppHandle) -> Result<bool, HostError> {
+    use tauri_plugin_dialog::{DialogExt, MessageDialogButtons, MessageDialogKind};
+    let Some(guard) = FormDiscardGuard::acquire() else { return Ok(false); };
+    let window = app.get_webview_window("main").ok_or_else(|| HostError::new("NOT_FOUND", "主窗口已关闭，修改未放弃"))?;
+    let (send, receive) = tokio::sync::oneshot::channel();
+    app.dialog()
+        .message("未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。")
+        .title("放弃未保存的修改？")
+        .kind(MessageDialogKind::Warning)
+        .buttons(MessageDialogButtons::YesNoCancelCustom("继续编辑".into(), "放弃修改".into(), "Cancel".into()))
+        .parent(&window)
+        .show_with_result(move |result| { let _guard = guard; let _ = send.send(form_discard_result(result)); });
+    receive.await.map_err(|_| HostError::new("IO_ERROR", "确认窗口未能完成，修改未放弃"))
+}
+
 fn is_write(method:&str)->bool{
     matches!(method,"workspace_create"|"workspace_update"|"workspace_remove"|"project_register"|"project_update"|"project_close_apply"|"file_create"|"file_rename"|"file_trash"|"document_mark_dirty"|"document_checkpoint"|"document_reload"|"document_save"|"document_save_as"|"document_relocate_apply"|"document_close"|"settings_patch"|"credential_set"|"credential_remove"|"recovery_export"|"data_export"|"data_clear_apply"|"git_mutate"|"git_clone"|"app_exit_apply")
         || method.starts_with("extension_")&&["apply","enable","override","resume","restore","activate","set_policy"].iter().any(|suffix|method.ends_with(suffix))
@@ -134,6 +162,11 @@ pub async fn dispatch(state:Arc<HostState>,app:AppHandle,call:Call,channel:Optio
             }
         }
         "subscription_close"=>{allowed(&call.params,&["subscriptionId"])?;state.subscriptions.lock().unwrap().remove(string(&call.params,"subscriptionId")?);Ok(json!({"closed":true}))}
+        "form_discard_confirm"=>{
+            allowed(&call.params,&[])?;
+            if call.scope["kind"]!="app" { return Err(HostError::new("PERMISSION_DENIED","表单确认需应用作用域")); }
+            Ok(json!({"discard":confirm_form_discard(&app).await?}))
+        }
         "url_open_external"=>{allowed(&call.params,&["url"])?;let url=string(&call.params,"url")?;if url.len()>8192{return Err(HostError::new("INVALID_ARGUMENT","链接过长"));}let parsed=reqwest::Url::parse(url).map_err(|_|HostError::new("INVALID_ARGUMENT","链接无效"))?;if !["https","http","mailto"].contains(&parsed.scheme()){return Err(HostError::new("PERMISSION_DENIED","只允许HTTP、HTTPS或邮件链接"));}#[cfg(windows)] {
                 let target = url.to_owned();
                 tauri::async_runtime::spawn_blocking(move || tauri_plugin_opener::open_url(target, None::<&str>))

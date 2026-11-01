@@ -1,0 +1,56 @@
+{
+  "kind": "TypeScript noEmit with native discard hook overlay and actual bridge/Modal/ErrorNotice dependencies; no Rust compilation",
+  "startedAt": "2026-11-01T20:06:11.959Z",
+  "compilerVersion": "5.9.3",
+  "overlays": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17"
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "sha256": "2267146cd7a19bf7f97d9b26f8c9d35e251ec29282567faa28f01f6b0c88dec3"
+    }
+  ],
+  "configErrors": [],
+  "passed": true,
+  "diagnostics": [],
+  "importedSources": [
+    {
+      "path": "apps/desktop/src/bridge.ts",
+      "sha256": "68b4709ff01629b4c33d0093adee8bf3f9611e6bfdf4b6a19c5a9433dae66667",
+      "overlay": false
+    },
+    {
+      "path": "apps/desktop/src/components/ErrorNotice.tsx",
+      "sha256": "6445f78f4e560d11a321614eb9c7d34874b859b794edf8e8d443915132e2064f",
+      "overlay": false
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "sha256": "2267146cd7a19bf7f97d9b26f8c9d35e251ec29282567faa28f01f6b0c88dec3",
+      "overlay": true
+    },
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17",
+      "overlay": true
+    }
+  ],
+  "productSourcesUnchanged": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "unchanged": true
+    },
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "unchanged": true
+    }
+  ],
+  "completedAt": "2026-11-01T20:06:12.830Z",
+  "durationMs": 871
+}

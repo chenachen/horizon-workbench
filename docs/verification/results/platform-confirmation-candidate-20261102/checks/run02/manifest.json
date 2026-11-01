@@ -1,0 +1,93 @@
+{
+  "status": "PREPARED_TS_NATIVE_HOOK_PASS_BROWSER_FALLBACK_FAIL",
+  "sealedAt": "2026-11-01T20:04:51.259434+00:00",
+  "scope": "Candidate only; exactly two product files; no live edits/native GUI/build/compile/appdata changes",
+  "changes": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711",
+      "afterSHA256": "20584f2a6f7028dd51fd39c444dc91574f1ce0ba54f648159cc9f73ce1debc17"
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "beforeSHA256": "1e8fc244735213f4bc68cb98a930e8fadb4e3766ae2fae98fc280f184d801b6f",
+      "afterSHA256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4"
+    }
+  ],
+  "checks": {
+    "typescript": "PASS, 0 diagnostics; once",
+    "patchApply": "PASS at unchanged baseline",
+    "realNativeBranchHookObservations": "5 groups PASS; controlled Tauri invoke only",
+    "wholeHookRun": "FAIL in browser fallback",
+    "singleDirectedBrowserFallback": "FAIL, false results/input retained but parent native HTML dialog closed",
+    "rust": "NOT EXECUTED",
+    "nativeDialogAndAX": "NOT EXECUTED"
+  },
+  "artifacts": [
+    {
+      "path": "source.patch",
+      "sha256": "6816ac36e105ae8456b906c8b618483a365c77d07acf7171b7f371d495734bee",
+      "bytes": 11380
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "c6cf8bd1c005c96e9faac2ae26c2330a36f5a7ec5e1540e300d418f0275cefb3",
+      "bytes": 2533
+    },
+    {
+      "path": "README.md",
+      "sha256": "1eb27df0ba60e0551bc2cd0ff1fddca5a5a41ca41ec934ce6d2e3be3420cc023",
+      "bytes": 3210
+    },
+    {
+      "path": "entry.tsx",
+      "sha256": "d36e718974aeb642039f4fa8ba94ecf45cb46864dc68d7ff3ebca59fedfde19c",
+      "bytes": 3500
+    },
+    {
+      "path": "run-hook-check.mjs",
+      "sha256": "c9c040d433af1ad8342f2b9fded5d4594ab1d4d3bd539d58c00214565ab67f0d",
+      "bytes": 10469
+    },
+    {
+      "path": "hook-result.json",
+      "sha256": "d1e2c28ff0595a08cdc965b52f5eea49faad79c44d5fc680b47ca4fd4b8b4715",
+      "bytes": 8467
+    },
+    {
+      "path": "run-typecheck.mjs",
+      "sha256": "5c754ed8f138c5c8a5d2f9d3ae776a9e307490aaef22e1aa7dced07e25682f1c",
+      "bytes": 3381
+    },
+    {
+      "path": "typecheck-result.json",
+      "sha256": "6f2477e8bfc8915c87df99c0007149b2008374c7c1ecceddc2826846b258e03e",
+      "bytes": 1472
+    },
+    {
+      "path": "run-browser-fallback-check.mjs",
+      "sha256": "74b4b9bf60c2542034de9a908c11102f99eb7a9de71403ff415459a6d22b46b6",
+      "bytes": 6438
+    },
+    {
+      "path": "browser-fallback-result.json",
+      "sha256": "875950cd3f6c714686f6b8c2a412bbff5d703155856082b4fd28e5274470905d",
+      "bytes": 2593201
+    },
+    {
+      "path": "browser-fallback-summary.json",
+      "sha256": "2a2929150d448170ae4a3c7e8edd41efebffa4887ee46acdf2b1793f97abd1d0",
+      "bytes": 7101
+    }
+  ],
+  "liveBaselineStillMatches": [
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "matches": true
+    }
+  ]
+}
