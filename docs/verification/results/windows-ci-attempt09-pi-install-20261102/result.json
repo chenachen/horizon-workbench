@@ -1,0 +1,136 @@
+{
+  "commit": "a721bfc517326238428aafc11efb1709673ed162",
+  "run_id": 41352296478,
+  "job_id": 124984932027,
+  "run_url": "https://github.com/chenachen/horizon-workbench/actions/runs/41352296478",
+  "conclusion": "failure",
+  "actual_nonzero_test_results": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.19,
+      "test_log": "2026-11-01T21:40:12.2434126Z test async_broker_wait_does_not_spend_cpu_budget ... ok",
+      "result_log": "2026-11-01T21:40:12.2436855Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s"
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.05,
+      "test_log": "2026-11-01T21:43:50.8083819Z test windows_process::tests::owned_job_stops_descendants_and_preserves_external ... ok",
+      "result_log": "2026-11-01T21:43:50.8085949Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.05s"
+    },
+    {
+      "name": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.41,
+      "test_log": "2026-11-01T21:43:51.9212499Z test processes::windows_tests::owned_conpty_chinese_resize_and_stop ... ok",
+      "result_log": "2026-11-01T21:43:51.9216073Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.41s"
+    },
+    {
+      "name": "files::tests::windows_storage_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.05,
+      "test_log": "2026-11-01T21:43:52.6988589Z test files::tests::windows_storage_roundtrip ... ok",
+      "result_log": "2026-11-01T21:43:52.6991634Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.05s"
+    },
+    {
+      "name": "agent::tests::windows_named_pipe_current_user_token_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.02,
+      "test_log": "2026-11-01T21:43:53.5351860Z test agent::tests::windows_named_pipe_current_user_token_roundtrip ... ok",
+      "result_log": "2026-11-01T21:43:53.5352877Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.02s"
+    },
+    {
+      "name": "settings::tests::windows_owned_credential_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.05,
+      "test_log": "2026-11-01T21:43:54.0140965Z test settings::tests::windows_owned_credential_roundtrip ... ok",
+      "result_log": "2026-11-01T21:43:54.0143860Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.05s"
+    },
+    {
+      "name": "agent::platform::tests::windows_fixed_assets_paths_zip_and_environment",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.0,
+      "test_log": "2026-11-01T21:43:54.4492005Z test agent::platform::tests::windows_fixed_assets_paths_zip_and_environment ... ok",
+      "result_log": "2026-11-01T21:43:54.4493541Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.00s"
+    },
+    {
+      "name": "agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.01,
+      "test_log": "2026-11-01T21:43:54.8938966Z test agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute ... ok",
+      "result_log": "2026-11-01T21:43:54.8940009Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.01s"
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "passed": 0,
+      "failed": 1,
+      "ignored": 0,
+      "seconds": 2.81,
+      "test_log": "2026-11-01T21:43:58.3865030Z test agent::tests::windows_managed_pi_chat_roundtrip ... FAILED",
+      "result_log": "2026-11-01T21:43:58.3875479Z test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 2.81s"
+    }
+  ],
+  "actual_total": {
+    "passed": 8,
+    "failed": 1
+  },
+  "first_failure": {
+    "test": "agent::tests::windows_managed_pi_chat_roundtrip",
+    "operation": "production install(&state,&installing.request_id).await.unwrap()",
+    "operation_source": "apps/desktop/src-tauri/src/agent.rs:628",
+    "code": "PERMISSION_DENIED",
+    "message": "Access is denied. (os error 5)",
+    "exact_log": [
+      {
+        "line": 2253,
+        "text": "2026-11-01T21:43:58.3851169Z thread 'agent::tests::windows_managed_pi_chat_roundtrip' (2372) panicked at src\\agent.rs:628:68:"
+      },
+      {
+        "line": 2254,
+        "text": "2026-11-01T21:43:58.3858867Z called `Result::unwrap()` on an `Err` value: HostError { code: \"PERMISSION_DENIED\", message: \"Access is denied. (os error 5)\", retryable: false, operation_id: None, details: None, recovery: None }"
+      }
+    ],
+    "precise_install_io_boundary": "not available in this attempt; no speculative cause assigned",
+    "provider_or_chat_started": false
+  },
+  "conpty": {
+    "reply_count": 1,
+    "reply": "2026-11-01T21:43:51.6551100Z Answered ConPTY initial cursor query at 1;1",
+    "completion": "2026-11-01T21:43:51.9211292Z Windows ConPTY PID 6860: Chinese output, real size120x40, process exited and Job empty",
+    "cleanup_TIMEOUT": false
+  },
+  "build_installers": {
+    "build_step": "success",
+    "collect_two_installers_step": "success",
+    "uploaded_artifact_id": 13102146495,
+    "artifact_zip_bytes": 23706469,
+    "artifact_zip_sha256": "342f26a200d1d05a0b54141a2c08a38c29537cf7b410599f199df831d87eaf00",
+    "binary_downloads_by_this_agent": false
+  },
+  "main_startup": "skipped after failed managed Pi test",
+  "publish": "skipped after failed managed Pi test; no release from this run",
+  "frontend_interaction": "not evaluated",
+  "raw_log": {
+    "source": "GitHub connector fetch_workflow_job_logs structuredContent.content, UTF-8 encoded without line-ending normalization",
+    "bytes": 202201,
+    "sha256": "d226bb9795fefc449bde739e420b83db2b5f3e0427a8bf8e8c7c57588bb1900d",
+    "CRLF": 2329
+  }
+}

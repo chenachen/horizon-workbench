@@ -1,0 +1,740 @@
+{
+  "kind": "real RecoveryNotice and EditorStore; controlled RPC completion order only; no native app/Rust/disk fixture/crash execution",
+  "variant": "after",
+  "sourceSHA256": "0033f3bf6f6fc28b7281f320907d51e3a6970fe3e7bade32ae3ef075313e9600",
+  "startedAt": "2026-11-01T21:37:18.519Z",
+  "phases": [
+    {
+      "label": "real restore emitted old checkpoint then new checkpoint; old list responses held while recovery_resolve pending",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": false
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": false
+        }
+      ],
+      "cleanupCompleted": false,
+      "retainedCheckpointIds": [
+        "cp-old",
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "",
+      "candidateIds": [],
+      "comparisonPresent": false,
+      "rootHTML": ""
+    },
+    {
+      "label": "store restore completed after old checkpoint deletion, before delayed old list replies",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": false
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": false
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-new"
+          ],
+          "settled": false
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "",
+      "candidateIds": [],
+      "comparisonPresent": false,
+      "rootHTML": ""
+    },
+    {
+      "label": "delayed pre-cleanup list replies delivered after successful restore",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-new"
+          ],
+          "settled": true
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "",
+      "candidateIds": [],
+      "comparisonPresent": false,
+      "rootHTML": ""
+    },
+    {
+      "label": "project switched while restore pending: old completion cannot clear or refresh new project notice",
+      "projectId": "b",
+      "projectEpoch": 7,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "b"
+          }
+        },
+        {
+          "method": "session_update",
+          "params": {
+            "tabs": [
+              {
+                "fileId": "file-a",
+                "pinned": true,
+                "selection": {
+                  "anchor": 6,
+                  "head": 6
+                },
+                "scrollTop": 0
+              }
+            ],
+            "activeFileId": "file-a",
+            "expandedEntryIds": [],
+            "searchDraft": ""
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "b",
+          "checkpointIds": [
+            "cp-beta"
+          ],
+          "settled": true
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "1 份未保存草稿待恢复beta.txt · 11/1/2026, 8:02:00 AM比较草稿与磁盘恢复到编辑器",
+      "candidateIds": [
+        "cp-beta"
+      ],
+      "comparisonPresent": false,
+      "rootHTML": "<div class=\"editor-notice\" role=\"status\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-clock\" style=\"vertical-align: middle; margin-right: 6px;\"><path d=\"M16 22h2a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3\"></path><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"></path><circle cx=\"8\" cy=\"16\" r=\"6\"></circle><path d=\"M9.5 17.5 8 16.25V14\"></path></svg><strong>1 份未保存草稿待恢复</strong><select aria-label=\"选择待恢复草稿\" style=\"max-width: 35%; margin-left: 10px;\"><option value=\"cp-beta\">beta.txt · 11/1/2026, 8:02:00 AM</option></select><button>比较草稿与磁盘</button><button>恢复到编辑器</button></div>"
+    },
+    {
+      "label": "unmounted notice: late restore/list completion performs no refresh or UI revival",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": true
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "",
+      "candidateIds": [],
+      "comparisonPresent": false,
+      "rootHTML": ""
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "passed": true,
+  "completedAt": "2026-11-01T21:37:19.655Z",
+  "durationMs": 1136
+}

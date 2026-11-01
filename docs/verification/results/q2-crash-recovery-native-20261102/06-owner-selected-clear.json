@@ -1,0 +1,214 @@
+{
+  "observedAt": "2026-11-01T21:35:34.118722+00:00",
+  "source": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run/q2-crash-recovery.txt",
+    "bytes": 65,
+    "sha256": "d7669d76b76157b3b1e69d1aa2aced26c3bb2c628c78986734c49a23eb1f68f5"
+  },
+  "checks": {
+    "onlySelectedCheckpointRemoved": true,
+    "selectedCheckpointAbsent": true
+  },
+  "selectedCheckpoint": "7866900c-3278-40f1-9ade-a4804a59c7c6.json",
+  "beforeRecoveryInventory": {
+    "6d25f844-362a-4eda-a6a1-7cd395bf353b.json": {
+      "bytes": 1009,
+      "sha256": "3a7469bf50d7b617843c8e9d18e609c2d1c906f607bec796ececa4f42ffa7fd2"
+    },
+    "7866900c-3278-40f1-9ade-a4804a59c7c6.json": {
+      "bytes": 1023,
+      "sha256": "f5db11bf18b28118f40182a2ce2eb6c417dc153e6291195a1e9ba9ef5564b321"
+    },
+    "ad7b89d9-07e9-4287-ba30-427967481ad3.json": {
+      "bytes": 1077,
+      "sha256": "72e065178ddb5a0f6c4c37b7ca273587fc41460bba068dba186da1ad425e9a03"
+    },
+    "e106af23-ae53-415b-b522-560b32e05222.json": {
+      "bytes": 974,
+      "sha256": "ba0aa2018f974a16ec6f14fc406ffa249af59d94afda3e3f1fc8e0c058837d1e"
+    }
+  },
+  "afterRecoveryInventory": {
+    "6d25f844-362a-4eda-a6a1-7cd395bf353b.json": {
+      "bytes": 1009,
+      "sha256": "3a7469bf50d7b617843c8e9d18e609c2d1c906f607bec796ececa4f42ffa7fd2"
+    },
+    "ad7b89d9-07e9-4287-ba30-427967481ad3.json": {
+      "bytes": 1077,
+      "sha256": "72e065178ddb5a0f6c4c37b7ca273587fc41460bba068dba186da1ad425e9a03"
+    },
+    "e106af23-ae53-415b-b522-560b32e05222.json": {
+      "bytes": 974,
+      "sha256": "ba0aa2018f974a16ec6f14fc406ffa249af59d94afda3e3f1fc8e0c058837d1e"
+    }
+  },
+  "main": {
+    "pid": 95825,
+    "ppid": 1,
+    "uid": 501,
+    "rss_bytes": 125255680,
+    "start": "Mon Nov 2 05:28:24 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "footprint_bytes": 43205640,
+    "resident_bytes": 125255680,
+    "cpu_mach_ticks": 35889871,
+    "cpu_ns": 1495411291,
+    "start_abstime": 2114235038919,
+    "disk_read_bytes": 17305600,
+    "disk_write_bytes": 20705280,
+    "cpu_percent_one_core": null
+  },
+  "mainSHA256": "e8b8e3cce8afb01dabaf611ad9d5a69c7639faa074a554cfa15d8bc475f336cf",
+  "owned": [
+    {
+      "pid": 95825,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 125255680,
+      "start": "Mon Nov 2 05:28:24 2026",
+      "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+      "footprint_bytes": 43205640,
+      "resident_bytes": 125255680,
+      "cpu_mach_ticks": 35889871,
+      "cpu_ns": 1495411291,
+      "start_abstime": 2114235038919,
+      "disk_read_bytes": 17305600,
+      "disk_write_bytes": 20705280,
+      "cpu_percent_one_core": 0.0,
+      "group": "horizon",
+      "reason": "root PID"
+    },
+    {
+      "pid": 95826,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 52363264,
+      "start": "Mon Nov 2 05:28:25 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "footprint_bytes": 20234984,
+      "resident_bytes": 52363264,
+      "cpu_mach_ticks": 8400752,
+      "cpu_ns": 350031333,
+      "start_abstime": 2114240818733,
+      "disk_read_bytes": 552960,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 95825"
+    },
+    {
+      "pid": 95827,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 12402688,
+      "start": "Mon Nov 2 05:28:25 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "footprint_bytes": 6488568,
+      "resident_bytes": 12402688,
+      "cpu_mach_ticks": 5519261,
+      "cpu_ns": 229969208,
+      "start_abstime": 2114241146849,
+      "disk_read_bytes": 389120,
+      "disk_write_bytes": 28672,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 95825"
+    },
+    {
+      "pid": 95828,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 147210240,
+      "start": "Mon Nov 2 05:28:25 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "footprint_bytes": 73712384,
+      "resident_bytes": 147210240,
+      "cpu_mach_ticks": 77710956,
+      "cpu_ns": 3237956500,
+      "start_abstime": 2114241213286,
+      "disk_read_bytes": 598016,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 95825"
+    },
+    {
+      "pid": 95829,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 7487488,
+      "start": "Mon Nov 2 05:28:25 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "footprint_bytes": 2916784,
+      "resident_bytes": 7487488,
+      "cpu_mach_ticks": 509611,
+      "cpu_ns": 21233791,
+      "start_abstime": 2114245521115,
+      "disk_read_bytes": 151552,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 95825"
+    },
+    {
+      "pid": 95830,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 26066944,
+      "start": "Mon Nov 2 05:28:25 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "footprint_bytes": 9044520,
+      "resident_bytes": 26066944,
+      "cpu_mach_ticks": 2674424,
+      "cpu_ns": 111434333,
+      "start_abstime": 2114250892066,
+      "disk_read_bytes": 114688,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 95825"
+    }
+  ],
+  "unassignedWebKitCandidates": [
+    {
+      "pid": 863,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 891,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 909,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 929,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1364,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1365,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1427,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1517,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    }
+  ]
+}

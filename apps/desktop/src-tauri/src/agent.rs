@@ -123,21 +123,29 @@ async fn install(state: &HostState, request: &str) -> Result<Value> {
 }
 async fn install_from(state: &HostState, request: &str, url: &str, digest: &str) -> Result<Value> {
     if !cfg!(any(target_os="macos",windows)) { return Err(err("CAPABILITY_UNSUPPORTED", "运行时安装支持 macOS 与 Windows")); }
+    macro_rules! install_context {
+        ($stage:literal, $operation:expr) => {{
+            #[cfg(all(test, windows))]
+            { ($operation).inspect_err(|error| eprintln!("Windows Pi install failed [{}]: {error}", $stage)) }
+            #[cfg(not(all(test, windows)))]
+            { $operation }
+        }};
+    }
     let path = managed_executable(state); if path.exists() { return detect(state, &json!({})).await; }
-    #[cfg(not(windows))] let (name, _, _) = asset(); let target = platform::runtime_directory(state.data_dir()); let parent = target.parent().unwrap(); private_dir(parent)?;
-    let staging = parent.join(format!("download-{}",id())); private_dir(&staging)?;
+    #[cfg(not(windows))] let (name, _, _) = asset(); let target = platform::runtime_directory(state.data_dir()); let parent = target.parent().unwrap(); install_context!("prepare parent mkdir", private_dir(parent))?;
+    let staging = parent.join(format!("download-{}",id())); install_context!("prepare staging mkdir", private_dir(&staging))?;
     let result = async { state.emit_task_data(request,"agent.install",json!({"phase":"downloading","version":VERSION}))?;
         let response = reqwest::Client::builder().timeout(Duration::from_secs(180)).build().map_err(|e| err("NETWORK_ERROR",e.to_string()))?.get(url).send().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?.error_for_status().map_err(|e|err("NETWORK_ERROR",e.to_string()))?;
         let bytes = response.bytes().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?; if hash(&bytes) != digest { return Err(err("INTEGRITY_ERROR","Pi 官方发行文件摘要不匹配，未激活")); }
         if state.is_cancelled(request) { return Err(err("CANCELLED","已取消安装")); }
-        #[cfg(windows)] platform::extract_windows_zip(&bytes,&staging)?;
+        #[cfg(windows)] install_context!("ZIP extraction", platform::extract_windows_zip(&bytes,&staging))?;
         #[cfg(not(windows))] {
             fs::write(staging.join(name), &bytes)?;
             let out = Command::new("/usr/bin/tar").args(["-xzf"]).arg(staging.join(name)).arg("-C").arg(&staging).output().await?; if !out.status.success() { return Err(err("INSTALL_FAILED","无法解压 Pi 运行时")); }
             fs::remove_file(staging.join(name))?;
         }
-        let probe = detect(state, &json!({"executablePath":staging.join(platform::runtime_relative_executable())})).await?; if probe["supported"] != true { return Err(err("INSTALL_FAILED","运行时版本检测失败")); }
-        fs::rename(&staging, target)?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; detect(state,&json!({})).await
+        let probe = install_context!("staged version probe", detect(state, &json!({"executablePath":staging.join(platform::runtime_relative_executable())})).await)?; if probe["supported"] != true { return Err(err("INSTALL_FAILED","运行时版本检测失败")); }
+        install_context!("rename activate", fs::rename(&staging, target))?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; install_context!("final version probe", detect(state,&json!({})).await)
     }.await;
     if staging.exists() { let _ = fs::remove_dir_all(&staging); } result
 }

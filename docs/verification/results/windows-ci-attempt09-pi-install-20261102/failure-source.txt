@@ -1,0 +1,58 @@
+Source commit a721bfc517326238428aafc11efb1709673ed162
+Source SHA256 1b94724443f1856a24aa984b9d5c33cf444c7acb2fe91c7fde037ea226127203
+
+107: fn asset() -> (&'static str, &'static str, u64) { platform::asset_for(cfg!(windows),cfg!(target_arch="aarch64")) }
+108: fn managed_executable(state: &HostState) -> PathBuf { platform::runtime_directory(state.data_dir()).join(platform::runtime_relative_executable()) }
+109: fn executable(state: &HostState, runtime: &Value) -> PathBuf { runtime["executablePath"].as_str().or(runtime["executableRef"].as_str()).map(PathBuf::from).unwrap_or_else(|| managed_executable(state)) }
+110: async fn detect(state: &HostState, runtime: &Value) -> Result<Value> {
+111:     let path = executable(state, runtime); let (name, digest, bytes) = asset();
+112:     let mut result = json!({"adapterId":"pi","installed":path.is_file(),"supported":false,"path":path,"version":null,"requiredVersion":VERSION,"source":"https://github.com/earendil-works/pi/releases/tag/v1.4.0","ownership":if runtime["executablePath"].is_string()||runtime["executableRef"].is_string(){"userInstalled"}else{"managed"},"downloadBytes":bytes,"asset":name,"sha256":digest,"diagnostics":[]});
+113:     if !path.is_file() { return Ok(result); }
+114:     let mut probe=Command::new(&path);probe.arg("--version").env("PI_OFFLINE","1").env("PI_TELEMETRY","0").kill_on_drop(true);
+115:     #[cfg(windows)] {use std::os::windows::process::CommandExt;platform::environment(probe.as_std_mut(),true);probe.env("PI_OFFLINE","1").env("PI_TELEMETRY","0");probe.as_std_mut().creation_flags(windows_sys::Win32::System::Threading::CREATE_NO_WINDOW);}
+116:     let output = tokio::time::timeout(Duration::from_secs(10),probe.output()).await.map_err(|_| err("TIMEOUT", "Pi 版本检测超时"))??;
+117:     let version = String::from_utf8_lossy(&output.stdout).trim().to_string(); result["version"] = json!(version); result["supported"] = json!(output.status.success() && version == VERSION);
+118:     if result["supported"] != true { result["diagnostics"] = json!(["此版本尚未通过 Horizon 适配验证；仅支持 Pi 1.4.0"]); } Ok(result)
+119: }
+120: async fn install(state: &HostState, request: &str) -> Result<Value> {
+121:     let (name, digest, _) = asset();
+122:     install_from(state, request, &format!("https://github.com/earendil-works/pi/releases/download/v{VERSION}/{name}"), digest).await
+123: }
+124: async fn install_from(state: &HostState, request: &str, url: &str, digest: &str) -> Result<Value> {
+125:     if !cfg!(any(target_os="macos",windows)) { return Err(err("CAPABILITY_UNSUPPORTED", "运行时安装支持 macOS 与 Windows")); }
+126:     let path = managed_executable(state); if path.exists() { return detect(state, &json!({})).await; }
+127:     #[cfg(not(windows))] let (name, _, _) = asset(); let target = platform::runtime_directory(state.data_dir()); let parent = target.parent().unwrap(); private_dir(parent)?;
+128:     let staging = parent.join(format!("download-{}",id())); private_dir(&staging)?;
+129:     let result = async { state.emit_task_data(request,"agent.install",json!({"phase":"downloading","version":VERSION}))?;
+130:         let response = reqwest::Client::builder().timeout(Duration::from_secs(180)).build().map_err(|e| err("NETWORK_ERROR",e.to_string()))?.get(url).send().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?.error_for_status().map_err(|e|err("NETWORK_ERROR",e.to_string()))?;
+131:         let bytes = response.bytes().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?; if hash(&bytes) != digest { return Err(err("INTEGRITY_ERROR","Pi 官方发行文件摘要不匹配，未激活")); }
+132:         if state.is_cancelled(request) { return Err(err("CANCELLED","已取消安装")); }
+133:         #[cfg(windows)] platform::extract_windows_zip(&bytes,&staging)?;
+134:         #[cfg(not(windows))] {
+135:             fs::write(staging.join(name), &bytes)?;
+136:             let out = Command::new("/usr/bin/tar").args(["-xzf"]).arg(staging.join(name)).arg("-C").arg(&staging).output().await?; if !out.status.success() { return Err(err("INSTALL_FAILED","无法解压 Pi 运行时")); }
+137:             fs::remove_file(staging.join(name))?;
+138:         }
+139:         let probe = detect(state, &json!({"executablePath":staging.join(platform::runtime_relative_executable())})).await?; if probe["supported"] != true { return Err(err("INSTALL_FAILED","运行时版本检测失败")); }
+140:         fs::rename(&staging, target)?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; detect(state,&json!({})).await
+141:     }.await;
+142:     if staging.exists() { let _ = fs::remove_dir_all(&staging); } result
+143: }
+624:     #[tokio::test]
+625:     #[ignore = "Downloads the fixed official Windows Pi release and uses an owned loopback fixture; run explicitly in Windows CI"]
+626:     async fn windows_managed_pi_chat_roundtrip(){
+627:         let fixture=tempfile::tempdir().unwrap();let state=Arc::new(HostState::new(fixture.path().join("data")).unwrap());let installing=call_for("owned-install-fixture","agent_runtime_install",json!({}));register_task(&state,&installing);
+628:         let installed=install(&state,&installing.request_id).await.unwrap();assert_eq!(installed["supported"],true);assert_eq!(installed["version"],VERSION);assert!(managed_executable(&state).is_file());
+629:         let root=fixture.path().join("Windows 中文 project");fs::create_dir(&root).unwrap();let project=state.register_project(root,None,Some("owned Windows Pi fixture")).unwrap();let project_id=field(&project["project"],"id").unwrap().to_owned();state.epochs.lock().unwrap().insert(project_id.clone(),1);
+630:         crate::extensions::initialize(&state).unwrap();let registry_path=state.data_dir().join("extensions/registry.json");let mut registry:Value=serde_json::from_slice(&fs::read(&registry_path).unwrap()).unwrap();registry["records"]["horizon.agent"]["enabledGlobal"]=json!(true);save_json(&registry_path,&registry).unwrap();load(&state).unwrap();
+631:         let log=fixture.path().join("protocol.jsonl");let script=Path::new(env!("CARGO_MANIFEST_DIR")).join("../../../scripts/test-pi-server.mjs");let mut command=Command::new("node");platform::environment(command.as_std_mut(),false);command.arg(script).env("HORIZON_TEST_LOG",&log).stdout(Stdio::piped()).stderr(Stdio::null()).kill_on_drop(true);crate::windows_process::prepare_command(command.as_std_mut());
+632:         let child=command.spawn().unwrap();let provider_job=unsafe{crate::windows_process::attach_suspended(child.raw_handle().unwrap(),child.id().unwrap())}.unwrap();let sid=id();
+633:         struct Cleanup{provider:tokio::process::Child,job:Arc<crate::windows_process::OwnedJob>,sid:String}
+634:         impl Drop for Cleanup{fn drop(&mut self){
+635:             let jobs={let mut m=memory().lock().unwrap();m.runs.get_mut(&self.sid).map(|run|{for child in run.windows.children.values_mut(){let _=child.start_kill();}run.windows.job.iter().chain(run.windows.execution_jobs.values()).cloned().collect::<Vec<_>>()}).unwrap_or_default()};
+636:             for job in &jobs{let _=job.terminate();}let _=self.job.terminate();let _=self.provider.start_kill();let mut closed=false;
+637:             for _ in 0..150{let pi_closed=memory().lock().unwrap().runs.get_mut(&self.sid).is_none_or(|run|run.windows.reaped());if pi_closed&&self.job.is_empty().unwrap_or(false)&&matches!(self.provider.try_wait(),Ok(Some(_))){closed=true;break;}std::thread::sleep(Duration::from_millis(20));}
+638:             if closed{memory().lock().unwrap().runs.remove(&self.sid);}if !std::thread::panicking(){assert!(closed,"owned Windows Pi/provider cleanup unconfirmed");}else if !closed{eprintln!("owned Windows Pi/provider cleanup unconfirmed");}
+639:         }}
+640:         let mut cleanup=Cleanup{provider:child,job:provider_job,sid:sid.clone()};let mut line=String::new();tokio::time::timeout(Duration::from_secs(10),BufReader::new(cleanup.provider.stdout.take().unwrap()).read_line(&mut line)).await.unwrap().unwrap();let port:Value=serde_json::from_str(&line).unwrap();
+641:         let connection=Connection{connection_id:id(),adapter_id:"pi".into(),runtime:json!({}),provider:json!({"id":"horizon-windows-fixture","model":"horizon-fixture","api":"openai-completions","endpoint":format!("http://127.0.0.1:{}/v1",port["port"].as_u64().unwrap())}),auth_owner:"external".into(),revision:1,auth_state:"configured".into()};

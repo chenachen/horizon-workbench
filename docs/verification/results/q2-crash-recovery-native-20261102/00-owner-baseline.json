@@ -1,0 +1,220 @@
+{
+  "observedAt": "2026-11-01T21:25:41.574760+00:00",
+  "source": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run/q2-crash-recovery.txt",
+    "bytes": 65,
+    "sha256": "d7669d76b76157b3b1e69d1aa2aced26c3bb2c628c78986734c49a23eb1f68f5"
+  },
+  "project": {
+    "displayName": "scripts-no-auto-run",
+    "id": "ec6de2de-7bd7-44cb-8f5b-945b793b99db",
+    "lastOpenedAt": "2026-11-01T21:24:58.774925+00:00",
+    "pinned": false,
+    "revision": 2,
+    "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-workspace-final-it514bgb/scripts-no-auto-run",
+    "state": "active",
+    "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+  },
+  "recoveryInventory": {
+    "6d25f844-362a-4eda-a6a1-7cd395bf353b.json": {
+      "bytes": 1009,
+      "sha256": "3a7469bf50d7b617843c8e9d18e609c2d1c906f607bec796ececa4f42ffa7fd2"
+    },
+    "ad7b89d9-07e9-4287-ba30-427967481ad3.json": {
+      "bytes": 1077,
+      "sha256": "72e065178ddb5a0f6c4c37b7ca273587fc41460bba068dba186da1ad425e9a03"
+    },
+    "e106af23-ae53-415b-b522-560b32e05222.json": {
+      "bytes": 974,
+      "sha256": "ba0aa2018f974a16ec6f14fc406ffa249af59d94afda3e3f1fc8e0c058837d1e"
+    }
+  },
+  "main": {
+    "pid": 75403,
+    "ppid": 1,
+    "uid": 501,
+    "rss_bytes": 151044096,
+    "start": "Mon Nov 2 05:18:05 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "footprint_bytes": 53396608,
+    "resident_bytes": 151044096,
+    "cpu_mach_ticks": 108458381,
+    "cpu_ns": 4519099208,
+    "start_abstime": 2099371637288,
+    "disk_read_bytes": 5353472,
+    "disk_write_bytes": 19542016,
+    "cpu_percent_one_core": null
+  },
+  "mainSHA256": "e8b8e3cce8afb01dabaf611ad9d5a69c7639faa074a554cfa15d8bc475f336cf",
+  "owned": [
+    {
+      "pid": 75403,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 151044096,
+      "start": "Mon Nov 2 05:18:05 2026",
+      "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+      "footprint_bytes": 53396608,
+      "resident_bytes": 151044096,
+      "cpu_mach_ticks": 108458381,
+      "cpu_ns": 4519099208,
+      "start_abstime": 2099371637288,
+      "disk_read_bytes": 5353472,
+      "disk_write_bytes": 19542016,
+      "cpu_percent_one_core": 0.0,
+      "group": "horizon",
+      "reason": "root PID"
+    },
+    {
+      "pid": 75472,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 57131008,
+      "start": "Mon Nov 2 05:18:07 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "footprint_bytes": 20169496,
+      "resident_bytes": 57131008,
+      "cpu_mach_ticks": 46297162,
+      "cpu_ns": 1929048416,
+      "start_abstime": 2099418808002,
+      "disk_read_bytes": 544768,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 75403"
+    },
+    {
+      "pid": 75473,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 12992512,
+      "start": "Mon Nov 2 05:18:07 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "footprint_bytes": 6685176,
+      "resident_bytes": 12992512,
+      "cpu_mach_ticks": 6193275,
+      "cpu_ns": 258053125,
+      "start_abstime": 2099419172304,
+      "disk_read_bytes": 1400832,
+      "disk_write_bytes": 28672,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 75403"
+    },
+    {
+      "pid": 75474,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 165134336,
+      "start": "Mon Nov 2 05:18:07 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "footprint_bytes": 70320992,
+      "resident_bytes": 165134336,
+      "cpu_mach_ticks": 147828517,
+      "cpu_ns": 6159521541,
+      "start_abstime": 2099419226788,
+      "disk_read_bytes": 1224704,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 75403"
+    },
+    {
+      "pid": 75475,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 7356416,
+      "start": "Mon Nov 2 05:18:07 2026",
+      "executable": "/System/Library/Frameworks/AudioToolbox.framework/XPCServices/com.apple.audio.SandboxHelper.xpc/Contents/MacOS/com.apple.audio.SandboxHelper",
+      "footprint_bytes": 3080648,
+      "resident_bytes": 7356416,
+      "cpu_mach_ticks": 603458,
+      "cpu_ns": 25144083,
+      "start_abstime": 2099423534576,
+      "disk_read_bytes": 106496,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 75403"
+    },
+    {
+      "pid": 75542,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 25100288,
+      "start": "Mon Nov 2 05:18:07 2026",
+      "executable": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService",
+      "footprint_bytes": 8602152,
+      "resident_bytes": 25100288,
+      "cpu_mach_ticks": 3321591,
+      "cpu_ns": 138399625,
+      "start_abstime": 2099428607308,
+      "disk_read_bytes": 98304,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 75403"
+    },
+    {
+      "pid": 77700,
+      "ppid": 1,
+      "uid": 501,
+      "rss_bytes": 39714816,
+      "start": "Mon Nov 2 05:19:12 2026",
+      "executable": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper",
+      "footprint_bytes": 10715712,
+      "resident_bytes": 39714816,
+      "cpu_mach_ticks": 3297505,
+      "cpu_ns": 137396041,
+      "start_abstime": 2100984546314,
+      "disk_read_bytes": 733184,
+      "disk_write_bytes": 0,
+      "cpu_percent_one_core": null,
+      "group": "horizon",
+      "reason": "macOS responsibility SPI → 75403"
+    }
+  ],
+  "unassignedWebKitCandidates": [
+    {
+      "pid": 863,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 891,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 909,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 645
+    },
+    {
+      "pid": 929,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1364,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1365,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1427,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    },
+    {
+      "pid": 1517,
+      "executable": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent",
+      "responsible_pid": 732
+    }
+  ],
+  "scope": "Owned fixture and exact app/descendant/responsibility snapshot before native edit. Feature-idle state is separately bound by GUI and plugin final evidence."
+}

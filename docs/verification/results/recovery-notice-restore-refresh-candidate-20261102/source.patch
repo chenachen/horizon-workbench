@@ -1,0 +1,38 @@
+--- a/apps/desktop/src/features/editor/RecoveryNotice.tsx
++++ b/apps/desktop/src/features/editor/RecoveryNotice.tsx
+@@ -19,8 +19,13 @@
+   const [busy, setBusy] = useState(false);
+   const [refresh, setRefresh] = useState(0);
+   const request = useRef(0);
++  const operationScope = useRef(0);
+   const closeButton = useRef<HTMLButtonElement>(null);
+   const returnFocus = useRef<HTMLElement | null>(null);
++  useEffect(() => {
++    ++operationScope.current;
++    return () => { ++operationScope.current; };
++  }, [projectId, projectEpoch]);
+   useEffect(() => {
+     const token = ++request.current;
+     setItems([]); setSelected(''); setComparison(undefined); setError(''); setBusy(false);
+@@ -60,13 +65,17 @@
+     finally { if (request.current === token) setBusy(false); }
+   };
+   const restore = async (checkpointId: string) => {
+-    const token = request.current;
++    const token = operationScope.current;
+     setBusy(true); setError('');
+     try {
+       await editorStore.restoreDraft(checkpointId, projectId);
+-      if (request.current === token) { setItems(previous => previous.filter(item => item.checkpointId !== checkpointId)); setComparison(undefined); }
+-    } catch (reason) { if (request.current === token) setError(errorMessage(reason)); }
+-    finally { if (request.current === token) setBusy(false); }
++      if (operationScope.current === token) {
++        ++request.current;
++        setItems(previous => previous.filter(item => item.checkpointId !== checkpointId)); setComparison(undefined);
++        setRefresh(value => value + 1);
++      }
++    } catch (reason) { if (operationScope.current === token) setError(errorMessage(reason)); }
++    finally { if (operationScope.current === token) setBusy(false); }
+   };
+   if (!candidates.length && !error) return null;
+   return <>

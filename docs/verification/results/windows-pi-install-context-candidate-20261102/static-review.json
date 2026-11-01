@@ -1,0 +1,31 @@
+{
+  "scope": "Static source/type inspection only; no local Rust compiler, test, app, CI rerun or GUI invoked.",
+  "semantics": "For not(all(test,windows)), each macro expands to the exact original operation expression; same operation count, order, await, ?, error value and return value. Logging exists only in cfg(all(test,windows)).",
+  "typed_boundaries": [
+    {
+      "stage": "prepare parent/staging mkdir",
+      "operation": "private_dir",
+      "result": "Result<(), HostError>"
+    },
+    {
+      "stage": "ZIP extraction",
+      "operation": "platform::extract_windows_zip",
+      "result": "std::io::Result<()>"
+    },
+    {
+      "stage": "staged/final version probe",
+      "operation": "detect(...).await",
+      "result": "Result<Value, HostError>"
+    },
+    {
+      "stage": "rename activate",
+      "operation": "fs::rename",
+      "result": "std::io::Result<()>"
+    }
+  ],
+  "error_trait": "Both HostError (protocol.rs:42) and std::io::Error implement Display; Result::inspect_err borrows the existing error and returns the same Result. No new conversion occurs.",
+  "non_test_expression_reconstruction_matches_before": true,
+  "existing_managed_chat_test_unchanged": true,
+  "live_source_unchanged": true,
+  "boundary_count": 6
+}

@@ -1,0 +1,37 @@
+{
+  "observedAt": "2026-11-01T21:45:01.008901+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "e8b8e3cce8afb01dabaf611ad9d5a69c7639faa074a554cfa15d8bc475f336cf",
+  "mainSha256": "4d4bca76055afb46f403811035a718b2b8a8f892ca2e7e8ddc5ed2c5dbe5a135",
+  "bytes": 19911168,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": true,
+  "rollbackBackup": "/Users/chenpengxiang/Applications/.Horizon-recovery-notice-previous.app",
+  "rollbackBackupRetained": true,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-recovery-notice-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-recovery-notice-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

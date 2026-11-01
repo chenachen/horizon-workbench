@@ -1,0 +1,20 @@
+2026-11-01T21:43:55.6442369Z      Running unittests src\lib.rs (apps\desktop\src-tauri\target\release\deps\horizon_host-87f8b8873e9a6b51.exe)
+2026-11-01T21:43:55.6443826Z 
+2026-11-01T21:43:55.6445190Z running 1 test
+2026-11-01T21:43:58.3846681Z 
+2026-11-01T21:43:58.3851169Z thread 'agent::tests::windows_managed_pi_chat_roundtrip' (2372) panicked at src\agent.rs:628:68:
+2026-11-01T21:43:58.3858867Z called `Result::unwrap()` on an `Err` value: HostError { code: "PERMISSION_DENIED", message: "Access is denied. (os error 5)", retryable: false, operation_id: None, details: None, recovery: None }
+2026-11-01T21:43:58.3863209Z note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+2026-11-01T21:43:58.3865030Z test agent::tests::windows_managed_pi_chat_roundtrip ... FAILED
+2026-11-01T21:43:58.3866362Z 
+2026-11-01T21:43:58.3868011Z failures:
+2026-11-01T21:43:58.3869364Z 
+2026-11-01T21:43:58.3871107Z failures:
+2026-11-01T21:43:58.3872584Z     agent::tests::windows_managed_pi_chat_roundtrip
+2026-11-01T21:43:58.3873448Z 
+2026-11-01T21:43:58.3875479Z test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 2.81s
+2026-11-01T21:43:58.3876796Z 
+2026-11-01T21:43:58.3888465Z error: test failed, to rerun pass `--lib`
+2026-11-01T21:43:58.4419838Z ##[error]Process completed with exit code 1.
+2026-11-01T21:43:58.4556053Z ##[group]Run actions/upload-artifact@v7
+2026-11-01T21:43:58.4556346Z with:

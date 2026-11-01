@@ -1,0 +1,133 @@
+{
+  "status": "PREPARED_FOCUSED_CHECKS_PASS_NATIVE_PENDING",
+  "sealedAt": "2026-11-01T21:38:14.129220+00:00",
+  "scope": "ONLY .work candidate; one product file; no live apply/push/build/GUI/crash/appdata mutation",
+  "changes": [
+    {
+      "path": "apps/desktop/src/features/editor/RecoveryNotice.tsx",
+      "beforeSHA256": "b48f02fc3911550f7767d0bf4b69550b831cde80ec2f916643751b81abfdc39a",
+      "afterSHA256": "0033f3bf6f6fc28b7281f320907d51e3a6970fe3e7bade32ae3ef075313e9600"
+    }
+  ],
+  "checks": {
+    "baselineRace": "FAIL preserved: 1 stale cp-old candidate after successful actual-store restore and controlled backend cleanup",
+    "afterSameRace": "PASS: post-cleanup refresh, then late old response ignored",
+    "projectSwitch": "PASS: old A completion leaves B item and list request count unchanged",
+    "unmount": "PASS: no refresh/UI revival after late completion",
+    "typescript": "PASS 0 diagnostics, 825ms, 1 overlay, 7 imported sources",
+    "patchApply": "PASS",
+    "native": "NOT RUN; prior Q2 real failure preserved; future H005 A existing draft single Restore only"
+  },
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "ffa84a3326b8e614565ab0e6596827cd0f6e271d028eebe3d8f2d7e3ace33eb3",
+      "bytes": 2889
+    },
+    {
+      "path": "after/apps/desktop/src/features/editor/RecoveryNotice.tsx",
+      "sha256": "0033f3bf6f6fc28b7281f320907d51e3a6970fe3e7bade32ae3ef075313e9600",
+      "bytes": 7490
+    },
+    {
+      "path": "after-race-result.json",
+      "sha256": "8c6a37a6e1d77a7d18b7f0cb64430bc3ca39215268a9acbace1afe10a9db94d0",
+      "bytes": 18226
+    },
+    {
+      "path": "before/apps/desktop/src/features/editor/RecoveryNotice.tsx",
+      "sha256": "b48f02fc3911550f7767d0bf4b69550b831cde80ec2f916643751b81abfdc39a",
+      "bytes": 7214
+    },
+    {
+      "path": "before-race-result.json",
+      "sha256": "bdb0d7535995f8e9fd02a96c300b40fb1a8af233b3a3735cc87c70f856972b7b",
+      "bytes": 15097
+    },
+    {
+      "path": "entry.tsx",
+      "sha256": "ee0d387b387c3bd022490e338dfe37ffca0263db0b72fcfa00f6910036e14827",
+      "bytes": 4806
+    },
+    {
+      "path": "patch-check-result.json",
+      "sha256": "f59617ff60a754ca1ef14ea010c9f3306307006f903ea65e1318d0aa94f559a8",
+      "bytes": 255
+    },
+    {
+      "path": "run-race-check.mjs",
+      "sha256": "a0da4711b09399292f19085840da3c944ed1e19c1e9b2ad5cab927212e93d78c",
+      "bytes": 7673
+    },
+    {
+      "path": "run-typecheck.mjs",
+      "sha256": "d7e840c4dde00a8d46f11df1f6db519e4cfef5b941ae94eef21dd5c1606005ba",
+      "bytes": 3370
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "b4cb9341113270fea70fbf0c116b4f201735a7a6894276052a8dce85ffb359a9",
+      "bytes": 1378
+    },
+    {
+      "path": "source.patch",
+      "sha256": "db04439d0f8ba97f7e299d18b4ca54336627c367849f90f33a267eeb9c3bf47d",
+      "bytes": 1805
+    },
+    {
+      "path": "typecheck-result.json",
+      "sha256": "1e2e57063c882b5007aadf63b6f11066237d79234b167fddaf14d94c78df97af",
+      "bytes": 1880
+    }
+  ],
+  "liveBaselineStillMatches": [
+    {
+      "path": "apps/desktop/src/features/editor/RecoveryNotice.tsx",
+      "matches": true
+    }
+  ],
+  "supportStillMatches": [
+    {
+      "path": "apps/desktop/src/features/editor/store.ts",
+      "matches": true
+    },
+    {
+      "path": "packages/editor/src/store.ts",
+      "matches": true
+    },
+    {
+      "path": "packages/editor/src/types.ts",
+      "matches": true
+    },
+    {
+      "path": "packages/editor/src/selection.ts",
+      "matches": true
+    },
+    {
+      "path": "packages/editor/src/metrics.ts",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/files.rs",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/tsconfig.json",
+      "matches": true
+    }
+  ],
+  "originalNativeEvidence": [
+    {
+      "path": "docs/verification/results/q2-recovery-native-20261102/e8b8-post-crash-1793568540509-03-q2-draft-restored.jpg",
+      "sha256": "5cef4399434a5316c057f7fa8b3406613f1080164b9c3024efe4070267aad0f3"
+    },
+    {
+      "path": "docs/verification/results/q2-recovery-native-20261102/e8b8-post-crash-1793568540509-03-q2-draft-restored.ax.txt",
+      "sha256": "a18f5b159773a546115566a7c30e5ef4505e7fc48a0cef67a6436f3e647bdd4c"
+    },
+    {
+      "path": "docs/verification/results/q2-crash-recovery-native-20261102/04-owner-restored.json",
+      "sha256": "fbf6cdee080438cc4428fb9c69f628c1a19e88729f6bf6a3e21f1148907df47d"
+    }
+  ]
+}

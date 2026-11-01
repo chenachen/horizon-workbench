@@ -1,0 +1,552 @@
+{
+  "kind": "real RecoveryNotice and EditorStore; controlled RPC completion order only; no native app/Rust/disk fixture/crash execution",
+  "variant": "before",
+  "sourceSHA256": "b48f02fc3911550f7767d0bf4b69550b831cde80ec2f916643751b81abfdc39a",
+  "startedAt": "2026-11-01T21:36:46.613Z",
+  "phases": [
+    {
+      "label": "real restore emitted old checkpoint then new checkpoint; old list responses held while recovery_resolve pending",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": false
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": false
+        }
+      ],
+      "cleanupCompleted": false,
+      "retainedCheckpointIds": [
+        "cp-old",
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "",
+      "candidateIds": [],
+      "comparisonPresent": false,
+      "rootHTML": ""
+    },
+    {
+      "label": "store restore completed after old checkpoint deletion, before delayed old list replies",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": false
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": false
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "",
+      "candidateIds": [],
+      "comparisonPresent": false,
+      "rootHTML": ""
+    },
+    {
+      "label": "delayed pre-cleanup list replies delivered after successful restore",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": true
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "1 份未保存草稿待恢复alpha.txt · 11/1/2026, 8:01:00 AM比较草稿与磁盘恢复到编辑器",
+      "candidateIds": [
+        "cp-old"
+      ],
+      "comparisonPresent": false,
+      "rootHTML": "<div class=\"editor-notice\" role=\"status\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-clock\" style=\"vertical-align: middle; margin-right: 6px;\"><path d=\"M16 22h2a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3\"></path><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"></path><circle cx=\"8\" cy=\"16\" r=\"6\"></circle><path d=\"M9.5 17.5 8 16.25V14\"></path></svg><strong>1 份未保存草稿待恢复</strong><select aria-label=\"选择待恢复草稿\" style=\"max-width: 35%; margin-left: 10px;\"><option value=\"cp-old\">alpha.txt · 11/1/2026, 8:01:00 AM</option></select><button>比较草稿与磁盘</button><button>恢复到编辑器</button></div>"
+    },
+    {
+      "label": "failure state",
+      "projectId": "a",
+      "projectEpoch": 1,
+      "calls": [
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          }
+        },
+        {
+          "method": "document_open",
+          "params": {
+            "fileId": "file-a",
+            "mode": "auto"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_disk_read",
+          "params": {
+            "documentId": "cp-new"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_read",
+          "params": {
+            "checkpointId": "cp-old"
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "document_mark_dirty",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "dirty": true
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "document_checkpoint",
+          "params": {
+            "documentId": "cp-new",
+            "editorRevision": 1,
+            "baseDiskRevision": {
+              "token": "disk-before",
+              "contentHash": "controlled-disk-hash",
+              "byteLength": "12",
+              "modifiedAt": "2026-11-01T00:00:00Z"
+            },
+            "text": "recovered draft text\n",
+            "selection": {
+              "anchor": 6,
+              "head": 6
+            }
+          },
+          "projectId": "a"
+        },
+        {
+          "method": "recovery_list",
+          "params": {
+            "projectId": "a"
+          }
+        },
+        {
+          "method": "recovery_resolve",
+          "params": {
+            "checkpointId": "cp-old",
+            "replacementDocumentId": "cp-new"
+          },
+          "projectId": "a"
+        }
+      ],
+      "lists": [
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old"
+          ],
+          "settled": true
+        },
+        {
+          "projectId": "a",
+          "checkpointIds": [
+            "cp-old",
+            "cp-new"
+          ],
+          "settled": true
+        }
+      ],
+      "cleanupCompleted": true,
+      "retainedCheckpointIds": [
+        "cp-new"
+      ],
+      "buffer": {
+        "projectId": "a",
+        "checkpointId": "cp-new",
+        "checkpointVersion": 1,
+        "version": 1,
+        "dirty": true,
+        "text": "recovered draft text\n",
+        "selection": {
+          "anchor": 6,
+          "head": 6
+        }
+      },
+      "noticeText": "1 份未保存草稿待恢复alpha.txt · 11/1/2026, 8:01:00 AM比较草稿与磁盘恢复到编辑器",
+      "candidateIds": [
+        "cp-old"
+      ],
+      "comparisonPresent": false,
+      "rootHTML": "<div class=\"editor-notice\" role=\"status\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-clock\" style=\"vertical-align: middle; margin-right: 6px;\"><path d=\"M16 22h2a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3\"></path><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"></path><circle cx=\"8\" cy=\"16\" r=\"6\"></circle><path d=\"M9.5 17.5 8 16.25V14\"></path></svg><strong>1 份未保存草稿待恢复</strong><select aria-label=\"选择待恢复草稿\" style=\"max-width: 35%; margin-left: 10px;\"><option value=\"cp-old\">alpha.txt · 11/1/2026, 8:01:00 AM</option></select><button>比较草稿与磁盘</button><button>恢复到编辑器</button></div>"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: successful restore must invalidate stale old-checkpoint list responses\n\n1 !== 0\n",
+  "stack": "AssertionError [ERR_ASSERTION]: successful restore must invalidate stale old-checkpoint list responses\n\n1 !== 0\n\n    at file:///Users/chenpengxiang/Desktop/Horizon/.work/recovery-notice-restore-refresh-20261102/run-race-check.mjs:48:10",
+  "completedAt": "2026-11-01T21:36:47.571Z",
+  "durationMs": 958
+}
