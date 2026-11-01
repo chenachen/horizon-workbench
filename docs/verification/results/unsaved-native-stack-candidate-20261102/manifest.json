@@ -1,0 +1,243 @@
+{
+  "status": "PREPARED_NOT_APPLIED_NATIVE_AX_UNVERIFIED",
+  "preparedAt": "2026-11-01T17:48:25.546890+00:00",
+  "changes": [
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "beforeSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "afterSHA256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19"
+    },
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "6c4534b8b263aef2498da6cdea91f8128577bfd6b86faccb131a3cb079e856ea",
+      "afterSHA256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4"
+    }
+  ],
+  "patchSHA256": "604f10294d0d716288c2d274cf64fe56625e1466d83a980f6c1515186705c6c2",
+  "causalAssessment": {
+    "sourceFacts": [
+      "Settings plus ConnectionForm already use two native showModal dialogs; local discard and App discard add a third.",
+      "Launcher editor is inline, so its Done confirmation adds only a second native dialog.",
+      "Portal changes physical ancestry but leaves showModal stack depth unchanged.",
+      "Modal labels resolve to actual h2 IDs and cancel is prevented on the native dialog."
+    ],
+    "parentReportedNativeEvidence": {
+      "buildPrefix": "f544",
+      "pid": 27780,
+      "observation": "Confirmation screenshot visible but full native AX empty; fresh read and one Tab focus move to Continue remained empty. Fields/key survived Continue, Cancel then Discard cleared draft.",
+      "personallyReproducedByThisAgent": false
+    },
+    "hypothesis": "Native stack depth correlates with the readable Q1 versus unreadable connection/App confirmation. Not a proven WebKit root cause."
+  },
+  "behavior": [
+    "Optional Modal replaceTop defaults false and is enabled only by UnsavedChanges.",
+    "With two or more underlying native modals, close only the focused/top dialog before showing discard confirmation; keep React state and lower Settings dialog mounted/open.",
+    "Do not invoke business onClose when suspending. On confirmation cleanup, reopen the original top only if still connected and still closed, then restore prior focus.",
+    "If original form unmounts during direct discard or App discard, do not reopen the detached dialog. Q1 single-underlying-modal path stays unchanged.",
+    "No new modal framework, focus trap, timers, retry loop, backend command or global modal registry."
+  ],
+  "validation": {
+    "component": {
+      "path": "result.json",
+      "passed": true,
+      "durationMs": 7719,
+      "originalChecks": 18,
+      "additionalAppQuitChecks": 2,
+      "scenarios": [
+        {
+          "kind": "connection-close",
+          "passed": true,
+          "confirmationChecks": 11,
+          "observations": 9,
+          "nativeDialogStacks": [
+            [
+              "设置",
+              "放弃未保存的修改？"
+            ]
+          ],
+          "browserErrors": [],
+          "consoleErrors": []
+        },
+        {
+          "kind": "outer-close-and-hidden",
+          "passed": true,
+          "confirmationChecks": 9,
+          "observations": 3,
+          "nativeDialogStacks": [
+            [
+              "设置",
+              "放弃未保存的修改？"
+            ]
+          ],
+          "browserErrors": [],
+          "consoleErrors": []
+        }
+      ],
+      "nativeAXClaim": false
+    },
+    "typeScript": {
+      "path": "typecheck-result.json",
+      "passed": true,
+      "overlays": 2,
+      "sourceFiles": 2,
+      "diagnostics": 0,
+      "durationMs": 680
+    },
+    "patchCheck": {
+      "command": "rtk git apply --check .work/unsaved-native-stack-20261102/source.patch",
+      "exitCode": 0
+    },
+    "productSources": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "beforeSHA256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+        "currentSHA256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/components/Modal.tsx",
+        "beforeSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+        "currentSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "beforeSHA256": "6c4534b8b263aef2498da6cdea91f8128577bfd6b86faccb131a3cb079e856ea",
+        "currentSHA256": "6c4534b8b263aef2498da6cdea91f8128577bfd6b86faccb131a3cb079e856ea",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "beforeSHA256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+        "currentSHA256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/processes/index.tsx",
+        "beforeSHA256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+        "currentSHA256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "beforeSHA256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+        "currentSHA256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+        "unchanged": true
+      }
+    ],
+    "productSourcesUnchanged": true
+  },
+  "pending": "Root review and later native macOS AX verification; current portal native failure is retained. No build, main-app GUI or live product mutation by this candidate task.",
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "85326f35efe6c7997bec721577aa0294b71959e507a0b7c0760f643546dd58b0",
+      "bytes": 2361
+    },
+    {
+      "path": "after/apps/desktop/src/App.tsx",
+      "sha256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+      "bytes": 75093
+    },
+    {
+      "path": "after/apps/desktop/src/components/Modal.tsx",
+      "sha256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19",
+      "bytes": 1977
+    },
+    {
+      "path": "after/apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4",
+      "bytes": 1889
+    },
+    {
+      "path": "after/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+      "bytes": 20289
+    },
+    {
+      "path": "after/apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+      "bytes": 61450
+    },
+    {
+      "path": "after/apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "sha256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+      "bytes": 75727
+    },
+    {
+      "path": "before/apps/desktop/src/App.tsx",
+      "sha256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+      "bytes": 75093
+    },
+    {
+      "path": "before/apps/desktop/src/components/Modal.tsx",
+      "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "bytes": 1596
+    },
+    {
+      "path": "before/apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "6c4534b8b263aef2498da6cdea91f8128577bfd6b86faccb131a3cb079e856ea",
+      "bytes": 1878
+    },
+    {
+      "path": "before/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+      "bytes": 20289
+    },
+    {
+      "path": "before/apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+      "bytes": 61450
+    },
+    {
+      "path": "before/apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "sha256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+      "bytes": 75727
+    },
+    {
+      "path": "entry.tsx",
+      "sha256": "5940fa5d326d06d6e0c7a7ffc19590e74db2718c3583770b0c582bd8f5c28f9a",
+      "bytes": 8334
+    },
+    {
+      "path": "result.json",
+      "sha256": "91092f50cef60b99bb9dc345d909dee4fb9e4d9f4fb53a4a8e204c8ffc834e49",
+      "bytes": 80651
+    },
+    {
+      "path": "run-typecheck.mjs",
+      "sha256": "ac62aeeb34e41666d1e3071f75b58f287c7bb8ca446f6fbfb98562f833ab9a59",
+      "bytes": 3328
+    },
+    {
+      "path": "run.mjs",
+      "sha256": "76d630ebab9923620cd3d0352fc1e7866d361e4aed839c8a4f15e2d57a3efc6e",
+      "bytes": 30854
+    },
+    {
+      "path": "source/reused-harness/entry.tsx",
+      "sha256": "5940fa5d326d06d6e0c7a7ffc19590e74db2718c3583770b0c582bd8f5c28f9a",
+      "bytes": 8334
+    },
+    {
+      "path": "source/reused-harness/run.mjs",
+      "sha256": "0cd0b43a74f664c41613c6cb71e640157294dd9d3c73f92151b0ddc4ad22f6a3",
+      "bytes": 28952
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "fbf4831f04b25e0cb25ccf67d4a8b88f058859698823d2219d3abad07f3bb219",
+      "bytes": 2787
+    },
+    {
+      "path": "source.patch",
+      "sha256": "604f10294d0d716288c2d274cf64fe56625e1466d83a980f6c1515186705c6c2",
+      "bytes": 2735
+    },
+    {
+      "path": "typecheck-result.json",
+      "sha256": "3381defaa5e6f9de1b8c22c73ba035147bcbce2867161e6f4cb6a4f43614dcd2",
+      "bytes": 1273
+    }
+  ]
+}

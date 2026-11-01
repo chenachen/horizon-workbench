@@ -1,0 +1,13 @@
+{
+  "integratedAt": "2026-11-01T18:05:09.486189+00:00",
+  "path": "apps/desktop/src-tauri/src/windows_process.rs",
+  "beforeSha256": "d55f37009c32c87e6cdb99cf06f902dd7d52f558b5e3f61b7d1d365453e4ab7e",
+  "afterSha256": "367bd78dcc122ea940902269d72a9e904a9dfc9f2021813344adaad16239b20e",
+  "review": "Root read full delta, existing attach failure/terminate paths and search/git lease release callers; verified Windows-sys0.59 declarations and Microsoft DuplicateHandle/WaitForSingleObject/TerminateProcess semantics. Duplicate references same caller-owned object with same access, non-inheritable. Both Job count and root wait must confirm termination; unknown wait states fail, no PID reopening. One extra OwnedHandle closes with existing Arc; unchanged public API, dependencies and test section.",
+  "nativeValidation": "PENDING next Windows CI; current0042 run remains on pre-change production helper; no local compile/test during plugin GUI lease",
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-duplicatehandle",
+    "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject",
+    "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-terminateprocess"
+  ]
+}

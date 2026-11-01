@@ -1,0 +1,114 @@
+--- a/apps/desktop/src-tauri/src/processes.rs
++++ b/apps/desktop/src-tauri/src/processes.rs
+@@ -3759,3 +3759,111 @@
+         assert!(TcpStream::connect(("127.0.0.1", port)).is_err());
+     }
+ }
++
++
++#[cfg(all(test, windows))]
++mod windows_tests {
++    use super::*;
++
++    struct OwnedPtyCleanup(String);
++    impl Drop for OwnedPtyCleanup {
++        fn drop(&mut self) {
++            // Include a registered spawn-failure resource, if any, and target
++            // only this test's unique project-owned objects, never a PID lookup.
++            let processes = {
++                let registry = registry().lock().unwrap_or_else(|e| e.into_inner());
++                registry.processes.values().filter_map(|process| {
++                    let owned = process.lock().unwrap_or_else(|e| e.into_inner()).project == self.0;
++                    owned.then(|| process.clone())
++                }).collect::<Vec<_>>()
++            };
++            for process in processes {
++                if let Err(error) = stop_process(&process, true, None) {
++                    eprintln!("owned Windows ConPTY cleanup remains unconfirmed: {error:?}");
++                }
++            }
++        }
++    }
++
++    fn wait_for_output(process: &Arc<Mutex<Process>>, expected: &str, timeout: Duration) {
++        let started = Instant::now();
++        loop {
++            let (state, bytes) = {
++                let process = process.lock().unwrap();
++                (process.state.clone(), process.output.read(0, 64 * 1024))
++            };
++            let text = String::from_utf8_lossy(&bytes);
++            if text.contains(expected) { return; }
++            assert!(state != "exited" && started.elapsed() < timeout,
++                "expected {expected:?}, state={state}, output={:?}", text.chars().take(2000).collect::<String>());
++            thread::sleep(Duration::from_millis(20));
++        }
++    }
++
++    #[test]
++    fn owned_conpty_chinese_resize_and_stop() {
++        let directory = tempfile::tempdir().unwrap();
++        let project = id("windows-conpty-test");
++        let _cleanup = OwnedPtyCleanup(project.clone());
++        let powershell = executable("powershell.exe").unwrap();
++        let script = r#"[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false);
++[Console]::WriteLine('HORIZON_CONPTY_中文输出');
++while ($true) {
++    [Console]::WriteLine(('HORIZON_CONPTY_SIZE={0}x{1}' -f [Console]::WindowWidth, [Console]::WindowHeight));
++    Start-Sleep -Milliseconds 50;
++}"#;
++        let args = vec!["-NoLogo".into(), "-NoProfile".into(), "-Command".into(), script.into()];
++        let step = LaunchStep {
++            step_id: "windows-conpty".into(),
++            title: "Owned Windows ConPTY".into(),
++            depends_on: vec![],
++            command: LaunchCommand::Exec { executable: powershell.to_string_lossy().into_owned(), args: args.clone() },
++            cwd: ".".into(),
++            env: BTreeMap::new(),
++            secret_refs: BTreeMap::new(),
++            mode: "pty".into(),
++            lifecycle: "service".into(),
++            ready: Ready::ProcessStarted,
++            on_ready: None,
++        };
++        let process_id = spawn_process(
++            &Resolved { step, executable: powershell, args, cwd: directory.path().to_path_buf() },
++            &project, "horizon.terminal", None, None, None,
++        ).unwrap();
++        let process = process_for(&process_id, Some(&project)).unwrap();
++        let (pid, job) = {
++            let process = process.lock().unwrap();
++            (process.pid, process.job.clone())
++        };
++        let job = job.expect("production ConPTY spawn must retain its owned Job");
++        assert_eq!(job.root_pid(), pid);
++        assert!(job.contains_pid(pid).unwrap());
++        wait_for_output(&process, "HORIZON_CONPTY_中文输出", Duration::from_secs(10));
++
++        // The library's get_size alone may reflect cached dimensions. Require
++        // the attached PowerShell's real Console API report after the resize.
++        let resized = {
++            let process = process.lock().unwrap();
++            match process.master.as_ref() {
++                Some(master) => master.resize(PtySize { rows: 40, cols: 120, pixel_width: 0, pixel_height: 0 })
++                    .and_then(|_| master.get_size()).map_err(|error| error.to_string()),
++                None => Err("production PTY master missing".to_string()),
++            }
++        }.unwrap();
++        assert_eq!((resized.cols, resized.rows), (120, 40));
++        wait_for_output(&process, "HORIZON_CONPTY_SIZE=120x40", Duration::from_secs(5));
++
++        let stopped = stop_process(&process, false, None).unwrap();
++        assert_eq!(stopped["exited"], true);
++        let (state, exit, lease_releasing, master_released, writer_released) = {
++            let process = process.lock().unwrap();
++            (process.state.clone(), process.exit, process.lease_releasing, process.master.is_none(), process.writer.is_none())
++        };
++        assert_eq!(state, "exited");
++        assert!(exit.is_some());
++        assert!(!lease_releasing);
++        assert!(master_released && writer_released);
++        assert!(job.is_empty().unwrap(), "owned root handle and entire Job must be terminal");
++        println!("Windows ConPTY PID {pid}: Chinese output, real size120x40, process exited and Job empty");
++    }
++}

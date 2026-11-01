@@ -1,0 +1,37 @@
+{
+  "preparedAt": "2026-11-01T18:13:22.244885+00:00",
+  "status": "FROZEN SINGLE WINDOWS CONPTY TEST CANDIDATE; not applied, compiled, or run",
+  "owner": "/root/process_sol",
+  "destination": "apps/desktop/src-tauri/src/processes.rs",
+  "candidate": ".work/windows-conpty-test-20261102/src/processes.rs",
+  "beforeSha256": "452bbab67c3b1a2295c9e99aab44c0a030fefda68d9783212d2451c7dc9d998f",
+  "candidateSha256": "6759891cacc59b51f9d8663882dc88bd81262a39bbc3965c85a423eb98aa0ae0",
+  "sourcePatch": ".work/windows-conpty-test-20261102/source.patch",
+  "sourcePatchSha256": "d9292ef3a31f69de111fed28ee62b321d82b00d2a75fced06b781e70e64893ac",
+  "productionAndExistingTestsByteForBytePrefixPreserved": true,
+  "onlyAddedModule": "#[cfg(all(test, windows))] mod windows_tests",
+  "test": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+  "exactCommand": "cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib processes::windows_tests::owned_conpty_chinese_resize_and_stop -- --exact --nocapture",
+  "scope": [
+    "Production spawn_process pty uses vendored suspended ConPTY creation and shared owned Job attach/resume",
+    "Actual powershell.exe prints a Chinese marker through ConPTY output",
+    "Master resize40x120/get_size plus real attached PowerShell Console WindowWidth/Height report120x40",
+    "Production stop_process must confirm process exited, exitCode present, no lease_releasing, master/writer released, whole Job/root terminal",
+    "Unique project-owned registry Arc cleanup guard invokes production force stop on any assertion/spawn/output/resize failure, no PID reopening or external signals"
+  ],
+  "bounds": {
+    "chineseOutputSeconds": 10,
+    "realResizeOutputSeconds": 5,
+    "stop": "existing production stop_process deadline; cleanup guard uses existing forced stop deadline"
+  },
+  "dependenciesChanged": false,
+  "helperRequirement": "Root already integrated OwnedJob367bd78d dual Job-count/root-handle confirmation;0042f3f standalone Job assertions unchanged",
+  "validation": "Static appended-only transformation and read review only; prohibited local compilation/execution obeyed",
+  "windowsNativeExecution": "Pending next root-authorized native Windows CI; no passing claim",
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/console/resizepseudoconsole"
+  ],
+  "frozenAt": "2026-11-01T18:14:21.691253+00:00",
+  "addedTestCount": 1,
+  "addedModuleSha256": "00e3f127c821fe2d46b2c52be05b82d5316d61ad8358d38ba11e2c873b040191"
+}

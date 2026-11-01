@@ -8,13 +8,13 @@ use std::{
     sync::Arc,
 };
 use windows_sys::Win32::{
-    Foundation::{ERROR_INSUFFICIENT_BUFFER, HANDLE, INVALID_HANDLE_VALUE, WAIT_OBJECT_0, WAIT_TIMEOUT},
+    Foundation::{DuplicateHandle, DUPLICATE_SAME_ACCESS, ERROR_INSUFFICIENT_BUFFER, HANDLE, INVALID_HANDLE_VALUE, WAIT_FAILED, WAIT_OBJECT_0, WAIT_TIMEOUT},
     NetworkManagement::IpHelper::{GetExtendedTcpTable, MIB_TCP6ROW_OWNER_PID, MIB_TCP6TABLE_OWNER_PID, MIB_TCPROW_OWNER_PID, MIB_TCPTABLE_OWNER_PID, TCP_TABLE_OWNER_PID_LISTENER},
     Networking::WinSock::{AF_INET, AF_INET6},
     System::{
         Diagnostics::ToolHelp::{CreateToolhelp32Snapshot, Thread32First, Thread32Next, THREADENTRY32, TH32CS_SNAPTHREAD},
         JobObjects::{AssignProcessToJobObject, CreateJobObjectW, IsProcessInJob, JobObjectBasicAccountingInformation, JobObjectExtendedLimitInformation, QueryInformationJobObject, SetInformationJobObject, TerminateJobObject, JOBOBJECT_BASIC_ACCOUNTING_INFORMATION, JOBOBJECT_EXTENDED_LIMIT_INFORMATION, JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE},
-        Threading::{GetProcessId, GetProcessIdOfThread, OpenProcess, OpenThread, ResumeThread, TerminateProcess, WaitForSingleObject, CREATE_NEW_PROCESS_GROUP, CREATE_NO_WINDOW, CREATE_SUSPENDED, PROCESS_QUERY_LIMITED_INFORMATION, THREAD_QUERY_LIMITED_INFORMATION, THREAD_SUSPEND_RESUME},
+        Threading::{GetCurrentProcess, GetProcessId, GetProcessIdOfThread, OpenProcess, OpenThread, ResumeThread, TerminateProcess, WaitForSingleObject, CREATE_NEW_PROCESS_GROUP, CREATE_NO_WINDOW, CREATE_SUSPENDED, PROCESS_QUERY_LIMITED_INFORMATION, THREAD_QUERY_LIMITED_INFORMATION, THREAD_SUSPEND_RESUME},
     },
 };
 
@@ -29,11 +29,20 @@ pub fn prepare_command(command: &mut Command) {
 #[derive(Debug)]
 pub struct OwnedJob {
     handle: OwnedHandle,
+    root: OwnedHandle,
     root_pid: u32,
 }
 
 impl OwnedJob {
-    fn create(root_pid: u32) -> io::Result<Arc<Self>> {
+    fn create(process: HANDLE, root_pid: u32) -> io::Result<Arc<Self>> {
+        let mut root = std::ptr::null_mut();
+        let current = unsafe { GetCurrentProcess() };
+        // Retain the same owned process object, without reopening by PID or
+        // allowing this confirmation handle to escape into future children.
+        if unsafe { DuplicateHandle(current, process, current, &mut root, 0, 0, DUPLICATE_SAME_ACCESS) } == 0 {
+            return Err(io::Error::last_os_error());
+        }
+        let root = unsafe { OwnedHandle::from_raw_handle(root as RawHandle) };
         let handle = unsafe { CreateJobObjectW(std::ptr::null(), std::ptr::null()) };
         if handle.is_null() { return Err(io::Error::last_os_error()); }
         let handle = unsafe { OwnedHandle::from_raw_handle(handle as RawHandle) };
@@ -42,7 +51,7 @@ impl OwnedJob {
         if unsafe { SetInformationJobObject(handle.as_raw_handle() as HANDLE, JobObjectExtendedLimitInformation, (&limits as *const JOBOBJECT_EXTENDED_LIMIT_INFORMATION).cast(), size_of::<JOBOBJECT_EXTENDED_LIMIT_INFORMATION>() as u32) } == 0 {
             return Err(io::Error::last_os_error());
         }
-        Ok(Arc::new(Self { handle, root_pid }))
+        Ok(Arc::new(Self { handle, root, root_pid }))
     }
 
     pub fn root_pid(&self) -> u32 { self.root_pid }
@@ -56,13 +65,20 @@ impl OwnedJob {
         Ok(())
     }
 
-    /// Root exit alone is insufficient: descendants must also have exited.
+    /// Both the owned tree and the same root process must have terminated.
+    /// Job accounting can reach zero before the root handle becomes signaled.
     pub fn is_empty(&self) -> io::Result<bool> {
         let mut accounting: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION = unsafe { zeroed() };
         if unsafe { QueryInformationJobObject(self.handle.as_raw_handle() as HANDLE, JobObjectBasicAccountingInformation, (&mut accounting as *mut JOBOBJECT_BASIC_ACCOUNTING_INFORMATION).cast(), size_of::<JOBOBJECT_BASIC_ACCOUNTING_INFORMATION>() as u32, std::ptr::null_mut()) } == 0 {
             return Err(io::Error::last_os_error());
         }
-        Ok(accounting.ActiveProcesses == 0)
+        if accounting.ActiveProcesses != 0 { return Ok(false); }
+        match unsafe { WaitForSingleObject(self.root.as_raw_handle() as HANDLE, 0) } {
+            WAIT_OBJECT_0 => Ok(true),
+            WAIT_TIMEOUT => Ok(false),
+            WAIT_FAILED => Err(io::Error::last_os_error()),
+            value => Err(io::Error::other(format!("unexpected owned root wait result: {value}"))),
+        }
     }
 
     /// Read-only membership check, used for port ownership. No signal by PID.
@@ -110,7 +126,9 @@ fn resume_owned_thread(process: HANDLE, pid: u32) -> io::Result<()> {
 /// # Safety
 /// `process` must be the live handle of the caller's newly spawned suspended
 /// child, held throughout this call; `pid` must come from that same Child.
-/// No ownership of the borrowed handle is taken. A mismatched PID is rejected
+/// No ownership of the borrowed handle is taken; the Job retains a separate,
+/// noninheritable duplicate for confirming this same root's terminal state.
+/// A mismatched PID is rejected
 /// without terminating anything. On subsequent failure this function requests
 /// termination through the owned Job/child handle and waits at most two seconds.
 /// The caller retains Child; cleanup timeout is an error, never proof of exit.
@@ -124,7 +142,7 @@ pub unsafe fn attach_suspended(process: RawHandle, pid: u32) -> io::Result<Arc<O
     }
     let mut job = None;
     let result = (|| {
-        let created = OwnedJob::create(pid)?;
+        let created = OwnedJob::create(process, pid)?;
         job = Some(created.clone());
         if AssignProcessToJobObject(created.handle.as_raw_handle() as HANDLE, process) == 0 {
             return Err(io::Error::last_os_error());

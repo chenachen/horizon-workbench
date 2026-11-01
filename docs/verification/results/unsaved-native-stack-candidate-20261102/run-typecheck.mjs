@@ -1,0 +1,26 @@
+import ts from 'typescript';
+import path from 'node:path';
+import { readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
+
+const repository = '/Users/chenpengxiang/Desktop/Horizon', directory = path.dirname(fileURLToPath(import.meta.url));
+const metadata = JSON.parse(await readFile(path.join(directory, 'source-sha.json'), 'utf8'));
+const overlays = new Map(await Promise.all(metadata.changes.map(async source => [path.join(repository, source.path), await readFile(path.join(directory, 'after', source.path), 'utf8')])));
+const sha256 = data => createHash('sha256').update(data).digest('hex');
+const configFile = path.join(repository, 'apps/desktop/tsconfig.json');
+const config = ts.readConfigFile(configFile, ts.sys.readFile);
+const parsed = ts.parseJsonConfigFileContent(config.config, ts.sys, path.dirname(configFile));
+const report = { kind: 'TypeScript noEmit with in-memory Modal/UnsavedChanges native-stack candidates; actual imported types/dependencies', startedAt: new Date().toISOString(), compilerVersion: ts.version, overlays: [...overlays].map(([file, text]) => ({ path: path.relative(repository, file), sha256: sha256(text) })), configErrors: [...(config.error ? [config.error] : []), ...parsed.errors].map(d => ts.flattenDiagnosticMessageText(d.messageText, '\n')), passed: false };
+const host = ts.createCompilerHost({ ...parsed.options, noEmit: true });
+const originalRead = host.readFile.bind(host);
+host.readFile = file => overlays.get(path.resolve(file)) ?? originalRead(file);
+const program = ts.createProgram({ rootNames: [...overlays.keys()], options: { ...parsed.options, noEmit: true }, host });
+report.diagnostics = ts.getPreEmitDiagnostics(program).map(d => { const where = d.file && d.start !== undefined ? d.file.getLineAndCharacterOfPosition(d.start) : undefined; return { code: d.code, category: ts.DiagnosticCategory[d.category], message: ts.flattenDiagnosticMessageText(d.messageText, '\n'), file: d.file?.fileName, line: where ? where.line + 1 : undefined, column: where ? where.character + 1 : undefined }; });
+report.importedSources = program.getSourceFiles().filter(f => !f.isDeclarationFile).map(f => ({ path: path.relative(repository, f.fileName), sha256: sha256(f.text), overlay: overlays.has(path.resolve(f.fileName)) }));
+report.productSourcesUnchanged = await Promise.all(metadata.changes.map(async source => ({ path: source.path, unchanged: sha256(await readFile(path.join(repository, source.path))) === source.beforeSHA256 })));
+report.passed = report.configErrors.length === 0 && report.diagnostics.length === 0 && report.productSourcesUnchanged.every(source => source.unchanged);
+report.completedAt = new Date().toISOString(); report.durationMs = Date.now() - Date.parse(report.startedAt);
+await writeFile(path.join(directory, 'typecheck-result.json'), JSON.stringify(report, null, 2) + '\n');
+console.log(JSON.stringify({ passed: report.passed, diagnostics: report.diagnostics, configErrors: report.configErrors, overlays: report.overlays.length, importedSources: report.importedSources.length, durationMs: report.durationMs, sourcesUnchanged: report.productSourcesUnchanged.every(s => s.unchanged), result: path.join(directory, 'typecheck-result.json') }));
+if (!report.passed) process.exitCode = 1;

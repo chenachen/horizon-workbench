@@ -1,0 +1,12 @@
+{
+  "integratedAt": "2026-11-01T18:15:35.160162+00:00",
+  "path": "apps/desktop/src-tauri/src/processes.rs",
+  "beforeSha256": "452bbab67c3b1a2295c9e99aab44c0a030fefda68d9783212d2451c7dc9d998f",
+  "afterSha256": "6759891cacc59b51f9d8663882dc88bd81262a39bbc3965c85a423eb98aa0ae0",
+  "workflowSha256": "b8a2a8f510678a6f6d929fe93e0971e4e5c016d14eae50dbfabd01eb34b60724",
+  "exactTest": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+  "review": "Root read all108 added lines, production executable resolution, PTY spawn and Windows stop paths. One Windows-only test uses real PowerShell Chinese output, master resize plus child Console dimension report, production stop, exited/exitCode/lease/master/writer and Job terminal assertions. Unique project cleanup guard invokes production stop only on owned registry Arcs, with tempdir retained until cleanup. Full prior production/Unix-test prefix unchanged.",
+  "reason": "New suspended ConPTY and vendored creation-flags path has no native coverage in the existing Unix-only PTY suite or ordinary-pipe Job test. This adds one direct platform check, not another macOS GUI cycle.",
+  "validation": "PENDING next Windows native CI; no local compile or execution during plugin lease",
+  "ciStep": "Check native Windows ConPTY output, resize and stop"
+}

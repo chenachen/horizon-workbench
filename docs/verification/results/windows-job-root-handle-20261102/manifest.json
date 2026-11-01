@@ -1,0 +1,36 @@
+{
+  "preparedAt": "2026-11-01T18:03:35.165394+00:00",
+  "status": "FROZEN SINGLE-HELPER CANDIDATE; root approved semantics; not applied or compiled",
+  "owner": "/root/process_sol",
+  "destination": "apps/desktop/src-tauri/src/windows_process.rs",
+  "beforeSha256": "d55f37009c32c87e6cdb99cf06f902dd7d52f558b5e3f61b7d1d365453e4ab7e",
+  "candidateSha256": "367bd78dcc122ea940902269d72a9e904a9dfc9f2021813344adaad16239b20e",
+  "candidate": ".work/windows-job-root-handle-20261102/src/windows_process.rs",
+  "sourcePatch": ".work/windows-job-root-handle-20261102/source.patch",
+  "sourcePatchSha256": "df5d9c3d364a3a5192485b43ba94496f653447cec623a2e2047573f2ff926a69",
+  "testsUnchangedFromCurrentSource": true,
+  "contract": {
+    "identity": "Duplicate the caller-held same Child HANDLE inside validated attach; never reopen by PID; duplicate is noninheritable and same access",
+    "is_empty": "ActiveProcesses == 0 AND duplicated root handle WAIT_OBJECT_0 with zero timeout; timeout false and wait failure error",
+    "signatureChanges": "Only private create adds process HANDLE; public API unchanged",
+    "lifetime": "One additional OwnedHandle per Arc<OwnedJob>, closed with Job",
+    "failure": "Duplicate failure follows existing attach cleanup on original borrowed owned child; cleanup timeout remains unconfirmed; no new registry/state machine",
+    "timing": "No blocking wait added; all caller deadlines/poll intervals remain unchanged"
+  },
+  "cargoChangeRequired": false,
+  "dependencies": "Existing windows-sys0.59 Foundation and Threading APIs; bindings read, no compile performed",
+  "validation": "Only static source transform and exact tests-tail equality; no live helper/source/appdata changes, no compile/test/GUI/process execution",
+  "evidence": [
+    "Real CI run41332498997 Job accounting reached zero before immediate Child.try_wait returned Some; bounded test patch0042f3f remains untouched",
+    "search ProcessLease Drop and git release_windows_lease inherit stronger confirmation without caller edits"
+  ],
+  "scopeLimit": "This closes the observed root-process confirmation gap; no new descendant-handle registry or cleanup state machine introduced",
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-duplicatehandle",
+    "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject"
+  ],
+  "frozenAt": "2026-11-01T18:04:25.631700+00:00",
+  "testsSectionSha256Unchanged": "cafaa88fe026cda531c9d344eb4bde7b8f3cf8a83d7d5993ca9d5f838eee5f68",
+  "publicFunctionDeclarationsIdentical": true,
+  "rootApprovedConstraints": "Preserve0042f3f tests/all assertions, public API/dependencies/normal child waits; root integrates after independent review; next nativeCI validates"
+}

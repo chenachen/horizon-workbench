@@ -1,0 +1,66 @@
+{
+  "integratedAt": "2026-11-01T17:50:03.403116+00:00",
+  "changes": [
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "beforeSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "afterSHA256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19"
+    },
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "6c4534b8b263aef2498da6cdea91f8128577bfd6b86faccb131a3cb079e856ea",
+      "afterSHA256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4"
+    }
+  ],
+  "review": "Read full two-file delta, caller shapes, existing native failure, original Modal and new cleanup. Only Unsaved opts into suspending focused top when two native dialogs already exist; keeps form state, native semantics and parent. Restores only connected closed original on cleanup; same-batch unmount checked. Stack-depth link is a hypothesis, native AX remains failed pending new package.",
+  "reusedChecks": {
+    "path": "result.json",
+    "passed": true,
+    "durationMs": 7719,
+    "originalChecks": 18,
+    "additionalAppQuitChecks": 2,
+    "scenarios": [
+      {
+        "kind": "connection-close",
+        "passed": true,
+        "confirmationChecks": 11,
+        "observations": 9,
+        "nativeDialogStacks": [
+          [
+            "设置",
+            "放弃未保存的修改？"
+          ]
+        ],
+        "browserErrors": [],
+        "consoleErrors": []
+      },
+      {
+        "kind": "outer-close-and-hidden",
+        "passed": true,
+        "confirmationChecks": 9,
+        "observations": 3,
+        "nativeDialogStacks": [
+          [
+            "设置",
+            "放弃未保存的修改？"
+          ]
+        ],
+        "browserErrors": [],
+        "consoleErrors": []
+      }
+    ],
+    "nativeAXClaim": false
+  },
+  "typeScript": {
+    "path": "typecheck-result.json",
+    "passed": true,
+    "overlays": 2,
+    "sourceFiles": 2,
+    "diagnostics": 0,
+    "durationMs": 680
+  },
+  "installedMainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+  "installedUnchanged": true,
+  "newNativeBuildPending": true,
+  "nativeObservationClarification": "The native f544 Portal batch entered name and model only; API key stayed empty. Nonempty key retention is covered only by the headless component cases. Candidate manifest wording fields/key in parentReportedNativeEvidence does not establish native credential retention."
+}

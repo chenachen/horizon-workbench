@@ -90,6 +90,10 @@ jobs:
         run: |
           cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib windows_process::tests::owned_job_stops_descendants_and_preserves_external -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-job.log
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check native Windows ConPTY output, resize and stop
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib processes::windows_tests::owned_conpty_chinese_resize_and_stop -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-conpty.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Check native Windows storage roundtrip
         run: |
           cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib files::tests::windows_storage_roundtrip -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-storage.log

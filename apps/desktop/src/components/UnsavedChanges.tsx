@@ -23,7 +23,7 @@ export function useDiscardConfirmation() {
   }, []);
   useEffect(() => () => { resolver.current?.(false); resolver.current = null; }, []);
   const confirmation = pending ? createPortal(<div onKeyDown={event => { if (event.key === 'Escape') event.stopPropagation(); }}>
-    <Modal title="放弃未保存的修改？" onClose={() => finish(false)}>
+    <Modal title="放弃未保存的修改？" onClose={() => finish(false)} replaceTop>
       <p>未保存的设置表单将被放弃。已生效的偏好和代码编辑内容保留。</p>
       <div className="form-actions"><button autoFocus onClick={() => finish(false)}>继续编辑</button><button className="danger-button" onClick={() => finish(true)}>放弃修改</button></div>
     </Modal>
