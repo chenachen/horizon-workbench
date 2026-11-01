@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-11-01T17:20:56.234391+00:00",
+  "stage": "L1 two actionable preflight errors; native preflight only, no approval",
+  "native": {
+    "captures": [
+      "05-missing-executable",
+      "05-windows-path"
+    ],
+    "missingError": "找不到可执行程序：.../missing-executable",
+    "windowsPathError": "此方案使用 Windows 程序路径；请编辑为当前 macOS 的可执行程序或 Shell",
+    "editEntryAvailableForBoth": true,
+    "previousRunEvidence": "09 frame retains prior08 log; no new approval/run reported"
+  },
+  "processes": [
+    {
+      "pid": 41657,
+      "ppid": 1,
+      "pgid": 41657,
+      "lstart": "Mon Nov 2 00:05:09 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "savedOwnedProfiles": [
+    {
+      "profileId": "profile-1793535771697-1",
+      "revision": 1,
+      "name": "1101 Q1 双服务 · 含子进程",
+      "requiredExtensions": []
+    },
+    {
+      "profileId": "profile-1793553287203-10",
+      "revision": 1,
+      "name": "1101 失败 PID · 后继不执行（导入）",
+      "requiredExtensions": []
+    },
+    {
+      "profileId": "profile-1793553472944-14",
+      "revision": 1,
+      "name": "1101 缺程序预检（导入）",
+      "requiredExtensions": []
+    },
+    {
+      "profileId": "profile-1793553576116-15",
+      "revision": 1,
+      "name": "1101 Windows 路径预检（导入）",
+      "requiredExtensions": []
+    }
+  ],
+  "markers": {
+    "candidate7/snapshots.jsonl": {
+      "exists": true,
+      "bytes": 975,
+      "sha256": "f40a02f51a3e7b6c7309412f1561340bc93f4bbb8dc83aedf22d9aff3fb8f62e",
+      "mtimeNs": 1793552835564723930
+    },
+    "candidate7/failed.pid": {
+      "exists": true,
+      "bytes": 5,
+      "sha256": "3ee96cf9bbc623b6af134bdd57657c26dce31cb1111bc54bebee178c90131a49",
+      "mtimeNs": 1793553346935458008
+    },
+    "candidate7/dependent-started": {
+      "exists": false
+    }
+  },
+  "launcherRunLeases": {},
+  "checks": {
+    "allKnownFiveFixturePidNumbersAbsent": true,
+    "appIdentityUnchanged": true,
+    "noNewFixtureStartupRows": true,
+    "sameFailedMarker": true,
+    "dependentNotStarted": true,
+    "noActiveLauncherLeases": true
+  },
+  "runObservationLimit": "Native error captures and source prepare flow supply the no-new-run claim; owner readonly data confirms no new fixture startup markers and no active lease. In-memory run list is not exported by this OS read.",
+  "ownerActions": "Readonly exact owned records/markers/known ps/lease; no GUI/start/signal/build"
+}

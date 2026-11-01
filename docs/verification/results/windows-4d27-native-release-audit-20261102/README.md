@@ -1,0 +1,9 @@
+# Windows4d27新增批独审
+
+固定commit4d27cfb22304/run41354321875/job124991021303，ARCHIVE11文件bytes/SHA全同；205166B原日志保留BOM/ANSI/2363CRLF。原9个命名测试及9条结果各1pass/0fail/0ignored，11个running横幅中的嵌套Job子进程不重复计数。ConPTY原记录1次CPR、中文输出、120×40、退出/Job空、0.53s；不是前端终端输入测试。
+
+main82fa3733真实PID7220/session2启动后5秒存活，OS窗口70050/Horizon/responding，frontend_interactive仍not_evaluated。真实Windows交互、安装点击、系统确认控件/焦点及2s性能没有由此验证；cleanup仅CI自有PID/start子树。
+
+非draft的windows-4d27cfb22304 prerelease五资产均uploaded。Root真实下载后，本审计独立重算两安装器9953298B/14320098B和三附属文件SHA，均与API digest及安装器SHA256SUMS匹配。没有运行/解包安装器或由外壳SHA推断内部main。
+
+旧0042/ae6和a721原失败不改。a721安装PERMISSION_DENIED原因仍未解释，本轮成功未声明修复历史原因。仅追加新平台事实，未新增GUI、测试或视觉通过。

@@ -1,0 +1,104 @@
+{
+  "observedAt": "2026-11-01T18:54:30.575058+00:00",
+  "checks": {
+    "globallyEnabledAndPaused": true,
+    "aProjectPauseRetained": true,
+    "bProjectPolicyUnchanged": true,
+    "noNativeActivations": true,
+    "noQuickJsWorker": true,
+    "sameGateProfileAndRevision": true,
+    "sameGateFileAsAllEarlierPhases": true,
+    "qaPackageConfigStorageUnchanged": true
+  },
+  "qaRevision": 20,
+  "nativeThreeGates": [
+    {
+      "state": "absent",
+      "label": "01-gate-missing",
+      "owner": "00-baseline-owner.json",
+      "error": "未安装扩展 local.resume-read-only-changes"
+    },
+    {
+      "state": "installed global disabled",
+      "label": "05-gate-disabled",
+      "owner": "02-installed-disabled-gate-owner.json",
+      "error": "local.resume-read-only-changes 已禁用"
+    },
+    {
+      "state": "installed global enabled+paused",
+      "label": "24-gate-paused",
+      "owner": "21-global-paused-third-gate-owner.json",
+      "error": "local.resume-read-only-changes 已暂停，请显式恢复"
+    }
+  ],
+  "gate": [
+    {
+      "schemaVersion": 1,
+      "profileId": "profile-1793553721348-16",
+      "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+      "revision": 1,
+      "name": "1101 扩展依赖门控 · 仅预检",
+      "requiredExtensions": [
+        {
+          "id": "local.resume-read-only-changes",
+          "versionRange": "*"
+        }
+      ],
+      "steps": [
+        {
+          "stepId": "service",
+          "title": "显式 Shell · 快照服务",
+          "dependsOn": [],
+          "command": {
+            "kind": "shell",
+            "shell": "/bin/sh",
+            "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' service.mjs"
+          },
+          "cwd": "candidate7",
+          "env": {
+            "PORT": "59133",
+            "SNAPSHOT": "original"
+          },
+          "secretRefs": {},
+          "mode": "pipe",
+          "lifecycle": "service",
+          "ready": {
+            "kind": "stdout",
+            "pattern": "READY",
+            "timeoutMs": 5000
+          },
+          "onReady": {
+            "openTerminal": false,
+            "openUrl": "http://127.0.0.1:59133/saved",
+            "autoOpenUrl": true
+          }
+        },
+        {
+          "stepId": "follower",
+          "title": "无探针后继",
+          "dependsOn": [
+            "service"
+          ],
+          "command": {
+            "kind": "shell",
+            "shell": "/bin/sh",
+            "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' follower.mjs"
+          },
+          "cwd": "candidate7",
+          "env": {
+            "SNAPSHOT": "original"
+          },
+          "secretRefs": {},
+          "mode": "pipe",
+          "lifecycle": "service",
+          "ready": {
+            "kind": "processStarted"
+          },
+          "onReady": null
+        }
+      ],
+      "failurePolicy": "stopStarted"
+    }
+  ],
+  "limits": "Three real preflights on the same never-approved gate; 0 new run evidenced by rejection/no approval/unchanged gate/no child start. Global pause plan had0 actual worker resources because B naturally slept before preparation; no false B kill attribution."
+}

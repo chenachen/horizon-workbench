@@ -1,0 +1,47 @@
+{
+  "observedAt": "2026-11-01T19:10:07.336961+00:00",
+  "before": "24-policy-sealed-before-normal-restart-owner.json",
+  "after": "25-new-build-startup-policy-owner.json",
+  "checks": {
+    "newExactBundleMatches": true,
+    "newAppPid19076": true,
+    "mainPolicyConfigGrantsVersionPreserved": true,
+    "mainAGlobalResumePlusProjectPause": true,
+    "mainBInherits": true,
+    "optionalPolicyPreserved": true,
+    "optionalADisabledBInherits": true,
+    "noAutomaticNativeQaActivation": true,
+    "noQuickJsProcess": true,
+    "privatePackagesStoragePreserved": true,
+    "gateProfileStillSame": true,
+    "host005StillNotArmed": true
+  },
+  "oldIdentity": {
+    "expectedMainSha256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+    "appPid": 27780,
+    "appOsIdentity": {
+      "pid": 27780,
+      "ppid": 1,
+      "pgid": 27780,
+      "start": "Mon Nov 2 01:37:30 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    "mainPath": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "newIdentity": {
+    "expectedMainSha256": "0546f9cde8b65fedda8cfbff07a5267bd7cdd99a23f1126db2c06b1b850500e0",
+    "appPid": 19076,
+    "appOsIdentity": {
+      "pid": 19076,
+      "ppid": 1,
+      "pgid": 19076,
+      "start": "Mon Nov 2 03:08:28 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    "mainPath": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "actualMainSha256": "0546f9cde8b65fedda8cfbff07a5267bd7cdd99a23f1126db2c06b1b850500e0",
+    "actualMainBytes": 19910976,
+    "matchesExpected": true
+  },
+  "limits": "Data/OS startup read only. Native GUI policy-source read is next, no Resume/command. Restart reset alone is not proof of old disposing4 fix; root ModalAX short card precedes directed clean-A sleep."
+}

@@ -1,0 +1,124 @@
+{
+  "observedAt": "2026-11-01T20:03:01.482241+00:00",
+  "stage": "WS004 one actual existing Q1 run live; no extra F04 cycle",
+  "native": {
+    "runId": "launch-1793563300074-2",
+    "profileId": "profile-1793535771697-1",
+    "profileRevision": 1,
+    "apiPid": 25278,
+    "webPid": 25283,
+    "bothReadyVerified": true,
+    "capture": "docs/verification/results/ws004-native-20261102/ws004-74714-1793563255623-02-q1-run-ready",
+    "incidentalView": "Reading run state opened project/resources settings and displayed F04; retained as real entrance observation only, not a new F04 acceptance/round. No repeat settings view authorized."
+  },
+  "identityMarkerBeforeBytes": 614,
+  "newIdentityRows": [
+    {
+      "role": "api",
+      "pid": 25278,
+      "childPid": 25279,
+      "ppid": 74714,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1",
+      "at": "2026-11-01T20:01:40.151Z"
+    },
+    {
+      "role": "child",
+      "pid": 25279,
+      "ppid": 25278,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1",
+      "at": "2026-11-01T20:01:40.182Z"
+    },
+    {
+      "role": "web",
+      "pid": 25283,
+      "ppid": 74714,
+      "cwd": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1",
+      "at": "2026-11-01T20:01:40.270Z"
+    }
+  ],
+  "identityFileNow": {
+    "bytes": 1230,
+    "sha256": "6c320ec57f637439903c7f19a4319a8db8c46352192100548b81271ad79eed7b",
+    "lineCount": 6
+  },
+  "processes": [
+    {
+      "pid": 8839,
+      "ppid": 74714,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:53:16 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+    },
+    {
+      "pid": 25278,
+      "ppid": 74714,
+      "pgid": 25278,
+      "start": "Mon Nov 2 04:01:40 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node api.mjs"
+    },
+    {
+      "pid": 25279,
+      "ppid": 25278,
+      "pgid": 25278,
+      "start": "Mon Nov 2 04:01:40 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node child.mjs"
+    },
+    {
+      "pid": 25283,
+      "ppid": 74714,
+      "pgid": 25283,
+      "start": "Mon Nov 2 04:01:40 2026",
+      "command": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node web.mjs"
+    },
+    {
+      "pid": 74714,
+      "ppid": 1,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:36:42 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "osCwds": {
+    "25278": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1",
+    "25279": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1",
+    "25283": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1"
+  },
+  "ports": {
+    "59130": {
+      "exitCode": 0,
+      "stdout": "COMMAND   PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    25278 chenpengxiang   21u  IPv4 0xfb62a057163e3a30      0t0  TCP 127.0.0.1:59130 (LISTEN)\n",
+      "stderr": "",
+      "ownerPids": [
+        25278
+      ]
+    },
+    "59131": {
+      "exitCode": 0,
+      "stdout": "COMMAND   PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    25283 chenpengxiang   22u  IPv4 0x31c2bc996730ad7a      0t0  TCP 127.0.0.1:59131 (LISTEN)\n",
+      "stderr": "",
+      "ownerPids": [
+        25283
+      ]
+    }
+  },
+  "currentLauncherRunLease": {
+    "activationId": "8fa7cb0d-4149-4487-be5d-04ce76c25541"
+  },
+  "checks": {
+    "nativeApiWebMatchActualNewMarkers": true,
+    "exactlyThreeNewRoleRows": true,
+    "apiChildLinkExact": true,
+    "threeLiveOwnedGroups": true,
+    "exactNodeCommands": true,
+    "osCwdAllOwnedQ1": true,
+    "portsOwnedApiAndWeb": true,
+    "appSameIdentity": true,
+    "otherAWorkerSameIdentity": true,
+    "profileFileUnchanged": true,
+    "oldMarkerPrefixRetained": true,
+    "noStopYet": true,
+    "newRunLauncherLeasePresent": true
+  },
+  "readyForRemove": true,
+  "ownerActions": "Readonly own runtime markers/exact live PID/start/argv/groups/cwd/ports/profile/own lease; no HTTP/start/signal/GUI/build/test"
+}

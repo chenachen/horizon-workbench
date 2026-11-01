@@ -1,0 +1,182 @@
+{
+  "recordedAt": "2026-11-01T18:36:00.129010+00:00",
+  "scope": "First independent frozenattempt04log/startup/release/downloadreceipt audit only. No CI rerun, GUI, installer operation, binary redownload/rehash, source edits or live plugin reads.",
+  "commit": "0042f3f54780bb840b04376705f2306cb08bf1b2",
+  "runId": 41334392501,
+  "jobId": 124930999000,
+  "frozenSevenArtifactChecks": {
+    "assets/SHA256SUMS.txt": true,
+    "assets/build-identity.txt": true,
+    "assets/startup-smoke.json": true,
+    "job.log": true,
+    "release-fetch-receipt.json": true,
+    "release.json": true,
+    "result.json": true
+  },
+  "originalLogOutcomes": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 1437,
+      "summaryLine": 1439,
+      "testRaw": "2026-11-01T18:13:52.8781475Z test async_broker_wait_does_not_spend_cpu_budget ... ok",
+      "summaryRaw": "2026-11-01T18:13:52.8787385Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s"
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 1762,
+      "summaryLine": 1764,
+      "testRaw": "2026-11-01T18:18:22.4496173Z test windows_process::tests::owned_job_stops_descendants_and_preserves_external ... ok",
+      "summaryRaw": "2026-11-01T18:18:22.4500652Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.05s"
+    },
+    {
+      "name": "files::tests::windows_storage_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 1848,
+      "summaryLine": 1850,
+      "testRaw": "2026-11-01T18:18:23.4615929Z test files::tests::windows_storage_roundtrip ... ok",
+      "summaryRaw": "2026-11-01T18:18:23.4621971Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.09s"
+    },
+    {
+      "name": "agent::tests::windows_named_pipe_current_user_token_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 1943,
+      "summaryLine": 1945,
+      "testRaw": "2026-11-01T18:18:24.4763522Z test agent::tests::windows_named_pipe_current_user_token_roundtrip ... ok",
+      "summaryRaw": "2026-11-01T18:18:24.4767746Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.01s"
+    },
+    {
+      "name": "settings::tests::windows_owned_credential_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 2019,
+      "summaryLine": 2021,
+      "testRaw": "2026-11-01T18:18:25.0539464Z test settings::tests::windows_owned_credential_roundtrip ... ok",
+      "summaryRaw": "2026-11-01T18:18:25.0545889Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.07s"
+    },
+    {
+      "name": "agent::platform::tests::windows_fixed_assets_paths_zip_and_environment",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 2095,
+      "summaryLine": 2097,
+      "testRaw": "2026-11-01T18:18:25.6792978Z test agent::platform::tests::windows_fixed_assets_paths_zip_and_environment ... ok",
+      "summaryRaw": "2026-11-01T18:18:25.6797760Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.00s"
+    },
+    {
+      "name": "agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 2171,
+      "summaryLine": 2173,
+      "testRaw": "2026-11-01T18:18:26.2239331Z test agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute ... ok",
+      "summaryRaw": "2026-11-01T18:18:26.2243969Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.02s"
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "testLine": 2257,
+      "summaryLine": 2259,
+      "testRaw": "2026-11-01T18:18:31.2505735Z test agent::tests::windows_managed_pi_chat_roundtrip ... ok",
+      "summaryRaw": "2026-11-01T18:18:31.2512757Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 4.15s"
+    }
+  ],
+  "nativeBackendClassification": "Eight actual nonzero Rust tests executed on Windows/X64 runner; each1pass/0fail/0ignored. Nested running1test child helper lines are not counted as extra successful tests. Test names and original raw result lines are retained; no new source-wide coverage inference.",
+  "startup": {
+    "scope": "One compiled main EXE launch on an owned fresh Windows runner; no GUI interaction or performance acceptance.",
+    "commit": "0042f3f54780bb840b04376705f2306cb08bf1b2",
+    "executable": "D:\\a\\horizon-workbench\\horizon-workbench\\apps\\desktop\\src-tauri\\target\\release\\horizon-desktop.exe",
+    "executable_sha256": "807c9a195c09d63e53f24d3f995ec78d2aa9f53ac5fc0a3452502e916d7bcacb",
+    "session_id": 2,
+    "webview2": [
+      {
+        "key": "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}",
+        "version": "131.0.2903.86"
+      }
+    ],
+    "data_paths": [
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+    ],
+    "data_paths_existed_before": [],
+    "data_retention": "Only directories absent before this launch are owned; leave them to ephemeral runner disposal. No directory/registry deletion.",
+    "status": "process_alive_after_5s",
+    "pid": 3660,
+    "start_time_utc": "2026-11-01T18:18:31.8655762Z",
+    "observed_utc": "2026-11-01T18:18:36.8883577Z",
+    "alive_after_5s": true,
+    "window_handle": "601FA",
+    "window_title": "Horizon",
+    "os_window_exists": true,
+    "frontend_interactive": "not_evaluated",
+    "window_responding": true,
+    "cleanup": "Stopped only the exact spawned PID/start identity and its descendants via Process.Kill(true).",
+    "data_paths_created": [
+      "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+    ]
+  },
+  "startupInterpretation": "One compiled main EXE native OS startup, existingWebView2; aliveafter5s/window601FA/titleHorizon/respondingtrue. frontend_interactive remainsnot_evaluated; no UIimage/control/install clicks or2sstartup measurement.",
+  "release": {
+    "tag_name": "windows-0042f3f54780",
+    "target_commitish": "0042f3f54780bb840b04376705f2306cb08bf1b2",
+    "draft": false,
+    "prerelease": true,
+    "published_at": "2026-11-01T18:18:44Z",
+    "html_url": "https://github.com/chenachen/horizon-workbench/releases/tag/windows-0042f3f54780",
+    "name": "Horizon Windows x64 trial 0042f3f54780",
+    "body": "Windows x64 trial installers built from commit 0042f3f54780bb840b04376705f2306cb08bf1b2.\n\nUse the NSIS setup .exe or MSI installer. Installers are unsigned.\nWebView2 is required; the installer downloads its bootstrapper if missing. Git features require Git for Windows on PATH.\nMain-process observation: process_alive_after_5s. No interactive Windows GUI acceptance.\n\nBuild: https://github.com/chenachen/horizon-workbench/actions/runs/41334392501\r\n"
+  },
+  "assetChecks": {
+    "build-identity.txt": true,
+    "Horizon_0.1.0_x64-setup.exe": true,
+    "Horizon_0.1.0_x64_en-US.msi": true,
+    "SHA256SUMS.txt": true,
+    "startup-smoke.json": true
+  },
+  "assetOwnerBoundary": "Root performed actual downloads and binary SHA. Verifier independently compared frozenreleaseAPI/rootrelease/downloadreceipt/digests/size andSHA256SUMS plus smalltext/JSON byteidentity; doesnot claim a second binarydownload/hash run.",
+  "downloadReceipt": "docs/verification/results/windows-trial-download-20261102/windows-0042f3f54780/download-verification.json",
+  "limits": [
+    "uncommitted root-handle367bd78d at run time",
+    "new ConPTY exact test",
+    "Modal stack changes",
+    "interactive Windows GUI acceptance",
+    "2-second end-to-end startup budget",
+    "Current latermainbbb71f9/root-handle+ConPTY+Modal changes are not this0042CI result.",
+    "Startup launches builtmainEXE, not extractedinstalledMSI/NSIS. ExistingWebView2 version131.0.2903.86; missingdependencybootstrapper and interactiveinstaller unmeasured.",
+    "OwnedCIcleanup Process.Kill(true) is not productnativeQuit or upgrade/recovery proof.",
+    "No Windows IME/125%/150%/frontendinteraction/coldstart20/P95/CPU/memory/realvendorlogin pass. Original fullgoal remainsactive."
+  ],
+  "artifactSHA256": {
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/assets/SHA256SUMS.txt": "5dc902bbed446b7483144cef89957eb6609bbc2f1c2396800bfe59c323b4b443",
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/assets/build-identity.txt": "191c2ab801816f3a1def149bfb338b55c90a7ffeac9adbf1a6fdc2d190bc8f46",
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/assets/startup-smoke.json": "2431647227a1e15a737cfa4d38d3a4bc4336d2d5edeb9a974a7d9d5040191fc8",
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/job.log": "0d70037f2a64aec6890f47290b2833e7dad503b818d45e60305a96fdf8142644",
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/release-fetch-receipt.json": "e50da439067fe2ad6b076e9922b84d2dcc459937081aca46b0785ddeb7de2280",
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/release.json": "da4c7e0abc4cf7b331f958b57637fd7b66954f5a72bf34d2430dccc5cc2880af",
+    "docs/verification/results/windows-ci-native-20261102/attempt-04/result.json": "975116442cebecaa844bc8b0af0ad75b12e0f57c1e1b3bc4d77506b57d980941",
+    "docs/verification/results/windows-trial-download-20261102/windows-0042f3f54780/build-identity.txt": "191c2ab801816f3a1def149bfb338b55c90a7ffeac9adbf1a6fdc2d190bc8f46",
+    "docs/verification/results/windows-trial-download-20261102/windows-0042f3f54780/startup-smoke.json": "2431647227a1e15a737cfa4d38d3a4bc4336d2d5edeb9a974a7d9d5040191fc8",
+    "docs/verification/results/windows-trial-download-20261102/windows-0042f3f54780/download-verification.json": "b39a84ba427d7593489a0fbf6de34652e42c850eb147b2a2bb4a7bba0b8607db",
+    "docs/verification/results/windows-trial-download-20261102/windows-0042f3f54780/release.json": "b6e2397dbe4d601d703e442470611ba6794cb8723fe4c393981820b73ad8171a",
+    "docs/verification/results/windows-trial-download-20261102/windows-0042f3f54780/SHA256SUMS.txt": "5dc902bbed446b7483144cef89957eb6609bbc2f1c2396800bfe59c323b4b443"
+  },
+  "evidenceIds": [
+    "WIN-CI-0042-BACKEND-EIGHT-NONZERO-001",
+    "WIN-CI-0042-OS-WINDOW-STARTUP-001",
+    "WIN-0042-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
+  ]
+}

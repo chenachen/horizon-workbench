@@ -1,0 +1,758 @@
+{
+  "scope": "Frozen original receipts only; no live data/OS/Git/GUI/tests/source mutation.",
+  "checks": {
+    "sameMainAppBirthAcrossAll7OwnerSnapshots": true,
+    "all18NativeCapturesBindFrozenF544And27780": true,
+    "all69NewActionsHaveOkResult": true,
+    "nonemptyAOnlyProjectConfigFalseAcrossAll7": true,
+    "old3034SameBirthAcrossBothRejectsAndRealCommand": true,
+    "oldAActivationSameAcrossBothRejectsAndRealCommand": true,
+    "rejectsPreserveActualInstalledVersionAndPolicy": true,
+    "rejectsPreserveAllOwnedPackagesAndStorage": true,
+    "corruptWholeQARecordAndRegistryHashUnchanged": true,
+    "nativeCorruptAndIncompatibleErrorsActual": true,
+    "incompatibleOriginalSameIdEngine99": true,
+    "BNormalSleepSeparatedFromRejectAndAAlive": true,
+    "onlyExplicitOldReadActionAtRecordedTime": true,
+    "oldReadChangesOnlyStorageNotQARecordPackage": true,
+    "lastRefreshValueHashMatchesRealOldCommandReceipt": true,
+    "previewOldTwoCheckedNewZeroStillUpdateDisabled": true,
+    "oneExplicitNewGrantBeforeOneApply": true,
+    "newInstalledManifestAndAll3GrantsExact": true,
+    "newOriginalZipMembersExactInstalledHashes": true,
+    "newSourceUsesRealGitStatusAndVersionedTitle": true,
+    "updatePreservesGlobalProjectPoliciesAndConfigs": true,
+    "updatePreservesActualPrivateStorage": true,
+    "updateNoActivationNoNativeWorkerBeforeExplicitNewCommands": true,
+    "oldWorker3034AbsentAndOldPackageRetainedAsHistory": true,
+    "newCommandsAfterZeroWorkerSnapshot": true,
+    "newTwoActivationsAndExactNativeBirths": true,
+    "newAVersionedGit1AndBVersionedGit1": true,
+    "diagnosticPreviewMatchesActual2193BExport": true,
+    "diagnosticKeepsDisposing2NotAllReleased": true,
+    "dependencyPlanAOneWorkerAndDependentNamed": true,
+    "uninstallGlobal41ProjectsTwoWorkersAndRetainChoice": true,
+    "cancelQARecordPackagesStorageExactUnchanged": true,
+    "cancelQAAndGitActualRecordsExactUnchanged": true,
+    "cancelSameExactTwoWorkerBirths": true,
+    "sameExactProfilesAcrossAll7OwnerSnapshots": true,
+    "noHost005FaultArmed": true
+  },
+  "snapshotProjection": [
+    {
+      "file": "08-a-configured-before-updates-owner.json",
+      "observedAt": "2026-11-01T18:14:03.646921+00:00",
+      "record": {
+        "activations": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": "fbca5aa7-bfbf-49f2-ac6b-68e0dd79d474",
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "cfac84d2-0ab6-412d-b9bc-ee389801d549"
+        },
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage"
+        ],
+        "revision": 8,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": false
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.0",
+      "workers": [
+        {
+          "pid": 3034,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:12:57 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        },
+        {
+          "pid": 80971,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:02:54 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        }
+      ],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "304418c2848032d3ba9fa08e27fccec62c582dd83a3354790824c005541ebeea"
+          }
+        ]
+      }
+    },
+    {
+      "file": "09-corrupt-update-rejected-owner.json",
+      "observedAt": "2026-11-01T18:16:27.656759+00:00",
+      "record": {
+        "activations": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": "fbca5aa7-bfbf-49f2-ac6b-68e0dd79d474",
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "cfac84d2-0ab6-412d-b9bc-ee389801d549"
+        },
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage"
+        ],
+        "revision": 8,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": false
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.0",
+      "workers": [
+        {
+          "pid": 3034,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:12:57 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        },
+        {
+          "pid": 80971,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:02:54 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        }
+      ],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "304418c2848032d3ba9fa08e27fccec62c582dd83a3354790824c005541ebeea"
+          }
+        ]
+      }
+    },
+    {
+      "file": "10-incompatible-update-rejected-owner.json",
+      "observedAt": "2026-11-01T18:18:34.513711+00:00",
+      "record": {
+        "activations": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": "fbca5aa7-bfbf-49f2-ac6b-68e0dd79d474"
+        },
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage"
+        ],
+        "revision": 9,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": true
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.0",
+      "workers": [
+        {
+          "pid": 3034,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:12:57 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        }
+      ],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "304418c2848032d3ba9fa08e27fccec62c582dd83a3354790824c005541ebeea"
+          }
+        ]
+      }
+    },
+    {
+      "file": "11-old-command-and-update-preview-owner.json",
+      "observedAt": "2026-11-01T18:20:56.227350+00:00",
+      "record": {
+        "activations": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": "fbca5aa7-bfbf-49f2-ac6b-68e0dd79d474"
+        },
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage"
+        ],
+        "revision": 9,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": true
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.0",
+      "workers": [
+        {
+          "pid": 3034,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:12:57 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        }
+      ],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "d2a59e725622e30523834010dd22e22e9bfebcf003f0d65edfe0d0cd41d77833"
+          }
+        ]
+      }
+    },
+    {
+      "file": "12-update-011-installed-inactive-owner.json",
+      "observedAt": "2026-11-01T18:23:01.311236+00:00",
+      "record": {
+        "activations": {},
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage",
+          "project.read"
+        ],
+        "revision": 10,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": true
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.1",
+      "workers": [],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          },
+          {
+            "path": "0.1.1-5295768884c2/index.js",
+            "bytes": 1249,
+            "sha256": "44313d4097eb6ce494542c8c17c430d330c838a9e2f4c623bbf6a2ab416addf9"
+          },
+          {
+            "path": "0.1.1-5295768884c2/manifest.json",
+            "bytes": 1224,
+            "sha256": "214c3f1d01ccba2be60007f5d69feee456e6062d6d70f112ea921dc1d815f134"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "d2a59e725622e30523834010dd22e22e9bfebcf003f0d65edfe0d0cd41d77833"
+          }
+        ]
+      }
+    },
+    {
+      "file": "13-v011-a-b-active-before-cancel-owner.json",
+      "observedAt": "2026-11-01T18:25:38.304384+00:00",
+      "record": {
+        "activations": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": "f3dcfa5d-d072-48e1-8b5e-c1014597bf0c",
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "e2bfe791-7293-41c7-acaa-fa027c8a59c9"
+        },
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage",
+          "project.read"
+        ],
+        "revision": 12,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": false
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.1",
+      "workers": [
+        {
+          "pid": 29515,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:24:21 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        },
+        {
+          "pid": 31009,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:25:01 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        }
+      ],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          },
+          {
+            "path": "0.1.1-5295768884c2/index.js",
+            "bytes": 1249,
+            "sha256": "44313d4097eb6ce494542c8c17c430d330c838a9e2f4c623bbf6a2ab416addf9"
+          },
+          {
+            "path": "0.1.1-5295768884c2/manifest.json",
+            "bytes": 1224,
+            "sha256": "214c3f1d01ccba2be60007f5d69feee456e6062d6d70f112ea921dc1d815f134"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "99a830b5adeb0387eafaf7ecdb9976f41ccba5efc7bd1a32ca9592508e42e1aa"
+          }
+        ]
+      }
+    },
+    {
+      "file": "14-two-plan-cancels-owner.json",
+      "observedAt": "2026-11-01T18:30:10.903574+00:00",
+      "record": {
+        "activations": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": "f3dcfa5d-d072-48e1-8b5e-c1014597bf0c",
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "e2bfe791-7293-41c7-acaa-fa027c8a59c9"
+        },
+        "enabledGlobal": true,
+        "pausedGlobal": false,
+        "projects": {},
+        "config": {},
+        "projectConfig": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": {
+            "includeUntracked": false
+          }
+        },
+        "grants": [
+          "git.read",
+          "storage",
+          "project.read"
+        ],
+        "revision": 12,
+        "sleeping": {
+          "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+          "750509b2-a4ff-4571-ae2f-a1b7c0101d42": false
+        },
+        "stopping": {},
+        "errors": {},
+        "cleanupErrors": {}
+      },
+      "manifestVersion": "0.1.1",
+      "workers": [
+        {
+          "pid": 29515,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:24:21 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        },
+        {
+          "pid": 31009,
+          "ppid": 27780,
+          "pgid": 27780,
+          "start": "Mon Nov 2 02:25:01 2026",
+          "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+        }
+      ],
+      "package": {
+        "exists": true,
+        "files": [
+          {
+            "path": "0.1.0-8b5df3f5d6f0/index.js",
+            "bytes": 1243,
+            "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+          },
+          {
+            "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+            "bytes": 1204,
+            "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+          },
+          {
+            "path": "0.1.1-5295768884c2/index.js",
+            "bytes": 1249,
+            "sha256": "44313d4097eb6ce494542c8c17c430d330c838a9e2f4c623bbf6a2ab416addf9"
+          },
+          {
+            "path": "0.1.1-5295768884c2/manifest.json",
+            "bytes": 1224,
+            "sha256": "214c3f1d01ccba2be60007f5d69feee456e6062d6d70f112ea921dc1d815f134"
+          }
+        ]
+      },
+      "storage": {
+        "exists": true,
+        "files": [
+          {
+            "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+            "bytes": 26,
+            "sha256": "99a830b5adeb0387eafaf7ecdb9976f41ccba5efc7bd1a32ca9592508e42e1aa"
+          }
+        ]
+      }
+    }
+  ],
+  "oldCommandStorageValueSource": "11-old-command-still-executes.json; value serialization independently matches stored SHA",
+  "originalPackageBindings": {
+    "read-only-update": {
+      "name": "read-only-update",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/read-only-update.horizon-extension",
+      "exists": true,
+      "bytes": 2689,
+      "sha256": "634d3dde3e16404f8aaf3338e5bf545ac08bb4b8f19cf3efebe4da2067539235",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-read-only-changes",
+      "version": "0.1.1",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [
+        "git.read",
+        "storage",
+        "project.read"
+      ],
+      "requires": {
+        "horizon.git": "^0.1.0"
+      }
+    },
+    "incompatible-update": {
+      "name": "incompatible-update",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/incompatible-update.horizon-extension",
+      "exists": true,
+      "bytes": 2658,
+      "sha256": "a9db62043ed8688e8b64ff41acb8829085b8d6e053d3cd375d482f2fb054f793",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-read-only-changes",
+      "version": "0.1.99",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [
+        "git.read",
+        "storage"
+      ],
+      "requires": {
+        "horizon.git": "^0.1.0"
+      }
+    },
+    "corrupt-update": {
+      "name": "corrupt-update",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/corrupt-update.horizon-extension",
+      "exists": true,
+      "bytes": 37,
+      "sha256": "7224258d6fcabe4eb38716fb6fdcdb516daa0fc7b38ff3a8dbbc78674ce46e2d",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true
+    }
+  },
+  "updateOriginalMemberBindings": {
+    "manifest.json": {
+      "bytes": 1224,
+      "sha256": "214c3f1d01ccba2be60007f5d69feee456e6062d6d70f112ea921dc1d815f134",
+      "matchesInstalledReceipt": true
+    },
+    "index.js": {
+      "bytes": 1249,
+      "sha256": "44313d4097eb6ce494542c8c17c430d330c838a9e2f4c623bbf6a2ab416addf9",
+      "matchesInstalledReceipt": true
+    }
+  },
+  "updateSource": "let view;\nexport async function activate(context) {\n  const refresh = async () => {\n    const snapshot = await context.git.status();\n    const includeUntracked = await context.settings.get('includeUntracked');\n    const changes = snapshot.files.filter(change => includeUntracked || change.kind !== 'untracked');\n    view?.dispose();\n    view = context.views.register('local.resume-read-only-changes.list', {\n      kind: 'list', title: `Git 更改 0.1.1 · ${changes.length}`,\n      items: changes.map((change, index) => ({\n        id: String(change.file?.fileId ?? change.fileId ?? change.path ?? index),\n        label: String(change.path ?? change.file?.displayPath ?? '文件'),\n        description: `${change.index}${change.worktree}`,\n      })),\n    });\n    await context.storage.set('lastRefresh', new Date().toISOString());\n  };\n  context.subscriptions.add(context.commands.register('local.resume-read-only-changes.refresh', refresh));\n  context.subscriptions.add(context.commands.register('local.resume-read-only-changes.fail', () => { throw new Error(\"FAKE_HORIZON_TOKEN_resume_20261101|/HORIZON_FAKE_PRIVATE_PATH/owned-fixture|HORIZON_FAKE_SOURCE_BODY_20261101\"); }));\n  await refresh();\n}\nexport function deactivate() { view?.dispose(); }\n",
+  "incompatibleOriginalManifest": {
+    "id": "local.resume-read-only-changes",
+    "name": "插件验收 · 只读更改列表",
+    "version": "0.1.99",
+    "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+    "author": "Horizon verification fixture",
+    "apiVersion": 1,
+    "engines": {
+      "horizon": ">=99.0.0"
+    },
+    "runtime": {
+      "kind": "quickjs",
+      "entry": "index.js"
+    },
+    "activation": [
+      "onCommand:local.resume-read-only-changes.refresh"
+    ],
+    "requires": {
+      "horizon.git": "^0.1.0"
+    },
+    "optional": {},
+    "capabilities": [
+      "git.read",
+      "storage"
+    ],
+    "contributes": {
+      "commands": [
+        {
+          "id": "local.resume-read-only-changes.refresh",
+          "title": "读取更改列表"
+        },
+        {
+          "id": "local.resume-read-only-changes.fail",
+          "title": "触发验收安全异常"
+        }
+      ],
+      "views": [
+        {
+          "id": "local.resume-read-only-changes.list",
+          "slot": "primarySidebar",
+          "renderer": "declarative"
+        }
+      ],
+      "settings": [
+        {
+          "key": "includeUntracked",
+          "label": "显示未跟踪文件",
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    }
+  },
+  "diagnostic": {
+    "diagnostics": {
+      "architecture": "aarch64",
+      "caches": {
+        "entityRevisionEntries": 3,
+        "idempotencyEntries": 11,
+        "operationPlans": 0,
+        "pathSearchPaths": 0,
+        "pathSearchProjects": 0,
+        "searchResultItems": 0,
+        "searchResultTasks": 0
+      },
+      "cursors": 0,
+      "frontend": {
+        "editor": {
+          "coldOpenMedianMs": 0,
+          "coldOpenP95Ms": 0,
+          "coldOpenSamples": 0,
+          "createdViews": 1,
+          "destroyedViews": 1,
+          "languageReadyP95Ms": 13,
+          "measurement": "durationMs: open intent to CodeMirror layout followed by next visible frame; languageReadyMs: language module ready from same start; highlightReadyMs: viewport syntax tree complete followed by next visible frame. Pixel paint is not directly observed.",
+          "openMedianMs": 49,
+          "openP95Ms": 49,
+          "openSamples": 1,
+          "opens": [
+            {
+              "byteLength": 72,
+              "cache": "warm",
+              "durationMs": 49,
+              "editorRevision": 0,
+              "id": 1,
+              "language": "plain",
+              "languageReadyMs": 13,
+              "startedAtMs": 1793554652782,
+              "viewId": 1
+            }
+          ],
+          "schemaVersion": 1,
+          "viewCount": 0,
+          "warmOpenMedianMs": 49,
+          "warmOpenP95Ms": 49,
+          "warmOpenSamples": 1
+        },
+        "runtime": {
+          "activationErrorObservers": 1,
+          "cordisPluginListeners": 0,
+          "cordisRootListeners": 3,
+          "eventListenerDisposalFailures": 0,
+          "eventListeners": 15,
+          "eventListenersDisposing": 0,
+          "pluginInstances": 12,
+          "pluginInstancesDisposing": 2,
+          "pluginStoreObservers": 13,
+          "schemaVersion": 1,
+          "workerAbortListeners": 2,
+          "workerCommandObservers": 3,
+          "workerCommands": 4,
+          "workerEventListeners": 2,
+          "workerViews": 2
+        }
+      },
+      "openDocuments": 0,
+      "platform": "macos",
+      "subscriptions": 2,
+      "taskRecords": {
+        "active": 0,
+        "completedCached": 6,
+        "total": 6
+      },
+      "version": "0.1.0",
+      "watchers": 2
+    },
+    "exportedAt": "2026-11-01T18:25:33.156563+00:00",
+    "schemaVersion": 1
+  },
+  "notProven": [
+    "No full frontend release from pluginInstancesDisposing2.",
+    "No later18:33 native observation read.",
+    "No instantaneous process sampling or new rollback operation.",
+    "No actual dependency stop or uninstall; both plans Cancel."
+  ]
+}

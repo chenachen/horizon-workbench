@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-11-01T18:07:57.266398+00:00",
+  "disabledToastCausality": {
+    "originalAction": {
+      "file": "plugin-27780-1793554929997-actions.jsonl",
+      "line": 32,
+      "name": "disabled-gate-preflight-once",
+      "startUTC": "2026-11-01T17:50:34.025Z"
+    },
+    "firstBoundNativeResult": {
+      "manifestLine": 7,
+      "label": "05-gate-disabled",
+      "timeUTC": "2026-11-01T17:50:38.609Z",
+      "text": "local.resume-read-only-changes 已禁用"
+    },
+    "subsequentActions": {
+      "projectRestriction": {
+        "line": 41,
+        "name": "06-project-enable-while-global-disabled"
+      },
+      "scopeOnly": {
+        "line": 42,
+        "name": "07-switch-to-all-projects-only"
+      },
+      "explicitGlobalEnable": {
+        "line": 43,
+        "name": "08-enable-qa-globally-once",
+        "startUTC": "2026-11-01T17:56:16.836Z"
+      },
+      "aCommandActivation": {
+        "line": 63,
+        "name": "08-a-activate-command-once",
+        "startUTC": "2026-11-01T17:58:39.265Z"
+      },
+      "f04View": {
+        "line": 72,
+        "name": "09-a-f04-open-project-resources"
+      }
+    },
+    "noDismissErrorActionInPrefixThroughF04": true,
+    "interpretation": "The bottom-right disabled text in A/F04 is a retained error from the earlier disabled launcher preflight. The action prefix contains no dismiss-error click. It is not evidence that the current A worker is disabled: owner 05-a-active records enabledGlobal=true/errors={} and active A62166b49/PID70948; F04 AX directly shows the same PID running. This causal attribution follows the action sequence and matching literal, not a new GUI operation."
+  },
+  "permissionPreviewOlderMissingToast": {
+    "sourceActionLine": 5,
+    "name": "missing-gate-preflight-once",
+    "text": "未安装扩展 local.resume-read-only-changes",
+    "note": "The same old missing-gate toast is still present in 03 permission preview; it is not an install attempt failure."
+  },
+  "f04TimestampCorrection": {
+    "originalNote": "02:01:24",
+    "actualFullAX": "02:01:39",
+    "interpretation": "02:01:24 is the scroll action time at action line73; actual resource latest-read is 02:01:39. Terra appended correction to the manifest; original raw AX/image unchanged."
+  }
+}

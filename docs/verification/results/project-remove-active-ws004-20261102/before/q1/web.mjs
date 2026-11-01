@@ -1,0 +1,12 @@
+import http from 'node:http';
+import {appendFileSync, writeFileSync} from 'node:fs';
+const port = Number(process.env.WEB_PORT || 59131);
+const api = Number(process.env.API_PORT || 59130);
+const response = await fetch('http://127.0.0.1:'+api+'/health');
+if (!response.ok) throw new Error('API_NOT_READY');
+writeFileSync('web.pid', String(process.pid));
+appendFileSync('identities.jsonl', JSON.stringify({role:'web',pid:process.pid,ppid:process.ppid,cwd:process.cwd(),at:new Date().toISOString()})+'\n');
+const server = http.createServer((req, res) => { res.setHeader('content-type','text/html; charset=utf-8'); res.end('<!doctype html><title>Horizon Q1 自有服务</title><h1>Owned Q1 web service</h1>'); });
+server.listen(port, '127.0.0.1', () => console.log('WEB_READY '+port));
+process.on('SIGTERM', () => { appendFileSync('stop-order.jsonl', JSON.stringify({role:'web',pid:process.pid,at:new Date().toISOString()})+'\n'); server.close(() => process.exit(0)); });
+server.on('error', error => { console.error(error.code || error.message); process.exit(1); });

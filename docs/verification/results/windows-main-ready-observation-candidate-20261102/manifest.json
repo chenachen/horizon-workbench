@@ -1,0 +1,51 @@
+{
+  "created_at_utc": "2026-11-01T22:25:26.166874+00:00",
+  "baseline_commit": "4d27cfb22304f784bb811dce7365dfffbaf3b14d",
+  "candidate_only": true,
+  "source_applied": false,
+  "scope": "Existing one-main startup observation plus one short read-only UIA helper; unchanged old5s snapshot/9 tests/publish gate/main PID cleanup. No extra native launch/CI rerun.",
+  "files": [
+    {
+      "path": "scripts/windows-startup-smoke.ps1",
+      "before_sha256": "4dcebac77b70aa896229649c742fcd44baa386664fa27ab4bc44716685833696",
+      "before_bytes": 4695,
+      "after_sha256": "96834fef03deb349b7b4d2c9e6f3b4c04934438ae2c7b783b5d83fa476a4189d",
+      "after_bytes": 10336,
+      "after_lines": 184
+    },
+    {
+      "path": "scripts/windows-uia-ready.ps1",
+      "before_sha256": null,
+      "before_bytes": null,
+      "after_sha256": "b6d891f19999341bdd1c396f9bf2a799cebde34d88d616b56a0f7fbbee6cc0a8",
+      "after_bytes": 2637,
+      "after_lines": 52
+    }
+  ],
+  "patch_sha256": "02eb5845abccd462c1a48a8c0616609aceb2c3ff62f890d9a5bf4b073946498d",
+  "static_review": "static-review.json",
+  "host_marker_proof": "host-markers-source.txt",
+  "not_proven": [
+    "Actual Windows UIA result",
+    "Full frontend interaction",
+    "Startup performance",
+    "Historical a721 PERMISSION_DENIED root cause"
+  ],
+  "support_files": [
+    {
+      "path": "README.md",
+      "sha256": "145bbc731d4446a48e5e284abb441eea872bef7dfdaf660f80393e6ba4ae290b",
+      "bytes": 3410
+    },
+    {
+      "path": "static-review.json",
+      "sha256": "2195a240f3bc3b6409982236d2807eb6b81539955e156e1a11a2f85a0be9564e",
+      "bytes": 2279
+    },
+    {
+      "path": "host-markers-source.txt",
+      "sha256": "a69af1758a60e42f96085d145887ae85ac85eef97da02f38bb5237b1dab7ef90",
+      "bytes": 3554
+    }
+  ]
+}

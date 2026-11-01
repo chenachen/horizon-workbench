@@ -1,0 +1,50 @@
+4d27cfb22304f784bb811dce7365dfffbaf3b14d:apps/desktop/src-tauri/src/state.rs SHA256=c3f4b2cbb1aecc3dd60fcba6167bd5841837488f8d82cbd8431deae0f77cfe05
+99: impl HostState {
+100:     pub fn new(data_dir:PathBuf) -> Result<Self,HostError> {
+101:         fs::create_dir_all(&data_dir)?;
+102:         let data_dir=data_dir.canonicalize()?;
+103:         #[cfg(unix)]{use std::os::unix::fs::PermissionsExt;fs::set_permissions(&data_dir,fs::Permissions::from_mode(0o700))?;}
+104:         let registry_path=data_dir.join("registry.json");
+105:         let mut registry:Registry=if registry_path.exists(){serde_json::from_slice(&fs::read(&registry_path)?)?}else{Registry::default()};
+106:         if registry.schema_version!=1 {return Err(HostError::new("CONFIG_VERSION_UNSUPPORTED","项目配置版本不受支持"));}
+107:         for project in &mut registry.projects { project["state"]=json!("registered"); }
+108:         atomic_json(&registry_path,&registry)?;
+109:         let path_index=registry.paths.iter().map(|(id,record)|(record.clone(),id.clone())).collect();
+110:         for d in ["recovery","cache","exports","assets"] { fs::create_dir_all(data_dir.join(d))?; }
+111:         Ok(Self {data_dir,registry:Mutex::new(registry),epochs:Mutex::new(HashMap::new()),documents:Mutex::new(HashMap::new()),selections:Mutex::new(HashMap::new()),tasks:Mutex::new(HashMap::new()),subscriptions:Mutex::new(HashMap::new()),idempotency:Mutex::new(HashMap::new()),plans:Mutex::new(HashMap::new()),cursors:Mutex::new(HashMap::new()),search_results:Mutex::new(HashMap::new()),write_lock:tokio::sync::Mutex::new(()),file_lock:Mutex::new(()),credentials:Mutex::new(HashMap::new()),shutdown_allowed:AtomicBool::new(false),watchers:Mutex::new(HashMap::new()),entity_revisions:Mutex::new(HashMap::new()),path_index:Mutex::new(path_index),last_activity:Mutex::new(HashMap::new()),path_search_cache:Mutex::new(HashMap::new())})
+
+4d27cfb22304f784bb811dce7365dfffbaf3b14d:apps/desktop/src-tauri/src/extensions.rs SHA256=8b127418f0b586dd4c395be33ca0907e6616060125e4db1d9f31f4098d74a7a7
+165: fn read_registry(state: &HostState) -> Result<Value, HostError> {
+166:     let path = registry_path(state);
+167:     if path.exists() {
+168:         return serde_json::from_slice(&fs::read(path).map_err(io)?).map_err(io);
+169:     }
+170:     let mut records = serde_json::Map::new();
+171:     for manifest in builtin_manifests() {
+172:         let package_dir = write_builtin_package(state, &manifest)?;
+173:         let mut r = initial_record(manifest.clone(), true);
+174:         r["packageDir"] = json!(package_dir);
+175:         records.insert(manifest["id"].as_str().unwrap().to_string(), r);
+176:     }
+177:     let registry = json!({"schemaVersion":1,"records":records});
+178:     write_registry(state, &registry)?;
+179:     Ok(registry)
+180: }
+181: fn write_builtin_package(state: &HostState, manifest: &Value) -> Result<PathBuf, HostError> {
+182:     let path = state
+183:         .data_dir()
+184:         .join("extensions/packages")
+185:         .join(str_param(manifest, "id")?)
+186:         .join(str_param(manifest, "version")?);
+187:     fs::create_dir_all(&path).map_err(io)?;
+188:     fs::write(
+189:         path.join("manifest.json"),
+190:         serde_json::to_vec_pretty(manifest).map_err(io)?,
+191:     )
+192:     .map_err(io)?;
+193:     Ok(path)
+194: }
+195: pub fn initialize(state: &HostState) -> Result<(), HostError> {
+196:     let _guard = lock().lock().unwrap();
+197:     let mut registry = read_registry(state)?;
+198:     for embedded in builtin_manifests() {

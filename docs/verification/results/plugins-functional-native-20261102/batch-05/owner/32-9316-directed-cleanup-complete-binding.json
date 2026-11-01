@@ -1,0 +1,277 @@
+{
+  "recordedAt": "2026-11-01T19:47:28.016236+00:00",
+  "result": "PASS_DIRECTED_NATIVE_AND_FRONTEND_CLEANUP",
+  "checks": {
+    "appIdentityUnchanged": true,
+    "AOriginalNativeIdentityGone": true,
+    "BSameNativePidStartAndCommand": true,
+    "AActivationAbsent": true,
+    "BActivationUnchanged": true,
+    "AProjectSleepingAndBActive": true,
+    "noNewASessionOrOtherChild": true,
+    "beforeAndAfterDocsAndTasks0": true,
+    "beforeAndAfterDisposing0": true,
+    "workerBindingsReduced2To1": true,
+    "workerCommandsReduced4To2": true,
+    "root3AndNoDisposalFailure": true,
+    "packagesAndStorageUnchanged": true,
+    "policyAndConfigUnchanged": true,
+    "noNativeStopOrCleanupErrors": true,
+    "host005Unarmed": true
+  },
+  "identity": {
+    "expectedMainSha256": "9316ce984d50c945f72fb62903633872feac1bf2bf00a7b51b7ce7a9ce60c5ad",
+    "appPid": 74714,
+    "appOsIdentity": {
+      "pid": 74714,
+      "ppid": 1,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:36:42 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    "mainPath": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "native": {
+    "preObservedAt": "2026-11-01T19:42:49.611821+00:00",
+    "postObservedAt": "2026-11-01T19:46:02.688458+00:00",
+    "A": {
+      "beforeActivation": "53018491-9b11-4b9d-a3d4-2be238193cf2",
+      "oldIdentity": {
+        "pid": 83044,
+        "ppid": 74714,
+        "pgid": 74714,
+        "start": "Mon Nov 2 03:40:45 2026",
+        "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+      },
+      "afterActivation": null,
+      "afterState": "sleeping"
+    },
+    "B": {
+      "beforeActivation": "f8891796-6dc5-4dd2-b739-830e4820a048",
+      "afterActivation": "f8891796-6dc5-4dd2-b739-830e4820a048",
+      "beforeAndAfterIdentity": {
+        "pid": 84134,
+        "ppid": 74714,
+        "pgid": 74714,
+        "start": "Mon Nov 2 03:41:16 2026",
+        "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+      },
+      "afterState": "active"
+    },
+    "nativeActivationLogsAdded": [
+      {
+        "message": "项目空闲，实例已休眠",
+        "time": "2026-11-01T19:45:55.855102+00:00"
+      }
+    ],
+    "recordRevisionBeforeAfter": [
+      27,
+      28
+    ],
+    "lastActivity": "unavailable: private in-memory; no API/injection added",
+    "activeProject": "B corroborated by actual B workbench AX and persisted active project state; workspace activeProject field not persisted"
+  },
+  "diagnostics": {
+    "before": {
+      "path": "diag-9316-cleanup-before/horizon-diagnostics.json",
+      "sha256": "270f9aa4f746ec9461cc4a1a1b7114d226d2a69767bc0b27d0fa7f325c4839b1",
+      "exportedAt": "2026-11-01T19:41:36.450153+00:00",
+      "runtime": {
+        "activationErrorObservers": 1,
+        "cordisPluginListeners": 0,
+        "cordisRootListeners": 3,
+        "eventListenerDisposalFailures": 0,
+        "eventListeners": 15,
+        "eventListenersDisposing": 0,
+        "pluginInstances": 8,
+        "pluginInstancesDisposing": 0,
+        "pluginStoreObservers": 12,
+        "schemaVersion": 1,
+        "workerAbortListeners": 2,
+        "workerCommandObservers": 1,
+        "workerCommands": 4,
+        "workerEventListeners": 2,
+        "workerViews": 2
+      }
+    },
+    "after": {
+      "path": "diag-9316-cleanup-after/horizon-diagnostics.json",
+      "sha256": "3dbd8c4d38cc9892481f7cfee23aea3cdd582799c61a043ed9839394afe9e316",
+      "exportedAt": "2026-11-01T19:46:26.934795+00:00",
+      "runtime": {
+        "activationErrorObservers": 1,
+        "cordisPluginListeners": 0,
+        "cordisRootListeners": 3,
+        "eventListenerDisposalFailures": 0,
+        "eventListeners": 14,
+        "eventListenersDisposing": 0,
+        "pluginInstances": 4,
+        "pluginInstancesDisposing": 0,
+        "pluginStoreObservers": 12,
+        "schemaVersion": 1,
+        "workerAbortListeners": 1,
+        "workerCommandObservers": 1,
+        "workerCommands": 2,
+        "workerEventListeners": 1,
+        "workerViews": 1
+      }
+    },
+    "deltaAll15": {
+      "activationErrorObservers": 0,
+      "cordisPluginListeners": 0,
+      "cordisRootListeners": 0,
+      "eventListenerDisposalFailures": 0,
+      "eventListeners": -1,
+      "eventListenersDisposing": 0,
+      "pluginInstances": -4,
+      "pluginInstancesDisposing": 0,
+      "pluginStoreObservers": 0,
+      "workerAbortListeners": -1,
+      "workerCommandObservers": 0,
+      "workerCommands": -2,
+      "workerEventListeners": -1,
+      "workerViews": -1
+    }
+  },
+  "nativeActions": [
+    {
+      "line": 13,
+      "name": "open-before-settings",
+      "startUTC": "2026-11-01T19:41:25.678Z",
+      "endUTC": "2026-11-01T19:41:25.768Z",
+      "result": "ok"
+    },
+    {
+      "line": 14,
+      "name": "open-before-privacy",
+      "startUTC": "2026-11-01T19:41:30.188Z",
+      "endUTC": "2026-11-01T19:41:30.267Z",
+      "result": "ok"
+    },
+    {
+      "line": 15,
+      "name": "before-fresh-diagnostic-preview",
+      "startUTC": "2026-11-01T19:41:36.348Z",
+      "endUTC": "2026-11-01T19:41:36.441Z",
+      "result": "ok"
+    },
+    {
+      "line": 16,
+      "name": "before-choose-location",
+      "startUTC": "2026-11-01T19:41:40.895Z",
+      "endUTC": "2026-11-01T19:41:40.974Z",
+      "result": "ok"
+    },
+    {
+      "line": 17,
+      "name": "before-fresh-picker-bind",
+      "startUTC": "2026-11-01T19:41:46.662Z",
+      "endUTC": "2026-11-01T19:41:47.800Z",
+      "result": "ok"
+    },
+    {
+      "line": 18,
+      "name": "before-select-directory",
+      "startUTC": "2026-11-01T19:41:52.420Z",
+      "endUTC": "2026-11-01T19:41:52.540Z",
+      "result": "ok"
+    },
+    {
+      "line": 19,
+      "name": "before-confirm-directory",
+      "startUTC": "2026-11-01T19:41:59.320Z",
+      "endUTC": "2026-11-01T19:41:59.432Z",
+      "result": "ok"
+    },
+    {
+      "line": 20,
+      "name": "close-settings-for-a-sleep",
+      "startUTC": "2026-11-01T19:45:35.840Z",
+      "endUTC": "2026-11-01T19:45:35.934Z",
+      "result": "ok"
+    },
+    {
+      "line": 21,
+      "name": "open-overview-for-a-sleep",
+      "startUTC": "2026-11-01T19:45:39.987Z",
+      "endUTC": "2026-11-01T19:45:40.074Z",
+      "result": "ok"
+    },
+    {
+      "line": 23,
+      "name": "open-a-sleep-plan",
+      "startUTC": "2026-11-01T19:45:50.877Z",
+      "endUTC": "2026-11-01T19:45:50.956Z",
+      "result": "ok"
+    },
+    {
+      "line": 24,
+      "name": "confirm-a-sleep-once",
+      "startUTC": "2026-11-01T19:45:55.712Z",
+      "endUTC": "2026-11-01T19:45:55.796Z",
+      "result": "ok"
+    },
+    {
+      "line": 25,
+      "name": "return-b-after-a-sleep",
+      "startUTC": "2026-11-01T19:46:04.976Z",
+      "endUTC": "2026-11-01T19:46:05.054Z",
+      "result": "ok"
+    },
+    {
+      "line": 26,
+      "name": "open-after-settings",
+      "startUTC": "2026-11-01T19:46:18.650Z",
+      "endUTC": "2026-11-01T19:46:18.750Z",
+      "result": "ok"
+    },
+    {
+      "line": 27,
+      "name": "open-after-privacy",
+      "startUTC": "2026-11-01T19:46:22.608Z",
+      "endUTC": "2026-11-01T19:46:22.694Z",
+      "result": "ok"
+    },
+    {
+      "line": 28,
+      "name": "after-fresh-diagnostic-preview",
+      "startUTC": "2026-11-01T19:46:26.835Z",
+      "endUTC": "2026-11-01T19:46:26.915Z",
+      "result": "ok"
+    },
+    {
+      "line": 29,
+      "name": "after-choose-location",
+      "startUTC": "2026-11-01T19:46:31.482Z",
+      "endUTC": "2026-11-01T19:46:31.560Z",
+      "result": "ok"
+    },
+    {
+      "line": 30,
+      "name": "after-fresh-picker-bind",
+      "startUTC": "2026-11-01T19:46:35.893Z",
+      "endUTC": "2026-11-01T19:46:37.016Z",
+      "result": "ok"
+    },
+    {
+      "line": 31,
+      "name": "after-select-directory",
+      "startUTC": "2026-11-01T19:46:41.269Z",
+      "endUTC": "2026-11-01T19:46:41.369Z",
+      "result": "ok"
+    },
+    {
+      "line": 32,
+      "name": "after-confirm-directory",
+      "startUTC": "2026-11-01T19:46:47.258Z",
+      "endUTC": "2026-11-01T19:46:47.338Z",
+      "result": "ok"
+    }
+  ],
+  "limits": [
+    "Exactly one native A project Sleep, no repeat/forced refresh/new command after Sleep. Same B workbench underneath both Settings/Data/privacy previews.",
+    "PluginInstances8→4 observed, root3 stable; pass relies on native A gone/B same plus worker counters2→1/commands4→2/views2→1, not restarted disposing0 alone.",
+    "Earlier f544 held4 and0546 manual Sleep frontend registrations failure remain original evidence. This9316 retest does not erase failures or rerun P1/policy/gates.",
+    "No fault/R2/HOST005/WS004/alloff125 in this directed batch."
+  ]
+}

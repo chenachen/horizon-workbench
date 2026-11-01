@@ -1,0 +1,12 @@
+import http from 'node:http';
+import {spawn} from 'node:child_process';
+import {appendFileSync, writeFileSync} from 'node:fs';
+const port = Number(process.env.API_PORT || 59130);
+writeFileSync('api.pid', String(process.pid));
+const child = spawn(process.execPath, ['child.mjs'], {stdio:'inherit'});
+writeFileSync('child.pid', String(child.pid));
+appendFileSync('identities.jsonl', JSON.stringify({role:'api',pid:process.pid,childPid:child.pid,ppid:process.ppid,cwd:process.cwd(),at:new Date().toISOString()})+'\n');
+const server = http.createServer((req, res) => { res.setHeader('content-type','application/json'); res.end(JSON.stringify({ok:true,role:'api',pid:process.pid})); });
+server.listen(port, '127.0.0.1', () => console.log('API_READY '+port));
+process.on('SIGTERM', () => { appendFileSync('stop-order.jsonl', JSON.stringify({role:'api',pid:process.pid,at:new Date().toISOString()})+'\n'); setTimeout(() => server.close(() => process.exit(0)), 200); });
+server.on('error', error => { console.error(error.code || error.message); process.exit(1); });

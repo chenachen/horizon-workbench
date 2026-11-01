@@ -1,0 +1,9 @@
+{
+  "observedAt": "2026-11-01T20:32:26.050756+00:00",
+  "defaultWorkspaceId": "cb6ac1b6-9d76-462c-bde7-1c50a05e95d0",
+  "defaultWorkspaceProjectCount": 19,
+  "wouldAutoActivateProjectIdAfterRemove": "b1581134-50ca-4b94-8791-bceeded6bc9a",
+  "wouldAutoActivateProjectName": "03-基本冲突",
+  "safeForThisPluginLease": false,
+  "sourceReason": "WorkspaceForm remove calls onSaved(defaultWorkspace.id)→selectWorkspace→workspace_activate; projects.rs48 chooses remembered/first project then App.navigate69–77 activates. Metadata only read, no project entered or source files read."
+}

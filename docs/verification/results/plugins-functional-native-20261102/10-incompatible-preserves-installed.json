@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-11-01T18:18:34.580145+00:00",
+  "before": "08-a-configured-before-updates-owner.json",
+  "after": "10-incompatible-update-rejected-owner.json",
+  "checks": {
+    "manifest": true,
+    "config": true,
+    "projectConfig": true,
+    "grants": true,
+    "enabledGlobal": true,
+    "pausedGlobal": true,
+    "projects": true,
+    "packageDir": true,
+    "packageDigest": true,
+    "sameAActivation": true,
+    "sameAOsIdentity": true,
+    "packageAndStorageUnchanged": true
+  },
+  "currentActivations": {
+    "71496333-8a7d-49e1-90b1-45968a02ab99": "fbca5aa7-bfbf-49f2-ac6b-68e0dd79d474"
+  },
+  "logsSinceBaseline": [
+    {
+      "message": "项目空闲，实例已休眠",
+      "time": "2026-11-01T18:17:02.840662+00:00"
+    }
+  ],
+  "nativeError": "扩展与 Horizon 0.1 不兼容",
+  "limits": "A target stays active. Any separate background B sleep is retained as actual log/project state, not attributed to rejected update."
+}

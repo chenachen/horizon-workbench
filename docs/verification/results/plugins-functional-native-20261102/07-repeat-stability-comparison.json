@@ -1,0 +1,130 @@
+{
+  "observedAt": "2026-11-01T18:08:22.428599+00:00",
+  "checks": {
+    "sameQaRecord": false,
+    "sameActivations": false,
+    "sameWorkerPidStartPairs": false,
+    "sameQaPackageAndStorage": true,
+    "sameEntireFrontendRuntimeCounters": true,
+    "rootListenersRemain3": true,
+    "twoWorkerAbortAndEventListeners": true,
+    "fourCommandsTwoViews": true,
+    "noDisposalFailure": true
+  },
+  "beforeExportedAt": "2026-11-01T18:03:23.436661+00:00",
+  "afterExportedAt": "2026-11-01T18:07:02.167003+00:00",
+  "runtimeBefore": {
+    "activationErrorObservers": 1,
+    "cordisPluginListeners": 0,
+    "cordisRootListeners": 3,
+    "eventListenerDisposalFailures": 0,
+    "eventListeners": 15,
+    "eventListenersDisposing": 0,
+    "pluginInstances": 10,
+    "pluginInstancesDisposing": 0,
+    "pluginStoreObservers": 13,
+    "schemaVersion": 1,
+    "workerAbortListeners": 2,
+    "workerCommandObservers": 3,
+    "workerCommands": 4,
+    "workerEventListeners": 2,
+    "workerViews": 2
+  },
+  "runtimeAfter": {
+    "activationErrorObservers": 1,
+    "cordisPluginListeners": 0,
+    "cordisRootListeners": 3,
+    "eventListenerDisposalFailures": 0,
+    "eventListeners": 15,
+    "eventListenersDisposing": 0,
+    "pluginInstances": 10,
+    "pluginInstancesDisposing": 0,
+    "pluginStoreObservers": 13,
+    "schemaVersion": 1,
+    "workerAbortListeners": 2,
+    "workerCommandObservers": 3,
+    "workerCommands": 4,
+    "workerEventListeners": 2,
+    "workerViews": 2
+  },
+  "runtimeDelta": {
+    "activationErrorObservers": 0,
+    "cordisPluginListeners": 0,
+    "cordisRootListeners": 0,
+    "eventListenerDisposalFailures": 0,
+    "eventListeners": 0,
+    "eventListenersDisposing": 0,
+    "pluginInstances": 0,
+    "pluginInstancesDisposing": 0,
+    "pluginStoreObservers": 0,
+    "schemaVersion": 0,
+    "workerAbortListeners": 0,
+    "workerCommandObservers": 0,
+    "workerCommands": 0,
+    "workerEventListeners": 0,
+    "workerViews": 0
+  },
+  "ownedProjectStatesBefore": {
+    "3b5bd02b-7a91-4728-b822-bc0a5c0c0379": "sleeping",
+    "71496333-8a7d-49e1-90b1-45968a02ab99": "idle",
+    "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "active"
+  },
+  "ownedProjectStatesAfter": {
+    "3b5bd02b-7a91-4728-b822-bc0a5c0c0379": "sleeping",
+    "71496333-8a7d-49e1-90b1-45968a02ab99": "sleeping",
+    "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "active"
+  },
+  "limits": "Only three native repeated detail/contribution-view visits with no activation/refresh command; counts compare same B Settings/Data-and-privacy overlay.",
+  "sameInstanceScopeClarification": {
+    "subject": "Repeated native detail/contribution view visits were in active B only. A was a background project.",
+    "bActivationBefore": "cfac84d2-0ab6-412d-b9bc-ee389801d549",
+    "bActivationAfter": "cfac84d2-0ab6-412d-b9bc-ee389801d549",
+    "bPidStartBefore": {
+      "pid": 80971,
+      "ppid": 27780,
+      "pgid": 27780,
+      "start": "Mon Nov 2 02:02:54 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+    },
+    "bPidStartAfter": {
+      "pid": 80971,
+      "ppid": 27780,
+      "pgid": 27780,
+      "start": "Mon Nov 2 02:02:54 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+    },
+    "aBackgroundTransition": {
+      "before": "idle",
+      "after": "sleeping",
+      "activationRemoved": true,
+      "oldPid70948Absent": true
+    },
+    "allProjectEqualityChecksKeptAsObservedFalse": "The owner post snapshot is 18:08:22Z, after the frozen native diagnostic export at18:07:02Z. It observes later normal A sleep/removal, not a new B instance or a counter increase. No fresh diagnostic/export or extra GUI replay was added.",
+    "actualQaLogs": [
+      {
+        "message": "安装包校验和复制完成",
+        "time": "2026-11-01T17:49:52.645481+00:00"
+      },
+      {
+        "message": "实例按需激活",
+        "time": "2026-11-01T17:58:39.362304+00:00"
+      },
+      {
+        "message": "实例按需激活",
+        "time": "2026-11-01T18:02:54.350468+00:00"
+      },
+      {
+        "message": "项目空闲，实例已休眠",
+        "time": "2026-11-01T18:07:32.714635+00:00"
+      }
+    ]
+  },
+  "applicableChecks": {
+    "sameBActivation": true,
+    "sameBWorkerPidAndStart": true,
+    "noNewWorkerIdentity": true,
+    "samePackageAndStorage": true,
+    "sameAllRuntimeCountersAtRecordedPreviewTimes": true,
+    "noDisposalFailureAtRecordedPreview": true
+  }
+}

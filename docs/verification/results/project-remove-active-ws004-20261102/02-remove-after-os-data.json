@@ -1,0 +1,182 @@
+{
+  "observedAt": "2026-11-01T20:05:14.924437+00:00",
+  "stage": "WS004 one native actual Remove after live API-child/Web; one post-action readonly check",
+  "native": {
+    "clickUtc": "2026-11-01T20:03:44.625Z",
+    "toolReturnedUtc": "2026-11-01T20:03:44.708Z",
+    "impact": "Only启动器验收, no dirty documents, API25278/Web25283, 磁盘文件保留",
+    "result": "Welcome; recent projects no启动器验收, PluginResumeA/B remain",
+    "captures": [
+      "docs/verification/results/ws004-native-20261102/ws004-74714-1793563255623-03-remove-impact",
+      "docs/verification/results/ws004-native-20261102/ws004-74714-1793563255623-04-remove-result"
+    ],
+    "noReaddNoF04Repeat": true
+  },
+  "removedProjectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+  "formerRunId": "launch-1793563300074-2",
+  "knownPidRowsNow": [],
+  "ownedAppProcessTree": [
+    {
+      "pid": 8839,
+      "ppid": 74714,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:53:16 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+    },
+    {
+      "pid": 74714,
+      "ppid": 1,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:36:42 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "ports": {
+    "59130": {
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "",
+      "empty": true
+    },
+    "59131": {
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "",
+      "empty": true
+    }
+  },
+  "qaIdReferencesAfter": [],
+  "preservedOwnedFiles": [
+    {
+      "relativePath": "q1/api.mjs",
+      "path": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1/api.mjs",
+      "exists": true,
+      "bytes": 1058,
+      "sha256": "801dee719850d5ba6c5009bf6e2d965471ec418e4547e1168274f0cbf4eaf0f3",
+      "mtimeNs": 1793501490042598169,
+      "mode": "0o644",
+      "sameBytesHashModeMtime": true
+    },
+    {
+      "relativePath": "q1/child.mjs",
+      "path": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1/child.mjs",
+      "exists": true,
+      "bytes": 390,
+      "sha256": "33aeee087fd1e359add3d47b5dcc34e01c957c3124d0a699f2b75bbc51e2eb09",
+      "mtimeNs": 1793501490042684669,
+      "mode": "0o644",
+      "sameBytesHashModeMtime": true
+    },
+    {
+      "relativePath": "q1/web.mjs",
+      "path": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1/web.mjs",
+      "exists": true,
+      "bytes": 1062,
+      "sha256": "da8ae3547d7883baf34af920dc4a4724c3b775613442508b4abf47ad45124eea",
+      "mtimeNs": 1793501490042766711,
+      "mode": "0o644",
+      "sameBytesHashModeMtime": true
+    },
+    {
+      "relativePath": "Q1-双服务含子进程.horizon.json",
+      "path": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/Q1-双服务含子进程.horizon.json",
+      "exists": true,
+      "bytes": 1777,
+      "sha256": "aebeef84ef4038b7b3302a257eb3bdf2485112f3adfe24ca9f8d965c668e5eae",
+      "mtimeNs": 1793501490043555876,
+      "mode": "0o644",
+      "sameBytesHashModeMtime": true
+    },
+    {
+      "relativePath": "q1-save-guard/dirty.txt",
+      "path": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/q1-save-guard/dirty.txt",
+      "exists": true,
+      "bytes": 72,
+      "sha256": "0b0d88cf90850f6317499cdb29999258e349d9f56c24c4ff53397faf6126fe3b",
+      "mtimeNs": 1793538652360190205,
+      "mode": "0o600",
+      "sameBytesHashModeMtime": true
+    }
+  ],
+  "profilePersistentFileAfter": {
+    "path": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/launch-profiles/309b0390830fa2f8f231825e6b266b5b92cf8ce39b885509a98232cd1d74ba54.json",
+    "exists": true,
+    "bytes": 6508,
+    "sha256": "d15333152a0b8286f71830539b526324ce82dfd337258b9a2cdf3f50e65fd887"
+  },
+  "identityFileAfter": {
+    "bytes": 1230,
+    "sha256": "6c320ec57f637439903c7f19a4319a8db8c46352192100548b81271ad79eed7b",
+    "lineCount": 6
+  },
+  "persistedPidMarkers": {
+    "api.pid": "25278",
+    "child.pid": "25279",
+    "web.pid": "25283"
+  },
+  "stopOrderDeltaOnly": [
+    {
+      "role": "web",
+      "pid": 25283,
+      "at": "2026-11-01T20:03:44.750Z"
+    },
+    {
+      "role": "api",
+      "pid": 25278,
+      "at": "2026-11-01T20:03:44.813Z"
+    },
+    {
+      "role": "child",
+      "pid": 25279,
+      "at": "2026-11-01T20:03:44.813Z"
+    }
+  ],
+  "stopFileAfter": {
+    "bytes": 358,
+    "sha256": "40a43c1cc175a1f5f0da27cfeb04148115b62f7425a3cecc375dde14268c3d66",
+    "lineCount": 6
+  },
+  "qaActiveExtensionRecords": [],
+  "otherA": {
+    "osIdentity": {
+      "pid": 8839,
+      "ppid": 74714,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:53:16 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+    },
+    "activationId": "b2e14356-1a40-414a-b8ec-f706d3ad0235",
+    "projectRecord": {
+      "displayName": "PluginResumeA",
+      "id": "71496333-8a7d-49e1-90b1-45968a02ab99",
+      "lastOpenedAt": "2026-11-01T19:50:20.559801+00:00",
+      "pinned": false,
+      "revision": 4,
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/PluginResumeA",
+      "state": "idle",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+    },
+    "naturalSleepClaim": false
+  },
+  "checks": {
+    "allThreeOriginalIdentitiesGone": true,
+    "allThreePidNumbersAbsent": true,
+    "bothPortsEmpty": true,
+    "appSameIdentity": true,
+    "otherAWorkerSameIdentity": true,
+    "otherAActivationSame": true,
+    "qaHostRegistryAllReferencesRemoved": true,
+    "qaSourcesImportAndGuardPreserved": true,
+    "qaRootDirectoryPreserved": true,
+    "profilePersistentFileBytesPreserved": true,
+    "identityRowsNotReplayedOrRemoved": true,
+    "stopLogOldPrefixPreserved": true,
+    "exactNewStopThreeOwnedRoles": true,
+    "webStoppedBeforeApiGroup": true,
+    "noQaActiveExtensionOrRunLeases": true,
+    "guardParentModeStill700": true
+  },
+  "pass": true,
+  "limits": "Host registry old-ID/root/session/path/workspace references are actually absent; no post-removal scoped RPC/re-add or in-memory epoch export invented. Physical source directory/profile file preserved. Other A really remained same live identity; B sleeping is not a preservation claim.",
+  "ownerActions": "Readonly own files/markers/profile/host+extension projections/exact owned OS tree+3prior identities/ports; no GUI/start/signal/HTTP/build/test; original files/modes unmodified"
+}

@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-11-01T20:11:00.622628+00:00",
+  "checks": {
+    "sameCheckpointExactRootArmAndDisarm": true,
+    "exactFlags0To2To0": true,
+    "checkpointUnchangedAcrossFailureAndDisarm": true,
+    "actualFlushErrorAX": true,
+    "bothMarkersRemainInDirtyEditor": true,
+    "impactNamesExactTargetFile": true,
+    "actualStopBlockedOnExactDocId": true,
+    "editorPolicyAndRevisionUnchangedByBlockedApply": true,
+    "ownedExtensionRecordsUnchanged": true,
+    "A8839SameAndNoNewChild": true,
+    "sourceNeverSaved": true,
+    "rootDisarmRecordRemoved": true
+  },
+  "rootArmReceipt": "42-host005-root-arm.json",
+  "rootDisarmReceipt": "43-host005-root-disarm.json",
+  "checkpointAfterFailureBeforeRetry": {
+    "inode": 67631361,
+    "flags": 0,
+    "sha256": "e784a1d055c2e09d44e287ef8dcf6e0c963a415ef165a78e00a70eee2ccaa584"
+  },
+  "sourceBytesAfterBlock": 53,
+  "sourceSHA256AfterBlock": "d3f8ee606161b69d953c1e80d922f030d44d4bf4b94000da08d30b69c3c94d8f",
+  "actualError": "请先处理文档或任务：242c60b3-3bd9-44a1-86c0-fb609f3a2ef0",
+  "limits": [
+    "Impact plan names plugin-stop-export.txt; readiness blocker text is document UUID, preserved exactly.",
+    "Root immediately disarmed20:09:32 before this owner derivation. One auxiliary arm-record lookup consequently sawFileNotFound and wrote no receipt; this is not a product failure and no extra arm/disarm occurred. Frozen root42/43 record exact immutable checkpoint before/after.",
+    "Two marker text still dirty/in-memory after failed flush, actual recovery remained rev1. Latest checkpoint after real GUI retry is a separate pending phase.",
+    "Existing conservative guard rejects all dirty documents even with successful checkpoints; this does not assert only failed checkpoints block."
+  ]
+}

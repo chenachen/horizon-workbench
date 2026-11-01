@@ -1,0 +1,37 @@
+{
+  "observedAt": "2026-11-01T19:07:26.286392+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+  "mainSha256": "0546f9cde8b65fedda8cfbff07a5267bd7cdd99a23f1126db2c06b1b850500e0",
+  "bytes": 19910976,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": true,
+  "rollbackBackup": "/Users/chenpengxiang/Applications/.Horizon-native-confirmation-previous.app",
+  "rollbackBackupRetained": true,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-native-confirmation-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-native-confirmation-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

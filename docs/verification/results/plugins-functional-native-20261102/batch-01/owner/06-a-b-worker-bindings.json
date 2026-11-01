@@ -1,0 +1,58 @@
+{
+  "observedAt": "2026-11-01T18:04:39.712416+00:00",
+  "checks": {
+    "sameAActivation": true,
+    "twoProjectActivations": true,
+    "sameAOsIdentity": true,
+    "exactTwoWorkers": true,
+    "twoPrivateStorageFiles": false
+  },
+  "activations": {
+    "71496333-8a7d-49e1-90b1-45968a02ab99": "62166b49-c18c-4f09-8422-18ad3091b5e3",
+    "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "cfac84d2-0ab6-412d-b9bc-ee389801d549"
+  },
+  "workerBindings": {
+    "A": [
+      {
+        "pid": 70948,
+        "ppid": 27780,
+        "pgid": 27780,
+        "start": "Mon Nov 2 01:58:39 2026",
+        "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+      }
+    ],
+    "B": [
+      {
+        "pid": 80971,
+        "ppid": 27780,
+        "pgid": 27780,
+        "start": "Mon Nov 2 02:02:54 2026",
+        "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+      }
+    ]
+  },
+  "limits": "B binding uses only-new-child after B-only activation; native F04 independently bound A PID70948.",
+  "storageExpectationCorrection": {
+    "originalCheckPreserved": {
+      "twoPrivateStorageFiles": false
+    },
+    "actual": {
+      "exists": true,
+      "files": [
+        {
+          "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+          "bytes": 26,
+          "sha256": "78c551169d7bb46bd753d1f8f42a5dbb2da6afc5eff9442c332d9549500cfc58"
+        }
+      ]
+    },
+    "interpretation": "The fixture writes the same private extension storage key lastRefresh in A and B; two project-specific files were an owner assumption, not a product requirement. The observed shared key is not classified as an isolation defect. QA project configuration/activation and worker ownership remain separate.",
+    "sourceEvidence": "apps/desktop/src-tauri/src/extensions.rs:2237-2251 explicitly shares extension project-instance storage and keys the path by extension id plus digest(key); no project path."
+  },
+  "applicableChecks": {
+    "sameAActivation": true,
+    "twoProjectActivations": true,
+    "sameAOsIdentity": true,
+    "exactTwoWorkers": true
+  }
+}

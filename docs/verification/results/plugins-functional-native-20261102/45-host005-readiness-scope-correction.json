@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-11-01T20:12:59.495561+00:00",
+  "correctionTo": "43-host005-failed-flush-and-blocker.json limits last item",
+  "sourcePath": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src/features/editor/index.ts",
+  "sourceSHA256": "21879b91b4fd4547a33be3f8c11debafa53e6db5742ed1afbd29e56cdb5aaaac",
+  "actualEditorLifecycleSource": {
+    "firstLine": 14,
+    "lines": [
+      "registerPluginLifecycle('horizon.editor', {",
+      "  activate: async ({ projectId, signal }) => { if (projectId && !signal.aborted) await editorStore.restoreProjectSession(projectId); },",
+      "  prepareDeactivate: async ({ projectId }) => {",
+      "    try { await editorStore.flushDrafts(projectId); return { ready: true, blockers: [] }; }",
+      "    catch { return { ready: false, blockers: [...editorStore.getSnapshot().buffers.values()].filter(b => b.dirty && (!projectId || b.projectId === projectId)).map(b => b.meta?.documentId ?? b.fileId) }; }",
+      "  },",
+      "  dispose: ({ projectId }) => disposeEditorViews(projectId),"
+    ]
+  },
+  "correctScope": "Conservative all-dirty blocking described by root applies to automatic maintenance Sleep. Editor explicit prepareDeactivate instead attempts flushDrafts and returns ready=true on success; only failed flush returns document ID blockers. 43 last limit omitted this distinction and must not be applied to explicit Editor stop.",
+  "nativeVerificationPlan": "44 already proves real GUI retry wrote rev2/two-marker checkpoint without source Save. Next exactly one fresh current-A Editor stop plan may retain that latest checkpoint; old failed plan is never reconfirmed. No extra project Sleep/Save/discard or product edits."
+}

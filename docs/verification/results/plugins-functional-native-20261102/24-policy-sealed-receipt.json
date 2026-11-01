@@ -1,0 +1,86 @@
+{
+  "sealedAt": "2026-11-01T19:01:50.597661+00:00",
+  "state": "POLICY SEALED / GUI HOLD / no sampler / no Quit yet",
+  "identity": {
+    "expectedMainSha256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+    "appPid": 27780,
+    "appOsIdentity": {
+      "pid": 27780,
+      "ppid": 1,
+      "pgid": 27780,
+      "start": "Mon Nov 2 01:37:30 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    "mainPath": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  },
+  "checks": {
+    "mainInstalled011": true,
+    "globalExplicitlyResumed": true,
+    "aProjectPauseRetained": true,
+    "bMainStillInherits": true,
+    "optionalADisabledRetained": true,
+    "optionalGlobalEnabledBInherits": true,
+    "bothQaActivationsEmpty": true,
+    "zeroNativeQuickJsWorkers": true,
+    "configAndPrivateStorageRetained": true,
+    "host005NotArmed": true,
+    "sameGateNeverApprovedConfig": true
+  },
+  "mainQaPolicy": {
+    "installed": true,
+    "enabledGlobal": true,
+    "pausedGlobal": false,
+    "revision": 21,
+    "projects": {
+      "71496333-8a7d-49e1-90b1-45968a02ab99": {
+        "paused": true,
+        "policy": "enabled"
+      }
+    },
+    "config": {},
+    "projectConfig": {
+      "71496333-8a7d-49e1-90b1-45968a02ab99": {
+        "includeUntracked": false
+      }
+    },
+    "activations": {}
+  },
+  "optionalPolicy": {
+    "installed": true,
+    "enabledGlobal": true,
+    "pausedGlobal": false,
+    "revision": 5,
+    "projects": {
+      "71496333-8a7d-49e1-90b1-45968a02ab99": {
+        "policy": "disabled"
+      }
+    },
+    "activations": {}
+  },
+  "bProjectId": "750509b2-a4ff-4571-ae2f-a1b7c0101d42",
+  "installedOldFailurePreserved": {
+    "file": "diag-global-paused/horizon-diagnostics.json",
+    "sha256": "768ead607ad5ea5b080bc37fe4c5e4decf3ce07df30acc33b1ea3290dcc58ab4",
+    "exportedAt": "2026-11-01T18:58:13.023588+00:00",
+    "frontendRuntime": {
+      "activationErrorObservers": 1,
+      "cordisPluginListeners": 0,
+      "cordisRootListeners": 3,
+      "eventListenerDisposalFailures": 0,
+      "eventListeners": 14,
+      "eventListenersDisposing": 0,
+      "pluginInstances": 8,
+      "pluginInstancesDisposing": 4,
+      "pluginStoreObservers": 12,
+      "schemaVersion": 1,
+      "workerAbortListeners": 0,
+      "workerCommandObservers": 2,
+      "workerCommands": 0,
+      "workerEventListeners": 0,
+      "workerViews": 0
+    },
+    "interpretation": "f544 still has actual disposing4 despite all worker counters/native processes0. Source candidate not installed/tested here. A normal restart alone is not its fix proof."
+  },
+  "terrasNativeFinal": "27-explicit-global-resume",
+  "next": "Root may run the prepared8worker+3cleanup narrow checks and one release build. Quit/install/relaunch remain coordinated by root; no worker wake/GUI meanwhile. New identity and targeted clean-A sleep/B-owner retest required before claiming source fix."
+}

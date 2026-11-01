@@ -1,0 +1,54 @@
+{
+  "observedAt": "2026-11-01T19:49:38.058584+00:00",
+  "checks": {
+    "AActivationRemoved": true,
+    "BActivationUnchanged": true,
+    "A98147Gone": true,
+    "B84134SameBirth": true,
+    "noOtherNewWorker": true,
+    "noFakeMarkerInOwnedPersistedProductionLogs": true,
+    "noFakeMarkerInFaultAX": true,
+    "ASettingsAndPackagesStoragePreserved": true
+  },
+  "errorProjection": {
+    "errors": {
+      "71496333-8a7d-49e1-90b1-45968a02ab99": {
+        "activationId": "b049d227-d3c5-42ed-ae48-653b82cbfd50",
+        "code": "EXTENSION_FAILED",
+        "detailsOmitted": true,
+        "extensionId": "local.resume-read-only-changes",
+        "message": "扩展执行失败。原始异常内容未写入日志；请重试或停用该扩展。",
+        "projectId": "71496333-8a7d-49e1-90b1-45968a02ab99",
+        "reason": "runtimeFailure"
+      }
+    },
+    "cleanupErrors": {},
+    "cleanupError": null,
+    "stopping": {},
+    "sleeping": {
+      "71496333-8a7d-49e1-90b1-45968a02ab99": false,
+      "750509b2-a4ff-4571-ae2f-a1b7c0101d42": false,
+      "@app": false
+    }
+  },
+  "logsAdded": [
+    {
+      "activationId": "b049d227-d3c5-42ed-ae48-653b82cbfd50",
+      "code": "EXTENSION_FAILED",
+      "detailsOmitted": true,
+      "event": "runtimeFailure",
+      "extensionId": "local.resume-read-only-changes",
+      "message": "扩展执行失败。原始异常内容未写入日志；请重试或停用该扩展。",
+      "projectId": "71496333-8a7d-49e1-90b1-45968a02ab99",
+      "reason": "runtimeFailure",
+      "time": "2026-11-01T19:48:50.711207+00:00"
+    }
+  ],
+  "independentEditorBefore": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/PluginResumeA/independent-editor.txt",
+    "bytes": 59,
+    "sha256": "763a3b7554c7ccf1cd3459db764c531a6183fbda2003e193617090f113251a29",
+    "text": "HORIZON_PLUGIN_INDEPENDENT_EDITOR_A\nOriginal on-disk text.\n"
+  },
+  "limits": "No raw fake payload logged to output; read only own persisted errors/logs + captured AX. Independent editor save and explicit retry still pending; no auto-retry duration extrapolated."
+}

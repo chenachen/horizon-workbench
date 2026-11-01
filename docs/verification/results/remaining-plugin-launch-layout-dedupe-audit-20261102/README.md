@@ -1,0 +1,9 @@
+# 既有 Git、启动器、布局证据去重
+
+仅原条款/已审冻结记录和精确源码组合，未执行GUI、测试、采样或新流程。GIT001最后停用不刷新由真实disabled/uninstalled占位/activation0和GitPanel enabled门、timer/focus/订阅cleanup补齐；不是连续请求采样。LAUNCH001最后卸载恢复由batch09真实包删除/宿主恢复/显式enable/可用空方案管理和batch11默认恢复补齐，无新run。
+
+LAUNCH009复用真实586秒后台runLease/切换隐藏保持/活跃方案阻睡/Q1退出归属，原21真实服务测试与12policy测试证明lease最后使用者/预存activation/他项目保留。精确编译extensions8b1274/processes8d77源码只移本run_id，lastlease且无资源、同activation、非direct、policyRevision未被人为更改才清临时实例；不重写global/project启用策略，停用时按项目反序处理自有组。原nativeL1 requiredExtensions=[]与非空门只预检的限制保持，未冒称新增共享依赖GUI运行。
+
+UI006只完成功能：原8套实际插件切换/共用安装启停卸载接口，batch09当前Aurora真实卸载到可用fallback并恢复底部导航，theme记录保持。精确appearance f8f604的普通layout_apply仅写layoutId，Provider1443独立解析layout/theme。旧50序列其间有主动换theme，不误称50次theme全同；不新增八布局视觉通过或猜fallback名称。
+
+原12-test源码文件已变化，因此没有读取当前testbody冒充旧run；复用的是已接受原日志/断言审查与当前精确冻结生产源。未知git.path旧presence、特殊键盘/Windows/AI011/视觉和FILE013陈旧提示等边界不变。

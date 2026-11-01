@@ -1,0 +1,76 @@
+{
+  "format": "horizon-launch@1",
+  "profile": {
+    "schemaVersion": 1,
+    "profileId": "",
+    "projectId": "",
+    "revision": 0,
+    "name": "1101 Q1 双服务 · 含子进程",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "api",
+        "title": "Q1 接口及子进程",
+        "dependsOn": [],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "api.mjs"
+          ]
+        },
+        "cwd": "q1",
+        "env": {
+          "API_PORT": "59130"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "http",
+          "url": "http://127.0.0.1:59130/health",
+          "statusCodes": [
+            200
+          ],
+          "timeoutMs": 5000
+        },
+        "onReady": null
+      },
+      {
+        "stepId": "web",
+        "title": "Q1 页面服务",
+        "dependsOn": [
+          "api"
+        ],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "web.mjs"
+          ]
+        },
+        "cwd": "q1",
+        "env": {
+          "API_PORT": "59130",
+          "WEB_PORT": "59131"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "tcp",
+          "host": "127.0.0.1",
+          "port": 59131,
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59131",
+          "autoOpenUrl": false
+        }
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  "redactedEnvKeys": []
+}

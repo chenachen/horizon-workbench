@@ -1,0 +1,32 @@
+{
+  "at_utc": "2026-11-01T22:25:26.131661+00:00",
+  "scope": "Static source inspection only. No PowerShell helper, Windows process, UIA, native GUI, Rust compiler, local test or CI execution.",
+  "original_source_reconstruction_equal": true,
+  "old_5s_OS_snapshot_and_main_cleanup_unchanged": true,
+  "one_original_main_StartProcess_retained": true,
+  "new_main_launch_count": 0,
+  "new_UIA_helper_launch_sites": 1,
+  "UIA_FindFirst_calls": 1,
+  "UIA_loop_or_invoke_or_focus": false,
+  "publishing_gate_or_original_failed_assignments_changed": false,
+  "workflow_changed": false,
+  "product_source_changed": false,
+  "original_frontend_interactive_not_evaluated_retained": true,
+  "helper_ascii_with_button_name_wide_argument_from_pwsh7": true,
+  "host_wait_bound": "remaining max(0, 30s - actual process UTC age), monotonic stopwatch caps remaining wait; each read checks same PID/start; sleep at most250ms",
+  "host_files": "fresh setup mandatory registry.json and extensions/registry.json only, JSON parsed once after both appear",
+  "UIA_bound": "WaitForExit consumes remaining3s from observer stopwatch; timeout only signals exact helper PID/start; original main cleanup block unchanged",
+  "type_review": [
+    "WindowsPowerShell5.1 supports param(long,int,string), ::new(), Add-Type UIAutomationClient/UIAutomationTypes and ConvertTo-Json. No PowerShell7-only API in helper.",
+    "Parent runs pwsh per existing workflow; ConvertFrom-Json -AsHashtable is used only there.",
+    "FromHandle(IntPtr), FindFirst(TreeScope, Condition), AndCondition(Condition,Condition) and PropertyCondition(AutomationProperty,object) match official managed UIA signatures.",
+    "GetProcessById(int), StartTime.ToUniversalTime().Ticks(long), WaitForExit(int) and Kill() are existing .NET process APIs; UIA helper is separately spawned and owns no Horizon process.",
+    "No setup marker files are assumed from lazy settings/appearance writes."
+  ],
+  "runtime_validation": "not executed; real UIA availability/ready state remains to be observed on a future already-authorized Windows run",
+  "git_apply_check": {
+    "command": "rtk proxy git apply --check .work/windows-main-ready-observation-20261102/candidate/source.patch",
+    "exit_code": 0,
+    "mode": "read-only; not applied"
+  }
+}

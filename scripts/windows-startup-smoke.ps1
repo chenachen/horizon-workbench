@@ -37,6 +37,55 @@ $report = [ordered]@{
 function Write-Report {
   $report | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $output 'startup-smoke.json')
 }
+function Observe-HostReady {
+  param([int]$ProcessId, [DateTime]$ProcessStart, [string]$RoamingPath)
+  $registryPath = Join-Path $RoamingPath 'registry.json'
+  $extensionsPath = Join-Path $RoamingPath 'extensions/registry.json'
+  $observation = [ordered]@{
+    scope = 'Read-only observation of the two files written by fresh production setup; not an interaction or performance check.'
+    status = 'not_observed_by_30s'
+    roaming_path = $RoamingPath
+    required_files = @($registryPath, $extensionsPath)
+    deadline_process_age_seconds = 30
+    poll_interval_ms = 250
+    started_utc = [DateTime]::UtcNow.ToString('O')
+  }
+  $remaining = [Math]::Max(0, 30000 - ([DateTime]::UtcNow - $ProcessStart).TotalMilliseconds)
+  $timer = [Diagnostics.Stopwatch]::StartNew()
+  try {
+    while ($timer.Elapsed.TotalMilliseconds -le $remaining) {
+      $current = [Diagnostics.Process]::GetProcessById($ProcessId)
+      try {
+        if ($current.HasExited -or $current.StartTime.ToUniversalTime().Ticks -ne $ProcessStart.Ticks) {
+          $observation.status = 'owned_process_not_live'
+          break
+        }
+      } finally { $current.Dispose() }
+      $observation.host_file_exists = Test-Path -LiteralPath $registryPath -PathType Leaf
+      $observation.extensions_file_exists = Test-Path -LiteralPath $extensionsPath -PathType Leaf
+      if ($observation.host_file_exists -and $observation.extensions_file_exists) {
+        $observation.first_files_observed_utc = [DateTime]::UtcNow.ToString('O')
+        $observation.first_files_observed_process_age_ms = ([DateTime]::UtcNow - $ProcessStart).TotalMilliseconds
+        $registry = Get-Content -LiteralPath $registryPath -Raw -Encoding utf8 | ConvertFrom-Json
+        $extensions = Get-Content -LiteralPath $extensionsPath -Raw -Encoding utf8 | ConvertFrom-Json
+        $observation.host_schema_version = $registry.schemaVersion
+        $observation.extensions_schema_version = $extensions.schemaVersion
+        $observation.host_registry_valid = $registry.schemaVersion -eq 1 -and $registry.defaultWorkspaceId -is [string] -and @($registry.workspaces | Where-Object { $_.id -eq $registry.defaultWorkspaceId }).Count -gt 0
+        $observation.extensions_registry_valid = $extensions.schemaVersion -eq 1 -and $extensions.records -is [pscustomobject]
+        $observation.status = if ($observation.host_registry_valid -and $observation.extensions_registry_valid) { 'required_setup_files_observed' } else { 'files_observed_schema_unexpected' }
+        break
+      }
+      $waitMs = [Math]::Min(250, $remaining - $timer.Elapsed.TotalMilliseconds)
+      if ($waitMs -le 0) { break }
+      Start-Sleep -Milliseconds ([int][Math]::Ceiling($waitMs))
+    }
+  } catch {
+    $observation.status = 'observation_error'
+    $observation.error = $_.Exception.Message
+  }
+  $observation.observed_utc = [DateTime]::UtcNow.ToString('O')
+  return $observation
+}
 if ($report.data_paths_existed_before.Count -gt 0) {
   $report.reason = 'Horizon identifier directory already exists; ownership not established.'
   Write-Report
@@ -71,6 +120,45 @@ try {
   $report.frontend_interactive = 'not_evaluated'
   $report.window_responding = if ($launched.MainWindowHandle -ne [IntPtr]::Zero) { $launched.Responding } else { $null }
   $report.status = 'process_alive_after_5s'
+  try {
+    $roamingPath = Join-Path ([Environment]::GetFolderPath([Environment+SpecialFolder]::ApplicationData)) $identifier
+    $report.host_readiness = Observe-HostReady -ProcessId $launchPid -ProcessStart $launchStart -RoamingPath $roamingPath
+  } catch { $report.host_readiness = @{ status = 'observation_error'; error = $_.Exception.Message } }
+  $uiaProbe = $null
+  $uiaTimer = [Diagnostics.Stopwatch]::StartNew()
+  try {
+    $launched.Refresh()
+    if ($launched.HasExited -or $launched.MainWindowHandle -eq [IntPtr]::Zero) {
+      $report.frontend_readiness = @{ status = 'owned_window_not_observed'; observed_utc = [DateTime]::UtcNow.ToString('O') }
+    } else {
+      $uiaOutput = Join-Path $output 'frontend-readiness.json'
+      $helper = Join-Path $PSScriptRoot 'windows-uia-ready.ps1'
+      $arguments = '-NoProfile -NonInteractive -Mta -File "{0}" -WindowHandle {1} -ExpectedPid {2} -ExpectedStartUtcTicks {3} -ButtonName "打开本地项目" -OutputPath "{4}"' -f $helper, $launched.MainWindowHandle.ToInt64(), $launchPid, $launchStart.Ticks, $uiaOutput
+      $uiaProbe = Start-Process -FilePath (Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe') -ArgumentList $arguments -WindowStyle Hidden -PassThru `
+        -RedirectStandardOutput (Join-Path $output 'uia-stdout.log') -RedirectStandardError (Join-Path $output 'uia-stderr.log')
+      $uiaStart = $uiaProbe.StartTime.ToUniversalTime()
+      if (-not $uiaProbe.WaitForExit([Math]::Max(0, 3000 - [int]$uiaTimer.ElapsedMilliseconds))) {
+        $report.frontend_readiness = @{ status = 'helper_timeout'; timeout_ms = 3000 }
+      } elseif (Test-Path -LiteralPath $uiaOutput -PathType Leaf) {
+        $report.frontend_readiness = Get-Content -LiteralPath $uiaOutput -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable
+        $report.frontend_readiness.helper_exit_code = $uiaProbe.ExitCode
+      } else {
+        $report.frontend_readiness = @{ status = 'helper_report_not_observed'; helper_exit_code = $uiaProbe.ExitCode }
+      }
+    }
+  } catch {
+    $report.frontend_readiness = @{ status = 'observation_error'; error = $_.Exception.Message }
+  } finally {
+    if ($null -ne $uiaProbe -and -not $uiaProbe.HasExited) {
+      try {
+        $ownedProbe = [Diagnostics.Process]::GetProcessById($uiaProbe.Id)
+        if ($ownedProbe.StartTime.ToUniversalTime().Ticks -ne $uiaStart.Ticks) { throw 'UIA helper identity changed; refusing cleanup.' }
+        $ownedProbe.Kill()
+        if (-not $ownedProbe.WaitForExit(1000)) { throw 'Owned UIA helper cleanup unconfirmed.' }
+      } catch { $report.frontend_readiness.helper_cleanup_error = $_.Exception.Message }
+    }
+    $report.frontend_readiness.observer_elapsed_ms = $uiaTimer.ElapsedMilliseconds
+  }
 } catch {
   $failed = $true
   $report.status = 'failed'

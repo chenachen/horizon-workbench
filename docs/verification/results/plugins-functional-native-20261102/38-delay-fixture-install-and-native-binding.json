@@ -1,0 +1,97 @@
+{
+  "recordedAt": "2026-11-01T19:57:27.758601+00:00",
+  "checks": {
+    "zipExactHash": true,
+    "allZipMembersMatchInstalled": true,
+    "zeroCapabilitiesAndGrants": true,
+    "onlyAActivation": true,
+    "globalEnabledNotPaused": true,
+    "worker14930Present": true
+  },
+  "fixture": {
+    "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/delayed-stop.horizon-extension",
+    "bytes": 1594,
+    "sha256": "c92ff2f825b3ab642dfdd1af5c3eca5ee31e8c77542576ee889f6b08ef28c6da",
+    "extensionId": "local.resume-stop-delay-probe",
+    "version": "0.1.0",
+    "capabilities": []
+  },
+  "zipMembers": [
+    {
+      "path": "manifest.json",
+      "bytes": 850,
+      "sha256": "6dd33309cba3cfe5590391e4e08149d6b2360dff9b6c78170ca8bd147dcaa5b8"
+    },
+    {
+      "path": "index.js",
+      "bytes": 528,
+      "sha256": "bdf9bcc905687fdb17a2ef1eae44eb75c7cceeeec6edd3c62d1f07bcae08722a"
+    }
+  ],
+  "installedMembers": [
+    {
+      "path": "0.1.0-59b1d50df22c/index.js",
+      "bytes": 528,
+      "sha256": "bdf9bcc905687fdb17a2ef1eae44eb75c7cceeeec6edd3c62d1f07bcae08722a"
+    },
+    {
+      "path": "0.1.0-59b1d50df22c/manifest.json",
+      "bytes": 850,
+      "sha256": "6dd33309cba3cfe5590391e4e08149d6b2360dff9b6c78170ca8bd147dcaa5b8"
+    }
+  ],
+  "manifest": {
+    "activation": [
+      "onCommand:local.resume-stop-delay-probe.refresh"
+    ],
+    "apiVersion": 1,
+    "author": "Horizon verification fixture",
+    "capabilities": [],
+    "contributes": {
+      "commands": [
+        {
+          "id": "local.resume-stop-delay-probe.refresh",
+          "title": "刷新基本文本视图"
+        }
+      ],
+      "views": [
+        {
+          "id": "local.resume-stop-delay-probe.view",
+          "renderer": "declarative",
+          "slot": "primarySidebar"
+        }
+      ]
+    },
+    "description": "专用验收包：deactivate 永不完成，用于观察停止中及强制回收。",
+    "engines": {
+      "horizon": ">=0.1.0 <0.2.0"
+    },
+    "id": "local.resume-stop-delay-probe",
+    "name": "插件验收 · 延迟停止",
+    "optional": {},
+    "requires": {},
+    "runtime": {
+      "entry": "index.js",
+      "kind": "quickjs"
+    },
+    "version": "0.1.0"
+  },
+  "activation": {
+    "71496333-8a7d-49e1-90b1-45968a02ab99": "4c1ddd35-683c-47c6-8c01-ccf395478200"
+  },
+  "nativeIdentity": {
+    "pid": 14930,
+    "ppid": 74714,
+    "pgid": 74714,
+    "start": "Mon Nov 2 03:56:22 2026",
+    "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+  },
+  "otherNativeIdentity": {
+    "pid": 8839,
+    "ppid": 74714,
+    "pgid": 74714,
+    "start": "Mon Nov 2 03:53:16 2026",
+    "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+  },
+  "BStatus": "Naturally sleeping before R2 stop; no R2-isolation claim for previous B84134."
+}

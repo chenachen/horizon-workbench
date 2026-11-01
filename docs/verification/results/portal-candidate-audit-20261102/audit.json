@@ -1,0 +1,95 @@
+{
+  "recordedAt": "2026-11-01T17:47:28.276280+00:00",
+  "scope": "Frozen7capture/13action portalcandidate shortnative batch only; no GUI/test/source/build/sampling or oldSET007 rereview.",
+  "identity": {
+    "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+    "pid": 27780,
+    "start": "2026-11-02 01:37:30 +0800",
+    "mainBytes": 19910976
+  },
+  "review": {
+    "originalsPersonallyViewed": 7,
+    "uniqueFullAXRead": 4,
+    "byteIdenticalAXReuse": {
+      "02-confirm-tab-once": "01-escape-confirm",
+      "04-draft-discard-confirm": "01-escape-confirm",
+      "06-entry-restored": "00-initial"
+    },
+    "hashChecks": [
+      {
+        "label": "00-initial",
+        "image": true,
+        "ax": true
+      },
+      {
+        "label": "01-escape-confirm",
+        "image": true,
+        "ax": true
+      },
+      {
+        "label": "02-confirm-tab-once",
+        "image": true,
+        "ax": true
+      },
+      {
+        "label": "03-draft-retained",
+        "image": true,
+        "ax": true
+      },
+      {
+        "label": "04-draft-discard-confirm",
+        "image": true,
+        "ax": true
+      },
+      {
+        "label": "05-draft-cleared",
+        "image": true,
+        "ax": true
+      },
+      {
+        "label": "06-entry-restored",
+        "image": true,
+        "ax": true
+      }
+    ],
+    "all13ActionsRead": true
+  },
+  "result": "FAIL: visible unsavedconfirmation has no heading/buttons in fullAX. Same446f57... fullAX for Escape, oneTab and cleanupCancel. Visualfocus close→Continue does not restore AX accessibility.",
+  "functionalBoundary": "Continue via currentoriginal coordinates preserves two syntheticfields/model focus; Cancel→Discard onlythis unsaved draft, listempty; returningmain AX exactlyequals initial. No CmdQ/Test/Send/Save action. ExistingSET007 functionalfull is not revoked.",
+  "sourceBinding": {
+    "bundleIdentity": "docs/verification/results/cross-platform-functional-release-20261102/bundle-identity.json",
+    "sourceChangeR2": "docs/verification/results/cross-platform-functional-release-20261102/source-change-r2.json",
+    "confirmationSHA256": "6c4534b8b263aef2498da6cdea91f8128577bfd6b86faccb131a3cb079e856ea",
+    "sharedModalSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33"
+  },
+  "relatedOldFailure": "MAC-UNSAVED-FORM-CONFIRMATION-AX-NATIVE-FAIL-001",
+  "supersedes": [],
+  "limits": [
+    "Candidatebodyportal did not fix this observed path. No proven top-layer/nested-dialog/Modal rootcause is inferred.",
+    "OneTab visiblefocus is not completekeyboard/screenreaderpass.",
+    "No newCmdQ outeraggregate check, backendconnectiondisk audit or networkrequestmeasurement. Actions do not include Test/Send/Save/Quit.",
+    "No Windows/nativeplatform, visualreference, packageoverallacceptance or newproductfailurebeyond sameUI004condition."
+  ],
+  "artifactSHA256": {
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-manifest.jsonl": "438823f7be542d414625caf7b24f5a1b52bd06a67f92a58a8647550543a07a65",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-actions.jsonl": "84a4cc83d2ba48a6b494c49e64551253add8dfc43220a213cd5ebb7c3671c295",
+    "docs/verification/results/cross-platform-functional-release-20261102/bundle-identity.json": "61c764f35800164725146f1c3e442a78d7302cdbe48f63518886367b057d8a97",
+    "docs/verification/results/cross-platform-functional-release-20261102/native-startup-identity.json": "3f2c18a55b6b40788b77f99660b64740a9461a80fca30642e3d26e265fbd22bf",
+    "docs/verification/results/cross-platform-functional-release-20261102/source-change-r2.json": "6cc1b5bf7c2372e26faa80e3af2b9da5251639d05bbf6ecbfdd204c52a67d0b8",
+    "docs/verification/results/cross-platform-functional-release-20261102/build-source-stability-r2.json": "327e3eb0b700c01dddd294b12dc33eddbb8aba9090cc53b031960ca3d7a13850",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-00-initial.jpg": "7ec9e96d53ec53301ecd4eb338a485b4c8cbcec70633fb65e031972c85ec78c4",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-00-initial.ax.txt": "534ddb47f431aa827e972dab48c1388b84e6a68af715892d0109041e988da94c",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-01-escape-confirm.jpg": "a75518546952761f19243ba88356e36ce0b3ece375b6ce13579d9350f0edb828",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-01-escape-confirm.ax.txt": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-02-confirm-tab-once.jpg": "040415e5a992654c73e487c18fdc12d46736c1d530ef94462b9c208b43e6d0e8",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-02-confirm-tab-once.ax.txt": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-03-draft-retained.jpg": "fdd8dc90e6ba9c09c1a2509b12ca1794f6be8d9674ce03bf4cf1347511507211",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-03-draft-retained.ax.txt": "5be52740b97e45a782ee313b5c2d305c0702be0a1a861ae24a0ce310b0423fd9",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-04-draft-discard-confirm.jpg": "254f5ba62be84aa667e77477a83ba34eb3dba33c387aa473a2eb546661eb5e24",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-04-draft-discard-confirm.ax.txt": "446f57b74b74f3480a32d36380ae30c92b1056f1e0d1b9451c7a1e1c97fc4e00",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-05-draft-cleared.jpg": "69b9d95fd45bcd89e34115b3a9dcd444b7fc2f8bda8d8c942b1d9d2901958ae1",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-05-draft-cleared.ax.txt": "ec2b704fd5166e04d1e4df67be4315a23ae3cc187450b3b4a72df966857bc938",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-06-entry-restored.jpg": "72f013875aad7a486496c33661a190a7efd07e64baf06356f1fbb0fa76190cc7",
+    "docs/verification/results/portal-functional-native-20261102/portal-27780-1793554679976-06-entry-restored.ax.txt": "534ddb47f431aa827e972dab48c1388b84e6a68af715892d0109041e988da94c"
+  }
+}

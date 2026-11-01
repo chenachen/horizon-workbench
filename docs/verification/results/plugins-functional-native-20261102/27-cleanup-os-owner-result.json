@@ -1,0 +1,35 @@
+{
+  "observedAt": "2026-11-01T19:25:13.782079+00:00",
+  "checks": {
+    "aProjectActuallySleeping": true,
+    "bProjectStillActive": true,
+    "aActivationRemoved": true,
+    "a43795ExactIdentityGone": true,
+    "bSameActivation": true,
+    "b44677ExactIdentityRetained": true,
+    "samePolicyConfig": true,
+    "noPackageOrStorageChanges": true,
+    "host005Unarmed": true
+  },
+  "before": "26-new-a-b-cleanup-pre-owner.json",
+  "after": "27-new-clean-a-sleep-post-owner.json",
+  "aOldIdentity": {
+    "pid": 43795,
+    "ppid": 19076,
+    "pgid": 19076,
+    "start": "Mon Nov 2 03:21:20 2026",
+    "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+  },
+  "bRetainedIdentity": {
+    "pid": 44677,
+    "ppid": 19076,
+    "pgid": 19076,
+    "start": "Mon Nov 2 03:21:45 2026",
+    "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-extension-host"
+  },
+  "currentActivations": {
+    "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "ee5c89de-2e10-4439-85e7-ac7d466a305b"
+  },
+  "nativeAction": "06-clean-a-sleep-plan/done; one explicit A project Sleep, no5min wait",
+  "limits": "Backend/OS result only; final fresh frontend post export still pending. No disposing fix claimed before that export."
+}

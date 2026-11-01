@@ -1,0 +1,274 @@
+{
+  "kind": "Readonly derived projection from already accepted original result; not a new run",
+  "source": "docs/verification/results/form-git-functional-release-20261102/components/git-write-task-recovery-20261101/result.json",
+  "sourceSHA256": "e1f977d2d0d4bbc01daa16bc9738c870df6a0d8804f7ddebd54815d697f9e474",
+  "scenes": {
+    "pending-return-stop": [
+      {
+        "label": "one claimed write before any navigation",
+        "projectId": "A",
+        "snapshot": {
+          "projectId": "A",
+          "snapshot": {
+            "repoId": "repo-A",
+            "repoToken": "token-A-1",
+            "generation": 1,
+            "rootDisplayPath": "/owned/A",
+            "head": {
+              "state": "branch",
+              "name": "main-A",
+              "oid": "owned-A"
+            },
+            "upstream": null,
+            "files": [
+              {
+                "file": {
+                  "projectId": "A",
+                  "fileId": "file-A",
+                  "displayPath": "tracked.txt"
+                },
+                "index": "M",
+                "worktree": ".",
+                "kind": "ordinary"
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "writes": [
+          {
+            "taskId": "owned-write-1",
+            "projectId": "A",
+            "terminal": null,
+            "cancelRequested": false,
+            "acked": true
+          }
+        ],
+        "notice": null,
+        "errors": [],
+        "progress": [
+          "Owned hook waiting停止"
+        ]
+      },
+      {
+        "label": "return/remount while original owned write remains active",
+        "projectId": "A",
+        "snapshot": {
+          "projectId": "A",
+          "snapshot": {
+            "repoId": "repo-A",
+            "repoToken": "token-A-1",
+            "generation": 1,
+            "rootDisplayPath": "/owned/A",
+            "head": {
+              "state": "branch",
+              "name": "main-A",
+              "oid": "owned-A"
+            },
+            "upstream": null,
+            "files": [
+              {
+                "file": {
+                  "projectId": "A",
+                  "fileId": "file-A",
+                  "displayPath": "tracked.txt"
+                },
+                "index": "M",
+                "worktree": ".",
+                "kind": "ordinary"
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "writes": [
+          {
+            "taskId": "owned-write-1",
+            "projectId": "A",
+            "terminal": null,
+            "cancelRequested": false,
+            "acked": true
+          }
+        ],
+        "notice": null,
+        "errors": [],
+        "progress": [
+          "Owned hook waiting停止"
+        ]
+      },
+      {
+        "label": "single write remains locked across return",
+        "projectId": "A",
+        "snapshot": {
+          "projectId": "A",
+          "snapshot": {
+            "repoId": "repo-A",
+            "repoToken": "token-A-1",
+            "generation": 1,
+            "rootDisplayPath": "/owned/A",
+            "head": {
+              "state": "branch",
+              "name": "main-A",
+              "oid": "owned-A"
+            },
+            "upstream": null,
+            "files": [
+              {
+                "file": {
+                  "projectId": "A",
+                  "fileId": "file-A",
+                  "displayPath": "tracked.txt"
+                },
+                "index": "M",
+                "worktree": ".",
+                "kind": "ordinary"
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "writes": [
+          {
+            "taskId": "owned-write-1",
+            "projectId": "A",
+            "terminal": null,
+            "cancelRequested": false,
+            "acked": true
+          }
+        ],
+        "notice": null,
+        "errors": [],
+        "progress": [
+          "Owned hook waiting停止"
+        ]
+      },
+      {
+        "label": "Stop requests only same project task; no premature terminal",
+        "projectId": "A",
+        "snapshot": {
+          "projectId": "A",
+          "snapshot": {
+            "repoId": "repo-A",
+            "repoToken": "token-A-1",
+            "generation": 1,
+            "rootDisplayPath": "/owned/A",
+            "head": {
+              "state": "branch",
+              "name": "main-A",
+              "oid": "owned-A"
+            },
+            "upstream": null,
+            "files": [
+              {
+                "file": {
+                  "projectId": "A",
+                  "fileId": "file-A",
+                  "displayPath": "tracked.txt"
+                },
+                "index": "M",
+                "worktree": ".",
+                "kind": "ordinary"
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "writes": [
+          {
+            "taskId": "owned-write-1",
+            "projectId": "A",
+            "terminal": null,
+            "cancelRequested": true,
+            "acked": true
+          }
+        ],
+        "notice": null,
+        "errors": [],
+        "progress": [
+          "Owned hook waiting正在停止…"
+        ]
+      },
+      {
+        "label": "actual task terminal unlocks and preserves unknown outcome/draft",
+        "projectId": "A",
+        "snapshot": {
+          "projectId": "A",
+          "snapshot": {
+            "repoId": "repo-A",
+            "repoToken": "token-A-1",
+            "generation": 1,
+            "rootDisplayPath": "/owned/A",
+            "head": {
+              "state": "branch",
+              "name": "main-A",
+              "oid": "owned-A"
+            },
+            "upstream": null,
+            "files": [
+              {
+                "file": {
+                  "projectId": "A",
+                  "fileId": "file-A",
+                  "displayPath": "tracked.txt"
+                },
+                "index": "M",
+                "worktree": ".",
+                "kind": "ordinary"
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "writes": [
+          {
+            "taskId": "owned-write-1",
+            "projectId": "A",
+            "terminal": "unknown",
+            "cancelRequested": true,
+            "acked": true
+          }
+        ],
+        "notice": null,
+        "errors": [
+          "任务已停止，操作结果需要核对。请先刷新并核对 HEAD、暂存区和远端，再决定是否重试。查看 Git 详情停止已完成；Git 操作可能已生效。请刷新后核对。刷新状态关闭"
+        ],
+        "progress": []
+      }
+    ],
+    "late-status": [
+      {
+        "label": "pre-write status arrives after confirmed commit",
+        "projectId": "A",
+        "snapshot": {
+          "projectId": "A",
+          "snapshot": {
+            "repoId": "repo-A",
+            "repoToken": "token-A-1-committed",
+            "generation": 2,
+            "rootDisplayPath": "/owned/A",
+            "head": {
+              "state": "branch",
+              "name": "main-A",
+              "oid": "owned-A"
+            },
+            "upstream": null,
+            "files": [],
+            "truncated": false
+          }
+        },
+        "writes": [
+          {
+            "taskId": "owned-write-1",
+            "projectId": "A",
+            "terminal": "success",
+            "cancelRequested": false,
+            "acked": true
+          }
+        ],
+        "notice": "已提交 abcdef123，尚未推送。",
+        "errors": [],
+        "progress": []
+      }
+    ]
+  }
+}

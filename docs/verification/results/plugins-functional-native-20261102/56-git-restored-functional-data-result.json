@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-11-01T20:46:51.451481+00:00",
+  "checks": {
+    "gitInstalledAndExplicitGlobalEnabled": true,
+    "packageActuallyRestored": true,
+    "privateSettingsPreserved": true,
+    "onlyOwnedAGitActivation": true,
+    "mainQAStillDisabled": true
+  },
+  "id": "horizon.git",
+  "activations": {
+    "71496333-8a7d-49e1-90b1-45968a02ab99": "0b7b0b8f-8567-4796-a828-b26c493b1684"
+  },
+  "privateFieldHashes": {
+    "configSHA256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "otherProjectConfigSHA256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "otherProjectPoliciesSHA256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "grantsSHA256": "27d69f1a65d6aaa2b0aadcbdf6612ce8f236520b94bf66ebf1cae316d1d3485b"
+  },
+  "actualBuiltInGitRows": [
+    {
+      "path": "independent-editor.txt",
+      "status": "M"
+    },
+    {
+      "path": "tracked.txt",
+      "status": "M"
+    },
+    {
+      "path": "untracked.txt",
+      "status": "?"
+    }
+  ],
+  "actualStaged0": true,
+  "explanation": "Builtin Git default includes untracked; QA main plugin had owned project includeUntracked=false and showed2 after independentSave. Do not mistake builtin3 vsQA2 for regression. No extra CLI Git query, refresh/stage/commit/checkout."
+}

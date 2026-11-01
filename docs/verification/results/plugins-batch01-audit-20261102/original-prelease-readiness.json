@@ -1,0 +1,245 @@
+{
+  "checkedAt": "2026-11-01T17:35:47.319235+00:00",
+  "scope": "Read-only existing owned package/known fixture file checks and prior owner gate receipt; no appdata/GUI/service/build/test/source/fixture mutation",
+  "packages": [
+    {
+      "name": "read-only-base",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/read-only-base.horizon-extension",
+      "exists": true,
+      "bytes": 2663,
+      "sha256": "659399c70faabfe14eb98658434d1134d85c4ad66af623f86ab6faff18530c6e",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-read-only-changes",
+      "version": "0.1.0",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [
+        "git.read",
+        "storage"
+      ],
+      "requires": {
+        "horizon.git": "^0.1.0"
+      }
+    },
+    {
+      "name": "read-only-update",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/read-only-update.horizon-extension",
+      "exists": true,
+      "bytes": 2689,
+      "sha256": "634d3dde3e16404f8aaf3338e5bf545ac08bb4b8f19cf3efebe4da2067539235",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-read-only-changes",
+      "version": "0.1.1",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [
+        "git.read",
+        "storage",
+        "project.read"
+      ],
+      "requires": {
+        "horizon.git": "^0.1.0"
+      }
+    },
+    {
+      "name": "incompatible-update",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/incompatible-update.horizon-extension",
+      "exists": true,
+      "bytes": 2658,
+      "sha256": "a9db62043ed8688e8b64ff41acb8829085b8d6e053d3cd375d482f2fb054f793",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-read-only-changes",
+      "version": "0.1.99",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [
+        "git.read",
+        "storage"
+      ],
+      "requires": {
+        "horizon.git": "^0.1.0"
+      }
+    },
+    {
+      "name": "corrupt-update",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/corrupt-update.horizon-extension",
+      "exists": true,
+      "bytes": 37,
+      "sha256": "7224258d6fcabe4eb38716fb6fdcdb516daa0fc7b38ff3a8dbbc78674ce46e2d",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true
+    },
+    {
+      "name": "optional-dependency",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/optional-dependency.horizon-extension",
+      "exists": true,
+      "bytes": 1638,
+      "sha256": "04f8954295bb3e972048929de9ff50dddbf7562a4be06e9f38cbcf62d2054a07",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-optional-probe",
+      "version": "0.1.0",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [],
+      "requires": {}
+    },
+    {
+      "name": "delayed-stop",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/delayed-stop.horizon-extension",
+      "exists": true,
+      "bytes": 1594,
+      "sha256": "c92ff2f825b3ab642dfdd1af5c3eca5ee31e8c77542576ee889f6b08ef28c6da",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-stop-delay-probe",
+      "version": "0.1.0",
+      "runtime": {
+        "kind": "quickjs",
+        "entry": "index.js"
+      },
+      "capabilities": [],
+      "requires": {}
+    },
+    {
+      "name": "layout-guard",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/layout-guard.horizon-extension",
+      "exists": true,
+      "bytes": 4283,
+      "sha256": "ca552e755f76aaa35bb7c9601db3cbbb6880fb4e17af143709b6ec80b7e437b0",
+      "matchesPreparedHash": true,
+      "matchesPreparedBytes": true,
+      "extensionId": "local.resume-layout-guard",
+      "version": "0.1.0",
+      "runtime": {
+        "kind": "declarative"
+      },
+      "capabilities": [],
+      "requires": {}
+    }
+  ],
+  "projects": [
+    {
+      "name": "A",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/PluginResumeA",
+      "directoryExists": true,
+      "gitDirectoryExists": true,
+      "knownFiles": [
+        {
+          "relativePath": "README.md",
+          "exists": true,
+          "bytes": 33,
+          "sha256": "21c7f675f9b9e506007e315247e4125fc983663a6458661812787086709db321",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "independent-editor.txt",
+          "exists": true,
+          "bytes": 59,
+          "sha256": "763a3b7554c7ccf1cd3459db764c531a6183fbda2003e193617090f113251a29",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "plugin-stop-export.txt",
+          "exists": true,
+          "bytes": 53,
+          "sha256": "d3f8ee606161b69d953c1e80d922f030d44d4bf4b94000da08d30b69c3c94d8f",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "tracked.txt",
+          "exists": true,
+          "bytes": 10,
+          "sha256": "a0afb7ffc13e0ea14f046fd19e0b03d3dd0a725022781e9ad592c33dc6be0d33",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "untracked.txt",
+          "exists": true,
+          "bytes": 31,
+          "sha256": "503a05bb45bccc53afa7dfc86519299aa94cb24541c4d38e0fe5263eeb552c06",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/PluginResumeB",
+      "directoryExists": true,
+      "gitDirectoryExists": true,
+      "knownFiles": [
+        {
+          "relativePath": "README.md",
+          "exists": true,
+          "bytes": 33,
+          "sha256": "4a1445abd56e4200a119a418d98cd3102121c5c8a7ca2421359a7866d9403941",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "independent-editor.txt",
+          "exists": true,
+          "bytes": 59,
+          "sha256": "0176930b9330c38acfb8268b5937ea4794215497692327523d62e3b573ca405f",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "plugin-stop-export.txt",
+          "exists": true,
+          "bytes": 53,
+          "sha256": "d3f8ee606161b69d953c1e80d922f030d44d4bf4b94000da08d30b69c3c94d8f",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        },
+        {
+          "relativePath": "tracked.txt",
+          "exists": true,
+          "bytes": 10,
+          "sha256": "e6b6c5e9a28490ca6cd620009a4a1ff46e0fa581c485de8f4d92e16d7bc1cd25",
+          "matchesPreparedBytes": true,
+          "matchesPreparedHash": true
+        }
+      ]
+    }
+  ],
+  "gateFromPriorOwnerReceipt": {
+    "receipt": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/processes-l1-r1-20261102/10-gating-profile-final-resources.json",
+    "receiptSha256": "a1cc7fac374dcd34d5983de13b04a02b8c4e7e0a6ae65eebadbc63e1a161ef3c",
+    "receiptCheckedAt": "2026-11-01T17:23:29.381716+00:00",
+    "profileId": "profile-1793553721348-16",
+    "revision": 1,
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "requiredExtensions": [
+      {
+        "id": "local.resume-read-only-changes",
+        "versionRange": "*"
+      }
+    ],
+    "gateCanonicalSha256": "8624ea5f720c98521f8421b955d986f8b86353b9bee49e28535e4494205b0a20",
+    "neverPreflightApprovedOrRun": true,
+    "liveRecheck": "Pending actual plugin lease; receipt is prior frozen evidence, not new installed execution"
+  },
+  "armRecordExists": false,
+  "identity": "Old ca71/PID41657 normal quit reported by root; integrated release building; awaiting new installed SHA/PID/start",
+  "checks": {
+    "allSevenPackageHashesMatch": true,
+    "allKnownProjectFilesMatch": true
+  }
+}

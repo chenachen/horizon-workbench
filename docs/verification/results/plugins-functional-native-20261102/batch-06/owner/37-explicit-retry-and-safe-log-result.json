@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-11-01T19:54:14.127076+00:00",
+  "checks": {
+    "notAutoRetriedBeforeExplicitAction": true,
+    "explicitRetryNewActivation": true,
+    "explicitRetryNewNativePidBirth": true,
+    "B84134SameAndActivationSame": true,
+    "oldFaultWorker98147Absent": true,
+    "safeLogAXNoFakeMarker": true,
+    "safeLogGenericMessagePresent": true,
+    "freshNativeErrorCleared": true,
+    "onlyIntendedUserFileAddedToGitView": true,
+    "policyConfigGrantsUnchanged": true,
+    "allMarkersAbsentFromPersistedLogs": true
+  },
+  "activationBeforeError": "b049d227-d3c5-42ed-ae48-653b82cbfd50",
+  "activationAfterExplicitRetry": "b2e14356-1a40-414a-b8ec-f706d3ad0235",
+  "nativePidAfterExplicitRetry": 8839,
+  "nativeStartAfterExplicitRetry": "Mon Nov 2 03:53:16 2026",
+  "BRetainedPid": 84134,
+  "BRetainedActivation": "f8891796-6dc5-4dd2-b739-830e4820a048",
+  "safeLogsAXSha256": "1bc6fa92eb5db8513d8db82f02d58651fb77ce445895de0bbcc104da83a45907",
+  "actualGitView": "Git 更改0.1.1 ·2: independent-editor.txt .M and tracked.txt .M",
+  "reasonForActualGit2": "Owned independent-editor.txt was deliberately saved59→101B before retry; original one-row expectation obsolete. No new Git query or fixture manipulation used. Actual two paths preserved in native AX.",
+  "limits": [
+    "No full five-minute restart-loop test; no automatic A activation/process observed in ordinary throw→B view→editorSave→diagnostic actions.",
+    "B retained through37; future idle sleep later must not be attributed to fault.",
+    "Production safe logs read via actual GUI13; persisted log projection matches generic detailsOmitted record."
+  ]
+}

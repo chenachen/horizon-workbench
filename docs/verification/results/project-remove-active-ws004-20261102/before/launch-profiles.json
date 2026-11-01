@@ -1,0 +1,257 @@
+[
+  {
+    "schemaVersion": 1,
+    "profileId": "profile-1793535771697-1",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 Q1 双服务 · 含子进程",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "api",
+        "title": "Q1 接口及子进程",
+        "dependsOn": [],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "api.mjs"
+          ]
+        },
+        "cwd": "q1",
+        "env": {
+          "API_PORT": "59130"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "http",
+          "url": "http://127.0.0.1:59130/health",
+          "statusCodes": [
+            200
+          ],
+          "timeoutMs": 5000
+        },
+        "onReady": null
+      },
+      {
+        "stepId": "web",
+        "title": "Q1 页面服务",
+        "dependsOn": [
+          "api"
+        ],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "web.mjs"
+          ]
+        },
+        "cwd": "q1",
+        "env": {
+          "API_PORT": "59130",
+          "WEB_PORT": "59131"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "tcp",
+          "host": "127.0.0.1",
+          "port": 59131,
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59131",
+          "autoOpenUrl": false
+        }
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  {
+    "schemaVersion": 1,
+    "profileId": "profile-1793553287203-10",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 失败 PID · 后继不执行（导入）",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "fail",
+        "title": "预期退出 23",
+        "dependsOn": [],
+        "command": {
+          "kind": "exec",
+          "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+          "args": [
+            "fail.mjs"
+          ]
+        },
+        "cwd": "candidate7",
+        "env": {},
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "oneshot",
+        "ready": {
+          "kind": "exit",
+          "codes": [
+            0
+          ]
+        },
+        "onReady": null
+      },
+      {
+        "stepId": "dependent",
+        "title": "此后继不应执行",
+        "dependsOn": [
+          "fail"
+        ],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "printf 'UNEXPECTED' > dependent-started; sleep 30"
+        },
+        "cwd": "candidate7",
+        "env": {},
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  {
+    "schemaVersion": 1,
+    "profileId": "profile-1793553472944-14",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 缺程序预检（导入）",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "missing",
+        "title": "不存在的程序",
+        "dependsOn": [],
+        "command": {
+          "kind": "exec",
+          "executable": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收/missing-executable",
+          "args": []
+        },
+        "cwd": "candidate7",
+        "env": {},
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  {
+    "schemaVersion": 1,
+    "profileId": "profile-1793553576116-15",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 Windows 路径预检（导入）",
+    "requiredExtensions": [],
+    "steps": [
+      {
+        "stepId": "foreign",
+        "title": "Windows 程序路径",
+        "dependsOn": [],
+        "command": {
+          "kind": "exec",
+          "executable": "C:\\Program Files\\nodejs\\node.exe",
+          "args": []
+        },
+        "cwd": "candidate7",
+        "env": {},
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  },
+  {
+    "schemaVersion": 1,
+    "profileId": "profile-1793553721348-16",
+    "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+    "revision": 1,
+    "name": "1101 扩展依赖门控 · 仅预检",
+    "requiredExtensions": [
+      {
+        "id": "local.resume-read-only-changes",
+        "versionRange": "*"
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "service",
+        "title": "显式 Shell · 快照服务",
+        "dependsOn": [],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' service.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "PORT": "59133",
+          "SNAPSHOT": "original"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "stdout",
+          "pattern": "READY",
+          "timeoutMs": 5000
+        },
+        "onReady": {
+          "openTerminal": false,
+          "openUrl": "http://127.0.0.1:59133/saved",
+          "autoOpenUrl": true
+        }
+      },
+      {
+        "stepId": "follower",
+        "title": "无探针后继",
+        "dependsOn": [
+          "service"
+        ],
+        "command": {
+          "kind": "shell",
+          "shell": "/bin/sh",
+          "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' follower.mjs"
+        },
+        "cwd": "candidate7",
+        "env": {
+          "SNAPSHOT": "original"
+        },
+        "secretRefs": {},
+        "mode": "pipe",
+        "lifecycle": "service",
+        "ready": {
+          "kind": "processStarted"
+        },
+        "onReady": null
+      }
+    ],
+    "failurePolicy": "stopStarted"
+  }
+]

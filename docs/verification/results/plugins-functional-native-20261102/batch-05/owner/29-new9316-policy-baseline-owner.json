@@ -1,0 +1,1133 @@
+{
+  "observedAt": "2026-11-01T19:38:19.888171+00:00",
+  "phase": "29-new9316-policy-baseline",
+  "identity": {
+    "expectedMainSha256": "9316ce984d50c945f72fb62903633872feac1bf2bf00a7b51b7ce7a9ce60c5ad",
+    "appPid": 74714,
+    "appOsIdentity": {
+      "pid": 74714,
+      "ppid": 1,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:36:42 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    },
+    "mainPath": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "actualMainSha256": "9316ce984d50c945f72fb62903633872feac1bf2bf00a7b51b7ce7a9ce60c5ad",
+    "actualMainBytes": 19910976,
+    "matchesExpected": true
+  },
+  "extensionRegistrySha256": "77fd39a61d865432506aae93b5561ec325a0719d4c32e97559320b312649f63e",
+  "hostRegistrySha256": "e681cb1dbb1aa0ed50709caba3c195e3f09bcbbd2c557879836571dd794960ec",
+  "ownedExtensionRecords": {
+    "local.resume-read-only-changes": {
+      "activations": {},
+      "builtin": false,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "development": false,
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [
+        "git.read",
+        "storage",
+        "project.read"
+      ],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-11-01T17:49:52.645481+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T17:58:39.362304+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:02:54.350468+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-11-01T18:07:32.714635+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:12:57.859816+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-11-01T18:17:02.840662+00:00"
+        },
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-11-01T18:21:45.607818+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:24:21.189493+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:25:01.744604+00:00"
+        },
+        {
+          "message": "disable",
+          "time": "2026-11-01T18:31:54.854151+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-11-01T18:33:33.021181+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:45:35.376053+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:46:28.171171+00:00"
+        },
+        {
+          "message": "pause",
+          "time": "2026-11-01T18:48:08.818899+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-11-01T18:52:03.200920+00:00"
+        },
+        {
+          "message": "pause",
+          "time": "2026-11-01T18:52:27.766748+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T19:21:20.634772+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T19:21:44.995561+00:00"
+        },
+        {
+          "message": "项目空闲，实例已休眠",
+          "time": "2026-11-01T19:24:39.641342+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onCommand:local.resume-read-only-changes.refresh"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon verification fixture",
+        "capabilities": [
+          "git.read",
+          "storage",
+          "project.read"
+        ],
+        "contributes": {
+          "commands": [
+            {
+              "id": "local.resume-read-only-changes.refresh",
+              "title": "读取更改列表"
+            },
+            {
+              "id": "local.resume-read-only-changes.fail",
+              "title": "触发验收安全异常"
+            }
+          ],
+          "settings": [
+            {
+              "default": true,
+              "key": "includeUntracked",
+              "label": "显示未跟踪文件",
+              "type": "boolean"
+            }
+          ],
+          "views": [
+            {
+              "id": "local.resume-read-only-changes.list",
+              "renderer": "declarative",
+              "slot": "primarySidebar"
+            }
+          ]
+        },
+        "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "local.resume-read-only-changes",
+        "name": "插件验收 · 只读更改列表",
+        "optional": {},
+        "requires": {
+          "horizon.git": "^0.1.0"
+        },
+        "runtime": {
+          "entry": "index.js",
+          "kind": "quickjs"
+        },
+        "version": "0.1.1"
+      },
+      "packageDigest": "5295768884c2b7adfb9c1feb883179855630130cb97767b10332eb703c286aea",
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.resume-read-only-changes/0.1.1-5295768884c2",
+      "pausedGlobal": false,
+      "policyRevision": 7,
+      "previous": {
+        "grants": [
+          "git.read",
+          "storage"
+        ],
+        "manifest": {
+          "activation": [
+            "onCommand:local.resume-read-only-changes.refresh"
+          ],
+          "apiVersion": 1,
+          "author": "Horizon verification fixture",
+          "capabilities": [
+            "git.read",
+            "storage"
+          ],
+          "contributes": {
+            "commands": [
+              {
+                "id": "local.resume-read-only-changes.refresh",
+                "title": "读取更改列表"
+              },
+              {
+                "id": "local.resume-read-only-changes.fail",
+                "title": "触发验收安全异常"
+              }
+            ],
+            "settings": [
+              {
+                "default": true,
+                "key": "includeUntracked",
+                "label": "显示未跟踪文件",
+                "type": "boolean"
+              }
+            ],
+            "views": [
+              {
+                "id": "local.resume-read-only-changes.list",
+                "renderer": "declarative",
+                "slot": "primarySidebar"
+              }
+            ]
+          },
+          "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+          "engines": {
+            "horizon": ">=0.1.0 <0.2.0"
+          },
+          "id": "local.resume-read-only-changes",
+          "name": "插件验收 · 只读更改列表",
+          "optional": {},
+          "requires": {
+            "horizon.git": "^0.1.0"
+          },
+          "runtime": {
+            "entry": "index.js",
+            "kind": "quickjs"
+          },
+          "version": "0.1.0"
+        },
+        "packageDigest": "8b5df3f5d6f0a3b1d706e3b3659027569fecbbdb3818c1a6bcf5932422aa8b87",
+        "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.resume-read-only-changes/0.1.0-8b5df3f5d6f0"
+      },
+      "projectConfig": {
+        "71496333-8a7d-49e1-90b1-45968a02ab99": {
+          "includeUntracked": false
+        }
+      },
+      "projects": {
+        "71496333-8a7d-49e1-90b1-45968a02ab99": {
+          "paused": false,
+          "policy": "enabled"
+        }
+      },
+      "revision": 25,
+      "runLeases": {},
+      "runtimeLogPrivacyVersion": 1,
+      "sleeping": {
+        "71496333-8a7d-49e1-90b1-45968a02ab99": true,
+        "750509b2-a4ff-4571-ae2f-a1b7c0101d42": false,
+        "@app": false
+      },
+      "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/read-only-update.horizon-extension",
+      "stopping": {}
+    },
+    "local.resume-optional-probe": {
+      "activations": {},
+      "builtin": false,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "development": false,
+      "directActivations": {},
+      "enabledGlobal": true,
+      "errors": {},
+      "grants": [],
+      "installed": true,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-11-01T18:37:59.733123+00:00"
+        },
+        {
+          "message": "实例按需激活",
+          "time": "2026-11-01T18:39:30.088634+00:00"
+        },
+        {
+          "message": "disable",
+          "time": "2026-11-01T18:41:31.442007+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [
+          "onCommand:local.resume-optional-probe.refresh"
+        ],
+        "apiVersion": 1,
+        "author": "Horizon verification fixture",
+        "capabilities": [],
+        "contributes": {
+          "commands": [
+            {
+              "id": "local.resume-optional-probe.refresh",
+              "title": "刷新基本文本视图"
+            }
+          ],
+          "views": [
+            {
+              "id": "local.resume-optional-probe.view",
+              "renderer": "declarative",
+              "slot": "primarySidebar"
+            }
+          ]
+        },
+        "description": "专用验收包：缺少可选 Git 增强时保留基本文本视图。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "local.resume-optional-probe",
+        "name": "插件验收 · 可选依赖",
+        "optional": {
+          "horizon.git": "^0.1.0",
+          "local.resume-missing-optional": "^0.1.0"
+        },
+        "requires": {},
+        "runtime": {
+          "entry": "index.js",
+          "kind": "quickjs"
+        },
+        "version": "0.1.0"
+      },
+      "packageDigest": "e4d7fc89ae7320a2e17879e905b426c32dac4c7adc758cfa1c8be30ef021d96b",
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.resume-optional-probe/0.1.0-e4d7fc89ae73",
+      "pausedGlobal": false,
+      "policyRevision": 2,
+      "projectConfig": {},
+      "projects": {
+        "71496333-8a7d-49e1-90b1-45968a02ab99": {
+          "policy": "disabled"
+        }
+      },
+      "revision": 5,
+      "runLeases": {},
+      "runtimeLogPrivacyVersion": 1,
+      "sleeping": {
+        "71496333-8a7d-49e1-90b1-45968a02ab99": false
+      },
+      "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/optional-dependency.horizon-extension",
+      "stopping": {}
+    },
+    "local.resume-stop-delay-probe": null,
+    "local.resume-layout-guard": {
+      "activations": {},
+      "builtin": false,
+      "cleanupError": null,
+      "cleanupErrors": {},
+      "config": {},
+      "development": false,
+      "directActivations": {},
+      "enabledGlobal": false,
+      "errors": {},
+      "grants": [],
+      "installed": false,
+      "launchOrigins": {},
+      "logs": [
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-11-01T06:05:07.222532+00:00"
+        },
+        {
+          "message": "pause",
+          "time": "2026-11-01T06:05:27.482558+00:00"
+        },
+        {
+          "message": "uninstall",
+          "time": "2026-11-01T06:37:49.841281+00:00"
+        },
+        {
+          "message": "安装包校验和复制完成",
+          "time": "2026-11-01T08:12:43.358323+00:00"
+        },
+        {
+          "message": "uninstall",
+          "time": "2026-11-01T08:38:16.834811+00:00"
+        }
+      ],
+      "manifest": {
+        "activation": [],
+        "apiVersion": 1,
+        "author": "Horizon verification fixture",
+        "capabilities": [],
+        "contributes": {
+          "commands": [],
+          "layouts": [
+            {
+              "apiVersion": 1,
+              "geometry": {
+                "auxiliaryWidth": {
+                  "initial": 320,
+                  "max": 560,
+                  "min": 240,
+                  "step": 1
+                },
+                "bottomHeight": {
+                  "initial": 220,
+                  "max": 480,
+                  "min": 120,
+                  "step": 1
+                },
+                "codeFontSize": {
+                  "initial": 14,
+                  "max": 28,
+                  "min": 10,
+                  "step": 1
+                },
+                "navigationWidth": {
+                  "initial": 64,
+                  "max": 280,
+                  "min": 48,
+                  "step": 1
+                },
+                "sidebarWidth": {
+                  "initial": 240,
+                  "max": 480,
+                  "min": 160,
+                  "step": 1
+                },
+                "statusHeight": {
+                  "initial": 26,
+                  "max": 40,
+                  "min": 20,
+                  "step": 1
+                },
+                "tabHeight": {
+                  "initial": 40,
+                  "max": 64,
+                  "min": 28,
+                  "step": 1
+                },
+                "tabMinWidth": {
+                  "initial": 120,
+                  "max": 240,
+                  "min": 80,
+                  "step": 1
+                },
+                "topbarHeight": {
+                  "initial": 56,
+                  "max": 88,
+                  "min": 40,
+                  "step": 1
+                },
+                "uiFontSize": {
+                  "initial": 13,
+                  "max": 20,
+                  "min": 11,
+                  "step": 1
+                }
+              },
+              "id": "local.resume-layout-guard",
+              "label": "验收布局 · 暂停门槛",
+              "narrow": {
+                "breakpoint": 900,
+                "collapse": [
+                  "auxiliary",
+                  "primarySidebar"
+                ],
+                "minimumEditorWidth": 320
+              },
+              "navigation": "rail",
+              "requiredSlots": [
+                "editor"
+              ],
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "id": "navigation",
+                        "kind": "slot",
+                        "sizing": "navigationWidth",
+                        "slot": "navigation"
+                      },
+                      {
+                        "id": "primarySidebar",
+                        "kind": "slot",
+                        "sizing": "sidebarWidth",
+                        "slot": "primarySidebar"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "grow": 1,
+                                "id": "editor",
+                                "kind": "slot",
+                                "slot": "editor"
+                              },
+                              {
+                                "id": "auxiliary",
+                                "kind": "slot",
+                                "sizing": "auxiliaryWidth",
+                                "slot": "auxiliary"
+                              }
+                            ],
+                            "id": "documents",
+                            "kind": "row"
+                          },
+                          {
+                            "id": "bottom",
+                            "kind": "slot",
+                            "sizing": "bottomHeight",
+                            "slot": "bottom"
+                          }
+                        ],
+                        "id": "work",
+                        "kind": "column"
+                      }
+                    ],
+                    "id": "body",
+                    "kind": "row"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "slot",
+                    "sizing": "statusHeight",
+                    "slot": "status"
+                  }
+                ],
+                "id": "root",
+                "kind": "column"
+              }
+            }
+          ],
+          "views": []
+        },
+        "description": "专用声明式验收包；用于确认暂停布局的真实应用失败保留当前有效布局。",
+        "engines": {
+          "horizon": ">=0.1.0 <0.2.0"
+        },
+        "id": "local.resume-layout-guard",
+        "name": "验收布局 · 暂停门槛",
+        "optional": {},
+        "requires": {},
+        "runtime": {
+          "kind": "declarative"
+        },
+        "version": "0.1.0"
+      },
+      "packageDigest": "4c367bb60f11658f5aa3fcd3970ee39f2b1f9d83cf16fc8b5a8e4ad2fe6a83c0",
+      "packageDir": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/extensions/packages/local.resume-layout-guard/0.1.0-4c367bb60f11",
+      "pausedGlobal": true,
+      "policyRevision": 5,
+      "projectConfig": {},
+      "projects": {},
+      "revision": 8,
+      "runLeases": {},
+      "sleeping": {
+        "@app": false
+      },
+      "source": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/layout-guard.horizon-extension",
+      "stopping": {}
+    }
+  },
+  "builtinPolicies": {
+    "horizon.agent": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 39,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.editor": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 285,
+      "projects": {
+        "dfef65be-3750-41c6-9173-0395df536fc2": {},
+        "e1111892-92c6-4985-b285-f5dcbe4d11f3": {
+          "policy": "enabled"
+        }
+      },
+      "activations": {
+        "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "3a733385-82ee-4745-80de-16d802fc4ac0"
+      },
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.files": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 243,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.git": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 125,
+      "projects": {
+        "71496333-8a7d-49e1-90b1-45968a02ab99": {
+          "policy": "enabled"
+        }
+      },
+      "activations": {
+        "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "f00328b6-d891-4aa8-af9e-a16c09ce9cc7"
+      },
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.launch": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 291,
+      "projects": {},
+      "activations": {
+        "750509b2-a4ff-4571-ae2f-a1b7c0101d42": "61fb2777-cbeb-469c-8bb6-0e91834e33a5"
+      },
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.layout.aurora": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.celadon": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.graphite": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.iris": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.mist": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 3,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.orbit": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.paper": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.layout.sand": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.markdown": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 10,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.search": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 47,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.terminal": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 57,
+      "projects": {
+        "02979279-94b0-47b2-8ecd-4983edec7544": {
+          "paused": false
+        }
+      },
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": {},
+      "version": "0.1.0"
+    },
+    "horizon.theme.aurora": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.celadon": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.graphite": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.iris": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.mist": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 3,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.orbit": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 5,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.paper": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 4,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    },
+    "horizon.theme.sand": {
+      "builtin": true,
+      "installed": true,
+      "enabledGlobal": true,
+      "pausedGlobal": false,
+      "revision": 5,
+      "projects": {},
+      "activations": {},
+      "stopping": {},
+      "cleanupErrors": null,
+      "version": "0.1.0"
+    }
+  },
+  "ownedProjects": [
+    {
+      "displayName": "启动器验收",
+      "id": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+      "lastOpenedAt": "2026-11-01T19:08:30.123347+00:00",
+      "pinned": false,
+      "revision": 5,
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-processes-resume-20261101-c9cvu98_/启动器验收",
+      "state": "registered",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+    },
+    {
+      "displayName": "PluginResumeA",
+      "id": "71496333-8a7d-49e1-90b1-45968a02ab99",
+      "lastOpenedAt": "2026-11-01T19:21:01.178148+00:00",
+      "pinned": false,
+      "revision": 4,
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/PluginResumeA",
+      "state": "registered",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+    },
+    {
+      "displayName": "PluginResumeB",
+      "id": "750509b2-a4ff-4571-ae2f-a1b7c0101d42",
+      "lastOpenedAt": "2026-11-01T19:36:44.437555+00:00",
+      "pinned": false,
+      "revision": 4,
+      "rootDisplayPath": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/PluginResumeB",
+      "state": "active",
+      "workspaceId": "2fb77d59-73e5-4655-8f49-fd633a9c72bf"
+    }
+  ],
+  "ownedPackages": {
+    "local.resume-read-only-changes": {
+      "exists": true,
+      "files": [
+        {
+          "path": "0.1.0-8b5df3f5d6f0/index.js",
+          "bytes": 1243,
+          "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea"
+        },
+        {
+          "path": "0.1.0-8b5df3f5d6f0/manifest.json",
+          "bytes": 1204,
+          "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4"
+        },
+        {
+          "path": "0.1.1-5295768884c2/index.js",
+          "bytes": 1249,
+          "sha256": "44313d4097eb6ce494542c8c17c430d330c838a9e2f4c623bbf6a2ab416addf9"
+        },
+        {
+          "path": "0.1.1-5295768884c2/manifest.json",
+          "bytes": 1224,
+          "sha256": "214c3f1d01ccba2be60007f5d69feee456e6062d6d70f112ea921dc1d815f134"
+        }
+      ]
+    },
+    "local.resume-optional-probe": {
+      "exists": true,
+      "files": [
+        {
+          "path": "0.1.0-e4d7fc89ae73/index.js",
+          "bytes": 514,
+          "sha256": "e57de3e13ecaf065f49bbe141a11f2797c09985e6394462d86089692b446e4c7"
+        },
+        {
+          "path": "0.1.0-e4d7fc89ae73/manifest.json",
+          "bytes": 908,
+          "sha256": "d3e4f150101dabcdd7558642304841da557d2c961854e7d6b3f5ab964ff1d813"
+        }
+      ]
+    },
+    "local.resume-stop-delay-probe": {
+      "exists": false,
+      "files": []
+    },
+    "local.resume-layout-guard": {
+      "exists": false,
+      "files": []
+    }
+  },
+  "ownedStorage": {
+    "local.resume-read-only-changes": {
+      "exists": true,
+      "files": [
+        {
+          "path": "9ec85d7c3a0520ceacddbf233134ec45eee75758671c52aa046b5be0e3224b0d.json",
+          "bytes": 26,
+          "sha256": "764757998af9113a421d13162100a4add9af2669ea9de2709de47a378f493718"
+        }
+      ]
+    },
+    "local.resume-optional-probe": {
+      "exists": false,
+      "files": []
+    },
+    "local.resume-stop-delay-probe": {
+      "exists": false,
+      "files": []
+    },
+    "local.resume-layout-guard": {
+      "exists": false,
+      "files": []
+    }
+  },
+  "processQaProfiles": {
+    "path": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/launch-profiles/309b0390830fa2f8f231825e6b266b5b92cf8ce39b885509a98232cd1d74ba54.json",
+    "fileSha256": "d15333152a0b8286f71830539b526324ce82dfd337258b9a2cdf3f50e65fd887",
+    "selected": [
+      {
+        "schemaVersion": 1,
+        "profileId": "profile-1793535771697-1",
+        "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+        "revision": 1,
+        "name": "1101 Q1 双服务 · 含子进程",
+        "requiredExtensions": [],
+        "steps": [
+          {
+            "stepId": "api",
+            "title": "Q1 接口及子进程",
+            "dependsOn": [],
+            "command": {
+              "kind": "exec",
+              "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+              "args": [
+                "api.mjs"
+              ]
+            },
+            "cwd": "q1",
+            "env": {
+              "API_PORT": "59130"
+            },
+            "secretRefs": {},
+            "mode": "pipe",
+            "lifecycle": "service",
+            "ready": {
+              "kind": "http",
+              "url": "http://127.0.0.1:59130/health",
+              "statusCodes": [
+                200
+              ],
+              "timeoutMs": 5000
+            },
+            "onReady": null
+          },
+          {
+            "stepId": "web",
+            "title": "Q1 页面服务",
+            "dependsOn": [
+              "api"
+            ],
+            "command": {
+              "kind": "exec",
+              "executable": "/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node",
+              "args": [
+                "web.mjs"
+              ]
+            },
+            "cwd": "q1",
+            "env": {
+              "API_PORT": "59130",
+              "WEB_PORT": "59131"
+            },
+            "secretRefs": {},
+            "mode": "pipe",
+            "lifecycle": "service",
+            "ready": {
+              "kind": "tcp",
+              "host": "127.0.0.1",
+              "port": 59131,
+              "timeoutMs": 5000
+            },
+            "onReady": {
+              "openTerminal": false,
+              "openUrl": "http://127.0.0.1:59131",
+              "autoOpenUrl": false
+            }
+          }
+        ],
+        "failurePolicy": "stopStarted"
+      },
+      {
+        "schemaVersion": 1,
+        "profileId": "profile-1793553721348-16",
+        "projectId": "3b5bd02b-7a91-4728-b822-bc0a5c0c0379",
+        "revision": 1,
+        "name": "1101 扩展依赖门控 · 仅预检",
+        "requiredExtensions": [
+          {
+            "id": "local.resume-read-only-changes",
+            "versionRange": "*"
+          }
+        ],
+        "steps": [
+          {
+            "stepId": "service",
+            "title": "显式 Shell · 快照服务",
+            "dependsOn": [],
+            "command": {
+              "kind": "shell",
+              "shell": "/bin/sh",
+              "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' service.mjs"
+            },
+            "cwd": "candidate7",
+            "env": {
+              "PORT": "59133",
+              "SNAPSHOT": "original"
+            },
+            "secretRefs": {},
+            "mode": "pipe",
+            "lifecycle": "service",
+            "ready": {
+              "kind": "stdout",
+              "pattern": "READY",
+              "timeoutMs": 5000
+            },
+            "onReady": {
+              "openTerminal": false,
+              "openUrl": "http://127.0.0.1:59133/saved",
+              "autoOpenUrl": true
+            }
+          },
+          {
+            "stepId": "follower",
+            "title": "无探针后继",
+            "dependsOn": [
+              "service"
+            ],
+            "command": {
+              "kind": "shell",
+              "shell": "/bin/sh",
+              "script": "exec '/Users/chenpengxiang/.nvm/versions/node/v24.5.0/bin/node' follower.mjs"
+            },
+            "cwd": "candidate7",
+            "env": {
+              "SNAPSHOT": "original"
+            },
+            "secretRefs": {},
+            "mode": "pipe",
+            "lifecycle": "service",
+            "ready": {
+              "kind": "processStarted"
+            },
+            "onReady": null
+          }
+        ],
+        "failurePolicy": "stopStarted"
+      }
+    ]
+  },
+  "ownedAppProcessTree": [
+    {
+      "pid": 74714,
+      "ppid": 1,
+      "pgid": 74714,
+      "start": "Mon Nov 2 03:36:42 2026",
+      "command": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+    }
+  ],
+  "fakeMarkerFoundInPersistedErrorsOrLogs": {
+    "FAKE_HORIZON_TOKEN_resume_20261101": false,
+    "/HORIZON_FAKE_PRIVATE_PATH/owned-fixture": false,
+    "HORIZON_FAKE_SOURCE_BODY_20261101": false
+  },
+  "host005ArmRecordExists": false,
+  "limits": "Read-only data/OS receipt. No frontend runtime count or GUI result inferred. Full registry hash can change through unrelated registry state; compare exact owned fields for each assertion."
+}
