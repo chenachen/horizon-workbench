@@ -1,0 +1,26 @@
+2026-11-01T23:47:26.5486681Z      Running unittests src\lib.rs (apps\desktop\src-tauri\target\release\deps\horizon_host-87f8b8873e9a6b51.exe)
+2026-11-01T23:47:26.5487535Z 
+2026-11-01T23:47:26.5488305Z running 1 test
+2026-11-01T23:47:29.8779767Z Windows Pi install failed [rename activate]: Access is denied. (os error 5)
+2026-11-01T23:47:29.9518819Z 
+2026-11-01T23:47:29.9523227Z thread 'agent::tests::windows_managed_pi_chat_roundtrip' (1872) panicked at src\agent.rs:636:68:
+2026-11-01T23:47:29.9527621Z called `Result::unwrap()` on an `Err` value: HostError { code: "PERMISSION_DENIED", message: "Access is denied. (os error 5)", retryable: false, operation_id: None, details: None, recovery: None }
+2026-11-01T23:47:29.9531997Z note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+2026-11-01T23:47:29.9533224Z test agent::tests::windows_managed_pi_chat_roundtrip ... FAILED
+2026-11-01T23:47:29.9534366Z 
+2026-11-01T23:47:29.9535585Z failures:
+2026-11-01T23:47:29.9536354Z 
+2026-11-01T23:47:29.9537693Z failures:
+2026-11-01T23:47:29.9538671Z     agent::tests::windows_managed_pi_chat_roundtrip
+2026-11-01T23:47:29.9539303Z 
+2026-11-01T23:47:29.9540680Z test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 3.45s
+2026-11-01T23:47:29.9541212Z 
+2026-11-01T23:47:29.9556293Z error: test failed, to rerun pass `--lib`
+2026-11-01T23:47:30.0008155Z ##[error]Process completed with exit code 1.
+2026-11-01T23:47:30.0126305Z ##[group]Run actions/upload-artifact@v7
+2026-11-01T23:47:30.0126514Z with:
+2026-11-01T23:47:30.0126682Z   name: horizon-windows-x64-3545a015083bf8ed8f90a58334173dc6190d42c4
+2026-11-01T23:47:30.0126880Z   path: artifacts/windows/
+2026-11-01T23:47:30.0127008Z   if-no-files-found: warn
+2026-11-01T23:47:30.0127130Z   retention-days: 30
+2026-11-01T23:47:30.0127239Z   compression-level: 6

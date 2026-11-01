@@ -1,0 +1,70 @@
+{
+  "preparedAt": "2026-11-01T23:53:21.244836+00:00",
+  "status": "WORK CANDIDATE ONLY — NOT COMPILED/RUN/APPLIED",
+  "owner": "/root/process_sol",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/src/agent.rs",
+  "baseSha256": "37df4b00068bf629fe32089b8fc8d4f15a9a4869807ac06d0b16c54d0e7bdfd5",
+  "candidate": "/Users/chenpengxiang/Desktop/Horizon/.work/windows-pi-activation-rename-20261102/agent.rs",
+  "candidateSha256": "77403366b1bb9e93f8b0f8e0616c382fb044298db05fd68e0b04ce6d9eecdb3b",
+  "patch": "/Users/chenpengxiang/Desktop/Horizon/.work/windows-pi-activation-rename-20261102/source.patch",
+  "patchSha256": "2892a4ffde7f18be60f7c01203ceadc87b08c4e5a2592e09c2b95e5272c73b2a",
+  "failure": {
+    "run": 41362893316,
+    "job": 125016852013,
+    "sourceCommit": "3545a01",
+    "actualStage": "rename activate",
+    "rawError": "Access is denied. (os error 5)",
+    "actualProbePidOrTempUuidLogged": false,
+    "archive": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/windows-ci-attempt12-rename-activation-20261102/ARCHIVE.json"
+  },
+  "semantics": {
+    "windowsOnlyActivation": "MoveFileExW flags0 same-volume/no replace; never copy/delete/chmod/kill",
+    "retryRawErrors": [
+      5
+    ],
+    "additionalDelayMs": [
+      25,
+      50,
+      100,
+      200,
+      400,
+      800
+    ],
+    "maxAttempts": 7,
+    "scheduledBackoffSumMs": 1575,
+    "targetGuard": "symlink_metadata must report NotFound after a denied attempt, otherwise return that original io::Error",
+    "exhaustion": "return last original io::Error; no fabricated TIMEOUT",
+    "otherPlatforms": "original single fs::rename",
+    "detectAndProbe": "unchanged; no unsupported child/AV attribution",
+    "newDependenciesOrFeatures": false
+  },
+  "testsPreparedNotRun": [
+    {
+      "exact": "agent::tests::windows_managed_pi_activation_retry_boundaries",
+      "scope": "One Windows test: true owned FILE_SHARE_DELETE-denying handle released by current-thread async task; persistent denial preserves5/source/absent target; existing target not overwritten",
+      "command": "cargo test --locked --release --lib agent::tests::windows_managed_pi_activation_retry_boundaries -- --exact --nocapture"
+    },
+    {
+      "exact": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "scope": "Existing failed production official download/hash/extract/probe/activate/chat/owned-cleanup path unchanged, rerun once in next authorized Windows CI",
+      "command": "cargo test --locked --release --lib agent::tests::windows_managed_pi_chat_roundtrip -- --exact --ignored --nocapture"
+    }
+  ],
+  "primarySources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw",
+      "fact": "flags0 does not allow copy/replacement; existing directory prevents replacement; same volume rename."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/ns-ntifs-_file_rename_information",
+      "fact": "Open handles to files in a directory can prevent renaming the directory."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/terminating-a-process",
+      "fact": "Termination frees owned resources and signals process; retaining parent process-object handles alone does not identify a file lock owner."
+    }
+  ],
+  "actualCauseUnproven": "No lock owner, staged pid/stdout/path UUID in failing log; source proves successful Tokio wait releases child handle/pipes, not a detected handle leak.",
+  "liveFilesChanged": false,
+  "executed": false
+}

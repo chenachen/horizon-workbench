@@ -23,7 +23,7 @@ Git 面板需要 Git for Windows。在“设置 → Git”检测 Git；未找到
 
 该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、终端、存储、Pi 通信与凭据等 9 项测试各实际通过 1 次，包括真实终端的中文输出、窗口尺寸调整与停止，以及真实 Pi 运行时的受控短会话。主进程启动 5 秒后仍存活，Horizon 窗口存在且响应；随后已观察到宿主初始化生成有效配置数据。只读自动化未找到欢迎页按钮，因此 Windows 前端交互与安装器点击流程仍未验。完整结果见[构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41357851822)，macOS 功能记录见[验收入口](verification/README.md)。
 
-此前 `a721bfc` 的一次 Windows CI 在 Pi 受管安装时返回 `Access is denied`。本包对应安装与聊天测试通过，旧失败原因仍未定位，原始记录保留在[安装失败归档](verification/results/windows-ci-attempt09-pi-install-20261102/README.md)。
+此前 `a721bfc` 的一次 Windows CI 在 Pi 受管安装时返回 `Access is denied`；后续 `3545a01` 再次失败，已定位到解压和版本检测之后的运行时目录激活，Windows 返回 OS error 5。本页所列 `a0bfe72` 包曾通过安装与聊天测试，但仍需留意这项间歇安装问题。新修复正在原生 CI 验证，失败记录保留在[首次归档](verification/results/windows-ci-attempt09-pi-install-20261102/README.md)与[目录激活归档](verification/results/windows-ci-attempt12-rename-activation-20261102/README.md)。
 
 完整首版功能与八套布局视觉验收继续进行。你的模型供应商连接仍需在应用内测试。
 

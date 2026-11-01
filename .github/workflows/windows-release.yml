@@ -146,6 +146,10 @@ jobs:
             cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib $test -- --exact --nocapture 2>&1 | Tee-Object "artifacts/windows/$logName.log"
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           }
+      - name: Check native Windows Pi activation under directory locks
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib agent::tests::windows_managed_pi_activation_retry_boundaries -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-pi-activation.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Smoke real managed Pi chat on native Windows
         run: |
           cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib agent::tests::windows_managed_pi_chat_roundtrip -- --exact --ignored --nocapture 2>&1 | Tee-Object artifacts/windows/windows-managed-pi-chat.log

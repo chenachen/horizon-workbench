@@ -1,0 +1,92 @@
+3545a015083bf8ed8f90a58334173dc6190d42c4:apps/desktop/src-tauri/src/agent.rs SHA256=37df4b00068bf629fe32089b8fc8d4f15a9a4869807ac06d0b16c54d0e7bdfd5
+106: fn capabilities(profile: &str) -> Value { json!({"protocol":"pi-rpc","structuredMessages":true,"tools":if profile=="task" {"gated"} else {"none"},"permissions":if profile=="task" {"horizonBroker"} else {"none"},"sessionResume":true,"attach":false,"modelSelection":true,"auth":["horizonApiKey","runtimeOwned","external"],"input":["text","textSnippets"],"changes":if profile=="task" {"versionedReview"} else {"none"},"cancel":"protocol"}) }
+107: fn asset() -> (&'static str, &'static str, u64) { platform::asset_for(cfg!(windows),cfg!(target_arch="aarch64")) }
+108: fn managed_executable(state: &HostState) -> PathBuf { platform::runtime_directory(state.data_dir()).join(platform::runtime_relative_executable()) }
+109: fn executable(state: &HostState, runtime: &Value) -> PathBuf { runtime["executablePath"].as_str().or(runtime["executableRef"].as_str()).map(PathBuf::from).unwrap_or_else(|| managed_executable(state)) }
+110: async fn detect(state: &HostState, runtime: &Value) -> Result<Value> {
+111:     let path = executable(state, runtime); let (name, digest, bytes) = asset();
+112:     let mut result = json!({"adapterId":"pi","installed":path.is_file(),"supported":false,"path":path,"version":null,"requiredVersion":VERSION,"source":"https://github.com/earendil-works/pi/releases/tag/v1.4.0","ownership":if runtime["executablePath"].is_string()||runtime["executableRef"].is_string(){"userInstalled"}else{"managed"},"downloadBytes":bytes,"asset":name,"sha256":digest,"diagnostics":[]});
+113:     if !path.is_file() { return Ok(result); }
+114:     let mut probe=Command::new(&path);probe.arg("--version").env("PI_OFFLINE","1").env("PI_TELEMETRY","0").kill_on_drop(true);
+115:     #[cfg(windows)] {use std::os::windows::process::CommandExt;platform::environment(probe.as_std_mut(),true);probe.env("PI_OFFLINE","1").env("PI_TELEMETRY","0");probe.as_std_mut().creation_flags(windows_sys::Win32::System::Threading::CREATE_NO_WINDOW);}
+116:     let output = tokio::time::timeout(Duration::from_secs(10),probe.output()).await.map_err(|_| err("TIMEOUT", "Pi 版本检测超时"))??;
+117:     let version = String::from_utf8_lossy(&output.stdout).trim().to_string(); result["version"] = json!(version); result["supported"] = json!(output.status.success() && version == VERSION);
+118:     if result["supported"] != true { result["diagnostics"] = json!(["此版本尚未通过 Horizon 适配验证；仅支持 Pi 1.4.0"]); } Ok(result)
+119: }
+120: async fn install(state: &HostState, request: &str) -> Result<Value> {
+121:     let (name, digest, _) = asset();
+122:     install_from(state, request, &format!("https://github.com/earendil-works/pi/releases/download/v{VERSION}/{name}"), digest).await
+123: }
+124: async fn install_from(state: &HostState, request: &str, url: &str, digest: &str) -> Result<Value> {
+125:     if !cfg!(any(target_os="macos",windows)) { return Err(err("CAPABILITY_UNSUPPORTED", "运行时安装支持 macOS 与 Windows")); }
+126:     macro_rules! install_context {
+127:         ($stage:literal, $operation:expr) => {{
+128:             #[cfg(all(test, windows))]
+129:             { ($operation).inspect_err(|error| eprintln!("Windows Pi install failed [{}]: {error}", $stage)) }
+130:             #[cfg(not(all(test, windows)))]
+131:             { $operation }
+132:         }};
+133:     }
+134:     let path = managed_executable(state); if path.exists() { return detect(state, &json!({})).await; }
+135:     #[cfg(not(windows))] let (name, _, _) = asset(); let target = platform::runtime_directory(state.data_dir()); let parent = target.parent().unwrap(); install_context!("prepare parent mkdir", private_dir(parent))?;
+136:     let staging = parent.join(format!("download-{}",id())); install_context!("prepare staging mkdir", private_dir(&staging))?;
+137:     let result = async { state.emit_task_data(request,"agent.install",json!({"phase":"downloading","version":VERSION}))?;
+138:         let response = reqwest::Client::builder().timeout(Duration::from_secs(180)).build().map_err(|e| err("NETWORK_ERROR",e.to_string()))?.get(url).send().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?.error_for_status().map_err(|e|err("NETWORK_ERROR",e.to_string()))?;
+139:         let bytes = response.bytes().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?; if hash(&bytes) != digest { return Err(err("INTEGRITY_ERROR","Pi 官方发行文件摘要不匹配，未激活")); }
+140:         if state.is_cancelled(request) { return Err(err("CANCELLED","已取消安装")); }
+141:         #[cfg(windows)] install_context!("ZIP extraction", platform::extract_windows_zip(&bytes,&staging))?;
+142:         #[cfg(not(windows))] {
+143:             fs::write(staging.join(name), &bytes)?;
+144:             let out = Command::new("/usr/bin/tar").args(["-xzf"]).arg(staging.join(name)).arg("-C").arg(&staging).output().await?; if !out.status.success() { return Err(err("INSTALL_FAILED","无法解压 Pi 运行时")); }
+145:             fs::remove_file(staging.join(name))?;
+146:         }
+147:         let probe = install_context!("staged version probe", detect(state, &json!({"executablePath":staging.join(platform::runtime_relative_executable())})).await)?; if probe["supported"] != true { return Err(err("INSTALL_FAILED","运行时版本检测失败")); }
+148:         install_context!("rename activate", fs::rename(&staging, target))?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; install_context!("final version probe", detect(state,&json!({})).await)
+149:     }.await;
+150:     if staging.exists() { let _ = fs::remove_dir_all(&staging); } result
+151: }
+
+3545a015083bf8ed8f90a58334173dc6190d42c4:apps/desktop/src-tauri/src/agent.rs SHA256=37df4b00068bf629fe32089b8fc8d4f15a9a4869807ac06d0b16c54d0e7bdfd5
+631:     #[cfg(windows)]
+632:     #[tokio::test]
+633:     #[ignore = "Downloads the fixed official Windows Pi release and uses an owned loopback fixture; run explicitly in Windows CI"]
+634:     async fn windows_managed_pi_chat_roundtrip(){
+635:         let fixture=tempfile::tempdir().unwrap();let state=Arc::new(HostState::new(fixture.path().join("data")).unwrap());let installing=call_for("owned-install-fixture","agent_runtime_install",json!({}));register_task(&state,&installing);
+636:         let installed=install(&state,&installing.request_id).await.unwrap();assert_eq!(installed["supported"],true);assert_eq!(installed["version"],VERSION);assert!(managed_executable(&state).is_file());
+637:         let root=fixture.path().join("Windows 中文 project");fs::create_dir(&root).unwrap();let project=state.register_project(root,None,Some("owned Windows Pi fixture")).unwrap();let project_id=field(&project["project"],"id").unwrap().to_owned();state.epochs.lock().unwrap().insert(project_id.clone(),1);
+638:         crate::extensions::initialize(&state).unwrap();let registry_path=state.data_dir().join("extensions/registry.json");let mut registry:Value=serde_json::from_slice(&fs::read(&registry_path).unwrap()).unwrap();registry["records"]["horizon.agent"]["enabledGlobal"]=json!(true);save_json(&registry_path,&registry).unwrap();load(&state).unwrap();
+639:         let log=fixture.path().join("protocol.jsonl");let script=Path::new(env!("CARGO_MANIFEST_DIR")).join("../../../scripts/test-pi-server.mjs");let mut command=Command::new("node");platform::environment(command.as_std_mut(),false);command.arg(script).env("HORIZON_TEST_LOG",&log).stdout(Stdio::piped()).stderr(Stdio::null()).kill_on_drop(true);crate::windows_process::prepare_command(command.as_std_mut());
+640:         let child=command.spawn().unwrap();let provider_job=unsafe{crate::windows_process::attach_suspended(child.raw_handle().unwrap(),child.id().unwrap())}.unwrap();let sid=id();
+641:         struct Cleanup{provider:tokio::process::Child,job:Arc<crate::windows_process::OwnedJob>,sid:String}
+
+3545a015083bf8ed8f90a58334173dc6190d42c4:apps/desktop/src-tauri/src/agent_platform.rs SHA256=b2d0fed3539a2c02bbfb0a0110cac2942332b3e819fa5bbd9b47933ea301e9a6
+13: pub(super) fn runtime_directory(data: &Path) -> PathBuf {
+14:     data.join("runtimes/pi/1.4.0").join(match (cfg!(windows), cfg!(target_arch = "aarch64")) {
+15:         (true, true) => "windows-arm64", (true, false) => "windows-x64",
+16:         (false, true) => "darwin-arm64", (false, false) => "darwin-x64",
+17:     })
+18: }
+19: 
+20: pub(super) fn runtime_relative_executable() -> &'static str {
+21:     if cfg!(windows) { "pi.exe" } else { "pi/pi" }
+22: }
+
+3545a015083bf8ed8f90a58334173dc6190d42c4:apps/desktop/src-tauri/src/agent_platform.rs SHA256=b2d0fed3539a2c02bbfb0a0110cac2942332b3e819fa5bbd9b47933ea301e9a6
+67: /// Called only after the fixed official archive checksum has matched.
+68: pub(super) fn extract_windows_zip(bytes: &[u8], staging: &Path) -> io::Result<()> {
+69:     let mut archive = zip::ZipArchive::new(io::Cursor::new(bytes)).map_err(io::Error::other)?;
+70:     for index in 0..archive.len() {
+71:         let mut entry = archive.by_index(index).map_err(io::Error::other)?;
+72:         let name = entry.name();
+73:         let relative = entry.enclosed_name().ok_or_else(|| io::Error::new(io::ErrorKind::InvalidData, "Pi archive path leaves staging"))?;
+74:         if name.contains('\\') || relative.components().any(|part| !matches!(part, Component::Normal(_) | Component::CurDir)) ||
+75:             relative.components().any(|part| windows_alias(&part.as_os_str().to_string_lossy())) ||
+76:             entry.unix_mode().is_some_and(|mode| mode & 0o170000 == 0o120000) {
+77:             return Err(io::Error::new(io::ErrorKind::InvalidData, "unsupported Pi archive path or link"));
+78:         }
+79:         let target = staging.join(relative);
+80:         if entry.is_dir() { fs::create_dir_all(&target)?; }
+81:         else { if let Some(parent) = target.parent() { fs::create_dir_all(parent)?; } io::copy(&mut entry, &mut fs::File::create(target)?)?; }
+82:     }
+83:     Ok(())
+84: }

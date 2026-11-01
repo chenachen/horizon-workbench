@@ -1,0 +1,155 @@
+{
+  "commit": "3545a015083bf8ed8f90a58334173dc6190d42c4",
+  "run_id": 41362893316,
+  "job_id": 125016852013,
+  "run_url": "https://github.com/chenachen/horizon-workbench/actions/runs/41362893316",
+  "conclusion": "failure",
+  "actual_nonzero_test_results": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.19,
+      "test_log": "2026-11-01T23:44:25.9918355Z test async_broker_wait_does_not_spend_cpu_budget ... ok",
+      "result_log": "2026-11-01T23:44:25.9920301Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s"
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.04,
+      "test_log": "2026-11-01T23:47:22.4927648Z test windows_process::tests::owned_job_stops_descendants_and_preserves_external ... ok",
+      "result_log": "2026-11-01T23:47:22.4929170Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.04s"
+    },
+    {
+      "name": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.4,
+      "test_log": "2026-11-01T23:47:23.4726192Z test processes::windows_tests::owned_conpty_chinese_resize_and_stop ... ok",
+      "result_log": "2026-11-01T23:47:23.4727419Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.40s"
+    },
+    {
+      "name": "files::tests::windows_storage_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.07,
+      "test_log": "2026-11-01T23:47:24.1161070Z test files::tests::windows_storage_roundtrip ... ok",
+      "result_log": "2026-11-01T23:47:24.1182519Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.07s"
+    },
+    {
+      "name": "agent::tests::windows_named_pipe_current_user_token_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.01,
+      "test_log": "2026-11-01T23:47:24.7687452Z test agent::tests::windows_named_pipe_current_user_token_roundtrip ... ok",
+      "result_log": "2026-11-01T23:47:24.7688751Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.01s"
+    },
+    {
+      "name": "settings::tests::windows_owned_credential_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.06,
+      "test_log": "2026-11-01T23:47:25.1941266Z test settings::tests::windows_owned_credential_roundtrip ... ok",
+      "result_log": "2026-11-01T23:47:25.1942824Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.06s"
+    },
+    {
+      "name": "agent::platform::tests::windows_fixed_assets_paths_zip_and_environment",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.0,
+      "test_log": "2026-11-01T23:47:25.5395020Z test agent::platform::tests::windows_fixed_assets_paths_zip_and_environment ... ok",
+      "result_log": "2026-11-01T23:47:25.5395761Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.00s"
+    },
+    {
+      "name": "agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.02,
+      "test_log": "2026-11-01T23:47:25.9138732Z test agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute ... ok",
+      "result_log": "2026-11-01T23:47:25.9139800Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.02s"
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "passed": 0,
+      "failed": 1,
+      "ignored": 0,
+      "seconds": 3.45,
+      "test_log": "2026-11-01T23:47:29.9533224Z test agent::tests::windows_managed_pi_chat_roundtrip ... FAILED",
+      "result_log": "2026-11-01T23:47:29.9540680Z test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 3.45s"
+    }
+  ],
+  "actual_total": {
+    "passed": 8,
+    "failed": 1
+  },
+  "first_failure": {
+    "test": "agent::tests::windows_managed_pi_chat_roundtrip",
+    "code": "PERMISSION_DENIED",
+    "message": "Access is denied. (os error 5)",
+    "production_operation": "fs::rename(&staging, target) inside install_from; cfg(test,windows) diagnostic labels exact operation rename activate",
+    "operation_source": "apps/desktop/src-tauri/src/agent.rs:148",
+    "test_unwrap_source": "apps/desktop/src-tauri/src/agent.rs:636",
+    "stage_log": [
+      {
+        "line": 2245,
+        "text": "2026-11-01T23:47:29.8779767Z Windows Pi install failed [rename activate]: Access is denied. (os error 5)"
+      }
+    ],
+    "panic_log": [
+      {
+        "line": 2247,
+        "text": "2026-11-01T23:47:29.9523227Z thread 'agent::tests::windows_managed_pi_chat_roundtrip' (1872) panicked at src\\agent.rs:636:68:"
+      },
+      {
+        "line": 2248,
+        "text": "2026-11-01T23:47:29.9527621Z called `Result::unwrap()` on an `Err` value: HostError { code: \"PERMISSION_DENIED\", message: \"Access is denied. (os error 5)\", retryable: false, operation_id: None, details: None, recovery: None }"
+      }
+    ],
+    "reached_before_failure": [
+      "download successful/checksum accepted",
+      "ZIP extracted",
+      "staged version probe returned supported=true"
+    ],
+    "not_reached": [
+      "final managed detect",
+      "provider process startup",
+      "managed chat",
+      "main OS/Host/UIA observation",
+      "Publish"
+    ],
+    "unresolved": "Exact reason Windows denied this directory rename is not yet established. Do not infer AV, permission workaround, Child-handle cause or historical a721 stage."
+  },
+  "conpty": {
+    "reply_count": 1,
+    "reply_log": "2026-11-01T23:47:23.1203985Z Answered ConPTY initial cursor query at 1;1",
+    "completion_log": "2026-11-01T23:47:23.4725510Z Windows ConPTY PID 6928: Chinese output, real size120x40, process exited and Job empty",
+    "seconds": 0.4,
+    "cleanup_TIMEOUT": false
+  },
+  "startup": "skipped after managed Pi failure; no current OS/Host/UIA acceptance",
+  "publish": "skipped; no current five-asset release",
+  "build_installers": {
+    "build_step": "success",
+    "collect_two_installers_step": "success",
+    "artifact_id": 13106735456,
+    "artifact_zip_bytes": 23710968,
+    "artifact_zip_sha256": "9a4b595b50d7d73b2bb6f0b0255aebe0ea94b64bdb22355656b6c1cf19df6ec3",
+    "binary_download_by_this_agent": false
+  },
+  "job_log": {
+    "bytes": 201878,
+    "sha256": "c47e97c5349247b6693071654c286b6aec7175a33ea4a5d952cb4d63eac40bca",
+    "CRLF": 2323,
+    "preservation": "GitHub connector decoded content UTF-8, original BOM/ANSI/CRLF"
+  },
+  "constraints": "No source edit, test rerun, extra main/UIA query, local compilation, permission change, GUI or push by this owner."
+}

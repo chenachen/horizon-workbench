@@ -1,0 +1,19 @@
+{
+  "integratedAt": "2026-11-01T23:55:00.357962+00:00",
+  "source": "apps/desktop/src-tauri/src/agent.rs",
+  "beforeSha256": "37df4b00068bf629fe32089b8fc8d4f15a9a4869807ac06d0b16c54d0e7bdfd5",
+  "afterSha256": "77403366b1bb9e93f8b0f8e0616c382fb044298db05fd68e0b04ce6d9eecdb3b",
+  "review": "Complete 91-line patch reviewed. Windows activation uses same-volume no-replace MoveFileExW; only actual OS5 with target absent retries six bounded delays totalling 1575ms scheduled sleep; permanent/other errors return original IO error. macOS retains single fs::rename. Checksum and before/after version probes unchanged.",
+  "validation": "Windows exact lock-boundary test and unchanged real managed Pi roundtrip await next native CI; no native pass claimed.",
+  "failure": "../windows-ci-attempt12-rename-activation-20261102/ARCHIVE.json",
+  "macOSCompileCheck": {
+    "command": "cargo check --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib",
+    "exitCode": 0,
+    "reportedDurationSeconds": 21.78,
+    "warning": "Existing extract_windows_zip dead_code warning on macOS",
+    "completedObservedAt": "2026-11-01T23:56:27.669324+00:00"
+  },
+  "workflowSha256": "92ac8cf3b46d91a78ad2fb9dcb0fcf8cc4e0efc370c1c5c5870b3e3435f5b36d",
+  "newExactTest": "agent::tests::windows_managed_pi_activation_retry_boundaries",
+  "windowsRuntimeVerified": false
+}

@@ -121,6 +121,29 @@ async fn install(state: &HostState, request: &str) -> Result<Value> {
     let (name, digest, _) = asset();
     install_from(state, request, &format!("https://github.com/earendil-works/pi/releases/download/v{VERSION}/{name}"), digest).await
 }
+#[cfg(windows)]
+async fn activate_windows_runtime(staging: &Path, target: &Path) -> std::io::Result<()> {
+    use std::os::windows::ffi::OsStrExt;
+    let source: Vec<u16> = staging.as_os_str().encode_wide().chain(Some(0)).collect();
+    let destination: Vec<u16> = target.as_os_str().encode_wide().chain(Some(0)).collect();
+    let mut delays = [25_u64, 50, 100, 200, 400, 800].into_iter();
+    loop {
+        // Same-volume rename only: never replace a target created by another installer.
+        if unsafe { windows_sys::Win32::Storage::FileSystem::MoveFileExW(source.as_ptr(), destination.as_ptr(), 0) } != 0 {
+            return Ok(());
+        }
+        let error = std::io::Error::last_os_error();
+        // A recently probed executable may be temporarily unavailable for rename.
+        // Retry only this activation and only while the target is still absent.
+        if error.raw_os_error() != Some(windows_sys::Win32::Foundation::ERROR_ACCESS_DENIED as i32)
+            || !matches!(fs::symlink_metadata(target), Err(check) if check.kind() == std::io::ErrorKind::NotFound)
+        {
+            return Err(error);
+        }
+        let Some(delay) = delays.next() else { return Err(error); };
+        tokio::time::sleep(Duration::from_millis(delay)).await;
+    }
+}
 async fn install_from(state: &HostState, request: &str, url: &str, digest: &str) -> Result<Value> {
     if !cfg!(any(target_os="macos",windows)) { return Err(err("CAPABILITY_UNSUPPORTED", "运行时安装支持 macOS 与 Windows")); }
     macro_rules! install_context {
@@ -145,7 +168,9 @@ async fn install_from(state: &HostState, request: &str, url: &str, digest: &str)
             fs::remove_file(staging.join(name))?;
         }
         let probe = install_context!("staged version probe", detect(state, &json!({"executablePath":staging.join(platform::runtime_relative_executable())})).await)?; if probe["supported"] != true { return Err(err("INSTALL_FAILED","运行时版本检测失败")); }
-        install_context!("rename activate", fs::rename(&staging, target))?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; install_context!("final version probe", detect(state,&json!({})).await)
+        #[cfg(windows)] let activation = activate_windows_runtime(&staging, &target).await;
+        #[cfg(not(windows))] let activation = fs::rename(&staging, target);
+        install_context!("rename activate", activation)?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; install_context!("final version probe", detect(state,&json!({})).await)
     }.await;
     if staging.exists() { let _ = fs::remove_dir_all(&staging); } result
 }
@@ -628,6 +653,47 @@ mod tests {
         let sid=id();let dir=data(&state).unwrap().join("sessions").join(&sid);private_dir(&dir).unwrap();let s=Session{created_at:now_ms(),session_id:sid.clone(),project_id:project_id.clone(),connection_id:c.connection_id.clone(),profile:"chat".into(),state:"dormant".into(),instance_id:None,instance_epoch:0,resume_available:false,pi_file:dir.join("session.jsonl").to_string_lossy().into_owned(),review_id:None,messages:vec![]};memory().lock().unwrap().store.sessions.insert(sid.clone(),s.clone());let call=call_for(&project_id,"agent_submit",json!({"sessionId":sid,"submissionId":id()}));register_task(&state,&call);tokio::spawn(async move{run_pi(state,&call,s,c,"HORIZON_TEST_CANCEL instance limit".into(),None,false).await})
     }
     async fn wait_instances(count:usize){let deadline=tokio::time::Instant::now()+Duration::from_secs(10);loop{if memory().lock().unwrap().runs.len()==count{break;}assert!(tokio::time::Instant::now()<deadline,"instance count did not reach {count}");tokio::time::sleep(Duration::from_millis(20)).await;}}
+    #[cfg(windows)]
+    #[tokio::test(flavor = "current_thread")]
+    async fn windows_managed_pi_activation_retry_boundaries() {
+        use std::os::windows::fs::OpenOptionsExt;
+        use windows_sys::Win32::Storage::FileSystem::{FILE_SHARE_READ, FILE_SHARE_WRITE};
+        let fixture = tempfile::tempdir().unwrap();
+        let staging = fixture.path().join("download-transient");
+        let target = fixture.path().join("runtime-transient");
+        fs::create_dir(&staging).unwrap();
+        fs::write(staging.join("pi.exe"), b"owned activation fixture").unwrap();
+        let locked = fs::OpenOptions::new().read(true).share_mode(FILE_SHARE_READ | FILE_SHARE_WRITE).open(staging.join("pi.exe")).unwrap();
+        assert_eq!(fs::rename(&staging, &target).unwrap_err().raw_os_error(), Some(5));
+        // This current-thread task cannot release the handle before activation yields.
+        let releasing = tokio::spawn(async move { tokio::time::sleep(Duration::from_millis(60)).await; drop(locked); });
+        activate_windows_runtime(&staging, &target).await.unwrap();
+        releasing.await.unwrap();
+        assert!(!staging.exists());
+        assert_eq!(fs::read(target.join("pi.exe")).unwrap(), b"owned activation fixture");
+
+        let staging = fixture.path().join("download-permanent");
+        let target = fixture.path().join("runtime-permanent");
+        fs::create_dir(&staging).unwrap();
+        fs::write(staging.join("pi.exe"), b"owned locked fixture").unwrap();
+        let locked = fs::OpenOptions::new().read(true).share_mode(FILE_SHARE_READ | FILE_SHARE_WRITE).open(staging.join("pi.exe")).unwrap();
+        let error = activate_windows_runtime(&staging, &target).await.unwrap_err();
+        assert_eq!(error.raw_os_error(), Some(5));
+        assert!(staging.is_dir());
+        assert!(!target.exists());
+        assert_eq!(fs::read(staging.join("pi.exe")).unwrap(), b"owned locked fixture");
+        drop(locked);
+
+        let staging = fixture.path().join("download-existing-target");
+        let target = fixture.path().join("runtime-existing-target");
+        fs::create_dir(&staging).unwrap();
+        fs::create_dir(&target).unwrap();
+        fs::write(staging.join("pi.exe"), b"new owned fixture").unwrap();
+        fs::write(target.join("pi.exe"), b"existing runtime stays").unwrap();
+        assert!(activate_windows_runtime(&staging, &target).await.is_err());
+        assert_eq!(fs::read(staging.join("pi.exe")).unwrap(), b"new owned fixture");
+        assert_eq!(fs::read(target.join("pi.exe")).unwrap(), b"existing runtime stays");
+    }
     #[cfg(windows)]
     #[tokio::test]
     #[ignore = "Downloads the fixed official Windows Pi release and uses an owned loopback fixture; run explicitly in Windows CI"]
