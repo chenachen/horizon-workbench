@@ -191,7 +191,10 @@ async fn close_apply(state:Arc<HostState>,app:AppHandle,call:Call)->Result<Value
     if remove{reg.projects.retain(|p|p["id"]!=project);reg.roots.remove(project);reg.sessions.remove(project);let paths=reg.paths.iter().filter(|(_,record)|record.0==project).map(|(id,_)|id.clone()).collect::<std::collections::HashSet<_>>();reg.paths.retain(|id,_|!paths.contains(id));reg.external_file_grants.retain(|id|!paths.contains(id));state.path_index.lock().unwrap().retain(|(owner,_),_|owner!=project);for workspace in &mut reg.workspaces{let ids=workspace["projectIds"].as_array_mut().unwrap();let before=ids.len();ids.retain(|id|*id!=project);if before!=ids.len(){workspace["revision"]=json!(workspace["revision"].as_u64().unwrap_or(0)+1);}}if let Some(active)=reg.sessions.get_mut("__app"){if active["activeProjectId"]==project{active["activeProjectId"]=Value::Null;}if let Some(remembered)=active["workspaceProjects"].as_object_mut(){remembered.retain(|_,id|*id!=project);}}}
     else if let Some(p)=reg.projects.iter_mut().find(|p|p["id"]==project){p["state"]=json!("sleeping");}
     if let Some(active)=reg.sessions.get_mut("__app"){if active["activeProjectId"]==project{active["activeProjectId"]=Value::Null;}}
-    drop(reg);state.invalidate_project_scope(project);state.persist()?;Ok(json!({"state":if remove{"removed"}else{"sleeping"},"remainingResources":[]}))
+    drop(reg);state.invalidate_project_scope(project);state.persist()?;
+    // Reconcile retained frontend plugin instances after manual sleep/removal.
+    let _=app.emit("horizon:extension:v1",json!({"projectId":project}));
+    Ok(json!({"state":if remove{"removed"}else{"sleeping"},"remainingResources":[]}))
 }
 
 static CLOSE_REQUESTED:AtomicBool=AtomicBool::new(false);

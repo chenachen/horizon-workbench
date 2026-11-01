@@ -1,0 +1,34 @@
+{
+  "prepared_at_utc": "2026-11-01T19:33:34.425511+00:00",
+  "status": "PREPARED_ONLY_NOT_APPLIED",
+  "baseline_commit": "7395dc0c5a68a9b64d4d52118b88141392b164fb",
+  "files": [
+    {
+      "path": ".github/workflows/windows-release.yml",
+      "before_sha256": "0075ff699e829d06cf857ecb37ea5cdc45bf58b8a9c343e88dff49ae563b153a",
+      "after_sha256": "6223ca24be3ebff7d3393c275daaf1d5473e3341ae32a87249fe44cb8bf061da",
+      "bytes": 10888,
+      "live_matches_before": true
+    },
+    {
+      "path": "scripts/desktop/windows-test.manifest",
+      "before_sha256": null,
+      "after_sha256": "4636f3ba46080315ac3277d473d433b79c00863c9cdca1c93c0c83554c6a3d43",
+      "bytes": 392,
+      "live_matches_before": true
+    }
+  ],
+  "patch_sha256": "0d44c2ba114a1e34582b0e04fa0c7117ca1d1468d3843e2cee6d3de3bbad16bf",
+  "manifest_origin": {
+    "crate": "tauri-build 2.7.4",
+    "file": "src/windows-app-manifest.xml",
+    "sha256": "4636f3ba46080315ac3277d473d433b79c00863c9cdca1c93c0c83554c6a3d43",
+    "candidate_identical": true
+  },
+  "only_change": "compile same --lib test target once with --no-run, place matching external .exe.manifest selecting CommonControls v6, then execute original exact filters unchanged; failure diagnostics also preserve this XML",
+  "production_resources_or_dependencies_changed": false,
+  "tests_skipped_or_replaced": false,
+  "local_compile_or_Windows_execution": false,
+  "product_modified": false,
+  "remote_mutations": false
+}

@@ -1,0 +1,43 @@
+{
+  "read_at_utc": "2026-11-01T19:36:03.936137+00:00",
+  "test_executable": {
+    "name": "horizon_host-87f8b8873e9a6b51.exe",
+    "bytes": 12429312,
+    "sha256": "a630e1a6a960b8512cdf5ca0049c2fcab9a97cb1f7b6a9f6847837daf1eaf2a0",
+    "matches_native_runner_record": true,
+    "executed_here": false
+  },
+  "actual_PE": {
+    "format": "PE32+",
+    "resource_directory_rva": 0,
+    "resource_directory_bytes": 0,
+    "section_names": [
+      ".text",
+      ".rdata",
+      ".data",
+      ".pdata",
+      ".reloc"
+    ],
+    "embedded_activation_manifest": false
+  },
+  "actual_imports": {
+    "module": "comctl32.dll",
+    "symbol": "TaskDialogIndirect",
+    "dumpbin_file": "horizon_host-87f8b8873e9a6b51-imports.txt",
+    "dumpbin_sha256": "ca83ef5a56e7368af55795ce10a1f3ab62e2b1ada40f0623f632393c17ba65a8"
+  },
+  "OS": {
+    "ProductName": "Windows Server 2022 Datacenter",
+    "DisplayVersion": "21H2",
+    "CurrentBuildNumber": "20348",
+    "UBR": 5761,
+    "BuildLabEx": "20348.1.amd64fre.fe_release.210507-1500"
+  },
+  "source_observation": "Locked tauri-build2.7.4 default Windows manifest selects Microsoft.Windows.Common-Controls6; tauri-winres compile uses bin-only embed-resource compile; unit-test executable has no resources",
+  "inference": "The test harness has an unsatisfied CommonControls v6 activation requirement. Microsoft documents default Comctl32 v5 and TaskDialogIndirect as v6-only. Exact native rerun remains required.",
+  "primary_sources": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-taskdialogindirect",
+    "https://learn.microsoft.com/en-us/windows/win32/controls/cookbook-overview"
+  ],
+  "fix_scope": "CI test harness activation manifest matching the production default; no dependency/production-resource/test-logic changes"
+}

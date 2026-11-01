@@ -1,0 +1,269 @@
+{
+  "status": "PREPARED_NOT_APPLIED_WRY_NATIVE_AX_UNVERIFIED",
+  "preparedAt": "2026-11-01T19:31:59.221292+00:00",
+  "changes": [
+    {
+      "path": "apps/desktop/src/components/Modal.tsx",
+      "beforeSHA256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19",
+      "afterSHA256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33"
+    },
+    {
+      "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+      "beforeSHA256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4",
+      "afterSHA256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711"
+    }
+  ],
+  "patchSHA256": "faf6042443b2858834b47193b99986632973117979d36ece6fcd3ea06219dc24",
+  "failureBaseline": {
+    "packagePrefix": "0546",
+    "pid": 19076,
+    "evidence": "native-failure-inputs.json",
+    "finding": "Parent/root native visual + empty full/fresh AX confirm the suspend-top code executed but did not repair UI004. Continue retained fields but focused form close button; exact model restoration did not pass. No native CmdQ in that run.",
+    "candidateAgentNativeGUIActions": 0
+  },
+  "behavior": [
+    "Restore Modal to original 81ef implementation; remove replaceTop/suspend code.",
+    "With an existing native modal, portal one local alertdialog surface into that same live dialog and never call native showModal/close for confirmation.",
+    "Capture the original activeElement at the beginning of the layout effect; inline confirmation does not autoFocus during commit.",
+    "Save and restore raw host naming attributes and each background HTML child inert/aria-hidden/inline style including original nonempty values.",
+    "Keep form React state mounted, isolate background semantics/focus/display, trap Tab among confirmation buttons, route Escape to Continue, and intercept native host cancel before parent business handler.",
+    "On cleanup restore attributes then focus only if host remains connected/open and original element remains connected. Never reopen a discarded or detached host.",
+    "When no native modal exists, preserve original Modal path. No new global modal framework, timer, native build, app restart, GUI or appdata mutation."
+  ],
+  "validation": {
+    "component": {
+      "path": "result.json",
+      "passed": true,
+      "durationMs": 8349,
+      "scenarios": [
+        {
+          "kind": "connection-close",
+          "passed": true,
+          "confirmationChecks": 11,
+          "attributeRestorations": 11,
+          "nativeCounts": [
+            2
+          ],
+          "htmlDialogToggleCallsDuringConfirmation": 0,
+          "tabCycleChecked": true,
+          "browserErrors": [],
+          "consoleErrors": []
+        },
+        {
+          "kind": "outer-close-and-hidden",
+          "passed": true,
+          "confirmationChecks": 9,
+          "attributeRestorations": 9,
+          "nativeCounts": [
+            1
+          ],
+          "htmlDialogToggleCallsDuringConfirmation": 0,
+          "tabCycleChecked": true,
+          "browserErrors": [],
+          "consoleErrors": []
+        }
+      ],
+      "fallback": {
+        "kind": "no-existing-native-dialog",
+        "browserErrors": [],
+        "consoleErrors": [],
+        "passed": true,
+        "nativeCalls": [
+          {
+            "operation": "showModal",
+            "title": "放弃未保存的修改？"
+          },
+          {
+            "operation": "close",
+            "title": "放弃未保存的修改？"
+          },
+          {
+            "operation": "showModal",
+            "title": "放弃未保存的修改？"
+          },
+          {
+            "operation": "close",
+            "title": "放弃未保存的修改？"
+          }
+        ]
+      },
+      "focusBoundary": "Esc and controlled App close pre-focus the actual model input and assert the same connected element after Continue; disconnected discard focus is not counted as restoration.",
+      "observationLabelNote": "Legacy label X confirmation Escape now corresponds to a dispatched native cancel event to test capture; actual executed action is preserved in run.mjs."
+    },
+    "typeScript": {
+      "path": "typecheck-result.json",
+      "passed": true,
+      "overlays": 2,
+      "sourceFiles": 2,
+      "diagnostics": 0,
+      "durationMs": 906
+    },
+    "patchCheck": {
+      "command": "rtk git apply --check .work/unsaved-inline-native-20261102/source.patch",
+      "exitCode": 0
+    },
+    "productSourceChecks": [
+      {
+        "path": "apps/desktop/src/App.tsx",
+        "beforeSHA256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+        "currentSHA256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/components/Modal.tsx",
+        "beforeSHA256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19",
+        "currentSHA256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/components/UnsavedChanges.tsx",
+        "beforeSHA256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4",
+        "currentSHA256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/agent/AgentSettings.tsx",
+        "beforeSHA256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+        "currentSHA256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/processes/index.tsx",
+        "beforeSHA256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+        "currentSHA256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+        "unchanged": true
+      },
+      {
+        "path": "apps/desktop/src/features/settings/SettingsPanel.tsx",
+        "beforeSHA256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+        "currentSHA256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+        "unchanged": true
+      }
+    ],
+    "productSourcesUnchanged": true,
+    "nativeAX": "NOT_TESTED; Chromium role/focus/Tab is not Wry AX evidence"
+  },
+  "pending": "Root review then integration/native verification only at an existing safe package boundary. Original 0546 failure remains a failure; no claim that this candidate repaired native AX.",
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "76e813deaf06e7b5713f95581a6e6acbf14cdcfc59afae88844d5d85901f4470",
+      "bytes": 3165
+    },
+    {
+      "path": "after/apps/desktop/src/App.tsx",
+      "sha256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+      "bytes": 75093
+    },
+    {
+      "path": "after/apps/desktop/src/components/Modal.tsx",
+      "sha256": "81ef7355a04969aaaf4ef44748dced6b3d23f827b138328bc91709512c5aca33",
+      "bytes": 1596
+    },
+    {
+      "path": "after/apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "7edf9a821c2d7a65172d4ad15eb289fc750eae90d9b19431cda1a25206628711",
+      "bytes": 5304
+    },
+    {
+      "path": "after/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+      "bytes": 20289
+    },
+    {
+      "path": "after/apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+      "bytes": 61450
+    },
+    {
+      "path": "after/apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "sha256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+      "bytes": 75727
+    },
+    {
+      "path": "before/apps/desktop/src/App.tsx",
+      "sha256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+      "bytes": 75093
+    },
+    {
+      "path": "before/apps/desktop/src/components/Modal.tsx",
+      "sha256": "5b840b5b6853b21f1f0d1a66123afb0a10ea7fbb267c72a35c9b767970cd2b19",
+      "bytes": 1977
+    },
+    {
+      "path": "before/apps/desktop/src/components/UnsavedChanges.tsx",
+      "sha256": "8955da620e1fabd0daf91d6b391ddd8bba072df8aacdbfc02ebfc7308ebb0dd4",
+      "bytes": 1889
+    },
+    {
+      "path": "before/apps/desktop/src/features/agent/AgentSettings.tsx",
+      "sha256": "d76e18c217cdd9cda061e3e15abce9cef5c0b516a3eeb9c88f435967ba1aad7b",
+      "bytes": 20289
+    },
+    {
+      "path": "before/apps/desktop/src/features/processes/index.tsx",
+      "sha256": "0a200d907df0b32f8b932654e7a726953611ab80df4b03f452c41e7f473acbdb",
+      "bytes": 61450
+    },
+    {
+      "path": "before/apps/desktop/src/features/settings/SettingsPanel.tsx",
+      "sha256": "cc5d4cba1d079dc3d4d80c38ef64f3320b4440e05e49fef3e0bb3afab6f65f57",
+      "bytes": 75727
+    },
+    {
+      "path": "entry.tsx",
+      "sha256": "514cd4f3ebdcba9c78a9a00dd91bb6b1b17edf39deac35273e0f08edc336f513",
+      "bytes": 9297
+    },
+    {
+      "path": "native-failure-inputs.json",
+      "sha256": "f50320a63e5b3c86b7f95ab39f4854099329e42c134253f5542bb3cf7ee78420",
+      "bytes": 486
+    },
+    {
+      "path": "result.json",
+      "sha256": "48ffd873e5f5d5b7be41abe712f9bae441e4f55221af14e536ea6d2c7cf1b220",
+      "bytes": 86543
+    },
+    {
+      "path": "run-typecheck.mjs",
+      "sha256": "c54972d46095891ba605fb1519d38c1ad8c2952719932dea8e113d0688705c0f",
+      "bytes": 3330
+    },
+    {
+      "path": "run.mjs",
+      "sha256": "71474fe457180585b9ef16bde09e69e549bcc8dc206cbb489c906837aad628fd",
+      "bytes": 36528
+    },
+    {
+      "path": "source/reused-harness/entry.tsx",
+      "sha256": "5940fa5d326d06d6e0c7a7ffc19590e74db2718c3583770b0c582bd8f5c28f9a",
+      "bytes": 8334
+    },
+    {
+      "path": "source/reused-harness/run-typecheck.mjs",
+      "sha256": "ac62aeeb34e41666d1e3071f75b58f287c7bb8ca446f6fbfb98562f833ab9a59",
+      "bytes": 3328
+    },
+    {
+      "path": "source/reused-harness/run.mjs",
+      "sha256": "76d630ebab9923620cd3d0352fc1e7866d361e4aed839c8a4f15e2d57a3efc6e",
+      "bytes": 30854
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "edc8b3658b414d06f4e2b6e67d8dc833866b6072847e7fa707a424229c8f8cb5",
+      "bytes": 2665
+    },
+    {
+      "path": "source.patch",
+      "sha256": "faf6042443b2858834b47193b99986632973117979d36ece6fcd3ea06219dc24",
+      "bytes": 7444
+    },
+    {
+      "path": "typecheck-result.json",
+      "sha256": "c6338943f880d33ca63989a8ed9b21a9265a2b46169c935322b07259cbb91041",
+      "bytes": 1275
+    }
+  ]
+}

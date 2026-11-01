@@ -1,0 +1,20 @@
+{
+  "appliedAt": "2026-11-01T19:32:54.448585+00:00",
+  "candidate": ".work/manual-close-extension-invalidation-20261102",
+  "changes": [
+    {
+      "preparedAt": "2026-11-01T19:29:14.627848+00:00",
+      "status": "PREPARED_SOURCE_CANDIDATE_NOT_APPLIED_NOT_BUILT",
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "beforeSHA256": "fcd30ba2a5e942bfed365913a96b06d8e2dda9be324ae61f2f5ebfdb208acb1e",
+      "afterSHA256": "1e8fc244735213f4bc68cb98a930e8fadb4e3766ae2fae98fc280f184d801b6f",
+      "patchSHA256": "edd7c2255211a36ef7e7092b07ca821616fd38ac4ca6e4eafa750c55f2714179",
+      "scope": "One extension-state notification only after successful manual sleep/removal persists and invalidates the project epoch. No project event added, avoiding duplicate Editor close; no business stop/policy/store changes.",
+      "causalSource": "Manual close_apply previously returns without horizon:extension:v1; automatic maintenance sleep emits this event. Frontend service initializes knownProjects and only reconciles every known scope on extension event. extension_list itself is app-scoped and supports a removed project policy snapshot; exact-owner cleanup already app-scoped in 0546.",
+      "nativeObservation": "0546 single manual A sleep after fresh A/B baseline: postdiagnostic disposing0 but workerAbort2/commands4/views2. Native after-owner identities and policy binding still pending; no successful fix claim."
+    }
+  ],
+  "rootReview": "Full production patch read; caller/event path review reused. No unrelated changes.",
+  "validation": "Prepared focused component/TS checks reused for inline candidate. Full release build and native Wry/manual Sleep verification pending.",
+  "previousNativeFailureRetained": true
+}

@@ -1,0 +1,47 @@
+diff --git a/.github/workflows/windows-release.yml b/.github/workflows/windows-release.yml
+--- a/.github/workflows/windows-release.yml
++++ b/.github/workflows/windows-release.yml
+@@ -86,6 +86,15 @@
+         run: |
+           cargo test --locked --release --manifest-path apps/extension-host/Cargo.toml --test isolation async_broker_wait_does_not_spend_cpu_budget -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/extension-smoke.log
+           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
++      - name: Prepare native Windows test activation manifests
++        run: |
++          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib --no-run 2>&1 | Tee-Object artifacts/windows/windows-host-test-build.log
++          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
++          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release/deps/horizon_host-*.exe' -File)
++          if ($binaries.Count -eq 0) { throw 'No host unit-test executable was built.' }
++          foreach ($binary in $binaries) {
++            Copy-Item -LiteralPath 'scripts/desktop/windows-test.manifest' -Destination "$($binary.FullName).manifest"
++          }
+       - name: Check native owned Job descendant lifecycle
+         id: windows_job_test
+         run: |
+@@ -108,6 +117,8 @@
+             Sort-Object | Select-Object -Last 1
+           foreach ($binary in $binaries) {
+             Copy-Item -LiteralPath $binary.FullName -Destination $output
++            $activation = "$($binary.FullName).manifest"
++            if (Test-Path -LiteralPath $activation) { Copy-Item -LiteralPath $activation -Destination $output }
+             if ($dumpbin) {
+               & $dumpbin /IMPORTS $binary.FullName 2>&1 | Set-Content "$output/$($binary.BaseName)-imports.txt"
+             } else {
+diff --git a/scripts/desktop/windows-test.manifest b/scripts/desktop/windows-test.manifest
+new file mode 100644
+--- /dev/null
++++ b/scripts/desktop/windows-test.manifest
+@@ -0,0 +1,14 @@
++<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
++  <dependency>
++    <dependentAssembly>
++      <assemblyIdentity
++        type="win32"
++        name="Microsoft.Windows.Common-Controls"
++        version="6.0.0.0"
++        processorArchitecture="*"
++        publicKeyToken="6595b64144ccf1df"
++        language="*"
++      />
++    </dependentAssembly>
++  </dependency>
++</assembly>

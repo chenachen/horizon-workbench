@@ -1,0 +1,36 @@
+{
+  "commit": "7395dc0c5a68a9b64d4d52118b88141392b164fb",
+  "run_id": 41340169874,
+  "job_id": 124948287369,
+  "conclusion": "failure",
+  "failed_step": "Check native owned Job descendant lifecycle",
+  "failure": "Host test EXE loader0xc0000139 STATUS_ENTRYPOINT_NOT_FOUND before any host test body",
+  "exact_failure_lines": [
+    "2026-11-01T19:23:28.3898727Z   process didn't exit successfully: `D:\\a\\horizon-workbench\\horizon-workbench\\apps\\desktop\\src-tauri\\target\\release\\deps\\horizon_host-87f8b8873e9a6b51.exe windows_process::tests::owned_job_stops_descendants_and_preserves_external --exact --nocapture` (exit code: 0xc0000139, STATUS_ENTRYPOINT_NOT_FOUND)"
+  ],
+  "actual_nonzero_tests": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    }
+  ],
+  "host_test_bodies_executed": 0,
+  "conpty_started": false,
+  "diagnostics_step": "success",
+  "successful_native_steps": [
+    "notices",
+    "native build and both installers",
+    "installer collection",
+    "sidecar versions/Git JSON",
+    "QuickJS healthy1pass"
+  ],
+  "artifact": {
+    "id": 13097955174,
+    "bytes": 28672630,
+    "sha256": "15216c0fc45f421967cbdc8fe6d5045428d3b1745115c27c58e65a4a3e5f8601",
+    "url": "https://github.com/chenachen/horizon-workbench/actions/runs/41340169874/artifacts/13097955174"
+  },
+  "publish": "skipped"
+}

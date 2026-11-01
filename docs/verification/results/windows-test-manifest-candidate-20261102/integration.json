@@ -1,0 +1,23 @@
+{
+  "appliedAt": "2026-11-01T19:36:42.820140+00:00",
+  "files": [
+    {
+      "path": ".github/workflows/windows-release.yml",
+      "before_sha256": "0075ff699e829d06cf857ecb37ea5cdc45bf58b8a9c343e88dff49ae563b153a",
+      "after_sha256": "6223ca24be3ebff7d3393c275daaf1d5473e3341ae32a87249fe44cb8bf061da",
+      "bytes": 10888,
+      "live_matches_before": true
+    },
+    {
+      "path": "scripts/desktop/windows-test.manifest",
+      "before_sha256": null,
+      "after_sha256": "4636f3ba46080315ac3277d473d433b79c00863c9cdca1c93c0c83554c6a3d43",
+      "bytes": 392,
+      "live_matches_before": true
+    }
+  ],
+  "scope": "Prepare existing native Windows --lib test executable once, add CommonControls v6 activation manifest; exact test filters and production resources unchanged.",
+  "rootReview": "Full two-file patch, baseline, patch and after hashes verified; MS docs permit same-directory exe.manifest.",
+  "officialSource": "https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests",
+  "validation": "No local Windows runtime. Existing attempt06 loader failure remains; next actual Windows CI determines outcome."
+}

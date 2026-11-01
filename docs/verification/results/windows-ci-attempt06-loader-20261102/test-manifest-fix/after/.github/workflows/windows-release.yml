@@ -1,0 +1,188 @@
+name: Windows x64 trial release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: windows-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows-x64:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CARGO_TERM_COLOR: always
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Record native build identity
+        run: |
+          New-Item -ItemType Directory -Force artifacts/windows | Out-Null
+          $hostInfo = rustc -vV
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not ($hostInfo -match '^host: x86_64-pc-windows-msvc$')) {
+            throw 'Expected native Windows x64 MSVC toolchain'
+          }
+          @(
+            "commit=$env:GITHUB_SHA"
+            "run=$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"
+            "runner=$env:RUNNER_OS/$env:RUNNER_ARCH"
+            "image=$env:ImageOS/$env:ImageVersion"
+            "node=$(node --version)"
+            "npm=$(npm --version)"
+            "git=$(git --version)"
+            $hostInfo
+          ) | Set-Content artifacts/windows/build-identity.txt
+      - name: Install locked JavaScript dependencies
+        run: |
+          npm ci 2>&1 | Tee-Object artifacts/windows/npm-ci.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Archive notices for the actual Windows dependency graph
+        run: |
+          node scripts/prepare-ripgrep.mjs x86_64-pc-windows-msvc
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          foreach ($manifest in @('apps/desktop/src-tauri/Cargo.toml', 'apps/git-service/Cargo.toml', 'apps/extension-host/Cargo.toml')) {
+            cargo fetch --locked --target x86_64-pc-windows-msvc --manifest-path $manifest
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          python scripts/archive-licenses.py --target x86_64-pc-windows-msvc 2>&1 | Tee-Object artifacts/windows/notices.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build native sidecars and installers
+        run: |
+          npm run desktop:release -- --bundles nsis,msi 2>&1 | Tee-Object artifacts/windows/build.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Collect installers and checksums
+        run: |
+          $bundle = 'apps/desktop/src-tauri/target/release/bundle'
+          $exe = @(Get-ChildItem "$bundle/nsis/*.exe" -File)
+          $msi = @(Get-ChildItem "$bundle/msi/*.msi" -File)
+          if ($exe.Count -eq 0 -or $msi.Count -eq 0) {
+            throw 'Build did not produce both NSIS .exe and MSI installers'
+          }
+          @($exe + $msi) | Copy-Item -Destination artifacts/windows
+          Get-ChildItem artifacts/windows -File | Where-Object Extension -In '.exe', '.msi' |
+            Sort-Object Name | ForEach-Object {
+              $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+              "$hash  $($_.Name)"
+            } | Set-Content -Encoding ascii artifacts/windows/SHA256SUMS.txt
+      - name: Smoke native sidecar versions and Git JSON protocol
+        run: |
+          node scripts/windows-sidecar-smoke.mjs 2>&1 | Tee-Object artifacts/windows/sidecar-smoke.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Smoke native QuickJS protocol using the existing healthy scenario
+        run: |
+          cargo test --locked --release --manifest-path apps/extension-host/Cargo.toml --test isolation async_broker_wait_does_not_spend_cpu_budget -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/extension-smoke.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Prepare native Windows test activation manifests
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib --no-run 2>&1 | Tee-Object artifacts/windows/windows-host-test-build.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release/deps/horizon_host-*.exe' -File)
+          if ($binaries.Count -eq 0) { throw 'No host unit-test executable was built.' }
+          foreach ($binary in $binaries) {
+            Copy-Item -LiteralPath 'scripts/desktop/windows-test.manifest' -Destination "$($binary.FullName).manifest"
+          }
+      - name: Check native owned Job descendant lifecycle
+        id: windows_job_test
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib windows_process::tests::owned_job_stops_descendants_and_preserves_external -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-job.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve Windows host-test loader diagnostics
+        if: ${{ failure() && steps.windows_job_test.outcome == 'failure' }}
+        run: |
+          $output = 'artifacts/windows/loader-diagnostics'
+          New-Item -ItemType Directory -Force $output | Out-Null
+          Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' |
+            Select-Object ProductName, DisplayVersion, CurrentBuildNumber, UBR, BuildLabEx |
+            ConvertTo-Json | Set-Content "$output/os-build.json"
+          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release/deps/horizon_host-*.exe' -File -ErrorAction SilentlyContinue)
+          @($binaries | ForEach-Object {
+            @{ path = $_.FullName; bytes = $_.Length; sha256 = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
+          }) | ConvertTo-Json -Depth 4 | Set-Content "$output/test-executables.json"
+          $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\Installer\vswhere.exe'
+          $dumpbin = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -find 'VC\Tools\MSVC\**\bin\Hostx64\x64\dumpbin.exe' |
+            Sort-Object | Select-Object -Last 1
+          foreach ($binary in $binaries) {
+            Copy-Item -LiteralPath $binary.FullName -Destination $output
+            $activation = "$($binary.FullName).manifest"
+            if (Test-Path -LiteralPath $activation) { Copy-Item -LiteralPath $activation -Destination $output }
+            if ($dumpbin) {
+              & $dumpbin /IMPORTS $binary.FullName 2>&1 | Set-Content "$output/$($binary.BaseName)-imports.txt"
+            } else {
+              Write-Warning 'dumpbin unavailable; exact test executable is preserved for PE inspection.'
+            }
+          }
+      - name: Check native Windows ConPTY output, resize and stop
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib processes::windows_tests::owned_conpty_chinese_resize_and_stop -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-conpty.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check native Windows storage roundtrip
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib files::tests::windows_storage_roundtrip -- --exact --nocapture 2>&1 | Tee-Object artifacts/windows/windows-storage.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check native Windows Pi broker, credentials and runtime boundaries
+        run: |
+          $tests = @(
+            'agent::tests::windows_named_pipe_current_user_token_roundtrip',
+            'settings::tests::windows_owned_credential_roundtrip',
+            'agent::platform::tests::windows_fixed_assets_paths_zip_and_environment',
+            'agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute'
+          )
+          foreach ($test in $tests) {
+            $logName = $test.Replace('::', '-')
+            cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib $test -- --exact --nocapture 2>&1 | Tee-Object "artifacts/windows/$logName.log"
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+      - name: Smoke real managed Pi chat on native Windows
+        run: |
+          cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib agent::tests::windows_managed_pi_chat_roundtrip -- --exact --ignored --nocapture 2>&1 | Tee-Object artifacts/windows/windows-managed-pi-chat.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Observe one owned native main-process startup when the runner supports it
+        run: ./scripts/windows-startup-smoke.ps1
+      - name: Upload Windows installers and raw build logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: horizon-windows-x64-${{ github.sha }}
+          path: artifacts/windows/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Publish commit-specific Windows trial
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $tag = "windows-$($env:GITHUB_SHA.Substring(0, 12))"
+          $startup = Get-Content artifacts/windows/startup-smoke.json -Raw | ConvertFrom-Json
+          $notes = @(
+            "Windows x64 trial installers built from commit $env:GITHUB_SHA.",
+            '',
+            'Use the NSIS setup .exe or MSI installer. Installers are unsigned.',
+            'WebView2 is required; the installer downloads its bootstrapper if missing. Git features require Git for Windows on PATH.',
+            "Main-process observation: $($startup.status). No interactive Windows GUI acceptance.",
+            '',
+            "Build: $env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"
+          ) -join "`n"
+          $notes | Set-Content artifacts/windows/release-notes.md
+          gh release view $tag --repo $env:GITHUB_REPOSITORY *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title "Horizon Windows x64 trial $($env:GITHUB_SHA.Substring(0, 12))" --notes-file artifacts/windows/release-notes.md
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          $assets = @(Get-ChildItem artifacts/windows -File | Where-Object Name -Match '\.(exe|msi)$|^SHA256SUMS\.txt$|^build-identity\.txt$|^startup-smoke\.json$')
+          $assetPaths = @($assets.FullName)
+          gh release upload $tag @assetPaths --repo $env:GITHUB_REPOSITORY --clobber
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "Release: $env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/releases/tag/$tag" >> $env:GITHUB_STEP_SUMMARY
