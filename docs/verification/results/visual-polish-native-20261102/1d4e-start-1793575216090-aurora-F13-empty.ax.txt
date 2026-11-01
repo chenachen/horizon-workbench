@@ -1,0 +1,59 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container 设置
+				4 container
+					5 heading 设置, Value: 2
+						6 text 设置
+					7 button 关闭弹窗
+				8 container 设置分类
+					9 button 外观
+					10 button 编辑器
+					11 button 项目与资源
+					12 button AI 连接
+					13 button Git
+					14 button 快捷键
+					15 button 数据与隐私
+				16 container
+					17 heading 外观, Value: 2
+						18 text 外观
+					19 text 保存布局、配色、尺寸与背景，随时换回。
+				20 container 外观分类
+					21 button 主题与配色
+					22 button 布局与尺寸
+					23 button 背景图片
+					24 button 外观方案
+				25 container 底部导航布局 · 极光主题预览
+					26 text Horizon
+					27 text 底部导航  ·  极光
+					28 container
+						29 text 工作区 外观设置 布局 主题
+					30 container
+						31 text const  appearance =  {   theme:  " 极光 " ,   layout:  " 底部导航 " } ; 即时预览
+				32 text field (settable) 外观组合名称, Placeholder: 例如：晚间阅读
+				33 button (disabled) 保存当前组合
+				34 text 从现在的搭配开始
+				35 text 保存后会出现在这里，应用于整个工作台。
+				36 button 导入组合 JSON
+				37 container
+					38 checkbox 导出时包含背景, Value: 0
+					39 text 导出时包含背景
+				40 container
+					41 text 组合引用已安装插件 导入后先检查依赖。纯 JSON 导出不包含图片；包含背景时同时导出内容摘要。
+				42 text 已保存
+				43 container
+					44 text 偏好即时生效
+					45 button 完成
+	46 close button
+	47 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	48 minimize button
+49 menu bar
+	50 Horizon
+	51 File
+	52 Edit
+	53 View
+	54 Window
+	55 Help
+
+The focused UI element is 3 container 设置

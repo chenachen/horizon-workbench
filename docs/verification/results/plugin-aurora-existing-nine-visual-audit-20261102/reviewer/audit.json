@@ -1,0 +1,813 @@
+{
+  "status": "review-complete-not-canonical-written",
+  "reviewer": "plugin_sol",
+  "createdAt": "2026-11-01T23:20:27.251663+00:00",
+  "method": "Personally viewed 9 reference/native pairs via view_image; E12 alternative inspected and rejected as wrong page. Read-only current source cross-check. No GUI automation, native activity, tests/build/install/enable/policy/fixture changes. .work output only.",
+  "summary": {
+    "pass": 1,
+    "differences": 6,
+    "conditionNotMet": 2
+  },
+  "canonicalWriter": "verification_sol only; root explicitly authorized handoff",
+  "versionBoundary": {
+    "nativeBuilds": [
+      "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+      "0546f9cde8b65fedda8cfbff07a5267bd7cdd99a23f1126db2c06b1b850500e0",
+      "9316ce984d50c945f72fb62903633872feac1bf2bf00a7b51b7ce7a9ce60c5ad"
+    ],
+    "sourceAtReviewStartCssSha256": "ab6c823595ec965f157eec40394fb7a94dc50ff2379a44467e133ccbfc033e42",
+    "afterRootIntegratedCssSha256": "b0543621d09db945bbefc0b62c9ba01ccf4d90bc75efc276315ab6e0067d7bab",
+    "notClaimed": "Neither current installed bd0 nor next build is visually accepted by these old images. TSX also has later changes, including failed label 启动失败→异常. Original f544/0546/9316 raw/fail remain.",
+    "caseMapping": "Aurora originals cannot close mist or any other style by recoloring/mapping. E15 metadata layout/theme were target labels; actual rendered fallback controls the verdict."
+  },
+  "sources": [
+    {
+      "path": "apps/desktop/src/features/plugins/plugins.css",
+      "sha256": "b0543621d09db945bbefc0b62c9ba01ccf4d90bc75efc276315ab6e0067d7bab",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/plugins.css"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/PluginDialog.tsx",
+      "sha256": "a158333a7173992afbb997a03609c3d0f34cd2237c638f0fd166253f97cf0bab",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginDialog.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/PluginDetails.tsx",
+      "sha256": "a77ad5d2f2a0143a51979dfd0063f9f9d00e68707e126660065dd7586db8a3e9",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginDetails.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/PluginConfiguration.tsx",
+      "sha256": "6503996a6e7f932db5972f98e63aed8e5b2af1d7170f810b661eb18a2cd24e60",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginConfiguration.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/PluginInstallDialog.tsx",
+      "sha256": "535cf723cd557fde1785443e7631b495ece99201a914709131467895cee8afbc",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginInstallDialog.tsx"
+    },
+    {
+      "path": "apps/desktop/src/features/plugins/PluginCenter.tsx",
+      "sha256": "6430e072a86fa39015c760fe28968b81ecf1440bd4c9c8df8544ef2faa93030b",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginCenter.tsx"
+    },
+    {
+      "path": "apps/desktop/src/styles.css",
+      "sha256": "d9c82a00bccd76d6ade8cbb6c79e8a6c7d1167f4483fc70e548e04046b6ea9c8",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/styles.css"
+    },
+    {
+      "path": "design/source/plugin-center.css",
+      "sha256": "d2edd50640b1789e965bdccccac53a5a6550f2185ee6c82cf5b5f41b6cadd298",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/design/source/plugin-center.css"
+    },
+    {
+      "path": "design/source/plugin-center.js",
+      "sha256": "a788f5d5ebbf7a7d830f249e19b01509e761d28789d7f53efe69de28fd1b0a37",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/design/source/plugin-center.js"
+    },
+    {
+      "path": "design/source/base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/design/source/base.css"
+    },
+    {
+      "path": "design/source/atlas.css",
+      "sha256": "9566a3af7029984542edeabefb69eeff661b4c3c42da954885342a88f3121339",
+      "snapshot": ".work/plugin-aurora-original-review-20261102/source/design/source/atlas.css"
+    }
+  ],
+  "checks": [
+    {
+      "name": "E03 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E03 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E05 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E05 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E08 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E08 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E09 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E09 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E11 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E11 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E12 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E12 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E13 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E13 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E14 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E14 AX matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E15 image matches frozen manifest",
+      "passed": true
+    },
+    {
+      "name": "E15 AX matches frozen manifest",
+      "passed": true
+    }
+  ],
+  "allOriginalManifestHashesMatch": true,
+  "cases": [
+    {
+      "case": "aurora/E03",
+      "reviewVerdict": "pass",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E03-plugin-detail.png",
+        "sha256": "536ad4f59e389d23dd723fa6619a9c103476e5caace52fb9c3e03bea81ae226f"
+      },
+      "native": {
+        "label": "01-a-main-policy-details",
+        "timeUTC": "2026-11-01T19:12:29.905Z",
+        "pid": 19076,
+        "pidStart": "2026-11-02 03:08:28 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "0546f9cde8b65fedda8cfbff07a5267bd7cdd99a23f1126db2c06b1b850500e0",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "PluginResumeA",
+        "note": "A 主QA v0.1.1 已暂停，详情生效范围全局启用/项目覆盖，只读",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-01-a-main-policy-details.jpg",
+        "imageSHA256": "061012655f0ca182abee5a380a06e386303f56351b9051cc6d2b8ab82cb869d4",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-01-a-main-policy-details.ax.txt",
+        "axSHA256": "cd6516e3273b51061e8a86e025d18ea6294240768378ebf89f8fae406a8a9ce0",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-manifest.jsonl"
+      },
+      "observed": "已审旧0546原生详情：整页、返回入口、64px图标/标题/版本、操作、分类tab、左右概览/扩展信息层级完整；未见需要窄修的结构问题。",
+      "conditions": [
+        "QA名称/版本/暂停态、26个真实包、额外能力预设/设置/日志入口及真实scope文字与原型不同，保真实产品。",
+        "概览图不能证明权限tab内每一行，但入口与贡献区真实可见。"
+      ],
+      "differences": [],
+      "nextMinimalStep": "可复用本幅Aurora旧native视觉通过；不宣称新包全部状态或其它七布局通过。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E05",
+      "reviewVerdict": "differences",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E05-plugin-installed.png",
+        "sha256": "2f84488cad410971b5c13775b5ec53163b3c61986df98d5cbb7a627e4ac1e857"
+      },
+      "native": {
+        "label": "40-b-removed-a-plugin-center",
+        "timeUTC": "2026-11-01T20:37:17.325Z",
+        "pid": 74714,
+        "pidStart": "2026-11-02 03:36:42 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "9316ce984d50c945f72fb62903633872feac1bf2bf00a7b51b7ce7a9ce60c5ad",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "PluginResumeA",
+        "note": "B record removed; A current project, plugin center held without mutations",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-40-b-removed-a-plugin-center.jpg",
+        "imageSHA256": "238e092cefcca0e2e90861c541db615e8ceb7a3b830cc5e5267496ed9886eca6",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-40-b-removed-a-plugin-center.ax.txt",
+        "axSHA256": "e1656c776269552a40ce267d376f870a2434f635e191f5ffcbd85e22b5201d2a",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-manifest.jsonl"
+      },
+      "observed": "全页、你的扩展/计数/说明、三列卡片、触发条件和版本/范围已出现；candidate4b/5旧缺层级在此Aurora原图不再复现。",
+      "conditions": [
+        "真实27包/当前项目/全部禁用，和原型4包混合运行态不同；不为贴图启动PTY或改policy。",
+        "旧HOST005 toast覆盖右下，来源已由原功能batch解释，不是本页新失败。"
+      ],
+      "differences": [
+        {
+          "id": "search-double-border",
+          "severity": "moderate",
+          "observation": "搜索label外框内另有一条矩形input边框；原型只有一个搜索轮廓。",
+          "source": "plugins.css:9 selector specificity(0,2,1)被styles.css:31 text input rule(0,4,1)覆盖。",
+          "resolution": "root已在此次source集成同四not的scoped selector(0,6,1)，尚无新native视觉通过。"
+        }
+      ],
+      "nextMinimalStep": "需要当前build的原生稳定页复验CSS；只看页面，不重业务。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E08",
+      "reviewVerdict": "differences",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E08-plugin-permissions.png",
+        "sha256": "facb9390fbb76b4c99a2d45b4624993343daaf23ebb383c287206b13148af22b"
+      },
+      "native": {
+        "label": "03-permissions-before-cancel",
+        "timeUTC": "2026-11-01T17:46:49.890Z",
+        "pid": 27780,
+        "pidStart": "2026-11-02 01:37:30 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "启动器验收",
+        "note": "0.1.0，自有 read-only-base 包；git.read 与 storage 必需，均未勾选，安装禁用",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-03-permissions-before-cancel.jpg",
+        "imageSHA256": "9d925ab0df14e744602881f1c990b8c30cc7e59918ad5281087d67d4c107964b",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-03-permissions-before-cancel.ax.txt",
+        "axSHA256": "83586e8fc4c2aa4b121067643905229ad8dcb9137f12f29acacf6c3818d0c2e3",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl"
+      },
+      "observed": "实际首次安装授权状态成立：真实0.1.0、git.read/storage均未勾、授权并安装disabled。",
+      "conditions": [
+        "真实两cap、source路径/engine/解包后大小/逐cap授权与原型单cap+总同意不同；安装后独立启用为已验产品语义。",
+        "初始dialog蓝焦点圈、旧缺包toast属真实焦点/历史提示，不能抹图。"
+      ],
+      "differences": [
+        {
+          "id": "shared-modal",
+          "severity": "moderate",
+          "observation": "旧原生共用570px/固定22px圆角/h-surface底；设计最终compact510px、布局radius+8、h-low底。Aurora布局radius22，目标30px。",
+          "source": "plugins.css:2 versus design/source/atlas.css:124–125/base.css:126。",
+          "resolution": "root已source集成width510、calc(var(--h-radius,18px)+8px)、h-low；尚未新native复验，不把source修复记视觉pass。",
+          "secondaryDifferences": [
+            "标题native20px/设计22px，当前窄候选未改；记录为minor。",
+            "content/footer padding与原型相差约2px，真实字段/高度及焦点条件不同，未以像素裁切或删信息对齐。"
+          ]
+        }
+      ],
+      "nextMinimalStep": "权限页prepare/cancel足够复验共享CSS；不安装、不删元数据。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E09",
+      "reviewVerdict": "differences",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E09-plugin-settings.png",
+        "sha256": "868c2b9a5f87b1df2a44e3c0684cc29ac74ebf84fe2cc30b36cb4237d0146375"
+      },
+      "native": {
+        "label": "12-a-project-override",
+        "timeUTC": "2026-11-01T18:12:34.158Z",
+        "pid": 27780,
+        "pidStart": "2026-11-02 01:37:30 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "PluginResumeA",
+        "note": "仅 PluginResumeA 当前项目覆盖：显示未跟踪文件=false，保存按钮已禁用",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-12-a-project-override.jpg",
+        "imageSHA256": "14f58889047c7a0b63d16b7a9d14ea6862c06ac8d40252d87679ad4de8bf98ca",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-12-a-project-override.ax.txt",
+        "axSHA256": "0612d40c3c23ce728f04deabda404b0da75b6d333d0fb1638487f4eea90685ef",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl"
+      },
+      "observed": "真实A项目覆盖设置页成立：includeUntracked=false、一项布尔schema、行级保存/恢复继承、按需触发。",
+      "conditions": [
+        "原型formatter包含启用/配置来源/保存执行等多字段，本QA只声明一个bool；不能补假字段。",
+        "旧已禁用toast保留，不等于设置保存失败。"
+      ],
+      "differences": [
+        {
+          "id": "config-heading-scale",
+          "severity": "minor",
+          "observation": "插件设置页主标题比原型小：native h3 22px，设计px-detail-head h1 26px。",
+          "source": "PluginDetails.tsx:11 + plugins.css:2 versus design/source/plugin-center.css:40。",
+          "resolution": "只记录；本次source已冻结，未给新候选。"
+        },
+        {
+          "id": "config-scope-control",
+          "severity": "minor",
+          "observation": "原生设置范围select呈更小的系统控件，原型为较高圆角select；scope label/右侧badge位置也不同。",
+          "source": "PluginConfiguration.tsx scope markup + plugins.css .plugin-config-scope；未作computed-style/新GUI诊断。",
+          "resolution": "实际外观差异记录；单bool数据条件不阻止看到该差异。"
+        }
+      ],
+      "nextMinimalStep": "原真实项目覆盖证据可复用；当前QA已卸载，若需新设置截图须root单次visual setup，不能重完整链。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E11",
+      "reviewVerdict": "differences",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E11-plugin-update-permissions.png",
+        "sha256": "d8d75028023fdecf7ddad65419337b81a2c6a6b20ce15e91da350995c2794ef0"
+      },
+      "native": {
+        "label": "15-update-new-permissions-preview",
+        "timeUTC": "2026-11-01T18:20:19.757Z",
+        "pid": 27780,
+        "pidStart": "2026-11-02 01:37:30 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "PluginResumeA",
+        "note": "0.1.0→0.1.1，project.read 新增，git.read/storage必需；所有checkbox 0，未授权更新",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-15-update-new-permissions-preview.jpg",
+        "imageSHA256": "9dba9bec7780a65b2628fadafbf755a28a6220ea1c5145e2199796c29401ffa0",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-15-update-new-permissions-preview.ax.txt",
+        "axSHA256": "bebf02c5294b11ce16d14a3e30181b9cb48d0d3bbafdb1b95f66b295b3edff96",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl"
+      },
+      "observed": "真实0.1.0→0.1.1，旧git.read/storage与新增project.read突出分组，三授权框未勾，允许并更新disabled。",
+      "conditions": [
+        "原型Language Tools/语言服务/下载权限为设计数据；保实际cap名和新增权限，不造市场更新。",
+        "真实source/engine/unpacked meta增加高度；旧不兼容toast不代表本预览不兼容（包info兼容）。"
+      ],
+      "differences": [
+        {
+          "id": "shared-modal",
+          "severity": "moderate",
+          "observation": "旧原生共用570px/固定22px圆角/h-surface底；设计最终compact510px、布局radius+8、h-low底。Aurora布局radius22，目标30px。",
+          "source": "plugins.css:2 versus design/source/atlas.css:124–125/base.css:126。",
+          "resolution": "root已source集成width510、calc(var(--h-radius,18px)+8px)、h-low；尚未新native复验，不把source修复记视觉pass。",
+          "secondaryDifferences": [
+            "标题native20px/设计22px，当前窄候选未改；记录为minor。",
+            "content/footer padding与原型相差约2px，真实字段/高度及焦点条件不同，未以像素裁切或删信息对齐。"
+          ]
+        }
+      ],
+      "nextMinimalStep": "需保留installed旧版才可造真实update预览；仅prepare/cancel，不apply。共享CSS可由其它权限页先复验，旧新增权限真证仍有效。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E12",
+      "reviewVerdict": "condition-not-met",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E12-plugin-runtime.png",
+        "sha256": "07bb2a08a78f8934c54929d119e85add2a28dce5021dbf34873740657fe41c78"
+      },
+      "native": {
+        "label": "27-explicit-global-resume",
+        "timeUTC": "2026-11-01T19:00:54.151Z",
+        "pid": 27780,
+        "pidStart": "2026-11-02 01:37:30 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "启动器验收",
+        "note": "运行状态所有项目范围显式恢复一次，主QA 0实例待激活，未唤醒/激活",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-27-explicit-global-resume.jpg",
+        "imageSHA256": "bfccb4f5fdf6033a5f5a925d47358ecfac527bbe135726a728f8047942b160de",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-27-explicit-global-resume.ax.txt",
+        "axSHA256": "5dae4ed31e20cbc150eb57d9e4b6cffecdd279c586d834c0f5d094e7c5cb46a7",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl"
+      },
+      "observed": "原图确为运行状态底部列表，显示主题无需进程及QA待激活/唤醒；行式结构可见。",
+      "conditions": [
+        "页面滚在底部，运行状态标题/统计/首批实例不可见，不能替完整E12。",
+        "另亲看appearance-full-native-20261101/plugin-runtime-six-before-qa-uninstall.jpg，文件名runtime但实际为已安装卡片页，不能代E12。",
+        "不为凑运行/休眠标签启动、暂停或唤醒。"
+      ],
+      "differences": [],
+      "nextMinimalStep": "缺可接受的全页framing；未来租约只需原状态运行tab回顶部截图，无业务动作。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E13",
+      "reviewVerdict": "differences",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E13-plugin-disable.png",
+        "sha256": "cac54387c4cf1264ce02c151c9bb1e8dda0351c72d39516c5b7dc9bd81dbd264"
+      },
+      "native": {
+        "label": "18-dependency-disable-preview",
+        "timeUTC": "2026-11-01T18:28:37.942Z",
+        "pid": 27780,
+        "pidStart": "2026-11-02 01:37:30 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "PluginResumeA",
+        "note": "当前项目停用 Git 影响：依赖只读扩展、项目 A 1、未保存0、QuickJS PID29515一项；仅预览",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-dependency-disable-preview.jpg",
+        "imageSHA256": "3df6e2ac5aa4efcdf2b74d59afdba6fb65d7de0404031ef0828027958eb9b738",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-dependency-disable-preview.ax.txt",
+        "axSHA256": "7ae222d2d727f9239ec24850e339bff2e03cb15df1f072671e43bc23b14b29c8",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl"
+      },
+      "observed": "当前项目A停用Git真实preview，依赖QA、影响A1、dirty0、QuickJS PID29515逐项可见，取消/保留恢复稿并停用明确。",
+      "conditions": [
+        "原型scope可编辑；产品scope在prepare前选定，影响计划中固定展示，属于已验防并发语义。",
+        "真实owner/path/resource明细比设计简短提示高，保留完整影响清单。",
+        "按钮为保留恢复稿并停用，不能改成无文档决定的简单停止。"
+      ],
+      "differences": [
+        {
+          "id": "shared-modal",
+          "severity": "moderate",
+          "observation": "旧原生共用570px/固定22px圆角/h-surface底；设计最终compact510px、布局radius+8、h-low底。Aurora布局radius22，目标30px。",
+          "source": "plugins.css:2 versus design/source/atlas.css:124–125/base.css:126。",
+          "resolution": "root已source集成width510、calc(var(--h-radius,18px)+8px)、h-low；尚未新native复验，不把source修复记视觉pass。",
+          "secondaryDifferences": [
+            "标题native20px/设计22px，当前窄候选未改；记录为minor。",
+            "content/footer padding与原型相差约2px，真实字段/高度及焦点条件不同，未以像素裁切或删信息对齐。"
+          ]
+        },
+        {
+          "id": "stop-primary-treatment",
+          "severity": "minor",
+          "observation": "原型停用确认是accent填充按钮；native为红色描边/透明底。",
+          "source": ".plugin-dialog .plugin-danger当前只设置color；真实文案更长。",
+          "resolution": "剩余视觉差异，仅记录，本次不新增候选。"
+        }
+      ],
+      "nextMinimalStep": "只读preview/cancel可复验；不真正停用。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E14",
+      "reviewVerdict": "differences",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E14-plugin-uninstall.png",
+        "sha256": "a39a8ebfcb36800415d5173fd10468cd2eca5beee36bc72d69976f8b6172aaa7"
+      },
+      "native": {
+        "label": "18-uninstall-preview",
+        "timeUTC": "2026-11-01T18:29:24.493Z",
+        "pid": 27780,
+        "pidStart": "2026-11-02 01:37:30 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "底部导航",
+        "theme": "极光",
+        "mode": "深色",
+        "project": "PluginResumeA",
+        "note": "所有项目范围卸载预览：影响41项目、未保存0、活动资源2（A PID29515/B PID31009）；保留扩展私有设置默认勾选，仅预览不执行",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-uninstall-preview.jpg",
+        "imageSHA256": "282ac25813f9dbf8a049b2bd2e3a774912372a99ade1d0c55acfd41eb3ee08cc",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-uninstall-preview.ax.txt",
+        "axSHA256": "154189bb467724dc0b8a8c99df1c3a46e434492a18a157e941194cd022b78ffb",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl"
+      },
+      "observed": "真实全局卸载preview：41登记项目列表内滚、dirty0、两QA PID、保留私有设置checked、底部取消/确认均在屏内。",
+      "conditions": [
+        "原型仅一个包简介；真实41项目/2进程清单增长高度是必要业务信息。",
+        "原型无源路径不构成删路径依据；当前列表max-height190px已有滚动。"
+      ],
+      "differences": [
+        {
+          "id": "shared-modal",
+          "severity": "moderate",
+          "observation": "旧原生共用570px/固定22px圆角/h-surface底；设计最终compact510px、布局radius+8、h-low底。Aurora布局radius22，目标30px。",
+          "source": "plugins.css:2 versus design/source/atlas.css:124–125/base.css:126。",
+          "resolution": "root已source集成width510、calc(var(--h-radius,18px)+8px)、h-low；尚未新native复验，不把source修复记视觉pass。",
+          "secondaryDifferences": [
+            "标题native20px/设计22px，当前窄候选未改；记录为minor。",
+            "content/footer padding与原型相差约2px，真实字段/高度及焦点条件不同，未以像素裁切或删信息对齐。"
+          ]
+        },
+        {
+          "id": "uninstall-danger-treatment",
+          "severity": "minor",
+          "observation": "原型卸载为粉色填充危险按钮+图标；native为红色描边/透明底。",
+          "source": ".plugin-dialog .plugin-danger只color；PluginCenter真实retainCheckpoint文案。",
+          "resolution": "剩余视觉差异，仅记录，不删除真实清单以缩短对话框。"
+        }
+      ],
+      "nextMinimalStep": "默认包卸载preview/cancel即可；不apply、不重复卸载套件。",
+      "currentLatestNativePass": false
+    },
+    {
+      "case": "aurora/E15",
+      "reviewVerdict": "condition-not-met",
+      "reviewScope": "independent original-image visual inspection; registration proposal only",
+      "reference": {
+        "path": "design/exports/png/aurora/E15-plugin-empty.png",
+        "sha256": "18a89e9704963340a05b201554c1f6840cc44a41f36765a79c45f4f41c65732c"
+      },
+      "native": {
+        "label": "59-bulk-all-27-uninstalled",
+        "timeUTC": "2026-11-01T21:01:09.477Z",
+        "pid": 74714,
+        "pidStart": "2026-11-02 03:36:42 +0800",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "mainSHA256": "9316ce984d50c945f72fb62903633872feac1bf2bf00a7b51b7ce7a9ce60c5ad",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "zoom": "100%",
+        "layout": "全部布局已卸载，宿主回退名称未确认",
+        "theme": "全部主题已卸载，宿主回退名称未确认",
+        "mode": "宿主回退",
+        "project": "PluginResumeA",
+        "note": "installed 0 after 27 targets; host fallback theme/layout; waiting owner gate before diagnostics",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-59-bulk-all-27-uninstalled.jpg",
+        "imageSHA256": "cadfe3849552fa2f4a54d8c2355c45902a6908dba7401119d7a0b5331f08b326",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-59-bulk-all-27-uninstalled.ax.txt",
+        "axSHA256": "cc5ae27752f1cfb36f287ff4d01929eab963d0b80964e8f0acfcf425c799f1b7",
+        "manifest": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-manifest.jsonl"
+      },
+      "observed": "真正installed0、宿主插件中心/发现和本地包入口仍可用；空态图标/标题/说明/两CTA层级完整。",
+      "conditions": [
+        "27全卸包含Aurora布局/主题，原图实际为内置恢复外观/左rail，不能按沿用manifest target label称Aurora。",
+        "原型空态仍画installed4是原型数据；真实0不可改为4。",
+        "真实卸载成功banner/旧toast及宿主rail使内容位置与Aurora设计不同；不据此改empty padding。",
+        "全installed0与八样式插件仍安装互斥；root已接受映射限制，不再全卸、不造filtered-empty。"
+      ],
+      "differences": [],
+      "nextMinimalStep": "可复用真实空态/宿主fallback证据；Aurora及其它七原生样式条件不成立，不给八布局视觉pass。",
+      "currentLatestNativePass": false
+    }
+  ],
+  "inputs": [
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginCenter.tsx",
+      "sha256": "6430e072a86fa39015c760fe28968b81ecf1440bd4c9c8df8544ef2faa93030b"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginConfiguration.tsx",
+      "sha256": "6503996a6e7f932db5972f98e63aed8e5b2af1d7170f810b661eb18a2cd24e60"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginDetails.tsx",
+      "sha256": "a77ad5d2f2a0143a51979dfd0063f9f9d00e68707e126660065dd7586db8a3e9"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginDialog.tsx",
+      "sha256": "a158333a7173992afbb997a03609c3d0f34cd2237c638f0fd166253f97cf0bab"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/PluginInstallDialog.tsx",
+      "sha256": "535cf723cd557fde1785443e7631b495ece99201a914709131467895cee8afbc"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/features/plugins/plugins.css",
+      "sha256": "b0543621d09db945bbefc0b62c9ba01ccf4d90bc75efc276315ab6e0067d7bab"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/apps/desktop/src/styles.css",
+      "sha256": "d9c82a00bccd76d6ade8cbb6c79e8a6c7d1167f4483fc70e548e04046b6ea9c8"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/design/source/atlas.css",
+      "sha256": "9566a3af7029984542edeabefb69eeff661b4c3c42da954885342a88f3121339"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/design/source/base.css",
+      "sha256": "f5277f0fbe4453dbb79911929450bc4b80ac2b234fb3690b3331e5f7a4401ed0"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/design/source/plugin-center.css",
+      "sha256": "d2edd50640b1789e965bdccccac53a5a6550f2185ee6c82cf5b5f41b6cadd298"
+    },
+    {
+      "path": ".work/plugin-aurora-original-review-20261102/source/design/source/plugin-center.js",
+      "sha256": "a788f5d5ebbf7a7d830f249e19b01509e761d28789d7f53efe69de28fd1b0a37"
+    },
+    {
+      "path": ".work/plugin-visual-modal-candidate-20261102/before.css",
+      "sha256": "ab6c823595ec965f157eec40394fb7a94dc50ff2379a44467e133ccbfc033e42"
+    },
+    {
+      "path": ".work/plugin-visual-modal-candidate-20261102/manifest.json",
+      "sha256": "13acae2d71eeba0ccd4edf35e11ff3071e906041552baee849a01e9abf3cbc7a"
+    },
+    {
+      "path": ".work/plugin-visual-modal-candidate-20261102/source.patch",
+      "sha256": "5a0cfd5b38cc23a2c870e91da56e7a99b868e21f4d6ae3b3e1c854357e8ec87b"
+    },
+    {
+      "path": ".work/plugin-visual-search-candidate-20261102/manifest.json",
+      "sha256": "38cc36f05d1d53dca5b8cdac55959ec6d58abad914f64058736a9e0635924c76"
+    },
+    {
+      "path": ".work/plugin-visual-search-candidate-20261102/source.patch",
+      "sha256": "840b879adbe7833a55bc44af980dedaee195a96315a816e6a2d16bcecc100ee3"
+    },
+    {
+      "path": "design/exports/png/aurora/E03-plugin-detail.png",
+      "sha256": "536ad4f59e389d23dd723fa6619a9c103476e5caace52fb9c3e03bea81ae226f"
+    },
+    {
+      "path": "design/exports/png/aurora/E05-plugin-installed.png",
+      "sha256": "2f84488cad410971b5c13775b5ec53163b3c61986df98d5cbb7a627e4ac1e857"
+    },
+    {
+      "path": "design/exports/png/aurora/E08-plugin-permissions.png",
+      "sha256": "facb9390fbb76b4c99a2d45b4624993343daaf23ebb383c287206b13148af22b"
+    },
+    {
+      "path": "design/exports/png/aurora/E09-plugin-settings.png",
+      "sha256": "868c2b9a5f87b1df2a44e3c0684cc29ac74ebf84fe2cc30b36cb4237d0146375"
+    },
+    {
+      "path": "design/exports/png/aurora/E11-plugin-update-permissions.png",
+      "sha256": "d8d75028023fdecf7ddad65419337b81a2c6a6b20ce15e91da350995c2794ef0"
+    },
+    {
+      "path": "design/exports/png/aurora/E12-plugin-runtime.png",
+      "sha256": "07bb2a08a78f8934c54929d119e85add2a28dce5021dbf34873740657fe41c78"
+    },
+    {
+      "path": "design/exports/png/aurora/E13-plugin-disable.png",
+      "sha256": "cac54387c4cf1264ce02c151c9bb1e8dda0351c72d39516c5b7dc9bd81dbd264"
+    },
+    {
+      "path": "design/exports/png/aurora/E14-plugin-uninstall.png",
+      "sha256": "a39a8ebfcb36800415d5173fd10468cd2eca5beee36bc72d69976f8b6172aaa7"
+    },
+    {
+      "path": "design/exports/png/aurora/E15-plugin-empty.png",
+      "sha256": "18a89e9704963340a05b201554c1f6840cc44a41f36765a79c45f4f41c65732c"
+    },
+    {
+      "path": "docs/verification/results/appearance-full-native-20261101/plugin-runtime-six-before-qa-uninstall.jpg",
+      "sha256": "854e069b229dec9982d5d77790d79b477dba3905e4ee94a6c35ed120a250cfe3"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-40-b-removed-a-plugin-center.ax.txt",
+      "sha256": "e1656c776269552a40ce267d376f870a2434f635e191f5ffcbd85e22b5201d2a"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-40-b-removed-a-plugin-center.jpg",
+      "sha256": "238e092cefcca0e2e90861c541db615e8ceb7a3b830cc5e5267496ed9886eca6"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-59-bulk-all-27-uninstalled.ax.txt",
+      "sha256": "cc5ae27752f1cfb36f287ff4d01929eab963d0b80964e8f0acfcf425c799f1b7"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-59-bulk-all-27-uninstalled.jpg",
+      "sha256": "cadfe3849552fa2f4a54d8c2355c45902a6908dba7401119d7a0b5331f08b326"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-manifest.jsonl",
+      "sha256": "27edc5b8b1bbb1ff72cf26c444c9c74a42c99d2524987cd286ebc441aea0c0c9"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-03-permissions-before-cancel.ax.txt",
+      "sha256": "83586e8fc4c2aa4b121067643905229ad8dcb9137f12f29acacf6c3818d0c2e3"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-03-permissions-before-cancel.jpg",
+      "sha256": "9d925ab0df14e744602881f1c990b8c30cc7e59918ad5281087d67d4c107964b"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-12-a-project-override.ax.txt",
+      "sha256": "0612d40c3c23ce728f04deabda404b0da75b6d333d0fb1638487f4eea90685ef"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-12-a-project-override.jpg",
+      "sha256": "14f58889047c7a0b63d16b7a9d14ea6862c06ac8d40252d87679ad4de8bf98ca"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-15-update-new-permissions-preview.ax.txt",
+      "sha256": "bebf02c5294b11ce16d14a3e30181b9cb48d0d3bbafdb1b95f66b295b3edff96"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-15-update-new-permissions-preview.jpg",
+      "sha256": "9dba9bec7780a65b2628fadafbf755a28a6220ea1c5145e2199796c29401ffa0"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-dependency-disable-preview.ax.txt",
+      "sha256": "7ae222d2d727f9239ec24850e339bff2e03cb15df1f072671e43bc23b14b29c8"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-dependency-disable-preview.jpg",
+      "sha256": "3df6e2ac5aa4efcdf2b74d59afdba6fb65d7de0404031ef0828027958eb9b738"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-uninstall-preview.ax.txt",
+      "sha256": "154189bb467724dc0b8a8c99df1c3a46e434492a18a157e941194cd022b78ffb"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-18-uninstall-preview.jpg",
+      "sha256": "282ac25813f9dbf8a049b2bd2e3a774912372a99ade1d0c55acfd41eb3ee08cc"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-27-explicit-global-resume.ax.txt",
+      "sha256": "5dae4ed31e20cbc150eb57d9e4b6cffecdd279c586d834c0f5d094e7c5cb46a7"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-27-explicit-global-resume.jpg",
+      "sha256": "bfccb4f5fdf6033a5f5a925d47358ecfac527bbe135726a728f8047942b160de"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-manifest.jsonl",
+      "sha256": "0e61adde10280f63276ed624033c388771e69d66aee75fcb23488012c3e7e086"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-01-a-main-policy-details.ax.txt",
+      "sha256": "cd6516e3273b51061e8a86e025d18ea6294240768378ebf89f8fae406a8a9ce0"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-01-a-main-policy-details.jpg",
+      "sha256": "061012655f0ca182abee5a380a06e386303f56351b9051cc6d2b8ab82cb869d4"
+    },
+    {
+      "path": "docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-manifest.jsonl",
+      "sha256": "bd0a841a861890b7c3231694f746b29d734ba668f074cb5bf5c392db95421d51"
+    },
+    {
+      "path": "docs/verification/visual-matrix.json",
+      "sha256": "fb325f8bc3577c294d487970e559159941e0185c818f4eac5ccc5a1468926dc6"
+    },
+    {
+      "path": "docs/verification/visual-records.json",
+      "sha256": "9e96852b01174357076c66a30021f17767edd261744ceb5128fef033670915e6"
+    }
+  ]
+}

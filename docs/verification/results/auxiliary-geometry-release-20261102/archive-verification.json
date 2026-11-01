@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-11-01T22:59:48.818857+00:00",
+  "mainSha256": "bd0ecf2de7413b88d696fdff77579a3777c989e9ed53657a578d67f458577c50",
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/hdiutil",
+        "verify",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg"
+      ],
+      "exitCode": 0,
+      "stdout": "正在检查“Protective Master Boot Record（MBR：0）”的校验和…\nProtective Master Boot Record（MBR：0）：已验证CRC32 $1B8DD1F0\n正在检查“GPT Header（Primary GPT Header：1）”的校验和…\n    GPT Header（Primary GPT Header：1）：已验证CRC32 $DF85914E\n正在检查“GPT Partition Data（Primary GPT Table：2）”的校验和…\nGPT Partition Data（Primary GPT Table：已验证CRC32 $7BDF3546\n正在检查“（Apple_Free：3）”的校验和…\n                      （Apple_Free：3）：已验证CRC32 $00000000\n正在检查“disk image（Apple_APFS：4）”的校验和…\n            disk image（Apple_APFS：4）：已验证CRC32 $AD6B750E\n正在检查“（Apple_Free：5）”的校验和…\n                      （Apple_Free：5）：已验证CRC32 $00000000\n正在检查“GPT Partition Data（Backup GPT Table：6）”的校验和…\nGPT Partition Data（Backup GPT Table：：已验证CRC32 $7BDF3546\n正在检查“GPT Header（Backup GPT Header：7）”的校验和…\n     GPT Header（Backup GPT Header：7）：已验证CRC32 $FA151A46\n已验证CRC32 $8EF44B7F\n",
+      "stderr": "hdiutil: verify: checksum of \"/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg\" is VALID\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "-x",
+        "-k",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-auxiliary-geometry-verify-7q272jj0"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-auxiliary-geometry-verify-7q272jj0/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "extractedMainMatches": true
+}

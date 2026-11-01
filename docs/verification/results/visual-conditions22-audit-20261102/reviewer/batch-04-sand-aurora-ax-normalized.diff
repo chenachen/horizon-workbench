@@ -1,0 +1,79 @@
+COMPLETE AX DIFF sand/F13
+--- mist-F13-empty
++++ sand-F13-empty
+@@ -24,13 +24,13 @@
+ 					button 布局与尺寸
+ 					button 背景图片
+ 					button 外观方案
+-				container 经典侧栏布局 · 雾蓝主题预览
++				container 展开式项目目录布局 · 砂岩主题预览
+ 					text Horizon
+-					text 经典侧栏  ·  雾蓝 H ↗ ＋
++					text 展开式项目目录  ·  砂岩 H ↗ ＋
+ 					container
+ 						text 工作区 外观设置 布局 主题
+ 					container
+-						text const  appearance =  {   theme:  " 雾蓝 " ,   layout:  " 经典侧栏 " } ; 即时预览
++						text const  appearance =  {   theme:  " 砂岩 " ,   layout:  " 展开式项目目录 " } ; 即时预览
+ 				text field (settable) 外观组合名称, Placeholder: 例如：晚间阅读
+ 				button (disabled) 保存当前组合
+ 				text 从现在的搭配开始
+@@ -41,7 +41,7 @@
+ 					text 导出时包含背景
+ 				container
+ 					text 组合引用已安装插件 导入后先检查依赖。纯 JSON 导出不包含图片；包含背景时同时导出内容摘要。
+-				text 已保存
++				text 主题已切换
+ 				container
+ 					text 偏好即时生效
+ 					button 完成
+
+COMPLETE AX DIFF sand/D01
+
+COMPLETE AX DIFF sand/B01
+--- paper-B01-terminal-hidden
++++ sand-B01-terminal-hidden
+@@ -56,6 +56,8 @@
+ 					button 切换到项目 OfflineBoundary-1102, Help: OfflineBoundary-1102
+ /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-offline-boundary-20261102-ujs5fg1r/OfflineBoundary-1102
+ 				button 添加本地项目
++				button 项目搜索, Help: 项目搜索 ⌘ ⇧ F
++				button 管理插件, Help: 插件中心
+ 			container 项目侧栏
+ 				container
+ 					container /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web
+
+COMPLETE AX DIFF aurora/F13
+--- mist-F13-empty
++++ aurora-F13-empty
+@@ -24,13 +24,13 @@
+ 					button 布局与尺寸
+ 					button 背景图片
+ 					button 外观方案
+-				container 经典侧栏布局 · 雾蓝主题预览
++				container 底部导航布局 · 极光主题预览
+ 					text Horizon
+-					text 经典侧栏  ·  雾蓝 H ↗ ＋
++					text 底部导航  ·  极光
+ 					container
+ 						text 工作区 外观设置 布局 主题
+ 					container
+-						text const  appearance =  {   theme:  " 雾蓝 " ,   layout:  " 经典侧栏 " } ; 即时预览
++						text const  appearance =  {   theme:  " 极光 " ,   layout:  " 底部导航 " } ; 即时预览
+ 				text field (settable) 外观组合名称, Placeholder: 例如：晚间阅读
+ 				button (disabled) 保存当前组合
+ 				text 从现在的搭配开始
+
+COMPLETE AX DIFF aurora/D01
+--- mist-D01-no-connection
++++ aurora-D01-no-connection
+@@ -56,8 +56,6 @@
+ 					button 切换到项目 OfflineBoundary-1102, Help: OfflineBoundary-1102
+ /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-offline-boundary-20261102-ujs5fg1r/OfflineBoundary-1102
+ 				button 添加本地项目
+-				button 项目搜索, Help: 项目搜索 ⌘ ⇧ F
+-				button 管理插件, Help: 插件中心
+ 			container 项目侧栏
+ 				container
+ 					container /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web
+

@@ -1,0 +1,306 @@
+{
+  "preparedAt": "2026-11-01T22:26:28.934791+00:00",
+  "status": "FIXTURE PREPARED; app/sandbox/GUI/network NOT EXECUTED",
+  "owner": "/root/process_sol",
+  "installed": {
+    "app": "/Users/chenpengxiang/Applications/Horizon.app",
+    "main": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "expectedMainSha256": "4d4bca76055afb46f403811035a718b2b8a8f892ca2e7e8ddc5ed2c5dbe5a135",
+    "files": [
+      {
+        "path": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+        "bytes": 19911168,
+        "sha256": "4d4bca76055afb46f403811035a718b2b8a8f892ca2e7e8ddc5ed2c5dbe5a135",
+        "mode": "0o755"
+      },
+      {
+        "path": "/Users/chenpengxiang/Applications/Horizon.app/Contents/Info.plist",
+        "bytes": 969,
+        "sha256": "b1bd88caab2f71c8944e2cdf5491f422c5060013a3abad24c00201c1ebe5495a",
+        "mode": "0o644"
+      },
+      {
+        "path": "/Users/chenpengxiang/Applications/Horizon.app/Contents/_CodeSignature/CodeResources",
+        "bytes": 730670,
+        "sha256": "1aa4b67d2d4b80b17186d2e6a2b24bfc56f976e5f25c41ae4102d108dc6cd6ae",
+        "mode": "0o644"
+      }
+    ],
+    "rootFreezeReceipt": "docs/verification/results/recovery-notice-release-20261102/bundle-identity.json"
+  },
+  "fixture": {
+    "parent": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-offline-boundary-20261102-ujs5fg1r",
+    "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-offline-boundary-20261102-ujs5fg1r/OfflineBoundary-1102",
+    "displayName": "OfflineBoundary-1102",
+    "singleTrackedFile": "offline.txt",
+    "baselineText": "Offline boundary baseline 2026-11-02\n",
+    "nativeAppendMarker": "OFFLINE_NATIVE_1102",
+    "branch": "main",
+    "head": "c8b69b3653ee58056f840945364c0c1d1e5e6d1a",
+    "statusPorcelain": "",
+    "indexLogical": "100644 924d8d39d67351c39c87c386a0721fc4b31d6227 0\toffline.txt\n",
+    "remoteName": "origin",
+    "remoteUrl": "https://github.com/octocat/Hello-World.git",
+    "remoteAccessed": false,
+    "files": [
+      {
+        "relativePath": "offline.txt",
+        "bytes": 37,
+        "sha256": "644c3916e763ecd641d673472b96c02b3e03ccbc646e5d4f2fb4e0bedbb9be41",
+        "mode": "0o644",
+        "backup": "/Users/chenpengxiang/Desktop/Horizon/.work/offline-boundary-20261102/baseline/offline.txt"
+      },
+      {
+        "relativePath": ".git/HEAD",
+        "bytes": 21,
+        "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "mode": "0o644",
+        "backup": "/Users/chenpengxiang/Desktop/Horizon/.work/offline-boundary-20261102/baseline/git-HEAD"
+      },
+      {
+        "relativePath": ".git/index",
+        "bytes": 145,
+        "sha256": "0897379043e5ce9b5ded2653cbba1dd419e2fbcb79d7bfc77df3e7bebdbf1672",
+        "mode": "0o644",
+        "backup": "/Users/chenpengxiang/Desktop/Horizon/.work/offline-boundary-20261102/baseline/git-index"
+      },
+      {
+        "relativePath": ".git/config",
+        "bytes": 419,
+        "sha256": "f4950e41ac496df1ebaa93b2ed276cd514fc197abea4a4c1b20a17c15cad3375",
+        "mode": "0o644",
+        "backup": "/Users/chenpengxiang/Desktop/Horizon/.work/offline-boundary-20261102/baseline/git-config"
+      },
+      {
+        "relativePath": ".git/refs/heads/main",
+        "bytes": 41,
+        "sha256": "60d0b17cbda88189742d4742c6a9881ef4ae5182a39f4cebc1ddf2ab5d5271c2",
+        "mode": "0o644",
+        "backup": "/Users/chenpengxiang/Desktop/Horizon/.work/offline-boundary-20261102/baseline/git-main-ref"
+      }
+    ]
+  },
+  "prepareCommands": [
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "init",
+        "--initial-branch=main",
+        "."
+      ],
+      "startedAt": "2026-11-01T22:26:28.624040+00:00",
+      "finishedAt": "2026-11-01T22:26:28.659487+00:00",
+      "exitCode": 0,
+      "stdout": "Initialized empty Git repository in /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-offline-boundary-20261102-ujs5fg1r/OfflineBoundary-1102/.git/\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "config",
+        "--local",
+        "user.name",
+        "Horizon Offline QA"
+      ],
+      "startedAt": "2026-11-01T22:26:28.659528+00:00",
+      "finishedAt": "2026-11-01T22:26:28.680552+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "config",
+        "--local",
+        "user.email",
+        "horizon-offline-qa@example.invalid"
+      ],
+      "startedAt": "2026-11-01T22:26:28.680580+00:00",
+      "finishedAt": "2026-11-01T22:26:28.700268+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "config",
+        "--local",
+        "commit.gpgsign",
+        "false"
+      ],
+      "startedAt": "2026-11-01T22:26:28.700313+00:00",
+      "finishedAt": "2026-11-01T22:26:28.719698+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "config",
+        "--local",
+        "core.hooksPath",
+        "/dev/null"
+      ],
+      "startedAt": "2026-11-01T22:26:28.719738+00:00",
+      "finishedAt": "2026-11-01T22:26:28.738458+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "config",
+        "--local",
+        "core.autocrlf",
+        "false"
+      ],
+      "startedAt": "2026-11-01T22:26:28.738499+00:00",
+      "finishedAt": "2026-11-01T22:26:28.760579+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "config",
+        "--local",
+        "credential.helper",
+        ""
+      ],
+      "startedAt": "2026-11-01T22:26:28.760624+00:00",
+      "finishedAt": "2026-11-01T22:26:28.781452+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/octocat/Hello-World.git"
+      ],
+      "startedAt": "2026-11-01T22:26:28.781501+00:00",
+      "finishedAt": "2026-11-01T22:26:28.802171+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "add",
+        "--",
+        "offline.txt"
+      ],
+      "startedAt": "2026-11-01T22:26:28.802215+00:00",
+      "finishedAt": "2026-11-01T22:26:28.823302+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "commit",
+        "-m",
+        "Offline boundary baseline 1102"
+      ],
+      "startedAt": "2026-11-01T22:26:28.823355+00:00",
+      "finishedAt": "2026-11-01T22:26:28.853353+00:00",
+      "exitCode": 0,
+      "stdout": "[main (root-commit) c8b69b3] Offline boundary baseline 1102\n 1 file changed, 1 insertion(+)\n create mode 100644 offline.txt\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "startedAt": "2026-11-01T22:26:28.853402+00:00",
+      "finishedAt": "2026-11-01T22:26:28.875246+00:00",
+      "exitCode": 0,
+      "stdout": "c8b69b3653ee58056f840945364c0c1d1e5e6d1a\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "--no-optional-locks",
+        "symbolic-ref",
+        "--short",
+        "HEAD"
+      ],
+      "startedAt": "2026-11-01T22:26:28.875303+00:00",
+      "finishedAt": "2026-11-01T22:26:28.894824+00:00",
+      "exitCode": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "--no-optional-locks",
+        "status",
+        "--porcelain=v1"
+      ],
+      "startedAt": "2026-11-01T22:26:28.894864+00:00",
+      "finishedAt": "2026-11-01T22:26:28.914848+00:00",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "/usr/bin/git",
+        "--no-optional-locks",
+        "ls-files",
+        "--stage"
+      ],
+      "startedAt": "2026-11-01T22:26:28.914892+00:00",
+      "finishedAt": "2026-11-01T22:26:28.933931+00:00",
+      "exitCode": 0,
+      "stdout": "100644 924d8d39d67351c39c87c386a0721fc4b31d6227 0\toffline.txt\n",
+      "stderr": ""
+    }
+  ],
+  "networkProfile": "(version 1)(allow default)(deny network*)",
+  "launchState": "NOT_EXECUTED; root must confirm exact launcher flag after reviewing script/card",
+  "scope": "Only this new temporary synthetic repository received git init/add/one local baselinecommit. No Horizon source commit/push, app launch, network call, original fixture edit, appdata/config/permission/global network changes."
+}

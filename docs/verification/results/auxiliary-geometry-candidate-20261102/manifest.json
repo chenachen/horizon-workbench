@@ -1,0 +1,77 @@
+{
+  "status": "PREPARED_ONLY_NOT_TESTED_NOT_APPLIED",
+  "sealedAt": "2026-11-01T22:54:54.414983+00:00",
+  "changes": [
+    {
+      "path": "apps/desktop/src/styles.css",
+      "beforeSHA256": "f6e5e1d8ba055973cd3912313d876e3012728b97cd788bdf8a2c2f299de4c114",
+      "afterSHA256": "d9c82a00bccd76d6ade8cbb6c79e8a6c7d1167f4483fc70e548e04046b6ea9c8",
+      "liveUnchanged": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/agent.css",
+      "beforeSHA256": "2b828a54e3daa5d677a5655a742a7f05c8934372978439768762a04cc596517d",
+      "afterSHA256": "668751c133bbf941c50ee181ec45ebcec1477b2c8b68c71e9c4ba727635a9a2d",
+      "liveUnchanged": true
+    }
+  ],
+  "basis": {
+    "oldCandidate": ".work/auxiliary-geometry-20261101/source.patch",
+    "oldPatchSHA256": "6ab6bdf50e307668441fbf37c5173653cf5c8d720026eebbacdfd4b8683d2954",
+    "construction": "Replay only the 9 existing approved auxiliary hunks onto current file bytes; every full old hunk found exactly once, no full-file old snapshot replacement",
+    "hunks": 9
+  },
+  "checks": {
+    "tests": "NOT RUN as requested",
+    "build": "NOT RUN as requested",
+    "gui": "NOT USED",
+    "nativeAfter": "PENDING"
+  },
+  "liveBaselineStillMatches": [
+    {
+      "path": "apps/desktop/src/styles.css",
+      "matches": true
+    },
+    {
+      "path": "apps/desktop/src/features/agent/agent.css",
+      "matches": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "ef733a8eae14ccbdc46af18d0e605be25809ba0f6d821ca63597a5b3358c8cd9",
+      "bytes": 1470
+    },
+    {
+      "path": "after/apps/desktop/src/features/agent/agent.css",
+      "sha256": "668751c133bbf941c50ee181ec45ebcec1477b2c8b68c71e9c4ba727635a9a2d",
+      "bytes": 24359
+    },
+    {
+      "path": "after/apps/desktop/src/styles.css",
+      "sha256": "d9c82a00bccd76d6ade8cbb6c79e8a6c7d1167f4483fc70e548e04046b6ea9c8",
+      "bytes": 62183
+    },
+    {
+      "path": "before/apps/desktop/src/features/agent/agent.css",
+      "sha256": "2b828a54e3daa5d677a5655a742a7f05c8934372978439768762a04cc596517d",
+      "bytes": 24343
+    },
+    {
+      "path": "before/apps/desktop/src/styles.css",
+      "sha256": "f6e5e1d8ba055973cd3912313d876e3012728b97cd788bdf8a2c2f299de4c114",
+      "bytes": 61341
+    },
+    {
+      "path": "source-sha.json",
+      "sha256": "8305f8098439613b4eb1461d93d22d286c940ba492bba5ab8271a6fd02f63d7d",
+      "bytes": 1668
+    },
+    {
+      "path": "source.patch",
+      "sha256": "6ab6bdf50e307668441fbf37c5173653cf5c8d720026eebbacdfd4b8683d2954",
+      "bytes": 17753
+    }
+  ]
+}

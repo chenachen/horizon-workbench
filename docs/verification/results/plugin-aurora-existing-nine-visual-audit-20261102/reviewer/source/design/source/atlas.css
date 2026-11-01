@@ -1,0 +1,376 @@
+#horizon-atlas{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:var(--foreground,light-dark(#22252d,#e5e7ed))}
+#horizon-atlas .atlas-controls{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding:0 96px 16px 0;min-height:62px}
+#horizon-atlas .atlas-label{display:flex;align-items:baseline;gap:10px}
+#horizon-atlas .atlas-wordmark{font-size:20px;font-weight:500;letter-spacing:-.6px}
+#horizon-atlas .atlas-subtitle{font-size:12px;color:var(--muted-foreground,light-dark(#687384,#adb9ca))}
+#horizon-atlas .atlas-pickers{display:flex;gap:12px;margin-left:auto;flex-wrap:wrap}
+#horizon-atlas .atlas-pickers label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted-foreground,light-dark(#687384,#adb9ca))}
+#horizon-atlas .atlas-pickers select{font:inherit;color:var(--foreground,light-dark(#22252d,#e5e7ed));background:var(--background,light-dark(#fff,#1b1e25));border:1px solid var(--border,light-dark(#dfe3ec,#3f4654));border-radius:9px;padding:8px;max-width:230px}
+#horizon-atlas .atlas-caption{padding:15px 0 8px;font-size:13px}
+#horizon-atlas .atlas-caption>div{display:flex;gap:10px;align-items:center}
+#horizon-atlas .atlas-caption strong{font-weight:500}
+#horizon-atlas #horizon-screen-id{font:12px/1.5 ui-monospace,monospace;color:var(--muted-foreground,light-dark(#687384,#adb9ca))}
+#horizon-atlas .atlas-caption p{margin:6px 0 0;color:var(--muted-foreground,light-dark(#687384,#adb9ca));line-height:1.8}
+#horizon-atlas .atlas-directory{margin-top:10px;font-size:12px}
+#horizon-atlas .atlas-directory summary{padding:10px 0}
+#horizon-atlas #horizon-directory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding-top:14px}
+#horizon-atlas .directory-group h3{font-size:13px;font-weight:500;margin:0 0 8px}
+#horizon-atlas .directory-group button{display:flex;align-items:center;gap:9px;background:transparent;border:0;border-radius:6px;color:inherit;padding:7px 4px;font:12px/1.5 inherit;text-align:left;width:100%}
+#horizon-atlas .directory-group button:hover{background:var(--muted,light-dark(#f3f5f8,#242b35))}
+#horizon-atlas .directory-group span{font:11px ui-monospace,monospace;color:var(--muted-foreground,light-dark(#687384,#adb9ca))}
+#horizon-atlas .hz{--h-bg:light-dark(#edf1f7,#18202d);--h-surface:light-dark(#fcfdff,#222b3a);--h-low:light-dark(#f3f6fb,#283244);--h-high:light-dark(#e2e8f2,#323f54);--h-ink:light-dark(#202c40,#e0e8f5);--h-muted:light-dark(#65738a,#a6b4cb);--h-line:light-dark(#dde4ee,#3b485e);--h-accent:light-dark(#496793,#b2cdf8);--h-tonal:light-dark(#d8e5fb,#2d4a73);--h-on-tonal:light-dark(#19365e,#d8e6fc);--h-on-accent:light-dark(#ffffff,#18375d);--h-shadow:light-dark(#20334b1c,#00000055);--h-radius:18px;--h-row:34px;--h-tree:218px;--rail-width:78px;--h-font:13px;height:800px;min-height:800px;border-radius:20px;color-scheme:light dark;overflow:hidden}
+#horizon-atlas .hz p{margin:0}
+#horizon-atlas .hz h1,#horizon-atlas .hz h2,#horizon-atlas .hz h3{font-weight:500;line-height:1.3}
+#horizon-atlas .hz .app-content{height:100%;display:flex;flex-direction:column;min-height:0}
+#horizon-atlas .hz .appbar{height:62px;min-height:62px;padding:0 20px;gap:16px}
+#horizon-atlas .hz .brand{letter-spacing:-.5px;font-size:16px}
+#horizon-atlas .hz .brand svg{height:23px;width:23px}
+#horizon-atlas .hz .native-mac{display:flex;gap:7px;align-items:center;margin-right:3px}
+#horizon-atlas .hz .native-mac span{height:10px;width:10px;background:var(--h-high);border:1px solid var(--h-line);border-radius:50%}
+#horizon-atlas .hz .native-win{display:flex;gap:5px;margin-left:8px}
+#horizon-atlas .hz .native-win button{border-radius:4px;min-height:32px;width:32px;padding:5px}
+#horizon-atlas .hz .search-btn{min-width:215px;border-radius:22px;font-size:12px}
+#horizon-atlas .hz .workspace-body{height:auto!important;min-height:0!important;flex:1;overflow:hidden}
+#horizon-atlas .hz .project-rail{width:var(--rail-width);padding-top:6px;gap:9px}
+#horizon-atlas .hz .sidebar{min-width:0;min-height:0;width:var(--h-tree);padding:10px 12px 14px 8px;gap:14px;overflow:auto;scrollbar-width:thin}
+#horizon-atlas .hz .sidebar-title{font-size:13px}
+#horizon-atlas .hz .editor{margin-right:12px;min-height:0;border-radius:var(--h-radius) var(--h-radius) 0 0}
+#horizon-atlas .hz .editor-top{height:46px;min-height:46px}
+#horizon-atlas .hz .file-tab{height:46px}
+#horizon-atlas .hz .file-tab>button:first-child{font-size:12px}
+#horizon-atlas .hz .editor-content{display:flex;flex-direction:column;min-height:0;overflow:auto}
+#horizon-atlas .hz .crumb{padding:15px 23px 10px;min-height:45px;flex-wrap:wrap;gap:6px}
+#horizon-atlas .hz .code{padding:8px 22px 28px 8px;font:var(--h-font)/1.85 "SFMono-Regular",Consolas,"Liberation Mono",monospace;flex:initial}
+#horizon-atlas .hz .code-line{min-height:24px;grid-template-columns:46px minmax(0,1fr)}
+#horizon-atlas .hz .statusbar{height:32px;min-height:32px;padding:0 20px 0 calc(var(--rail-width) + 10px);gap:12px;font-size:11px}
+#horizon-atlas .hz .small{font-size:11px}
+#horizon-atlas .hz .status-right{gap:14px;font-size:11px}
+#horizon-atlas .hz .file-mark{font-size:10px}
+#horizon-atlas .hz .tree .icon-btn{width:28px;min-width:28px;flex:0 0 28px;padding:5px 6px;justify-content:center}
+#horizon-atlas .hz .assistant{width:318px;padding:17px;gap:16px;min-height:0;overflow:auto;scrollbar-width:thin}
+#horizon-atlas .hz .assistant h3{font-size:20px;margin:0}
+#horizon-atlas .hz .ai-messages{flex:1;overflow:auto;min-height:0;line-height:1.9}
+#horizon-atlas .hz .ai-composer{margin-top:auto;flex-shrink:0}
+#horizon-atlas .hz .ai-context{flex-wrap:wrap;font-size:11px}
+#horizon-atlas .hz .context-chip{display:inline-flex;gap:5px;align-items:center;border-radius:7px;background:var(--h-high);color:var(--h-muted);padding:4px 7px;font-size:10px;max-width:100%;overflow-wrap:anywhere}
+#horizon-atlas .hz .context-chip button{width:16px;height:18px;min-height:18px;padding:0}
+#horizon-atlas .hz .assistant-mode{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .assistant-mode .segmented{min-width:130px;padding:2px}
+#horizon-atlas .hz .assistant-mode .segmented button{font-size:11px;min-height:25px;padding:4px 10px}
+#horizon-atlas .hz .ai-question{max-width:95%}
+#horizon-atlas .hz .ai-answer{padding:4px 0;font-size:12px;line-height:1.9}
+#horizon-atlas .hz .ai-answer p{margin-bottom:12px}
+#horizon-atlas .hz .ai-answer code{font:11px ui-monospace,monospace;background:var(--h-high);padding:2px 4px;border-radius:4px;color:var(--h-ink)}
+#horizon-atlas .hz .ai-answer .answer-source{display:flex;gap:5px;flex-wrap:wrap;padding-top:5px}
+#horizon-atlas .hz .ai-steps{list-style:none;display:flex;flex-direction:column;gap:15px;margin:18px 0;padding:0;font-size:12px}
+#horizon-atlas .hz .ai-steps li{display:flex;align-items:flex-start;gap:10px}
+#horizon-atlas .hz .ai-steps svg{color:var(--h-accent);margin-top:2px;flex-shrink:0}
+#horizon-atlas .hz .ai-steps small{display:block;margin-top:3px;color:var(--h-muted);font-size:11px}
+#horizon-atlas .hz .assistant .full-btn{width:100%;justify-content:center}
+#horizon-atlas .hz .subhead{font-size:11px;color:var(--h-muted);font-weight:500;padding:7px 4px}
+#horizon-atlas .hz .tool-links{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+#horizon-atlas .hz .tool-links button{font-size:11px;min-height:29px;padding:4px 8px}
+#horizon-atlas .hz .notice{display:flex;align-items:flex-start;gap:10px;background:var(--h-low);border:1px solid var(--h-line);border-radius:12px;padding:13px;font-size:12px;line-height:1.7}
+#horizon-atlas .hz .notice svg{flex-shrink:0;color:var(--h-accent);margin-top:3px}
+#horizon-atlas .hz .notice small{display:block;color:var(--h-muted);font-size:11px;margin-top:3px}
+#horizon-atlas .hz .notice.warning{background:light-dark(#fff5e7,#362c1c);border-color:light-dark(#ecddc6,#665234);color:light-dark(#684c25,#ecd4aa)}
+#horizon-atlas .hz .notice.error{background:var(--h-red-bg);border-color:color-mix(in srgb,var(--h-red) 20%,transparent);color:var(--h-red)}
+#horizon-atlas .hz .outline-button{border:1px solid var(--h-line);background:transparent}
+#horizon-atlas .hz .danger-button{background:var(--h-red);color:light-dark(#fff,#3f111c)}
+#horizon-atlas .hz .danger-text{color:var(--h-red)}
+#horizon-atlas .hz .empty{padding:30px;text-align:center;min-height:0;gap:15px;flex:1}
+#horizon-atlas .hz .empty .empty-symbol{width:64px;height:64px;border-radius:22px;display:grid;place-items:center;background:var(--h-tonal);color:var(--h-accent);margin-bottom:6px}
+#horizon-atlas .hz .empty h2{font-size:24px;letter-spacing:-.5px;color:var(--h-ink);margin:0}
+#horizon-atlas .hz .empty p{max-width:390px;line-height:1.9;font-size:13px;color:var(--h-muted)}
+#horizon-atlas .hz .empty .button-row{margin-top:8px}
+#horizon-atlas .hz .button-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+#horizon-atlas .hz .page-content{padding:30px 36px;flex:1;overflow:auto;min-height:0}
+#horizon-atlas .hz .page-heading{display:flex;align-items:flex-start;gap:16px;margin-bottom:26px}
+#horizon-atlas .hz .page-heading h1{font-size:26px;letter-spacing:-.6px;margin:0 0 6px}
+#horizon-atlas .hz .page-heading p{font-size:12px;color:var(--h-muted)}
+#horizon-atlas .hz .page-heading .button-row{margin-left:auto;padding-top:4px}
+#horizon-atlas .hz .project-page{background:var(--h-surface);margin:0 12px;flex:1;border-radius:var(--h-radius) var(--h-radius) 0 0;min-width:0;overflow:auto}
+#horizon-atlas .hz .project-filters{display:flex;gap:8px;margin:0 0 24px;align-items:center}
+#horizon-atlas .hz .project-filters input{min-width:150px;flex:1;max-width:340px;background:var(--h-low);border-color:transparent}
+#horizon-atlas .hz .project-filters .spacer{flex:1}
+#horizon-atlas .hz .project-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+#horizon-atlas .hz .project-card{border:1px solid var(--h-line);background:var(--h-low);border-radius:var(--h-radius);padding:18px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:16px;min-height:172px;white-space:normal}
+#horizon-atlas .hz .project-card.selected{border-color:var(--h-accent);background:var(--h-tonal)}
+#horizon-atlas .hz .project-card-header{display:flex;align-items:center;width:100%;gap:10px}
+#horizon-atlas .hz .project-card .project-avatar{height:38px;width:38px;border-radius:12px;display:grid;place-items:center;background:var(--h-surface);font-size:18px;color:var(--h-accent)}
+#horizon-atlas .hz .project-card .project-card-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+#horizon-atlas .hz .project-card strong{font-size:14px;font-weight:500}
+#horizon-atlas .hz .project-card small{font-size:11px;color:var(--h-muted);overflow-wrap:anywhere}
+#horizon-atlas .hz .project-card-bottom{display:flex;justify-content:space-between;width:100%;align-items:center;font-size:11px;color:var(--h-muted);margin-top:auto}
+#horizon-atlas .hz .project-recent{margin-top:28px}
+#horizon-atlas .hz .list-table{width:100%;border-collapse:collapse;font-size:12px}
+#horizon-atlas .hz .list-table th{font-weight:400;color:var(--h-muted);font-size:11px;text-align:left;padding:10px 8px;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz .list-table td{padding:14px 8px;border-bottom:1px solid var(--h-line);vertical-align:middle}
+#horizon-atlas .hz .list-table .muted{font-size:11px}
+#horizon-atlas .hz .pill{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:12px;font-size:10px;background:var(--h-high);color:var(--h-muted);white-space:nowrap}
+#horizon-atlas .hz .pill.good{color:var(--h-green);background:var(--h-green-bg)}
+#horizon-atlas .hz .pill.active{color:var(--h-on-tonal);background:var(--h-tonal)}
+#horizon-atlas .hz .project-tabs{height:46px;min-height:46px;padding:0 18px 8px;gap:6px;overflow:auto;scrollbar-width:none}
+#horizon-atlas .hz .project-tabs button{font-size:12px;flex-shrink:0}
+#horizon-atlas .hz .project-tabs .active{background:var(--h-surface);color:var(--h-accent)}
+#horizon-atlas .hz .unified-projects{display:none;padding:0 0 13px;margin-bottom:2px;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz .unified-projects>button{width:100%;justify-content:flex-start;border-radius:9px;font-size:12px;gap:11px}
+#horizon-atlas .hz .unified-projects>button.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .unified-projects .mini-mark{font-size:11px;font-weight:500;width:18px;text-align:center}
+#horizon-atlas .hz .project-dock{display:none;justify-content:center;align-items:center;gap:7px;height:50px;min-height:50px;padding:5px 16px}
+#horizon-atlas .hz .project-dock button{padding:6px 14px;font-size:12px;min-height:32px;border-radius:12px}
+#horizon-atlas .hz .project-dock button.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .project-dock .dock-mark{font-weight:500;color:var(--h-accent)}
+#horizon-atlas .hz .dialog{width:min(790px,100%);max-height:720px;border-radius:calc(var(--h-radius) + 8px)}
+#horizon-atlas .hz .compact-dialog{width:min(510px,100%)}
+#horizon-atlas .hz .dialog-head{padding:23px 28px 18px}
+#horizon-atlas .hz .dialog-title{font-size:22px}
+#horizon-atlas .hz .dialog-content{max-height:560px;padding:0 28px 24px}
+#horizon-atlas .hz .dialog-foot{padding:15px 28px 20px}
+#horizon-atlas .hz .dialog-foot .button-row{margin-left:auto}
+#horizon-atlas .hz .dialog .description{font-size:12px;color:var(--h-muted);line-height:1.85;margin:0 0 18px}
+#horizon-atlas .hz .dialog .field{margin:16px 0;gap:7px}
+#horizon-atlas .hz .dialog .field small{font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .dialog select{width:100%}
+#horizon-atlas .hz .input-action{display:flex;gap:8px;align-items:center}
+#horizon-atlas .hz .input-action input{min-width:0;flex:1}
+#horizon-atlas .hz .field-error{border-color:var(--h-red)}
+#horizon-atlas .hz .field-error-text{color:var(--h-red);font-size:11px;margin-top:5px}
+#horizon-atlas .hz .settings-body{grid-template-columns:174px minmax(0,1fr);min-height:480px}
+#horizon-atlas .hz .settings-pane{padding:8px 28px 28px 24px;max-height:540px}
+#horizon-atlas .hz .settings-nav{gap:3px;overflow:auto;max-height:540px}
+#horizon-atlas .hz .settings-nav button{padding:10px 13px;font-size:12px;min-height:38px}
+#horizon-atlas .hz .settings-scope{display:flex;align-items:center;gap:10px;margin:0 0 18px;padding-bottom:15px;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz .settings-scope select{max-width:178px;font-size:11px;padding:6px 8px;background:var(--h-surface)}
+#horizon-atlas .hz .setting-row{padding:14px 0;min-height:52px}
+#horizon-atlas .hz .setting-row .override{font-size:10px;color:var(--h-accent);margin-right:6px}
+#horizon-atlas .hz .setting-row .override-btn{font-size:10px;color:var(--h-muted);padding:5px 7px;min-height:26px}
+#horizon-atlas .hz .settings-pane .setting-group{margin-top:20px}
+#horizon-atlas .hz .settings-pane input[type="range"]{width:150px;border:0;padding:0}
+#horizon-atlas .hz .settings-preview{background:var(--h-surface);border:1px solid var(--h-line);border-radius:12px;margin-top:15px;overflow:hidden}
+#horizon-atlas .hz .settings-preview .preview-head{font-size:11px;padding:9px 14px;border-bottom:1px solid var(--h-line);color:var(--h-muted)}
+#horizon-atlas .hz .settings-preview .code{padding:15px;font-size:12px;line-height:1.9}
+#horizon-atlas .hz .connection-row{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz .connection-row .connection-copy{flex:1;min-width:0;font-size:12px}
+#horizon-atlas .hz .connection-row small{display:block;font-size:11px;color:var(--h-muted);margin-top:4px}
+#horizon-atlas .hz .connection-row .connection-logo{width:36px;height:36px;border-radius:11px;background:var(--h-high);color:var(--h-accent);display:grid;place-items:center}
+#horizon-atlas .hz .popover{position:absolute;z-index:13;min-width:220px;max-width:calc(100% - 36px);background:var(--h-low);border:1px solid var(--h-line);border-radius:14px;padding:7px;box-shadow:0 10px 35px var(--h-shadow)}
+#horizon-atlas .hz .popover button{width:100%;justify-content:flex-start;padding:9px 12px;min-height:36px;font-size:12px;border-radius:8px}
+#horizon-atlas .hz .popover kbd{margin-left:auto;padding-left:10px}
+#horizon-atlas .hz .popover hr{border:0;border-top:1px solid var(--h-line);margin:6px}
+#horizon-atlas .hz .popover .menu-label{color:var(--h-muted);font-size:10px;padding:6px 12px}
+#horizon-atlas .hz .popover.project-pop{left:78px;top:114px}
+#horizon-atlas .hz .popover.file-pop{left:140px;top:252px}
+#horizon-atlas .hz .popover.view-pop{right:70px;top:57px}
+#horizon-atlas .hz .quick-dialog{align-self:flex-start;margin-top:85px;width:min(640px,100%)}
+#horizon-atlas .hz .quick-input{display:flex;align-items:center;gap:12px;padding:17px 20px;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz .quick-input input{border:0;outline:0;background:transparent;flex:1;padding:5px 0;font-size:14px}
+#horizon-atlas .hz .quick-results{padding:8px;max-height:410px;overflow:auto}
+#horizon-atlas .hz .quick-result{display:flex;align-items:center;justify-content:flex-start;text-align:left;width:100%;padding:12px 15px;gap:13px;border-radius:10px;white-space:normal}
+#horizon-atlas .hz .quick-result.selected{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .quick-result>span{flex:1}
+#horizon-atlas .hz .quick-result small{display:block;color:var(--h-muted);font-size:11px;margin-top:2px}
+#horizon-atlas .hz .quick-foot{display:flex;gap:18px;font-size:10px;color:var(--h-muted);padding:11px 22px;background:var(--h-high)}
+#horizon-atlas .hz .search-box{display:flex;flex-direction:column;gap:9px;padding:0 4px}
+#horizon-atlas .hz .search-box input{width:100%;padding:8px 9px;font-size:12px;background:var(--h-surface)}
+#horizon-atlas .hz .search-options{display:flex;align-items:center;gap:3px;font-size:11px}
+#horizon-atlas .hz .search-options button{min-height:26px;padding:4px 7px;font-size:11px;border-radius:6px}
+#horizon-atlas .hz .search-options button.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .search-results{display:flex;flex-direction:column;gap:16px;margin-top:16px;font-size:11px}
+#horizon-atlas .hz .search-results .search-group-title{padding:5px 7px;font-weight:500;display:flex;align-items:center;gap:7px}
+#horizon-atlas .hz .search-results button{font:11px/1.7 "SFMono-Regular",Consolas,monospace;text-align:left;justify-content:flex-start;padding:5px 9px;border-radius:6px;white-space:normal}
+#horizon-atlas .hz mark{background:color-mix(in srgb,var(--h-accent) 20%,transparent);color:var(--h-ink);padding:0 1px}
+#horizon-atlas .hz .reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 20px;border-bottom:1px solid var(--h-line);font-size:11px;color:var(--h-muted);min-height:44px}
+#horizon-atlas .hz .reading-toolbar button{min-height:28px;padding:5px 10px;font-size:11px}
+#horizon-atlas .hz .split-content{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0;overflow:auto}
+#horizon-atlas .hz .split-content>div+div{border-left:1px solid var(--h-line)}
+#horizon-atlas .hz .split-content .code{padding-left:0;padding-right:12px;font-size:12px}
+#horizon-atlas .hz .split-content .code-line{grid-template-columns:33px minmax(0,1fr)}
+#horizon-atlas .hz .split-label{padding:11px 18px;border-bottom:1px solid var(--h-line);font-size:11px;color:var(--h-muted);display:flex;gap:7px;align-items:center}
+#horizon-atlas .hz .markdown-preview{padding:25px 28px;line-height:1.9;font-size:13px;overflow:auto}
+#horizon-atlas .hz .markdown-preview h1{font-size:27px;margin:0 0 20px}
+#horizon-atlas .hz .markdown-preview h2{font-size:17px;margin:24px 0 12px}
+#horizon-atlas .hz .markdown-preview p{color:var(--h-muted);margin-bottom:16px}
+#horizon-atlas .hz .markdown-preview ul{padding-left:20px;margin:10px 0}
+#horizon-atlas .hz .markdown-preview li{margin:8px 0}
+#horizon-atlas .hz .diff-meta{padding:11px 20px;min-height:46px;font-size:11px}
+#horizon-atlas .hz .diff-meta button{min-height:27px;padding:5px 9px;font-size:11px}
+#horizon-atlas .hz .git-summary{display:flex;gap:12px;color:var(--h-muted);padding:0 10px;font-size:11px}
+#horizon-atlas .hz .history-list{display:flex;flex-direction:column;gap:4px}
+#horizon-atlas .hz .history-item{display:flex;align-items:flex-start;justify-content:flex-start;gap:10px;text-align:left;white-space:normal;font-size:12px;border-radius:10px;padding:12px 9px}
+#horizon-atlas .hz .history-item.selected{background:var(--h-tonal)}
+#horizon-atlas .hz .history-item .history-dot{width:8px;height:8px;border-radius:50%;background:var(--h-accent);margin-top:6px;flex-shrink:0}
+#horizon-atlas .hz .history-item small{display:block;font-size:10px;color:var(--h-muted);margin-top:5px}
+#horizon-atlas .hz .history-item strong{font-weight:500}
+#horizon-atlas .hz .commit-detail{padding:25px;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz .commit-detail h2{font-size:19px;margin:0 0 9px}
+#horizon-atlas .hz .commit-detail p{font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .merge{display:flex;flex-direction:column;flex:1;min-height:0}
+#horizon-atlas .hz .merge-columns{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--h-line);min-height:0;flex:1}
+#horizon-atlas .hz .merge-columns>div{min-width:0;overflow:auto}
+#horizon-atlas .hz .merge-columns>div+div{border-left:1px solid var(--h-line)}
+#horizon-atlas .hz .merge .code{font-size:12px}
+#horizon-atlas .hz .merge-result{min-height:150px;overflow:auto}
+#horizon-atlas .hz .terminal{max-height:235px;overflow:auto;min-height:195px}
+#horizon-atlas .hz .terminal-head{font-size:11px;margin-bottom:12px}
+#horizon-atlas .hz .terminal-tabs{display:flex;gap:16px;align-items:center}
+#horizon-atlas .hz .terminal-tabs .selected{color:var(--h-accent);border-bottom:2px solid var(--h-accent);padding-bottom:5px}
+#horizon-atlas .hz .terminal-line{display:flex;gap:12px;font-size:12px;line-height:1.9}
+#horizon-atlas .hz .terminal-line .green{color:var(--h-green)}
+#horizon-atlas .hz .plugin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+#horizon-atlas .hz .plugin-card{padding:18px;border:1px solid var(--h-line);border-radius:var(--h-radius);background:var(--h-low);display:flex;gap:13px;min-width:0}
+#horizon-atlas .hz .plugin-card .plugin-copy{flex:1;min-width:0}
+#horizon-atlas .hz .plugin-card h3{font-size:14px;margin:0 0 5px}
+#horizon-atlas .hz .plugin-card p{font-size:11px;color:var(--h-muted);line-height:1.8;margin-bottom:13px}
+#horizon-atlas .hz .plugin-card .plugin-actions{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#horizon-atlas .hz .plugin-card button{font-size:11px;min-height:28px;padding:5px 12px}
+#horizon-atlas .hz .plugin-heading{display:flex;align-items:center;gap:17px;margin-bottom:22px}
+#horizon-atlas .hz .plugin-heading .plugin-symbol{height:56px;width:56px;border-radius:17px;color:var(--h-accent)}
+#horizon-atlas .hz .plugin-heading .plugin-symbol svg{height:25px;width:25px}
+#horizon-atlas .hz .plugin-heading h2{font-size:23px;margin:0 0 5px}
+#horizon-atlas .hz .plugin-heading p{font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .permission-list{display:flex;flex-direction:column;gap:15px;margin:20px 0}
+#horizon-atlas .hz .permission-list>div{display:flex;gap:12px;align-items:flex-start;font-size:12px;line-height:1.7}
+#horizon-atlas .hz .permission-list svg{flex-shrink:0;margin-top:3px;color:var(--h-accent)}
+#horizon-atlas .hz .permission-list small{display:block;color:var(--h-muted);font-size:11px;margin-top:2px}
+#horizon-atlas .hz .command-block{padding:16px;background:var(--h-surface);border:1px solid var(--h-line);border-radius:12px;font:12px/1.9 ui-monospace,monospace;overflow-wrap:anywhere}
+#horizon-atlas .hz .context-options{display:flex;flex-direction:column;gap:6px;margin:15px 0}
+#horizon-atlas .hz .context-options label{display:flex;align-items:center;gap:11px;padding:12px;border-radius:11px;background:var(--h-surface);font-size:12px}
+#horizon-atlas .hz .context-options small{font-size:11px;color:var(--h-muted);margin-left:auto}
+#horizon-atlas .hz .progress-track{height:5px;background:var(--h-high);border-radius:5px;overflow:hidden;margin:20px 0 8px}
+#horizon-atlas .hz .progress-track span{display:block;height:100%;width:64%;background:var(--h-accent);border-radius:5px}
+#horizon-atlas .hz .skeleton{height:11px;border-radius:4px;background:var(--h-high);margin:14px 12px;opacity:.8}
+#horizon-atlas .hz .skeleton.short{width:47%}
+#horizon-atlas .hz .skeleton.medium{width:68%}
+#horizon-atlas .hz .skeleton.long{width:84%}
+#horizon-atlas .hz .welcome-page{display:flex;flex:1;align-items:center;justify-content:center;padding:30px;background:var(--h-bg);min-width:0}
+#horizon-atlas .hz .welcome-inner{width:min(700px,100%);display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:center}
+#horizon-atlas .hz .welcome-brand{display:flex;align-items:center;gap:14px;color:var(--h-accent);margin-bottom:20px}
+#horizon-atlas .hz .welcome-brand svg{height:42px;width:42px}
+#horizon-atlas .hz .welcome-title{font-size:38px;letter-spacing:-1.3px;margin:0 0 15px}
+#horizon-atlas .hz .welcome-desc{font-size:14px;color:var(--h-muted);line-height:1.9;margin-bottom:28px}
+#horizon-atlas .hz .welcome-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+#horizon-atlas .hz .welcome-actions button{min-width:170px;justify-content:flex-start}
+#horizon-atlas .hz .welcome-recent{border-left:1px solid var(--h-line);padding-left:32px}
+#horizon-atlas .hz .welcome-recent .project-list button{padding:13px 9px}
+#horizon-atlas .hz .welcome-note{font-size:11px;color:var(--h-muted);margin-top:30px;display:flex;align-items:center;gap:7px}
+#horizon-atlas .hz .spec-page{padding:32px 38px;overflow:auto;height:100%;background:var(--h-surface);border-radius:var(--h-radius)}
+#horizon-atlas .hz .spec-page h1{font-size:27px;margin:0 0 9px;letter-spacing:-.5px}
+#horizon-atlas .hz .spec-sub{color:var(--h-muted);font-size:12px;margin-bottom:25px}
+#horizon-atlas .hz .spec-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:22px}
+#horizon-atlas .hz .spec-block{border-top:1px solid var(--h-line);padding-top:17px;min-width:0}
+#horizon-atlas .hz .spec-block h3{font-size:13px;margin:0 0 14px}
+#horizon-atlas .hz .spec-block p{font-size:12px;color:var(--h-muted);line-height:1.9}
+#horizon-atlas .hz .color-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}
+#horizon-atlas .hz .color-chip{height:68px;border-radius:10px;border:1px solid var(--h-line);display:flex;align-items:flex-end;padding:10px;font:11px ui-monospace,monospace}
+#horizon-atlas .hz .type-sample{display:flex;align-items:baseline;gap:22px;margin:13px 0}
+#horizon-atlas .hz .type-sample small{width:100px;font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .spacing-sample{display:flex;align-items:flex-end;gap:14px;margin:22px 0;font-size:10px;color:var(--h-muted)}
+#horizon-atlas .hz .spacing-sample span{display:flex;flex-direction:column;gap:7px;align-items:center}
+#horizon-atlas .hz .spacing-sample i{background:var(--h-tonal);display:block;width:22px}
+#horizon-atlas .hz .architecture-flow{display:grid;grid-template-columns:170px 24px 1fr 24px 1fr;gap:14px;align-items:center;margin:28px 0}
+#horizon-atlas .hz .arch-node{background:var(--h-low);border:1px solid var(--h-line);border-radius:15px;padding:18px;font-size:13px;text-align:center}
+#horizon-atlas .hz .arch-node.primary-node{background:var(--h-tonal);color:var(--h-on-tonal);border-color:transparent}
+#horizon-atlas .hz .arch-node small{display:block;color:var(--h-muted);font-size:11px;margin-top:8px;line-height:1.9}
+#horizon-atlas .hz .arch-stack{display:flex;flex-direction:column;gap:11px}
+#horizon-atlas .hz .spec-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:22px}
+#horizon-atlas .hz .spec-table td,#horizon-atlas .hz .spec-table th{padding:13px 12px;border-bottom:1px solid var(--h-line);text-align:left;vertical-align:top;line-height:1.8}
+#horizon-atlas .hz .spec-table th{font-weight:500;background:var(--h-low)}
+#horizon-atlas .hz .spec-table small{font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .component-group{display:flex;flex-direction:column;gap:15px}
+#horizon-atlas .hz .component-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#horizon-atlas .hz .component-row label{font-size:11px;display:flex;gap:7px;align-items:center}
+#horizon-atlas .hz .layout-diagrams{display:grid;grid-template-columns:1.3fr 1fr .7fr;gap:22px;align-items:end;margin:28px 0}
+#horizon-atlas .hz .layout-diagram{height:225px;border:1px solid var(--h-line);border-radius:12px;overflow:hidden;background:var(--h-low);display:flex;flex-direction:column}
+#horizon-atlas .hz .layout-diagram .diagram-bar{height:28px;background:var(--h-high);padding:6px;font-size:10px;text-align:center}
+#horizon-atlas .hz .layout-diagram .diagram-body{display:flex;flex:1;gap:6px;padding:7px;min-height:0}
+#horizon-atlas .hz .layout-diagram .diagram-body>span{padding:12px 6px;border-radius:6px;background:var(--h-tonal);font-size:10px;color:var(--h-on-tonal);display:flex;align-items:center;justify-content:center;text-align:center}
+#horizon-atlas .hz .layout-diagram .diagram-body>span.code-box{flex:1;background:var(--h-surface);color:var(--h-muted)}
+#horizon-atlas .hz .layout-diagrams .diagram-label{font-size:11px;color:var(--h-muted);margin-top:10px;text-align:center}
+#horizon-atlas .hz .flow-lanes{display:flex;flex-direction:column;gap:25px;margin:30px 0}
+#horizon-atlas .hz .flow-lane{display:grid;grid-template-columns:100px repeat(4,minmax(0,1fr));gap:14px;align-items:center;font-size:12px}
+#horizon-atlas .hz .flow-lane .flow-step{padding:18px 10px;background:var(--h-low);border:1px solid var(--h-line);border-radius:12px;text-align:center;position:relative}
+#horizon-atlas .hz .flow-lane .flow-step:not(:last-child):after{content:'›';position:absolute;right:-12px;color:var(--h-muted)}
+#horizon-atlas .hz[data-focus="true"] .editor{margin-left:12px}
+#horizon-atlas .hz .window-size{display:inline-flex;gap:6px;align-items:center;font-size:10px;color:var(--h-muted)}
+/* Eight coherent visual and navigation systems. */
+#horizon-atlas .hz[data-style="paper"]{--h-bg:light-dark(#f4f1eb,#211e1a);--h-surface:light-dark(#fffefa,#2b2722);--h-low:light-dark(#f8f6f0,#302b25);--h-high:light-dark(#e9e5da,#3e372f);--h-ink:light-dark(#34352d,#e9e7d7);--h-muted:light-dark(#737569,#b4b4a5);--h-line:light-dark(#e3e3d8,#444438);--h-accent:light-dark(#617251,#c0d0ad);--h-tonal:light-dark(#e4ebd9,#424f35);--h-on-tonal:light-dark(#354625,#e6eedb);--h-on-accent:light-dark(#fff,#2c3e20);--h-radius:8px;--h-tree:260px;--rail-width:0px;--h-shadow:light-dark(#3c3c2010,#00000033)}
+#horizon-atlas .hz[data-style="paper"] .project-rail{display:none}
+#horizon-atlas .hz[data-style="paper"] .sidebar{padding:14px 18px;gap:12px}
+#horizon-atlas .hz[data-style="paper"] .unified-projects{display:block}
+#horizon-atlas .hz[data-style="paper"] .editor{margin-right:0;border-radius:0;border-left:1px solid var(--h-line)}
+#horizon-atlas .hz[data-style="paper"] .appbar{border-bottom:1px solid var(--h-line);height:58px;min-height:58px}
+#horizon-atlas .hz[data-style="paper"] .project-card{background:transparent;min-height:160px}
+#horizon-atlas .hz[data-style="paper"] .project-cards{grid-template-columns:1fr;gap:0}
+#horizon-atlas .hz[data-style="paper"] .project-card{border:0;border-bottom:1px solid var(--h-line);border-radius:0;flex-direction:row;min-height:90px;align-items:center;gap:25px}
+#horizon-atlas .hz[data-style="paper"] .project-card-header{width:auto;min-width:50px}
+#horizon-atlas .hz[data-style="paper"] .project-card-copy{flex:1}
+#horizon-atlas .hz[data-style="paper"] .project-card-bottom{width:180px;margin:0}
+#horizon-atlas .hz[data-style="paper"] .settings-nav button{border-radius:8px}
+#horizon-atlas .hz[data-style="orbit"]{color-scheme:dark;--h-bg:light-dark(#eaf0f8,#131c29);--h-surface:light-dark(#fbfdff,#1b2636);--h-low:light-dark(#f0f5fc,#202d40);--h-high:light-dark(#dfe8f5,#2c3b51);--h-ink:light-dark(#243650,#e2ebf7);--h-muted:light-dark(#60728d,#a6b6cd);--h-line:light-dark(#d4dfed,#324156);--h-accent:light-dark(#466da8,#aecaff);--h-tonal:light-dark(#d5e3fb,#2b4672);--h-on-tonal:light-dark(#244574,#dce9ff);--h-on-accent:light-dark(#ffffff,#142b50);--h-radius:14px;--h-tree:214px;--rail-width:0px;--h-row:31px}
+#horizon-atlas .hz[data-style="orbit"] .project-rail{display:none}
+#horizon-atlas .hz[data-style="orbit"] .project-tabs{display:flex}
+#horizon-atlas .hz[data-style="orbit"] .sidebar{padding-left:18px}
+#horizon-atlas .hz[data-style="orbit"] .search-btn{background:var(--h-low)}
+#horizon-atlas .hz[data-style="orbit"] .file-tab.active{border-color:var(--h-accent)}
+#horizon-atlas .hz[data-style="graphite"]{--h-bg:light-dark(#eceeef,#161819);--h-surface:light-dark(#fff,#222526);--h-low:light-dark(#f7f8f8,#282c2d);--h-high:light-dark(#e3e7e7,#333a3b);--h-ink:light-dark(#263234,#e2ebeb);--h-muted:light-dark(#626f72,#a8b7ba);--h-line:light-dark(#d9dfe0,#3a4648);--h-accent:light-dark(#335f66,#a6d1d8);--h-tonal:light-dark(#d8e9ec,#28474c);--h-on-tonal:light-dark(#22464d,#cfe9ee);--h-on-accent:light-dark(#fff,#163339);--h-radius:6px;--h-row:28px;--h-tree:195px;--rail-width:55px}
+#horizon-atlas .hz[data-style="graphite"] .appbar{height:49px;min-height:49px;border-bottom:1px solid var(--h-line)}
+#horizon-atlas .hz[data-style="graphite"] .editor{border-radius:0;margin-right:0;border-left:1px solid var(--h-line)}
+#horizon-atlas .hz[data-style="graphite"] .rail-project{min-height:44px;width:43px;gap:0}
+#horizon-atlas .hz[data-style="graphite"] .rail-project>span:last-child{display:none}
+#horizon-atlas .hz[data-style="graphite"] .project-symbol{border-radius:9px;width:36px;height:34px;font-size:14px}
+#horizon-atlas .hz[data-style="graphite"] .project-rail{padding:8px 4px;gap:7px;border-right:1px solid var(--h-line)}
+#horizon-atlas .hz[data-style="graphite"] .sidebar{padding-top:7px;gap:10px}
+#horizon-atlas .hz[data-style="graphite"] .editor-top,#horizon-atlas .hz[data-style="graphite"] .file-tab{height:38px;min-height:38px}
+#horizon-atlas .hz[data-style="graphite"] .segmented,#horizon-atlas .hz[data-style="graphite"] .segmented button{border-radius:7px}
+#horizon-atlas .hz[data-style="graphite"] button{border-radius:7px}
+#horizon-atlas .hz[data-style="graphite"] .assistant{border-radius:0;border-left:1px solid var(--h-line);margin:0}
+#horizon-atlas .hz[data-style="graphite"] .project-card{border-radius:7px;background:var(--h-surface)}
+#horizon-atlas .hz[data-style="celadon"]{--h-bg:light-dark(#eaf2ef,#17251f);--h-surface:light-dark(#fbfffc,#22352c);--h-low:light-dark(#f1f7f3,#294032);--h-high:light-dark(#dceae2,#34503e);--h-ink:light-dark(#243e33,#e0f1e6);--h-muted:light-dark(#607d6c,#a8c3b2);--h-line:light-dark(#d6e5dc,#3e5b48);--h-accent:light-dark(#3f7458,#a9d7b9);--h-tonal:light-dark(#d5eadb,#315b40);--h-on-tonal:light-dark(#244c33,#d6efd9);--h-on-accent:light-dark(#fff,#1e3c28);--h-radius:20px;--h-tree:248px;--rail-width:0px}
+#horizon-atlas .hz[data-style="celadon"] .project-rail{display:none}
+#horizon-atlas .hz[data-style="celadon"] .sidebar{padding:10px 17px;gap:17px}
+#horizon-atlas .hz[data-style="celadon"] .unified-projects{display:block;border:0;background:var(--h-high);border-radius:16px;padding:7px;margin-bottom:4px}
+#horizon-atlas .hz[data-style="celadon"] .unified-projects>button{display:none}
+#horizon-atlas .hz[data-style="celadon"] .unified-projects>button.active,#horizon-atlas .hz[data-style="celadon"] .unified-projects>.drawer-toggle{display:flex;min-height:37px}
+#horizon-atlas .hz[data-style="celadon"] .unified-projects.expanded>button{display:flex}
+#horizon-atlas .hz[data-style="celadon"] .editor{margin-bottom:8px;border-radius:20px}
+#horizon-atlas .hz[data-style="celadon"] .statusbar{padding-left:20px}
+#horizon-atlas .hz[data-style="iris"]{--h-bg:light-dark(#f0eafa,#231b2e);--h-surface:light-dark(#fefbff,#30233d);--h-low:light-dark(#f7f0fd,#392948);--h-high:light-dark(#e7d9f4,#4b365e);--h-ink:light-dark(#38254b,#efe1fc);--h-muted:light-dark(#7b628e,#c1a9d5);--h-line:light-dark(#e4d5ef,#523b65);--h-accent:light-dark(#7950a3,#dbb2ff);--h-tonal:light-dark(#e5d1fb,#624180);--h-on-tonal:light-dark(#4a2567,#f1dfff);--h-on-accent:light-dark(#fff,#43205d);--h-radius:28px;--h-row:38px;--h-tree:232px;--rail-width:94px}
+#horizon-atlas .hz[data-style="iris"] .appbar{height:70px;min-height:70px}
+#horizon-atlas .hz[data-style="iris"] .sidebar{background:var(--h-low);border-radius:24px;margin:0 12px 10px 0;padding:16px 12px}
+#horizon-atlas .hz[data-style="iris"] .editor{border-radius:28px;margin-bottom:10px}
+#horizon-atlas .hz[data-style="iris"] .project-symbol{width:62px;height:40px;border-radius:24px}
+#horizon-atlas .hz[data-style="iris"] .rail-project{min-height:75px}
+#horizon-atlas .hz[data-style="iris"] .project-rail{gap:12px}
+#horizon-atlas .hz[data-style="iris"] .tree button{border-radius:18px}
+#horizon-atlas .hz[data-style="iris"] .assistant{border-radius:28px;margin-bottom:10px}
+#horizon-atlas .hz[data-style="iris"] .settings-nav button{padding:12px 14px;min-height:42px}
+#horizon-atlas .hz[data-style="iris"] .project-card{border:0;background:var(--h-low);min-height:190px}
+#horizon-atlas .hz[data-style="sand"]{--h-bg:light-dark(#f2ebe3,#28211b);--h-surface:light-dark(#fffcf8,#342c24);--h-low:light-dark(#f8f1e9,#3b3028);--h-high:light-dark(#e9ddcf,#4d3d30);--h-ink:light-dark(#483b2e,#f4e5d3);--h-muted:light-dark(#87725d,#c6ad92);--h-line:light-dark(#e5d9c9,#5a4735);--h-accent:light-dark(#946644,#e3b18a);--h-tonal:light-dark(#f0dcc7,#68482f);--h-on-tonal:light-dark(#603e25,#f5e0cc);--h-on-accent:light-dark(#fff,#4d301b);--h-radius:12px;--h-row:33px;--h-tree:205px;--rail-width:150px}
+#horizon-atlas .hz[data-style="sand"] .project-rail{align-items:stretch;padding:8px 12px;gap:6px;border-right:1px solid var(--h-line);margin-right:10px}
+#horizon-atlas .hz[data-style="sand"] .rail-project{flex-direction:row;min-height:43px;width:100%;padding:6px 8px;gap:8px;font-size:12px;text-align:left;justify-content:flex-start;border-radius:10px}
+#horizon-atlas .hz[data-style="sand"] .rail-project.active{background:var(--h-tonal)}
+#horizon-atlas .hz[data-style="sand"] .project-symbol{width:24px;height:28px;font-size:12px;border-radius:7px}
+#horizon-atlas .hz[data-style="sand"] .project-rail>.icon-btn{align-self:flex-start;margin-left:8px}
+#horizon-atlas .hz[data-style="sand"] .rail-divider{width:100%;margin:7px 0}
+#horizon-atlas .hz[data-style="sand"] .rail-bottom{align-items:flex-start;margin-left:8px}
+#horizon-atlas .hz[data-style="sand"] .project-card{background:transparent}
+#horizon-atlas .hz[data-style="aurora"]{color-scheme:dark;--h-bg:light-dark(#e7f1f1,#171e20);--h-surface:light-dark(#f8fdfd,#202b2e);--h-low:light-dark(#eef6f5,#263337);--h-high:light-dark(#d7e8e7,#314449);--h-ink:light-dark(#244344,#e1f1f1);--h-muted:light-dark(#5c7a7c,#a3bec0);--h-line:light-dark(#cfe1e1,#3b5155);--h-accent:light-dark(#397976,#91d7d2);--h-tonal:light-dark(#cce8e5,#294c4c);--h-on-tonal:light-dark(#235b59,#c8eeec);--h-on-accent:light-dark(#ffffff,#103536);--h-radius:22px;--h-tree:218px;--rail-width:0px}
+#horizon-atlas .hz[data-style="aurora"] .project-rail{display:none}
+#horizon-atlas .hz[data-style="aurora"] .project-dock{display:flex}
+#horizon-atlas .hz[data-style="aurora"] .sidebar{padding-left:18px}
+#horizon-atlas .hz[data-style="aurora"] .editor{border-radius:22px;margin-bottom:0}
+#horizon-atlas .hz[data-style="aurora"] .statusbar{height:26px;min-height:26px}
+#horizon-atlas .hz[data-style="aurora"] .appbar{height:65px;min-height:65px}
+#horizon-atlas .hz[data-style="aurora"] .project-dock button.active{box-shadow:0 0 0 1px #6a9b9a40}
+#horizon-atlas .hz[data-style="aurora"] .search-btn{border:1px solid var(--h-line);background:transparent}
+#horizon-atlas .hz[data-style="aurora"] .assistant{border-radius:22px}
+#horizon-atlas .hz .drawer-toggle{display:none}
+#horizon-atlas .hz[data-narrow="true"]{width:min(760px,100%);margin-inline:auto}
+#horizon-atlas .hz[data-focus="true"] .project-dock,#horizon-atlas .hz[data-focus="true"] .unified-projects{display:none}
+#horizon-atlas .hz[data-narrow="true"] .sidebar{display:none}
+#horizon-atlas .hz[data-narrow="true"] .assistant{position:absolute;inset:0 0 0 auto;width:320px;box-shadow:-12px 0 30px var(--h-shadow);border:1px solid var(--h-line)}
+@media(max-width:1150px){#horizon-atlas .hz .search-btn{min-width:185px}#horizon-atlas .hz .assistant{position:absolute;right:0;top:0;bottom:0;width:318px;border:1px solid var(--h-line);box-shadow:-12px 0 32px var(--h-shadow);z-index:6}#horizon-atlas .hz .native-mac{display:none}#horizon-atlas .hz .native-win{display:none}#horizon-atlas .hz .project-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){#horizon-atlas .hz .appbar{gap:8px;padding-inline:14px}#horizon-atlas .hz .search-btn{min-width:34px;width:34px;padding:8px;background:transparent;border:0}#horizon-atlas .hz .search-btn span,#horizon-atlas .hz .search-btn kbd{display:none}#horizon-atlas .hz .page-content{padding:24px}#horizon-atlas .hz .page-heading{flex-wrap:wrap}#horizon-atlas .hz .page-heading .button-row{margin:0}#horizon-atlas .hz .welcome-inner{gap:35px}#horizon-atlas .hz .welcome-recent{padding-left:20px}#horizon-atlas .hz .spec-page{padding:26px}#horizon-atlas .hz .spec-grid{grid-template-columns:1fr 1fr}#horizon-atlas .hz .architecture-flow{grid-template-columns:1fr 20px 1fr}#horizon-atlas .hz .architecture-flow>.arch-stack:last-child{grid-column:3}#horizon-atlas .hz .architecture-flow>.arch-arrow:nth-last-child(2){display:none}#horizon-atlas .hz .flow-lane{grid-template-columns:80px repeat(4,minmax(0,1fr));gap:9px;font-size:11px}#horizon-atlas .hz .flow-lane .flow-step{padding:14px 7px}}
+@media(max-width:640px){#horizon-atlas .atlas-controls{padding-right:0;gap:12px}#horizon-atlas .atlas-pickers{margin:0;width:100%}#horizon-atlas .atlas-pickers label{flex-wrap:wrap;gap:5px}#horizon-atlas .atlas-page-picker{flex:1;min-width:0}#horizon-atlas .atlas-pickers select{max-width:100%;width:100%}#horizon-atlas #horizon-directory{grid-template-columns:1fr 1fr}#horizon-atlas .hz{height:800px;min-height:800px;--rail-width:58px}#horizon-atlas .hz .appbar{height:102px!important;min-height:102px!important;flex-wrap:wrap;align-content:center;padding:10px 12px;gap:8px}#horizon-atlas .hz .brand{width:100%;height:27px}#horizon-atlas .hz .workspace-btn{padding-inline:5px}#horizon-atlas .hz .app-actions{gap:1px}#horizon-atlas .hz .app-actions .search-btn{display:none}#horizon-atlas .hz .project-rail{width:58px;min-width:58px;gap:8px;padding-inline:3px;margin:0;border:0}#horizon-atlas .hz .rail-project{min-height:61px!important;width:52px!important;flex-direction:column!important;gap:4px!important;padding:0!important;font-size:10px!important;justify-content:center!important}#horizon-atlas .hz .project-symbol{width:42px!important;height:33px!important;border-radius:18px!important;font-size:15px!important}#horizon-atlas .hz .sidebar{display:none}#horizon-atlas .hz[data-mobile-tree="true"] .sidebar{display:flex;position:absolute;left:58px;top:0;bottom:0;z-index:7;width:220px;max-width:calc(100% - 58px);background:var(--h-bg);border-radius:0 16px 16px 0;box-shadow:10px 0 30px var(--h-shadow);margin:0;padding:12px}#horizon-atlas .hz[data-style="paper"][data-mobile-tree="true"] .sidebar,#horizon-atlas .hz[data-style="celadon"][data-mobile-tree="true"] .sidebar,#horizon-atlas .hz[data-style="orbit"][data-mobile-tree="true"] .sidebar,#horizon-atlas .hz[data-style="aurora"][data-mobile-tree="true"] .sidebar{left:0;max-width:calc(100% - 20px)}#horizon-atlas .hz .editor{margin:0 7px 0 0;border-radius:14px 14px 0 0}#horizon-atlas .hz[data-style="paper"] .editor,#horizon-atlas .hz[data-style="celadon"] .editor,#horizon-atlas .hz[data-style="orbit"] .editor,#horizon-atlas .hz[data-style="aurora"] .editor{margin-left:7px}#horizon-atlas .hz .project-tabs{padding-left:8px;height:44px;min-height:44px}#horizon-atlas .hz .project-tabs button{padding-inline:9px;font-size:11px}#horizon-atlas .hz .statusbar{padding:0 10px;height:30px;min-height:30px;gap:7px}#horizon-atlas .hz .status-right{gap:8px}#horizon-atlas .hz .status-right span:not(:first-child){display:none}#horizon-atlas .hz .project-status{font-size:10px}#horizon-atlas .hz .code{font-size:12px;padding-left:0;padding-right:12px}#horizon-atlas .hz .code-line{grid-template-columns:32px minmax(0,1fr)}#horizon-atlas .hz .ln{padding-right:9px}#horizon-atlas .hz .crumb{padding:12px 14px;font-size:10px;gap:4px}#horizon-atlas .hz .editor-top{gap:2px;padding-right:3px}#horizon-atlas .hz .assistant,#horizon-atlas .hz[data-narrow="true"] .assistant{width:min(320px,calc(100% - 12px));margin-right:6px;border-radius:16px 16px 0 0;padding:14px}#horizon-atlas .hz .page-content{padding:20px}#horizon-atlas .hz .page-heading h1{font-size:23px}#horizon-atlas .hz .project-cards,#horizon-atlas .hz .plugin-grid{grid-template-columns:1fr}#horizon-atlas .hz .project-filters{flex-wrap:wrap}#horizon-atlas .hz .project-filters input{width:100%;max-width:100%}#horizon-atlas .hz .project-page{margin:0 7px}#horizon-atlas .hz .project-card{min-height:150px}#horizon-atlas .hz .project-recent{display:none}#horizon-atlas .hz[data-style="paper"] .project-card{flex-wrap:wrap;gap:12px}#horizon-atlas .hz .welcome-inner{display:flex;flex-direction:column;align-items:flex-start;gap:30px}#horizon-atlas .hz .welcome-title{font-size:32px}#horizon-atlas .hz .welcome-recent{padding:0;border:0;width:100%}#horizon-atlas .hz .welcome-note{margin-top:20px}#horizon-atlas .hz .welcome-recent .project-list{margin-bottom:0}#horizon-atlas .hz .welcome-recent .project-list button{padding:8px}#horizon-atlas .hz .welcome-page{padding:25px}#horizon-atlas .hz .overlay{padding:10px}#horizon-atlas .hz .dialog{max-height:760px;border-radius:20px}#horizon-atlas .hz .dialog-head{padding:18px 18px 12px}#horizon-atlas .hz .dialog-content{padding:0 18px 20px;max-height:560px}#horizon-atlas .hz .dialog-foot{padding:12px 18px 17px;flex-wrap:wrap}#horizon-atlas .hz .settings-body{display:flex;flex-direction:column;min-height:490px}#horizon-atlas .hz .settings-nav{display:flex;flex-direction:row;overflow:auto;padding:4px 12px 10px;max-height:none}#horizon-atlas .hz .settings-nav button{width:auto;flex-shrink:0;padding:8px 10px;min-height:36px}#horizon-atlas .hz .settings-nav svg{display:none}#horizon-atlas .hz .settings-pane{padding:15px 18px 24px;max-height:490px}#horizon-atlas .hz .setting-row{flex-wrap:wrap;gap:9px;padding:12px 0}#horizon-atlas .hz .setting-row select{max-width:135px}#horizon-atlas .hz .quick-dialog{margin-top:70px}#horizon-atlas .hz .quick-input{padding:15px}#horizon-atlas .hz .quick-foot{gap:10px;font-size:10px}#horizon-atlas .hz .split-content,#horizon-atlas .hz .merge-columns{grid-template-columns:1fr}#horizon-atlas .hz .split-content>div+div{border-left:0;border-top:1px solid var(--h-line)}#horizon-atlas .hz .popover.file-pop{left:70px;top:245px}#horizon-atlas .hz .popover.project-pop{left:40px;top:175px}#horizon-atlas .hz .popover.view-pop{right:12px;top:99px}#horizon-atlas .hz .project-dock{gap:4px;padding:5px 8px;height:45px;min-height:45px;justify-content:flex-start;overflow:auto}#horizon-atlas .hz .project-dock button{padding:5px 9px;font-size:11px}#horizon-atlas .hz .spec-page{padding:22px 18px}#horizon-atlas .hz .spec-page h1{font-size:23px}#horizon-atlas .hz .spec-grid{grid-template-columns:1fr}#horizon-atlas .hz .architecture-flow{grid-template-columns:1fr;gap:10px}#horizon-atlas .hz .architecture-flow>.arch-stack:last-child{grid-column:auto}#horizon-atlas .hz .arch-arrow{display:none}#horizon-atlas .hz .color-chips{grid-template-columns:1fr 1fr}#horizon-atlas .hz .layout-diagrams{grid-template-columns:1fr;gap:20px}#horizon-atlas .hz .layout-diagram{height:170px}#horizon-atlas .hz .flow-lane{grid-template-columns:1fr;gap:8px}#horizon-atlas .hz .flow-lane .flow-step:not(:last-child):after{display:none}#horizon-atlas .hz .spec-table{font-size:11px}#horizon-atlas .hz .spec-table td,#horizon-atlas .hz .spec-table th{padding:9px 5px}}
+@media(prefers-reduced-motion:reduce){#horizon-atlas *{scroll-behavior:auto}}

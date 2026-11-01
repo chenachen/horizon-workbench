@@ -1,0 +1,69 @@
+{
+  "claimedAt": "2026-11-01T22:33:20.756161+00:00",
+  "argv": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1)(allow default)(deny network*)",
+    "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop"
+  ],
+  "expectedMainSha256": "4d4bca76055afb46f403811035a718b2b8a8f892ca2e7e8ddc5ed2c5dbe5a135",
+  "fixtureBeforeLaunch": {
+    "root": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-offline-boundary-20261102-ujs5fg1r/OfflineBoundary-1102",
+    "files": [
+      {
+        "relativePath": "offline.txt",
+        "bytes": 37,
+        "sha256": "644c3916e763ecd641d673472b96c02b3e03ccbc646e5d4f2fb4e0bedbb9be41",
+        "mode": "0o644"
+      },
+      {
+        "relativePath": ".git/HEAD",
+        "bytes": 21,
+        "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "mode": "0o644"
+      },
+      {
+        "relativePath": ".git/index",
+        "bytes": 145,
+        "sha256": "0897379043e5ce9b5ded2653cbba1dd419e2fbcb79d7bfc77df3e7bebdbf1672",
+        "mode": "0o644"
+      },
+      {
+        "relativePath": ".git/config",
+        "bytes": 419,
+        "sha256": "f4950e41ac496df1ebaa93b2ed276cd514fc197abea4a4c1b20a17c15cad3375",
+        "mode": "0o644"
+      },
+      {
+        "relativePath": ".git/refs/heads/main",
+        "bytes": 41,
+        "sha256": "60d0b17cbda88189742d4742c6a9881ef4ae5182a39f4cebc1ddf2ab5d5271c2",
+        "mode": "0o644"
+      }
+    ],
+    "sourceText": "Offline boundary baseline 2026-11-02\n",
+    "markerCount": 0,
+    "head": "c8b69b3653ee58056f840945364c0c1d1e5e6d1a",
+    "branch": "main",
+    "statusPorcelain": "",
+    "indexLogical": "100644 924d8d39d67351c39c87c386a0721fc4b31d6227 0\toffline.txt\n",
+    "remotes": "origin\thttps://github.com/octocat/Hello-World.git (fetch)\norigin\thttps://github.com/octocat/Hello-World.git (push)\n",
+    "role": "Owner local read-only verification outside sandbox; not native functional evidence"
+  },
+  "authority": "Explicit root-confirmed CLI flag only",
+  "notStartup20": true,
+  "globalNetworkConfigurationChanged": false,
+  "observedAt": "2026-11-01T22:33:20.808315+00:00",
+  "launcherPid": 30996,
+  "launcherExitObserved": null,
+  "mainIdentity": {
+    "pid": 30996,
+    "ppid": 30984,
+    "uid": 501,
+    "start": "Mon Nov 2 06:33:20 2026",
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "start_abstime": 2207735830789
+  },
+  "status": "main_identity_observed_not_GUI_ready",
+  "limits": "No AX/UI probe or network request. Tool return is not app exit/ready or offline proof. No retry/signal."
+}

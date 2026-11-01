@@ -1,0 +1,186 @@
+
+#horizon-atlas .hz{--h-bg:light-dark(#f3f1f6,#1b1920);--h-surface:light-dark(#fffbff,#211f26);--h-low:light-dark(#f7f4fa,#27242c);--h-high:light-dark(#ece6f0,#34303b);--h-ink:light-dark(#211e28,#e9e1ee);--h-muted:light-dark(#6b6473,#b7aebf);--h-line:light-dark(#e8e2ed,#3d3745);--h-accent:light-dark(#68528e,#d1bcf5);--h-tonal:light-dark(#eaddff,#4f3c6d);--h-on-tonal:light-dark(#322047,#eadcff);--h-on-accent:light-dark(#ffffff,#382450);--h-green:light-dark(#39674e,#9ad4b0);--h-green-bg:light-dark(#edf6ee,#24382a);--h-red:light-dark(#9e4245,#efafb3);--h-red-bg:light-dark(#fceced,#3f292e);--h-blue:light-dark(#466a8f,#a5c8ee);--h-shadow:light-dark(#251a3c20,#00000050);--h-row:34px;--h-tree:212px;--h-font:13px;--h-radius:16px;position:relative;background:var(--h-bg);color:var(--h-ink);font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;min-height:710px;border-radius:18px;isolation:isolate;overflow:hidden}
+#horizon-atlas .hz *{box-sizing:border-box}
+#horizon-atlas .hz button,#horizon-atlas .hz input,#horizon-atlas .hz select,#horizon-atlas .hz textarea{font:inherit;color:inherit}
+#horizon-atlas .hz button{border:0;background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:8px 13px;border-radius:20px;min-height:34px;white-space:nowrap}
+#horizon-atlas .hz button:hover{background:var(--h-high)}
+#horizon-atlas .hz button:disabled{opacity:.4;cursor:not-allowed}
+#horizon-atlas .hz button:focus-visible,#horizon-atlas .hz input:focus-visible,#horizon-atlas .hz select:focus-visible,#horizon-atlas .hz textarea:focus-visible{outline:2px solid var(--h-accent);outline-offset:2px}
+#horizon-atlas .hz .icon-btn{width:36px;height:36px;flex-shrink:0;padding:8px}
+#horizon-atlas .hz .icon-btn.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .filled{background:var(--h-accent);color:var(--h-on-accent);font-weight:500;padding:10px 20px}
+#horizon-atlas .hz .filled:hover{background:var(--h-accent);filter:brightness(.94)}
+#horizon-atlas .hz .tonal{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .muted{color:var(--h-muted)}
+#horizon-atlas .hz .small{font-size:11px}
+#horizon-atlas .hz .spacer{flex:1}
+#horizon-atlas .hz .appbar{height:64px;padding:0 96px 0 20px;display:flex;align-items:center;gap:16px}
+#horizon-atlas .hz .brand{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:500;letter-spacing:-.4px}
+#horizon-atlas .hz .brand svg{color:var(--h-accent);width:21px;height:21px}
+#horizon-atlas .hz .workspace-btn{color:var(--h-muted);padding:7px 10px;gap:6px}
+#horizon-atlas .hz .workspace-btn span{max-width:95px;overflow:hidden;text-overflow:ellipsis}
+#horizon-atlas .hz .app-actions{display:flex;gap:5px;align-items:center;margin-left:auto}
+#horizon-atlas .hz .search-btn{color:var(--h-muted);background:var(--h-high);justify-content:flex-start;min-width:168px;padding:8px 14px;font-size:12px;margin-right:7px}
+#horizon-atlas .hz kbd{font:11px/1.4 -apple-system,sans-serif;color:var(--h-muted);white-space:nowrap}
+#horizon-atlas .hz .search-btn kbd{margin-left:auto;padding-left:15px}
+#horizon-atlas .hz .project-tabs{display:none;height:48px;align-items:center;gap:6px;padding:0 18px 8px}
+#horizon-atlas .hz .project-tabs .project-tab{border-radius:12px;gap:9px;color:var(--h-muted)}
+#horizon-atlas .hz .project-tabs .project-tab.active{background:var(--h-surface);color:var(--h-on-tonal)}
+#horizon-atlas .hz .project-tabs .mini-mark{font-weight:500;color:var(--h-accent)}
+#horizon-atlas .hz .workspace-body{display:flex;height:644px;min-height:644px;position:relative}
+#horizon-atlas .hz .project-rail{width:78px;flex-shrink:0;display:flex;align-items:center;flex-direction:column;gap:12px;padding:8px 7px 14px;overflow:auto;scrollbar-width:none}
+#horizon-atlas .hz .rail-project{display:flex;flex-direction:column;gap:4px;padding:0;width:64px;border-radius:14px;min-height:66px;font-size:11px;color:var(--h-muted)}
+#horizon-atlas .hz .rail-project:hover{background:transparent}
+#horizon-atlas .hz .project-symbol{font-size:17px;font-weight:500;display:grid;place-items:center;width:52px;height:36px;border-radius:18px;background:transparent;color:var(--h-ink)}
+#horizon-atlas .hz .rail-project.active{color:var(--h-on-tonal)}
+#horizon-atlas .hz .rail-project.active .project-symbol{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .rail-project:hover .project-symbol{background:var(--h-high)}
+#horizon-atlas .hz .rail-divider{width:26px;border-top:1px solid var(--h-line);margin:0 0 2px}
+#horizon-atlas .hz .rail-bottom{margin-top:auto;display:flex;flex-direction:column;gap:8px;align-items:center}
+#horizon-atlas .hz .sidebar{width:var(--h-tree);flex-shrink:0;padding:12px 12px 18px 8px;display:flex;flex-direction:column;gap:15px}
+#horizon-atlas .hz .sidebar-title{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 5px;font-weight:500;font-size:14px}
+#horizon-atlas .hz .sidebar-title .project-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#horizon-atlas .hz .sidebar-content{min-height:0;overflow:auto;scrollbar-width:thin}
+#horizon-atlas .hz .mobile-close{display:none}
+#horizon-atlas .hz .segmented{background:var(--h-high);display:flex;border-radius:22px;padding:3px;gap:3px}
+#horizon-atlas .hz .segmented button{flex:1;padding:5px 10px;min-height:30px;font-size:12px;color:var(--h-muted)}
+#horizon-atlas .hz .segmented button.active{background:var(--h-surface);color:var(--h-ink);box-shadow:0 1px 3px var(--h-shadow)}
+#horizon-atlas .hz .count{font-size:10px;display:grid;place-items:center;min-width:16px;height:16px;border-radius:9px;background:var(--h-high);padding:0 4px}
+#horizon-atlas .hz .tree{display:flex;flex-direction:column;gap:2px}
+#horizon-atlas .hz .tree button{height:var(--h-row);min-height:var(--h-row);justify-content:flex-start;text-align:left;border-radius:8px;padding:5px 10px;width:100%;font-size:12px;gap:7px}
+#horizon-atlas .hz .tree button.indent{padding-left:31px}
+#horizon-atlas .hz .tree button.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .file-type{color:var(--h-blue);font-size:10px;font-weight:500;width:16px;flex-shrink:0;text-align:center}
+#horizon-atlas .hz .file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#horizon-atlas .hz .file-mark{margin-left:auto;font-size:10px;color:var(--h-green)}
+#horizon-atlas .hz .tree-heading{padding:5px 10px;color:var(--h-muted);font-size:11px;display:flex;justify-content:space-between;align-items:center}
+#horizon-atlas .hz .tree-heading button{width:26px;height:26px;min-height:26px;padding:4px}
+#horizon-atlas .hz .side-foot{margin-top:auto;padding:8px 6px 0;color:var(--h-muted);font-size:11px;display:flex;gap:6px;align-items:center}
+#horizon-atlas .hz .stage-button{width:24px!important;padding:4px!important}
+#horizon-atlas .hz .git-entry{display:flex;align-items:center;gap:3px}
+#horizon-atlas .hz .git-entry>button:first-child{flex:1;min-width:0}
+#horizon-atlas .hz .commit-form{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+#horizon-atlas .hz input,#horizon-atlas .hz textarea,#horizon-atlas .hz select{border:1px solid var(--h-line);border-radius:10px;background:var(--h-surface);padding:10px 12px;min-width:0;max-width:100%;accent-color:var(--h-accent)}
+#horizon-atlas .hz .commit-form textarea{resize:vertical;min-height:72px;width:100%;font-size:12px}
+#horizon-atlas .hz .commit-form button{font-size:12px}
+#horizon-atlas .hz .editor{min-width:0;flex:1;background:var(--h-surface);border-radius:var(--h-radius) var(--h-radius) 0 0;margin-right:12px;display:flex;flex-direction:column;position:relative}
+#horizon-atlas .hz .editor-content{min-height:0;flex:1;overflow:auto;scrollbar-width:thin}
+#horizon-atlas .hz .editor-top{height:48px;display:flex;align-items:center;border-bottom:1px solid var(--h-line);padding:0 12px 0 5px;gap:7px}
+#horizon-atlas .hz .file-tabs{display:flex;gap:3px;align-items:center;min-width:0;flex:1;overflow:auto;scrollbar-width:none}
+#horizon-atlas .hz .file-tab{display:flex;align-items:center;gap:0;border-bottom:2px solid transparent;height:48px;flex-shrink:0;color:var(--h-muted)}
+#horizon-atlas .hz .file-tab.active{border-color:var(--h-accent);color:var(--h-ink)}
+#horizon-atlas .hz .file-tab>button:first-child{padding:10px 7px 10px 10px;gap:8px;font-size:12px;border-radius:6px}
+#horizon-atlas .hz .file-tab>.tab-close{width:24px;min-height:24px;height:24px;padding:5px;margin-right:8px;border-radius:50%;font-size:12px}
+#horizon-atlas .hz .file-tab .dirty{font-size:10px}
+#horizon-atlas .hz .crumb{padding:18px 25px 12px;color:var(--h-muted);font-size:11px;display:flex;align-items:center;gap:8px}
+#horizon-atlas .hz .code{font:var(--h-font)/1.9 "SFMono-Regular",Consolas,"Liberation Mono",monospace;padding:8px 20px 26px 5px;flex:1;min-width:0}
+#horizon-atlas .hz .code-line{display:grid;grid-template-columns:45px minmax(0,1fr);min-height:24px}
+#horizon-atlas .hz .ln{color:var(--h-muted);opacity:.65;user-select:none;text-align:right;padding-right:17px;font-size:11px}
+#horizon-atlas .hz .source{white-space:pre-wrap;overflow-wrap:anywhere}
+#horizon-atlas .hz .keyword{color:var(--h-accent)}
+#horizon-atlas .hz .string{color:var(--h-green)}
+#horizon-atlas .hz .number{color:var(--h-blue)}
+#horizon-atlas .hz .comment{color:var(--h-muted)}
+#horizon-atlas .hz .code-line.add{background:var(--h-green-bg)}
+#horizon-atlas .hz .code-line.remove{background:var(--h-red-bg)}
+#horizon-atlas .hz .diff-meta{display:flex;gap:12px;align-items:center;padding:13px 22px;border-bottom:1px solid var(--h-line);font-size:12px;flex-wrap:wrap}
+#horizon-atlas .hz .diff-meta .plus{color:var(--h-green)}
+#horizon-atlas .hz .diff-meta .minus{color:var(--h-red)}
+#horizon-atlas .hz .empty{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;min-height:300px;color:var(--h-muted)}
+#horizon-atlas .hz .empty svg{width:30px;height:30px;color:var(--h-accent)}
+#horizon-atlas .hz .terminal{border-top:1px solid var(--h-line);padding:12px 20px;font:12px/1.8 "SFMono-Regular",Consolas,monospace;background:var(--h-low)}
+#horizon-atlas .hz .terminal-head{display:flex;align-items:center;justify-content:space-between;font:12px/1.5 -apple-system,sans-serif;margin-bottom:9px}
+#horizon-atlas .hz .assistant{width:292px;flex-shrink:0;background:var(--h-surface);border-radius:var(--h-radius) var(--h-radius) 0 0;margin-right:12px;display:flex;flex-direction:column;padding:16px;gap:20px;z-index:4}
+#horizon-atlas .hz .assistant-head{display:flex;align-items:center;gap:8px;font-weight:500}
+#horizon-atlas .hz .ai-intro{padding-top:18px;display:flex;flex-direction:column;gap:10px}
+#horizon-atlas .hz .ai-orb{height:42px;width:42px;border-radius:15px;display:grid;place-items:center;background:var(--h-tonal);color:var(--h-accent);margin-bottom:4px}
+#horizon-atlas .hz .ai-intro h3{font-size:19px;font-weight:500;margin:0;letter-spacing:-.3px}
+#horizon-atlas .hz .ai-intro p{font-size:12px;color:var(--h-muted);margin:0;line-height:1.8}
+#horizon-atlas .hz .suggestion{border:1px solid var(--h-line);border-radius:12px;justify-content:flex-start;white-space:normal;text-align:left;font-size:12px;padding:11px 12px}
+#horizon-atlas .hz .ai-messages{font-size:12px;line-height:1.9;display:flex;flex-direction:column;gap:14px}
+#horizon-atlas .hz .ai-question{background:var(--h-tonal);color:var(--h-on-tonal);padding:10px 13px;border-radius:14px 14px 4px 14px;align-self:flex-end}
+#horizon-atlas .hz .ai-composer{margin-top:auto;background:var(--h-low);border:1px solid var(--h-line);border-radius:16px;padding:10px}
+#horizon-atlas .hz .ai-context{font-size:10px;display:flex;gap:5px;align-items:center;color:var(--h-muted);padding:0 3px 6px;overflow-wrap:anywhere}
+#horizon-atlas .hz .ai-composer textarea{background:transparent;border:0;width:100%;resize:none;min-height:64px;padding:6px 4px;font-size:12px}
+#horizon-atlas .hz .ai-send-row{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--h-muted)}
+#horizon-atlas .hz .ai-send-row button{margin-left:auto;min-height:30px;width:30px;padding:5px}
+#horizon-atlas .hz .statusbar{height:36px;display:flex;align-items:center;gap:17px;padding:0 22px 0 95px;font-size:10px;color:var(--h-muted)}
+#horizon-atlas .hz .statusbar button{font-size:11px;padding:2px 5px;min-height:26px;gap:5px}
+#horizon-atlas .hz .status-right{margin-left:auto;display:flex;gap:16px}
+#horizon-atlas .hz[data-layout="tabs"] .project-rail{display:none}
+#horizon-atlas .hz[data-layout="tabs"] .project-tabs{display:flex}
+#horizon-atlas .hz[data-layout="tabs"] .workspace-body{height:596px;min-height:596px}
+#horizon-atlas .hz[data-layout="tabs"] .sidebar{padding-left:18px;width:calc(var(--h-tree) + 18px)}
+#horizon-atlas .hz[data-layout="tabs"] .statusbar{padding-left:22px}
+#horizon-atlas .hz[data-sidebar="false"] .sidebar{display:none}
+#horizon-atlas .hz[data-projectbar="false"] .project-rail,#horizon-atlas .hz[data-projectbar="false"] .project-tabs{display:none}
+#horizon-atlas .hz[data-projectbar="false"] .editor{margin-left:12px}
+#horizon-atlas .hz[data-status="false"] .statusbar{visibility:hidden}
+#horizon-atlas .hz[data-focus="true"] .sidebar,#horizon-atlas .hz[data-focus="true"] .project-rail,#horizon-atlas .hz[data-focus="true"] .project-tabs,#horizon-atlas .hz[data-focus="true"] .assistant,#horizon-atlas .hz[data-focus="true"] .terminal{display:none}
+#horizon-atlas .hz[data-focus="true"] .editor{margin-left:12px}
+#horizon-atlas .hz[data-focus="true"] .workspace-body{height:644px;min-height:644px}
+#horizon-atlas .hz[data-focus="true"] .statusbar{visibility:hidden}
+#horizon-atlas .hz[data-focus="false"] .leave-focus{display:none}
+#horizon-atlas .hz .leave-focus{font-size:11px;color:var(--h-accent)}
+#horizon-atlas .hz .overlay{position:absolute;inset:0;z-index:20;background:light-dark(#20162b40,#07030b80);display:flex;justify-content:center;align-items:center;padding:24px;backdrop-filter:blur(3px)}
+#horizon-atlas .hz .dialog{background:var(--h-low);border-radius:28px;width:min(750px,100%);box-shadow:0 16px 60px var(--h-shadow);max-height:660px;display:flex;flex-direction:column;overflow:hidden}
+#horizon-atlas .hz .dialog-head{display:flex;align-items:center;padding:22px 26px 16px;gap:10px}
+#horizon-atlas .hz .dialog-title{font-size:22px;font-weight:500;letter-spacing:-.4px;margin:0}
+#horizon-atlas .hz .dialog-head .icon-btn{margin-left:auto}
+#horizon-atlas .hz .settings-body{display:grid;grid-template-columns:168px minmax(0,1fr);min-height:430px}
+#horizon-atlas .hz .settings-nav{padding:2px 12px 24px 18px;display:flex;flex-direction:column;gap:4px}
+#horizon-atlas .hz .settings-nav button{width:100%;justify-content:flex-start;gap:10px;padding:11px 13px;font-size:12px}
+#horizon-atlas .hz .settings-nav button.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .settings-pane{padding:8px 28px 25px 22px;overflow:auto;max-height:495px}
+#horizon-atlas .hz .settings-pane h3{font-size:16px;font-weight:500;margin:0 0 4px}
+#horizon-atlas .hz .settings-pane .subtext{font-size:11px;color:var(--h-muted);margin:0 0 16px;line-height:1.7}
+#horizon-atlas .hz .appearance-preview{border:1px solid var(--h-line);border-radius:12px;background:var(--h-surface);margin-top:12px;overflow:hidden}
+#horizon-atlas .hz .preview-path{font-size:11px;padding:9px 15px;background:var(--h-high);color:var(--h-muted)}
+#horizon-atlas .hz .preview-code{padding:14px 16px;font:var(--h-font)/1.9 "SFMono-Regular",Consolas,monospace}
+#horizon-atlas .hz .setting-group{margin-top:19px}
+#horizon-atlas .hz .group-label{font-size:11px;font-weight:500;color:var(--h-accent);margin:0 0 5px}
+#horizon-atlas .hz .setting-row{display:flex;align-items:center;gap:15px;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--h-line);font-size:12px}
+#horizon-atlas .hz .setting-row:last-child{border-bottom:0}
+#horizon-atlas .hz .setting-copy{flex:1;min-width:0}
+#horizon-atlas .hz .setting-copy small{display:block;font-size:11px;color:var(--h-muted);margin-top:3px;line-height:1.7}
+#horizon-atlas .hz .setting-row select{padding:7px 10px;font-size:12px;max-width:155px}
+#horizon-atlas .hz .toggle{position:relative;width:38px;height:23px;display:block;flex-shrink:0}
+#horizon-atlas .hz .toggle input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;z-index:1;cursor:inherit}
+#horizon-atlas .hz .toggle .track{position:absolute;inset:0;background:var(--h-line);border:1px solid var(--h-muted);border-radius:20px}
+#horizon-atlas .hz .toggle .track:after{content:"";position:absolute;left:3px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--h-muted)}
+#horizon-atlas .hz .toggle input:checked+.track{background:var(--h-accent);border-color:var(--h-accent)}
+#horizon-atlas .hz .toggle input:checked+.track:after{background:var(--h-on-accent);width:17px;height:17px;top:2px;left:17px}
+#horizon-atlas .hz .toggle input:focus-visible+.track{outline:2px solid var(--h-accent);outline-offset:3px}
+#horizon-atlas .hz .swatches{display:flex;gap:7px}
+#horizon-atlas .hz .swatches button{border:2px solid transparent;width:27px;min-height:27px;height:27px;padding:4px}
+#horizon-atlas .hz .swatches button.active{border-color:var(--h-ink)}
+#horizon-atlas .hz .swatches button span{display:block;width:17px;height:17px;border-radius:50%}
+#horizon-atlas .hz .dialog-foot{padding:12px 26px 18px;display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:11px;color:var(--h-muted);border-top:1px solid var(--h-line)}
+#horizon-atlas .hz .dialog-foot .auto-save{margin-right:auto;display:flex;align-items:center;gap:5px}
+#horizon-atlas .hz .compact-dialog{width:min(530px,100%)}
+#horizon-atlas .hz .dialog-content{padding:0 26px 24px;overflow:auto;max-height:490px}
+#horizon-atlas .hz .project-list{display:flex;flex-direction:column;gap:7px;margin:8px 0 18px}
+#horizon-atlas .hz .project-list button{padding:13px;justify-content:flex-start;gap:14px;border-radius:14px;width:100%;text-align:left}
+#horizon-atlas .hz .project-list button.active{background:var(--h-tonal);color:var(--h-on-tonal)}
+#horizon-atlas .hz .project-list .list-mark{width:36px;height:36px;flex-shrink:0;display:grid;place-items:center;border-radius:11px;background:var(--h-high);font-size:16px;font-weight:500}
+#horizon-atlas .hz .project-list .list-copy{flex:1;min-width:0}
+#horizon-atlas .hz .project-list .list-copy small{display:block;font-size:11px;color:var(--h-muted);font-weight:400;overflow:hidden;text-overflow:ellipsis}
+#horizon-atlas .hz .field{display:flex;flex-direction:column;gap:6px;margin:15px 0;font-size:12px}
+#horizon-atlas .hz .field input{width:100%}
+#horizon-atlas .hz .command-list{display:flex;flex-direction:column;gap:3px;margin-top:14px}
+#horizon-atlas .hz .command-list button{justify-content:flex-start;border-radius:9px;font-size:12px}
+#horizon-atlas .hz .command-list kbd{margin-left:auto}
+#horizon-atlas .hz .command-search{width:100%}
+#horizon-atlas .hz .menu{position:absolute;z-index:12;right:96px;top:57px;width:234px;background:var(--h-low);padding:8px;border-radius:16px;box-shadow:0 8px 30px var(--h-shadow);border:1px solid var(--h-line)}
+#horizon-atlas .hz .menu button{display:flex;justify-content:flex-start;gap:10px;width:100%;border-radius:9px;font-size:12px}
+#horizon-atlas .hz .menu .menu-label{padding:5px 12px;font-size:10px;color:var(--h-muted)}
+#horizon-atlas .hz .menu .tick{margin-left:auto}
+#horizon-atlas .hz .menu hr{border:0;border-top:1px solid var(--h-line);margin:6px}
+#horizon-atlas .hz .snackbar{position:absolute;z-index:30;left:50%;bottom:46px;transform:translateX(-50%);max-width:calc(100% - 32px);background:var(--h-ink);color:var(--h-bg);padding:11px 17px;border-radius:12px;font-size:12px;box-shadow:0 4px 14px var(--h-shadow);white-space:normal}
+#horizon-atlas .hz .shortcut-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--h-line);font-size:12px;gap:10px}
+#horizon-atlas .hz .plugin-symbol{width:32px;height:32px;background:var(--h-high);border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+#horizon-atlas .hz [hidden]{display:none!important}
+@media(max-width:950px){#horizon-atlas .hz .appbar{gap:10px;padding-left:16px}#horizon-atlas .hz .search-btn{min-width:36px;width:36px;padding:8px;background:transparent;margin:0}#horizon-atlas .hz .search-btn span,#horizon-atlas .hz .search-btn kbd{display:none}#horizon-atlas .hz .assistant{position:absolute;right:0;top:0;bottom:0;box-shadow:-12px 0 32px var(--h-shadow);border:1px solid var(--h-line)}#horizon-atlas .hz{--h-tree:195px}}
+@media(max-width:640px){#horizon-atlas .hz .appbar{height:104px;padding:12px 14px;align-content:center;flex-wrap:wrap;gap:8px}#horizon-atlas .hz .brand{width:100%;height:26px}#horizon-atlas .hz .app-actions{gap:2px}#horizon-atlas .hz .workspace-btn{padding:5px 6px}#horizon-atlas .hz .app-actions .search-btn{display:none}#horizon-atlas .hz .project-rail{width:62px;padding:8px 3px;gap:9px}#horizon-atlas .hz .rail-project{width:56px}#horizon-atlas .hz .project-symbol{width:44px}#horizon-atlas .hz .sidebar{position:absolute;left:62px;top:0;bottom:0;z-index:5;width:205px;background:var(--h-bg);border-radius:0 14px 14px 0;box-shadow:10px 0 30px var(--h-shadow);padding-left:10px}#horizon-atlas .hz .editor{margin-right:8px}#horizon-atlas .hz .editor-top{padding-right:6px;gap:3px}#horizon-atlas .hz .workspace-body{min-height:566px}#horizon-atlas .hz .code{padding-right:12px}#horizon-atlas .hz .code-line{grid-template-columns:35px minmax(0,1fr)}#horizon-atlas .hz .ln{padding-right:10px}#horizon-atlas .hz .crumb{padding-left:15px}#horizon-atlas .hz .statusbar{padding-left:16px;gap:8px}#horizon-atlas .hz .status-right span:last-child{display:none}#horizon-atlas .hz .assistant{width:min(310px,calc(100% - 10px));margin-right:5px}#horizon-atlas .hz .overlay{padding:10px}#horizon-atlas .hz .dialog{border-radius:20px;max-height:690px}#horizon-atlas .hz .dialog-head{padding:17px 18px 10px}#horizon-atlas .hz .dialog-title{font-size:20px}#horizon-atlas .hz .settings-body{display:flex;flex-direction:column;min-height:480px}#horizon-atlas .hz .settings-nav{flex-direction:row;overflow:auto;padding:4px 12px 9px;gap:4px}#horizon-atlas .hz .settings-nav button{width:auto;flex-shrink:0;padding:8px 11px}#horizon-atlas .hz .settings-nav svg{display:none}#horizon-atlas .hz .settings-pane{padding:13px 19px 20px;max-height:430px}#horizon-atlas .hz .dialog-foot{padding:12px 18px}#horizon-atlas .hz .setting-row{gap:10px}#horizon-atlas .hz .setting-row select{max-width:125px}#horizon-atlas .hz .project-tabs{overflow:auto;scrollbar-width:none;padding-left:9px}#horizon-atlas .hz .project-tabs .project-tab{font-size:11px;padding:7px 10px}#horizon-atlas .hz[data-layout="tabs"] .sidebar{left:0}#horizon-atlas .hz[data-layout="tabs"] .editor{margin-left:8px}#horizon-atlas .hz[data-layout="tabs"] .workspace-body{min-height:518px}#horizon-atlas .hz .menu{right:12px;top:101px}#horizon-atlas .hz .dialog-content{padding:0 18px 20px}#horizon-atlas .hz .auto-save{max-width:150px}#horizon-atlas .hz .file-tab>.tab-close{margin-right:3px}}
+@media(pointer:coarse){#horizon-atlas .hz .icon-btn{width:42px;height:42px}#horizon-atlas .hz .settings-nav button,#horizon-atlas .hz .menu button{min-height:44px}#horizon-atlas .hz input,#horizon-atlas .hz textarea,#horizon-atlas .hz select{font-size:16px}}
+@media(max-width:640px){#horizon-atlas .hz .workspace-body,#horizon-atlas .hz[data-focus="true"] .workspace-body{height:566px;min-height:566px}#horizon-atlas .hz[data-layout="tabs"] .workspace-body{height:518px;min-height:518px}#horizon-atlas .hz[data-layout="tabs"][data-focus="true"] .workspace-body{height:566px;min-height:566px}#horizon-atlas .hz .mobile-close{display:inline-flex}#horizon-atlas .hz .sidebar-title [data-action="projects"]{display:none}}

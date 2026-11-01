@@ -1,0 +1,74 @@
+{
+  "observedAt": "2026-11-01T23:29:37.951811+00:00",
+  "files": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg",
+      "bytes": 20061909,
+      "sha256": "18f9b7c93625e97ea3eb17741ecf9cd82fa8ba92fa88f18bb8d7b6359e271dbb"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+      "bytes": 15897468,
+      "sha256": "629090ca778081008267dd0bbee809a9ef52c794e9dc57358ec552318882579b"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/MacOS/horizon-desktop",
+      "bytes": 19911168,
+      "sha256": "5fa2ad4fa8af9dc05a88e1f3247f7ed1914add4e14f0bad4b98f15dea8ce5b13"
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app/Contents/Helpers/HorizonPicker.app/Contents/MacOS/HorizonPicker",
+      "bytes": 166816,
+      "sha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101"
+    }
+  ],
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/hdiutil",
+        "verify",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg"
+      ],
+      "exitCode": 0,
+      "stdout": "\u6b63\u5728\u68c0\u67e5\u201cProtective Master Boot Record\uff08MBR\uff1a0\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\nProtective Master Boot Record\uff08MBR\uff1a0\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $1B8DD1F0\n\u6b63\u5728\u68c0\u67e5\u201cGPT Header\uff08Primary GPT Header\uff1a1\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n    GPT Header\uff08Primary GPT Header\uff1a1\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $3A96B692\n\u6b63\u5728\u68c0\u67e5\u201cGPT Partition Data\uff08Primary GPT Table\uff1a2\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\nGPT Partition Data\uff08Primary GPT Table\uff1a\u5df2\u9a8c\u8bc1CRC32 $1ACE00F7\n\u6b63\u5728\u68c0\u67e5\u201c\uff08Apple_Free\uff1a3\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n                      \uff08Apple_Free\uff1a3\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $00000000\n\u6b63\u5728\u68c0\u67e5\u201cdisk image\uff08Apple_APFS\uff1a4\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n            disk image\uff08Apple_APFS\uff1a4\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $CA80364E\n\u6b63\u5728\u68c0\u67e5\u201c\uff08Apple_Free\uff1a5\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n                      \uff08Apple_Free\uff1a5\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $00000000\n\u6b63\u5728\u68c0\u67e5\u201cGPT Partition Data\uff08Backup GPT Table\uff1a6\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\nGPT Partition Data\uff08Backup GPT Table\uff1a\uff1a\u5df2\u9a8c\u8bc1CRC32 $1ACE00F7\n\u6b63\u5728\u68c0\u67e5\u201cGPT Header\uff08Backup GPT Header\uff1a7\uff09\u201d\u7684\u6821\u9a8c\u548c\u2026\n     GPT Header\uff08Backup GPT Header\uff1a7\uff09\uff1a\u5df2\u9a8c\u8bc1CRC32 $1F063D9A\n\u5df2\u9a8c\u8bc1CRC32 $6B4B1FAD\n",
+      "stderr": "hdiutil: verify: checksum of \"/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg\" is VALID\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "-x",
+        "-k",
+        "/Users/chenpengxiang/Desktop/Horizon/artifacts/macos/Horizon-0.1.0-macOS-arm64.zip",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-search-empty-verify-6rqspjp3"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-search-empty-verify-6rqspjp3/Horizon.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "extractedMainMatches": true
+}

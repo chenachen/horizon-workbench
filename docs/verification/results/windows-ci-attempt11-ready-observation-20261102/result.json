@@ -1,0 +1,235 @@
+{
+  "commit": "a0bfe72158a611aec7f4b402ea993f18452e7902",
+  "run_id": 41357851822,
+  "job_id": 125001672925,
+  "run_url": "https://github.com/chenachen/horizon-workbench/actions/runs/41357851822",
+  "conclusion": "success",
+  "actual_nonzero_test_results": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.19,
+      "test_log": "2026-11-01T22:45:54.6784221Z test async_broker_wait_does_not_spend_cpu_budget ... ok",
+      "result_log": "2026-11-01T22:45:54.6787243Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s"
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.05,
+      "test_log": "2026-11-01T22:49:34.6344555Z test windows_process::tests::owned_job_stops_descendants_and_preserves_external ... ok",
+      "result_log": "2026-11-01T22:49:34.6347123Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.05s"
+    },
+    {
+      "name": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.44,
+      "test_log": "2026-11-01T22:49:35.7677826Z test processes::windows_tests::owned_conpty_chinese_resize_and_stop ... ok",
+      "result_log": "2026-11-01T22:49:35.7681348Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.44s"
+    },
+    {
+      "name": "files::tests::windows_storage_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.12,
+      "test_log": "2026-11-01T22:49:36.5866610Z test files::tests::windows_storage_roundtrip ... ok",
+      "result_log": "2026-11-01T22:49:36.5870377Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.12s"
+    },
+    {
+      "name": "agent::tests::windows_named_pipe_current_user_token_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.01,
+      "test_log": "2026-11-01T22:49:37.3852532Z test agent::tests::windows_named_pipe_current_user_token_roundtrip ... ok",
+      "result_log": "2026-11-01T22:49:37.3855468Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.01s"
+    },
+    {
+      "name": "settings::tests::windows_owned_credential_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.06,
+      "test_log": "2026-11-01T22:49:37.8796181Z test settings::tests::windows_owned_credential_roundtrip ... ok",
+      "result_log": "2026-11-01T22:49:37.8799257Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.06s"
+    },
+    {
+      "name": "agent::platform::tests::windows_fixed_assets_paths_zip_and_environment",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.0,
+      "test_log": "2026-11-01T22:49:38.2981338Z test agent::platform::tests::windows_fixed_assets_paths_zip_and_environment ... ok",
+      "result_log": "2026-11-01T22:49:38.2983159Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.00s"
+    },
+    {
+      "name": "agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.02,
+      "test_log": "2026-11-01T22:49:38.7773030Z test agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute ... ok",
+      "result_log": "2026-11-01T22:49:38.7777741Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.02s"
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 4.04,
+      "test_log": "2026-11-01T22:49:43.5139894Z test agent::tests::windows_managed_pi_chat_roundtrip ... ok",
+      "result_log": "2026-11-01T22:49:43.5143259Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 4.04s"
+    }
+  ],
+  "actual_test_total": 9,
+  "conpty": {
+    "actual_reply_count": 1,
+    "actual_reply_log": "2026-11-01T22:49:35.4587110Z Answered ConPTY initial cursor query at 1;1",
+    "actual_completion_log": "2026-11-01T22:49:35.7675960Z Windows ConPTY PID 5128: Chinese output, real size120x40, process exited and Job empty",
+    "seconds": 0.44,
+    "cleanup_TIMEOUT": false
+  },
+  "startup": {
+    "scope": "One compiled main EXE launch on an owned fresh Windows runner; no GUI interaction or performance acceptance.",
+    "commit": "a0bfe72158a611aec7f4b402ea993f18452e7902",
+    "executable": "D:\\a\\horizon-workbench\\horizon-workbench\\apps\\desktop\\src-tauri\\target\\release\\horizon-desktop.exe",
+    "executable_sha256": "742addb3f3f50fc82ef3bd9ad1de57f0005b86ee5ea9760c5be67f290cbea441",
+    "session_id": 2,
+    "webview2": [
+      {
+        "key": "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}",
+        "version": "131.0.2903.86"
+      }
+    ],
+    "data_paths": [
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+    ],
+    "data_paths_existed_before": [],
+    "data_retention": "Only directories absent before this launch are owned; leave them to ephemeral runner disposal. No directory/registry deletion.",
+    "status": "process_alive_after_5s",
+    "pid": 2696,
+    "start_time_utc": "2026-11-01T22:49:43.9651656Z",
+    "observed_utc": "2026-11-01T22:49:48.9810584Z",
+    "alive_after_5s": true,
+    "window_handle": "5022E",
+    "window_title": "Horizon",
+    "os_window_exists": true,
+    "frontend_interactive": "not_evaluated",
+    "window_responding": true,
+    "host_readiness": {
+      "scope": "Read-only observation of the two files written by fresh production setup; not an interaction or performance check.",
+      "status": "required_setup_files_observed",
+      "roaming_path": "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "required_files": [
+        "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop\\registry.json",
+        "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop\\extensions\\registry.json"
+      ],
+      "deadline_process_age_seconds": 30,
+      "poll_interval_ms": 250,
+      "started_utc": "2026-11-01T22:49:49.1037736Z",
+      "host_file_exists": true,
+      "extensions_file_exists": true,
+      "first_files_observed_utc": "2026-11-01T22:49:50.8918515Z",
+      "first_files_observed_process_age_ms": 6927.2815,
+      "host_schema_version": 1,
+      "extensions_schema_version": 1,
+      "host_registry_valid": true,
+      "extensions_registry_valid": true,
+      "observed_utc": "2026-11-01T22:49:50.9095160Z"
+    },
+    "frontend_readiness": {
+      "scope": "One read-only UIA query in the owned main window; no Invoke, focus, input or interaction.",
+      "started_utc": "2026-11-01T22:49:51.1548524Z",
+      "status": "button_not_observed",
+      "expected_pid": 2696,
+      "expected_start_utc_ticks": 639291701839651656,
+      "window_handle": "5022E",
+      "target_name": "打开本地项目",
+      "observed_utc": "2026-11-01T22:49:52.4913473Z",
+      "helper_exit_code": 0,
+      "observer_elapsed_ms": 2590
+    },
+    "cleanup": "Stopped only the exact spawned PID/start identity and its descendants via Process.Kill(true).",
+    "data_paths_created": [
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+    ]
+  },
+  "ready_observation_conclusion": {
+    "host_files": "Both mandatory fresh production registry files observed, schema/structure valid. First observed process age 6927.2815ms is a sampled upper bound, not setup duration/performance acceptance.",
+    "uia": "Single read-only helper completed exit0; target button was not observed at its snapshot. No retry or interaction occurred. Frontend readiness/interaction remains unconfirmed.",
+    "script_failure": false,
+    "publication_gate": "Unchanged; readiness observation is diagnostic and did not create a new acceptance gate."
+  },
+  "installation_diagnostic": {
+    "failure_stage_lines": [],
+    "historical_a721_PERMISSION_DENIED": "Unexplained; original attempt09 remains frozen. This success does not establish cause/resolution."
+  },
+  "release": {
+    "tag": "windows-a0bfe72158a6",
+    "url": "https://github.com/chenachen/horizon-workbench/releases/tag/windows-a0bfe72158a6",
+    "target_commitish": "a0bfe72158a611aec7f4b402ea993f18452e7902",
+    "prerelease": true,
+    "draft": false,
+    "asset_count": 5,
+    "installers": [
+      {
+        "name": "Horizon_0.1.0_x64-setup.exe",
+        "bytes": 9953264,
+        "sha256": "5d0853d117246c5c166ca25a0ebfb1c55c0ce5472fdd019d509ba8a543a95a3b",
+        "url": "https://github.com/chenachen/horizon-workbench/releases/download/windows-a0bfe72158a6/Horizon_0.1.0_x64-setup.exe",
+        "check": "Published SHA256SUMS equals GitHub-computed asset digest; installer bytes not downloaded by this agent"
+      },
+      {
+        "name": "Horizon_0.1.0_x64_en-US.msi",
+        "bytes": 14328290,
+        "sha256": "39995d4051ed63fa5e715b1910e9cfc8f1a05f347441fda8d00b70bf4ed0c4d0",
+        "url": "https://github.com/chenachen/horizon-workbench/releases/download/windows-a0bfe72158a6/Horizon_0.1.0_x64_en-US.msi",
+        "check": "Published SHA256SUMS equals GitHub-computed asset digest; installer bytes not downloaded by this agent"
+      }
+    ]
+  },
+  "small_asset_receipts": [
+    {
+      "name": "build-identity.txt",
+      "bytes": 437,
+      "sha256": "0b5c9e6b44d53969a68bd448439d7288731d84a2205c8e72326ddb420421a837",
+      "matches_release_digest": true,
+      "source": "current public release small asset, gh release download"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 190,
+      "sha256": "1712488946a4abf492150f79f32e4282361cbd1a8aaff0f45969a6e5efa49c73",
+      "matches_release_digest": true,
+      "source": "current public release small asset, gh release download"
+    },
+    {
+      "name": "startup-smoke.json",
+      "bytes": 3108,
+      "sha256": "e51ae0e869efc54521b945c79f78197858fa87d0d8d088d88a124a47d6635a43",
+      "matches_release_digest": true,
+      "source": "current public release small asset, gh release download"
+    }
+  ],
+  "binary_downloads_by_this_agent": false,
+  "not_covered": [
+    "UIA observation of enabled visible Open local project button",
+    "Interactive Windows frontend acceptance",
+    "2-second end-to-end startup performance",
+    "Root cause or resolution of historical a721 install PERMISSION_DENIED"
+  ],
+  "job_log": {
+    "sha256": "8759b11ee307f5b53225e33128acd2e1dc317da8a6f76748f9f6e7149dbb6444",
+    "bytes": 205179,
+    "CRLF": 2363,
+    "preservation": "GitHub connector decoded content UTF-8, preserving BOM/ANSI/CRLF"
+  }
+}

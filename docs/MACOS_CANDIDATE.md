@@ -1,6 +1,6 @@
 # Horizon macOS 可用候选包
 
-更新于 2026-11-02。本页记录当前安装包与使用入口；功能验收仍在继续，尚未标记完整首版交付。
+更新于 2026-11-02。本页记录当前安装包与使用入口；完整首版验收仍在继续，尚未标记全部范围完成。
 
 Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版说明](WINDOWS_TRIAL.md)。本页对应 Apple Silicon macOS 本机包。
 
@@ -30,22 +30,23 @@ Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版�
 - Pi 使用真实 1.4.0 进程与本机受控协议服务验证；回复由测试服务产生。尚未使用你的服务地址或密钥，真实供应商连通性未验证。
 - Pi 已完成隔离副本授权写入、修改版本冲突拒绝、断连后显式继续、认证失败保留输入等原生验证。带活动资源退出已完成取消、保存失败保留、正常退出清退及重开无自动重放；会话凭据重开后确实失效。
 - Git 外部分支刷新、跨项目返回后的写任务停止入口已完成定向原生复验；启动器、插件安装/更新/启停/卸载/恢复及实际进程清退也已留证。各项具体范围见[需求矩阵](verification/MACOS_ACCEPTANCE.md)。
+- 对单个 Horizon 进程限制联网后，本地文件保存与 Git diff 均可用；一次远程 Fetch 返回 DNS 解析失败，随后仍能继续本地操作并正常退出。原始操作和本机验收范围见[离线记录](verification/results/offline-boundary-nfr006-audit-20261102/audit.json)。
 - 未保存表单使用系统确认框。真实按钮可访问性、Esc、Return 默认继续编辑和原焦点恢复已复验。崩溃后草稿正文与选区可恢复，原文件不自动覆盖；本包还修复了恢复成功后旧提示残留，并用现存草稿完成一次原生复验。
 - 此前 18:40 构建（主程序 `12ed732b…`）已测零/单/双 Pi 场景：Horizon 连同辅助进程及 Pi 的物理内存中位数分别为 189.748 / 275.585 / 380.263 MB；单 Pi 全窗口峰值 320.952 MB。受控服务另计，流式输出 CPU 不作为空闲指标；方法、原始数据与边界见[资源测量](verification/results/pi-fixed-performance-20261101/README.md)。
-- 当前包完成[20 次独立进程启动](verification/results/final-startup20-observer-20261102/README.md)：端到端中位数 707.410 ms、P95 751.406 ms，包含自动化和可访问性探测开销，系统缓存保留。全部原始尝试、正常退出和测量后额外进程的独立清退记录均保留。
+- 此前主程序 `4d4bca76…` 包完成[20 次独立进程启动](verification/results/final-startup20-observer-20261102/README.md)：端到端中位数 707.410 ms、P95 751.406 ms，包含自动化和可访问性探测开销，系统缓存保留。全部原始尝试、正常退出和测量后额外进程的独立清退记录均保留。
 - 此前 `9316ce98…` 包全功能卸载后的 125 秒实测，包含全部归属辅助进程的稳态物理内存均值为 228.012 MB，高于 200 MB 建议值；空闲 CPU 均值为单核 0.375%。没有将此值标为内存预算通过，见[测量原件](verification/results/plugins-empty-host-performance-20261102/README.md)。
-- 八布局的剩余视觉对照继续后置。Windows x64 已有原生 CI 测试和 OS 窗口记录，前端交互与 macOS Intel 尚未实测。
+- 八布局视觉对照仍在进行；本轮补齐 AI 空态、外观方案空态和编辑工作台的正确状态，并修正已确认的组件比例。Windows x64 已有原生 CI 测试和 OS 窗口记录，前端交互与 macOS Intel 尚未实测。
 
 ## 构建身份
 
-当前安装包于 2026-11-02 05:44（UTC+8）构建完成。本次变更为恢复成功后的草稿提示刷新；实际组件竞态检查、完整构建、签名与安装校验、原生定点恢复和 20 次启动均已完成。此前系统表单确认、Git、插件清退、Pi 和编辑器修复保留，各旧场景继续绑定其原测试包。
+当前安装包于 2026-11-02 07:27（UTC+8）构建完成。本次主要修正样式：AI 侧栏与石墨模式切换外形、Git 提交区和弹窗、插件弹窗与搜索框、外观方案保存行，以及搜索空态的简短说明与换行。完整构建、签名、安装包与安装副本校验已完成；本轮原生定点复查正在进行。此前系统表单确认、Git、插件清退、Pi 和编辑器修复保留，功能及性能场景继续绑定其原测试包。
 
 | 文件 | 字节数 | SHA-256 |
 | --- | ---: | --- |
-| DMG | 20,059,870 | `a49f61b55c7e1a16b02b18d16eba6e2242ff466b6d4eb0d91d9546d5d60a99e9` |
-| ZIP | 15,897,916 | `1dde538557c0ef8495ec92356a5efde7193744567437c99004fc43608c47108f` |
-| 应用主程序 | 19,911,168 | `4d4bca76055afb46f403811035a718b2b8a8f892ca2e7e8ddc5ed2c5dbe5a135` |
+| DMG | 20,061,909 | `18f9b7c93625e97ea3eb17741ecf9cd82fa8ba92fa88f18bb8d7b6359e271dbb` |
+| ZIP | 15,897,468 | `629090ca778081008267dd0bbee809a9ef52c794e9dc57358ec552318882579b` |
+| 应用主程序 | 19,911,168 | `5fa2ad4fa8af9dc05a88e1f3247f7ed1914add4e14f0bad4b98f15dea8ce5b13` |
 
-[构建与打包回执](verification/results/recovery-notice-release-20261102/release-build-receipt.json) · [归档与签名校验](verification/results/recovery-notice-release-20261102/archive-verification.json) · [安装副本校验](verification/results/recovery-notice-release-20261102/installation-copy.json)
+[构建与打包回执](verification/results/search-empty-polish-release-20261102/release-build-receipt.json) · [归档与签名校验](verification/results/search-empty-polish-release-20261102/archive-verification.json) · [安装副本校验](verification/results/search-empty-polish-release-20261102/installation-copy.json)
 
 从源码复现：在仓库根目录执行 `npm ci`，再运行 `npm run desktop:release`。需要指南中列出的 Node.js、Rust 与 Xcode Command Line Tools；输出仍为上方两个安装包路径。重新构建后的摘要可能不同，以新回执为准。

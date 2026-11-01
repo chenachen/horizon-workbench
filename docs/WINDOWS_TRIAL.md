@@ -1,10 +1,10 @@
 # Horizon Windows 试用版
 
-面向 Windows x64。[当前试用版已发布](https://github.com/chenachen/horizon-workbench/releases/tag/windows-4d27cfb22304)，对应 commit `4d27cfb22304f784bb811dce7365dfffbaf3b14d`。后续构建见[发行列表](https://github.com/chenachen/horizon-workbench/releases)。
+面向 Windows x64。[当前试用版已发布](https://github.com/chenachen/horizon-workbench/releases/tag/windows-a0bfe72158a6)，对应 commit `a0bfe72158a611aec7f4b402ea993f18452e7902`。后续构建见[发行列表](https://github.com/chenachen/horizon-workbench/releases)。
 
 ## 安装
 
-下载 [setup.exe](https://github.com/chenachen/horizon-workbench/releases/download/windows-4d27cfb22304/Horizon_0.1.0_x64-setup.exe) 或 [MSI](https://github.com/chenachen/horizon-workbench/releases/download/windows-4d27cfb22304/Horizon_0.1.0_x64_en-US.msi)，选择一种安装即可。两份安装器已实际下载，大小与 SHA-256 同时匹配 GitHub 资产摘要和 [SHA256SUMS.txt](https://github.com/chenachen/horizon-workbench/releases/download/windows-4d27cfb22304/SHA256SUMS.txt)。
+下载 [setup.exe](https://github.com/chenachen/horizon-workbench/releases/download/windows-a0bfe72158a6/Horizon_0.1.0_x64-setup.exe) 或 [MSI](https://github.com/chenachen/horizon-workbench/releases/download/windows-a0bfe72158a6/Horizon_0.1.0_x64_en-US.msi)，选择一种安装即可。两份安装器已实际下载，大小与 SHA-256 同时匹配 GitHub 资产摘要和 [SHA256SUMS.txt](https://github.com/chenachen/horizon-workbench/releases/download/windows-a0bfe72158a6/SHA256SUMS.txt)。
 
 应用运行无需 Node.js 或 Rust。安装器会检查 WebView2；缺少时需要联网下载其安装程序。当前为未签名试用版，公司电脑能否安装取决于公司的软件策略。
 
@@ -21,7 +21,7 @@ Git 面板需要 Git for Windows。在“设置 → Git”检测 Git；未找到
 
 ## 验证范围
 
-该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、终端、存储、Pi 通信与凭据等 9 项测试各实际通过 1 次，包括真实终端的中文输出、窗口尺寸调整与停止，以及真实 Pi 运行时的受控短会话。主进程启动 5 秒后仍存活，Horizon 窗口存在且响应。完整结果见[构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41354321875)。该观察没有检验 Windows 前端可操作性或安装器点击流程；macOS 功能记录见[验收入口](verification/README.md)。
+该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、终端、存储、Pi 通信与凭据等 9 项测试各实际通过 1 次，包括真实终端的中文输出、窗口尺寸调整与停止，以及真实 Pi 运行时的受控短会话。主进程启动 5 秒后仍存活，Horizon 窗口存在且响应；随后已观察到宿主初始化生成有效配置数据。只读自动化未找到欢迎页按钮，因此 Windows 前端交互与安装器点击流程仍未验。完整结果见[构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41357851822)，macOS 功能记录见[验收入口](verification/README.md)。
 
 此前 `a721bfc` 的一次 Windows CI 在 Pi 受管安装时返回 `Access is denied`。本包对应安装与聊天测试通过，旧失败原因仍未定位，原始记录保留在[安装失败归档](verification/results/windows-ci-attempt09-pi-install-20261102/README.md)。
 
