@@ -1,6 +1,6 @@
 # Locked third-party dependency inventory
 
-Target: `aarch64-apple-darwin`. 197 installed npm packages; 335 Rust crates.
+Target: `aarch64-apple-darwin`. 197 installed npm packages; 336 Rust crates.
 
 Installed npm dependency closure and target-filtered Cargo normal/build/root-dev graph. Conservative dependency inventory; not a symbol-level bundle census. Rust proc-macros/build dependencies are classified separately. Platform npm compiler bindings are build tools even when declared optional dependencies.
 
@@ -511,6 +511,7 @@ MPL-2.0 crates include their exact unmodified `.crate` source archive in `source
 | tower-layer | 0.3.3 | runtime | MIT | [LICENSE](cargo/tower-layer-0.3.3/LICENSE) |
 | tower-service | 0.3.3 | runtime | MIT | [LICENSE](cargo/tower-service-0.3.3/LICENSE) |
 | tower | 0.5.3 | runtime | MIT | [LICENSE](cargo/tower-0.5.3/LICENSE) |
+| tracing-attributes | 0.1.31 | build | MIT | [LICENSE](cargo/tracing-attributes-0.1.31/LICENSE) |
 | tracing-core | 0.1.36 | runtime | MIT | [LICENSE](cargo/tracing-core-0.1.36/LICENSE) · [LICENSE](cargo/tracing-core-0.1.36/src/spin/LICENSE) |
 | tracing | 0.1.44 | runtime | MIT | [LICENSE](cargo/tracing-0.1.44/LICENSE) |
 | trash | 5.2.9 | runtime | MIT | [LICENSE.txt](cargo/trash-5.2.9/LICENSE.txt) |

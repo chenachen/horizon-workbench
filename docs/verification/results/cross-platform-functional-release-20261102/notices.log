@@ -1,0 +1,24 @@
+error: failed to download `tracing-attributes v0.1.31`
+
+Caused by:
+  attempting to make an HTTP request, but --offline was specified
+Traceback (most recent call last):
+  File "/Users/chenpengxiang/Desktop/Horizon/scripts/archive-licenses.py", line 318, in <module>
+    main()
+    ~~~~^^
+  File "/Users/chenpengxiang/Desktop/Horizon/scripts/archive-licenses.py", line 303, in main
+    summary = generate(output, args.target, sources)
+  File "/Users/chenpengxiang/Desktop/Horizon/scripts/archive-licenses.py", line 252, in generate
+    cargo = cargo_inventory(output, sources, target)
+  File "/Users/chenpengxiang/Desktop/Horizon/scripts/archive-licenses.py", line 176, in cargo_inventory
+    metadata = json.loads(subprocess.check_output(["cargo", "metadata", "--format-version", "1", "--locked", "--offline", "--filter-platform", target, "--manifest-path", str(ROOT / manifest)], cwd=ROOT))
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 472, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['cargo', 'metadata', '--format-version', '1', '--locked', '--offline', '--filter-platform', 'aarch64-apple-darwin', '--manifest-path', '/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/Cargo.toml']' returned non-zero exit status 101.

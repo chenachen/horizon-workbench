@@ -1,6 +1,6 @@
 # Horizon Windows 试用版
 
-面向 Windows x64。当前正在准备首轮 Windows CI；本页将在安装器生成后补入对应 commit、下载地址和校验值。
+面向 Windows x64。当前正在执行 Windows CI；本页将在安装器生成后补入对应 commit、下载地址和校验值。
 
 ## 安装
 

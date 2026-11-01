@@ -431,6 +431,8 @@ fn executable(value: &str) -> Result<PathBuf> {
     Err(err("DEPENDENCY_UNAVAILABLE", format!("找不到可执行程序：{value}")))
 }
 fn shell_arguments(shell: &str, script: &str) -> Vec<String> {
+    #[cfg(not(windows))]
+    let _ = shell;
     #[cfg(windows)]
     {
         let name = Path::new(shell).file_name().unwrap_or_default().to_string_lossy().to_ascii_lowercase();
@@ -2350,8 +2352,8 @@ fn handle(
                     .into(),
                 depends_on: vec![],
                 command: LaunchCommand::Exec {
-                    executable: shell.into(),
-                    args: shell_args,
+                    executable: shell.clone(),
+                    args: shell_args.clone(),
                 },
                 cwd: ".".into(),
                 env: BTreeMap::new(),
@@ -2382,7 +2384,7 @@ fn handle(
                 &Resolved {
                     step,
                     executable: PathBuf::from(shell),
-                    args: vec!["-l".into()],
+                    args: shell_args,
                     cwd: directory,
                 },
                 &project,

@@ -1,0 +1,37 @@
+{
+  "observedAt": "2026-11-01T17:37:16.289798+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "ca71ca1125f994c19254f5b56866ac64fe3f5f023ab3d2a1784d7611e0f1811a",
+  "mainSha256": "f544319950e9eb3021d774f04302dcc25680d5416e5d1d123ad5bfe5026decbc",
+  "bytes": 19910976,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": true,
+  "rollbackBackup": "/Users/chenpengxiang/Applications/.Horizon-cross-platform-previous.app",
+  "rollbackBackupRetained": true,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-cross-platform-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-cross-platform-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+diff --git a/licenses/third-party/upstream/SOURCES.json b/licenses/third-party/upstream/SOURCES.json
+--- a/licenses/third-party/upstream/SOURCES.json
++++ b/licenses/third-party/upstream/SOURCES.json
+@@ -64,6 +64,16 @@
+       "path": "tauri-plugin-2.7.2/LICENSE-APACHE-2.0",
+       "url": "https://raw.githubusercontent.com/tauri-apps/tauri/59b63ab500da9859f12d8888c3298bc29bba0b92/LICENSE-APACHE-2.0",
+       "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
++    },
++    {
++      "path": "webview2-rs-dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE",
++      "url": "https://raw.githubusercontent.com/wravery/webview2-rs/dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE",
++      "sha256": "0dcf41516e608bbcb6cdc5229feb7b86fe4a643b85e7df251133c93408fdac73"
++    },
++    {
++      "path": "webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE",
++      "url": "https://raw.githubusercontent.com/wravery/webview2-rs/edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE",
++      "sha256": "0dcf41516e608bbcb6cdc5229feb7b86fe4a643b85e7df251133c93408fdac73"
+     }
+   ],
+   "packageSupplements": {
+@@ -149,6 +159,15 @@
+     ],
+     "cargo:selectors@0.38.0": [
+       "spdx/MPL-2.0.txt"
++    ],
++    "cargo:webview2-com-macros@0.8.1": [
++      "webview2-rs-dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE"
++    ],
++    "cargo:webview2-com@0.39.1": [
++      "webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE"
++    ],
++    "cargo:webview2-com-sys@0.39.1": [
++      "webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE"
+     ]
+   },
+   "note": "Original release-commit license files; SPDX canonical terms accompany upstream declarations that contain links rather than full terms. Package metadata preserves upstream authors; no copyright text is invented."
+diff --git a/licenses/third-party/upstream/webview2-rs-dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE b/licenses/third-party/upstream/webview2-rs-dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE
+new file mode 100644
+--- /dev/null
++++ b/licenses/third-party/upstream/webview2-rs-dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2021 Bill Avery
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+diff --git a/licenses/third-party/upstream/webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE b/licenses/third-party/upstream/webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE
+new file mode 100644
+--- /dev/null
++++ b/licenses/third-party/upstream/webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2021 Bill Avery
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.

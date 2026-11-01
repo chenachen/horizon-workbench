@@ -519,7 +519,7 @@
   "externalTools": [
     "System Git and user shells are not redistributed",
     "Pi is separately installed on explicit request; it and Node are not bundled in Horizon",
-    "macOS system frameworks and WebKit are supplied by the operating system"
+    "macOS system frameworks/WebKit and Windows WebView2 are external platform runtimes"
   ],
   "lockfiles": [
     {
@@ -529,15 +529,15 @@
       "source": "package-lock.json"
     },
     {
-      "bytes": 127133,
+      "bytes": 139912,
       "path": "locks/apps/desktop/src-tauri/Cargo.lock",
-      "sha256": "0cec472668539cea1981f2eb26e1ad9a5b58110c32c1e2d753038a330ab09dad",
+      "sha256": "81c687d99c52ffa962fbd0b4583cb47ca26b829be6b49c0a3c9c3442c232bbd3",
       "source": "apps/desktop/src-tauri/Cargo.lock"
     },
     {
-      "bytes": 17119,
+      "bytes": 19447,
       "path": "locks/apps/git-service/Cargo.lock",
-      "sha256": "a779c42feb1421a5795c9f4a46887dbeec47a82087a8d9161149293fcb1e56d3",
+      "sha256": "b93fca517e25233948941492be861cc70b7ef41a89df616cef35a749df0c1449",
       "source": "apps/git-service/Cargo.lock"
     },
     {
@@ -8115,7 +8115,7 @@
       "authors": [
         "Wez Furlong"
       ],
-      "checksum": "b4a596a2b3d2752d94f51fac2d4a96737b8705dddd311a32b9af47211f08671e",
+      "checksum": null,
       "consumers": [
         {
           "manifest": "apps/desktop/src-tauri/Cargo.toml",
@@ -8140,7 +8140,28 @@
       "roles": [
         "runtime"
       ],
-      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "source": null,
+      "vendoredSource": {
+        "files": {
+          "Cargo.toml": "e1a7320efbb4b088352f5ac87c805e2ad96df571b994ac1397e6d6ffdf981c61",
+          "Cargo.toml.orig": "963885e09998ceab9a1ad2465ce883d9a8a2ab7a0e972400f98e0356aded46f9",
+          "LICENSE.md": "191c46fcf52061382b1c51a70311eb9081381cc158e5899f3739473a9432185b",
+          "examples/bash.rs": "bfa0f3d7e2243725952d2c0ac629f6fdbcf94e7d0a85587a43208d3d2b685f74",
+          "examples/narrow.rs": "5ac4831f51e1661d8866a181cf6150fdd29de1a334255fc42a101498aefc4b99",
+          "examples/whoami.rs": "a6504d8f5c98d8ec50b88975f3f3b59573d0da1d914ef1d05bc550960e69ec4b",
+          "examples/whoami_async.rs": "c89932053c4f407353d2159f9a40f794cc52e46da745cf1ed2e3c79a54a72791",
+          "src/cmdbuilder.rs": "78ff982fce6316174eecdd5c5a0c3af4b6c5a93b02503397e76a30224678493f",
+          "src/lib.rs": "8b1d45c520f17c8be2d51069bb6ed46a6fa612d0395bc55a5b6e0ef30cc1c004",
+          "src/serial.rs": "4c1db2410641b15af1c52d17b3e03a294f11d1a843744e27101d22dc91dbd793",
+          "src/unix.rs": "14c85213b32074d71c8af334531fd027d6a0558dee830282620c88bab056c4b3",
+          "src/win/conpty.rs": "8af0d7654aad62aaa67685b7b8550bc638b732360f7de1357cc5b0a35bc47ca1",
+          "src/win/mod.rs": "c983e63d15800f73ac05105a69ec2b53fea482c066ea5559682bd024561f999a",
+          "src/win/procthreadattr.rs": "0483a5b43794181f02b20175ba15dc4e913663208d94e4a48aa9cc2cd77fdb1c",
+          "src/win/psuedocon.rs": "f9af06eef1915b2ba7202d403c01efe28ac22c425d9b2467acdc1bc8d57f6f3d"
+        },
+        "modified": true,
+        "path": "apps/desktop/src-tauri/vendor/portable-pty"
+      },
       "version": "0.9.0"
     },
     {
@@ -12724,6 +12745,40 @@
       ],
       "source": "registry+https://github.com/rust-lang/crates.io-index",
       "version": "0.5.3"
+    },
+    {
+      "authors": [
+        "Tokio Contributors <team@tokio.rs>",
+        "Eliza Weisman <eliza@buoyant.io>",
+        "David Barsky <dbarsky@amazon.com>"
+      ],
+      "checksum": "7490cfa5ec963746568740651ac6781f701c9c5ea257c58e057f3ba8cf69e8da",
+      "consumers": [
+        {
+          "manifest": "apps/desktop/src-tauri/Cargo.toml",
+          "roles": [
+            "build"
+          ]
+        }
+      ],
+      "ecosystem": "cargo",
+      "id": "cargo:tracing-attributes@0.1.31",
+      "license": "MIT",
+      "name": "tracing-attributes",
+      "notices": [
+        {
+          "bytes": 1062,
+          "path": "cargo/tracing-attributes-0.1.31/LICENSE",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "source": "crate:tracing-attributes@0.1.31/LICENSE"
+        }
+      ],
+      "repository": "https://github.com/tokio-rs/tracing",
+      "roles": [
+        "build"
+      ],
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "version": "0.1.31"
     },
     {
       "authors": [

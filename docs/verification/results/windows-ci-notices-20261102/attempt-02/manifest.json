@@ -1,0 +1,73 @@
+{
+  "prepared_at_utc": "2026-11-01T17:36:30.129848+00:00",
+  "status": "PREPARED_ONLY_NOT_APPLIED",
+  "baseline_commit": "e5d5d2128ffba0cca4ee607adf1157f44c3ffb22",
+  "failed_run": 41331576958,
+  "failed_job": 124922626818,
+  "files": [
+    {
+      "path": "licenses/third-party/upstream/SOURCES.json",
+      "before_sha256": "96a214863fa299f186fcf51efe47978b1bc8763c365150068fed5a7c8111edbb",
+      "after_sha256": "70a534c8f50f08898023eb2c2a91380584e4a99ac4bc2144b8f6de9f2aa34a67",
+      "bytes": 7127,
+      "live_matches_before": true
+    },
+    {
+      "path": "licenses/third-party/upstream/webview2-rs-dffa41a8a46d3f5565eefbff2de57d38d399f158/LICENSE",
+      "before_sha256": null,
+      "after_sha256": "0dcf41516e608bbcb6cdc5229feb7b86fe4a643b85e7df251133c93408fdac73",
+      "bytes": 1067,
+      "live_matches_before": true
+    },
+    {
+      "path": "licenses/third-party/upstream/webview2-rs-edc2caf886175ccaebe86078c9cfe1ae2a187328/LICENSE",
+      "before_sha256": null,
+      "after_sha256": "0dcf41516e608bbcb6cdc5229feb7b86fe4a643b85e7df251133c93408fdac73",
+      "bytes": 1067,
+      "live_matches_before": true
+    }
+  ],
+  "patch_sha256": "a5ae56b2724f31d1e3b9befcba2735540079045eff65bb5d252de8f7b393ca17",
+  "audit": {
+    "locked_Windows_target_packages": 344,
+    "missing_before": [
+      "webview2-com-macros@0.8.1",
+      "webview2-com@0.39.1",
+      "webview2-com-sys@0.39.1"
+    ],
+    "exact_upstream_commits": [
+      "dffa41a8a46d3f5565eefbff2de57d38d399f158",
+      "edc2caf886175ccaebe86078c9cfe1ae2a187328"
+    ],
+    "same_original_LICENSE_sha256": "0dcf41516e608bbcb6cdc5229feb7b86fe4a643b85e7df251133c93408fdac73",
+    "crate_checksums_verified_against_lock": true
+  },
+  "unchanged": {
+    "archive_script_sha256": "6f27ea725cdb45f970b3397ce8994006d8719df884c80c5215bb60e47b9fc8d1",
+    "workflow_sha256": "b821332793a5142eda740844b320c8226783edc3b9e8aa8e8486e0251124c868",
+    "desktop_lock_sha256": "81c687d99c52ffa962fbd0b4583cb47ca26b829be6b49c0a3c9c3442c232bbd3",
+    "git_lock_sha256": "b93fca517e25233948941492be861cc70b7ef41a89df616cef35a749df0c1449"
+  },
+  "receipt_files": [
+    "job.log",
+    "windows-cache-fetch.json",
+    "windows-notice-audit.json",
+    "upstream-source-receipt.json",
+    "production-cargo-inventory-result.json"
+  ],
+  "native_CI_rerun": "pending Root apply/push",
+  "product_modified": false,
+  "remote_mutations": false,
+  "validation": {
+    "unchanged_production_functions": [
+      "supplemental_sources",
+      "cargo_inventory"
+    ],
+    "target": "x86_64-pc-windows-msvc",
+    "pinned_files_verified": 15,
+    "cargo_packages": 344,
+    "missing_notices": 0,
+    "duration_seconds": 2.014235249997,
+    "result_sha256": "00f0bc3d1e71f04d7aa0e8bf78489bd3a46cc15e254d7a488578727dde804152"
+  }
+}
