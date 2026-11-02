@@ -18,6 +18,12 @@ BASE = ROOT / "licenses/third-party"
 UPSTREAM = BASE / "upstream"
 MANIFESTS = ["apps/desktop/src-tauri/Cargo.toml", "apps/git-service/Cargo.toml", "apps/extension-host/Cargo.toml"]
 NPM_BINARY_PARENTS = {
+    "@rolldown/binding-linux-x64-musl": "rolldown",
+    "@rolldown/binding-linux-arm64-musl": "rolldown",
+    "@rollup/rollup-linux-x64-musl": "rollup",
+    "@rollup/rollup-linux-arm64-musl": "rollup",
+    "@tauri-apps/cli-linux-x64-musl": "@tauri-apps/cli",
+    "@tauri-apps/cli-linux-arm64-musl": "@tauri-apps/cli",
     "@esbuild/linux-x64": "esbuild",
     "@esbuild/linux-arm64": "esbuild",
     "@rollup/rollup-linux-x64-gnu": "rollup",

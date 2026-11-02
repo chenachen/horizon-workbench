@@ -151,8 +151,10 @@ def main():
     output = Path(args.artifacts).resolve()
     output.mkdir(parents=True, exist_ok=True)
     home = Path(tempfile.mkdtemp(prefix='isolated-home-', dir=output))
+    # xvfb-run stores its display cookie outside the isolated HOME; retain its
+    # explicit XAUTHORITY pointer, but never inherit arbitrary account/API secrets.
     env = {key: os.environ[key] for key in (
-        'PATH', 'DISPLAY', 'WAYLAND_DISPLAY', 'DBUS_SESSION_BUS_ADDRESS', 'XDG_RUNTIME_DIR',
+        'PATH', 'DISPLAY', 'XAUTHORITY', 'WAYLAND_DISPLAY', 'DBUS_SESSION_BUS_ADDRESS', 'XDG_RUNTIME_DIR',
         'LANG', 'LC_ALL', 'LD_LIBRARY_PATH', 'LIBGL_ALWAYS_SOFTWARE', 'GDK_BACKEND',
         'WEBKIT_DISABLE_DMABUF_RENDERER', 'WEBKIT_DISABLE_COMPOSITING_MODE'
     ) if key in os.environ}
