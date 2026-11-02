@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { call, onEvent, nativeAvailable } from '../../bridge';
-import { applyAppearance, type AppearanceSnapshot, type AppearanceTarget, type GeometryKey, type LayoutDefinition, type ThemeDefinition } from '../../../../../packages/appearance/src';
+import { applyAppearance, normalizeColor, type AppearanceSnapshot, type AppearanceTarget, type GeometryKey, type LayoutDefinition, type ThemeDefinition } from '../../../../../packages/appearance/src';
+import { platform } from '../../platform';
 import { builtinLayouts, builtinThemes } from '../../../../../packages/plugins/src/builtins';
 import type { ExtensionState } from '../../../../../packages/plugins/src/types';
 import { backgroundObjectUrl } from './background';
@@ -99,6 +100,14 @@ export function AppearanceProvider({ onError, children }: { onError?: (error: un
   }, [extensions]);
   const layout = layouts.find(item => item.id === snapshot?.effective.layoutId) ?? builtinLayouts[0];
   const theme = themes.find(item => item.id === snapshot?.effective.themeId) ?? builtinThemes[0];
+  const mode = snapshot?.effective.mode === 'system' ? (systemDark ? 'dark' : 'light') : snapshot?.effective.mode ?? 'light';
+  const colors = { ...theme[mode], ...snapshot?.effective.colorsByTheme[theme.id]?.[mode] };
+  const nativeBackground = snapshot && normalizeColor(colors.background);
+  const nativeText = snapshot && normalizeColor(colors.text);
+  useEffect(() => {
+    if (platform !== 'windows' || !nativeAvailable() || !nativeBackground || !nativeText) return;
+    void call('window_theme_sync', { background: nativeBackground, text: nativeText }).catch(error => errorRef.current?.(error));
+  }, [nativeBackground, nativeText]);
   useLayoutEffect(() => {
     if (snapshot) {
       applyAppearance(document.documentElement, snapshot, layout, theme, systemDark, backgroundUrl);

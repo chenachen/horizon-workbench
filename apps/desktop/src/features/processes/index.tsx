@@ -793,6 +793,7 @@ function useLauncher(projectId: string, onError?: Props["onError"]) {
   };
   return {
     profiles,
+    setProfiles,
     runs,
     selected,
     setSelected,
@@ -883,13 +884,14 @@ export function LauncherPanel({ projectId, onError, onDirtyChange }: Props & { o
         { profile: draft, expectedRevision: draft.revision || null },
         projectId,
       );
-      await model.reload();
+      model.setProfiles(profiles => [...profiles.filter(profile => profile.profileId !== saved.profileId), saved]);
       model.setSelected(saved.profileId);
       setDraft(null);
-      setNotice("");
+      setNotice("方案已保存");
       window.dispatchEvent(new CustomEvent("horizon:launch-profiles-changed", {
         detail: { projectId, profileId: saved.profileId },
       }));
+      await model.reload().catch(error => model.report(`方案已保存，但列表刷新失败：${errorMessage(error)}`));
     } catch (e) {
       model.report(e);
     } finally {
@@ -1074,7 +1076,7 @@ export function LauncherPanel({ projectId, onError, onDirtyChange }: Props & { o
           <div className="process-toolbar">
             <h3>{draft.revision ? "编辑方案" : "新建方案"}</h3>
             <button disabled={saving} onClick={() => void save()}>
-              保存方案
+              {saving ? "正在保存…" : "保存方案"}
             </button>
             <button
               disabled={saving}
@@ -1083,6 +1085,7 @@ export function LauncherPanel({ projectId, onError, onDirtyChange }: Props & { o
               取消
             </button>
           </div>
+          {model.error ? <p className="process-error" role="alert">{model.error}</p> : null}
           <label>
             方案名称
             <input

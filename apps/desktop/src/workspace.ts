@@ -4,6 +4,14 @@ export interface Project {
   state: 'registered' | 'activating' | 'active' | 'idle' | 'sleeping' | 'unavailable';
   accessError?: { code: string; message: string };
 }
+
+/** Prefer the next project in navigation order, then the nearest previous one. */
+export function projectAfterRemoval(projects: Project[], removedId: string): Project | undefined {
+  const index = projects.findIndex(project => project.id === removedId);
+  if (index < 0) return undefined;
+  return [...projects.slice(index + 1), ...projects.slice(0, index).reverse()]
+    .find(project => project.state !== 'unavailable');
+}
 export interface ProjectSession {
   schemaVersion: 1; revision: number; tabs: Array<{ fileId: string; pinned: boolean; selection: { anchor: number; head: number }; scrollTop: number }>;
   activeFileId: string | null; expandedEntryIds: string[]; searchDraft: string; commitDraft: string;

@@ -9,6 +9,8 @@ pub mod picker;
 pub mod processes;
 #[cfg(windows)]
 mod windows_process;
+#[cfg(windows)]
+mod window_appearance;
 pub mod projects;
 pub mod protocol;
 pub mod search;
@@ -177,7 +179,12 @@ pub async fn dispatch(state:Arc<HostState>,app:AppHandle,call:Call,channel:Optio
                 let status=tokio::process::Command::new("/usr/bin/open").arg(url).status().await?;if !status.success(){return Err(HostError::new("IO_ERROR","系统打开链接失败"));}
             }
             Ok(json!({"opened":true}))}
-        "project_pick_directory"=>{allowed(&call.params,&[])?;let path=picker::pick(&app,&call,picker::Request::folder()).await?;match path{Some(path)=>{let display=path.to_string_lossy().into_owned();Ok(json!({"selectionToken":state.register_selection(path),"displayPath":display}))},None=>Ok(json!({"selectionToken":null}))}}
+        "window_theme_sync"=>{
+            if call.scope["kind"] != "app" { return Err(HostError::new("PERMISSION_DENIED", "窗口外观需应用作用域")); }
+            #[cfg(windows)] { window_appearance::sync(&app, &call.params).await }
+            #[cfg(not(windows))] { Ok(json!({"updated":false})) }
+        }
+        "project_pick_directory"=>{allowed(&call.params,&[])?;let path=picker::pick(&app,&call,picker::Request::folder()).await?;match path{Some(path)=>{let display=state::display_path(&path);Ok(json!({"selectionToken":state.register_selection(path),"displayPath":display}))},None=>Ok(json!({"selectionToken":null}))}}
         "settings_pick_git"=>{allowed(&call.params,&[])?;let selected=picker::pick(&app,&call,picker::Request::file().title("选择 Git 可执行文件")).await?;let path=selected.map(|path|path.to_string_lossy().into_owned());Ok(json!({"path":path}))}
         "document_relocate_prepare"=>files::relocate_prepare(state,app,call).await,
         "app_exit_apply"|"project_close_apply"=>close_apply(state,app,call).await,

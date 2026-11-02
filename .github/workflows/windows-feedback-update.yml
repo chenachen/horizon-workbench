@@ -1,0 +1,118 @@
+name: Windows feedback update build
+
+on:
+  push:
+    branches: [feature/windows-feedback-update-20261102]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-feedback-update-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows-x64:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CARGO_TERM_COLOR: always
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Record native build identity
+        run: |
+          New-Item -ItemType Directory -Force artifacts/windows | Out-Null
+          $hostInfo = rustc -vV
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not ($hostInfo -match '^host: x86_64-pc-windows-msvc$')) {
+            throw 'Expected native Windows x64 MSVC toolchain'
+          }
+          @(
+            "commit=$env:GITHUB_SHA"
+            "run=$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"
+            "runner=$env:RUNNER_OS/$env:RUNNER_ARCH"
+            "image=$env:ImageOS/$env:ImageVersion"
+            "node=$(node --version)"
+            "npm=$(npm --version)"
+            "git=$(git --version)"
+            $hostInfo
+          ) | Set-Content artifacts/windows/build-identity.txt
+      - name: Install locked JavaScript dependencies
+        run: |
+          npm ci 2>&1 | Tee-Object artifacts/windows/npm-ci.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Archive notices for the actual Windows dependency graph
+        run: |
+          node scripts/prepare-ripgrep.mjs x86_64-pc-windows-msvc
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          foreach ($manifest in @('apps/desktop/src-tauri/Cargo.toml', 'apps/git-service/Cargo.toml', 'apps/extension-host/Cargo.toml')) {
+            cargo fetch --locked --target x86_64-pc-windows-msvc --manifest-path $manifest
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          python scripts/archive-licenses.py --target x86_64-pc-windows-msvc 2>&1 | Tee-Object artifacts/windows/notices.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check Windows feedback regressions
+        run: node --test apps/desktop/tests/windows-feedback.test.mjs
+      - name: Check editor store regressions
+        run: |
+          npx --no-install vitest run --root packages/editor/src store.test.ts --maxWorkers=1 --no-file-parallelism 2>&1 | Tee-Object artifacts/windows/editor-store-tests.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build native sidecars and installers
+        run: |
+          npm run desktop:release -- --bundles nsis,msi 2>&1 | Tee-Object artifacts/windows/build.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Collect installers and checksums
+        run: |
+          $bundle = 'apps/desktop/src-tauri/target/release/bundle'
+          $exe = @(Get-ChildItem "$bundle/nsis/*.exe" -File)
+          $msi = @(Get-ChildItem "$bundle/msi/*.msi" -File)
+          if ($exe.Count -eq 0 -or $msi.Count -eq 0) {
+            throw 'Build did not produce both NSIS .exe and MSI installers'
+          }
+          @($exe + $msi) | Copy-Item -Destination artifacts/windows
+          Get-ChildItem artifacts/windows -File | Where-Object Extension -In '.exe', '.msi' |
+            Sort-Object Name | ForEach-Object {
+              $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+              "$hash  $($_.Name)"
+            } | Set-Content -Encoding ascii artifacts/windows/SHA256SUMS.txt
+      - name: Assemble portable application update
+        run: |
+          $out = "artifacts/windows/application-update"
+          New-Item -ItemType Directory -Force $out | Out-Null
+          Copy-Item "apps/desktop/src-tauri/target/release/horizon-desktop.exe" "$out/horizon-desktop.exe"
+          foreach ($name in @("horizon-git", "horizon-extension-host", "horizon-rg")) {
+            Copy-Item "apps/desktop/src-tauri/binaries/$name-x86_64-pc-windows-msvc.exe" "$out/$name.exe"
+          }
+          Copy-Item "LICENSE" "$out/LICENSE"
+          Copy-Item "THIRD_PARTY_NOTICES.md" "$out/THIRD_PARTY_NOTICES.md"
+          New-Item -ItemType Directory -Force "$out/licenses" | Out-Null
+          Copy-Item "apps/desktop/src-tauri/licenses/ripgrep" "$out/licenses/ripgrep" -Recurse
+          Copy-Item "apps/extension-host/licenses" "$out/licenses/quickjs" -Recurse
+          Copy-Item "licenses/third-party" "$out/licenses/third-party" -Recurse
+          Get-ChildItem $out -File -Recurse | Sort-Object FullName | ForEach-Object {
+            $relative = [IO.Path]::GetRelativePath((Resolve-Path $out), $_.FullName).Replace("\", "/")
+            "$((Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant())  $relative"
+          } | Set-Content -Encoding ascii "$out/UPDATE-SHA256SUMS.txt"
+          Compress-Archive -Path "$out/*" -DestinationPath "artifacts/windows/Horizon-application-update.zip"
+      - name: Upload Windows update package and build logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: horizon-windows-feedback-${{ github.sha }}
+          path: |
+            artifacts/windows/*.zip
+            artifacts/windows/*.exe
+            artifacts/windows/*.msi
+            artifacts/windows/*.txt
+            artifacts/windows/*.log
+          if-no-files-found: warn
+          retention-days: 7

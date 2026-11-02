@@ -19,7 +19,9 @@ const theme = EditorView.theme({
   '.cm-content': { padding: '12px 0', caretColor: 'var(--h-accent)' },
   '.cm-gutters': { color: 'var(--h-muted)', backgroundColor: 'var(--h-surface)', border: 'none', paddingRight: '6px', fontSize: '10px' },
   '.cm-lineNumbers .cm-gutterElement': { paddingLeft: '18px', minWidth: '32px' },
-  '.cm-activeLine,.cm-activeLineGutter': { backgroundColor: 'var(--h-low)' },
+  // drawSelection paints behind the text, so line backgrounds must let it show through.
+  '.cm-activeLine': { backgroundColor: 'color-mix(in srgb, var(--h-accent) 10%, transparent)' },
+  '.cm-activeLineGutter': { backgroundColor: 'var(--h-low)' },
   '&.cm-focused .cm-selectionBackground,.cm-selectionBackground': { backgroundColor: 'var(--h-tonal) !important' },
   '.cm-cursor': { borderLeftColor: 'var(--h-accent)' },
   '.cm-panels': { backgroundColor: 'var(--h-low)', color: 'var(--h-ink)', borderColor: 'var(--h-line)' },
