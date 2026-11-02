@@ -80,7 +80,22 @@ class WebDriver:
         return self.command('POST', '/element', {'using': using, 'value': selector})[ELEMENT]
 
     def click(self, selector: str, using='css selector'):
-        element = self.wait(lambda: self.find(selector, using), f'element {selector}')
+        def ready():
+            element = self.find(selector, using)
+            if not self.command('GET', f'/element/{element}/enabled'):
+                return None
+            # W3C has an enabled endpoint, but no portable displayed endpoint.
+            # Inspect visibility only; the interaction remains a WebDriver click.
+            # An option is interacted with through its visible parent select.
+            visible = self.js("""
+let element = arguments[0];
+if (element.tagName === 'OPTION') element = element.closest('select');
+if (!element || !element.getClientRects().length) return false;
+const style = getComputedStyle(element);
+return style.display !== 'none' && style.visibility !== 'hidden' && style.visibility !== 'collapse';
+""", {ELEMENT: element})
+            return element if visible else None
+        element = self.wait(ready, f'visible enabled element {selector}')
         self.command('POST', f'/element/{element}/click', {})
 
     def button_text(self, text: str, prefix='//'):
@@ -206,7 +221,7 @@ def main():
             # Use the visible first-run entry, not the hidden navigation button.
             wd.click('.welcome button.all-projects')
             wd.button_text('新建工作区')
-            wd.wait(lambda: wd.js('return !!document.querySelector("dialog[open] input[placeholder=\"例如：个人项目\"]");'), 'workspace form')
+            wd.wait(lambda: wd.js('return !!document.querySelector(arguments[0]);', 'dialog[open] input[placeholder="例如：个人项目"]'), 'workspace form')
             wd.type('dialog[open] input[placeholder="例如：个人项目"]', 'Cancelled fixture')
             wd.button_text('取消', '//dialog[@open]//')
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'cancelled modal dismissed')
@@ -216,7 +231,7 @@ def main():
             wd.button_text('创建工作区', '//dialog[@open]//')
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'created workspace modal dismissed')
             wd.wait(lambda: any(w['name'] == workspace_name for w in wd.bootstrap()['workspaces']), 'workspace persisted through native IPC')
-            assert wd.js('return Array.from(document.querySelector("select[aria-label=\"切换工作区\"]").options).some(o => o.text === arguments[0]);', workspace_name)
+            assert wd.js('return Array.from(document.querySelector(arguments[0]).options).some(o => o.text === arguments[1]);', 'select[aria-label="切换工作区"]', workspace_name)
         check('real workspace UI cancel, reopen, create and persistence', workspace_flow)
         capture('02-created-workspace')
         def theme_flow():
@@ -227,7 +242,7 @@ def main():
             wd.button_text('完成', '//dialog[@open]//')
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'settings persisted and closed')
             wd.click('button[aria-label="设置"]')
-            wd.wait(lambda: wd.js('return document.querySelector("dialog[open] select[aria-label=\"明暗模式\"]")?.value === "dark";'), 'saved dark selection after reopen')
+            wd.wait(lambda: wd.js('return document.querySelector(arguments[0])?.value === arguments[1];', 'dialog[open] select[aria-label="明暗模式"]', 'dark'), 'saved dark selection after reopen')
             capture('03-settings-dark')
             wd.click('dialog[open] button[aria-label="关闭弹窗"]')
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'settings close')
@@ -239,7 +254,7 @@ def main():
             assert any(w['name'] == workspace_name for w in wd.bootstrap()['workspaces'])
             wd.wait(lambda: wd.js('return document.documentElement.dataset.mode === "dark";'), 'dark mode persisted across process restart')
             wd.click('button[aria-label="设置"]')
-            wd.wait(lambda: wd.js('return document.querySelector("dialog[open] select[aria-label=\"明暗模式\"]")?.value === "dark";'), 'settings persisted across native restart')
+            wd.wait(lambda: wd.js('return document.querySelector(arguments[0])?.value === arguments[1];', 'dialog[open] select[aria-label="明暗模式"]', 'dark'), 'settings persisted across native restart')
             wd.button_text('完成', '//dialog[@open]//')
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'final modal dismissal')
         check('workspace and theme survive native process restart', persisted)

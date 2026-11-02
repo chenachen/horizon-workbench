@@ -48,6 +48,8 @@ jobs:
         run: npm ci 2>&1 | tee artifacts/linux/npm-ci.log
       - name: Check frontend and platform regressions
         run: |
+          python3 scripts/check-linux-smoke-js.py
+          python3 scripts/test-linux-smoke-contract.py
           node --test scripts/linux-packaging.test.mjs scripts/linux-platform.test.mjs apps/desktop/tests/windows-feedback.test.mjs 2>&1 | tee artifacts/linux/platform-tests.log
           npm run desktop:check 2>&1 | tee artifacts/linux/typecheck.log
           for root in apps/desktop/src packages/editor/src packages/appearance/src; do
