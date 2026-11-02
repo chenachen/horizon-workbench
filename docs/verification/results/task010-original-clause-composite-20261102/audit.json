@@ -1,0 +1,618 @@
+{
+  "id": "MAC-TASK010-FINAL-NATIVE-COMPOSITE-001",
+  "auditedAt": "2026-11-02T05:16:37.075465+00:00",
+  "tasks": [
+    "TASK-010"
+  ],
+  "requirements": [
+    "REQ-FILE-002"
+  ],
+  "outcome": "pass",
+  "coverage": "partial",
+  "verdict": {
+    "macOSOriginalClauses": "complete by this exact new native chain plus separately identified retained clauses",
+    "overallTask010": "partial",
+    "windowsOccupiedFileCase": "untested",
+    "all39TasksFullClaimed": false
+  },
+  "method": {
+    "newNativeVisualReview": "Root directly reviewed the before/rename/refusal/Cancel/Save/restored original images and complete AX; process_sol does not repeat the image review.",
+    "thisAudit": "Read and freeze existing manifest/actions, raw AX and three owner receipts; bind retained fixed evidence by clause. No GUI, OS probe, appdata read, test, source edit or canonical write.",
+    "oldVisualReview": "Retained independent audits and prior source-card review remain separate runs/builds; not synthesized into one scene."
+  },
+  "originalTask": {
+    "source": "docs/implementation/IMPLEMENTATION_PLAN.md",
+    "line": 155,
+    "acceptance": "对已打开/未打开文件重命名；制造目标重名、Windows 占用和无权限；删除含未保存标签的目录；取消后内容、选区和树保持；成功后标签和树一致。",
+    "definition": "磁盘结果、文档身份和树状态一致；所有危险操作显示真实对象与后果，无静默永久删除。"
+  },
+  "preparationCard": {
+    "path": ".work/task010-original-clause-20261102/SHORT-CARD.md",
+    "historicalOnly": true,
+    "note": "Its then-missing local clauses are addressed by the new native chain below; its Windows limit remains. Original card unchanged."
+  },
+  "nativeIdentity": {
+    "pid": 18459,
+    "pidStart": "2026-11-02 11:52:18 +0800",
+    "birth": 2667048786342,
+    "mainSHA256": "5a0a6c5a6edca82751a54abe34d0dc40a798f60d49182b70a47bad21e233190d",
+    "basis": "All10 retained native metadata rows agree; root supplied actual installed identity. This audit does not perform a new process/hash probe.",
+    "platform": "macOS native",
+    "dimensionsDeclared": {
+      "width": 1280,
+      "height": 800
+    }
+  },
+  "fixture": {
+    "projectId": "e1111892-92c6-4985-b285-f5dcbe4d11f3",
+    "directory": "task010-1102",
+    "originalFile": "closed.txt",
+    "renamedFile": "renamed.txt",
+    "initialBytes": 85,
+    "initialSha256": "557e841f7c2fc567f7008982c16b3abb2615fe54627eb70eb04231db954b8107",
+    "fixtureReceipt": "docs/verification/results/task010-final-native-20261102/fixture-before.json"
+  },
+  "nativeActions": {
+    "manifest": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-manifest.jsonl",
+    "actions": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-actions.jsonl",
+    "framePairs": 10,
+    "actionRows": 33,
+    "singleCalls": {
+      "rename-unopened-confirm-once": 1,
+      "open-renamed-once": 1,
+      "append-owned-marker-once": 1,
+      "parent-trash-dialog-once": 1,
+      "parent-trash-confirm-once": 1,
+      "parent-trash-cancel-once": 1,
+      "save-owned-renamed-once": 1
+    }
+  },
+  "clauseBindings": [
+    {
+      "clause": "对已打开文件重命名；成功后标签和树一致",
+      "status": "pass-retained",
+      "evidenceId": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+      "raw": [
+        "docs/verification/results/editor-resume-20261101/011-rename-collision-preserves-both.jpg",
+        "docs/verification/results/editor-resume-20261101/012-rename-success-updates-tab.jpg"
+      ],
+      "observed": "Opened created.txt becomes renamed.txt; tab/tree agree; separate retained95de build."
+    },
+    {
+      "clause": "对未打开文件重命名",
+      "status": "pass-new-native",
+      "raw": [
+        {
+          "label": "before-unopened-expanded",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-unopened-expanded.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-unopened-expanded.ax.txt"
+        },
+        {
+          "label": "renamed-still-unopened",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-renamed-still-unopened.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-renamed-still-unopened.ax.txt"
+        },
+        {
+          "label": "opened-renamed-clean",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-opened-renamed-clean.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-opened-renamed-clean.ax.txt"
+        }
+      ],
+      "observed": "closed.txt is in expanded tree without an open tab; one UI rename to renamed.txt while still unopened, then one normal open. Cancel-time owned disk receipt later confirms old path absent and renamed85B exact original SHA."
+    },
+    {
+      "clause": "制造目标重名",
+      "status": "pass-retained",
+      "evidenceId": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+      "raw": [
+        "docs/verification/results/editor-resume-20261101/010-file-create-collision.jpg",
+        "docs/verification/results/editor-resume-20261101/011-rename-collision-preserves-both.jpg"
+      ],
+      "observed": "Create/rename conflict preserves both originals; no replay."
+    },
+    {
+      "clause": "无权限",
+      "status": "pass-retained-specific-branch",
+      "evidenceId": "MAC-FILE-OPERATIONS-NATIVE-REMAINDER-001",
+      "raw": [
+        "docs/verification/results/editor-native-picker-20261101/027-one-directory-denied-keeps-siblings.jpg",
+        "docs/verification/results/editor-native-picker-20261101/027-one-directory-denied-keeps-siblings.txt",
+        "docs/verification/results/editor-native-picker-20261101/028-directory-permission-auto-recovers.jpg",
+        "docs/verification/results/editor-native-picker-20261101/028-directory-permission-auto-recovers.txt"
+      ],
+      "observed": "Actual owned directory read returns Permission denied(os error13), siblings/editor survive; restoring0755 reloads child. Not a rename/trash permission-fault claim; no new mutation fault gate introduced."
+    },
+    {
+      "clause": "删除含未保存标签的目录",
+      "status": "pass-new-native-dirty-guard",
+      "raw": [
+        {
+          "label": "dirty-selection-before-trash",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.ax.txt"
+        },
+        {
+          "label": "parent-trash-confirmation",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-confirmation.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-confirmation.ax.txt"
+        },
+        {
+          "label": "parent-trash-after-confirm",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-after-confirm.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-after-confirm.ax.txt"
+        },
+        {
+          "label": "after-trash-cancel",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.ax.txt"
+        }
+      ],
+      "observed": "Target is parent task010-1102, containing the dirty renamed.txt tab. One Trash confirmation is refused; dialog retained, then one Cancel. Literal error:不能删除项目根目录或未保存文档. Directory and original disk bytes remain; no actual directory deletion claimed."
+    },
+    {
+      "clause": "取消后内容、选区和树保持",
+      "status": "pass-new-native",
+      "raw": [
+        {
+          "label": "dirty-selection-before-trash",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.ax.txt"
+        },
+        {
+          "label": "after-trash-cancel",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.ax.txt"
+        }
+      ],
+      "owner": "docs/verification/results/task010-final-native-20261102/cancel-disk-owner.json",
+      "selectedTextBefore": "OWNED_DIRTY_1102",
+      "selectedTextAfter": "OWNED_DIRTY_1102",
+      "selectedTextLength": 16,
+      "numericSelectionRange": null,
+      "selectionDirection": null,
+      "observed": "Same complete original body plus the sole16char marker, dirty tab, expanded parent and selected renamed child remain after Cancel. Exact numeric anchor/head/range direction were not measured and are not inferred."
+    },
+    {
+      "clause": "真实废纸篓、系统显示、失败不永久删除",
+      "status": "pass-retained",
+      "evidenceIds": [
+        "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+        "MAC-FILE-OPERATIONS-NATIVE-REMAINDER-001",
+        "MAC-HOST-TRASH-NATIVE-CANDIDATE7-001"
+      ],
+      "raw": [
+        "docs/verification/results/editor-resume-20261101/013-native-trash-result.jpg",
+        "docs/verification/results/editor-native-picker-20261101/029-finder-reveals-visual-ts.jpg",
+        "docs/verification/results/editor-native-picker-20261101/030-dirty-trash-refused-dialog-retained.jpg",
+        "docs/verification/results/editor-native-picker-20261101/031-dirty-trash-cancel-retains-text.jpg"
+      ],
+      "observed": "Retained positive native Trash removes tree/tab and preserves exact24B in Trash; product Reveal selects actual file; dirty single-file refusal retains disk/body. Source explains IO_ERROR-only failure, not an additional executed failure test."
+    },
+    {
+      "clause": "Windows占用",
+      "status": "untested-platform-boundary",
+      "observed": "No Windows locked-file native scenario is supplied; Windows CI success/ordinary rename and macOS open files do not prove it."
+    }
+  ],
+  "completion": {
+    "cancelDisk": {
+      "receipt": "docs/verification/results/task010-final-native-20261102/cancel-disk-owner.json",
+      "oldPathAbsent": true,
+      "directoryExists": true,
+      "bytes": 85,
+      "sha256": "557e841f7c2fc567f7008982c16b3abb2615fe54627eb70eb04231db954b8107",
+      "diskSameOriginal": true
+    },
+    "normalSaveAndRestoration": {
+      "raw": [
+        {
+          "label": "saved-owned-file",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-saved-owned-file.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-saved-owned-file.ax.txt"
+        },
+        {
+          "label": "restored-original-workbench",
+          "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-restored-original-workbench.jpg",
+          "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-restored-original-workbench.ax.txt"
+        }
+      ],
+      "receipt": "docs/verification/results/task010-final-native-20261102/saved-restored-owner.json",
+      "bytes": 101,
+      "sha256": "8d3bf714be6168d6bf949ffdf8fe5e8919ffd3d3c2fef860aab23b238ee866b5",
+      "exactOriginalPlusMarker": true,
+      "originalTabCountRestored": 12,
+      "sameFieldsAsTask031Final": {
+        "activeFileId": true,
+        "tabs": true,
+        "expandedEntryIds": true,
+        "searchDraft": true,
+        "commitDraft": true,
+        "layout": true
+      },
+      "acceptedPriorBaseline": "TASK031 final accepted state, including QA Markdown scroll68; not an invented earlier scroll baseline",
+      "allPassed": true
+    }
+  },
+  "retainedEvidence": [
+    {
+      "evidenceId": "MAC-EDITOR-FILEOPS-PREVIEW-PATHS-RESUME-001",
+      "audit": "docs/verification/results/editor-resume-e1-e2-audit/audit.json"
+    },
+    {
+      "evidenceId": "MAC-FILE-OPERATIONS-NATIVE-REMAINDER-001",
+      "audit": "docs/verification/results/editor-native-remainder-audit/audit.json"
+    },
+    {
+      "evidenceId": "MAC-HOST-TRASH-NATIVE-CANDIDATE7-001",
+      "audit": "docs/verification/results/native-trash-candidate7-audit/audit.json"
+    }
+  ],
+  "limitations": [
+    "OverallTASK010 remainspartial because Windows occupied-file native case is untested; no39-full claim.",
+    "Exact selection numeric endpoints and direction are unmeasured; only complete selectedText and visible/AX state preservation are claimed.",
+    "Permission proof is the retained actual directory-read denial/recovery, not a rename/trash denied mutation.",
+    "Different retained builds/runs are bound by separate clauses; no scene is assembled or new test run claimed.",
+    "Normal final Save changes only the new owned file from85B to101B; original old path remains absent and prior12tabs/session fields are restored.",
+    "This composite does not edit canonical evidence/matrix, release cleanup HOLDs or execute the frozen cleanup helper."
+  ],
+  "nativeFrameIndex": [
+    {
+      "label": "before-tree-unopened",
+      "startUTC": "2026-11-02T05:05:08.354Z",
+      "endUTC": "2026-11-02T05:05:08.438Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-tree-unopened.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-tree-unopened.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "before-unopened-expanded",
+      "startUTC": "2026-11-02T05:05:38.568Z",
+      "endUTC": "2026-11-02T05:05:38.677Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-unopened-expanded.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-unopened-expanded.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "renamed-still-unopened",
+      "startUTC": "2026-11-02T05:06:31.388Z",
+      "endUTC": "2026-11-02T05:06:31.479Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-renamed-still-unopened.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-renamed-still-unopened.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "opened-renamed-clean",
+      "startUTC": "2026-11-02T05:06:51.821Z",
+      "endUTC": "2026-11-02T05:06:51.910Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-opened-renamed-clean.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-opened-renamed-clean.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "dirty-selection-before-trash",
+      "startUTC": "2026-11-02T05:07:24.986Z",
+      "endUTC": "2026-11-02T05:07:25.077Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "parent-trash-confirmation",
+      "startUTC": "2026-11-02T05:08:05.795Z",
+      "endUTC": "2026-11-02T05:08:05.864Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-confirmation.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-confirmation.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "parent-trash-after-confirm",
+      "startUTC": "2026-11-02T05:08:15.820Z",
+      "endUTC": "2026-11-02T05:08:15.884Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-after-confirm.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-after-confirm.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "after-trash-cancel",
+      "startUTC": "2026-11-02T05:08:45.833Z",
+      "endUTC": "2026-11-02T05:08:45.914Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "saved-owned-file",
+      "startUTC": "2026-11-02T05:10:53.812Z",
+      "endUTC": "2026-11-02T05:10:53.898Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-saved-owned-file.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-saved-owned-file.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    },
+    {
+      "label": "restored-original-workbench",
+      "startUTC": "2026-11-02T05:11:26.102Z",
+      "endUTC": "2026-11-02T05:11:26.173Z",
+      "image": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-restored-original-workbench.jpg",
+      "ax": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-restored-original-workbench.ax.txt",
+      "declaredDimensions": {
+        "height": 800,
+        "width": 1280,
+        "ext": "jpg"
+      }
+    }
+  ],
+  "artifactCount": 47,
+  "artifacts": [
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-tree-unopened.jpg",
+      "sha256": "dc5bd43b7242808427f36727108c9053aa4b66642b344d2dcd67700306cd8c6c",
+      "bytes": 97429
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-tree-unopened.ax.txt",
+      "sha256": "2f6de8728a3a4acd1e0be88cf4f2e160110e2fa851f1469d9c21e970b8e07ba7",
+      "bytes": 10739
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-unopened-expanded.jpg",
+      "sha256": "13bf5d188c3a7be0d7f87642e925cdd28698215fbc13a162500e0c9f97816df8",
+      "bytes": 97595
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-before-unopened-expanded.ax.txt",
+      "sha256": "f4cae156ccf85190293e8dfa00dade73fb0931fd60a2ef9ca5f70530d1d61e89",
+      "bytes": 10868
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-renamed-still-unopened.jpg",
+      "sha256": "b59ff13db1e657d46b37b6bcdc0bc5370121c1e693f4e3a45b7868a58abbbc6b",
+      "bytes": 96934
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-renamed-still-unopened.ax.txt",
+      "sha256": "3ca509e6e35034a9209e3b1d0e6e26cb57759df2bc220ef89118fdc8601a147f",
+      "bytes": 10917
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-opened-renamed-clean.jpg",
+      "sha256": "52acf2ce30601d44f5cbdf06734971f93e31f5e450d2ef6fcf01cfacffd826b3",
+      "bytes": 93001
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-opened-renamed-clean.ax.txt",
+      "sha256": "2feeed9051fca952f17a6c6503d4a70ed1e6c0293f9a5424f72daff051450241",
+      "bytes": 11181
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.jpg",
+      "sha256": "c3028a79296486e06601ec3b98352ad6d6ac2062f69fcbda2c0845421622c773",
+      "bytes": 95087
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-dirty-selection-before-trash.ax.txt",
+      "sha256": "261608d92b0281108d60c4ff51f0d927d1e2ba4c332493d56519bcdac750a519",
+      "bytes": 11485
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-confirmation.jpg",
+      "sha256": "6c6978936cc391baa2140f4e51bdf141bd227eef45e214d28152a763653a4e08",
+      "bytes": 97383
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-confirmation.ax.txt",
+      "sha256": "cbb076b0a3894b4898159e180c396809c7b6ea124fe5924aa492b3561c449311",
+      "bytes": 855
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-after-confirm.jpg",
+      "sha256": "426dc49c344cef9ee13ef1d73258d89c35a8936e76a40e393c2e37449ce902e0",
+      "bytes": 98307
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-parent-trash-after-confirm.ax.txt",
+      "sha256": "cbb076b0a3894b4898159e180c396809c7b6ea124fe5924aa492b3561c449311",
+      "bytes": 855
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.jpg",
+      "sha256": "ac72346deabfb7e3b9137caf949e592b909c719471c13594326e2f0399113a65",
+      "bytes": 96687
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-after-trash-cancel.ax.txt",
+      "sha256": "fcf339f4cc30282a5c9e0aa49063d3e3a5fa7440910ab79709680d13abb1db18",
+      "bytes": 11613
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-saved-owned-file.jpg",
+      "sha256": "69758f70beea6195dd279e03da5ca0f8532296064df4350ff2be4e0fc979df98",
+      "bytes": 95939
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-saved-owned-file.ax.txt",
+      "sha256": "0a76a3e6f03fd8f32d6a5bde4b9c11c8a88736faf22aaf0a9e6a6612cf56e310",
+      "bytes": 11575
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-restored-original-workbench.jpg",
+      "sha256": "6377948f7c9dc6b8f83470ba329114facccda140bd4d007de6e714dde9cc0312",
+      "bytes": 97793
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-restored-original-workbench.ax.txt",
+      "sha256": "7a70c8c65f594123aa1e56f64038ce800c2bf00e9d7bece5549541e598b0372a",
+      "bytes": 10758
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-manifest.jsonl",
+      "sha256": "98ff4a0b2d0b31396f7791a28f2be3cb8aeeb0a986773856f52175298d8e61b5",
+      "bytes": 8679
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/5a0a-18459-1793595898601-actions.jsonl",
+      "sha256": "77684eb1f5da8cde32d232866d4fa6b545466b5f55bc4f343ceec60c646bc220",
+      "bytes": 4032
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/fixture-before.json",
+      "sha256": "ba9f3baae18d50435903215f3de50220c33fb5978a6de17b36573399b208ec2e",
+      "bytes": 929
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/cancel-disk-owner.json",
+      "sha256": "2faa4b7ae6851a387d975a9c5d8e6b07a33c7264ac226faa0afb557724928a67",
+      "bytes": 750
+    },
+    {
+      "path": "docs/verification/results/task010-final-native-20261102/saved-restored-owner.json",
+      "sha256": "44dc7c357d138e2c1ae01634558fe97cabc5785105d758222ace37efafdd13fb",
+      "bytes": 4360
+    },
+    {
+      "path": "docs/verification/results/editor-resume-e1-e2-audit/audit.json",
+      "sha256": "b3706fad01d3a8135ad77490ba8b83384ff1a9f190f83234e5cfdd5117777276",
+      "bytes": 21349
+    },
+    {
+      "path": "docs/verification/results/editor-native-remainder-audit/audit.json",
+      "sha256": "157f1da84ae47b8b625f871f3886888623bda053e014fb5a98649e6d566f48a7",
+      "bytes": 24343
+    },
+    {
+      "path": "docs/verification/results/native-trash-candidate7-audit/audit.json",
+      "sha256": "3fdfd982fb6c69d1be7b2c34a3024043183930ecd0f086cb17654d93813a8661",
+      "bytes": 1337
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/010-file-create-collision.jpg",
+      "sha256": "78f1505ed24b4cc330c34284a580b0dc0087f0643f1f322e7c23ac97e0798f20",
+      "bytes": 74232
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/011-rename-collision-preserves-both.jpg",
+      "sha256": "bce0d87ed5dc342f4078ea11c982b38a8b6a5059130ff620b5d986b9bb0ba5d5",
+      "bytes": 74567
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/012-rename-success-updates-tab.jpg",
+      "sha256": "1150e4cdfef003bafafe6d20578902be4670d0db8f04eeb049ac2cdbc4cd083f",
+      "bytes": 71274
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/013-native-trash-result.jpg",
+      "sha256": "4b1b475620c5711e3686083e3463b5d07829041a5b82fcaeb29308e80337f72d",
+      "bytes": 69050
+    },
+    {
+      "path": "docs/verification/results/editor-resume-20261101/actions.jsonl",
+      "sha256": "8153436fadea05b5d6347a41f6db596d8fc0bd4e4b3da43a39b4b2d5470b65cb",
+      "bytes": 19759
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/027-one-directory-denied-keeps-siblings.jpg",
+      "sha256": "4f8740e3beba4149e8f07e46a8efccdd25bd6c4d511acdc8882d8755a7dc950c",
+      "bytes": 148048
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/027-one-directory-denied-keeps-siblings.txt",
+      "sha256": "9a470902f4f2cc5393599f4889153f333c09776949f96f3206fcb0f962961771",
+      "bytes": 13768
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/028-directory-permission-auto-recovers.jpg",
+      "sha256": "ea65985ec68a0a1be5c81df14922d8d0dd67442e9306939d8cc24186be88664e",
+      "bytes": 148066
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/028-directory-permission-auto-recovers.txt",
+      "sha256": "0d1e2f644231279fa70a50a3d2034d7b4d8ed1189665d67432e1c49520b8f874",
+      "bytes": 13776
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/029-finder-reveals-visual-ts.jpg",
+      "sha256": "b7c42a52210550686dbb9ddb2ffc032ea230728d97b90884314c77e6ef9a1f44",
+      "bytes": 62862
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/029-finder-reveals-visual-ts.txt",
+      "sha256": "1a29c3c4dee1a2f09c1015068333d461470ad720832a66782797d0e67024a093",
+      "bytes": 5556
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/030-dirty-trash-refused-dialog-retained.jpg",
+      "sha256": "f06880b90d78fd2c15d65714511bbeab928299956e199de6ec9a3c5fbb1b8be4",
+      "bytes": 89252
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/030-dirty-trash-refused-dialog-retained.txt",
+      "sha256": "513556c95dad9356738411c3997c603d26ce7ff776d2b5cdbee10d31b2f46e22",
+      "bytes": 648
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/031-dirty-trash-cancel-retains-text.jpg",
+      "sha256": "27cd79f665f25691f9ca69fcd0c7736ceb378dacdd98efa79b74cfb4e5b9d83a",
+      "bytes": 88727
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/031-dirty-trash-cancel-retains-text.txt",
+      "sha256": "13ef2e27c81f9c5f922a606f185e3b8725ca34c6115502cde4be5bf413cd7398",
+      "bytes": 8443
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/actions.jsonl",
+      "sha256": "b3fe983a78f8bef5bb8932301d4f38e9269b04ce5f5d8d374bb56d1101347975",
+      "bytes": 9777
+    },
+    {
+      "path": "docs/verification/results/editor-native-picker-20261101/dirty-trash-refusal-disk.json",
+      "sha256": "cccbcdc9728eb239c4f2960072ae581960a375d40fbf81afd13ed69116011678",
+      "bytes": 347
+    },
+    {
+      "path": ".work/task010-original-clause-20261102/SHORT-CARD.md",
+      "sha256": "d3baa7ee469bf6a222216e5fafb2a276275aab447246b0eb45ef5c9ba981784c",
+      "bytes": 7181
+    },
+    {
+      "path": "docs/implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "5ce552f3749fffb3fd8d54706f4f9c3a26c50d5f29a47ab26d654f030c63c1b4",
+      "bytes": 67574
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+Window: "Horizon", App: Horizon.
+0 standard window Horizon, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
+			3 container
+				4 text Horizon 工作区
+				5 pop up button 切换工作区, Value: macOS 完整验收 1101
+				6 button 搜索文件或命令
+				7 button 切换侧栏, Help: 切换侧栏 ⌘ B
+				8 button AI 助手
+				9 button 插件中心
+				10 button 设置, Help: 设置 ⌘ ,
+			11 container 编辑区域
+				12 container 编辑工作台
+					13 tab group (selectable) 打开的文件
+						14 tab (selected) context.ts
+						15 button 关闭 context.ts
+						16 tab (selectable) example.txt
+						17 button 关闭 example.txt
+					18 button 文件标签操作
+					19 container context.ts
+						20 text context.ts
+						21 button 查找与替换
+						22 button (disabled) 保存文件, Help: 保存 ⌘ S
+						23 text entry area (settable) context.ts，代码编辑器, Value: export const greeting = "Pi 本轮上下文🙂";
+export const selected = "只附此行中文";
+export const excluded = "A_UNSELECTED_MARKER";
+
+
+							24 container (settable)
+								25 text (settable) export const  greeting =  "Pi 本轮上下文🙂" ;
+							26 container (settable)
+								27 text (settable) export const  selected =  "只附此行中文" ;
+							28 container (settable)
+								29 text (settable) export const  excluded =  "A_UNSELECTED_MARKER" ;
+				30 button 进入专注模式
+			31 container AI 助手
+				32 container
+					33 text AI 助手
+					34 button AI 连接设置
+					35 button 隐藏 AI 面板
+				36 container AI 助手
+					37 container Agent 模式
+						38 toggle button 聊天, Value: on
+						39 toggle button 任务, Value: off
+					40 text 工具关闭
+					41 button 历史会话
+					42 button 新建会话
+					43 container
+						44 text 你 HORIZON_TEST_VISUAL
+					45 container
+						46 text Pi 这段代码把每个项目的会话分开保存。 切换时先保存当前项目的标签与阅读位置，再恢复目标项目的 
+						47 text tabs
+						48 text  和 
+						49 text layout
+						50 text 。 你可以把它理解为：切换项目，也一起切换阅读上下文。
+						51 button 复制
+					52 container
+						53 text 已完成
+						54 button 结束会话
+					55 container
+						56 text context.ts
+						57 button 移除 context.ts
+						58 text example.txt · 暂存区 → 磁盘文件
+						59 button 移除 example.txt · 暂存区 → 磁盘文件
+						60 button 添加上下文
+						61 text entry area (settable) 向 Pi 提问, Value: [text entry area: 向 Pi 提问], Placeholder: 继续追问，或看看其他文件…
+							62 text 继续追问，或看看其他文件…
+						63 pop up button 当前模型连接, Value: AI Visual local 1102
+						64 button (disabled) 发送给 Pi
+				65 splitter AI 面板宽度, Value: 320
+			66 container
+				67 button main 1 个更改
+				68 button 行 4，列 1
+				69 pop up button 启动方案, Value: 在设置添加启动方案
+				70 button (disabled) 启动
+				71 button 切换终端
+				72 button 扩展
+				73 text macOS  · 0.1.0
+	74 close button
+	75 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	76 minimize button
+77 menu bar
+	78 Horizon
+	79 File
+	80 Edit
+	81 View
+	82 Window
+	83 Help
+
+The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost

@@ -1,0 +1,95 @@
+--- orbit-G05-dark-menu-closed-fullAX-normalizedIDs
++++ orbit-B06-dirty-fullAX-normalizedIDs
+@@ -150,36 +150,36 @@
+ 			container 编辑区域
+ 				container 编辑工作台
+ 					tab group (selectable) 打开的文件
+-						tab (selectable) state.txt, Help: session-next/state.txt
++						tab (selected) state.txt, Help: session-next/state.txt
+ 						button 关闭 session-next/state.txt
+-						tab (selectable) dirty-trash.txt, Help: native-remainder/dirty-trash.txt
++						tab (selected) dirty-trash.txt, Help: native-remainder/dirty-trash.txt
+ 						button 关闭 native-remainder/dirty-trash.txt
+-						tab (selectable) copy-ime.txt, Help: native-remainder/copy-ime.txt
++						tab (selected) copy-ime.txt, Help: native-remainder/copy-ime.txt
+ 						button 关闭 native-remainder/copy-ime.txt
+-						tab (selected) visual.ts, Help: native-remainder/visual.ts
++						tab (selected) visual.ts 未保存, Help: native-remainder/visual.ts · 未保存
+ 						button 关闭 native-remainder/visual.ts
+-						tab (selectable) visual.md, Help: native-remainder/visual.md
++						tab (selected) visual.md, Help: native-remainder/visual.md
+ 						button 关闭 native-remainder/visual.md
+-						tab (selectable) text-101MiB.txt, Help: limits/text-101MiB.txt
++						tab (selected) text-101MiB.txt, Help: limits/text-101MiB.txt
+ 						button 关闭 limits/text-101MiB.txt
+-						tab (selectable) missing-link.ts, Help: file-access-retest/missing-link.ts
++						tab (selected) missing-link.ts, Help: file-access-retest/missing-link.ts
+ 						button 关闭 file-access-retest/missing-link.ts
+-						tab (selectable) permission.ts, Help: file-access-retest/permission.ts
++						tab (selected) permission.ts, Help: file-access-retest/permission.ts
+ 						button 关闭 file-access-retest/permission.ts
+-						tab (selectable) readonly.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
++						tab (selected) readonly.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
+ 						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
+-						tab (selectable) candidate.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
++						tab (selected) candidate.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
+ 						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
+-						tab (selectable) retained-copy.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
++						tab (selected) retained-copy.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
+ 						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
+-						tab (selectable) broken-link
++						tab (selected) broken-link
+ 						button 关闭 broken-link
+ 					button 文件标签操作
+-					container visual.ts
++					container visual.ts 未保存
+ 						container native-remainder/visual.ts
+ 							text native-remainder visual.ts
+ 						button 查找与替换
+-						button (disabled) 保存文件, Help: 保存 ⌘ S
++						button 保存文件, Help: 保存 ⌘ S
+ 						text entry area (settable) native-remainder/visual.ts，代码编辑器, Value: export type ReadingItem = { title: string; done: boolean };
+ 
+ export const readingPlan: ReadingItem[] = [
+@@ -191,6 +191,8 @@
+   return items.filter(item => !item.done);
+ }
+ 
++// B06 visual review
++
+ 
+ 							container (settable)
+ 								text (settable) export type ReadingItem  = { title:  string ; done:  boolean  };
+@@ -206,11 +208,12 @@
+ 							container (settable)
+ 								text (settable) return  items.filter(item => !item.done);
+ 							text (settable) }
++							text (settable) // B06 visual review
+ 				button 进入专注模式
+ 			container
+ 				button Editor Resume QA
+-				text Esc 后按 Tab 离开编辑器
+-				button 行 11，列 1
++				text Esc 后按 Tab 离开编辑器 未保存
++				button 行 13，列 1
+ 				text TS UTF8  ·  LF
+ 				pop up button 启动方案, Value: 在设置添加启动方案
+ 				button (disabled) 启动
+@@ -228,4 +231,16 @@
+ 	Window
+ 	Help
+ 
+-The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost
++The focused UI element is 160 text entry area (settable) native-remainder/visual.ts，代码编辑器, Value: export type ReadingItem = { title: string; done: boolean };
++
++export const readingPlan: ReadingItem[] = [
++  { title: '检查项目状态', done: true },
++  { title: '整理本地笔记', done: false },
++];
++
++export function remainingItems(items: ReadingItem[]) {
++  return items.filter(item => !item.done);
++}
++
++// B06 visual review
++

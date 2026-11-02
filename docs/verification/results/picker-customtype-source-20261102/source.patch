@@ -1,0 +1,16 @@
+--- a/apps/picker-service/Picker.swift
++++ b/apps/picker-service/Picker.swift
+@@ -48,7 +48,12 @@
+         if let title = request.title { picker.title = title }
+         let extensions = request.filters.flatMap { $0.extensions }
+         if !extensions.isEmpty {
+-            picker.allowedContentTypes = extensions.compactMap { UTType(filenameExtension: $0, conformingTo: .data) }
++            let types = extensions.compactMap { UTType(filenameExtension: $0, conformingTo: .data) }
++            if types.count != extensions.count || types.contains(where: { $0.isDynamic }) {
++                picker.allowedFileTypes = extensions
++            } else {
++                picker.allowedContentTypes = types
++            }
+         }
+         panel = picker
+         let mainMenu = NSMenu()

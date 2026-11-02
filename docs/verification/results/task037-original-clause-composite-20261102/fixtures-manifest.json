@@ -1,0 +1,59 @@
+{
+  "started_at_utc": "2026-11-02T04:30:09.238374+00:00",
+  "completed_at_utc": "2026-11-02T04:30:09.286634+00:00",
+  "elapsed_ms": 47.94,
+  "generator": ".work/task037-background-tail-20261102/generate_fixtures.py",
+  "generator_sha256": "b3f3934331b983c15bc55cebec73f2b0666bd478be3d3846bf203be71fd20f68",
+  "source_export": "docs/verification/results/appearance-candidate2/appearance-with-background.json",
+  "source_export_sha256": "0938fd42426f9010c81efa50801ff7fb9ee2b08aaf37303a9c0623e0cf78bf4b",
+  "algorithm": "Python standard library only; one fixed decode, one RGB PNG level0 encode, one IDAT truncation",
+  "generated_once": true,
+  "files": [
+    {
+      "path": ".work/task037-background-tail-20261102/fixtures/A-owned-6131.png",
+      "bytes": 1684,
+      "sha256": "613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690",
+      "properties": {
+        "width": 320,
+        "height": 180,
+        "all_chunk_CRCs_valid": true,
+        "fixed_export_asset_exact": true
+      },
+      "native_import_outcome": "not_run"
+    },
+    {
+      "path": ".work/task037-background-tail-20261102/fixtures/QA-T037-over20MiB.png",
+      "bytes": 25169860,
+      "sha256": "02cb6ecd9c12e09166b3564435cfb6368b8a1b52313a9671185551b87adef6cb",
+      "properties": {
+        "width": 4096,
+        "height": 2048,
+        "RGB_bit_depth": 8,
+        "pixels": 8388608,
+        "zlib_level": 0,
+        "all_chunk_CRCs_valid": true,
+        "complete_IHDR_IEND": true,
+        "decoded_scanline_bytes": 25167872,
+        "expected_scanline_bytes": 25167872,
+        "filter_byte_each_row": 0,
+        "scanlines_roundtrip_exact": true
+      },
+      "native_import_outcome": "not_run"
+    },
+    {
+      "path": ".work/task037-background-tail-20261102/fixtures/QA-T037-corrupt.png",
+      "bytes": 49,
+      "sha256": "cdc399d3caa80cd2c7b37614a60cff00e3d189f70007bf74ba560eb4e5e55276",
+      "properties": {
+        "PNG_signature_valid": true,
+        "complete_IHDR_CRC_valid": true,
+        "source_asset_sha256": "613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690",
+        "cut_offset": 49,
+        "original_IDAT_data_end": 1668,
+        "structural_error": "truncated IDAT payload/CRC"
+      },
+      "native_import_outcome": "not_run"
+    }
+  ],
+  "application_GUI_appdata_build_tests": "not invoked; no native import result is asserted"
+}

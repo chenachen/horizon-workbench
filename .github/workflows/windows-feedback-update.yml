@@ -62,6 +62,10 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Check Windows feedback regressions
         run: node --test apps/desktop/tests/windows-feedback.test.mjs
+      - name: Check editor store regressions
+        run: |
+          npx --no-install vitest run packages/editor/src/store.test.ts --maxWorkers=1 --no-file-parallelism 2>&1 | Tee-Object artifacts/windows/editor-store-tests.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Build native sidecars and installers
         run: |
           npm run desktop:release -- --bundles nsis,msi 2>&1 | Tee-Object artifacts/windows/build.log

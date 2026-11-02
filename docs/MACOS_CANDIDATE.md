@@ -1,6 +1,6 @@
-# Horizon macOS 可用候选包
+# Horizon macOS 首版安装与验收
 
-更新于 2026-11-02。本页记录当前安装包与使用入口；完整首版验收仍在继续，尚未标记全部范围完成。
+更新于 2026-11-02。本页记录当前 Apple Silicon macOS 首版安装包、已完成的本机验收与使用入口。Windows 与其它架构未测范围单列。
 
 Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版说明](WINDOWS_TRIAL.md)。本页对应 Apple Silicon macOS 本机包。
 
@@ -10,10 +10,10 @@ Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版�
 
 - [DMG 安装包](../artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg)：打开后，将 Horizon 拖入 Applications。
 - [ZIP 应用包](../artifacts/macos/Horizon-0.1.0-macOS-arm64.zip)：解压得到 Horizon.app。
-- 本机应用：`~/Applications/Horizon.app`，已从该位置成功启动当前构建。
+- 本机应用：`~/Applications/Horizon.app`，当前 `5a0a6c5a…` 副本已从该位置正常启动到项目工作台。
 - [使用指南](USER_GUIDE.md)：项目、文件、Git、插件、外观、终端、项目启动和 Pi 配置。
 
-当前应用为本机构建，使用临时签名，未进行 Developer ID 签名与公证。已完成安装包校验、ZIP 解压和应用签名完整性检查，并从最终安装位置启动到项目工作台。
+当前应用为本机构建，使用临时签名，未进行 Developer ID 签名与公证。已完成安装包校验、ZIP 解压、应用签名完整性与安装副本检查，并从最终安装位置正常启动到项目工作台。
 
 安装包不包含测试项目、模型密钥或模型权重。运行 Horizon 无需 Node.js 或 Rust；Git 使用本机 Git。Pi 按需安装官方固定 1.4.0 运行时，再配置自己的服务地址、模型和认证。
 
@@ -26,7 +26,7 @@ Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版�
 
 ## 当前验证边界
 
-- 已用 macOS 原生应用操作项目、文件、编辑、搜索、Git、插件、外观、终端和恢复流程。逐项结果与失败记录见[验收入口](verification/README.md)，不能把某个流程通过等同于全部要求通过。
+- macOS 原定项目、文件、编辑、搜索、Git、插件、外观、终端、启动器、Pi 与恢复条款已完成真实操作及必要的生产组件验证。矩阵保留全部 104 条需求、39 项任务：103 条需求完整，1 条因 Windows 125%／150% 缩放未测保留部分；38 项任务完整，1 项因 Windows 文件占用未测保留部分。逐项证据与历史失败见[验收入口](verification/README.md)。
 - Pi 使用真实 1.4.0 进程与本机受控协议服务验证；回复由测试服务产生。尚未使用你的服务地址或密钥，真实供应商连通性未验证。
 - Pi 已完成隔离副本授权写入、修改版本冲突拒绝、断连后显式继续、认证失败保留输入等原生验证。带活动资源退出已完成取消、保存失败保留、正常退出清退及重开无自动重放；会话凭据重开后确实失效。
 - Git 外部分支刷新、跨项目返回后的写任务停止入口已完成定向原生复验；启动器、插件安装/更新/启停/卸载/恢复及实际进程清退也已留证。各项具体范围见[需求矩阵](verification/MACOS_ACCEPTANCE.md)。
@@ -35,18 +35,20 @@ Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版�
 - 此前 18:40 构建（主程序 `12ed732b…`）已测零/单/双 Pi 场景：Horizon 连同辅助进程及 Pi 的物理内存中位数分别为 189.748 / 275.585 / 380.263 MB；单 Pi 全窗口峰值 320.952 MB。受控服务另计，流式输出 CPU 不作为空闲指标；方法、原始数据与边界见[资源测量](verification/results/pi-fixed-performance-20261101/README.md)。
 - 此前主程序 `4d4bca76…` 包完成[20 次独立进程启动](verification/results/final-startup20-observer-20261102/README.md)：端到端中位数 707.410 ms、P95 751.406 ms，包含自动化和可访问性探测开销，系统缓存保留。全部原始尝试、正常退出和测量后额外进程的独立清退记录均保留。
 - 此前 `9316ce98…` 包全功能卸载后的 125 秒实测，包含全部归属辅助进程的稳态物理内存均值为 228.012 MB，高于 200 MB 建议值；空闲 CPU 均值为单核 0.375%。没有将此值标为内存预算通过，见[测量原件](verification/results/plugins-empty-host-performance-20261102/README.md)。
-- 八布局视觉对照仍在进行；本轮补齐 AI 空态、外观方案空态和编辑工作台的正确状态，并修正已确认的组件比例。Windows x64 已有原生 CI 测试和 OS 窗口记录，前端交互与 macOS Intel 尚未实测。
+- 八布局的 528 个适用产品状态已通过原生视觉对照，包括最后 16 个真实安装中与文件加载状态；明显差异已修正。另有 8 个空宿主参考状态与“布局和主题已全部卸载”的条件互斥，单列不适用，不计通过。完整原图与对照见[视觉报告](verification/visual-report.html)。Windows x64 已有十项原生测试与实际欢迎页截图，前端交互、125%／150% 缩放与 macOS Intel 尚未实测。
+- 最终验收后正常退出，七个归属进程全部结束；38 个自有测试项目登记及精确关联数据已移入本机私有备份。两个原项目、229 条登记路径、24 个默认插件与全局偏好均保留。同一安装副本已正常重开到欢迎页，应用保持打开，见[最终整理与启动记录](verification/results/final-cleanup-quit-native-20261102/README.md)。
 
 ## 构建身份
 
-当前安装包于 2026-11-02 08:27（UTC+8）构建完成。已有编辑器、插件弹窗和 Git 深色按钮修正保留；本次补齐现有空白加载分支的静态骨架、插件浅深遮罩，以及作用域下拉框的控件高度。构建、签名、归档和安装副本校验已完成，已从安装目录正常启动；定点视觉复查继续进行。功能和性能场景继续绑定其原测试包。
+当前安装包于 2026-11-02 11:50（UTC+8）构建完成，11:52 从安装目录正常启动。保留此前 AI 弹窗、窄窗导航避让及插件检查/安装状态修正；编辑器在真实文件读取与会话恢复期间显示加载骨架，已就绪的内容和错误入口保留；20 项针对性回归已通过，真实冷恢复录像已取得。本次按原生对照将文件树骨架行距由 25px 修正为 41px，八套加载状态对照已完成。自定义扩展包可正常选择、权限默认未勾选，实际安装和卸载已验证；数据与既有插件状态保留。构建、签名、归档及安装副本校验已完成；各功能和性能结果均注明其实际测试构建。
 
 | 文件 | 字节数 | SHA-256 |
 | --- | ---: | --- |
-| DMG | 20,061,204 | `b3de199ed978fadf3a814e4d74d7214512e0faf77b7ea22ab0d6f4d5cf6fee1d` |
-| ZIP | 15,899,842 | `b1749377db18c36f211df4b0aff043f3a1fd70c7b75e6c720a84db7ae15e174c` |
-| 应用主程序 | 19,911,168 | `778c72f6218ed82061e3cf19724dba0954b73db93313495ac22dcd3ee1fb1f95` |
+| DMG | 20,061,536 | `4e16a8dbd4f9ef6be1a1896318de48d3070eb4123062660b4a0a36e31d00a50f` |
+| ZIP | 15,899,619 | `62cc373cc1825097d8ccb56b78a0f13be583b71e09569145fece67a357eb636e` |
+| 应用主程序 | 19,911,168 | `5a0a6c5a6edca82751a54abe34d0dc40a798f60d49182b70a47bad21e233190d` |
+| 原生文件选择器 | 166,992 | `5750db7bf0f848e165f08c3b982321d693e3a9d9978d15b5297f3588d1e101e3` |
 
-[构建与打包回执](verification/results/plugin-scope-release-20261102/release-build-receipt.json) · [归档与签名校验](verification/results/plugin-scope-release-20261102/archive-verification.json) · [当前安装副本](verification/results/plugin-scope-release-20261102/installation-copy.json)
+[构建与打包回执](verification/results/loading-spacing-release-20261102/release-build-receipt.json) · [归档与签名校验](verification/results/loading-spacing-release-20261102/archive-verification.json) · [当前安装副本](verification/results/loading-spacing-release-20261102/installation-copy.json) · [原生启动身份](verification/results/loading-spacing-release-20261102/native-installed-identity.json)
 
 从源码复现：在仓库根目录执行 `npm ci`，再运行 `npm run desktop:release`。需要指南中列出的 Node.js、Rust 与 Xcode Command Line Tools；输出仍为上方两个安装包路径。重新构建后的摘要可能不同，以新回执为准。

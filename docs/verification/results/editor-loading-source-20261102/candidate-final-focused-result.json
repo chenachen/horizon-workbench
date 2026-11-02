@@ -1,0 +1,104 @@
+{
+  "recordedAt": "2026-11-02T03:16:39.894201+00:00",
+  "exitCode": 0,
+  "command": "rtk proxy node node_modules/vitest/vitest.mjs run --config .work/g01-loading-sol-20261102/vitest.config.mjs --testNamePattern 'G01|keeps late project A reads|drops a late document response|keeps a late A read failure|starts a new epoch read|rejects a pre-stop restore|abandons an interrupted session restore|old restore clear'",
+  "workdir": "/Users/chenpengxiang/Desktop/Horizon",
+  "result": {
+    "passed": 20,
+    "skipped": 40,
+    "failed": 0,
+    "G01newPassed": 12,
+    "selectedExistingPassed": 8,
+    "wallDurationFromToolSeconds": 0.368903667,
+    "vitestDurationMs": 212,
+    "testBodyMs": 16
+  },
+  "rawVitestReport": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/focused-store-result.json",
+    "sha256": "344ec7dde17ed3db61a9c84ccd953a325bbeb70898c0fde1d483e83bec51e58b"
+  },
+  "candidate": {
+    "patch": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/source.patch",
+    "patchSHA256": "52d2dfe94de1b1fcf0500f45314a3a2405a4ce6aed812b53015f620d5be35986",
+    "manifest": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/manifest.json",
+    "manifestSHA256": "64e7e435383c4ea122f22d5a1843ee5c1dcdf573e354fed876d75130ff4d8f51",
+    "files": [
+      {
+        "path": "packages/editor/src/store.ts",
+        "beforeSHA256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+        "afterSHA256": "e724f04c43616d0175c70d3e5e61d688bcfe9f3ef62e0b2c5d6a9edbbd1b7012"
+      },
+      {
+        "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+        "beforeSHA256": "3114d328e049da3f42f685539f532d62122027ef1abc3323ee7c8054f710feeb",
+        "afterSHA256": "6d794619c7c119d5914c450cd8ca56a6fde664d876fa28a242aa316c9832efd4"
+      }
+    ],
+    "frozenAt": "2026-11-02T03:19:48.256725+00:00",
+    "isolatedTest": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/store.test.ts",
+      "sha256": "8b3df73a188beb285df5501149e0b588b5c9a8c33a6d00b3854e6fa0ebd65b5d",
+      "productionTarget": "packages/editor/src/store.test.ts",
+      "originalPrefixSHA256": "8b3df73a188beb285df5501149e0b588b5c9a8c33a6d00b3854e6fa0ebd65b5d",
+      "originalPrefixBytes": 55446,
+      "appendedBlockSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "change": "Reuse original fixture/transport/fake timers; append12 G01 cases only. Root will integrate permanent block; original production test not changed by git_sol."
+    }
+  },
+  "productionSourcesUnchanged": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "matchesBefore": true
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "3114d328e049da3f42f685539f532d62122027ef1abc3323ee7c8054f710feeb",
+      "matchesBefore": true
+    }
+  ],
+  "productionTestUnchangedBasis": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/packages/editor/src/store.test.ts",
+    "sha256": "62c3b2015af91d3632dedcd9d8df922b25947215352bf1af79b2b74dfac07df9",
+    "isolatedTestRetainsExactPrefix": true
+  },
+  "passedTests": [
+    "versioned editor documents keeps late project A reads and saves scoped to A while B is active",
+    "versioned editor documents drops a late document response after host stop without replacing B content or error",
+    "versioned editor documents keeps a late A read failure out of B error state (host stopped: false)",
+    "versioned editor documents keeps a late A read failure out of B error state (host stopped: true)",
+    "versioned editor documents starts a new epoch read independently and keeps it deduplicated after the old read settles",
+    "versioned editor documents rejects a pre-stop restore ticket and lets a fresh same-epoch activation reopen the retained tab",
+    "versioned editor documents abandons an interrupted session restore and retries its whole tab list with a fresh activation",
+    "versioned editor documents does not let an old restore clear the new restore session-write barrier",
+    "G01 real editor operation loading G01 cold open publishes actual pending before bytes, deduplicates and clears on success",
+    "G01 real editor operation loading G01 failed cold open clears pending: plain rejection",
+    "G01 real editor operation loading G01 failed cold open clears pending: file access rejection",
+    "G01 real editor operation loading G01 failed cold open clears pending: synchronous transport throw",
+    "G01 real editor operation loading G01 concurrent reads keep pending after first settles and preserve ready active content",
+    "G01 real editor operation loading G01 old-epoch read completion cannot clear new same-file pending",
+    "G01 real editor operation loading G01 A pending never becomes B loading or error (host stopped: false)",
+    "G01 real editor operation loading G01 A pending never becomes B loading or error (host stopped: true)",
+    "G01 real editor operation loading G01 actual multi-tab restoration publishes until all bytes settle without changing session writes",
+    "G01 real editor operation loading G01 rejected restore clears both actual opening and restoring while retaining error",
+    "G01 real editor operation loading G01 obsolete restore finalizer cannot clear fresh restore pending",
+    "G01 real editor operation loading G01 genuine empty project does not invent file I/O or retain loading"
+  ],
+  "coverage": "Real pending before reply; cold success/rejections including synchronous throw; duplicate/concurrent opens; real multi-tab restore and session-write barrier/payload; late-ticket/epoch/host-stop/project isolation; ready active buffer retained during another real pending read; empty session does not invent I/O.",
+  "uiBoundary": "Ready-buffer-not-obscured and loading-only preview guards reviewed in actual Workbench candidate predicates, not tested as rendered browser/native UI. No visual pass claimed.",
+  "previewGuard": "During documentLoading only, do not apply with-preview columns or mount stale Preview; normal ready preview preference/rendering unchanged.",
+  "limits": [
+    "Only isolated .work Vitest source/fixtures. No production source/test changes, product build, browser/GUI, HTTP or appdata.",
+    "40 unrelated tests intentionally skipped; not claimed passed.",
+    "No fake timed loading or new transport/framework/persistence state."
+  ],
+  "previousReceipt": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/FOCUSED-RESULT-v1.json",
+    "sha256": "53a667c5b9878fa4be8386b6033d305566e95fdd5909bde059ea2dd979448d62"
+  },
+  "historicalCandidateManifest": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/manifest-v2-before-results.json",
+    "sha256": "04a338aff7aaec1bafa2d8c1c50f59fd821d649a5a284a06b7f25950c669bb14"
+  },
+  "bindingUpdateOnly": "Same actual focused20 result; final manifest now records completed testing. No new code/test change or execution."
+}

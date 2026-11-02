@@ -34,6 +34,13 @@ export class EditorStore {
   getSnapshot = () => this.snapshot;
   getBuffer = (projectId: string, fileId: string) => this.buffers.get(bufferKey(projectId, fileId));
   getActive = (projectId = this.snapshot.activeProjectId ?? '') => { const file = this.projects.get(projectId)?.activeFileId; return file ? this.getBuffer(projectId, file) : undefined; };
+  getProjectLoadState = (projectId: string): 'restoring' | 'opening' | undefined => {
+    const restoring = this.restoringSessions.get(projectId);
+    if (restoring && this.projectIsLive(projectId, restoring)) return 'restoring';
+    const prefix = bufferKey(projectId, '');
+    for (const [key, opening] of this.opens) if (key.startsWith(prefix) && this.projectIsLive(projectId, opening.ticket)) return 'opening';
+    return undefined;
+  };
   private emit(error: string | null = this.snapshot.error) { this.snapshot = { ...this.snapshot, revision: this.snapshot.revision + 1, projects: this.projects, buffers: this.buffers, error }; this.listeners.forEach(fn => fn()); }
   reportError = (error: unknown) => this.emit(errorMessage(error));
   clearError = () => this.emit(null);
@@ -67,12 +74,15 @@ export class EditorStore {
       if (reattached && this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
       return;
     }
-    this.restoringSessions.set(projectId, ticket); const activeAtStart = project.activeFileId;
+    this.restoringSessions.set(projectId, ticket); this.emit(); const activeAtStart = project.activeFileId;
     try { for (const tab of session.tabs) { const buffer = await this.openFile(tab.fileId, { projectId, preview: !tab.pinned, activate: false }); if (!this.projectIsLive(projectId, ticket)) return; if (buffer) { buffer.selection = clampSelection(tab.selection, editorTextLength(buffer.getText())); buffer.scrollTop = tab.scrollTop; } }
       if (!this.projectIsLive(projectId, ticket)) return;
       if (project.activeFileId === activeAtStart && session.activeFileId && this.getBuffer(projectId, session.activeFileId)) this.activate(session.activeFileId, projectId);
       project.restored = true; if (this.pendingSessions.get(projectId) === session) this.pendingSessions.delete(projectId);
-    } finally { if (this.restoringSessions.get(projectId) === ticket) this.restoringSessions.delete(projectId); if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId); }
+    } finally {
+      if (this.restoringSessions.get(projectId) === ticket) { this.restoringSessions.delete(projectId); this.emit(); }
+      if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
+    }
   };
   openFile = async (fileId: string, options: { projectId?: string; preview?: boolean; line?: number; column?: number; activate?: boolean } = {}) => {
     const projectId = options.projectId ?? this.snapshot.activeProjectId;
@@ -129,9 +139,10 @@ export class EditorStore {
         }
         this.reportError(error); return undefined;
       }
-      finally { if (this.opens.get(key)?.ticket === ticket) this.opens.delete(key); }
     })();
-    this.opens.set(key, { ticket, promise: opening }); return opening;
+    this.opens.set(key, { ticket, promise: opening }); this.emit();
+    try { return await opening; }
+    finally { if (this.opens.get(key)?.ticket === ticket) { this.opens.delete(key); this.emit(); } }
   };
   prepareFileRelocation = async (fileId: string, projectId: string): Promise<FileRelocationPlan | null> => {
     const buffer = this.getBuffer(projectId, fileId);

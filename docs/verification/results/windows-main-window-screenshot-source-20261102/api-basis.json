@@ -1,0 +1,22 @@
+[
+  {
+    "api": "GetWindowThreadProcessId",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowthreadprocessid",
+    "basis": "Maps the existing HWND to its owner PID; a zero thread result or wrong PID prevents capture."
+  },
+  {
+    "api": "GetWindowRect",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowrect",
+    "basis": "Returns exclusive right/bottom window screen bounds, including resize frame. API is DPI virtualized, so observer thread temporarily uses per-monitor-aware context."
+  },
+  {
+    "api": "SetThreadDpiAwarenessContext",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setthreaddpiawarenesscontext",
+    "basis": "Changes only the calling observation thread; returned prior context is restored in finally. Horizon process DPI/settings are untouched."
+  },
+  {
+    "api": "Graphics.CopyFromScreen",
+    "url": "https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.copyfromscreen?view=windowsdesktop-9.0",
+    "basis": "Single pixel-block transfer from the real screen into a Bitmap, then standard PNG encoding. Win32 capture errors are recorded without producing a substitute image."
+  }
+]

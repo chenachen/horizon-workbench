@@ -1,0 +1,39 @@
+{
+  "observedAt": "2026-11-02T02:54:52.815600+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "a4493f192de88475060b079549b773785c08e1c9fedde52b974cea694ce9e794",
+  "mainSha256": "289e8dab27136432e12056e70de7b521c5285a9646800542cc3c748ae80a7f52",
+  "previousPickerSha256": "1b13d73e8f1ec549eb5ba16737238fc639406563f1092e0ed274403344c79101",
+  "pickerSha256": "5750db7bf0f848e165f08c3b982321d693e3a9d9978d15b5297f3588d1e101e3",
+  "bytes": 19911168,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": true,
+  "rollbackBackup": "/Users/chenpengxiang/Applications/.Horizon-picker-customtype-previous.app",
+  "rollbackBackupRetained": true,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-picker-customtype-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-picker-customtype-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

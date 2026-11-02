@@ -1,0 +1,162 @@
+--- orbit-B07-markdown-preview-fullAX-normalizedIDs
++++ orbit-B10-main-sidebar-outline-fullAX-normalizedIDs
+@@ -67,82 +67,24 @@
+ 					tab (selectable) Git
+ 					tab (selectable) 搜索
+ 				container 项目文件
+-					container
+-						container 文件侧栏视图
+-							toggle button 目录, Value: on
+-							toggle button 结构, Value: off
+-						button 新建文件
+-						button 新建目录
+-						button 刷新文件树
+-						button 显示或隐藏点文件
+-					container 文件树
+-						container
+-							container byte-cache
+-								text byte-cache
+-								button byte-cache 操作
+-							container cache
+-								text cache
+-								button cache 操作
+-							container file-access-retest
+-								text file-access-retest
+-								button file-access-retest 操作
+-							container file-access-retest/dirty-source.ts
+-								text dirty-source.ts
+-								button dirty-source.ts 操作
+-							container file-access-retest/missing-link.ts
+-								text missing-link.ts
+-								text ↗
+-								button missing-link.ts 操作
+-							container file-access-retest/missing-target.ts
+-								text missing-target.ts
+-								button missing-target.ts 操作
+-							container file-access-retest/permission.ts
+-								text permission.ts
+-								button permission.ts 操作
+-							container limits
+-								text limits
+-								button limits 操作
+-							container loop
+-								text loop
+-								text ↗
+-								button loop 操作
+-							container many
+-								text many
+-								button many 操作
+-							container native-file-ops
+-								text native-file-ops
+-								button native-file-ops 操作
+-							container native-remainder
+-								text native-remainder
+-								button native-remainder 操作
+-							container native-remainder/denied
+-								text denied
+-								button denied 操作
+-							container native-remainder/copy-ime.txt
+-								text copy-ime.txt
+-								button copy-ime.txt 操作
+-							container native-remainder/dirty-trash.txt
+-								text dirty-trash.txt
+-								button dirty-trash.txt 操作
+-							container (selected) native-remainder/visual.md
+-								text visual.md
+-								button visual.md 操作
+-							container native-remainder/visual.ts
+-								text visual.ts
+-								button visual.ts 操作
+-							container session-next
+-								text session-next
+-								button session-next 操作
+-							container src
+-								text src
+-								button src 操作
+-							container README.md
+-								text README.md
+-								button README.md 操作
+-							container broken-link
+-								text broken-link
+-								text ↗
+-								button broken-link 操作
++					container 文件侧栏视图
++						toggle button 目录, Value: off
++						toggle button 结构, Value: on
++					container 当前文件结构
++						text 文件结构
++						container native-remainder/visual.md
++							text visual.md
++						outline (selectable) Markdown 标题
++							row (selected) Description: 本地阅读笔记 1, Value: 本地阅读笔记
++1
++							row (selectable) Description: 今日计划 5, Value: 今日计划
++5
++							row (selectable) Description: 文件清单 10, Value: 文件清单
++10
++							row (selectable) Description: 示例代码 17, Value: 示例代码
++17
++							row (selectable) Description: 结语 24, Value: 结语
++24
+ 				container
+ 					text Editor Resume QA
+ 					button 快速打开文件
+@@ -179,7 +121,7 @@
+ 						container native-remainder/visual.md
+ 							text native-remainder visual.md
+ 						button 查找与替换
+-						toggle button 切换预览, Value: on
++						toggle button 切换预览, Value: off
+ 						button (disabled) 保存文件, Help: 保存 ⌘ S
+ 						text entry area (settable) native-remainder/visual.md，代码编辑器, Value: **# 本地阅读笔记**
+ 
+@@ -235,49 +177,6 @@
+ 							container (settable)
+ 								text (settable) ##  结语
+ 							text (settable) 所有内容均为本次验收自有夹具。
+-						container 文件预览
+-							container
+-								text 预览 visual.md
+-								button 关闭预览
+-							container Markdown 预览
+-								summary 标题导航 · 5, Value: off
+-									text 标题导航 · 
+-									text 5
+-								container 本地阅读笔记
+-									heading 本地阅读笔记, Value: 1
+-										text 本地阅读笔记
+-									container
+-										text 这里记录  项目阅读  与  待办事项 。
+-									heading 今日计划, Value: 2
+-										text 今日计划
+-									content list
+-										container 打开本地项目
+-											list marker •
+-											checkbox (disabled) 1
+-											text 打开本地项目
+-										container 检查文件状态
+-											list marker •
+-											checkbox (disabled) 0
+-											text 检查文件状态
+-									heading 文件清单, Value: 2
+-										text 文件清单
+-									table
+-										row (selectable) 文件
+-状态
+-										row (selectable)
+-											cell (selectable) visual.ts
+-											cell (selectable) 可编辑
+-										row (selectable)
+-											cell (selectable) visual.md
+-											cell (selectable) 可预览
+-									heading 示例代码, Value: 2
+-										text 示例代码
+-									text const title = "Horizon";
+-console.log(title);
+-
+-									heading 结语, Value: 2
+-										text 结语
+-									text 所有内容均为本次验收自有夹具。
+ 				button 进入专注模式
+ 			container
+ 				button Editor Resume QA

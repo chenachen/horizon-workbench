@@ -6,11 +6,15 @@ A lightweight, customizable, AI-ready code workbench for macOS and Windows.
 
 **试用安装：[Windows x64](docs/WINDOWS_TRIAL.md) · [macOS 本机包说明](docs/MACOS_CANDIDATE.md)。**
 
-**当前阶段：桌面首版功能验收与 Windows 试用版构建。** 应用代码位于 `apps/desktop/`，共享能力位于 `packages/`。`design/` 继续保留独立交互原型；原型中的演示数据不代表真实桌面验收结果。实际测试记录逐项写入 `docs/verification/`。
+**当前交付：macOS arm64 首版本机验收完成，Windows x64 试用版已发布。** 八套布局共 528 个适用产品状态通过原生视觉对照，8 个互斥参考条件单列不适用。Windows 点击交互、缩放与文件占用等未测项，以及内存建议值未达的结果，见[验收矩阵](docs/verification/MACOS_ACCEPTANCE.md)和[性能报告](docs/verification/PERFORMANCE.md)。应用代码位于 `apps/desktop/`，共享能力位于 `packages/`；[视觉报告](docs/verification/visual-report.html)保留原设计与实机对照。
 
-![Horizon 八套界面方向](design/exports/horizon-eight-directions.png)
+![Horizon Windows 原生欢迎页](docs/verification/results/windows-ci-attempt15-7ccf610-window-png-20261102/native/main-window.png)
+
+上图为 Windows 原生应用实拍；安装与验证范围见[试用说明](docs/WINDOWS_TRIAL.md)。
 
 ## 先看设计
+
+![Horizon 八套界面方向](design/exports/horizon-eight-directions.png)
 
 - **[交互图集](design/index.html)**：下载或克隆后，用浏览器打开。8 套布局/主题组合 × 73 个页面与状态。
 - **[设计图目录](design/exports/index.html)**：584 张 PNG，可按风格和场景分组浏览。
@@ -35,7 +39,7 @@ A lightweight, customizable, AI-ready code workbench for macOS and Windows.
 
 [直接打开插件中心](design/index.html?screen=plugins) · [插件设计册](design/exports/pdf/horizon-plugins.pdf) · [插件中心设计规范](design/PLUGIN_CENTER.md)
 
-15 个场景覆盖发现、已安装、详情与贡献点、安装、授权、项目配置、更新、权限变化、运行与休眠、失败诊断、停用、卸载和开发者模式。八套风格同步提供；安装、启停、更新和卸载可在本地原型中连续演示。
+15 个设计场景覆盖发现、已安装、详情与贡献点、安装、授权、项目配置、更新、权限变化、运行与休眠、失败诊断、停用、卸载和开发者模式。桌面应用支持本地扩展安装和完整生命周期，八套布局同步提供；独立交互原型保留用于设计查阅。
 
 ## UI 定制
 

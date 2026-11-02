@@ -1,0 +1,128 @@
+{
+  "frozenAt": "2026-11-02T03:19:48.256725+00:00",
+  "canonical": false,
+  "scope": "Prepared2 production source candidates plus existing store test prefix+12case block; root integrates. Focused20 executed once, no further runs.",
+  "files": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "beforeSHA256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "afterSHA256": "e724f04c43616d0175c70d3e5e61d688bcfe9f3ef62e0b2c5d6a9edbbd1b7012"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "beforeSHA256": "3114d328e049da3f42f685539f532d62122027ef1abc3323ee7c8054f710feeb",
+      "afterSHA256": "6d794619c7c119d5914c450cd8ca56a6fde664d876fa28a242aa316c9832efd4"
+    }
+  ],
+  "testing": {
+    "status": "completed focused isolated Vitest",
+    "command": "rtk proxy node node_modules/vitest/vitest.mjs run --config .work/g01-loading-sol-20261102/vitest.config.mjs --testNamePattern 'G01|keeps late project A reads|drops a late document response|keeps a late A read failure|starts a new epoch read|rejects a pre-stop restore|abandons an interrupted session restore|old restore clear'",
+    "passed": 20,
+    "newG01": 12,
+    "selectedExisting": 8,
+    "skippedUnrelated": 40,
+    "failed": 0,
+    "durationMs": 212,
+    "rawReport": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/focused-store-result.json",
+      "sha256": "344ec7dde17ed3db61a9c84ccd953a325bbeb70898c0fde1d483e83bec51e58b"
+    },
+    "nativeOrRenderedUIEvidence": false,
+    "noFurtherRunRequiredByRoot": true
+  },
+  "artifacts": [
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/source.patch",
+      "sha256": "52d2dfe94de1b1fcf0500f45314a3a2405a4ce6aed812b53015f620d5be35986",
+      "bytes": 14749
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/manifest.json",
+      "sha256": "64e7e435383c4ea122f22d5a1843ee5c1dcdf573e354fed876d75130ff4d8f51",
+      "bytes": 3350
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/ANALYSIS.md",
+      "sha256": "7cd803421bf6fc32a559ea5f87537fe17396bbf4b498888c4343f11329b1f45a",
+      "bytes": 3342
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/FOCUSED-RESULT.json",
+      "sha256": "f215e3d2b212a38119290339ee81c7127819008a3f23a39f0c654c5a2e42ec21",
+      "bytes": 7137
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/focused-store-result.json",
+      "sha256": "344ec7dde17ed3db61a9c84ccd953a325bbeb70898c0fde1d483e83bec51e58b",
+      "bytes": 21826
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/vitest.config.mjs",
+      "sha256": "3000febe7c640f7ff76a410da1925cab9cd72c164742b42a6da72bc372ac5e34",
+      "bytes": 501
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/v1-source.patch",
+      "sha256": "6d38ff1fcc926412b4eebff04e28582b0504186a78b994bb93723b76597a795f",
+      "bytes": 13478
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/v1-manifest.json",
+      "sha256": "56d7742748230609ea17992f9252bfdac5c77a7cc7247dc886abbf5959f1f173",
+      "bytes": 1507
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/manifest-v2-before-results.json",
+      "sha256": "04a338aff7aaec1bafa2d8c1c50f59fd821d649a5a284a06b7f25950c669bb14",
+      "bytes": 1854
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/FOCUSED-RESULT-v1.json",
+      "sha256": "53a667c5b9878fa4be8386b6033d305566e95fdd5909bde059ea2dd979448d62",
+      "bytes": 5787
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/before/packages/editor/src/store.ts",
+      "sha256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "bytes": 39376
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/before/apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "3114d328e049da3f42f685539f532d62122027ef1abc3323ee7c8054f710feeb",
+      "bytes": 22513
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/store.ts",
+      "sha256": "e724f04c43616d0175c70d3e5e61d688bcfe9f3ef62e0b2c5d6a9edbbd1b7012",
+      "bytes": 39910
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "sha256": "6d794619c7c119d5914c450cd8ca56a6fde664d876fa28a242aa316c9832efd4",
+      "bytes": 22901
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/types.ts",
+      "sha256": "8683bc39b7ea9bcc2c96ac7d98e153beaa1a0a596ddabc3bf74c3bde44de145a",
+      "bytes": 4696
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/metrics.ts",
+      "sha256": "8f5aa402387f074efb4426bae497a2c0813bd27055d8fbc99739eb1bfa6c1aa4",
+      "bytes": 3136
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/selection.ts",
+      "sha256": "9df53b0bc9ec1971d00c57fe5f145a414d5ec7834b1ddf0087b6b6aa32cf4579",
+      "bytes": 646
+    },
+    {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/store.test.ts",
+      "sha256": "8b3df73a188beb285df5501149e0b588b5c9a8c33a6d00b3854e6fa0ebd65b5d",
+      "bytes": 55446
+    }
+  ],
+  "artifactCount": 18,
+  "productionMutationsByReviewer": false,
+  "visualPassClaimed": false
+}

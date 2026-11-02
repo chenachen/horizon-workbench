@@ -1,0 +1,90 @@
+--- orbit-F01-theme-settings-fullAX-normalizedIDs
++++ orbit-F02-layout-settings-fullAX-normalizedIDs
+@@ -18,33 +18,61 @@
+ 				container
+ 					heading 外观, Value: 2
+ 						text 外观
+-					text 调整整个应用的外观，切换项目保持一致。
++					text 选择工作台结构，调整空间与界面密度。
+ 				container 外观分类
+ 					button 主题与配色
+ 					button 布局与尺寸
+ 					button 背景图片
+ 					button 外观方案
+-				container 顶部标签布局 · 深空主题预览
+-					text Horizon
+-					text 顶部标签  ·  深空
+-					container
+-						text 工作区 外观设置 布局 主题
+-					container
+-						text const  appearance =  {   theme:  " 深空 " ,   layout:  " 顶部标签 " } ; 即时预览
+-				text 主题包
+-				text 全局默认
+-				pop up button 主题包, Value: 深空
++				toggle button 经典侧栏 项目导航与文件侧栏分列 已安装 · 布局插件, Value: off
++				toggle button 一体侧栏 项目与文件集中在一侧 已安装 · 布局插件, Value: off
++				toggle button 顶部标签 从顶部切换项目 使用中 · 布局插件, Value: on
++				toggle button 紧凑工具栏 缩小导航占用空间 已安装 · 布局插件, Value: off
++				toggle button 折叠导航 按需展开项目导航 已安装 · 布局插件, Value: off
++				toggle button 卡片分区 独立卡片与宽松分区 已安装 · 布局插件, Value: off
++				toggle button 展开式项目目录 直接浏览项目和文件 已安装 · 布局插件, Value: off
++				toggle button 底部导航 从底部切换项目 已安装 · 布局插件, Value: off
++				button 恢复默认布局
++				button 管理布局插件
++				text 界面字号
++				text 全局设置
++				pop up button 界面字号, Value: 13 px
+ 				button 恢复默认
+-				text 明暗模式
+-				text 全局默认
+-				pop up button 明暗模式, Value: 深色
++				text 界面密度
++				text 全局设置
++				pop up button 界面密度, Value: 跟随主题
+ 				button 恢复默认
+-				text 减少动效
+-				text 全局设置
+-				pop up button 减少动效, Value: 跟随系统
+-				button 恢复默认
+-				summary 自定义配色, Value: off
+-					text 自定义配色
++				container (collapsed) Secondary Actions: Expand
++					summary 区域尺寸, Value: off
++						text 区域尺寸
++					value indicator 240
++					stepper 0
++						unknown
++						unknown
++					value indicator 56
++					stepper 0
++						unknown
++						unknown
++					value indicator 40
++					stepper 0
++						unknown
++						unknown
++					value indicator 120
++					stepper 0
++						unknown
++						unknown
++					value indicator 320
++					stepper 0
++						unknown
++						unknown
++					value indicator 220
++					stepper 0
++						unknown
++						unknown
++					value indicator 26
++					stepper 0
++						unknown
++						unknown
+ 				container
+ 					text 偏好即时生效
+ 					button 完成
+@@ -59,4 +87,4 @@
+ 	Window
+ 	Help
+ 
+-The focused UI element is 7 button 关闭弹窗
++The focused UI element is 3 container 设置

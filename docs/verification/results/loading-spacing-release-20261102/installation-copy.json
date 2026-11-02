@@ -1,0 +1,39 @@
+{
+  "observedAt": "2026-11-02T03:51:46.750322+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "f0a2ccfa5b4cb93eac1c97bbed00e675954a1eb3a11e65ec2c0f9c81de54b8d4",
+  "mainSha256": "5a0a6c5a6edca82751a54abe34d0dc40a798f60d49182b70a47bad21e233190d",
+  "previousPickerSha256": "5750db7bf0f848e165f08c3b982321d693e3a9d9978d15b5297f3588d1e101e3",
+  "pickerSha256": "5750db7bf0f848e165f08c3b982321d693e3a9d9978d15b5297f3588d1e101e3",
+  "bytes": 19911168,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": true,
+  "rollbackBackup": "/Users/chenpengxiang/Applications/.Horizon-loading-spacing-previous.app",
+  "rollbackBackupRetained": true,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-loading-spacing-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-loading-spacing-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

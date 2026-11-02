@@ -1,0 +1,39 @@
+--- mist-B04-full-AX-normalizedIDs
++++ mist-B05-zero-results-full-AX-normalizedIDs
+@@ -72,7 +72,7 @@
+ 					container
+ 						text 搜索 磁盘内容
+ 					container
+-						text field (settable) 搜索文本, Value: workspace, Placeholder: 搜索项目内容
++						text field (settable) 搜索文本, Value: HORIZONVISUALNOMATCH20261101, Placeholder: 搜索项目内容
+ 						container 区分大小写
+ 							checkbox 区分大小写, Value: 0
+ 							text Aa
+@@ -87,15 +87,13 @@
+ 							text  · 已应用
+ 						button 搜索
+ 					container
+-						text 4 处匹配 · 2 个文件  · 搜索发起于 2026/11/2 09:31:07  · 结果为该次搜索快照。
++						text · 搜索发起于  2026/11/2 09:31:50  · 结果为该次搜索快照。
+ 					container 搜索结果
+-						container
+-							button (selected, expanded) src/index.ts 1, Help: src/index.ts, Secondary Actions: Collapse
+-							button 1 export { workspace, switchProject } from "./workspace";, Help: export { workspace, switchProject } from "./workspace";
+-							button (expanded) src/workspace.ts 3, Help: src/workspace.ts, Secondary Actions: Collapse
+-							button 4 export const workspace = createStore({, Help: export const workspace = createStore({
+-							button 10 const current = workspace.get().activeProject;, Help:   const current = workspace.get().activeProject;
+-							button 16 workspace.set({ activeProject: id });, Help:   workspace.set({ activeProject: id });
++						heading 没有找到结果, Value: 3
++							text 没有找到结果
++						text 试试移除文件范围限制。
++						text 包含 src/**
++						button 清除范围限制
+ 				container
+ 					text Aurora Web
+ 					button 快速打开文件
+@@ -183,4 +181,4 @@
+ 	Window
+ 	Help
+ 
+-The focused UI element is 62 summary 范围 · 已应用, Value: off
++The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost

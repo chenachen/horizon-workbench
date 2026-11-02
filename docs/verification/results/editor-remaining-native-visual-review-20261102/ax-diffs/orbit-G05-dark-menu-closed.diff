@@ -1,0 +1,174 @@
+--- orbit-B07-markdown-preview-fullAX-normalizedIDs
++++ orbit-G05-dark-menu-closed-fullAX-normalizedIDs
+@@ -124,10 +124,10 @@
+ 							container native-remainder/dirty-trash.txt
+ 								text dirty-trash.txt
+ 								button dirty-trash.txt 操作
+-							container (selected) native-remainder/visual.md
++							container native-remainder/visual.md
+ 								text visual.md
+ 								button visual.md 操作
+-							container native-remainder/visual.ts
++							container (selected) native-remainder/visual.ts
+ 								text visual.ts
+ 								button visual.ts 操作
+ 							container session-next
+@@ -156,9 +156,9 @@
+ 						button 关闭 native-remainder/dirty-trash.txt
+ 						tab (selectable) copy-ime.txt, Help: native-remainder/copy-ime.txt
+ 						button 关闭 native-remainder/copy-ime.txt
+-						tab (selectable) visual.ts, Help: native-remainder/visual.ts
++						tab (selected) visual.ts, Help: native-remainder/visual.ts
+ 						button 关闭 native-remainder/visual.ts
+-						tab (selected) visual.md, Help: native-remainder/visual.md
++						tab (selectable) visual.md, Help: native-remainder/visual.md
+ 						button 关闭 native-remainder/visual.md
+ 						tab (selectable) text-101MiB.txt, Help: limits/text-101MiB.txt
+ 						button 关闭 limits/text-101MiB.txt
+@@ -175,115 +175,43 @@
+ 						tab (selectable) broken-link
+ 						button 关闭 broken-link
+ 					button 文件标签操作
+-					container visual.md
+-						container native-remainder/visual.md
+-							text native-remainder visual.md
++					container visual.ts
++						container native-remainder/visual.ts
++							text native-remainder visual.ts
+ 						button 查找与替换
+-						toggle button 切换预览, Value: on
+ 						button (disabled) 保存文件, Help: 保存 ⌘ S
+-						text entry area (settable) native-remainder/visual.md，代码编辑器, Value: **# 本地阅读笔记**
+-
+-这里记录 **项目阅读** 与 **待办事项**。
+-
+-**## 今日计划**
+-
+-- [x] 打开本地项目
+-- [ ] 检查文件状态
+-
+-**## 文件清单**
+-
+-| 文件 | 状态 |
+-| --- | --- |
+-| visual.ts | 可编辑 |
+-| visual.md | 可预览 |
+-
+-**## 示例代码**
+-
+-```ts
+-const title = "Horizon";
+-console.log(title);
+-```
+-
+-**## 结语**
+-
+-所有内容均为本次验收自有夹具。
+-
+-
+-							container (settable)
+-								text (settable) #  本地阅读笔记
+-							container (settable)
+-								text (settable) 这里记录  ** 项目阅读 **  与  * 待办事项 * 。
+-							container (settable)
+-								text (settable) ##  今日计划
+-							container (settable)
+-								text (settable) - [ x ]  打开本地项目
+-							container (settable)
+-								text (settable) -  [ ] 检查文件状态
+-							container (settable)
+-								text (settable) ##  文件清单
+-							text (settable) | 文件 | 状态 |
+-							text (settable) | --- | --- |
+-							text (settable) | visual.ts | 可编辑 |
+-							text (settable) | visual.md | 可预览 |
+-							container (settable)
+-								text (settable) ##  示例代码
+-							container (settable)
+-								text (settable) ``` ts
+-							text (settable) const title = "Horizon";
+-							text (settable) console.log(title);
+-							text (settable) ```
+-							container (settable)
+-								text (settable) ##  结语
+-							text (settable) 所有内容均为本次验收自有夹具。
+-						container 文件预览
+-							container
+-								text 预览 visual.md
+-								button 关闭预览
+-							container Markdown 预览
+-								summary 标题导航 · 5, Value: off
+-									text 标题导航 · 
+-									text 5
+-								container 本地阅读笔记
+-									heading 本地阅读笔记, Value: 1
+-										text 本地阅读笔记
+-									container
+-										text 这里记录  项目阅读  与  待办事项 。
+-									heading 今日计划, Value: 2
+-										text 今日计划
+-									content list
+-										container 打开本地项目
+-											list marker •
+-											checkbox (disabled) 1
+-											text 打开本地项目
+-										container 检查文件状态
+-											list marker •
+-											checkbox (disabled) 0
+-											text 检查文件状态
+-									heading 文件清单, Value: 2
+-										text 文件清单
+-									table
+-										row (selectable) 文件
+-状态
+-										row (selectable)
+-											cell (selectable) visual.ts
+-											cell (selectable) 可编辑
+-										row (selectable)
+-											cell (selectable) visual.md
+-											cell (selectable) 可预览
+-									heading 示例代码, Value: 2
+-										text 示例代码
+-									text const title = "Horizon";
+-console.log(title);
+-
+-									heading 结语, Value: 2
+-										text 结语
+-									text 所有内容均为本次验收自有夹具。
++						text entry area (settable) native-remainder/visual.ts，代码编辑器, Value: export type ReadingItem = { title: string; done: boolean };
++
++export const readingPlan: ReadingItem[] = [
++  { title: '检查项目状态', done: true },
++  { title: '整理本地笔记', done: false },
++];
++
++export function remainingItems(items: ReadingItem[]) {
++  return items.filter(item => !item.done);
++}
++
++
++							container (settable)
++								text (settable) export type ReadingItem  = { title:  string ; done:  boolean  };
++							container (settable)
++								text (settable) export const  readingPlan:  ReadingItem [] = [
++							container (settable)
++								text (settable)   { title:  '检查项目状态' , done:  true  },
++							container (settable)
++								text (settable)   { title:  '整理本地笔记' , done:  false  },
++							text (settable) ];
++							container (settable)
++								text (settable) export function  remainingItems(items:  ReadingItem []) {
++							container (settable)
++								text (settable) return  items.filter(item => !item.done);
++							text (settable) }
+ 				button 进入专注模式
+ 			container
+ 				button Editor Resume QA
+ 				text Esc 后按 Tab 离开编辑器
+-				button 行 27，列 1
+-				text MD UTF8  ·  LF
++				button 行 11，列 1
++				text TS UTF8  ·  LF
+ 				pop up button 启动方案, Value: 在设置添加启动方案
+ 				button (disabled) 启动
+ 				button 切换终端

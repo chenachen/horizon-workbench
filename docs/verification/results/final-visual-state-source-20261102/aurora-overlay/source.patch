@@ -1,0 +1,10 @@
+--- a/apps/desktop/src/styles.css
++++ b/apps/desktop/src/styles.css
+@@ -456,6 +456,7 @@
+   .horizon-app.ai-open.sidebar-closed { grid-template-columns: var(--navigation-width) 0 minmax(0,1fr) 0; }
+   .auxiliary-panel { position: fixed; z-index: 30; top: var(--topbar-height); bottom: var(--status-height); right: 0; width: min(var(--auxiliary-width), calc(100vw - 60px)); margin: 6px 12px; border: 1px solid var(--border); box-shadow: -10px 6px 30px #10264024; border-radius: var(--radius); }
+   :root[data-layout='tabs'] .auxiliary-panel { top: calc(var(--topbar-height) + 45px); margin-top: 0; }
++  :root[data-layout='dock'] .auxiliary-panel { bottom: calc(var(--status-height) + 48px); margin-bottom: 0; }
+   :root[data-layout='unified'] .horizon-app.ai-open, :root[data-layout='drawer'] .horizon-app.ai-open { grid-template-columns: calc(var(--sidebar-width) + 16px) minmax(0,1fr) 0; }
+   :root[data-layout='tabs'] .horizon-app.ai-open, :root[data-layout='dock'] .horizon-app.ai-open { grid-template-columns: var(--sidebar-width) minmax(0,1fr) 0; }
+   :root[data-layout='compact'] .horizon-app.ai-open { grid-template-columns: var(--navigation-width) var(--sidebar-width) minmax(0,1fr) 0; }

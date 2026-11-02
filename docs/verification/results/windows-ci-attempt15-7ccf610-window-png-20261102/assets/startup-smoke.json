@@ -1,0 +1,98 @@
+{
+  "scope": "One compiled main EXE launch on an owned fresh Windows runner; no GUI interaction or performance acceptance.",
+  "commit": "7ccf610fadaec22ceac7895cc6cbd70b9fe917fe",
+  "executable": "D:\\a\\horizon-workbench\\horizon-workbench\\apps\\desktop\\src-tauri\\target\\release\\horizon-desktop.exe",
+  "executable_sha256": "975bba0a3920a8a23a78fcf4218462fc9b32c01f5663b4df6f1b70a51d5c414b",
+  "session_id": 2,
+  "webview2": [
+    {
+      "key": "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}",
+      "version": "131.0.2903.86"
+    }
+  ],
+  "data_paths": [
+    "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+    "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+  ],
+  "data_paths_existed_before": [],
+  "data_retention": "Only directories absent before this launch are owned; leave them to ephemeral runner disposal. No directory/registry deletion.",
+  "status": "process_alive_after_5s",
+  "pid": 4108,
+  "start_time_utc": "2026-11-02T05:11:36.1090828Z",
+  "observed_utc": "2026-11-02T05:11:41.1241850Z",
+  "alive_after_5s": true,
+  "window_handle": "901FE",
+  "window_title": "Horizon",
+  "os_window_exists": true,
+  "frontend_interactive": "not_evaluated",
+  "window_responding": true,
+  "host_readiness": {
+    "scope": "Read-only observation of the two files written by fresh production setup; not an interaction or performance check.",
+    "status": "required_setup_files_observed",
+    "roaming_path": "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+    "required_files": [
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop\\registry.json",
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop\\extensions\\registry.json"
+    ],
+    "deadline_process_age_seconds": 30,
+    "poll_interval_ms": 250,
+    "started_utc": "2026-11-02T05:11:41.1934653Z",
+    "host_file_exists": true,
+    "extensions_file_exists": true,
+    "first_files_observed_utc": "2026-11-02T05:11:41.9806574Z",
+    "first_files_observed_process_age_ms": 5872.3554,
+    "host_schema_version": 1,
+    "extensions_schema_version": 1,
+    "host_registry_valid": true,
+    "extensions_registry_valid": true,
+    "observed_utc": "2026-11-02T05:11:42.0139756Z"
+  },
+  "frontend_readiness": {
+    "scope": "One read-only UIA query in the owned main window; no Invoke, focus, input or interaction.",
+    "started_utc": "2026-11-02T05:11:42.2772438Z",
+    "status": "button_not_observed",
+    "expected_pid": 4108,
+    "expected_start_utc_ticks": 639291930961090828,
+    "window_handle": "901FE",
+    "target_name": "打开本地项目",
+    "observed_utc": "2026-11-02T05:11:43.2135571Z",
+    "helper_exit_code": 0,
+    "observer_elapsed_ms": 1862
+  },
+  "window_screenshot": {
+    "scope": "One screen-pixel copy of the owned window rectangle; occluding windows may appear. No focus, activation or input.",
+    "status": "captured",
+    "expected_pid": 4108,
+    "expected_start_utc_ticks": 639291930961090828,
+    "window_handle": "901FE",
+    "started_utc": "2026-11-02T05:11:43.8925960Z",
+    "is_visible": true,
+    "is_minimized": false,
+    "coordinate_space": "Physical screen pixels; GetWindowRect includes outer frame/resize borders.",
+    "window_rectangle": {
+      "width": 1044,
+      "y": 0,
+      "height": 788,
+      "x": 0
+    },
+    "copied_rectangle": {
+      "width": 1024,
+      "y": 0,
+      "height": 768,
+      "x": 0
+    },
+    "clipped_to_virtual_screen": true,
+    "foreground_window_handle": "901FE",
+    "target_is_foreground": true,
+    "copied_utc": "2026-11-02T05:11:48.1823478Z",
+    "artifact": "main-window.png",
+    "bytes": 38427,
+    "sha256": "d84cc7e34ed8d28cdd5de674b653bce24bd1ac4b6889a12b5c0a972ebae7cc53",
+    "observed_utc": "2026-11-02T05:11:48.2155319Z"
+  },
+  "cleanup": "Stopped only the exact spawned PID/start identity and its descendants via Process.Kill(true).",
+  "data_paths_created": [
+    "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+    "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+  ]
+}

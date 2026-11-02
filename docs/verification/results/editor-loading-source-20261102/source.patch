@@ -1,0 +1,94 @@
+--- a/packages/editor/src/store.ts
++++ b/packages/editor/src/store.ts
+@@ -34,6 +34,13 @@
+   getSnapshot = () => this.snapshot;
+   getBuffer = (projectId: string, fileId: string) => this.buffers.get(bufferKey(projectId, fileId));
+   getActive = (projectId = this.snapshot.activeProjectId ?? '') => { const file = this.projects.get(projectId)?.activeFileId; return file ? this.getBuffer(projectId, file) : undefined; };
++  getProjectLoadState = (projectId: string): 'restoring' | 'opening' | undefined => {
++    const restoring = this.restoringSessions.get(projectId);
++    if (restoring && this.projectIsLive(projectId, restoring)) return 'restoring';
++    const prefix = bufferKey(projectId, '');
++    for (const [key, opening] of this.opens) if (key.startsWith(prefix) && this.projectIsLive(projectId, opening.ticket)) return 'opening';
++    return undefined;
++  };
+   private emit(error: string | null = this.snapshot.error) { this.snapshot = { ...this.snapshot, revision: this.snapshot.revision + 1, projects: this.projects, buffers: this.buffers, error }; this.listeners.forEach(fn => fn()); }
+   reportError = (error: unknown) => this.emit(errorMessage(error));
+   clearError = () => this.emit(null);
+@@ -67,12 +74,15 @@
+       if (reattached && this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
+       return;
+     }
+-    this.restoringSessions.set(projectId, ticket); const activeAtStart = project.activeFileId;
++    this.restoringSessions.set(projectId, ticket); this.emit(); const activeAtStart = project.activeFileId;
+     try { for (const tab of session.tabs) { const buffer = await this.openFile(tab.fileId, { projectId, preview: !tab.pinned, activate: false }); if (!this.projectIsLive(projectId, ticket)) return; if (buffer) { buffer.selection = clampSelection(tab.selection, editorTextLength(buffer.getText())); buffer.scrollTop = tab.scrollTop; } }
+       if (!this.projectIsLive(projectId, ticket)) return;
+       if (project.activeFileId === activeAtStart && session.activeFileId && this.getBuffer(projectId, session.activeFileId)) this.activate(session.activeFileId, projectId);
+       project.restored = true; if (this.pendingSessions.get(projectId) === session) this.pendingSessions.delete(projectId);
+-    } finally { if (this.restoringSessions.get(projectId) === ticket) this.restoringSessions.delete(projectId); if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId); }
++    } finally {
++      if (this.restoringSessions.get(projectId) === ticket) { this.restoringSessions.delete(projectId); this.emit(); }
++      if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
++    }
+   };
+   openFile = async (fileId: string, options: { projectId?: string; preview?: boolean; line?: number; column?: number; activate?: boolean } = {}) => {
+     const projectId = options.projectId ?? this.snapshot.activeProjectId;
+@@ -129,9 +139,10 @@
+         }
+         this.reportError(error); return undefined;
+       }
+-      finally { if (this.opens.get(key)?.ticket === ticket) this.opens.delete(key); }
+     })();
+-    this.opens.set(key, { ticket, promise: opening }); return opening;
++    this.opens.set(key, { ticket, promise: opening }); this.emit();
++    try { return await opening; }
++    finally { if (this.opens.get(key)?.ticket === ticket) { this.opens.delete(key); this.emit(); } }
+   };
+   prepareFileRelocation = async (fileId: string, projectId: string): Promise<FileRelocationPlan | null> => {
+     const buffer = this.getBuffer(projectId, fileId);
+--- a/apps/desktop/src/features/editor/EditorWorkbench.tsx
++++ b/apps/desktop/src/features/editor/EditorWorkbench.tsx
+@@ -10,6 +10,7 @@
+ import { editorCommands } from './commands';
+ import { FileKindIcon } from './FileKindIcon';
+ import { RecoveryNotice } from './RecoveryNotice';
++import { Loading } from '../../components/Modal';
+ import { FileRecovery } from './FileRecovery';
+ import './editor.css';
+ const CodeSurface = lazy(() => import('./CodeSurface'));
+@@ -38,6 +39,9 @@
+ const formatBytes = (bytes?: string) => { const size = Number(bytes ?? 0); return size >= 1048576 ? `${(size / 1048576).toFixed(1)} MiB` : `${(size / 1024).toFixed(1)} KiB`; };
+ export function EditorWorkbench({ projectId, projectEpoch, onQuickOpen, onToggleSidebar, previewEnabled = true, editorPreferences }: EditorWorkbenchProps) {
+   const snapshot = useEditor(), project = snapshot.projects.get(projectId), buffer = editorStore.getActive(projectId);
++  const loadState = editorStore.getProjectLoadState(projectId);
++  const documentLoading = !buffer?.accessError && (!!buffer?.evicted || (!buffer && loadState !== undefined));
++  const loadLabel = loadState === 'restoring' ? '正在恢复文件…' : '正在读取文件…';
+   const editorEnabled = usePluginEnabled('horizon.editor', projectId);
+   const { settings } = useSettings(projectId);
+   const effective = settings?.effective ?? {};
+@@ -73,7 +77,7 @@
+   const recovery = buffer?.accessError ? <FileRecovery key={buffer.key} buffer={buffer} onSaveCopy={buffer.meta && !buffer.evicted ? () => { setSaveAsName(buffer.path.split('/').pop() ?? '副本'); setSaveAs(true); } : undefined} /> : null;
+   const editorToolbar = buffer && !fileUnavailable ? <div className="editor-file-toolbar"><div className="editor-breadcrumb" title={buffer.path}>{buffer.path.split('/').map((part, i) => <span key={i}>{i > 0 && <ChevronRight size={11} />}{part}</span>)}</div><div><button title="查找与替换" aria-label="查找与替换" onClick={() => void editorCommands.find()} disabled={buffer.mode !== 'editor'}><Search size={14} /></button>{canPreview && previewEnabled && !image && <button title="切换预览" aria-label="切换预览" aria-pressed={preview} onClick={() => { setPreview(v => !v); setNarrowPreview(true); }}><Columns2 size={15} /></button>}<button title={buffer.meta?.readOnly ? '当前文件只读' : buffer.mode !== 'editor' ? '当前内容不支持编辑' : saveShortcut ? `保存 ${saveShortcut}` : '保存'} aria-label="保存文件" disabled={!buffer.dirty || buffer.saving || buffer.proposalPending || buffer.meta?.readOnly || buffer.mode !== 'editor'} onClick={() => void editorStore.save(buffer.fileId, projectId)}><ArrowDownToLine size={14} /><span>{buffer.saving ? '保存中' : '保存'}</span></button></div></div> : null;
+   return <section className="editor-workbench" aria-label="编辑工作台"><div className="document-tabs-row">{onToggleSidebar && <button className="editor-sidebar-toggle" title="切换文件侧栏" aria-label="切换文件侧栏" onClick={onToggleSidebar}><PanelLeft size={16} /></button>}<div ref={documentTabs} className="document-tabs" role="tablist" aria-label="打开的文件">{project?.tabs.map((fileId, index) => { const b = editorStore.getBuffer(projectId, fileId)!; const active = fileId === project.activeFileId; return <div className={`document-tab${active ? ' active' : ''}${b.preview ? ' preview-tab' : ''}`} key={fileId} onContextMenu={event => { event.preventDefault(); setTabMenu(fileId); }}><button ref={active ? activeTab : undefined} id={`tab-${fileId}`} role="tab" aria-selected={active} aria-controls="editor-document-panel" tabIndex={active ? 0 : -1} title={`${b.path}${b.dirty ? ' · 未保存' : ''}`} onClick={() => editorStore.activate(fileId, projectId)} onDoubleClick={() => editorStore.keep(fileId, projectId)} onKeyDown={e => { if (e.nativeEvent.isComposing) return; const tabs = project.tabs; const next = e.key === 'ArrowRight' ? (index + 1) % tabs.length : e.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null; if (next !== null) { e.preventDefault(); editorStore.activate(tabs[next], projectId); } }}><FileKindIcon path={b.path} /><span>{b.path.split('/').pop()}</span>{b.dirty && <span className="dirty-dot" aria-label="未保存">●</span>}</button><button className="tab-close" tabIndex={active ? 0 : -1} aria-label={`关闭 ${b.path}`} onClick={() => editorStore.requestClose(fileId, projectId)}><X size={12} /></button></div>; })}</div><button className="tab-menu-trigger" title="文件标签操作" aria-label="文件标签操作" disabled={!buffer} onClick={() => setTabMenu(tabMenu ? null : buffer?.fileId ?? null)}><MoreHorizontal size={15} /></button></div>
+-    {buffer?.mode !== 'editor' && buffer?.mode !== 'chunked' && editorToolbar}
++    {(documentLoading || (buffer?.mode !== 'editor' && buffer?.mode !== 'chunked')) && editorToolbar}
+     <RecoveryNotice projectId={projectId} projectEpoch={projectEpoch} />
+     {copyNotice && <div className="editor-notice" role="status">{copyNotice}<button onClick={() => setCopyNotice('')}>关闭</button></div>}
+     {snapshot.error && <div className="editor-error" role="alert">{snapshot.error}<button onClick={editorStore.clearError}>关闭</button></div>}
+@@ -84,13 +88,13 @@
+     {!fileUnavailable && buffer?.simplified && <div className="editor-notice">简化阅读 · {formatBytes(buffer.meta?.baseDiskRevision.byteLength)}：大文件或超长行，已关闭语法分析与折叠。{buffer.meta?.readOnly ? '当前只读。' : '可使用基础编辑。'}</div>}
+     {buffer?.checkpointError && <div className="editor-error" role="alert">恢复草稿写入失败：{buffer.checkpointError}。文本仍在当前编辑器，请保存文件。<button onClick={() => void editorStore.flushDrafts(projectId).catch(editorStore.reportError)}>重试恢复草稿</button></div>}
+     {!fileUnavailable && preview && canPreview && previewEnabled && !image && <div className="preview-mode-switch" aria-label="源码与预览"><button aria-pressed={!narrowPreview} onClick={() => setNarrowPreview(false)}>源码</button><button aria-pressed={narrowPreview} onClick={() => setNarrowPreview(true)}>预览</button><button className="preview-mode-close" onClick={() => setPreview(false)} aria-label="关闭预览"><X size={14} /></button></div>}
+-    <div id="editor-document-panel" className={`editor-document-panel${!fileUnavailable && preview && canPreview && previewEnabled && !image ? ` with-preview${narrowPreview ? ' preview-show-preview' : ''}` : ''}`} role="tabpanel" aria-labelledby={buffer ? `tab-${buffer.fileId}` : undefined}><div className="code-region" style={{ display: buffer?.mode === 'editor' && !fileUnavailable ? undefined : 'none' }}>{buffer?.mode === 'editor' && editorToolbar}<Suspense fallback={<p className="editor-empty">正在加载编辑器…</p>}><CodeSurface projectId={projectId} preferences={preferences} /></Suspense></div>
++    <div id="editor-document-panel" className={`editor-document-panel${!fileUnavailable && !documentLoading && preview && canPreview && previewEnabled && !image ? ` with-preview${narrowPreview ? ' preview-show-preview' : ''}` : ''}`} role="tabpanel" aria-labelledby={buffer ? `tab-${buffer.fileId}` : undefined}><div className="code-region" style={{ display: buffer?.mode === 'editor' && !fileUnavailable && !documentLoading ? undefined : 'none' }}>{buffer?.mode === 'editor' && editorToolbar}<Suspense fallback={<Loading variant="editor" label="正在加载编辑器…" />}><CodeSurface projectId={projectId} preferences={preferences} /></Suspense></div>
+       {fileUnavailable && recovery}
+-      {buffer?.evicted && !buffer.accessError && <p className="editor-empty" role="status">正在读取文件…</p>}
+-      {!buffer && <div className="editor-welcome"><div className="editor-welcome-icon"><Code2 size={42} strokeWidth={1.2} /></div><h2>从一个文件开始</h2><p>选择左侧文件，或快速打开项目中的内容。</p><button className="primary" onClick={onQuickOpen}><Search size={15} />快速打开 {openShortcut ? <kbd>{openShortcut}</kbd> : null}</button><div className="editor-shortcut-hints">{saveShortcut ? <span>保存 <kbd>{saveShortcut}</kbd></span> : null}<span>查找 <kbd>{findShortcut}</kbd></span>{commandShortcut ? <span>命令 <kbd>{commandShortcut}</kbd></span> : null}</div></div>}
++      {documentLoading && <Loading variant="editor" label={loadLabel} />}
++      {!buffer && !documentLoading && <div className="editor-welcome"><div className="editor-welcome-icon"><Code2 size={42} strokeWidth={1.2} /></div><h2>从一个文件开始</h2><p>选择左侧文件，或快速打开项目中的内容。</p><button className="primary" onClick={onQuickOpen}><Search size={15} />快速打开 {openShortcut ? <kbd>{openShortcut}</kbd> : null}</button><div className="editor-shortcut-hints">{saveShortcut ? <span>保存 <kbd>{saveShortcut}</kbd></span> : null}<span>查找 <kbd>{findShortcut}</kbd></span>{commandShortcut ? <span>命令 <kbd>{commandShortcut}</kbd></span> : null}</div></div>}
+       {!fileUnavailable && !buffer?.evicted && buffer?.mode === 'chunked' && <LargeFile buffer={buffer} />}
+       {!fileUnavailable && !buffer?.evicted && buffer?.mode === 'unsupported' && !(image && previewEnabled) && <div className="editor-welcome"><FileCode2 size={36} /><h2>{buffer.reason === 'encoding' ? '不支持此文件编码' : '二进制文件'}</h2><p>此内容不能作为文本保存。</p><button onClick={() => void call('file_open_external', { fileId: buffer.fileId }, projectId).catch(editorStore.reportError)}>用系统应用打开</button></div>}
+-      {buffer && !fileUnavailable && canPreview && previewEnabled && (preview || image) && <Suspense fallback={<p className="editor-empty">正在加载预览…</p>}><Preview buffer={buffer} onClose={image ? undefined : () => setPreview(false)} /></Suspense>}
++      {buffer && !fileUnavailable && !documentLoading && canPreview && previewEnabled && (preview || image) && <Suspense fallback={<p className="editor-empty">正在加载预览…</p>}><Preview buffer={buffer} onClose={image ? undefined : () => setPreview(false)} /></Suspense>}
+     </div>
+     {compare && buffer && compare.key === buffer.key && <section className="disk-compare" aria-label="外部修改比较"><header><strong>当前编辑与磁盘内容</strong><button onClick={() => setCompare(null)} aria-label="关闭比较"><X size={16} /></button></header><div><section><h3>当前未保存编辑</h3><pre>{buffer.getText()}</pre></section><section><h3>磁盘内容</h3><pre>{compare.text}</pre></section></div></section>}
+     {reloadConfirm && buffer && <div className="editor-modal-backdrop"><section className="editor-close-dialog" role="alertdialog" aria-modal="true" aria-label="放弃本次编辑"><h2>放弃本次编辑并重新载入？</h2><p>“{buffer.path}”将恢复为当前磁盘内容。</p><button autoFocus onClick={() => setReloadConfirm(false)}>取消</button><button onClick={() => { void editorStore.reload(buffer.fileId, true, projectId); setReloadConfirm(false); }}>放弃并重新载入</button></section></div>}

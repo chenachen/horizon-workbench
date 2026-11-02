@@ -1,0 +1,39 @@
+{
+  "observedAt": "2026-11-02T03:23:38.123393+00:00",
+  "source": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+  "destination": "/Users/chenpengxiang/Applications/Horizon.app",
+  "previousMainSha256": "289e8dab27136432e12056e70de7b521c5285a9646800542cc3c748ae80a7f52",
+  "mainSha256": "f0a2ccfa5b4cb93eac1c97bbed00e675954a1eb3a11e65ec2c0f9c81de54b8d4",
+  "previousPickerSha256": "5750db7bf0f848e165f08c3b982321d693e3a9d9978d15b5297f3588d1e101e3",
+  "pickerSha256": "5750db7bf0f848e165f08c3b982321d693e3a9d9978d15b5297f3588d1e101e3",
+  "bytes": 19911168,
+  "sourceAndDestinationMatch": true,
+  "appActiveAtReplacement": false,
+  "nativeLaunchPending": true,
+  "rollbackBackup": "/Users/chenpengxiang/Applications/.Horizon-editor-loading-previous.app",
+  "rollbackBackupRetained": true,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/ditto",
+        "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/target/release/bundle/macos/Horizon.app",
+        "/Users/chenpengxiang/Applications/.Horizon-editor-loading-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Applications/.Horizon-editor-loading-new.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}
