@@ -10,7 +10,7 @@ Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版�
 
 - [DMG 安装包](../artifacts/macos/Horizon-0.1.0-macOS-arm64.dmg)：打开后，将 Horizon 拖入 Applications。
 - [ZIP 应用包](../artifacts/macos/Horizon-0.1.0-macOS-arm64.zip)：解压得到 Horizon.app。
-- 本机应用：`~/Applications/Horizon.app`，已从该位置成功启动。
+- 本机应用：`~/Applications/Horizon.app`，已从该位置成功启动当前构建。
 - [使用指南](USER_GUIDE.md)：项目、文件、Git、插件、外观、终端、项目启动和 Pi 配置。
 
 当前应用为本机构建，使用临时签名，未进行 Developer ID 签名与公证。已完成安装包校验、ZIP 解压和应用签名完整性检查，并从最终安装位置启动到项目工作台。
@@ -39,14 +39,14 @@ Windows x64 安装器已经发布，下载与验证范围见 [Windows 试用版�
 
 ## 构建身份
 
-当前安装包于 2026-11-02 07:27（UTC+8）构建完成。本次主要修正样式：AI 侧栏与石墨模式切换外形、Git 提交区和弹窗、插件弹窗与搜索框、外观方案保存行，以及搜索空态的简短说明与换行。完整构建、签名、安装包与安装副本校验已完成；本轮原生定点复查正在进行。此前系统表单确认、Git、插件清退、Pi 和编辑器修复保留，功能及性能场景继续绑定其原测试包。
+当前安装包于 2026-11-02 08:27（UTC+8）构建完成。已有编辑器、插件弹窗和 Git 深色按钮修正保留；本次补齐现有空白加载分支的静态骨架、插件浅深遮罩，以及作用域下拉框的控件高度。构建、签名、归档和安装副本校验已完成，已从安装目录正常启动；定点视觉复查继续进行。功能和性能场景继续绑定其原测试包。
 
 | 文件 | 字节数 | SHA-256 |
 | --- | ---: | --- |
-| DMG | 20,061,909 | `18f9b7c93625e97ea3eb17741ecf9cd82fa8ba92fa88f18bb8d7b6359e271dbb` |
-| ZIP | 15,897,468 | `629090ca778081008267dd0bbee809a9ef52c794e9dc57358ec552318882579b` |
-| 应用主程序 | 19,911,168 | `5fa2ad4fa8af9dc05a88e1f3247f7ed1914add4e14f0bad4b98f15dea8ce5b13` |
+| DMG | 20,061,204 | `b3de199ed978fadf3a814e4d74d7214512e0faf77b7ea22ab0d6f4d5cf6fee1d` |
+| ZIP | 15,899,842 | `b1749377db18c36f211df4b0aff043f3a1fd70c7b75e6c720a84db7ae15e174c` |
+| 应用主程序 | 19,911,168 | `778c72f6218ed82061e3cf19724dba0954b73db93313495ac22dcd3ee1fb1f95` |
 
-[构建与打包回执](verification/results/search-empty-polish-release-20261102/release-build-receipt.json) · [归档与签名校验](verification/results/search-empty-polish-release-20261102/archive-verification.json) · [安装副本校验](verification/results/search-empty-polish-release-20261102/installation-copy.json)
+[构建与打包回执](verification/results/plugin-scope-release-20261102/release-build-receipt.json) · [归档与签名校验](verification/results/plugin-scope-release-20261102/archive-verification.json) · [当前安装副本](verification/results/plugin-scope-release-20261102/installation-copy.json)
 
 从源码复现：在仓库根目录执行 `npm ci`，再运行 `npm run desktop:release`。需要指南中列出的 Node.js、Rust 与 Xcode Command Line Tools；输出仍为上方两个安装包路径。重新构建后的摘要可能不同，以新回执为准。

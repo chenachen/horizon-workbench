@@ -12,25 +12,25 @@
 | 雾蓝 / A03 | 创建工作区 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A03-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-A03.jpg |
 | 雾蓝 / A04 | 添加本地项目 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A04-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-A04.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-A04.jpg |
 | 雾蓝 / A05 | 克隆仓库 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A05-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-A05.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-A05.jpg |
-| 雾蓝 / A06 | 项目操作菜单 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/A06-mist.jpg |
+| 雾蓝 / A06 | 项目操作菜单 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A06-mist.jpg、docs/verification/results/appearance-full-native-20261101/A06-mist.jpg |
 | 雾蓝 / B01 | 默认工作台 | macOS-product | verified | docs/verification/screenshots/dev/003-editor-mist-light-before.png、docs/verification/screenshots/appearance-candidate3/01-mist.png、docs/verification/screenshots/appearance-settings-project-b01/01-mist.jpg、docs/verification/results/appearance-full-native-20261101/B01-mist-clean.jpg |
 | 雾蓝 / B02 | 文件操作 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/mist/B02.jpg |
 | 雾蓝 / B03 | 快速打开与命令 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/mist/B03.jpg、docs/verification/results/appearance-full-native-20261101/B03-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-B03.jpg、docs/verification/results/pi-ui-repair-native-20261101/pi-ui-1793524171450-mist-B03-quickopen.jpg |
 | 雾蓝 / B04 | 项目内搜索 | macOS-product | differences | docs/verification/screenshots/release-candidate/007-search-dirty-project.png、docs/verification/results/editor-native-picker-20261101/visual/mist/B04.jpg |
 | 雾蓝 / B05 | 搜索无结果 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/mist/B05.jpg |
-| 雾蓝 / B06 | 轻量编辑与未保存 | macOS-product | differences | docs/verification/screenshots/release-candidate/006-ui-kit-bom-crlf.png、docs/verification/results/editor-native-picker-20261101/visual/mist/B06.jpg |
+| 雾蓝 / B06 | 轻量编辑与未保存 | macOS-product | verified | docs/verification/screenshots/release-candidate/006-ui-kit-bom-crlf.png、docs/verification/results/editor-native-picker-20261101/visual/mist/B06.jpg、docs/verification/results/editor-native-picker-20261101/visual/mist/B06.jpg |
 | 雾蓝 / B07 | 分栏预览 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/mist/B07.jpg |
 | 雾蓝 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/mist/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-B08.jpg |
 | 雾蓝 / B09 | 大文件阅读 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/mist/B09.jpg |
-| 雾蓝 / B10 | 文件结构与符号 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/mist/B10.jpg |
-| 雾蓝 / C01 | 更改与行内差异 | macOS-product | differences | docs/verification/screenshots/git-candidate6/01-staged-A-to-B.png |
-| 雾蓝 / C02 | 暂存与提交 | macOS-product | differences | docs/verification/screenshots/dev/004-git-staged-commit.png、docs/verification/screenshots/git-candidate6/04-C02-staged-before-commit.png |
-| 雾蓝 / C03 | 提交历史 | macOS-product | differences | docs/verification/screenshots/git-candidate6/15-C03-deleted-history-file.png |
-| 雾蓝 / C04 | 分支与远端同步 | macOS-product | differences | docs/verification/screenshots/git-candidate6/06-C04-fetched-remote-behind1.png |
-| 雾蓝 / C05 | 合并冲突处理 | macOS-product | differences | docs/verification/screenshots/git-candidate6/10-C05-conflict-sources-result.png |
-| 雾蓝 / C06 | 放弃更改确认 | macOS-product | differences | docs/verification/screenshots/git-candidate6/12-C06-discard-plan.png |
-| 雾蓝 / C07 | 同步失败与重试 | macOS-product | differences | docs/verification/screenshots/git-candidate6/07-C07-push-rejected-duplicate-toast.png |
-| 雾蓝 / C08 | 并排差异 | macOS-product | differences | docs/verification/screenshots/git-candidate6/02-unstaged-B-to-C-split.png |
+| 雾蓝 / B10 | 文件结构与符号 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/mist/B10.jpg、docs/verification/results/editor-native-picker-20261101/visual/mist/B10.jpg |
+| 雾蓝 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/screenshots/git-candidate6/01-staged-A-to-B.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C01-inline.jpg |
+| 雾蓝 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/screenshots/dev/004-git-staged-commit.png、docs/verification/screenshots/git-candidate6/04-C02-staged-before-commit.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C02-staged-inline.jpg |
+| 雾蓝 / C03 | 提交历史 | macOS-product | verified | docs/verification/screenshots/git-candidate6/15-C03-deleted-history-file.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C03-history-deleted.jpg |
+| 雾蓝 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/screenshots/git-candidate6/06-C04-fetched-remote-behind1.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C04-sync.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-retake-C04-sync.jpg |
+| 雾蓝 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/screenshots/git-candidate6/10-C05-conflict-sources-result.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C05-rebase-conflict.jpg |
+| 雾蓝 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/screenshots/git-candidate6/12-C06-discard-plan.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C06-discard-preview.jpg |
+| 雾蓝 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/screenshots/git-candidate6/07-C07-push-rejected-duplicate-toast.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C07-nonfastforward.jpg |
+| 雾蓝 / C08 | 并排差异 | macOS-product | verified | docs/verification/screenshots/git-candidate6/02-unstaged-B-to-C-split.png、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-C08-split.jpg |
 | 雾蓝 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-mist-D01-no-connection.jpg |
 | 雾蓝 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 雾蓝 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -43,9 +43,9 @@
 | 雾蓝 / E03 | 插件详情与贡献点 | macOS-product | differences | docs/verification/screenshots/plugins-candidate4b/004-live-git-a.png |
 | 雾蓝 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 雾蓝 / E05 | 已安装与作用域 | macOS-product | differences | docs/verification/screenshots/plugins-candidate4b/001-installed-before.png、docs/verification/screenshots/root-candidate5/02-mist-plugins-full-page.png |
-| 雾蓝 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 雾蓝 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-mist-E06-wrapper.jpg |
 | 雾蓝 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 雾蓝 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 雾蓝 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-mist-E08-first-permissions.jpg |
 | 雾蓝 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 雾蓝 / E10 | 更新管理 | macOS-product | unverified | — |
 | 雾蓝 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -60,7 +60,7 @@
 | 雾蓝 / F04 | 项目与资源 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F04-mist.jpg |
 | 雾蓝 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 雾蓝 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 雾蓝 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 雾蓝 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-mist-F07-git-settings.jpg |
 | 雾蓝 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-F08.jpg |
 | 雾蓝 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-F09-upper.jpg |
 | 雾蓝 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/12-settings-sizes.png、docs/verification/results/appearance-full-native-20261101/F10-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-F10-upper.jpg |
@@ -69,7 +69,7 @@
 | 雾蓝 / F13 | 外观组合 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F13-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-F13.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-mist-F13-empty.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-mist-F13-empty.jpg |
 | 雾蓝 / F14 | 布局恢复 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F14-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-F14.jpg |
 | 雾蓝 / G01 | 工作区加载中 | macOS-product | unverified | — |
-| 雾蓝 / G02 | 文件不可用 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/mist/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.jpg |
+| 雾蓝 / G02 | 文件不可用 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/mist/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.jpg |
 | 雾蓝 / G03 | 后台项目休眠 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G03-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-G03.jpg |
 | 雾蓝 / G04 | 专注模式 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G04-mist.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-mist-G04.jpg |
 | 雾蓝 / G05 | 深色主题 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/09-background-editor.png、docs/verification/screenshots/appearance-candidate3/10-background-sidebar.png、docs/verification/screenshots/appearance-candidate3/11-background-workbench.png、docs/verification/results/appearance-full-native-20261101/G05-mist.jpg |
@@ -85,25 +85,25 @@
 | 暖纸 / A03 | 创建工作区 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A03-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-A03.jpg |
 | 暖纸 / A04 | 添加本地项目 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A04-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-A04.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-A04.jpg |
 | 暖纸 / A05 | 克隆仓库 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A05-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-A05.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-A05.jpg |
-| 暖纸 / A06 | 项目操作菜单 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/A06-paper.jpg |
+| 暖纸 / A06 | 项目操作菜单 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A06-paper.jpg、docs/verification/results/appearance-full-native-20261101/A06-paper.jpg |
 | 暖纸 / B01 | 默认工作台 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/02-paper.png、docs/verification/screenshots/appearance-settings-project-b01/02-paper.jpg、docs/verification/results/appearance-full-native-20261101/B01-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-B01-density-border.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-paper-B01-terminal-hidden.jpg |
 | 暖纸 / B02 | 文件操作 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/B02.jpg |
 | 暖纸 / B03 | 快速打开与命令 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/paper/B03.jpg、docs/verification/results/appearance-full-native-20261101/B03-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-B03.jpg |
 | 暖纸 / B04 | 项目内搜索 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/B04.jpg |
 | 暖纸 / B05 | 搜索无结果 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/paper/B05.jpg、docs/verification/results/appearance-full-native-20261101/B05-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-B05-clear-pointer.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-paper-B05-scoped-zero.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-paper-B05-scoped-collapsed.jpg、docs/verification/results/search-empty-polish-native-20261102/5fa2-start-1793575808627-paper-B05-scoped-collapsed.jpg |
-| 暖纸 / B06 | 轻量编辑与未保存 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/B06.jpg |
+| 暖纸 / B06 | 轻量编辑与未保存 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/paper/B06.jpg、docs/verification/results/editor-native-picker-20261101/visual/paper/B06.jpg |
 | 暖纸 / B07 | 分栏预览 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/B07.jpg |
 | 暖纸 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/paper/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-B08.jpg |
 | 暖纸 / B09 | 大文件阅读 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/B09.jpg |
-| 暖纸 / B10 | 文件结构与符号 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/B10.jpg |
-| 暖纸 / C01 | 更改与行内差异 | macOS-product | unverified | — |
-| 暖纸 / C02 | 暂存与提交 | macOS-product | unverified | — |
-| 暖纸 / C03 | 提交历史 | macOS-product | unverified | — |
-| 暖纸 / C04 | 分支与远端同步 | macOS-product | unverified | — |
-| 暖纸 / C05 | 合并冲突处理 | macOS-product | unverified | — |
-| 暖纸 / C06 | 放弃更改确认 | macOS-product | unverified | — |
-| 暖纸 / C07 | 同步失败与重试 | macOS-product | unverified | — |
-| 暖纸 / C08 | 并排差异 | macOS-product | unverified | — |
+| 暖纸 / B10 | 文件结构与符号 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/paper/B10.jpg、docs/verification/results/editor-native-picker-20261101/visual/paper/B10.jpg |
+| 暖纸 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C01-inline.jpg |
+| 暖纸 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C02-staged-inline.jpg |
+| 暖纸 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C03-history-deleted.jpg |
+| 暖纸 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C04-sync.jpg |
+| 暖纸 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C05-rebase-conflict.jpg |
+| 暖纸 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C06-discard-preview.jpg |
+| 暖纸 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C07-nonfastforward.jpg |
+| 暖纸 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-C08-split.jpg |
 | 暖纸 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-paper-D01-no-connection.jpg |
 | 暖纸 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 暖纸 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -116,9 +116,9 @@
 | 暖纸 / E03 | 插件详情与贡献点 | macOS-product | unverified | — |
 | 暖纸 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 暖纸 / E05 | 已安装与作用域 | macOS-product | unverified | — |
-| 暖纸 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 暖纸 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-paper-E06-wrapper.jpg |
 | 暖纸 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 暖纸 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 暖纸 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-paper-E08-first-permissions.jpg |
 | 暖纸 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 暖纸 / E10 | 更新管理 | macOS-product | unverified | — |
 | 暖纸 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -133,7 +133,7 @@
 | 暖纸 / F04 | 项目与资源 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F04-paper.jpg |
 | 暖纸 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 暖纸 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 暖纸 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 暖纸 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-paper-F07-git-settings.jpg |
 | 暖纸 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-F08.jpg |
 | 暖纸 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-F09-upper.jpg |
 | 暖纸 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-F10-upper.jpg |
@@ -142,7 +142,7 @@
 | 暖纸 / F13 | 外观组合 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F13-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-F13.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-paper-F13-empty.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-paper-F13-empty.jpg |
 | 暖纸 / F14 | 布局恢复 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F14-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-F14.jpg |
 | 暖纸 / G01 | 工作区加载中 | macOS-product | unverified | — |
-| 暖纸 / G02 | 文件不可用 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/paper/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.jpg |
+| 暖纸 / G02 | 文件不可用 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/paper/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.jpg |
 | 暖纸 / G03 | 后台项目休眠 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G03-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-G03.jpg |
 | 暖纸 / G04 | 专注模式 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G04-paper.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-paper-G04.jpg |
 | 暖纸 / G05 | 深色主题 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/G05-paper.jpg |
@@ -169,14 +169,14 @@
 | 深空 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/orbit/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-orbit.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-orbit-B08.jpg、docs/verification/results/pi-ui-repair-native-20261101/pi-ui-1793524171450-orbit-B08-unsaved-close.jpg |
 | 深空 / B09 | 大文件阅读 | macOS-product | conditions-mismatch | docs/verification/results/editor-native-picker-20261101/visual/orbit/B09.jpg |
 | 深空 / B10 | 文件结构与符号 | macOS-product | conditions-mismatch | docs/verification/results/editor-native-picker-20261101/visual/orbit/B10.jpg |
-| 深空 / C01 | 更改与行内差异 | macOS-product | unverified | — |
-| 深空 / C02 | 暂存与提交 | macOS-product | unverified | — |
-| 深空 / C03 | 提交历史 | macOS-product | unverified | — |
-| 深空 / C04 | 分支与远端同步 | macOS-product | unverified | — |
-| 深空 / C05 | 合并冲突处理 | macOS-product | unverified | — |
-| 深空 / C06 | 放弃更改确认 | macOS-product | unverified | — |
-| 深空 / C07 | 同步失败与重试 | macOS-product | unverified | — |
-| 深空 / C08 | 并排差异 | macOS-product | unverified | — |
+| 深空 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C01-inline.jpg |
+| 深空 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C02-staged-inline.jpg |
+| 深空 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C03-history-deleted.jpg |
+| 深空 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C04-sync.jpg |
+| 深空 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C05-rebase-conflict.jpg |
+| 深空 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C06-discard-preview.jpg、docs/verification/results/git-dark-c06-native-20261102/2ba6-1793577803038-orbit-C06-discard-preview.jpg |
+| 深空 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C07-nonfastforward.jpg |
+| 深空 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-C08-split.jpg |
 | 深空 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-orbit-D01-no-connection.jpg |
 | 深空 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 深空 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -189,9 +189,9 @@
 | 深空 / E03 | 插件详情与贡献点 | macOS-product | unverified | — |
 | 深空 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 深空 / E05 | 已安装与作用域 | macOS-product | unverified | — |
-| 深空 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 深空 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-orbit-E06-wrapper.jpg |
 | 深空 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 深空 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 深空 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-orbit-E08-first-permissions.jpg |
 | 深空 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 深空 / E10 | 更新管理 | macOS-product | unverified | — |
 | 深空 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -206,7 +206,7 @@
 | 深空 / F04 | 项目与资源 | macOS-product | conditions-mismatch | docs/verification/results/appearance-full-native-20261101/F04-orbit.jpg |
 | 深空 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 深空 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 深空 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 深空 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-orbit-F07-git-settings.jpg |
 | 深空 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-orbit.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-orbit-F08.jpg |
 | 深空 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-orbit.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-orbit-F09-upper.jpg |
 | 深空 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-orbit.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-orbit-F10-upper.jpg |
@@ -231,25 +231,25 @@
 | 石墨 / A03 | 创建工作区 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A03-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-A03.jpg |
 | 石墨 / A04 | 添加本地项目 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A04-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-A04.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-A04.jpg |
 | 石墨 / A05 | 克隆仓库 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A05-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-A05.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-A05.jpg |
-| 石墨 / A06 | 项目操作菜单 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/A06-graphite.jpg |
+| 石墨 / A06 | 项目操作菜单 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A06-graphite.jpg、docs/verification/results/appearance-full-native-20261101/A06-graphite.jpg |
 | 石墨 / B01 | 默认工作台 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/04-graphite.png、docs/verification/screenshots/appearance-settings-project-b01/04-graphite.jpg、docs/verification/results/appearance-full-native-20261101/B01-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-B01-density-border.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-graphite-B01-terminal-hidden.jpg |
 | 石墨 / B02 | 文件操作 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B02.jpg |
 | 石墨 / B03 | 快速打开与命令 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/graphite/B03.jpg、docs/verification/results/appearance-full-native-20261101/B03-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-B03.jpg |
 | 石墨 / B04 | 项目内搜索 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B04.jpg |
 | 石墨 / B05 | 搜索无结果 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B05.jpg |
-| 石墨 / B06 | 轻量编辑与未保存 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B06.jpg |
+| 石墨 / B06 | 轻量编辑与未保存 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/graphite/B06.jpg、docs/verification/results/editor-native-picker-20261101/visual/graphite/B06.jpg |
 | 石墨 / B07 | 分栏预览 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B07.jpg |
 | 石墨 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/graphite/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-B08.jpg |
 | 石墨 / B09 | 大文件阅读 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B09.jpg |
-| 石墨 / B10 | 文件结构与符号 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/B10.jpg |
-| 石墨 / C01 | 更改与行内差异 | macOS-product | unverified | — |
-| 石墨 / C02 | 暂存与提交 | macOS-product | unverified | — |
-| 石墨 / C03 | 提交历史 | macOS-product | unverified | — |
-| 石墨 / C04 | 分支与远端同步 | macOS-product | unverified | — |
-| 石墨 / C05 | 合并冲突处理 | macOS-product | unverified | — |
-| 石墨 / C06 | 放弃更改确认 | macOS-product | unverified | — |
-| 石墨 / C07 | 同步失败与重试 | macOS-product | unverified | — |
-| 石墨 / C08 | 并排差异 | macOS-product | unverified | — |
+| 石墨 / B10 | 文件结构与符号 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/graphite/B10.jpg、docs/verification/results/editor-native-picker-20261101/visual/graphite/B10.jpg |
+| 石墨 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C01-inline.jpg |
+| 石墨 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C02-staged-inline.jpg |
+| 石墨 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C03-history-deleted.jpg |
+| 石墨 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C04-sync.jpg |
+| 石墨 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C05-rebase-conflict.jpg |
+| 石墨 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C06-discard-preview.jpg |
+| 石墨 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C07-nonfastforward.jpg |
+| 石墨 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-C08-split.jpg |
 | 石墨 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-graphite-D01-no-connection.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-graphite-D01-no-connection.jpg |
 | 石墨 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 石墨 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -262,9 +262,9 @@
 | 石墨 / E03 | 插件详情与贡献点 | macOS-product | unverified | — |
 | 石墨 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 石墨 / E05 | 已安装与作用域 | macOS-product | unverified | — |
-| 石墨 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 石墨 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-graphite-E06-wrapper.jpg |
 | 石墨 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 石墨 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 石墨 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-graphite-E08-first-permissions.jpg |
 | 石墨 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 石墨 / E10 | 更新管理 | macOS-product | unverified | — |
 | 石墨 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -279,7 +279,7 @@
 | 石墨 / F04 | 项目与资源 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F04-graphite.jpg |
 | 石墨 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 石墨 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 石墨 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 石墨 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-graphite-F07-git-settings.jpg |
 | 石墨 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-F08.jpg |
 | 石墨 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-F09-upper.jpg |
 | 石墨 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-F10-upper.jpg |
@@ -288,7 +288,7 @@
 | 石墨 / F13 | 外观组合 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F13-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-F13.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-graphite-F13-empty.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-graphite-F13-empty.jpg |
 | 石墨 / F14 | 布局恢复 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F14-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-F14.jpg |
 | 石墨 / G01 | 工作区加载中 | macOS-product | unverified | — |
-| 石墨 / G02 | 文件不可用 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/graphite/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-graphite-G02.jpg、docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg |
+| 石墨 / G02 | 文件不可用 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/graphite/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-graphite-G02.jpg、docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg、docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg |
 | 石墨 / G03 | 后台项目休眠 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G03-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-G03.jpg |
 | 石墨 / G04 | 专注模式 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G04-graphite.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-graphite-G04.jpg |
 | 石墨 / G05 | 深色主题 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/G05-graphite.jpg |
@@ -304,25 +304,25 @@
 | 青瓷 / A03 | 创建工作区 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A03-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-A03.jpg |
 | 青瓷 / A04 | 添加本地项目 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A04-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-A04.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-A04.jpg |
 | 青瓷 / A05 | 克隆仓库 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A05-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-A05.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-A05.jpg |
-| 青瓷 / A06 | 项目操作菜单 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/A06-celadon.jpg |
+| 青瓷 / A06 | 项目操作菜单 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A06-celadon.jpg、docs/verification/results/appearance-full-native-20261101/A06-celadon.jpg |
 | 青瓷 / B01 | 默认工作台 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/05-celadon.png、docs/verification/screenshots/appearance-settings-project-b01/05-celadon.jpg、docs/verification/results/appearance-full-native-20261101/B01-celadon.jpg |
 | 青瓷 / B02 | 文件操作 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B02.jpg |
 | 青瓷 / B03 | 快速打开与命令 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/celadon/B03.jpg、docs/verification/results/appearance-full-native-20261101/B03-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-B03.jpg |
 | 青瓷 / B04 | 项目内搜索 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B04.jpg |
 | 青瓷 / B05 | 搜索无结果 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B05.jpg |
-| 青瓷 / B06 | 轻量编辑与未保存 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B06.jpg |
+| 青瓷 / B06 | 轻量编辑与未保存 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/celadon/B06.jpg、docs/verification/results/editor-native-picker-20261101/visual/celadon/B06.jpg |
 | 青瓷 / B07 | 分栏预览 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B07.jpg |
 | 青瓷 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/celadon/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-B08.jpg |
 | 青瓷 / B09 | 大文件阅读 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B09.jpg |
-| 青瓷 / B10 | 文件结构与符号 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/B10.jpg |
-| 青瓷 / C01 | 更改与行内差异 | macOS-product | unverified | — |
-| 青瓷 / C02 | 暂存与提交 | macOS-product | unverified | — |
-| 青瓷 / C03 | 提交历史 | macOS-product | unverified | — |
-| 青瓷 / C04 | 分支与远端同步 | macOS-product | unverified | — |
-| 青瓷 / C05 | 合并冲突处理 | macOS-product | unverified | — |
-| 青瓷 / C06 | 放弃更改确认 | macOS-product | unverified | — |
-| 青瓷 / C07 | 同步失败与重试 | macOS-product | unverified | — |
-| 青瓷 / C08 | 并排差异 | macOS-product | unverified | — |
+| 青瓷 / B10 | 文件结构与符号 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/celadon/B10.jpg、docs/verification/results/editor-native-picker-20261101/visual/celadon/B10.jpg |
+| 青瓷 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C01-inline.jpg |
+| 青瓷 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C02-staged-inline.jpg |
+| 青瓷 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C03-history-deleted.jpg |
+| 青瓷 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C04-sync.jpg |
+| 青瓷 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C05-rebase-conflict.jpg |
+| 青瓷 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C06-discard-preview.jpg |
+| 青瓷 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C07-nonfastforward.jpg |
+| 青瓷 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-C08-split.jpg |
 | 青瓷 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-celadon-D01-no-connection.jpg |
 | 青瓷 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 青瓷 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -335,9 +335,9 @@
 | 青瓷 / E03 | 插件详情与贡献点 | macOS-product | unverified | — |
 | 青瓷 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 青瓷 / E05 | 已安装与作用域 | macOS-product | unverified | — |
-| 青瓷 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 青瓷 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-celadon-E06-wrapper.jpg |
 | 青瓷 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 青瓷 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 青瓷 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-celadon-E08-first-permissions.jpg |
 | 青瓷 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 青瓷 / E10 | 更新管理 | macOS-product | unverified | — |
 | 青瓷 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -352,7 +352,7 @@
 | 青瓷 / F04 | 项目与资源 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F04-celadon.jpg |
 | 青瓷 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 青瓷 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 青瓷 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 青瓷 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-celadon-F07-git-settings.jpg |
 | 青瓷 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-F08.jpg |
 | 青瓷 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-F09-upper.jpg |
 | 青瓷 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-F10-upper.jpg |
@@ -361,7 +361,7 @@
 | 青瓷 / F13 | 外观组合 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F13-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-F13.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-celadon-F13-empty.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-celadon-F13-empty.jpg |
 | 青瓷 / F14 | 布局恢复 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F14-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-F14.jpg |
 | 青瓷 / G01 | 工作区加载中 | macOS-product | unverified | — |
-| 青瓷 / G02 | 文件不可用 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/celadon/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.jpg |
+| 青瓷 / G02 | 文件不可用 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/celadon/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.jpg |
 | 青瓷 / G03 | 后台项目休眠 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G03-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-G03.jpg |
 | 青瓷 / G04 | 专注模式 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G04-celadon.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-celadon-G04.jpg |
 | 青瓷 / G05 | 深色主题 | macOS-product | conditions-mismatch | docs/verification/results/appearance-full-native-20261101/G05-celadon.jpg |
@@ -377,25 +377,25 @@
 | 鸢尾 / A03 | 创建工作区 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A03-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-A03.jpg、docs/verification/results/pi-ui-repair-native-20261101/pi-ui-1793524171450-iris-A03-create-workspace.jpg |
 | 鸢尾 / A04 | 添加本地项目 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A04-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-A04.jpg、docs/verification/results/pi-ui-repair-native-20261101/pi-ui-1793524171450-iris-A04-add-project.jpg |
 | 鸢尾 / A05 | 克隆仓库 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A05-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-A05.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-A05.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-iris-A05-natural-clone.jpg |
-| 鸢尾 / A06 | 项目操作菜单 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/A06-iris.jpg |
+| 鸢尾 / A06 | 项目操作菜单 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A06-iris.jpg、docs/verification/results/appearance-full-native-20261101/A06-iris.jpg |
 | 鸢尾 / B01 | 默认工作台 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/06-iris.png、docs/verification/screenshots/appearance-settings-project-b01/06-iris.jpg、docs/verification/results/appearance-full-native-20261101/B01-iris.jpg |
 | 鸢尾 / B02 | 文件操作 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B02.jpg |
 | 鸢尾 / B03 | 快速打开与命令 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/iris/B03.jpg、docs/verification/results/appearance-full-native-20261101/B03-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-B03.jpg |
 | 鸢尾 / B04 | 项目内搜索 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B04.jpg |
 | 鸢尾 / B05 | 搜索无结果 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B05.jpg |
-| 鸢尾 / B06 | 轻量编辑与未保存 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B06.jpg |
+| 鸢尾 / B06 | 轻量编辑与未保存 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/iris/B06.jpg、docs/verification/results/editor-native-picker-20261101/visual/iris/B06.jpg |
 | 鸢尾 / B07 | 分栏预览 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B07.jpg |
 | 鸢尾 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/iris/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-B08.jpg |
 | 鸢尾 / B09 | 大文件阅读 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B09.jpg |
-| 鸢尾 / B10 | 文件结构与符号 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/B10.jpg |
-| 鸢尾 / C01 | 更改与行内差异 | macOS-product | unverified | — |
-| 鸢尾 / C02 | 暂存与提交 | macOS-product | unverified | — |
-| 鸢尾 / C03 | 提交历史 | macOS-product | unverified | — |
-| 鸢尾 / C04 | 分支与远端同步 | macOS-product | unverified | — |
-| 鸢尾 / C05 | 合并冲突处理 | macOS-product | unverified | — |
-| 鸢尾 / C06 | 放弃更改确认 | macOS-product | unverified | — |
-| 鸢尾 / C07 | 同步失败与重试 | macOS-product | unverified | — |
-| 鸢尾 / C08 | 并排差异 | macOS-product | unverified | — |
+| 鸢尾 / B10 | 文件结构与符号 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/iris/B10.jpg、docs/verification/results/editor-native-picker-20261101/visual/iris/B10.jpg |
+| 鸢尾 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C01-inline.jpg |
+| 鸢尾 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C02-staged-inline.jpg |
+| 鸢尾 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C03-history-deleted.jpg |
+| 鸢尾 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C04-sync.jpg |
+| 鸢尾 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C05-rebase-conflict.jpg |
+| 鸢尾 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C06-discard-preview.jpg |
+| 鸢尾 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C07-nonfastforward.jpg |
+| 鸢尾 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-C08-split.jpg |
 | 鸢尾 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-iris-D01-no-connection.jpg |
 | 鸢尾 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 鸢尾 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -408,9 +408,9 @@
 | 鸢尾 / E03 | 插件详情与贡献点 | macOS-product | unverified | — |
 | 鸢尾 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 鸢尾 / E05 | 已安装与作用域 | macOS-product | unverified | — |
-| 鸢尾 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 鸢尾 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-iris-E06-wrapper.jpg |
 | 鸢尾 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 鸢尾 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 鸢尾 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-iris-E08-first-permissions.jpg |
 | 鸢尾 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 鸢尾 / E10 | 更新管理 | macOS-product | unverified | — |
 | 鸢尾 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -425,7 +425,7 @@
 | 鸢尾 / F04 | 项目与资源 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F04-iris.jpg |
 | 鸢尾 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 鸢尾 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 鸢尾 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 鸢尾 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-iris-F07-git-settings.jpg |
 | 鸢尾 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-F08.jpg |
 | 鸢尾 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-F09-upper.jpg |
 | 鸢尾 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-F10-upper.jpg |
@@ -434,7 +434,7 @@
 | 鸢尾 / F13 | 外观组合 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F13-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-F13.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-iris-F13-empty.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-iris-F13-empty.jpg |
 | 鸢尾 / F14 | 布局恢复 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F14-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-F14.jpg |
 | 鸢尾 / G01 | 工作区加载中 | macOS-product | unverified | — |
-| 鸢尾 / G02 | 文件不可用 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/iris/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-iris-G02.jpg、docs/verification/results/file-recovery-final-target-native-20261101/visual-iris-G02.jpg |
+| 鸢尾 / G02 | 文件不可用 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/iris/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-iris-G02.jpg、docs/verification/results/file-recovery-final-target-native-20261101/visual-iris-G02.jpg、docs/verification/results/file-recovery-final-target-native-20261101/visual-iris-G02.jpg |
 | 鸢尾 / G03 | 后台项目休眠 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G03-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-G03.jpg |
 | 鸢尾 / G04 | 专注模式 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G04-iris.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-iris-G04.jpg |
 | 鸢尾 / G05 | 深色主题 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G05-iris.jpg |
@@ -461,14 +461,14 @@
 | 砂岩 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/sand/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-sand.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-sand-B08.jpg |
 | 砂岩 / B09 | 大文件阅读 | macOS-product | conditions-mismatch | docs/verification/results/editor-native-picker-20261101/visual/sand/B09.jpg |
 | 砂岩 / B10 | 文件结构与符号 | macOS-product | conditions-mismatch | docs/verification/results/editor-native-picker-20261101/visual/sand/B10.jpg |
-| 砂岩 / C01 | 更改与行内差异 | macOS-product | unverified | — |
-| 砂岩 / C02 | 暂存与提交 | macOS-product | unverified | — |
-| 砂岩 / C03 | 提交历史 | macOS-product | unverified | — |
-| 砂岩 / C04 | 分支与远端同步 | macOS-product | unverified | — |
-| 砂岩 / C05 | 合并冲突处理 | macOS-product | unverified | — |
-| 砂岩 / C06 | 放弃更改确认 | macOS-product | unverified | — |
-| 砂岩 / C07 | 同步失败与重试 | macOS-product | unverified | — |
-| 砂岩 / C08 | 并排差异 | macOS-product | unverified | — |
+| 砂岩 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C01-inline.jpg |
+| 砂岩 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C02-staged-inline.jpg |
+| 砂岩 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C03-history-deleted.jpg |
+| 砂岩 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C04-sync.jpg |
+| 砂岩 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C05-rebase-conflict.jpg |
+| 砂岩 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C06-discard-preview.jpg |
+| 砂岩 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C07-nonfastforward.jpg |
+| 砂岩 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-C08-split.jpg |
 | 砂岩 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-sand-D01-no-connection.jpg |
 | 砂岩 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 砂岩 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -481,9 +481,9 @@
 | 砂岩 / E03 | 插件详情与贡献点 | macOS-product | unverified | — |
 | 砂岩 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 砂岩 / E05 | 已安装与作用域 | macOS-product | unverified | — |
-| 砂岩 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 砂岩 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-sand-E06-wrapper.jpg |
 | 砂岩 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 砂岩 / E08 | 首次安装授权 | macOS-product | unverified | — |
+| 砂岩 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-sand-E08-first-permissions.jpg |
 | 砂岩 / E09 | 插件设置与项目覆盖 | macOS-product | unverified | — |
 | 砂岩 / E10 | 更新管理 | macOS-product | unverified | — |
 | 砂岩 / E11 | 更新权限变化 | macOS-product | unverified | — |
@@ -498,7 +498,7 @@
 | 砂岩 / F04 | 项目与资源 | macOS-product | conditions-mismatch | docs/verification/results/appearance-full-native-20261101/F04-sand.jpg |
 | 砂岩 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 砂岩 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 砂岩 / F07 | Git 偏好 | macOS-product | unverified | — |
+| 砂岩 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-F07-git-settings.jpg |
 | 砂岩 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-sand.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-sand-F08.jpg |
 | 砂岩 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-sand.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-sand-F09-upper.jpg |
 | 砂岩 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-sand.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-sand-F10-upper.jpg |
@@ -523,25 +523,25 @@
 | 极光 / A03 | 创建工作区 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A03-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-A03.jpg |
 | 极光 / A04 | 添加本地项目 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A04-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-A04.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-A04.jpg |
 | 极光 / A05 | 克隆仓库 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A05-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-A05.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-A05.jpg |
-| 极光 / A06 | 项目操作菜单 | macOS-product | differences | docs/verification/results/appearance-full-native-20261101/A06-aurora.jpg |
+| 极光 / A06 | 项目操作菜单 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/A06-aurora.jpg、docs/verification/results/appearance-full-native-20261101/A06-aurora.jpg |
 | 极光 / B01 | 默认工作台 | macOS-product | verified | docs/verification/screenshots/appearance-candidate3/08-aurora.png、docs/verification/screenshots/appearance-settings-project-b01/08-aurora.jpg、docs/verification/results/appearance-full-native-20261101/B01-aurora.jpg |
 | 极光 / B02 | 文件操作 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B02.jpg |
 | 极光 / B03 | 快速打开与命令 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/aurora/B03.jpg、docs/verification/results/appearance-full-native-20261101/B03-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-B03.jpg、docs/verification/results/pi-ui-repair-native-20261101/pi-ui-1793524171450-aurora-B03-quickopen.jpg |
 | 极光 / B04 | 项目内搜索 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B04.jpg |
 | 极光 / B05 | 搜索无结果 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B05.jpg |
-| 极光 / B06 | 轻量编辑与未保存 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B06.jpg |
+| 极光 / B06 | 轻量编辑与未保存 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/aurora/B06.jpg、docs/verification/results/editor-native-picker-20261101/visual/aurora/B06.jpg |
 | 极光 / B07 | 分栏预览 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B07.jpg |
 | 极光 / B08 | 关闭未保存文件 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/aurora/B08.jpg、docs/verification/results/appearance-full-native-20261101/B08-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-B08.jpg、docs/verification/results/pi-ui-repair-native-20261101/pi-ui-1793524171450-aurora-B08-unsaved-close.jpg |
 | 极光 / B09 | 大文件阅读 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B09.jpg |
-| 极光 / B10 | 文件结构与符号 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/B10.jpg |
-| 极光 / C01 | 更改与行内差异 | macOS-product | differences | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-chinese-inline.jpg |
-| 极光 / C02 | 暂存与提交 | macOS-product | differences | docs/verification/results/git-terra-20261101/git-91087-1793541773799-03-staged-before-commit.jpg |
+| 极光 / B10 | 文件结构与符号 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/aurora/B10.jpg、docs/verification/results/editor-native-picker-20261101/visual/aurora/B10.jpg |
+| 极光 / C01 | 更改与行内差异 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-chinese-inline.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C01-inline.jpg |
+| 极光 / C02 | 暂存与提交 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-03-staged-before-commit.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C02-staged-inline.jpg |
 | 极光 / C03 | 提交历史 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-history-deleted.jpg |
-| 极光 / C04 | 分支与远端同步 | macOS-product | differences | docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-git03-main-before.jpg |
-| 极光 / C05 | 合并冲突处理 | macOS-product | differences | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-rebase-conflict.jpg |
-| 极光 / C06 | 放弃更改确认 | macOS-product | conditions-mismatch | docs/verification/results/git-terra-20261101/git-91087-1793541773799-05-trash-preview.jpg |
-| 极光 / C07 | 同步失败与重试 | macOS-product | differences | docs/verification/results/git-terra-20261101/git-91087-1793541773799-02-nonff-rejected.jpg |
-| 极光 / C08 | 并排差异 | macOS-product | conditions-mismatch | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-chinese-side-by-side.jpg |
+| 极光 / C04 | 分支与远端同步 | macOS-product | verified | docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-git03-main-before.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C04-sync.jpg |
+| 极光 / C05 | 合并冲突处理 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-rebase-conflict.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C05-rebase-conflict.jpg |
+| 极光 / C06 | 放弃更改确认 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-05-trash-preview.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C06-discard-preview.jpg、docs/verification/results/git-dark-c06-native-20261102/2ba6-1793577803038-aurora-C06-discard-preview.jpg |
+| 极光 / C07 | 同步失败与重试 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-02-nonff-rejected.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C07-nonfastforward.jpg |
+| 极光 / C08 | 并排差异 | macOS-product | verified | docs/verification/results/git-terra-20261101/git-91087-1793541773799-01b-chinese-side-by-side.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-C08-split.jpg |
 | 极光 / D01 | AI 尚未连接 | macOS-product | verified | docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-aurora-D01-no-connection.jpg |
 | 极光 / D02 | 按项目对话 | macOS-product | unverified | — |
 | 极光 / D03 | 上下文选择 | macOS-product | unverified | — |
@@ -554,9 +554,9 @@
 | 极光 / E03 | 插件详情与贡献点 | macOS-product | verified | docs/verification/results/plugins-functional-native-20261102/policy-19076-1793560196930-01-a-main-policy-details.jpg |
 | 极光 / E04 | 扩展失败与诊断 | macOS-product | unverified | — |
 | 极光 / E05 | 已安装与作用域 | macOS-product | differences | docs/verification/results/plugins-functional-native-20261102/cleanup-74714-1793562020579-40-b-removed-a-plugin-center.jpg |
-| 极光 / E06 | 本地扩展包安装 | macOS-product | unverified | — |
+| 极光 / E06 | 本地扩展包安装 | macOS-product | differences | docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-aurora-E06-wrapper.jpg |
 | 极光 / E07 | 安装进度与取消 | macOS-product | unverified | — |
-| 极光 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-03-permissions-before-cancel.jpg |
+| 极光 / E08 | 首次安装授权 | macOS-product | differences | docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-03-permissions-before-cancel.jpg、docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-pre-aurora-E08-first-permissions.jpg |
 | 极光 / E09 | 插件设置与项目覆盖 | macOS-product | differences | docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-12-a-project-override.jpg |
 | 极光 / E10 | 更新管理 | macOS-product | unverified | — |
 | 极光 / E11 | 更新权限变化 | macOS-product | differences | docs/verification/results/plugins-functional-native-20261102/plugin-27780-1793554929997-15-update-new-permissions-preview.jpg |
@@ -571,7 +571,7 @@
 | 极光 / F04 | 项目与资源 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F04-aurora.jpg |
 | 极光 / F05 | AI 连接管理 | macOS-product | unverified | — |
 | 极光 / F06 | 新增 AI 连接 | macOS-product | unverified | — |
-| 极光 / F07 | Git 偏好 | macOS-product | conditions-mismatch | docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-git04-auto-refresh-restored.jpg |
+| 极光 / F07 | Git 偏好 | macOS-product | verified | docs/verification/results/form-git-functional-native-20261102/form-41657-1793549150155-git04-auto-refresh-restored.jpg、docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-aurora-F07-git-settings.jpg |
 | 极光 / F08 | 快捷键 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F08-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-F08.jpg |
 | 极光 / F09 | 数据与隐私 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F09-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-F09-upper.jpg |
 | 极光 / F10 | 区域尺寸 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F10-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-F10-upper.jpg |
@@ -580,7 +580,7 @@
 | 极光 / F13 | 外观组合 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F13-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-F13.jpg、docs/verification/results/visual-conditions-native-20261102/bd0-start-1793574096762-aurora-F13-empty.jpg、docs/verification/results/visual-polish-native-20261102/1d4e-start-1793575216090-aurora-F13-empty.jpg |
 | 极光 / F14 | 布局恢复 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/F14-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-F14.jpg |
 | 极光 / G01 | 工作区加载中 | macOS-product | unverified | — |
-| 极光 / G02 | 文件不可用 | macOS-product | differences | docs/verification/results/editor-native-picker-20261101/visual/aurora/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.jpg |
+| 极光 / G02 | 文件不可用 | macOS-product | verified | docs/verification/results/editor-native-picker-20261101/visual/aurora/G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.jpg、docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.jpg |
 | 极光 / G03 | 后台项目休眠 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G03-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-G03-tail.jpg |
 | 极光 / G04 | 专注模式 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G04-aurora.jpg、docs/verification/results/appearance-terra-main-20261101/terra-main-1793520075462-aurora-G04.jpg |
 | 极光 / G05 | 深色主题 | macOS-product | verified | docs/verification/results/appearance-full-native-20261101/G05-aurora.jpg |

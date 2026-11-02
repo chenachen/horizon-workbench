@@ -1,0 +1,1230 @@
+{
+  "selectedFrom": ".work/editor-remaining-visual-20261102/inventory-dispositions.json",
+  "inventorySHA256AtRead": "1d2e0d8766d00f3927ef2121edf5816a2f2ec723d0ebda70bd6fd712f7dba413",
+  "rootAuthorization": "Root explicit Nov2: register only six styles eachA06/B06/B10/G02; menu330vs320 no clip accepted, malformedB06 not reproduced, Markdowncore/optionalTS, G02realfile/projects allowed.",
+  "acceptedReuseRecords": [
+    {
+      "case": "mist/A06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/appearance-full-native-20261101/A06-mist.jpg",
+      "captureSHA256": "e45c7adb5261977baad88f83f597cd1ca1f46651eaf9a91be35a7382ab0acea3",
+      "reference": "design/exports/png/mist/A06-project-menu.png",
+      "referenceSHA256": "c32246acbcd8eb08e50d13a87cf8f10e4478b0d1f814fac8662bb91d7c98f93f",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native342256 PID40426 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+      "priorReviewArtifactSHA256": "5fa4cb4b2ccd6d1c60c546cbb8f9696d83197fbf53dff9dcc0be3b58dd899c64",
+      "originalDifferences": [
+        {
+          "category": "menu-trigger-anchor",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际从侧栏项目操作按钮触发，菜单左上约[226, 109]，参考固定[78,114]。菜单宽约520、项目名及7动作全可见；保随真实触发点定位与视口边界，不硬编码原型坐标。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "real-project-menu-actions",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "真实项目未固定，显示固定项目；参考显示取消固定。当前加入项目启动方案，参考含在新窗口打开；首版PRD54明确默认同一窗口切项目，不凭静态图补新窗口能力。分隔线随实际动作分组，最终移除仍单独弱红色。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "menu-height",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际约330px高，参考约320px；行文与图标清晰，未见裁切、覆盖或被视口挡住的动作。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "sourceDisposition": "recorded",
+          "recommendation": null,
+          "disposition": "Retained visual or copy difference"
+        }
+      ],
+      "disposition": "accepted-minor-menu-height-and-real-actions",
+      "reason": "Root explicitly accepts approximately330px versus320px menu height because all seven real actions remain readable and unclipped. Trigger position and real pin/launcher actions were already accepted. No fixed prototype anchor or fake new-window action.",
+      "currentEvidence": [
+        "ProjectMenu whole source SHA equals frozen7ba snapshot; four menu selectors unchanged from7ba; this candidate touches editor files only."
+      ],
+      "sourceEvidenceKeys": [
+        "A06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "mist/B06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/mist/B06.jpg",
+      "captureSHA256": "01819fc13edfbab4329763ed69fdd179a7109c599ec841ce8697b451c0c46410",
+      "reference": "design/exports/png/mist/B06-edit.png",
+      "referenceSHA256": "40090133cdd3e258f7b35835352f4170a745899fb8ddacdd6d97b59ab46821d2",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "reference defect",
+          "expected": "Original reference design/exports/png/mist/B06-edit.png",
+          "actual": "Reference malformed three-column editing body not reproduced.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Own visual.ts, more tabs and projects; native titlebar buttons.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-reference-layout-defect-and-real-buffer-content",
+      "reason": "The original B06 reference abnormally distributes toolbar/breadcrumb/source into three side-by-side columns. Keep the working vertical editor, genuine dirty state and owned content. Root explicitly accepts this reference defect; do not reproduce the broken arrangement.",
+      "currentEvidence": [
+        "CodeSurface whole source SHA equals frozen7ba snapshot; baseline Workbench differences from7ba only add platform shortcut/welcome hints. Candidate keeps a vertical source region and actual CodeMirror instance (one identity sequence passed). No claim of pixel-identical editing layout."
+      ],
+      "sourceEvidenceKeys": [
+        "B06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "mist/B10",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/mist/B10.jpg",
+      "captureSHA256": "2b7b21a4d923b1f80d13d703f668bdd9b5650e0f8913f1fc073f6d03f066d36f",
+      "reference": "design/exports/png/mist/B10-outline.png",
+      "referenceSHA256": "88d7106169232281c881e672ecab5016e2562ceaa5ad2a1310d6713fa25c3f14",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "visual structure",
+          "expected": "Original reference design/exports/png/mist/B10-outline.png",
+          "actual": "Reference TypeScript symbols/language-service note absent; directory/structure switch adds a row.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Markdown basic outline is not TypeScript semantic-symbol condition.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-basic-outline-versus-optional-typescript-semantics",
+      "reason": "INTERACTION_SPEC274-281 makes Markdown heading structure core and TypeScript semantic symbols optional. Existing originals show the supported real Markdown outline. Root explicitly accepts that capability/content difference and the real directory/structure controls. No fabricated TypeScript symbols/service claim.",
+      "currentEvidence": [
+        "OutlinePanel whole source SHA equals frozen7ba snapshot; no OutlinePanel, FileExplorer, outline styles or language provider changes in candidate."
+      ],
+      "sourceEvidenceKeys": [
+        "B10"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "mist/G02",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.jpg",
+      "captureSHA256": "a218bf25564307cb5c3bc59c3e791b97acb8021a00223e4e194c797e5a4de611",
+      "reference": "design/exports/png/mist/G02-file-error.png",
+      "referenceSHA256": "3c15aa55a263e926c969efc92d6aa9a44a229200eeaaca78a62a5d4aaf306400",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "file-recovery release PID52226 SHA256 df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+      "priorReviewArtifact": "docs/verification/results/file-recovery-native-gui-visual-review/review.json",
+      "priorReviewArtifactSHA256": "ab20ac1be5642a2b26035d4885d077536d90903d381c64d749b6c684d31f7fdf",
+      "originalDifferences": [
+        {
+          "category": "prior unavailable-file structure",
+          "expected": "Named unavailable target, readable reason, central recovery actions",
+          "actual": "Central unavailable-file page, exact path, reason, Retry, Locate and Close are present; prior raw-error-only structure resolved.",
+          "severity": "major",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-20261101/visual-mist-G02.jpg"
+        },
+        {
+          "category": "accepted content differences",
+          "expected": "Static reference content in design/exports/png/mist/G02-file-error.png",
+          "actual": "The central file-access-retest/missing-link.ts path identifies the actual unavailable file. Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible. Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference. Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior.",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-visual-review/review.json"
+        },
+        {
+          "category": "fixture and capture conditions",
+          "expected": "Reference scene content and exact comparison conditions",
+          "actual": "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference. Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-file-identity-and-workspace-content",
+      "reason": "Latest canonical native evidence already resolves the central recovery page, exact path/reason, Retry/Locate/Close and required compact/light corrections. Remaining owned broken-link identity, real projects/tabs and historical incomplete geometry metadata are accepted by root. No new file failure is created.",
+      "currentEvidence": [
+        "FileRecovery and file-recovery.css whole source SHAs equal frozen7ba snapshot. Candidate does not alter either source; fileUnavailable gate and recovery rendering remain unchanged. Full Workbench/editor.css hashes differ for unrelated shortcut, search, menu, preview and chunked-file presentation changes."
+      ],
+      "sourceEvidenceKeys": [
+        "G02",
+        "G02CSS"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "paper/A06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/appearance-full-native-20261101/A06-paper.jpg",
+      "captureSHA256": "3007c3cc7802c9565d074a735f01930c0419aa19f788edc55157d09978343520",
+      "reference": "design/exports/png/paper/A06-project-menu.png",
+      "referenceSHA256": "81bcb03e78a1e1c3decf241f8b61aca982e970e8b5f285c966579fcde2d64fd9",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native342256 PID40426 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+      "priorReviewArtifactSHA256": "5fa4cb4b2ccd6d1c60c546cbb8f9696d83197fbf53dff9dcc0be3b58dd899c64",
+      "originalDifferences": [
+        {
+          "category": "menu-trigger-anchor",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际从侧栏项目操作按钮触发，菜单左上约[174, 284]，参考固定[78,114]。菜单宽约520、项目名及7动作全可见；保随真实触发点定位与视口边界，不硬编码原型坐标。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "real-project-menu-actions",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "真实项目未固定，显示固定项目；参考显示取消固定。当前加入项目启动方案，参考含在新窗口打开；首版PRD54明确默认同一窗口切项目，不凭静态图补新窗口能力。分隔线随实际动作分组，最终移除仍单独弱红色。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "menu-height",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际约330px高，参考约320px；行文与图标清晰，未见裁切、覆盖或被视口挡住的动作。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "sourceDisposition": "recorded",
+          "recommendation": null,
+          "disposition": "Retained visual or copy difference"
+        }
+      ],
+      "disposition": "accepted-minor-menu-height-and-real-actions",
+      "reason": "Root explicitly accepts approximately330px versus320px menu height because all seven real actions remain readable and unclipped. Trigger position and real pin/launcher actions were already accepted. No fixed prototype anchor or fake new-window action.",
+      "currentEvidence": [
+        "ProjectMenu whole source SHA equals frozen7ba snapshot; four menu selectors unchanged from7ba; this candidate touches editor files only."
+      ],
+      "sourceEvidenceKeys": [
+        "A06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "paper/B06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/paper/B06.jpg",
+      "captureSHA256": "a0fe0c1d9c26af7f5f9a09d684e3092da74155a9c66d0afee54bacc13f37451a",
+      "reference": "design/exports/png/paper/B06-edit.png",
+      "referenceSHA256": "8ca5fe7fd52908fe1a0abaf4c79ef4740b91f97e6cfb04927d6efa5874804f81",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "reference defect",
+          "expected": "Original reference design/exports/png/paper/B06-edit.png",
+          "actual": "Reference B06 itself is abnormally arranged in side-by-side toolbar/breadcrumb/source columns, not reproduced.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "More tabs/projects and different local code; no claim of matching malformed reference.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-reference-layout-defect-and-real-buffer-content",
+      "reason": "The original B06 reference abnormally distributes toolbar/breadcrumb/source into three side-by-side columns. Keep the working vertical editor, genuine dirty state and owned content. Root explicitly accepts this reference defect; do not reproduce the broken arrangement.",
+      "currentEvidence": [
+        "CodeSurface whole source SHA equals frozen7ba snapshot; baseline Workbench differences from7ba only add platform shortcut/welcome hints. Candidate keeps a vertical source region and actual CodeMirror instance (one identity sequence passed). No claim of pixel-identical editing layout."
+      ],
+      "sourceEvidenceKeys": [
+        "B06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "paper/B10",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/paper/B10.jpg",
+      "captureSHA256": "2cb0bfd6d087ac8d864f0c0b9584f8f3554837921d571b5424794e273305f1be",
+      "reference": "design/exports/png/paper/B10-outline.png",
+      "referenceSHA256": "a19976ff2b58f4489c82988846c9d0b94cd5bb5d2f3dcd23991b31da8fc6bb4d",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "visual structure",
+          "expected": "Original reference design/exports/png/paper/B10-outline.png",
+          "actual": "Directory/structure controls add a row; language-service note and TypeScript symbol icons absent.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Markdown basic outline does not exercise reference TypeScript semantic symbols.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-basic-outline-versus-optional-typescript-semantics",
+      "reason": "INTERACTION_SPEC274-281 makes Markdown heading structure core and TypeScript semantic symbols optional. Existing originals show the supported real Markdown outline. Root explicitly accepts that capability/content difference and the real directory/structure controls. No fabricated TypeScript symbols/service claim.",
+      "currentEvidence": [
+        "OutlinePanel whole source SHA equals frozen7ba snapshot; no OutlinePanel, FileExplorer, outline styles or language provider changes in candidate."
+      ],
+      "sourceEvidenceKeys": [
+        "B10"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "paper/G02",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.jpg",
+      "captureSHA256": "bff0650e71350d3fba6e5cf1a332d35d919e3aea54633691a51fe23f4f4040af",
+      "reference": "design/exports/png/paper/G02-file-error.png",
+      "referenceSHA256": "7c7771dc5a4d6e0b7b337e5eb5d973582e02ef2e6f637174d8a4163fcef5d9b1",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "file-recovery release PID52226 SHA256 df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+      "priorReviewArtifact": "docs/verification/results/file-recovery-native-gui-visual-review/review.json",
+      "priorReviewArtifactSHA256": "ab20ac1be5642a2b26035d4885d077536d90903d381c64d749b6c684d31f7fdf",
+      "originalDifferences": [
+        {
+          "category": "prior unavailable-file structure",
+          "expected": "Named unavailable target, readable reason, central recovery actions",
+          "actual": "Central unavailable-file page, exact path, reason, Retry, Locate and Close are present; prior raw-error-only structure resolved.",
+          "severity": "major",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-20261101/visual-paper-G02.jpg"
+        },
+        {
+          "category": "accepted content differences",
+          "expected": "Static reference content in design/exports/png/paper/G02-file-error.png",
+          "actual": "The central file-access-retest/missing-link.ts path identifies the actual unavailable file. Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible. Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference. Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior.",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-visual-review/review.json"
+        },
+        {
+          "category": "fixture and capture conditions",
+          "expected": "Reference scene content and exact comparison conditions",
+          "actual": "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference. Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-file-identity-and-workspace-content",
+      "reason": "Latest canonical native evidence already resolves the central recovery page, exact path/reason, Retry/Locate/Close and required compact/light corrections. Remaining owned broken-link identity, real projects/tabs and historical incomplete geometry metadata are accepted by root. No new file failure is created.",
+      "currentEvidence": [
+        "FileRecovery and file-recovery.css whole source SHAs equal frozen7ba snapshot. Candidate does not alter either source; fileUnavailable gate and recovery rendering remain unchanged. Full Workbench/editor.css hashes differ for unrelated shortcut, search, menu, preview and chunked-file presentation changes."
+      ],
+      "sourceEvidenceKeys": [
+        "G02",
+        "G02CSS"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "graphite/A06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/appearance-full-native-20261101/A06-graphite.jpg",
+      "captureSHA256": "0565ee9c2a058832d14ce05f003b92963addd5a1ca68828cb7963040f583e3d7",
+      "reference": "design/exports/png/graphite/A06-project-menu.png",
+      "referenceSHA256": "5a268816f8aa6cfa88333e4205c043ad0da0fe394901bc012d054742df068833",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native342256 PID40426 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+      "priorReviewArtifactSHA256": "5fa4cb4b2ccd6d1c60c546cbb8f9696d83197fbf53dff9dcc0be3b58dd899c64",
+      "originalDifferences": [
+        {
+          "category": "menu-trigger-anchor",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际从侧栏项目操作按钮触发，菜单左上约[219, 98]，参考固定[78,114]。菜单宽约520、项目名及7动作全可见；保随真实触发点定位与视口边界，不硬编码原型坐标。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "real-project-menu-actions",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "真实项目未固定，显示固定项目；参考显示取消固定。当前加入项目启动方案，参考含在新窗口打开；首版PRD54明确默认同一窗口切项目，不凭静态图补新窗口能力。分隔线随实际动作分组，最终移除仍单独弱红色。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "menu-height",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际约330px高，参考约320px；行文与图标清晰，未见裁切、覆盖或被视口挡住的动作。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "sourceDisposition": "recorded",
+          "recommendation": null,
+          "disposition": "Retained visual or copy difference"
+        }
+      ],
+      "disposition": "accepted-minor-menu-height-and-real-actions",
+      "reason": "Root explicitly accepts approximately330px versus320px menu height because all seven real actions remain readable and unclipped. Trigger position and real pin/launcher actions were already accepted. No fixed prototype anchor or fake new-window action.",
+      "currentEvidence": [
+        "ProjectMenu whole source SHA equals frozen7ba snapshot; four menu selectors unchanged from7ba; this candidate touches editor files only."
+      ],
+      "sourceEvidenceKeys": [
+        "A06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "graphite/B06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/graphite/B06.jpg",
+      "captureSHA256": "203853e088c4ca22b06675b607478e8f059799abc50e10dd5260d94793fff823",
+      "reference": "design/exports/png/graphite/B06-edit.png",
+      "referenceSHA256": "c5a25e172141b6a1fdbda72abadd780b81b791afb7bfbca5a5b3acdbe015010d",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "reference defect",
+          "expected": "Original reference design/exports/png/graphite/B06-edit.png",
+          "actual": "Actual normal vertical editor differs from malformed three-column B06 reference.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "QA file and larger tree/tab count; malformed reference not reproduced.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-reference-layout-defect-and-real-buffer-content",
+      "reason": "The original B06 reference abnormally distributes toolbar/breadcrumb/source into three side-by-side columns. Keep the working vertical editor, genuine dirty state and owned content. Root explicitly accepts this reference defect; do not reproduce the broken arrangement.",
+      "currentEvidence": [
+        "CodeSurface whole source SHA equals frozen7ba snapshot; baseline Workbench differences from7ba only add platform shortcut/welcome hints. Candidate keeps a vertical source region and actual CodeMirror instance (one identity sequence passed). No claim of pixel-identical editing layout."
+      ],
+      "sourceEvidenceKeys": [
+        "B06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "graphite/B10",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/graphite/B10.jpg",
+      "captureSHA256": "70a07212c2c2028a3a8c230bdee350d556a848e30d5456a5a56d030694e3170d",
+      "reference": "design/exports/png/graphite/B10-outline.png",
+      "referenceSHA256": "0eccf682d7fb500172f78d79834ebd08f5e5943949736a4927dbd593bbb91014",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "visual structure",
+          "expected": "Original reference design/exports/png/graphite/B10-outline.png",
+          "actual": "Extra directory/structure row; TypeScript symbols/service note missing.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Basic Markdown outline not semantic TypeScript reference.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-basic-outline-versus-optional-typescript-semantics",
+      "reason": "INTERACTION_SPEC274-281 makes Markdown heading structure core and TypeScript semantic symbols optional. Existing originals show the supported real Markdown outline. Root explicitly accepts that capability/content difference and the real directory/structure controls. No fabricated TypeScript symbols/service claim.",
+      "currentEvidence": [
+        "OutlinePanel whole source SHA equals frozen7ba snapshot; no OutlinePanel, FileExplorer, outline styles or language provider changes in candidate."
+      ],
+      "sourceEvidenceKeys": [
+        "B10"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "graphite/G02",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg",
+      "captureSHA256": "583f8c053d77769e2cdb24116c3bc42b5bde29e481e9a933216543a192069f6b",
+      "reference": "design/exports/png/graphite/G02-file-error.png",
+      "referenceSHA256": "00ff66494c186ca6f55c983d80ef8aa4cd187ad627545f68ee59c40b9d7caf8c",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "file-recovery final-target PID30261 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/file-recovery-final-target-visual-review/review.json",
+      "priorReviewArtifactSHA256": "af5bd7592fe39548b8feffbd69ead2276be0b018fe461d0a313fd2707a829074",
+      "originalDifferences": [
+        {
+          "category": "prior unavailable-file structure",
+          "expected": "Named unavailable target, readable reason, central recovery actions",
+          "actual": "Central unavailable-file page, exact path, reason, Retry, Locate and Close are present; prior raw-error-only structure resolved.",
+          "severity": "major",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-20261101/visual-graphite-G02.jpg"
+        },
+        {
+          "category": "accepted content differences",
+          "expected": "Static reference content in design/exports/png/graphite/G02-file-error.png",
+          "actual": "The central file-access-retest/missing-link.ts path identifies the actual unavailable file. Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible. Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference. Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior.",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-visual-review/review.json"
+        },
+        {
+          "category": "fixture and capture conditions",
+          "expected": "Reference scene content and exact comparison conditions",
+          "actual": "Twelve projects, manytabs and actual broken-link identity differ from reference. Actual light mode now matches; UI13/followtheme density recorded, exactgeometry overrides unavailable.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "ACTIVE-TAB-AFTER-LAYOUT",
+          "expected": "Entire activefile tabincludingcloseX visible after layoutwidth change",
+          "actual": "The complete active broken-link label and its close X are visibly inside the tab viewport. The central file-recovery page remains clear and unchanged in hierarchy; actual target is broken-link. Graphite uses light mode matching its reference; recovery action buttons have small compact corners instead of capsules.",
+          "severity": "moderate",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg"
+        },
+        {
+          "category": "G02-COMPACT-CORNERS",
+          "expected": "Graphite compact smallcorners",
+          "actual": "The complete active broken-link label and its close X are visibly inside the tab viewport. The central file-recovery page remains clear and unchanged in hierarchy; actual target is broken-link. Graphite uses light mode matching its reference; recovery action buttons have small compact corners instead of capsules.",
+          "severity": "moderate",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg"
+        },
+        {
+          "category": "GRAPHITE-G02-LIGHT-CONDITION",
+          "expected": "Graphite light mode matchingreference",
+          "actual": "The complete active broken-link label and its close X are visibly inside the tab viewport. The central file-recovery page remains clear and unchanged in hierarchy; actual target is broken-link. Graphite uses light mode matching its reference; recovery action buttons have small compact corners instead of capsules.",
+          "severity": "moderate",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-final-target-native-20261101/visual-graphite-G02.jpg"
+        }
+      ],
+      "disposition": "accepted-real-file-identity-and-workspace-content",
+      "reason": "Latest canonical native evidence already resolves the central recovery page, exact path/reason, Retry/Locate/Close and required compact/light corrections. Remaining owned broken-link identity, real projects/tabs and historical incomplete geometry metadata are accepted by root. No new file failure is created.",
+      "currentEvidence": [
+        "FileRecovery and file-recovery.css whole source SHAs equal frozen7ba snapshot. Candidate does not alter either source; fileUnavailable gate and recovery rendering remain unchanged. Full Workbench/editor.css hashes differ for unrelated shortcut, search, menu, preview and chunked-file presentation changes."
+      ],
+      "sourceEvidenceKeys": [
+        "G02",
+        "G02CSS"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "celadon/A06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/appearance-full-native-20261101/A06-celadon.jpg",
+      "captureSHA256": "66f803b3deffc319fa609fa40e6ee196580f4d19b3341c028efa74d9974cf67d",
+      "reference": "design/exports/png/celadon/A06-project-menu.png",
+      "referenceSHA256": "b6ab9c3808e8d575a96c0121881edd07de36b6a119024b43597b8d7248304854",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native342256 PID40426 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+      "priorReviewArtifactSHA256": "5fa4cb4b2ccd6d1c60c546cbb8f9696d83197fbf53dff9dcc0be3b58dd899c64",
+      "originalDifferences": [
+        {
+          "category": "menu-trigger-anchor",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际从侧栏项目操作按钮触发，菜单左上约[174, 248]，参考固定[78,114]。菜单宽约520、项目名及7动作全可见；保随真实触发点定位与视口边界，不硬编码原型坐标。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "real-project-menu-actions",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "真实项目未固定，显示固定项目；参考显示取消固定。当前加入项目启动方案，参考含在新窗口打开；首版PRD54明确默认同一窗口切项目，不凭静态图补新窗口能力。分隔线随实际动作分组，最终移除仍单独弱红色。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "menu-height",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际约330px高，参考约320px；行文与图标清晰，未见裁切、覆盖或被视口挡住的动作。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "sourceDisposition": "recorded",
+          "recommendation": null,
+          "disposition": "Retained visual or copy difference"
+        }
+      ],
+      "disposition": "accepted-minor-menu-height-and-real-actions",
+      "reason": "Root explicitly accepts approximately330px versus320px menu height because all seven real actions remain readable and unclipped. Trigger position and real pin/launcher actions were already accepted. No fixed prototype anchor or fake new-window action.",
+      "currentEvidence": [
+        "ProjectMenu whole source SHA equals frozen7ba snapshot; four menu selectors unchanged from7ba; this candidate touches editor files only."
+      ],
+      "sourceEvidenceKeys": [
+        "A06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "celadon/B06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/celadon/B06.jpg",
+      "captureSHA256": "a743567e943bf5a46b58babb12dd90ee9fd24aa76d3b97ea727836b930fbefdc",
+      "reference": "design/exports/png/celadon/B06-edit.png",
+      "referenceSHA256": "bcc9b4407360bcc8e29a3630158edb6c29fd4226866cf06d5ef2dbf6f5b76a79",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "reference defect",
+          "expected": "Original reference design/exports/png/celadon/B06-edit.png",
+          "actual": "Reference malformed three-column body not reproduced.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Fixture code and more tabs.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-reference-layout-defect-and-real-buffer-content",
+      "reason": "The original B06 reference abnormally distributes toolbar/breadcrumb/source into three side-by-side columns. Keep the working vertical editor, genuine dirty state and owned content. Root explicitly accepts this reference defect; do not reproduce the broken arrangement.",
+      "currentEvidence": [
+        "CodeSurface whole source SHA equals frozen7ba snapshot; baseline Workbench differences from7ba only add platform shortcut/welcome hints. Candidate keeps a vertical source region and actual CodeMirror instance (one identity sequence passed). No claim of pixel-identical editing layout."
+      ],
+      "sourceEvidenceKeys": [
+        "B06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "celadon/B10",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/celadon/B10.jpg",
+      "captureSHA256": "0852f53e583c23912dd82fbaca7435e39cc07ce676f6d57b0b8acf032d0fc5b0",
+      "reference": "design/exports/png/celadon/B10-outline.png",
+      "referenceSHA256": "2a5f058943999aca897128ab58591d87fea10223ff58a8c673261282eccd8986",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "visual structure",
+          "expected": "Original reference design/exports/png/celadon/B10-outline.png",
+          "actual": "Extra directory/structure row; TypeScript symbols/service note absent.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Basic Markdown outline, not reference semantic TypeScript.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-basic-outline-versus-optional-typescript-semantics",
+      "reason": "INTERACTION_SPEC274-281 makes Markdown heading structure core and TypeScript semantic symbols optional. Existing originals show the supported real Markdown outline. Root explicitly accepts that capability/content difference and the real directory/structure controls. No fabricated TypeScript symbols/service claim.",
+      "currentEvidence": [
+        "OutlinePanel whole source SHA equals frozen7ba snapshot; no OutlinePanel, FileExplorer, outline styles or language provider changes in candidate."
+      ],
+      "sourceEvidenceKeys": [
+        "B10"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "celadon/G02",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.jpg",
+      "captureSHA256": "2c35b3186df7b1c37fc11d8f95352853ea5f2c360bd47241983ca40f171ba726",
+      "reference": "design/exports/png/celadon/G02-file-error.png",
+      "referenceSHA256": "7cc2fa93d1a3752653e7f3799036e5043ef84b86ea2a8d51f7634d81aef5b74e",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "file-recovery release PID52226 SHA256 df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+      "priorReviewArtifact": "docs/verification/results/file-recovery-native-gui-visual-review/review.json",
+      "priorReviewArtifactSHA256": "ab20ac1be5642a2b26035d4885d077536d90903d381c64d749b6c684d31f7fdf",
+      "originalDifferences": [
+        {
+          "category": "prior unavailable-file structure",
+          "expected": "Named unavailable target, readable reason, central recovery actions",
+          "actual": "Central unavailable-file page, exact path, reason, Retry, Locate and Close are present; prior raw-error-only structure resolved.",
+          "severity": "major",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-20261101/visual-celadon-G02.jpg"
+        },
+        {
+          "category": "accepted content differences",
+          "expected": "Static reference content in design/exports/png/celadon/G02-file-error.png",
+          "actual": "The central file-access-retest/missing-link.ts path identifies the actual unavailable file. Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible. Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference. Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior.",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-visual-review/review.json"
+        },
+        {
+          "category": "fixture and capture conditions",
+          "expected": "Reference scene content and exact comparison conditions",
+          "actual": "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference. Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-file-identity-and-workspace-content",
+      "reason": "Latest canonical native evidence already resolves the central recovery page, exact path/reason, Retry/Locate/Close and required compact/light corrections. Remaining owned broken-link identity, real projects/tabs and historical incomplete geometry metadata are accepted by root. No new file failure is created.",
+      "currentEvidence": [
+        "FileRecovery and file-recovery.css whole source SHAs equal frozen7ba snapshot. Candidate does not alter either source; fileUnavailable gate and recovery rendering remain unchanged. Full Workbench/editor.css hashes differ for unrelated shortcut, search, menu, preview and chunked-file presentation changes."
+      ],
+      "sourceEvidenceKeys": [
+        "G02",
+        "G02CSS"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "iris/A06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/appearance-full-native-20261101/A06-iris.jpg",
+      "captureSHA256": "cde3b2b55f3387a55841f1803c33de9155c1e7486fb93c3d6bd2be57f2abe9f0",
+      "reference": "design/exports/png/iris/A06-project-menu.png",
+      "referenceSHA256": "58092c7e63840695ee444255d7a730f54882e3a8d397cb6912a1cc3c6c8f85a4",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native342256 PID40426 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+      "priorReviewArtifactSHA256": "5fa4cb4b2ccd6d1c60c546cbb8f9696d83197fbf53dff9dcc0be3b58dd899c64",
+      "originalDifferences": [
+        {
+          "category": "menu-trigger-anchor",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际从侧栏项目操作按钮触发，菜单左上约[244, 115]，参考固定[78,114]。菜单宽约520、项目名及7动作全可见；保随真实触发点定位与视口边界，不硬编码原型坐标。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "real-project-menu-actions",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "真实项目未固定，显示固定项目；参考显示取消固定。当前加入项目启动方案，参考含在新窗口打开；首版PRD54明确默认同一窗口切项目，不凭静态图补新窗口能力。分隔线随实际动作分组，最终移除仍单独弱红色。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "menu-height",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际约330px高，参考约320px；行文与图标清晰，未见裁切、覆盖或被视口挡住的动作。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "sourceDisposition": "recorded",
+          "recommendation": null,
+          "disposition": "Retained visual or copy difference"
+        }
+      ],
+      "disposition": "accepted-minor-menu-height-and-real-actions",
+      "reason": "Root explicitly accepts approximately330px versus320px menu height because all seven real actions remain readable and unclipped. Trigger position and real pin/launcher actions were already accepted. No fixed prototype anchor or fake new-window action.",
+      "currentEvidence": [
+        "ProjectMenu whole source SHA equals frozen7ba snapshot; four menu selectors unchanged from7ba; this candidate touches editor files only."
+      ],
+      "sourceEvidenceKeys": [
+        "A06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "iris/B06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/iris/B06.jpg",
+      "captureSHA256": "8bee47df8151b1ba9c3d5948165d885240aa2bd235156fcb074d5719bdfa67d8",
+      "reference": "design/exports/png/iris/B06-edit.png",
+      "referenceSHA256": "24d57046d2f9bd6e24ff395d0a686b74725a678788e7bc70b146909449f56292",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "reference defect",
+          "expected": "Original reference design/exports/png/iris/B06-edit.png",
+          "actual": "Reference malformed three-column body not reproduced.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Own source;94px navigation default, more projects/tabs.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-reference-layout-defect-and-real-buffer-content",
+      "reason": "The original B06 reference abnormally distributes toolbar/breadcrumb/source into three side-by-side columns. Keep the working vertical editor, genuine dirty state and owned content. Root explicitly accepts this reference defect; do not reproduce the broken arrangement.",
+      "currentEvidence": [
+        "CodeSurface whole source SHA equals frozen7ba snapshot; baseline Workbench differences from7ba only add platform shortcut/welcome hints. Candidate keeps a vertical source region and actual CodeMirror instance (one identity sequence passed). No claim of pixel-identical editing layout."
+      ],
+      "sourceEvidenceKeys": [
+        "B06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "iris/B10",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/iris/B10.jpg",
+      "captureSHA256": "6370ca05918e9fb5f1176c7d71ae56d1fbdd62488e83f6cd405c0163631ac547",
+      "reference": "design/exports/png/iris/B10-outline.png",
+      "referenceSHA256": "5b09398c52932afb88afa01b5227da48a16c7409698af0837167d35117d7eef3",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "visual structure",
+          "expected": "Original reference design/exports/png/iris/B10-outline.png",
+          "actual": "Additional directory/structure controls; TypeScript symbols/service note absent.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Markdown basic outline;94px navigation and fixture content differ.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-basic-outline-versus-optional-typescript-semantics",
+      "reason": "INTERACTION_SPEC274-281 makes Markdown heading structure core and TypeScript semantic symbols optional. Existing originals show the supported real Markdown outline. Root explicitly accepts that capability/content difference and the real directory/structure controls. No fabricated TypeScript symbols/service claim.",
+      "currentEvidence": [
+        "OutlinePanel whole source SHA equals frozen7ba snapshot; no OutlinePanel, FileExplorer, outline styles or language provider changes in candidate."
+      ],
+      "sourceEvidenceKeys": [
+        "B10"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "iris/G02",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/file-recovery-final-target-native-20261101/visual-iris-G02.jpg",
+      "captureSHA256": "5118a10e67e49d5c468ccb913221eec89581f75cbb5f13cc5d7b99d9631084d3",
+      "reference": "design/exports/png/iris/G02-file-error.png",
+      "referenceSHA256": "03c70a9243d852c93201b05fa8096646032fa06db127a216312a362a2400b114",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "file-recovery final-target PID30261 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/file-recovery-final-target-visual-review/review.json",
+      "priorReviewArtifactSHA256": "af5bd7592fe39548b8feffbd69ead2276be0b018fe461d0a313fd2707a829074",
+      "originalDifferences": [
+        {
+          "category": "prior unavailable-file structure",
+          "expected": "Named unavailable target, readable reason, central recovery actions",
+          "actual": "Central unavailable-file page, exact path, reason, Retry, Locate and Close are present; prior raw-error-only structure resolved.",
+          "severity": "major",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-20261101/visual-iris-G02.jpg"
+        },
+        {
+          "category": "accepted content differences",
+          "expected": "Static reference content in design/exports/png/iris/G02-file-error.png",
+          "actual": "The central file-access-retest/missing-link.ts path identifies the actual unavailable file. Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible. Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference. Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior.",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-visual-review/review.json"
+        },
+        {
+          "category": "fixture and capture conditions",
+          "expected": "Reference scene content and exact comparison conditions",
+          "actual": "Twelve projects, manytabs and actual broken-link identity differ from reference. Actual light mode now matches; UI13/followtheme density recorded, exactgeometry overrides unavailable.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "ACTIVE-TAB-AFTER-LAYOUT",
+          "expected": "Entire activefile tabincludingcloseX visible after layoutwidth change",
+          "actual": "The complete active broken-link label and its close X are visibly inside the tab viewport. The central file-recovery page remains clear and unchanged in hierarchy; actual target is broken-link.",
+          "severity": "moderate",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-final-target-native-20261101/visual-iris-G02.jpg"
+        }
+      ],
+      "disposition": "accepted-real-file-identity-and-workspace-content",
+      "reason": "Latest canonical native evidence already resolves the central recovery page, exact path/reason, Retry/Locate/Close and required compact/light corrections. Remaining owned broken-link identity, real projects/tabs and historical incomplete geometry metadata are accepted by root. No new file failure is created.",
+      "currentEvidence": [
+        "FileRecovery and file-recovery.css whole source SHAs equal frozen7ba snapshot. Candidate does not alter either source; fileUnavailable gate and recovery rendering remain unchanged. Full Workbench/editor.css hashes differ for unrelated shortcut, search, menu, preview and chunked-file presentation changes."
+      ],
+      "sourceEvidenceKeys": [
+        "G02",
+        "G02CSS"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "aurora/A06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/appearance-full-native-20261101/A06-aurora.jpg",
+      "captureSHA256": "4c3c618611fb5daa7b07cd79610147a9f4034a5078526db0e73367449071efd0",
+      "reference": "design/exports/png/aurora/A06-project-menu.png",
+      "referenceSHA256": "ca8b7de3c5915ac82f6e5629e54c1403cb46b8a723d2d5c5bc6ca36d99a88054",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native342256 PID40426 SHA256 342256d59cf7b67cd73c3d9bc48ac1adac1b558932396836557e61fdee2edd87",
+      "priorReviewArtifact": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+      "priorReviewArtifactSHA256": "5fa4cb4b2ccd6d1c60c546cbb8f9696d83197fbf53dff9dcc0be3b58dd899c64",
+      "originalDifferences": [
+        {
+          "category": "menu-trigger-anchor",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际从侧栏项目操作按钮触发，菜单左上约[162, 109]，参考固定[78,114]。菜单宽约520、项目名及7动作全可见；保随真实触发点定位与视口边界，不硬编码原型坐标。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "real-project-menu-actions",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "真实项目未固定，显示固定项目；参考显示取消固定。当前加入项目启动方案，参考含在新窗口打开；首版PRD54明确默认同一窗口切项目，不凭静态图补新窗口能力。分隔线随实际动作分组，最终移除仍单独弱红色。",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/project-overview-menu-visual-review-20261101/review.json",
+          "sourceDisposition": "accepted",
+          "recommendation": null,
+          "disposition": "Accepted actual content/interaction"
+        },
+        {
+          "category": "menu-height",
+          "expected": "Reference presentation with real fixture data and approved single-window interactions retained",
+          "actual": "实际约330px高，参考约320px；行文与图标清晰，未见裁切、覆盖或被视口挡住的动作。",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null,
+          "sourceDisposition": "recorded",
+          "recommendation": null,
+          "disposition": "Retained visual or copy difference"
+        }
+      ],
+      "disposition": "accepted-minor-menu-height-and-real-actions",
+      "reason": "Root explicitly accepts approximately330px versus320px menu height because all seven real actions remain readable and unclipped. Trigger position and real pin/launcher actions were already accepted. No fixed prototype anchor or fake new-window action.",
+      "currentEvidence": [
+        "ProjectMenu whole source SHA equals frozen7ba snapshot; four menu selectors unchanged from7ba; this candidate touches editor files only."
+      ],
+      "sourceEvidenceKeys": [
+        "A06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "aurora/B06",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/aurora/B06.jpg",
+      "captureSHA256": "0b01896af1440c5e9e3d79600005b88b62fcbcf21ca53b5101cc3e8a5cdeafa0",
+      "reference": "design/exports/png/aurora/B06-edit.png",
+      "referenceSHA256": "9430e8e14d7ea0bbc6ac8897568d70210b555341bf8a2ea2cc8c2bbeb2ce06f4",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "reference defect",
+          "expected": "Original reference design/exports/png/aurora/B06-edit.png",
+          "actual": "Reference malformed three-column editing body not reproduced.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Own source and more tabs/projects.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-reference-layout-defect-and-real-buffer-content",
+      "reason": "The original B06 reference abnormally distributes toolbar/breadcrumb/source into three side-by-side columns. Keep the working vertical editor, genuine dirty state and owned content. Root explicitly accepts this reference defect; do not reproduce the broken arrangement.",
+      "currentEvidence": [
+        "CodeSurface whole source SHA equals frozen7ba snapshot; baseline Workbench differences from7ba only add platform shortcut/welcome hints. Candidate keeps a vertical source region and actual CodeMirror instance (one identity sequence passed). No claim of pixel-identical editing layout."
+      ],
+      "sourceEvidenceKeys": [
+        "B06"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "aurora/B10",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/editor-native-picker-20261101/visual/aurora/B10.jpg",
+      "captureSHA256": "95d6f90e84b915d9c2ef3b6f2a9a1d9397b838f5c04d99b7b894966d4a236812",
+      "reference": "design/exports/png/aurora/B10-outline.png",
+      "referenceSHA256": "f6611fb8078619a7f622627ca68a3676274e44babdcc502a9353e8bac4689995",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "native-picker app21917 wholeSHAabc31e6b2d2ac4e1b28a9fd229070b84d091014ead51bfb9f083cdb7a24fbb3b",
+      "priorReviewArtifact": "docs/verification/results/editor-native-picker-visual-review/review.json",
+      "priorReviewArtifactSHA256": "02bbc177178a2c292fb5f3e4a972952806a0a52da2b39f89c81f75faeca52cf0",
+      "originalDifferences": [
+        {
+          "category": "visual structure",
+          "expected": "Original reference design/exports/png/aurora/B10-outline.png",
+          "actual": "Extra directory/structure controls; TypeScript symbols/service note absent.",
+          "severity": "moderate",
+          "status": "open",
+          "fix_evidence": null
+        },
+        {
+          "category": "fixture or contract conditions",
+          "expected": "Reference scene content and contract",
+          "actual": "Basic Markdown outline; many bottom projects.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-basic-outline-versus-optional-typescript-semantics",
+      "reason": "INTERACTION_SPEC274-281 makes Markdown heading structure core and TypeScript semantic symbols optional. Existing originals show the supported real Markdown outline. Root explicitly accepts that capability/content difference and the real directory/structure controls. No fabricated TypeScript symbols/service claim.",
+      "currentEvidence": [
+        "OutlinePanel whole source SHA equals frozen7ba snapshot; no OutlinePanel, FileExplorer, outline styles or language provider changes in candidate."
+      ],
+      "sourceEvidenceKeys": [
+        "B10"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    },
+    {
+      "case": "aurora/G02",
+      "canonicalStatusAtFreeze": "differences",
+      "latestCapture": "docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.jpg",
+      "captureSHA256": "9133f7f72963a651bf90c5c2989f441fada6819a2ff7fcd2b7a1e25075608faa",
+      "reference": "design/exports/png/aurora/G02-file-error.png",
+      "referenceSHA256": "09e7fd98456131ed7e2f8d635950cd8b70b9430f0b9865cbf66042d0022c8224",
+      "captureAndReferenceHashesMatchCanonical": true,
+      "appBuild": "file-recovery release PID52226 SHA256 df1e122d9d242dc364f5b36253879285a885d4f128ed95b54e19aad88b6b1733",
+      "priorReviewArtifact": "docs/verification/results/file-recovery-native-gui-visual-review/review.json",
+      "priorReviewArtifactSHA256": "ab20ac1be5642a2b26035d4885d077536d90903d381c64d749b6c684d31f7fdf",
+      "originalDifferences": [
+        {
+          "category": "prior unavailable-file structure",
+          "expected": "Named unavailable target, readable reason, central recovery actions",
+          "actual": "Central unavailable-file page, exact path, reason, Retry, Locate and Close are present; prior raw-error-only structure resolved.",
+          "severity": "major",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-20261101/visual-aurora-G02.jpg"
+        },
+        {
+          "category": "accepted content differences",
+          "expected": "Static reference content in design/exports/png/aurora/G02-file-error.png",
+          "actual": "The central file-access-retest/missing-link.ts path identifies the actual unavailable file. Central recovery page replaces prior document content; readable cause, Retry, Locate and Close actions are visible. Separate path and collapsed error details add useful real content; the icon/title sit about 20px higher while the action row stays near reference position. This is an acceptable content-driven difference. Real missing-symlink wording is more specific than the static reference sentence; retry icon and native locator ellipsis describe actual behavior.",
+          "severity": "minor",
+          "status": "resolved",
+          "fix_evidence": "docs/verification/results/file-recovery-native-gui-visual-review/review.json"
+        },
+        {
+          "category": "fixture and capture conditions",
+          "expected": "Reference scene content and exact comparison conditions",
+          "actual": "Owned never-opened missing symlink fixture, twelve projects and many file tabs differ from the three-project/two-tab static reference. Actual UI font13 and follow-theme density, per collector; exact geometry overrides were not included in action metadata.",
+          "severity": "minor",
+          "status": "open",
+          "fix_evidence": null
+        }
+      ],
+      "disposition": "accepted-real-file-identity-and-workspace-content",
+      "reason": "Latest canonical native evidence already resolves the central recovery page, exact path/reason, Retry/Locate/Close and required compact/light corrections. Remaining owned broken-link identity, real projects/tabs and historical incomplete geometry metadata are accepted by root. No new file failure is created.",
+      "currentEvidence": [
+        "FileRecovery and file-recovery.css whole source SHAs equal frozen7ba snapshot. Candidate does not alter either source; fileUnavailable gate and recovery rendering remain unchanged. Full Workbench/editor.css hashes differ for unrelated shortcut, search, menu, preview and chunked-file presentation changes."
+      ],
+      "sourceEvidenceKeys": [
+        "G02",
+        "G02CSS"
+      ],
+      "newScreenshotClaimed": false,
+      "newOriginalImageReviewClaimed": false,
+      "canonicalMutationPerformed": false
+    }
+  ],
+  "sourceEvidence": {
+    "A06": {
+      "path": "apps/desktop/src/components/ProjectMenu.tsx",
+      "currentSHA256": "3e0033022ea656f39bb8ef440f983751c115198e3a70fc5446fefdf8ff834c87",
+      "snapshot7baPath": "docs/verification/results/appearance-main-source-7ba-20261101/source/apps/desktop/src/components/ProjectMenu.tsx",
+      "snapshot7baSHA256": "3e0033022ea656f39bb8ef440f983751c115198e3a70fc5446fefdf8ff834c87",
+      "sameSHA": true
+    },
+    "B06": {
+      "path": "apps/desktop/src/features/editor/CodeSurface.tsx",
+      "currentSHA256": "e1a91cb76b63b2d8bf1c8dba474fb87a3e92b601fcb4bfef71a95455c87edf7e",
+      "snapshot7baPath": "docs/verification/results/appearance-main-source-7ba-20261101/source/apps/desktop/src/features/editor/CodeSurface.tsx",
+      "snapshot7baSHA256": "e1a91cb76b63b2d8bf1c8dba474fb87a3e92b601fcb4bfef71a95455c87edf7e",
+      "sameSHA": true
+    },
+    "B10": {
+      "path": "apps/desktop/src/features/editor/OutlinePanel.tsx",
+      "currentSHA256": "d059fb09a79584cda26356375ecf094e50b8e68293e2ea6ab70378fb5f6e9eda",
+      "snapshot7baPath": "docs/verification/results/appearance-main-source-7ba-20261101/source/apps/desktop/src/features/editor/OutlinePanel.tsx",
+      "snapshot7baSHA256": "d059fb09a79584cda26356375ecf094e50b8e68293e2ea6ab70378fb5f6e9eda",
+      "sameSHA": true
+    },
+    "G02": {
+      "path": "apps/desktop/src/features/editor/FileRecovery.tsx",
+      "currentSHA256": "ad8ff227a546c4f5e6ff7d1c7e3a031c752640cfd27188001cecbfbd654c879b",
+      "snapshot7baPath": "docs/verification/results/appearance-main-source-7ba-20261101/source/apps/desktop/src/features/editor/FileRecovery.tsx",
+      "snapshot7baSHA256": "ad8ff227a546c4f5e6ff7d1c7e3a031c752640cfd27188001cecbfbd654c879b",
+      "sameSHA": true
+    },
+    "G02CSS": {
+      "path": "apps/desktop/src/features/editor/file-recovery.css",
+      "currentSHA256": "c2a3e10d6f988cba3cc66869978896a0f69e519168c5b77e824f0f9823b05ebc",
+      "snapshot7baPath": "docs/verification/results/appearance-main-source-7ba-20261101/source/apps/desktop/src/features/editor/file-recovery.css",
+      "snapshot7baSHA256": "c2a3e10d6f988cba3cc66869978896a0f69e519168c5b77e824f0f9823b05ebc",
+      "sameSHA": true
+    }
+  },
+  "menuRulesEvidence": {
+    "path": "apps/desktop/src/styles.css",
+    "selectors": [
+      ".project-action-menu",
+      ".project-menu-title",
+      ".project-action-menu button",
+      ".project-action-menu [role='separator']"
+    ],
+    "currentFileSHA256": "d9c82a00bccd76d6ade8cbb6c79e8a6c7d1167f4483fc70e548e04046b6ea9c8",
+    "currentRelevantRulesSHA256": "b39f01a7631f598380aa71474b417705f842e80026978356a3d98eceee6b51cf",
+    "snapshot7baRelevantRulesSHA256": "b39f01a7631f598380aa71474b417705f842e80026978356a3d98eceee6b51cf",
+    "sameRelevantRules": true
+  },
+  "sourceEvidenceLimit": "7ba is an independently frozen later source snapshot, not a substitute claim that all older native342256/native-picker builds had these exact whole-file SHAs. Latest original native reviews and explicit accepted differences remain the basis; current matching components/unrelated source edits show no new repair obligation."
+}

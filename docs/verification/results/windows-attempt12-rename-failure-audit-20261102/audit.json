@@ -1,0 +1,363 @@
+{
+  "recordedAt": "2026-11-01T23:53:15.194900+00:00",
+  "scope": "New3545 Windows runtime-activation failure only; no repeated prior CI audit",
+  "baselineFunctionalRecords": 341,
+  "baselineVisualRecords": 557,
+  "archiveSHA256": "54da9ffbf3c639394fb1de5f4503b5a53292f3d71fcba5fc4795d2bdd41c6f23",
+  "frozenFileBindings": [
+    {
+      "path": "README.md",
+      "sha256": "4139b751183d2b1e0527f8eb03d6338b0bb31264e254aedc3078f1e822e1f278",
+      "bytes": 2511,
+      "matches": true
+    },
+    {
+      "path": "HANDOFF.json",
+      "sha256": "41d8bdd630d752db6585e9de71b63f746166f66f91ba78e04c60a392457368a3",
+      "bytes": 743,
+      "matches": true
+    },
+    {
+      "path": "job.log",
+      "sha256": "c47e97c5349247b6693071654c286b6aec7175a33ea4a5d952cb4d63eac40bca",
+      "bytes": 201878,
+      "matches": true
+    },
+    {
+      "path": "failure.log",
+      "sha256": "128ec66b5a8e1241c22a2cca97e18c5ce020dba6ec587dbda375b1019b93625e",
+      "bytes": 1870,
+      "matches": true
+    },
+    {
+      "path": "failure-source.txt",
+      "sha256": "52b6ba0b9656bf85929cf4657dc4315ebaf8d5c8a0a3345cd76f375072ff8c33",
+      "bytes": 10071,
+      "matches": true
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "4e0de6ec8ffe248b364680b44fe475b5d5e89ee880b494d5218c579769f02053",
+      "bytes": 956,
+      "matches": true
+    },
+    {
+      "path": "final-jobs.json",
+      "sha256": "95428afee8bba2203ad801d0abf19f26620121d00727b6eb09e49fd97be0a1b0",
+      "bytes": 4386,
+      "matches": true
+    },
+    {
+      "path": "artifacts.json",
+      "sha256": "629160912c366d74ee5ff16137b773fee9082d0b924da321c1edcdf581fbe561",
+      "bytes": 879,
+      "matches": true
+    },
+    {
+      "path": "result.json",
+      "sha256": "26a7f685236ee1794af2d18d19f092f24dde75193a97b612db182bdaf26c08b7",
+      "bytes": 7051,
+      "matches": true
+    }
+  ],
+  "checks": {
+    "ExactFrozenArchiveSHA256": true,
+    "AllNineFrozenFilesMatchBytesSHA256": true,
+    "Exact3545CommitRunJob": true,
+    "Raw201878Bytes2323CRLFPreserved": true,
+    "AllNineLiteralNonzeroTestAndResultPairsPresent": true,
+    "EightPassOneManagedPiFailureNoIgnoredOrZeroTest": true,
+    "ActualRenameActivateOS5DiagnosticAndProductionPath": true,
+    "SourceExcerptsBoundToImmutableCommitDeclaredHashes": true,
+    "NoCurrentMainObservationOrPublish": true,
+    "InstallerArtifactMetadataNotBinaryDownloadOrRelease": true
+  },
+  "rawTestResults": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.19,
+      "test_log": "2026-11-01T23:44:25.9918355Z test async_broker_wait_does_not_spend_cpu_budget ... ok",
+      "result_log": "2026-11-01T23:44:25.9920301Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.04,
+      "test_log": "2026-11-01T23:47:22.4927648Z test windows_process::tests::owned_job_stops_descendants_and_preserves_external ... ok",
+      "result_log": "2026-11-01T23:47:22.4929170Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.04s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.4,
+      "test_log": "2026-11-01T23:47:23.4726192Z test processes::windows_tests::owned_conpty_chinese_resize_and_stop ... ok",
+      "result_log": "2026-11-01T23:47:23.4727419Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.40s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "files::tests::windows_storage_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.07,
+      "test_log": "2026-11-01T23:47:24.1161070Z test files::tests::windows_storage_roundtrip ... ok",
+      "result_log": "2026-11-01T23:47:24.1182519Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.07s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::windows_named_pipe_current_user_token_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.01,
+      "test_log": "2026-11-01T23:47:24.7687452Z test agent::tests::windows_named_pipe_current_user_token_roundtrip ... ok",
+      "result_log": "2026-11-01T23:47:24.7688751Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.01s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "settings::tests::windows_owned_credential_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.06,
+      "test_log": "2026-11-01T23:47:25.1941266Z test settings::tests::windows_owned_credential_roundtrip ... ok",
+      "result_log": "2026-11-01T23:47:25.1942824Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.06s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::platform::tests::windows_fixed_assets_paths_zip_and_environment",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.0,
+      "test_log": "2026-11-01T23:47:25.5395020Z test agent::platform::tests::windows_fixed_assets_paths_zip_and_environment ... ok",
+      "result_log": "2026-11-01T23:47:25.5395761Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.00s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.02,
+      "test_log": "2026-11-01T23:47:25.9138732Z test agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute ... ok",
+      "result_log": "2026-11-01T23:47:25.9139800Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.02s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "passed": 0,
+      "failed": 1,
+      "ignored": 0,
+      "seconds": 3.45,
+      "test_log": "2026-11-01T23:47:29.9533224Z test agent::tests::windows_managed_pi_chat_roundtrip ... FAILED",
+      "result_log": "2026-11-01T23:47:29.9540680Z test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 3.45s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    }
+  ],
+  "failure": {
+    "test": "agent::tests::windows_managed_pi_chat_roundtrip",
+    "code": "PERMISSION_DENIED",
+    "message": "Access is denied. (os error 5)",
+    "production_operation": "fs::rename(&staging, target) inside install_from; cfg(test,windows) diagnostic labels exact operation rename activate",
+    "operation_source": "apps/desktop/src-tauri/src/agent.rs:148",
+    "test_unwrap_source": "apps/desktop/src-tauri/src/agent.rs:636",
+    "stage_log": [
+      {
+        "line": 2245,
+        "text": "2026-11-01T23:47:29.8779767Z Windows Pi install failed [rename activate]: Access is denied. (os error 5)"
+      }
+    ],
+    "panic_log": [
+      {
+        "line": 2247,
+        "text": "2026-11-01T23:47:29.9523227Z thread 'agent::tests::windows_managed_pi_chat_roundtrip' (1872) panicked at src\\agent.rs:636:68:"
+      },
+      {
+        "line": 2248,
+        "text": "2026-11-01T23:47:29.9527621Z called `Result::unwrap()` on an `Err` value: HostError { code: \"PERMISSION_DENIED\", message: \"Access is denied. (os error 5)\", retryable: false, operation_id: None, details: None, recovery: None }"
+      }
+    ],
+    "reached_before_failure": [
+      "download successful/checksum accepted",
+      "ZIP extracted",
+      "staged version probe returned supported=true"
+    ],
+    "not_reached": [
+      "final managed detect",
+      "provider process startup",
+      "managed chat",
+      "main OS/Host/UIA observation",
+      "Publish"
+    ],
+    "unresolved": "Exact reason Windows denied this directory rename is not yet established. Do not infer AV, permission workaround, Child-handle cause or historical a721 stage."
+  },
+  "sourceFreeze": {
+    "commit": "3545a015083bf8ed8f90a58334173dc6190d42c4",
+    "source": "immutable commit objects, not mutable working tree",
+    "files": [
+      {
+        "path": "apps/desktop/src-tauri/src/agent.rs",
+        "sha256": "37df4b00068bf629fe32089b8fc8d4f15a9a4869807ac06d0b16c54d0e7bdfd5",
+        "lines": [
+          106,
+          151
+        ]
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/agent.rs",
+        "sha256": "37df4b00068bf629fe32089b8fc8d4f15a9a4869807ac06d0b16c54d0e7bdfd5",
+        "lines": [
+          631,
+          641
+        ]
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/agent_platform.rs",
+        "sha256": "b2d0fed3539a2c02bbfb0a0110cac2942332b3e819fa5bbd9b47933ea301e9a6",
+        "lines": [
+          13,
+          22
+        ]
+      },
+      {
+        "path": "apps/desktop/src-tauri/src/agent_platform.rs",
+        "sha256": "b2d0fed3539a2c02bbfb0a0110cac2942332b3e819fa5bbd9b47933ea301e9a6",
+        "lines": [
+          67,
+          84
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v7",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v7",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run dtolnay/rust-toolchain@stable",
+      "conclusion": "success"
+    },
+    {
+      "name": "Record native build identity",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install locked JavaScript dependencies",
+      "conclusion": "success"
+    },
+    {
+      "name": "Archive notices for the actual Windows dependency graph",
+      "conclusion": "success"
+    },
+    {
+      "name": "Build native sidecars and installers",
+      "conclusion": "success"
+    },
+    {
+      "name": "Collect installers and checksums",
+      "conclusion": "success"
+    },
+    {
+      "name": "Smoke native sidecar versions and Git JSON protocol",
+      "conclusion": "success"
+    },
+    {
+      "name": "Smoke native QuickJS protocol using the existing healthy scenario",
+      "conclusion": "success"
+    },
+    {
+      "name": "Prepare native Windows test activation manifests",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check native owned Job descendant lifecycle",
+      "conclusion": "success"
+    },
+    {
+      "name": "Preserve Windows host-test loader diagnostics",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Check native Windows ConPTY output, resize and stop",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check native Windows storage roundtrip",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check native Windows Pi broker, credentials and runtime boundaries",
+      "conclusion": "success"
+    },
+    {
+      "name": "Smoke real managed Pi chat on native Windows",
+      "conclusion": "failure"
+    },
+    {
+      "name": "Observe one owned native main-process startup when the runner supports it",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Upload Windows installers and raw build logs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Publish commit-specific Windows trial",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/setup-node@v7",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/checkout@v7",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "mapping": {
+    "REQ-AI-012": "Actual managed runtime install fails at activation rename onWindows; retain priorMac partial/full facts.",
+    "REQ-NFR-003": "Actual testedWindows behavior has a failure; it is not merely an untested-platform declaration.",
+    "REQ-AI-011": "Existing conditionalMac candidate-stage rule remains satisfied; no promotion to release-default."
+  },
+  "limitations": [
+    "One actual Windowsx64 CI production installation failure, not a zero-test result. Eight other exact tests each1pass/0fail/0ignored are factual scoped successes, not an overall nine-test or current-build pass.",
+    "Observed rename-activate OS5 plus exact source control flow establishes staging download/checksum/extract/supported-version checks were reached successfully before activation. Actual UUID/path/probe PID/version stdout were not emitted; source-derived path templates are not observed values.",
+    "Only the denied operation is established. No antivirus, Child-handle, permissions-workaround, automatic retry or historicala721 causal attribution. New narrow candidate/root futureCI are unexecuted here and do not supersede this failure.",
+    "Main OS/Host/UIA and Publish are skipped. No new3545release, five downloadable published assets, frontend/installer interaction/startup/performance pass. Built installer artifact metadata exists but no binary ZIP/installer download/extraction/execution was audited for this run.",
+    "Prior a0b published trial and prior0042/ae6/4d27 successes remain exact older-build evidence; olda721 failure remains independent. Mac runtime installation and AI011 optional/on-demand candidate staging remain established within their scope; neither erases this newly tested Windows installation failure.",
+    "Failure maps precisely to AI012 runtime installation and NFR003 Windows actual behavior under the latest mandatoryWindows trial instruction. AI011 conditionalMac staging is not changed, and no new acceptance gate or GUI is added.",
+    "Verifier reads only this frozen nine-file archive/raw exact result pairs/narrow failure source excerpts; no oldWindows suites/source tests re-reviewed, no GUI/live source changes, build/test/CI/network/model requests or Git mutations."
+  ]
+}

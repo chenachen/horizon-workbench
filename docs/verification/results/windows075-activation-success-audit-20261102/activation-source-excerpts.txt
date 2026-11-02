@@ -1,0 +1,68 @@
+Immutable075 full agentSHA256=77403366b1bb9e93f8b0f8e0616c382fb044298db05fd68e0b04ce6d9eecdb3b
+
+async fn activate_windows_runtime(staging: &Path, target: &Path) -> std::io::Result<()> {
+    use std::os::windows::ffi::OsStrExt;
+    let source: Vec<u16> = staging.as_os_str().encode_wide().chain(Some(0)).collect();
+    let destination: Vec<u16> = target.as_os_str().encode_wide().chain(Some(0)).collect();
+    let mut delays = [25_u64, 50, 100, 200, 400, 800].into_iter();
+    loop {
+        // Same-volume rename only: never replace a target created by another installer.
+        if unsafe { windows_sys::Win32::Storage::FileSystem::MoveFileExW(source.as_ptr(), destination.as_ptr(), 0) } != 0 {
+            return Ok(());
+        }
+        let error = std::io::Error::last_os_error();
+        // A recently probed executable may be temporarily unavailable for rename.
+        // Retry only this activation and only while the target is still absent.
+        if error.raw_os_error() != Some(windows_sys::Win32::Foundation::ERROR_ACCESS_DENIED as i32)
+            || !matches!(fs::symlink_metadata(target), Err(check) if check.kind() == std::io::ErrorKind::NotFound)
+        {
+            return Err(error);
+        }
+        let Some(delay) = delays.next() else { return Err(error); };
+        tokio::time::sleep(Duration::from_millis(delay)).await;
+    }
+}
+
+Production install call:
+        #[cfg(windows)] let activation = activate_windows_runtime(&staging, &target).await;
+        install_context!("rename activate", activation)?; state.emit_task_data(request,"agent.install",json!({"phase":"installed","version":VERSION}))?; install_context!("final version probe", detect(state,&json!({})).await)
+
+    async fn windows_managed_pi_activation_retry_boundaries() {
+        use std::os::windows::fs::OpenOptionsExt;
+        use windows_sys::Win32::Storage::FileSystem::{FILE_SHARE_READ, FILE_SHARE_WRITE};
+        let fixture = tempfile::tempdir().unwrap();
+        let staging = fixture.path().join("download-transient");
+        let target = fixture.path().join("runtime-transient");
+        fs::create_dir(&staging).unwrap();
+        fs::write(staging.join("pi.exe"), b"owned activation fixture").unwrap();
+        let locked = fs::OpenOptions::new().read(true).share_mode(FILE_SHARE_READ | FILE_SHARE_WRITE).open(staging.join("pi.exe")).unwrap();
+        assert_eq!(fs::rename(&staging, &target).unwrap_err().raw_os_error(), Some(5));
+        // This current-thread task cannot release the handle before activation yields.
+        let releasing = tokio::spawn(async move { tokio::time::sleep(Duration::from_millis(60)).await; drop(locked); });
+        activate_windows_runtime(&staging, &target).await.unwrap();
+        releasing.await.unwrap();
+        assert!(!staging.exists());
+        assert_eq!(fs::read(target.join("pi.exe")).unwrap(), b"owned activation fixture");
+
+        let staging = fixture.path().join("download-permanent");
+        let target = fixture.path().join("runtime-permanent");
+        fs::create_dir(&staging).unwrap();
+        fs::write(staging.join("pi.exe"), b"owned locked fixture").unwrap();
+        let locked = fs::OpenOptions::new().read(true).share_mode(FILE_SHARE_READ | FILE_SHARE_WRITE).open(staging.join("pi.exe")).unwrap();
+        let error = activate_windows_runtime(&staging, &target).await.unwrap_err();
+        assert_eq!(error.raw_os_error(), Some(5));
+        assert!(staging.is_dir());
+        assert!(!target.exists());
+        assert_eq!(fs::read(staging.join("pi.exe")).unwrap(), b"owned locked fixture");
+        drop(locked);
+
+        let staging = fixture.path().join("download-existing-target");
+        let target = fixture.path().join("runtime-existing-target");
+        fs::create_dir(&staging).unwrap();
+        fs::create_dir(&target).unwrap();
+        fs::write(staging.join("pi.exe"), b"new owned fixture").unwrap();
+        fs::write(target.join("pi.exe"), b"existing runtime stays").unwrap();
+        assert!(activate_windows_runtime(&staging, &target).await.is_err());
+        assert_eq!(fs::read(staging.join("pi.exe")).unwrap(), b"new owned fixture");
+        assert_eq!(fs::read(target.join("pi.exe")).unwrap(), b"existing runtime stays");
+    }

@@ -159,6 +159,14 @@ h3 { font-size: 14px; font-weight: 550; }
 .boot-error code { background: var(--background); border-radius: 8px; padding: 9px 15px; }
 .loading-state, .empty-state, .error-state { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; min-height: 140px; padding: 30px 20px; text-align: center; color: var(--muted); }
 .loading-state { flex-direction: row; font-size: 12px; }
+.loading-skeleton { width: 100%; min-width: 0; min-height: 0; align-self: stretch; }
+.loading-skeleton-editor { padding: 18px; }
+.loading-skeleton-tree { padding: 0 4px; }
+.loading-skeleton-bar { display: block; height: 11px; border-radius: 4px; background: var(--h-high); margin: 14px 12px; opacity: .8; }
+.loading-skeleton-editor .loading-skeleton-bar { margin-top: 21px; }
+.loading-skeleton-bar.long { width: 84%; }
+.loading-skeleton-bar.medium { width: 68%; }
+.loading-skeleton-bar.short { width: 47%; }
 .empty-state h3 { color: var(--text); line-height: 1.6; }
 .empty-state p, .error-state p { font-size: 12px; line-height: 1.7; max-width: 340px; }
 .error-state { color: var(--error); }

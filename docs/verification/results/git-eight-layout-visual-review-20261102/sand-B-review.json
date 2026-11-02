@@ -1,0 +1,99 @@
+{
+  "kind": "git71-independent-native-reference-visual-review",
+  "canonical": false,
+  "frozenAt": "2026-11-02T00:04:26.027903+00:00",
+  "style": "sand",
+  "phase": "B",
+  "reviewer": "git_sol",
+  "nativeSourceManifest": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-manifest.jsonl",
+  "identity": {
+    "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+    "mainSHA256": "5fa2ad4fa8af9dc05a88e1f3247f7ed1914add4e14f0bad4b98f15dea8ce5b13",
+    "pid": 53319,
+    "start": "Mon Nov 2 07:29:55 2026",
+    "startLocal": "2026-11-02 07:29:55 +0800",
+    "birth": 2289204914610,
+    "authority": "root explicit Git71 lease"
+  },
+  "cases": [
+    {
+      "case": "sand/F07",
+      "native": {
+        "label": "sand-F07-git-settings",
+        "timeUTC": "2026-11-01T23:51:59.607Z",
+        "pid": 53319,
+        "pidStart": "2026-11-02 07:29:55 +0800",
+        "start_abstime": 2289204914610,
+        "mainSHA256": "5fa2ad4fa8af9dc05a88e1f3247f7ed1914add4e14f0bad4b98f15dea8ce5b13",
+        "bundle": "/Users/chenpengxiang/Applications/Horizon.app",
+        "dimensions": {
+          "height": 800,
+          "width": 1280,
+          "ext": "jpg"
+        },
+        "layout": "展开式项目目录",
+        "theme": "砂岩",
+        "mode": "浅色",
+        "density": "跟随主题",
+        "resolvedDensity": "标准/33",
+        "uiFont": "13 px",
+        "codeFont": "Menlo 14",
+        "zoom": "100%",
+        "terminal": "隐藏",
+        "ai": "关闭",
+        "project": "01-Git补验",
+        "projectId": "06a5ebcd-166b-4d55-9ffe-316ccc30da6a",
+        "note": "同一设置窗切回 Git 后一次检测，CORE 版本与身份已显示。",
+        "image": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-F07-git-settings.jpg",
+        "imageSHA256": "49b05db2c7edf35633654b2b17333cd18a6eb1c9e1bded932c1029b0454ec601",
+        "ax": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/git-eight-layout-native-20261102/5fa2-53319-1793576001358-sand-F07-git-settings.ax.txt",
+        "axSHA256": "f941f2e9820b004edabc5da35213e43f299e978267239fb2ef1da1a4b425af77"
+      },
+      "reference": {
+        "path": "/Users/chenpengxiang/Desktop/Horizon/design/exports/png/sand/F07-settings-git.png",
+        "sha256": "930587709d0130977df86d23b980a3f1aedc3f6f56f87e24e085c6c810b7f9c8",
+        "expected": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "zoom": 1,
+          "theme": "light",
+          "density": "标准"
+        },
+        "id": "F07",
+        "style": "sand",
+        "title": "Git 偏好"
+      },
+      "nativeAndReferencePersonallyViewedOriginals": true,
+      "fullAXRetainedAndHashMatched": true,
+      "AXLineCount": 72,
+      "identityAndAllThreeHashesMatched": true,
+      "label": "sand-F07-git-settings",
+      "review": "pass",
+      "observed": "790×690 centered settings dialog, matching theme palette/rounding, persistent footer and readable Git form; actual git version 2.50.1 (Apple Git-155), CORE selected, local/local QA identity retained. Native image shows project selector, git executable, actual detected version, refresh/fetch and inline preference; repository identity/credentials/helper are below initial viewport and retained in same full AX.",
+      "acceptedDifferences": [
+        "Real git-path/file-picker/detection controls, source labels and per-row resets, auto-fetch and fast-forward policy add truthful content and vertical scrolling; do not remove capabilities to match simplified static reference.",
+        "Actual grouped Appearance navigation has seven top-level sections rather than twelve illustrative sections; Git remains clearly selected, footer does not overlap content.",
+        "Only readonly detection was allowed once per layout after Settings section changes reset transient detection state; no configuration field changes during F07.",
+        "git.path and git.diffView are global-scoped fields even when CORE is selected. Effective inline does not prove raw-key presence; owner before/final receipts separately prove diffView absent."
+      ]
+    }
+  ],
+  "counts": {
+    "pass": 1,
+    "differences": 0,
+    "conditions-mismatch": 0
+  },
+  "sharedAcceptedDifferences": [
+    "Actual QA workspace/project/file/commit values and counts are truthful data, not geometric failures.",
+    "Native traffic lights/configured shortcut/font rasterization/JPEG and capture cursor remain unedited.",
+    "Readonly baseline, paging, AI context, explicit remote inputs and safety controls remain real capabilities."
+  ],
+  "notes": [
+    "Native and exact same-style reference originals personally viewed; complete AX hashed with detected version, project identity and current field sources.",
+    "Mist lower-scroll viewport differs from other seven upper-scroll viewports; no claim all settings or detected-version pixels are simultaneously visible.",
+    "Prior Paper undetected extra frame retained separately; it is not substituted for this detected final frame."
+  ],
+  "scope": "Original-native versus exact same-style reference visual review only; no functional retest, source/GUI/fixture mutation."
+}

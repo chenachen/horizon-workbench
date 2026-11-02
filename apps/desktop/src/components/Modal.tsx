@@ -23,7 +23,8 @@ export function Modal({ title, children, onClose, wide = false, className = '' }
   </dialog>;
 }
 
-export function Loading({ label = '正在加载…' }: { label?: string }) {
+export function Loading({ label = '正在加载…', variant }: { label?: string; variant?: 'editor' | 'tree' }) {
+  if (variant) return <div className={`loading-skeleton loading-skeleton-${variant}`} role="status"><span className="sr-only">{label}</span><div aria-hidden="true">{Array.from({ length: variant === 'editor' ? 12 : 8 }, (_, index) => <span key={index} className={`loading-skeleton-bar ${['long', 'medium', 'short'][index % 3]}`} />)}</div></div>;
   return <div className="loading-state" role="status"><span className="spinner" aria-hidden="true" />{label}</div>;
 }
 

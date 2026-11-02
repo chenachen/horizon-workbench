@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2026-11-02T00:24:33.716983+00:00",
+  "file": "apps/desktop/src/features/plugins/plugins.css",
+  "beforeSHA256": "cd8ec781a65be85ce52253e98ca07aa0e581801ac18a2af83f44cad9ae9ddf75",
+  "afterSHA256": "ab6b9963ea8c156764eb623ca9a35b9abcca4ce6f1ad8e7b34068c101e85d6a7",
+  "change": "Share existing native-select appearance reset and CSS arrow across toolbar, runtime heading and config scope. Keep each existing 42px/34px/36px size declaration.",
+  "before": ".plugin-settings-page .plugin-config-scope select{appearance:none;-webkit-appearance:none;min-height:36px;border-radius:9px;padding:6px 28px 6px 10px;background-image:",
+  "after": ".plugin-settings-page .plugin-config-scope select{min-height:36px;border-radius:9px;padding:6px 28px 6px 10px}\n.plugin-toolbar select,.plugin-runtime-heading select,.plugin-settings-page .plugin-config-scope select{appearance:none;-webkit-appearance:none;padding-right:28px;background-image:",
+  "rootNativeReview": [
+    "docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-main-aurora-E05-installed.jpg",
+    "docs/verification/results/plugin-visual-combined-native-20261102/2ba6-34931-1793578011283-main-aurora-E12-runtime-top.jpg"
+  ],
+  "observation": "WebKit default select chrome remained about20px tall despite existing min-height. Both actual native frames show the same issue. CSS-only change keeps the same HTML controls and handlers.",
+  "nextNative": "One light/dark pair at the natural new-build handoff; no install/lifecycle rerun."
+}

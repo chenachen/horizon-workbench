@@ -89,7 +89,7 @@ export function PluginCenter({ projectId, onError, onClose, onAppearance }: { pr
       const task = await start('extension_install_apply', { planId: install.planId, digest: install.digest, grantIds: grants }, event => { if (event.payload.type === 'progress') setPhase(String(event.payload.phase ?? '')); });
       cancelInstall.current = task.cancel; await task.result; setInstall(null); selectTab('installed'); setMessage('安装完成。可按需要启用并打开扩展提供的入口。');
     })} /> : null}
-    {stop ? <PluginDialog title={`${stop.action === 'uninstall' ? '卸载' : stop.action === 'pause' ? '暂停' : stop.action === 'sleep' ? '休眠' : '停用'} ${states.find(state => state.id === stop.extensionId)?.manifest?.name ?? stop.extensionId}？`} busy={!!busy} onClose={() => setStop(null)}>
+    {stop ? <PluginDialog kind={stop.action === 'uninstall' ? 'uninstall' : 'stop'} title={`${stop.action === 'uninstall' ? '卸载' : stop.action === 'pause' ? '暂停' : stop.action === 'sleep' ? '休眠' : '停用'} ${states.find(state => state.id === stop.extensionId)?.manifest?.name ?? stop.extensionId}？`} busy={!!busy} onClose={() => setStop(null)}>
       <p>范围：{stop.projectId ? '当前项目' : '所有项目'}。保存恢复草稿，停止所属服务，移除视图、命令与订阅。</p>
       {stop.dependents.length > 0 ? <p>同时停止依赖扩展：{stop.dependents.map(id => stop.extensionNames[id] ?? id).join('、')}</p> : null}
       <PluginImpact plan={stop} />

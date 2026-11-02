@@ -3535,19 +3535,25 @@
       ],
       "status": "verified",
       "implementation": [
+        ".github/workflows/windows-release.yml",
         "apps/desktop/src-tauri/src/agent.rs",
+        "apps/desktop/src-tauri/src/agent_platform.rs",
         "apps/desktop/src/features/agent/AgentPanel.tsx",
         "apps/desktop/src/features/agent/AgentReview.tsx",
         "apps/desktop/src/features/agent/AgentSettings.tsx",
         "apps/desktop/src/features/agent/ContextPicker.tsx",
         "scripts/desktop/mac_metrics.py",
-        "scripts/desktop/sample_macos.py"
+        "scripts/desktop/sample_macos.py",
+        "scripts/windows-startup-smoke.ps1",
+        "scripts/windows-uia-ready.ps1"
       ],
       "evidence": [
         "MAC-PI-FIXED-STREAM-CANDIDATE6-001",
         "MAC-PI-NATIVE-GUI-CANDIDATE6-001",
         "MAC-PI-RUNTIME-CORRUPT-ARCHIVE-PRODUCTION-TRANSACTION-001",
-        "MAC-PI-FIXED-RUNTIME-INSTALL-OWNERSHIP-COMPOSITE-001"
+        "MAC-PI-FIXED-RUNTIME-INSTALL-OWNERSHIP-COMPOSITE-001",
+        "WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001",
+        "WIN-CI-075-ACTIVATION-REPAIR-TEN-NONZERO-001"
       ],
       "limitations": [
         "真实Pi+受控HTTP协议fixture，不声称真实远程provider或本地模型推理。",
@@ -3563,7 +3569,15 @@
         "Pi资源/双端完整门槛仍未通过，不将候选功能展示当作发布默认已验收。",
         "Owned localhost corrupt bytes in temp HostState; not an additional native download-error screenshot or live public-network corruption.",
         "Existing-install no-replacement is exact production source reasoning, paired with prior actual active-uninstall/ownership evidence; no invented upgrade GUI test.",
-        "Information/failure-frame pure visual coverage deferred by latest user, no visual pass added."
+        "Information/failure-frame pure visual coverage deferred by latest user, no visual pass added.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass."
       ]
     },
     {
@@ -6378,7 +6392,10 @@
         "WIN-CI-4D27-NATIVE-NINE-NONZERO-001",
         "WIN-CI-4D27-OS-WINDOW-STARTUP-001",
         "WIN-CI-A0B-NATIVE-NINE-NONZERO-001",
-        "WIN-CI-A0B-OS-HOST-FILES-UIA-OBSERVATION-001"
+        "WIN-CI-A0B-OS-HOST-FILES-UIA-OBSERVATION-001",
+        "WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001",
+        "WIN-CI-075-ACTIVATION-REPAIR-TEN-NONZERO-001",
+        "WIN-CI-075-OS-HOST-FILES-UIA-OBSERVATION-001"
       ],
       "limitations": [
         "候选5没有点击“结束会话”；插件暂停不能替代该按钮链路。",
@@ -6451,7 +6468,23 @@
         "Exactly one read-only UIA FindFirst query completed helperexit0/statusbutton_not_observed/observer2590ms. It is not helper_timeout or observation_error, not proof of productblank/fault/rootcause, and not an enabledvisible control observation. No secondquery/retry/input/Invoke/focus occurred; frontend_interactive remains not_evaluated.",
         "Observation diagnostics did not change publication gate or create another acceptance requirement. Current release success does not imply Windows frontend/systemconfirmation/IME/scaling/2s/CPU/memory acceptance.",
         "Both installers9953264B/14328290B and3smallassets were actually downloaded and independently hashed against API bytes/digest and two published sums. No installer run/extraction/inner-main assertion; nativeEXE SHA is separate launch proof.",
-        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added."
+        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass."
       ]
     },
     {
@@ -6957,7 +6990,8 @@
         "MAC-NETWORK-DENIED-LOCAL-FILE-GIT-REMOTE-BOUNDARY-NATIVE-001",
         "MAC-INSTALL-UPGRADE-OFFLINE-ORIGINAL-CLAUSE-COMPOSITE-001",
         "WIN-CI-A0B-OS-HOST-FILES-UIA-OBSERVATION-001",
-        "WIN-A0B-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
+        "WIN-A0B-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001",
+        "WIN-075-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
       ],
       "limitations": [
         "这里只证明同0.1.0版本的候选二进制替换与既有状态读取，不代替版本迁移/安装器升级验收。",
@@ -7075,7 +7109,15 @@
         "Exactly one read-only UIA FindFirst query completed helperexit0/statusbutton_not_observed/observer2590ms. It is not helper_timeout or observation_error, not proof of productblank/fault/rootcause, and not an enabledvisible control observation. No secondquery/retry/input/Invoke/focus occurred; frontend_interactive remains not_evaluated.",
         "Observation diagnostics did not change publication gate or create another acceptance requirement. Current release success does not imply Windows frontend/systemconfirmation/IME/scaling/2s/CPU/memory acceptance.",
         "Both installers9953264B/14328290B and3smallassets were actually downloaded and independently hashed against API bytes/digest and two published sums. No installer run/extraction/inner-main assertion; nativeEXE SHA is separate launch proof.",
-        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added."
+        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass."
       ]
     }
   ],
@@ -11105,7 +11147,11 @@
         "MAC-INSTALL-UPGRADE-OFFLINE-ORIGINAL-CLAUSE-COMPOSITE-001",
         "WIN-CI-A0B-NATIVE-NINE-NONZERO-001",
         "WIN-CI-A0B-OS-HOST-FILES-UIA-OBSERVATION-001",
-        "WIN-A0B-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
+        "WIN-A0B-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001",
+        "WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001",
+        "WIN-CI-075-ACTIVATION-REPAIR-TEN-NONZERO-001",
+        "WIN-CI-075-OS-HOST-FILES-UIA-OBSERVATION-001",
+        "WIN-075-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
       ],
       "limitations": [
         "这里只证明同0.1.0版本的候选二进制替换与既有状态读取，不代替版本迁移/安装器升级验收。",
@@ -11253,7 +11299,31 @@
         "Exactly one read-only UIA FindFirst query completed helperexit0/statusbutton_not_observed/observer2590ms. It is not helper_timeout or observation_error, not proof of productblank/fault/rootcause, and not an enabledvisible control observation. No secondquery/retry/input/Invoke/focus occurred; frontend_interactive remains not_evaluated.",
         "Observation diagnostics did not change publication gate or create another acceptance requirement. Current release success does not imply Windows frontend/systemconfirmation/IME/scaling/2s/CPU/memory acceptance.",
         "Both installers9953264B/14328290B and3smallassets were actually downloaded and independently hashed against API bytes/digest and two published sums. No installer run/extraction/inner-main assertion; nativeEXE SHA is separate launch proof.",
-        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added."
+        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass."
       ]
     },
     {
@@ -11310,7 +11380,8 @@
         "MAC-NETWORK-DENIED-LOCAL-FILE-GIT-REMOTE-BOUNDARY-NATIVE-001",
         "MAC-INSTALL-UPGRADE-OFFLINE-ORIGINAL-CLAUSE-COMPOSITE-001",
         "WIN-CI-A0B-OS-HOST-FILES-UIA-OBSERVATION-001",
-        "WIN-A0B-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
+        "WIN-A0B-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001",
+        "WIN-075-TRIAL-INSTALLERS-RELEASE-DOWNLOAD-001"
       ],
       "limitations": [
         "Current installed-path startup/state persistence subcondition only; no20-start timing or complete offline/upgrade acceptance inferred.",
@@ -11419,7 +11490,15 @@
         "Exactly one read-only UIA FindFirst query completed helperexit0/statusbutton_not_observed/observer2590ms. It is not helper_timeout or observation_error, not proof of productblank/fault/rootcause, and not an enabledvisible control observation. No secondquery/retry/input/Invoke/focus occurred; frontend_interactive remains not_evaluated.",
         "Observation diagnostics did not change publication gate or create another acceptance requirement. Current release success does not imply Windows frontend/systemconfirmation/IME/scaling/2s/CPU/memory acceptance.",
         "Both installers9953264B/14328290B and3smallassets were actually downloaded and independently hashed against API bytes/digest and two published sums. No installer run/extraction/inner-main assertion; nativeEXE SHA is separate launch proof.",
-        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added."
+        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass."
       ]
     },
     {
@@ -12519,7 +12598,9 @@
         "WIN-CI-AE6-NATIVE-NINE-NONZERO-001",
         "WIN-CI-4D27-NATIVE-NINE-NONZERO-001",
         "MAC-PI-CANDIDATE-STAGING-ORIGINAL-CONDITIONAL-COMPOSITE-001",
-        "WIN-CI-A0B-NATIVE-NINE-NONZERO-001"
+        "WIN-CI-A0B-NATIVE-NINE-NONZERO-001",
+        "WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001",
+        "WIN-CI-075-ACTIVATION-REPAIR-TEN-NONZERO-001"
       ],
       "limitations": [
         "No real-provider/key/OAuth or later credential-scope closure inferred; external no-key loopback connection only.",
@@ -12568,7 +12649,15 @@
         "Exactly one read-only UIA FindFirst query completed helperexit0/statusbutton_not_observed/observer2590ms. It is not helper_timeout or observation_error, not proof of productblank/fault/rootcause, and not an enabledvisible control observation. No secondquery/retry/input/Invoke/focus occurred; frontend_interactive remains not_evaluated.",
         "Observation diagnostics did not change publication gate or create another acceptance requirement. Current release success does not imply Windows frontend/systemconfirmation/IME/scaling/2s/CPU/memory acceptance.",
         "Both installers9953264B/14328290B and3smallassets were actually downloaded and independently hashed against API bytes/digest and two published sums. No installer run/extraction/inner-main assertion; nativeEXE SHA is separate launch proof.",
-        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added."
+        "Historicala721 PERMISSION_DENIED remains unexplained and unchanged; no olderfailure supersession or currentrootcause diagnosis. Mac4d4/final20/offline chain and Windowsa0b remain separate builds/scopes. No visual pass added.",
+        "Only new075 frozen archive/raw10actualresultpairs/newproductionactivationhelper and its one new controlled-lock test source are read. Previous3545/a0b/4d27/ae6 raw and old nine source test bodies are not re-reviewed or rerun. Fullcurrentagent file SHA exactly matches immutable075 source freeze before narrow excerpts are used.",
+        "New real Windows lock fixture proves original-styleOS5, bounded transient-release recovery, persistent-lock failure preservation and existing-target no-clobber through productionMoveFileExW flags0. Successful realmanaged install/detect/chat is a separate4.38s result. Original3545 lock holder remains unknown; noAV attribution or claim that the managed success necessarily retried.",
+        "Supersedes only WIN-CI-3545-MANAGED-PI-RENAME-ACTIVATION-FAIL-001 as current activation behavior. Original fail record/rawOS5/oldsource remains unchanged; historicala721 failure is not causally explained or superseded. PriorMac AI012 evidence remains scoped; AI011 is still optional/on-demand candidate, not release-default.",
+        "Ten named tests each actually1pass/0fail/0ignored; nested running banners are not extra tests. ConPTY1CPR/Chinese120x40/Jobempty0.52s is backend fixture proof, not desktopterminal interaction/IME or startupperformance.",
+        "Unique builtmain aa9ee8bb/PID3216/session2/OSwindow80062 responds after5s with existingWebView2. Not an installedMSI/NSIS clickflow, productnativeQuit, frontendinteraction or2s performance acceptance. BothRoaming registries/schema firstsampleage6950.1642ms is an observation including polling/tool overhead, not setupduration/renderready.",
+        "Exactlyone readonlyUIA FindFirst completed exit0/button_not_observed/2339ms. Not timeout/error/fault diagnosis or positive enabledvisiblecontrol proof. No retry/Invoke/input/focus; frontend_interactive remains not_evaluated, so NFR003 remainspartial.",
+        "Five actual externally downloaded asset bytes match frozenAPI and installers match publishedSUMS. No installer extraction/execution or innerbinary comparison claimed; startupmainSHA is a separate native launch artifact. New published075 supplements older release evidence without altering it.",
+        "No verifierGUI/sourceedit/build/test/CI/network/model/sampling/Git mutation. Mac2ba67/new11d7backdrop/skeleton and remainingvisual work are separate; successfulWindowsCI is not a newMac or Windowsfullfrontend pass."
       ]
     },
     {
