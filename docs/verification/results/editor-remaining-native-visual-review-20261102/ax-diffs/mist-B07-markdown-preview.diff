@@ -1,0 +1,330 @@
+--- mist-B04-full-AX-normalizedIDs
++++ mist-B07-markdown-preview-full-AX-normalizedIDs
+@@ -60,113 +60,232 @@
+ 				button 管理插件, Help: 插件中心
+ 			container 项目侧栏
+ 				container
+-					container /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web
+-						text Aurora Web
++					container /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA
++						text Editor Resume QA
+ 					button 项目操作
+ 					button 收起侧栏
+ 				tab group (selectable) 项目工具
+-					tab (selectable) 文件
++					tab (selected) 文件
+ 					tab (selectable) Git
+-					tab (selected) 搜索
+-				container 项目文本搜索
++					tab (selectable) 搜索
++				container 项目文件
+ 					container
+-						text 搜索 磁盘内容
+-					container
+-						text field (settable) 搜索文本, Value: workspace, Placeholder: 搜索项目内容
+-						container 区分大小写
+-							checkbox 区分大小写, Value: 0
+-							text Aa
+-						container 全词匹配
+-							checkbox 全词匹配, Value: 0
+-							text 全词
+-						container 正则表达式
+-							checkbox 正则表达式, Value: 0
+-							text .*
+-						summary 范围 · 已应用, Value: off
+-							text 范围
+-							text  · 已应用
+-						button 搜索
+-					container
+-						text 4 处匹配 · 2 个文件  · 搜索发起于 2026/11/2 09:31:07  · 结果为该次搜索快照。
+-					container 搜索结果
++						container 文件侧栏视图
++							toggle button 目录, Value: on
++							toggle button 结构, Value: off
++						button 新建文件
++						button 新建目录
++						button 刷新文件树
++						button 显示或隐藏点文件
++					container 文件树
+ 						container
+-							button (selected, expanded) src/index.ts 1, Help: src/index.ts, Secondary Actions: Collapse
+-							button 1 export { workspace, switchProject } from "./workspace";, Help: export { workspace, switchProject } from "./workspace";
+-							button (expanded) src/workspace.ts 3, Help: src/workspace.ts, Secondary Actions: Collapse
+-							button 4 export const workspace = createStore({, Help: export const workspace = createStore({
+-							button 10 const current = workspace.get().activeProject;, Help:   const current = workspace.get().activeProject;
+-							button 16 workspace.set({ activeProject: id });, Help:   workspace.set({ activeProject: id });
++							container byte-cache
++								text byte-cache
++								button byte-cache 操作
++							container cache
++								text cache
++								button cache 操作
++							container file-access-retest
++								text file-access-retest
++								button file-access-retest 操作
++							container file-access-retest/dirty-source.ts
++								text dirty-source.ts
++								button dirty-source.ts 操作
++							container file-access-retest/missing-link.ts
++								text missing-link.ts
++								text ↗
++								button missing-link.ts 操作
++							container file-access-retest/missing-target.ts
++								text missing-target.ts
++								button missing-target.ts 操作
++							container file-access-retest/permission.ts
++								text permission.ts
++								button permission.ts 操作
++							container limits
++								text limits
++								button limits 操作
++							container loop
++								text loop
++								text ↗
++								button loop 操作
++							container many
++								text many
++								button many 操作
++							container native-file-ops
++								text native-file-ops
++								button native-file-ops 操作
++							container native-remainder
++								text native-remainder
++								button native-remainder 操作
++							container native-remainder/denied
++								text denied
++								button denied 操作
++							container native-remainder/copy-ime.txt
++								text copy-ime.txt
++								button copy-ime.txt 操作
++							container native-remainder/dirty-trash.txt
++								text dirty-trash.txt
++								button dirty-trash.txt 操作
++							container (selected) native-remainder/visual.md
++								text visual.md
++								button visual.md 操作
++							container native-remainder/visual.ts
++								text visual.ts
++								button visual.ts 操作
++							container session-next
++								text session-next
++								button session-next 操作
++							container src
++								text src
++								button src 操作
++							container README.md
++								text README.md
++								button README.md 操作
++							container broken-link
++								text broken-link
++								text ↗
++								button broken-link 操作
+ 				container
+-					text Aurora Web
++					text Editor Resume QA
+ 					button 快速打开文件
+ 				splitter 文件侧栏宽度, Value: 240
+ 			container 编辑区域
+ 				container 编辑工作台
+ 					tab group (selectable) 打开的文件
+-						tab (selected) workspace.ts, Help: src/workspace.ts
+-						button 关闭 src/workspace.ts
+-						tab (selectable) theme.css, Help: src/theme.css
+-						button 关闭 src/theme.css
++						tab (selectable) state.txt, Help: session-next/state.txt
++						button 关闭 session-next/state.txt
++						tab (selectable) dirty-trash.txt, Help: native-remainder/dirty-trash.txt
++						button 关闭 native-remainder/dirty-trash.txt
++						tab (selectable) copy-ime.txt, Help: native-remainder/copy-ime.txt
++						button 关闭 native-remainder/copy-ime.txt
++						tab (selectable) visual.ts, Help: native-remainder/visual.ts
++						button 关闭 native-remainder/visual.ts
++						tab (selected) visual.md, Help: native-remainder/visual.md
++						button 关闭 native-remainder/visual.md
++						tab (selectable) text-101MiB.txt, Help: limits/text-101MiB.txt
++						button 关闭 limits/text-101MiB.txt
++						tab (selectable) missing-link.ts, Help: file-access-retest/missing-link.ts
++						button 关闭 file-access-retest/missing-link.ts
++						tab (selectable) permission.ts, Help: file-access-retest/permission.ts
++						button 关闭 file-access-retest/permission.ts
++						tab (selectable) readonly.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
++						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
++						tab (selectable) candidate.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
++						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
++						tab (selectable) retained-copy.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
++						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
++						tab (selectable) broken-link
++						button 关闭 broken-link
+ 					button 文件标签操作
+-					container workspace.ts
+-						container src/workspace.ts
+-							text src workspace.ts
++					container visual.md
++						container native-remainder/visual.md
++							text native-remainder visual.md
+ 						button 查找与替换
++						toggle button 切换预览, Value: on
+ 						button (disabled) 保存文件, Help: 保存 ⌘ S
+-						text entry area (settable) src/workspace.ts，代码编辑器, Value: import { createStore } from "./store";
+-import type { Project } from "./types";
+-
+-export const workspace = createStore({
+-  activeProject: "aurora",
+-  projects: new Map<string, Project>(),
+-});
+-
+-export async function switchProject(id: string) {
+-  const current = workspace.get().activeProject;
+-
+-  // 保存当前项目的标签与阅读位置
+-  await saveSession(current);
+-  const session = await restoreSession(id);
+-
+-  workspace.set({ activeProject: id });
+-  editor.restore(session.tabs);
+-  panels.restore(session.layout);
+-}
+-
+-// 独立项目，各自保留上下文。
+-
+-
+-							container (settable)
+-								text (settable) import  { createStore }  from "./store" ;
+-							container (settable)
+-								text (settable) import type  { Project }  from "./types" ;
+-							container (settable)
+-								text (settable) export const  workspace = createStore({
+-							container (settable)
+-								text (settable)   activeProject:  "aurora" ,
+-							container (settable)
+-								text (settable)   projects:  new  Map< string ,  Project >(),
+-							text (settable) });
+-							container (settable)
+-								text (settable) export async function  switchProject(id:  string ) {
+-							container (settable)
+-								text (settable) const  current = workspace.get().activeProject;
+-							text (settable) // 保存当前项目的标签与阅读位置
+-							container (settable)
+-								text (settable) await  saveSession(current);
+-							container (settable)
+-								text (settable) const  session =  await  restoreSession(id);
+-							text (settable)   workspace.set({ activeProject: id });
+-							text (settable)   editor.restore(session.tabs);
+-							text (settable)   panels.restore(session.layout);
+-							text (settable) }
+-							text (settable) // 独立项目，各自保留上下文。
++						text entry area (settable) native-remainder/visual.md，代码编辑器, Value: **# 本地阅读笔记**
++
++这里记录 **项目阅读** 与 **待办事项**。
++
++**## 今日计划**
++
++- [x] 打开本地项目
++- [ ] 检查文件状态
++
++**## 文件清单**
++
++| 文件 | 状态 |
++| --- | --- |
++| visual.ts | 可编辑 |
++| visual.md | 可预览 |
++
++**## 示例代码**
++
++```ts
++const title = "Horizon";
++console.log(title);
++```
++
++**## 结语**
++
++所有内容均为本次验收自有夹具。
++
++
++							container (settable)
++								text (settable) #  本地阅读笔记
++							container (settable)
++								text (settable) 这里记录  ** 项目阅读 **  与  * 待办事项 * 。
++							container (settable)
++								text (settable) ##  今日计划
++							container (settable)
++								text (settable) - [ x ]  打开本地项目
++							container (settable)
++								text (settable) -  [ ] 检查文件状态
++							container (settable)
++								text (settable) ##  文件清单
++							text (settable) | 文件 | 状态 |
++							text (settable) | --- | --- |
++							text (settable) | visual.ts | 可编辑 |
++							text (settable) | visual.md | 可预览 |
++							container (settable)
++								text (settable) ##  示例代码
++							container (settable)
++								text (settable) ``` ts
++							text (settable) const title = "Horizon";
++							text (settable) console.log(title);
++							text (settable) ```
++							container (settable)
++								text (settable) ##  结语
++							text (settable) 所有内容均为本次验收自有夹具。
++						container 文件预览
++							container
++								text 预览 visual.md
++								button 关闭预览
++							container Markdown 预览
++								summary 标题导航 · 5, Value: off
++									text 标题导航 · 
++									text 5
++								container 本地阅读笔记
++									heading 本地阅读笔记, Value: 1
++										text 本地阅读笔记
++									container
++										text 这里记录  项目阅读  与  待办事项 。
++									heading 今日计划, Value: 2
++										text 今日计划
++									content list
++										container 打开本地项目
++											list marker •
++											checkbox (disabled) 1
++											text 打开本地项目
++										container 检查文件状态
++											list marker •
++											checkbox (disabled) 0
++											text 检查文件状态
++									heading 文件清单, Value: 2
++										text 文件清单
++									table
++										row (selectable) 文件
++状态
++										row (selectable)
++											cell (selectable) visual.ts
++											cell (selectable) 可编辑
++										row (selectable)
++											cell (selectable) visual.md
++											cell (selectable) 可预览
++									heading 示例代码, Value: 2
++										text 示例代码
++									text const title = "Horizon";
++console.log(title);
++
++									heading 结语, Value: 2
++										text 结语
++									text 所有内容均为本次验收自有夹具。
+ 				button 进入专注模式
+ 			container
+-				button Aurora Web
++				button Editor Resume QA
+ 				text Esc 后按 Tab 离开编辑器
+-				button 行 22，列 1
+-				text TS UTF8  ·  LF
++				button 行 27，列 1
++				text MD UTF8  ·  LF
+ 				pop up button 启动方案, Value: 在设置添加启动方案
+ 				button (disabled) 启动
+ 				button 切换终端
+@@ -183,4 +302,4 @@
+ 	Window
+ 	Help
+ 
+-The focused UI element is 62 summary 范围 · 已应用, Value: off
++The focused UI element is 2 HTML content Description: Horizon · 地平线, URL: tauri://localhost

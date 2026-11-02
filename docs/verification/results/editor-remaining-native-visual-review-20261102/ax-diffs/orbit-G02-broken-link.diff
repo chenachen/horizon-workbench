@@ -1,0 +1,104 @@
+--- orbit-B09-large-top-fullAX-normalizedIDs
++++ orbit-G02-broken-link-fullAX-normalizedIDs
+@@ -139,7 +139,7 @@
+ 							container README.md
+ 								text README.md
+ 								button README.md 操作
+-							container broken-link
++							container (selected) broken-link
+ 								text broken-link
+ 								text ↗
+ 								button broken-link 操作
+@@ -150,62 +150,46 @@
+ 			container 编辑区域
+ 				container 编辑工作台
+ 					tab group (selectable) 打开的文件
+-						tab (selectable) state.txt, Help: session-next/state.txt
++						tab (selected) state.txt, Help: session-next/state.txt
+ 						button 关闭 session-next/state.txt
+-						tab (selectable) dirty-trash.txt, Help: native-remainder/dirty-trash.txt
++						tab (selected) dirty-trash.txt, Help: native-remainder/dirty-trash.txt
+ 						button 关闭 native-remainder/dirty-trash.txt
+-						tab (selectable) copy-ime.txt, Help: native-remainder/copy-ime.txt
++						tab (selected) copy-ime.txt, Help: native-remainder/copy-ime.txt
+ 						button 关闭 native-remainder/copy-ime.txt
+-						tab (selectable) visual.ts, Help: native-remainder/visual.ts
++						tab (selected) visual.ts, Help: native-remainder/visual.ts
+ 						button 关闭 native-remainder/visual.ts
+-						tab (selectable) visual.md, Help: native-remainder/visual.md
++						tab (selected) visual.md, Help: native-remainder/visual.md
+ 						button 关闭 native-remainder/visual.md
+-						tab (selected) text-101MiB.txt, Help: limits/text-101MiB.txt, Value: on
++						tab (selected) text-101MiB.txt, Help: limits/text-101MiB.txt
+ 						button 关闭 limits/text-101MiB.txt
+-						tab (selectable) missing-link.ts, Help: file-access-retest/missing-link.ts
++						tab (selected) missing-link.ts, Help: file-access-retest/missing-link.ts
+ 						button 关闭 file-access-retest/missing-link.ts
+-						tab (selectable) permission.ts, Help: file-access-retest/permission.ts
++						tab (selected) permission.ts, Help: file-access-retest/permission.ts
+ 						button 关闭 file-access-retest/permission.ts
+-						tab (selectable) readonly.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
++						tab (selected) readonly.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
+ 						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/readonly.ts
+-						tab (selectable) candidate.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
++						tab (selected) candidate.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
+ 						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/candidate.ts
+-						tab (selectable) retained-copy.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
++						tab (selected) retained-copy.ts, Help: /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
+ 						button 关闭 /private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-relocation-native-20261101-3htgz28r/retained-copy.ts
+-						tab (selectable) broken-link
++						tab (selected) broken-link
+ 						button 关闭 broken-link
+ 					button 文件标签操作
+-					container text-101MiB.txt
+-						heading 大文件阅读模式 · text-101MiB.txt, Help: limits/text-101MiB.txt, Value: 2
+-							text 大文件阅读模式 ·  text-101MiB.txt
+-						container
+-							text 文件大小  101.0 MiB 。每次最多读取 256 KiB，按顺序分块只读查看；当前仅载入部分内容，不能保存覆盖原文件。
+-						text 当前字节  0 — 262144 · 只读 · 当前分块内行号
+-						button 下一块
+-						button 用系统应用打开
+-						container 大文件当前分块，只读；左侧为当前分块内行号
+-							text // horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 790634758
+-// horizon fixture 
++					container broken-link
++						container 文件不可用
++							heading 这个文件暂时无法读取, Value: 2
++								text 这个文件暂时无法读取
++							text broken-link
++							text 文件或链接目标已不存在，或所在磁盘尚未连接。
++							button 重新尝试
++							button 重新定位…
++							button 关闭这个标签
++							summary 错误详情, Value: off
++								text 错误详情
+ 				button 进入专注模式
+ 			container
+ 				button Editor Resume QA
+-				text TXT
++				text 无法读取
+ 				pop up button 启动方案, Value: 在设置添加启动方案
+ 				button (disabled) 启动
+ 				button 切换终端
+@@ -222,4 +206,4 @@
+ 	Window
+ 	Help
+ 
+-The focused UI element is 140 tab (selected) text-101MiB.txt, Help: limits/text-101MiB.txt, Value: on
++The focused UI element is 156 container 文件不可用

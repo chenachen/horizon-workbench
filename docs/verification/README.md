@@ -4,6 +4,8 @@
 
 实测结果与未测场景见 [性能报告](PERFORMANCE.md)。
 
+2026-11-02 本次交付：356 条功能证据，需求 103 完整 / 1 部分，任务 38 完整 / 1 部分；528 个适用视觉状态通过，8 个参考条件不适用。部分项分别为 Windows 125%／150% 缩放与文件占用未测。macOS 安装包与最终数据整理见[安装说明](../MACOS_CANDIDATE.md)，Windows 原生测试、欢迎页实拍和安装器见[试用说明](../WINDOWS_TRIAL.md)。
+
 工具自检：`rtk proxy python3 scripts/desktop/check_tools.py --fixture /absolute/fixture --output /tmp/tools-check.json`；对照报告浏览器检查：`rtk proxy node scripts/desktop/check_visual_report.mjs`。已有真实工具记录见 [2026-10-31 工具自检](results/tool-selfcheck-2026-10-31.json)。
 
 ## 最终安装包核对
@@ -30,7 +32,7 @@ rtk proxy python3 scripts/desktop/audit_macos_package.py \
 6. 八布局真实结构、主题独立、IME 延后、撤销和 EditorState 保留；背景/尺寸/继承跨重启。
 7. 同条件实机视觉对照及修复复查；release 压力/资源/启动测量；安装与升级保留数据。
 
-验收原始条件来自 [REQUIREMENTS](../product/REQUIREMENTS.md)、[实施计划](../implementation/IMPLEMENTATION_PLAN.md)、[本次执行条款](../implementation/EXECUTION_ACCEPTANCE.md)。只做 macOS；其他平台状态单列，不开展相关环境调查。
+验收原始条件来自 [REQUIREMENTS](../product/REQUIREMENTS.md)、[实施计划](../implementation/IMPLEMENTATION_PLAN.md)、[本次执行条款](../implementation/EXECUTION_ACCEPTANCE.md)。本机功能以 macOS 实测交付；Windows x64 另有原生 CI 测试和试用安装器，其未测交互与其它架构保持单列。
 
 ## 可重建压力数据
 
@@ -188,6 +190,8 @@ rtk proxy python3 scripts/desktop/acceptance_matrix.py --check
 
 `pass/full` 才关闭该需求或任务；`pass/partial` 保留部分证实。失败优先保留；修复后的复测记录用 `supersedes: ["旧证据ID"]` 替代旧结论，历史记录继续保留。全部 artifact 与 implementation 路径必须存在。构建、原型、静态审查不能单独声明完整验收。
 
+范围解释另存 [acceptance-scope-decisions.json](acceptance-scope-decisions.json)，要求绑定原条款、已通过证据与明确限制；原始结果不改，不能替代活动失败。建议内存预算未达与已履行测量报告义务分开记录。
+
 ## 视觉证据格式
 
 真实截图写入 `visual-records.json`，每项对应 `mist/B01` 等设计索引；八套布局共 584 项。H 组是规范映射，G07 是未测平台，其余 536 项为 macOS 产品页面/状态。完整 UI 流程不应被说明图强行扩展成新功能。
@@ -218,6 +222,8 @@ rtk proxy python3 scripts/desktop/visual_matrix.py --check
 ```
 
 H 组规范另记 `specification-records.json`：列适用布局/规范页、需求、实际映射与证据。完成记为 `specification-mapped`，不计原生视觉通过，也不要求创建应用内规范页面。H05 原参考图仍保留旧版四路径；修订来源与五路径核对证据分别列明。
+
+E15 的“卸载所有布局与主题”与八套命名样式互斥，八格经 [visual-applicability.json](visual-applicability.json)绑定真实空宿主证据后记为 `not-applicable`，不计通过；原设计和历史条件不符记录保留。
 
 报告提供原设计/实机并排、透明度叠加及原逻辑尺寸查看，原始图像字节不变。只有视口、缩放、主题、密度和实际图像像素比例一致且全部差异已修复，才允许记录 `review: pass`。原始 JPEG 可参与人工视觉验收；仅当压缩妨碍某个具体子项判断时保留该项不确定，不因格式整体拒收。`differences` 每项注明 category、expected、actual、severity、status、fix_evidence，保留修复前后截图。截图是否真实仍需审阅采集动作和构建来源，工具校验不能替代人工视觉判断；功能观察不能外推未对照的视觉状态。
 

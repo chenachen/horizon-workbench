@@ -1,0 +1,10 @@
+--- a/apps/desktop/src/styles.css
++++ b/apps/desktop/src/styles.css
+@@ -162,6 +162,7 @@
+ .loading-skeleton { width: 100%; min-width: 0; min-height: 0; align-self: stretch; }
+ .loading-skeleton-editor { padding: 18px; }
+ .loading-skeleton-tree { padding: 0 4px; }
++.loading-skeleton-tree > div[aria-hidden="true"] { display: flex; flex-direction: column; gap: 2px; }
+ .loading-skeleton-bar { display: block; height: 11px; border-radius: 4px; background: var(--h-high); margin: 14px 12px; opacity: .8; }
+ .loading-skeleton-editor .loading-skeleton-bar { margin-top: 21px; }
+ .loading-skeleton-bar.long { width: 84%; }

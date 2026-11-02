@@ -49,13 +49,25 @@ def image_info(path: Path) -> tuple[str, list[int]]:
     raise ValueError(f"Unreadable PNG/JPEG dimensions: {path}")
 
 
-def build(records: list[dict], output: Path, specifications: list[dict] | None = None) -> list[dict]:
+def build(records: list[dict], output: Path, specifications: list[dict] | None = None, applicability: list[dict] | None = None) -> list[dict]:
     manifest = json.loads((ROOT / "design/exports/manifest.json").read_text())
     styles = {row["id"]: row for row in json.loads((ROOT / "design/source/styles.json").read_text())}
     if len(manifest["files"]) != 584:
         raise ValueError("Design index changed; review baseline before replacing 584-state matrix")
     entries, known = [], set()
     mappings = {}
+    condition_decisions = {}
+    for decision in applicability or []:
+        if decision["status"] != "not-applicable" or not decision["reason"] or not decision["artifacts"]:
+            raise ValueError("Reference condition decision requires an explicit reason and existing evidence")
+        for artifact in decision["artifacts"]:
+            path = ROOT / artifact["path"]
+            if not path.is_file() or digest(path) != artifact["sha256"]:
+                raise ValueError(f"Missing or changed applicability evidence: {artifact['path']}")
+        for case in decision["cases"]:
+            if case in condition_decisions:
+                raise ValueError(f"Duplicate reference condition decision: {case}")
+            condition_decisions[case] = decision
     for mapping in specifications or []:
         required = {"id", "cases", "requirements", "artifacts", "method", "observed", "limitations"}
         if missing := required - mapping.keys():
@@ -92,7 +104,7 @@ def build(records: list[dict], output: Path, specifications: list[dict] | None =
                         "theme", "density", "state", "actions", "review", "differences", "captured_at"}
             if missing := required - record.keys():
                 raise ValueError(f"{key} capture missing: {sorted(missing)}")
-            if record["capture_method"] not in {"computer-use-native", "screencapture-window", "screencapture-region", "native-ax"}:
+            if record["capture_method"] not in {"computer-use-native", "screencapture-window", "screencapture-region", "native-ax", "native-system-video-frame"}:
                 raise ValueError(f"{key}: prototype/browser/evaluate screenshots cannot serve as native visual evidence")
             path = Path(record["screenshot"])
             if not path.is_absolute():
@@ -132,8 +144,13 @@ def build(records: list[dict], output: Path, specifications: list[dict] | None =
             row["status"] = "verified" if latest["review"] == "pass" else "differences" if latest["review"] == "differences" else "captured-unreviewed"
             if not latest["comparable"]:
                 row["status"] = "conditions-mismatch"
+        if key in condition_decisions:
+            if row["scope"] != "macOS-product" or row["status"] != "conditions-mismatch" or not row["captures"]:
+                raise ValueError(f"Applicability decision must retain its real conflicting native evidence: {key}")
+            row["applicability"] = condition_decisions[key]
+            row["status"] = "not-applicable"
         entries.append(row)
-    unknown = ({r.get("case") for r in records} | mappings.keys()) - known
+    unknown = ({r.get("case") for r in records} | mappings.keys() | condition_decisions.keys()) - known
     if unknown:
         raise ValueError(f"Unknown visual cases: {sorted(unknown)}")
     return entries
@@ -146,9 +163,9 @@ def report(entries: list[dict]) -> str:
 <header><h1>Horizon · 设计与真实 macOS 应用对照</h1><p>原图与实机图保持原始字节；只在浏览器中并排或透明叠加。没有实机图的场景保持未证实。</p><p id="counts"></p></header>
 <main><aside><select id="style"><option value="">全部布局</option></select><select id="status"><option value="">全部状态</option></select><input id="query" placeholder="页面编号或名称"><div id="list"></div></aside><article><div id="details"></div></article></main>
 <script>const rows=__DATA__;let selected=rows[0].case;const $=id=>document.getElementById(id);const esc=x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
-for(const [id,name] of new Map(rows.map(r=>[r.style,r.styleName])))$('style').add(new Option(name,id));for(const s of new Set(rows.map(r=>r.status)))$('status').add(new Option(s,s));$('counts').textContent=`${rows.length} 个索引 · ${rows.filter(r=>r.scope==='macOS-product').length} 个 macOS 产品状态 · ${rows.filter(r=>r.status==='verified').length} 个视觉通过`;
+for(const [id,name] of new Map(rows.map(r=>[r.style,r.styleName])))$('style').add(new Option(name,id));for(const s of new Set(rows.map(r=>r.status)))$('status').add(new Option(s,s));$('counts').textContent=`${rows.length} 个索引 · ${rows.filter(r=>r.scope==='macOS-product').length} 个 macOS 产品状态 · ${rows.filter(r=>r.status==='verified').length} 个视觉通过 · ${rows.filter(r=>r.status==='not-applicable').length} 个参考条件不适用（不计通过）`;
 function list(){const visible=rows.filter(r=>(!$('style').value||r.style===$('style').value)&&(!$('status').value||r.status===$('status').value)&&(`${r.id} ${r.title}`.includes($('query').value)));$('list').innerHTML=visible.map(r=>`<button class="${selected===r.case?'selected':''}" data-case="${r.case}">${r.styleName} · ${r.id} ${r.title}<br><small>${r.status}</small></button>`).join('');$('list').querySelectorAll('button').forEach(b=>b.onclick=()=>{selected=b.dataset.case;list();show()})}
-function show(){const r=rows.find(x=>x.case===selected),c=r.captures.at(-1);$('details').innerHTML=`<div class="toolbar"><h1>${esc(r.styleName)} · ${r.id} ${esc(r.title)}</h1><p>${esc(r.status)} · ${esc(r.scope)}</p><p>基准 ${r.expected.viewport.join(' × ')} · ${esc(r.expected.theme)} · ${esc(r.expected.density)} · zoom ${r.expected.zoom}</p><button id="mode">切换并排 / 叠加</button><label>显示宽度 <select id="scale"><option value="640">640px</option><option value="${r.width}">原逻辑尺寸</option></select></label><label>叠加透明度 <input id="opacity" type="range" min="0" max="1" step=".05" value=".5"></label></div><div id="images"></div><h3>状态与差异</h3><pre>${esc(JSON.stringify(c??r.specification_mapping??{note:r.note,status:'没有真实 macOS 截图；未验收'},null,2))}</pre>`;let overlay=false;function images(){const w=$('scale').value;const ref=`<img src="${r.reference_url}" alt="原设计">`,native=c?`<img src="${c.url}" alt="真实macOS应用">`:'';$('images').innerHTML=c?(overlay?`<div class="frame overlay" style="--image-width:${w}px;--opacity:${$('opacity').value}">${ref}${native}</div>`:`<div class="pair"><div class="frame" style="--image-width:${w}px"><label>原设计</label>${ref}</div><div class="frame" style="--image-width:${w}px"><label>真实 macOS ${c.comparable?'条件一致':'条件不匹配'}</label>${native}</div></div>`):`<div class="pair"><div class="frame" style="--image-width:${w}px"><label>原设计</label>${ref}</div><div class="empty">${r.specification_mapping?'设计规范映射已核对；非应用页面截图':'等待真实 macOS 截图'}</div></div>`;}$('mode').onclick=()=>{overlay=!overlay;images()};$('scale').onchange=images;$('opacity').oninput=images;images()}
+function show(){const r=rows.find(x=>x.case===selected),c=r.captures.at(-1);$('details').innerHTML=`<div class="toolbar"><h1>${esc(r.styleName)} · ${r.id} ${esc(r.title)}</h1><p>${esc(r.status)} · ${esc(r.scope)}</p><p>基准 ${r.expected.viewport.join(' × ')} · ${esc(r.expected.theme)} · ${esc(r.expected.density)} · zoom ${r.expected.zoom}</p><button id="mode">切换并排 / 叠加</button><label>显示宽度 <select id="scale"><option value="640">640px</option><option value="${r.width}">原逻辑尺寸</option></select></label><label>叠加透明度 <input id="opacity" type="range" min="0" max="1" step=".05" value=".5"></label></div><div id="images"></div><h3>状态与差异</h3><pre>${esc(JSON.stringify(r.applicability?{applicability:r.applicability,capture:c}:c??r.specification_mapping??{note:r.note,status:'没有真实 macOS 截图；未验收'},null,2))}</pre>`;let overlay=false;function images(){const w=$('scale').value;const ref=`<img src="${r.reference_url}" alt="原设计">`,native=c?`<img src="${c.url}" alt="真实macOS应用">`:'';$('images').innerHTML=c?(overlay?`<div class="frame overlay" style="--image-width:${w}px;--opacity:${$('opacity').value}">${ref}${native}</div>`:`<div class="pair"><div class="frame" style="--image-width:${w}px"><label>原设计</label>${ref}</div><div class="frame" style="--image-width:${w}px"><label>真实 macOS ${r.applicability?'条件不适用／参考冲突':c.comparable?'条件一致':'条件不匹配'}</label>${native}</div></div>`):`<div class="pair"><div class="frame" style="--image-width:${w}px"><label>原设计</label>${ref}</div><div class="empty">${r.specification_mapping?'设计规范映射已核对；非应用页面截图':'等待真实 macOS 截图'}</div></div>`;}$('mode').onclick=()=>{overlay=!overlay;images()};$('scale').onchange=images;$('opacity').oninput=images;images()}
 ['style','status','query'].forEach(id=>$(id).oninput=list);list();show();</script></html>""".replace("__DATA__", data)
 
 
@@ -156,16 +173,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--records", type=Path, default=ROOT / "docs/verification/visual-records.json")
     parser.add_argument("--specifications", type=Path, default=ROOT / "docs/verification/specification-records.json")
+    parser.add_argument("--applicability", type=Path, default=ROOT / "docs/verification/visual-applicability.json")
     parser.add_argument("--output", type=Path, default=ROOT / "docs/verification")
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     records = json.loads(args.records.read_text()) if args.records.exists() else []
     specifications = json.loads(args.specifications.read_text()) if args.specifications.exists() else []
-    rows = build(records, args.output, specifications)
+    applicability = json.loads(args.applicability.read_text()).get("decisions", []) if args.applicability.exists() else []
+    rows = build(records, args.output, specifications, applicability)
     counts = Counter(row["status"] for row in rows)
-    lines = ["# 真实 macOS 视觉验收索引", "", "584 个索引全部保留。536 个 macOS 产品页面/状态待真实截图；40 个 H 组规范页映射实际组件行为；8 个 G07 为未测平台。",
+    lines = ["# 真实 macOS 视觉验收索引", "", "584 个索引全部保留。536 个 macOS 产品页面/状态按实际适用条件验证；40 个 H 组规范页映射实际组件行为；8 个 G07 为未测平台。",
              "原设计不改写；实机截图保留哈希及采集条件。视觉判断由人工完成，脚本只校验条件和证据。", "",
              "对照入口：[visual-report.html](visual-report.html)。记录来源：[visual-records.json](visual-records.json)。", "",
+             f"产品状态：通过 {counts['verified']}；条件不适用/参考冲突 {counts['not-applicable']}（不计通过、不列待拍）；未验 {counts['unverified']}；差异 {counts['differences']}；其它条件不符 {counts['conditions-mismatch']}。",
+             "E15全卸布局/主题与命名样式不能同时成立，保留真实empty-host fallback证据及历史不符记录；范围声明见[visual-applicability.json](visual-applicability.json)。", "",
              "| 布局 / 页面 | 场景 | 范围 | 状态 | 实机 / 规范证据 |", "| --- | --- | --- | --- | --- |"]
     for row in rows:
         captures = "、".join(capture["screenshot"] for capture in row["captures"])

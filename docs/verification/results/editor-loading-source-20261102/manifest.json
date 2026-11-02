@@ -1,0 +1,22 @@
+{
+  "preparedAt": "2026-11-02T03:06:20.835645+00:00",
+  "status": "prepared-only; no production/test/build/GUI operation",
+  "files": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "beforeSHA256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "afterSHA256": "e724f04c43616d0175c70d3e5e61d688bcfe9f3ef62e0b2c5d6a9edbbd1b7012"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "beforeSHA256": "3114d328e049da3f42f685539f532d62122027ef1abc3323ee7c8054f710feeb",
+      "afterSHA256": "6d794619c7c119d5914c450cd8ca56a6fde664d876fa28a242aa316c9832efd4"
+    }
+  ],
+  "scope": "Publish loading via read-only getter over existing opens/restoringSessions and existing ticket generations; emit on real operation start/end. Workbench reuses shared Loading only while no ready active content or evicted content, keeps known tabs/breadcrumbs and error views. No new persisted metadata, transport calls, artificial delays, files tree changes or activation flow changes.",
+  "unresolvedBoundary": "Before a view activation has started any real restore/open operation, pendingSessions is retained intent, not active I/O; getter deliberately does not invent loading from restored=false. Initial App welcome while activation itself is pending remains its distinct busyProject/boot responsibility, documented in analysis.",
+  "testing": "Not run and no test file modified. Deferred tests/selected existing regressions specified in ANALYSIS.md.",
+  "revision": 2,
+  "updatedAt": "2026-11-02T03:14:00.472255+00:00",
+  "previewLoadingBoundary": "Only while documentLoading, with-preview two-column mode and Preview subtree wait for actual bytes; prevents the full-width loading skeleton sharing a column with stale empty preview. Stored preview preference and ready preview behavior unchanged."
+}

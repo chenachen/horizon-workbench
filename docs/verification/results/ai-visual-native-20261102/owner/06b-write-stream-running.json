@@ -1,0 +1,132 @@
+{
+  "observedAt": "2026-11-02T01:02:41.982485+00:00",
+  "status": "D04 UNIQUE TRUE WRITE STREAM RUNNING / COPY ONLY",
+  "sessionId": "7fafb63d-23ba-4484-a03e-5101938a9121",
+  "reviewId": "1e9b6c21-d4fa-4656-84e2-56284e403319",
+  "piIdentityFromPermission": {
+    "pid": 60742,
+    "ppid": 2009,
+    "start": "Mon Nov 2 08:59:40 2026",
+    "argvText": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/7fafb63d-23ba-4484-a03e-5101938a9121/session.jsonl --no-builtin-tools --tools horizon_read,horizon_list,horizon_write,horizon_exec -e /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/46042bb5-6901-4f82-ae34-169a3cf739de/external/horizon-policy.ts",
+    "cwd": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/1e9b6c21-d4fa-4656-84e2-56284e403319/worktree"
+  },
+  "samePiPsAfterAllow": "60742  2009 Mon Nov  2 08:59:40 2026     /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/runtimes/pi/1.4.0/darwin-arm64/pi/pi --mode rpc --no-extensions --no-mcp --no-skills --no-prompt-templates --no-themes --no-context-files --no-approve --offline --provider horizon-fixture --model horizon-fixture --thinking off --session /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/sessions/7fafb63d-23ba-4484-a03e-5101938a9121/session.jsonl --no-builtin-tools --tools horizon_read,horizon_list,horizon_write,horizon_exec -e /Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/connections/46042bb5-6901-4f82-ae34-169a3cf739de/external/horizon-policy.ts",
+  "allowOnceUtcFromTerra": "2026-11-02T01:01:31.406Z",
+  "actualToolCall": {
+    "id": "tool-4",
+    "name": "horizon_write",
+    "path": "example.txt",
+    "bytes": 42,
+    "toolResult": "Written to the task copy. Original project unchanged."
+  },
+  "modelRequestRows": 5,
+  "requestLogSHA256AtStage": "43bbaf429bf3f63c9a0e91e6dd468f70cfa83103a471225e0fb79bfd4fc28854",
+  "actualStreamStart": {
+    "at": "2026-11-02T01:01:31.551Z",
+    "type": "stream-started",
+    "streamId": "chatcmpl-horizon-fixture-5",
+    "startedAt": "2026-11-02T01:01:31.551Z",
+    "toolCallId": "tool-4",
+    "completedWrite": true
+  },
+  "controlLog": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/ai-visual-native-20261102/owner/provider-requests.jsonl.control.jsonl",
+  "controlPrefixBytes": 181,
+  "controlPrefixSHA256AtStage": "6b6d74d785a995c6d5a5526d48a338ed612a6cf1b1018a35a0642b1bf729a8eb",
+  "naturalLimitSecondsFromUnchangedFixture": 600,
+  "sourceHeadIndex": [
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/context.ts",
+      "same": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/example.txt",
+      "same": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/removed-context.txt",
+      "same": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/.git/HEAD",
+      "same": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/.git/index",
+      "same": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/.git/config",
+      "same": true
+    },
+    {
+      "path": "/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-pi-resume-20261101-0g4ktwjr/PiQA-A/.git/refs/heads/main",
+      "same": true
+    }
+  ],
+  "copyFilesAfterActualWrite": [
+    {
+      "path": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/1e9b6c21-d4fa-4656-84e2-56284e403319/worktree/context.ts",
+      "bytes": 143,
+      "sha256": "b1e421542eb5b34992100f5bf075b20329c41b950f23f03749cd3baf25043776",
+      "matchesBaseline": true,
+      "matchesApprovedWrite": null
+    },
+    {
+      "path": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/1e9b6c21-d4fa-4656-84e2-56284e403319/worktree/example.txt",
+      "bytes": 42,
+      "sha256": "f142b7fd157d1f4550ccdbd55f7453c5278a6f0d28d195ab8e9052f9c25fa3b0",
+      "matchesBaseline": false,
+      "matchesApprovedWrite": true
+    },
+    {
+      "path": "/Users/chenpengxiang/Library/Application Support/dev.horizon.desktop/agent/reviews/1e9b6c21-d4fa-4656-84e2-56284e403319/worktree/removed-context.txt",
+      "bytes": 35,
+      "sha256": "baee02f7fc4fb66628abddb36335935e17e9279a5001a3510667f142c2b19b3e",
+      "matchesBaseline": true,
+      "matchesApprovedWrite": null
+    }
+  ],
+  "oldNine": [
+    {
+      "sessionId": "346e59a9-9596-4f44-a64a-774b2f1a2246",
+      "same": true
+    },
+    {
+      "sessionId": "436b6ad1-5f1e-42b2-8159-5f8116b6456b",
+      "same": true
+    },
+    {
+      "sessionId": "44ba66cc-50f7-446e-babf-57f7ffdd8a49",
+      "same": true
+    },
+    {
+      "sessionId": "5f78fbf8-2d46-4b7d-91bf-b0a67799237f",
+      "same": true
+    },
+    {
+      "sessionId": "6878d80d-958a-48e0-b96b-cdc16bb798a6",
+      "same": true
+    },
+    {
+      "sessionId": "84e566d5-7069-4724-b883-911ff122fcb0",
+      "same": true
+    },
+    {
+      "sessionId": "cbc22afb-6c3a-4e08-b953-04702366585e",
+      "same": true
+    },
+    {
+      "sessionId": "d475ea29-72de-49e0-9fe8-36d1197f34b2",
+      "same": true
+    },
+    {
+      "sessionId": "e6f3e8e7-09f2-4109-a552-ab0ff06512f5",
+      "same": true
+    }
+  ],
+  "oldFourReviewsPresent": true,
+  "nativeAx": "/Users/chenpengxiang/Desktop/Horizon/docs/verification/results/ai-visual-native-20261102/778c-2009-1793579857050-write-after-allow.ax.txt",
+  "nativeAxSHA256": "9afe3a3094fb7e6361869628b3c5821c4eecefa7292d35905230fe3b52d52409",
+  "noOwnerHttpOrModelProbe": true,
+  "finishAuthorizedOnlyAfterD04Eight": "POST one actual matched streamId only; no Pi signal/Stop/resend"
+}

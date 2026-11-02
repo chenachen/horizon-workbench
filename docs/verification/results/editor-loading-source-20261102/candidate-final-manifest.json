@@ -1,0 +1,47 @@
+{
+  "preparedAt": "2026-11-02T03:06:20.835645+00:00",
+  "status": "frozen .work-only candidate; focused20 passed; production integration belongs to root",
+  "files": [
+    {
+      "path": "packages/editor/src/store.ts",
+      "beforeSHA256": "075bc050fcd5d4875f8d3ea337f7a10210db0638bbfba37f7b8e854bacfceaa1",
+      "afterSHA256": "e724f04c43616d0175c70d3e5e61d688bcfe9f3ef62e0b2c5d6a9edbbd1b7012"
+    },
+    {
+      "path": "apps/desktop/src/features/editor/EditorWorkbench.tsx",
+      "beforeSHA256": "3114d328e049da3f42f685539f532d62122027ef1abc3323ee7c8054f710feeb",
+      "afterSHA256": "6d794619c7c119d5914c450cd8ca56a6fde664d876fa28a242aa316c9832efd4"
+    }
+  ],
+  "scope": "Publish loading via read-only getter over existing opens/restoringSessions and existing ticket generations; emit on real operation start/end. Workbench reuses shared Loading only while no ready active content or evicted content, keeps known tabs/breadcrumbs and error views. No new persisted metadata, transport calls, artificial delays, files tree changes or activation flow changes.",
+  "unresolvedBoundary": "Before a view activation has started any real restore/open operation, pendingSessions is retained intent, not active I/O; getter deliberately does not invent loading from restored=false. Initial App welcome while activation itself is pending remains its distinct busyProject/boot responsibility, documented in analysis.",
+  "testing": {
+    "status": "completed focused isolated Vitest",
+    "command": "rtk proxy node node_modules/vitest/vitest.mjs run --config .work/g01-loading-sol-20261102/vitest.config.mjs --testNamePattern 'G01|keeps late project A reads|drops a late document response|keeps a late A read failure|starts a new epoch read|rejects a pre-stop restore|abandons an interrupted session restore|old restore clear'",
+    "passed": 20,
+    "newG01": 12,
+    "selectedExisting": 8,
+    "skippedUnrelated": 40,
+    "failed": 0,
+    "durationMs": 212,
+    "rawReport": {
+      "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/focused-store-result.json",
+      "sha256": "344ec7dde17ed3db61a9c84ccd953a325bbeb70898c0fde1d483e83bec51e58b"
+    },
+    "nativeOrRenderedUIEvidence": false,
+    "noFurtherRunRequiredByRoot": true
+  },
+  "revision": 2,
+  "updatedAt": "2026-11-02T03:14:00.472255+00:00",
+  "previewLoadingBoundary": "Only while documentLoading, with-preview two-column mode and Preview subtree wait for actual bytes; prevents the full-width loading skeleton sharing a column with stale empty preview. Stored preview preference and ready preview behavior unchanged.",
+  "isolatedTest": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/g01-loading-sol-20261102/after/packages/editor/src/store.test.ts",
+    "sha256": "8b3df73a188beb285df5501149e0b588b5c9a8c33a6d00b3854e6fa0ebd65b5d",
+    "productionTarget": "packages/editor/src/store.test.ts",
+    "originalPrefixSHA256": "8b3df73a188beb285df5501149e0b588b5c9a8c33a6d00b3854e6fa0ebd65b5d",
+    "originalPrefixBytes": 55446,
+    "appendedBlockSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "change": "Reuse original fixture/transport/fake timers; append12 G01 cases only. Root will integrate permanent block; original production test not changed by git_sol."
+  },
+  "frozenAt": "2026-11-02T03:19:48.256725+00:00"
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "Derived owner path-field correction and exact persisted-tab delta; original owner report retained",
+  "recordedAt": "2026-11-02T02:20:56.730781+00:00",
+  "ownerOriginal": "owner-final.json",
+  "ownerOriginalSHA256": "d5f7a1199a9702793b08ab44f46417e9418b059b740e6ec83e6716a563b8e216",
+  "rootCorrection": {
+    "reason": "Owner oracle looked for missing project.root. Registry stores base64 native paths in registry.roots[projectId] (state.rs45–53). project.rootDisplayPath is display text, not encoded root. Only two owned root fields decoded; file/recovery/session snapshots not rerun.",
+    "rows": [
+      {
+        "id": "d8b69787-0774-4bac-8810-e0ad6fbcbb83",
+        "field": "registry.roots[projectId]",
+        "base64NativePath": "L3ByaXZhdGUvdmFyL2ZvbGRlcnMvOWoveG53NTM4YzkzNGIyczU1OXRsMDFjYzgwMDAwMGduL1QvaG9yaXpvbi1hcHBlYXJhbmNlLTIwMjYxMTAxLW9rd3JtazN5L0F1cm9yYSBXZWI=",
+        "decoded": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "baselineRoot": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-appearance-20261101-okwrmk3y/Aurora Web",
+        "matchesBaselineCanonicalRoot": true
+      },
+      {
+        "id": "e1111892-92c6-4985-b285-f5dcbe4d11f3",
+        "field": "registry.roots[projectId]",
+        "base64NativePath": "L3ByaXZhdGUvdmFyL2ZvbGRlcnMvOWoveG53NTM4YzkzNGIyczU1OXRsMDFjYzgwMDAwMGduL1QvaG9yaXpvbi1yZXN1bWUtZWRpdG9yLXllc3c5cHB1L0VkaXRvciBSZXN1bWUgUUE=",
+        "decoded": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA",
+        "baselineRoot": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-resume-editor-yesw9ppu/Editor Resume QA",
+        "matchesBaselineCanonicalRoot": true
+      }
+    ]
+  },
+  "sessionDelta": {
+    "AuroraWeb": "All two tabs, activeFileId, searchDraft and commitDraft exactly equal baseline. Revision244→293 naturally advances.",
+    "EditorResumeQA": "All12 tab IDs/order/pinned/selection identical; active broken-link and both draft hashes identical. Only visual.md fileId1b55b505cb43887136a112502128cae6d37082c40f3048e14355e774363c58be scrollTop65→61. Revision302→341 naturally advances.",
+    "acceptedByRoot": "2026-11-02 root explicitly accepted4px actual reflow difference; no GUI correction requested."
+  },
+  "knownFilesAndRecovery": "Original owner check: all five known files SHA/bytes equal baseline, existing broken-link target unchanged/missing, persisted recovery0/0 unchanged. No additional read performed.",
+  "conclusion": "Owned disk files/drafts/checkpoints retained; no dirty-data obstacle to normal Quit. Raw allSessionFieldsMatch remains false for the real4px scroll difference."
+}

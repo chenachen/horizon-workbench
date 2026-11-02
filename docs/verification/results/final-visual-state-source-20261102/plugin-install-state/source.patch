@@ -1,0 +1,60 @@
+diff --git a/apps/desktop/src/features/plugins/PluginCenter.tsx b/apps/desktop/src/features/plugins/PluginCenter.tsx
+--- a/apps/desktop/src/features/plugins/PluginCenter.tsx
++++ b/apps/desktop/src/features/plugins/PluginCenter.tsx
+@@ -36,8 +36,8 @@
+   const [picker, setPicker] = useState<'install' | 'update' | null>(null);
+   const [selected, setSelected] = useState<string | null>(null); const [install, setInstall] = useState<InstallPlan | null>(null); const [grants, setGrants] = useState<string[]>([]);
+   const [stop, setStop] = useState<StopPlan | null>(null); const [deleteData, setDeleteData] = useState(false); const [busy, setBusy] = useState(''); const [error, setError] = useState(''); const [message, setMessage] = useState(''); const [logs, setLogs] = useState<string | null>(null);
+-  const busyRef = useRef(false); const cancelInstall = useRef<(() => Promise<unknown>) | null>(null); const [phase, setPhase] = useState('');
+-  const run = async (label: string, fn: () => Promise<void>) => { if (busyRef.current) return; busyRef.current = true; setBusy(label); setError(''); setMessage(''); setPhase(''); try { await fn(); await refreshPlugins(listProject); if (listProject !== projectId) await refreshPlugins(projectId); } catch (cause) { const message = errorMessage(cause); setError(message); onError?.(message); } finally { busyRef.current = false; cancelInstall.current = null; setBusy(''); setPhase(''); } };
++  const busyRef = useRef(false); const [installing, setInstalling] = useState(false); const [cancelInstall, setCancelInstall] = useState<(() => Promise<unknown>) | null>(null); const [phase, setPhase] = useState('');
++  const run = async (label: string, fn: () => Promise<void>) => { if (busyRef.current) return; busyRef.current = true; setBusy(label); setError(''); setMessage(''); setPhase(''); try { await fn(); await refreshPlugins(listProject); if (listProject !== projectId) await refreshPlugins(projectId); } catch (cause) { const message = errorMessage(cause); setError(message); onError?.(message); } finally { busyRef.current = false; setCancelInstall(null); setInstalling(false); setBusy(''); setPhase(''); } };
+   const choosePackage = (development = false) => run('检查扩展包', async () => { const selection = await call<{ packageSelectionToken: string | null }>(development ? 'extension_dev_pick' : 'extension_pick_package'); if (!selection.packageSelectionToken) return; const plan = await call<InstallPlan>('extension_install_prepare', selection); setPicker(null); setInstall(plan); setGrants([]); });
+   const beginStop = (state: ExtensionState, action: StopReason) => run('检查活动资源', async () => { const plan = await call<StopPlan>('extension_stop_prepare', { extensionId: state.id, action, scope: action === 'uninstall' ? 'global' : scope, projectId: scope === 'project' ? projectId : undefined }, projectId); setStop(plan); setDeleteData(false); });
+   const applyStop = () => stop && run('停止扩展并释放资源', async () => {
+@@ -85,9 +85,10 @@
+     {!nativeAvailable() ? <p className="plugin-notice">浏览器预览中不可安装或启动扩展。请在 Horizon 桌面窗口中管理本地包。</p> : null}
+     {presetsOpen ? <PluginPresets projectId={projectId} onClose={() => setPresetsOpen(false)} onApplied={async () => { await refreshPlugins(listProject); if (listProject !== projectId) await refreshPlugins(projectId); setMessage('能力预设已应用；终端与启动方案按需运行。'); }} /> : null}
+     {picker ? <PluginPackagePicker update={picker === 'update'} busy={!!busy} error={error} onClose={() => setPicker(null)} onChoose={() => void choosePackage()} /> : null}
+-    {install ? <PluginInstallDialog plan={install} grants={grants} busy={!!busy} phase={phase} error={error} cancellable={!!cancelInstall.current} onClose={() => setInstall(null)} onCancel={() => { void cancelInstall.current?.(); }} onGrant={(id, allowed) => setGrants(old => allowed ? [...old, id] : old.filter(grant => grant !== id))} onInstall={() => void run('安装扩展包', async () => {
++    {install ? <PluginInstallDialog plan={install} grants={grants} busy={!!busy} installing={installing} phase={phase} error={error} cancellable={!!cancelInstall} onClose={() => setInstall(null)} onCancel={() => { void cancelInstall?.(); }} onGrant={(id, allowed) => setGrants(old => allowed ? [...old, id] : old.filter(grant => grant !== id))} onInstall={() => void run('安装扩展包', async () => {
++      setInstalling(true);
+       const task = await start('extension_install_apply', { planId: install.planId, digest: install.digest, grantIds: grants }, event => { if (event.payload.type === 'progress') setPhase(String(event.payload.phase ?? '')); });
+-      cancelInstall.current = task.cancel; await task.result; setInstall(null); selectTab('installed'); setMessage('安装完成。可按需要启用并打开扩展提供的入口。');
++      setCancelInstall(() => task.cancel); await task.result; setInstall(null); selectTab('installed'); setMessage('安装完成。可按需要启用并打开扩展提供的入口。');
+     })} /> : null}
+     {stop ? <PluginDialog kind={stop.action === 'uninstall' ? 'uninstall' : 'stop'} title={`${stop.action === 'uninstall' ? '卸载' : stop.action === 'pause' ? '暂停' : stop.action === 'sleep' ? '休眠' : '停用'} ${states.find(state => state.id === stop.extensionId)?.manifest?.name ?? stop.extensionId}？`} busy={!!busy} onClose={() => setStop(null)}>
+       <p>范围：{stop.projectId ? '当前项目' : '所有项目'}。保存恢复草稿，停止所属服务，移除视图、命令与订阅。</p>
+diff --git a/apps/desktop/src/features/plugins/PluginInstallDialog.tsx b/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
+--- a/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
++++ b/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
+@@ -15,23 +15,23 @@
+   </PluginDialog>;
+ }
+ 
+-export function PluginInstallDialog({ plan, grants, busy, phase, error, cancellable, onGrant, onClose, onCancel, onInstall }: {
+-  plan: InstallPlan; grants: string[]; busy: boolean; phase: string; error: string; cancellable: boolean;
++export function PluginInstallDialog({ plan, grants, busy, installing, phase, error, cancellable, onGrant, onClose, onCancel, onInstall }: {
++  plan: InstallPlan; grants: string[]; busy: boolean; installing: boolean; phase: string; error: string; cancellable: boolean;
+   onGrant(id: string, allowed: boolean): void; onClose(): void; onCancel(): void; onInstall(): void;
+ }) {
+   const hasNewPermissions = !!plan.previousVersion && !!plan.newPermissions?.length;
+-  const title = busy ? `正在安装 ${plan.manifest.name}` : hasNewPermissions ? '更新需要新的权限' : plan.previousVersion ? '检查扩展更新' : '确认扩展权限';
++  const title = installing ? `正在安装 ${plan.manifest.name}` : hasNewPermissions ? '更新需要新的权限' : plan.previousVersion ? '检查扩展更新' : '确认扩展权限';
+   return <PluginDialog title={title} busy={busy} onClose={onClose}>
+     <div className="plugin-package-info"><PluginGlyph manifest={plan.manifest} /><div><strong>{plan.manifest.name}</strong><small>{plan.previousVersion ? `v${plan.previousVersion} → ` : ''}v{plan.manifest.version} · {plan.manifest.author}</small></div><span className="plugin-state active">兼容</span></div>
+-    {busy ? <div className="plugin-install-progress" role="status"><p><Check size={16} />扩展包与兼容性已检查</p><p><Check size={16} />所需权限已确认</p><p className="plugin-install-current"><PackagePlus size={16} />{phase || '准备安装扩展文件'}</p><progress aria-label="扩展安装进度" /></div> : <>
++    {installing ? <div className="plugin-install-progress" role="status"><p><Check size={16} />扩展包与兼容性已检查</p><p><Check size={16} />所需权限已确认</p><p className="plugin-install-current"><PackagePlus size={16} />{phase || '准备安装扩展文件'}</p><progress aria-label="扩展安装进度" /></div> : <>
+       <dl className="plugin-package-meta"><dt>来源</dt><dd>{plan.source}</dd><dt>兼容版本</dt><dd>Horizon {plan.manifest.engines.horizon}</dd><dt>解包后大小</dt><dd>{Number(plan.downloadBytes).toLocaleString()} 字节</dd></dl>
+-      <fieldset className="plugin-install-permissions"><legend>所需权限</legend>{plan.permissions.length ? plan.permissions.map(permission => {
++      <fieldset className="plugin-install-permissions" disabled={busy}><legend>所需权限</legend>{plan.permissions.length ? plan.permissions.map(permission => {
+         const added = !!plan.previousVersion && !!plan.newPermissions?.includes(permission.capability);
+         return <label key={permission.id} className={added ? 'plugin-permission-new' : ''}><input type="checkbox" checked={grants.includes(permission.id)} onChange={event => onGrant(permission.id, event.target.checked)} /><ShieldCheck size={17} /><span>{capabilityLabel(permission.capability)}<small>{permission.capability}</small></span><span className={`plugin-state ${added ? 'plugin-state-new' : ''}`}>{added ? '新增' : '必需'}</span></label>;
+       }) : <p className="plugin-muted">此扩展无需额外权限。</p>}</fieldset>
+       <p className="plugin-muted">授权适用于此扩展，文件与 Git 调用限定在当前项目。{plan.previousVersion ? '更新保留现有配置与启用状态。' : '安装完成后，可选择启用范围。'}</p>
+     </>}
+     {error ? <p className="plugin-error" role="alert">{error}</p> : null}
+-    <div className="plugin-actions"><button autoFocus disabled={busy && !cancellable} onClick={busy ? onCancel : onClose}>{busy ? '取消安装' : plan.previousVersion ? '暂不更新' : '取消'}</button><button className="plugin-primary" disabled={busy || grants.length !== plan.permissions.length} onClick={onInstall}>{plan.previousVersion ? '允许并更新' : '授权并安装'}</button></div>
++    <div className="plugin-actions"><button autoFocus disabled={busy && (!installing || !cancellable)} onClick={installing ? onCancel : onClose}>{installing ? '取消安装' : plan.previousVersion ? '暂不更新' : '取消'}</button><button className="plugin-primary" disabled={busy || grants.length !== plan.permissions.length} onClick={onInstall}>{plan.previousVersion ? '允许并更新' : '授权并安装'}</button></div>
+   </PluginDialog>;
+ }

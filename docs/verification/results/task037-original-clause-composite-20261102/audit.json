@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T05:28:27.478368+00:00",
+  "task": "TASK-037",
+  "coverage": "full",
+  "outcome": "pass",
+  "scope": "Original acceptance clause in the declared macOS delivery scope. New native tail is one same-project tour; prior accepted facts are reused without new execution.",
+  "originalAcceptance": "移动原文件后仍可显示；透明度与遮罩不影响文字；切项目保持全局背景，关闭或更换时释放旧图；清理保留被引用资产；超限/损坏维持旧背景。",
+  "identity": {
+    "pid": 18459,
+    "start_abstime": 2667048786342,
+    "executable": "/Users/chenpengxiang/Applications/Horizon.app/Contents/MacOS/horizon-desktop",
+    "mainSHA256": "5a0a6c5a6edca82751a54abe34d0dc40a798f60d49182b70a47bad21e233190d"
+  },
+  "newOwnedPresetId": "8f86201a-cc70-43fa-b9df-1c75f7ef3211",
+  "nativeEvidenceDirectory": "docs/verification/results/task037-final-native-20261102",
+  "artifactIndex": {
+    "path": "docs/verification/results/task037-original-clause-composite-20261102/artifact-index.json",
+    "sha256": "782125ee8f4102e95bd83700c9772e76578e8f498b80fa509afdee88d10bea8f",
+    "count": 42
+  },
+  "reusedEvidence": [
+    "MAC-APPEARANCE-ASSET-PRESET-001",
+    "MAC-APPEARANCE-BACKGROUND-002",
+    "MAC-APPEARANCE-GLOBAL-FONTS-PROJECT-BEHAVIOR-NATIVE-001",
+    "MAC-APPEARANCE-BACKGROUND-REGIONS-NATIVE-20261101-001",
+    "MAC-BACKGROUND-OWNED-RESOURCE-CLEANUP-COMPOSITE-001"
+  ],
+  "observed": {
+    "oversizedReplacement": "25,169,860-byte owned valid PNG selected once; native error 图片不可超过 20 MiB. Entire global B, presets, revision, A metadata/PNG/preview exactly unchanged.",
+    "corruptReplacement": "49-byte owned truncated PNG selected once; native error unexpected end of file. Entire global B, presets, revision, A metadata/PNG/preview exactly unchanged.",
+    "referenceProtection": "Remove asset selected once. UI first clears active background, then rejects with 图片仍被配置或组合引用 and the exact three referring preset IDs. A metadata/PNG/preview and all four presets remain unchanged.",
+    "reuse": "Explicitly apply the same newly saved preset once. Native preview and workbench image return; background B and A bytes match. No re-import.",
+    "restoration": "Close background once; delete only the newly created preset. Original three presets, A files, background and every original global value remain exact. Eight same-value defaults were materialized by preset apply; strict equality remains false, accepted as documented storage representation difference."
+  },
+  "rootReview": "Root personally viewed original O, baseline B/workbench, each failure and referenced removal frame, both reapply frames and final background/presets/workbench frames; read every same-phase owner result and exact native error AX.",
+  "limits": [
+    "No Windows background GUI or dual-platform decoded-image/texture process-increment measurement is claimed.",
+    "Application-owned image state/CSS/BlobURL cleanup reuses the accepted production-effect evidence; this does not claim immediate WebKit physical cache or texture memory zero.",
+    "Earlier failures and original strict false restoration comparison are retained; no image pixels or historical evidence were rewritten.",
+    "No unrelated user project, credential, source file, or original preset was modified. Final QA cleanup is separate from this functional acceptance."
+  ]
+}

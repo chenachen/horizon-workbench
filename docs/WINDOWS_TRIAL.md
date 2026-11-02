@@ -1,15 +1,15 @@
 # Horizon Windows 试用版
 
-面向 Windows x64。[当前试用版已发布](https://github.com/chenachen/horizon-workbench/releases/tag/windows-075ccd4685bd)，对应 commit `075ccd4685bd51a367bdf916d09c82926f0f9009`。后续构建见[发行列表](https://github.com/chenachen/horizon-workbench/releases)。
+面向 Windows x64。[当前试用版已发布](https://github.com/chenachen/horizon-workbench/releases/tag/windows-7ccf610fadae)，对应 commit `7ccf610fadaec22ceac7895cc6cbd70b9fe917fe`。后续构建见[发行列表](https://github.com/chenachen/horizon-workbench/releases)。
 
 ## 安装
 
-下载 [setup.exe](https://github.com/chenachen/horizon-workbench/releases/download/windows-075ccd4685bd/Horizon_0.1.0_x64-setup.exe) 或 [MSI](https://github.com/chenachen/horizon-workbench/releases/download/windows-075ccd4685bd/Horizon_0.1.0_x64_en-US.msi)，选择一种安装即可。本次五个发布资产均已实际下载，大小与 SHA-256 匹配 GitHub 资产摘要；两份安装器也匹配 [SHA256SUMS.txt](https://github.com/chenachen/horizon-workbench/releases/download/windows-075ccd4685bd/SHA256SUMS.txt)。
+下载 [setup.exe](https://github.com/chenachen/horizon-workbench/releases/download/windows-7ccf610fadae/Horizon_0.1.0_x64-setup.exe) 或 [MSI](https://github.com/chenachen/horizon-workbench/releases/download/windows-7ccf610fadae/Horizon_0.1.0_x64_en-US.msi)，选择一种安装即可。本次五个发布资产均已实际下载，大小与 SHA-256 匹配 GitHub 资产摘要；两份安装器也匹配 [SHA256SUMS.txt](https://github.com/chenachen/horizon-workbench/releases/download/windows-7ccf610fadae/SHA256SUMS.txt)。
 
 | 安装器 | 字节数 | SHA-256 |
 | --- | ---: | --- |
-| setup.exe | 9,950,481 | `74d209bfd8018748886c0da8efe7061c3cbd7fcc5d4953afb6c75047ee379903` |
-| MSI | 14,328,290 | `977fd1fa87936dbba1549a5ccfc1d3efc4657f496bea512aeaed71a51f7d86df` |
+| setup.exe | 9,951,106 | `9926c4b1c3b2188a0ed36e23394a1efeb97127477a19a0813ddff378588481ab` |
+| MSI | 14,324,194 | `61a15ce130cfe75629ad1c18ece5c8f3501f0ddbf798760baa56fac27edbb5c0` |
 
 应用运行无需 Node.js 或 Rust。安装器会检查 WebView2；缺少时需要联网下载其安装程序。当前为未签名试用版，公司电脑能否安装取决于公司的软件策略。
 
@@ -26,11 +26,15 @@ Git 面板需要 Git for Windows。在“设置 → Git”检测 Git；未找到
 
 ## 验证范围
 
-该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、终端、存储、Pi 通信与凭据等 10 项测试各实际通过 1 次，包含新增的 Windows 真实目录锁激活边界测试，以及真实终端的中文输出、窗口尺寸调整与停止和真实 Pi 运行时的受控短会话。主进程启动 5 秒后仍存活，Horizon 窗口存在且响应；同一次进程在启动后约 6.95 秒首次观测到两份有效的宿主初始化配置文件，这个采样时点不代表 2 秒启动性能达标。随后唯一一次只读 UIA 查询仍为 `button_not_observed`，因此 Windows 前端交互与安装器点击流程仍未验。完整结果见[本次冻结记录](verification/results/windows-ci-attempt13-activation-success-20261102/README.md)和[原生构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41364541063)，macOS 功能记录见[验收入口](verification/README.md)。
+该构建完成 Windows 原生编译和双安装器生成；QuickJS、进程 Job、终端、存储、Pi 通信与凭据等 10 项测试各实际通过 1 次，包含 Windows 真实目录锁激活边界测试、终端中文输出与尺寸调整、停止回收，以及真实 Pi 运行时的受控短会话。
 
-此前 `a721bfc` 的一次 Windows CI 在 Pi 受管安装时返回 `Access is denied`；后续 `3545a01` 再次失败，已定位到解压和版本检测之后的运行时目录激活，Windows 返回 OS error 5。本页版本加入有界目录激活处理，受控真实目录锁边界测试与真实受管安装、短会话均已通过。原失败时实际持锁者仍未知，历史失败未改判；记录保留在[首次归档](verification/results/windows-ci-attempt09-pi-install-20261102/README.md)与[目录激活归档](verification/results/windows-ci-attempt12-rename-activation-20261102/README.md)。
+主进程启动 5 秒后仍存活，Horizon 窗口存在且响应；约 5.87 秒时首次观测到两份有效的宿主初始化配置文件。随后一次只读 UIA 查询为 `button_not_observed`；更晚的原生屏幕截图已确认欢迎页与打开项目、克隆、插件和设置入口可见。截图按 1024×768 屏幕裁切，底部含 Windows 任务栏。上述结果证明页面已绘制；按钮交互、安装器点击、IME 和 125%／150% 缩放仍未实测，也不代表启动时间达到 2 秒。完整结果见[本次冻结记录](verification/results/windows-ci-attempt15-7ccf610-window-png-20261102/README.md)和[原生构建记录](https://github.com/chenachen/horizon-workbench/actions/runs/41390901014)，macOS 功能记录见[验收入口](verification/README.md)。
 
-完整首版功能与八套布局视觉验收继续进行。你的模型供应商连接仍需在应用内测试。
+![Windows 原生欢迎页](verification/results/windows-ci-attempt15-7ccf610-window-png-20261102/native/main-window.png)
+
+此前 `a721bfc` 的一次 Windows CI 在 Pi 受管安装时返回 `Access is denied`；后续 `3545a01` 再次失败，已定位到解压和版本检测之后的运行时目录激活，Windows 返回 OS error 5。当前版本包含有界目录激活处理，受控真实目录锁边界测试与真实受管安装、短会话均已通过。原失败时实际持锁者仍未知，历史失败未改判；记录保留在[首次归档](verification/results/windows-ci-attempt09-pi-install-20261102/README.md)与[目录激活归档](verification/results/windows-ci-attempt12-rename-activation-20261102/README.md)。
+
+macOS 本机首版条款与八套布局的适用视觉状态已完成验收；上述 Windows 未测项保持单列。你的模型供应商连接仍需在应用内测试。
 
 ## 从源码构建
 

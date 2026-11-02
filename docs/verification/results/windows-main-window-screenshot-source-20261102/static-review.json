@@ -1,0 +1,33 @@
+{
+  "reviewed_at_utc": "2026-11-02T04:12:02.118036+00:00",
+  "method": "Static source/type/reference inspection only; no PowerShell/Add-Type compilation, screenshot, native GUI, application launch or CI invocation.",
+  "original_script_reconstructed_byte_for_byte": true,
+  "main_and_UIA_helper_launch_counts_unchanged": true,
+  "UIA_helper_sha256_unchanged": "b6d891f19999341bdd1c396f9bf2a799cebde34d88d616b56a0f7fbbee6cc0a8",
+  "UIA_FindFirst_count": 1,
+  "old_5s_Host_UIA_cleanup_and_gate_text_unchanged": true,
+  "screenshot_call_sites": 1,
+  "screen_copy_calls": 1,
+  "PNG_save_calls": 1,
+  "screenshot_loops_or_retries": 0,
+  "extra_main_or_helper_processes": 0,
+  "target_window_activation_or_input": false,
+  "identity": "Original5s HWND string + same main PID/start; native owner PID reconfirmed immediately before reading bounds.",
+  "pixels": "GetWindowRect physical observer-thread coordinates; copy only intersection with virtual desktop, record clipping and foreground HWND. Occluding content remains real screen data.",
+  "missing_display_behavior": "Original session0 skip retained; hidden/minimized/no intersecting desktop or drawing/API errors yield capture_unavailable. No placeholder PNG/save before successful screen copy.",
+  "types": [
+    "HWND/DPI context -> IntPtr; DWORD/thread/PID -> uint/out uint; RECT four Int32; BOOL marshaled UnmanagedType.Bool.",
+    "PowerShell [ref] typed UInt32/RECT matches C# out parameters.",
+    "System.Drawing.Rectangle/Bitmap/Graphics/ImageFormat.Png are standard Windows .NET APIs; CopyFromScreen(Int32,Int32,Int32,Int32,Size,CopyPixelOperation) selected explicitly.",
+    "Temporary thread DPI is restored and Bitmap/Graphics disposed in finally."
+  ],
+  "artifacts": "main-window.png plus metadata in existing startup-smoke.json; existing artifacts/windows/ always-upload includes it without workflow or five-release-asset changes.",
+  "workflow_sha256_unchanged": "92ac8cf3b46d91a78ad2fb9dcb0fcf8cc4e0efc370c1c5c5870b3e3435f5b36d",
+  "no_screenshot_obtained": true,
+  "no_live_file_changed": true,
+  "git_apply_check": {
+    "command": "rtk proxy git apply --check .work/windows-main-window-png-20261102/source.patch",
+    "exit_code": 0,
+    "applied": false
+  }
+}

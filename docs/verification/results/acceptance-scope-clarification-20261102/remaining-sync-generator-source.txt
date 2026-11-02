@@ -1,0 +1,30 @@
+from pathlib import Path
+import json,datetime,collections,re
+root=Path(__file__).resolve().parents[1]
+p=root/'docs/verification/remaining-conditions.json'; r=json.loads(p.read_text()); m=json.loads((root/'docs/verification/matrix.json').read_text()); e=json.loads((root/'docs/verification/evidence.json').read_text()); superseded={i for x in e for i in x.get('supersedes',[])}; by_id={x['id']:x for x in e}; now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+r['recordedAt']=now;r['baselineEvidenceRecords']=len(e);r['counts']=dict(collections.Counter(x['status'] for x in m['requirements']))
+prior={x['id']:x for x in r['rows']}
+for x in m['requirements']:
+ row=prior[x['id']]; row.update({k:x[k] for k in ['id','title','status','acceptance']});row['evidence']=[{'id':i,'outcome':by_id[i]['outcome'],'coverage':by_id[i]['coverage'],'active':i not in superseded} for i in x['evidence']]
+ if 'scope_decision' in x: row['scope_decision']=x['scope_decision']
+ else: row.pop('scope_decision',None)
+r['taskCounts']=dict(collections.Counter(x['status'] for x in m['tasks']))
+v=json.loads((root/'docs/verification/visual-matrix.json').read_text()); product=[x for x in v if x['scope']=='macOS-product']
+r['visualGate']={'independentOfFunctionalStatus':True,'totalProductCases':len(product),'counts':dict(collections.Counter(x['status'] for x in product)),'remainingApplicableCases':[x['case'] for x in product if x['status'] not in ['verified','not-applicable']],'notApplicableCases':[x['case'] for x in product if x['status']=='not-applicable'],'applicabilitySource':'docs/verification/visual-applicability.json'}
+p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+p=root/'docs/verification/REMAINING_CONDITIONS.md';s=p.read_text();c=r['counts'];s=re.sub(r'^快照：.*$',f"快照：{now}；{len(e)}条证据，{c.get('verified',0)}完整、{c.get('partial',0)}部分、{c.get('failed',0)}失败、{c.get('unverified',0)}未验。完整104条与39任务目标保留；未测平台与额外视觉门独立。",s,flags=re.M)
+vc=r['visualGate']['counts']
+scope_block='\n'.join(['<!-- CURRENT_ACCEPTANCE_SCOPE_START -->','## 本次范围与独立视觉门','',f"功能原条款：{c.get('verified',0)}完整/{c.get('partial',0)}部分；范围裁决见[acceptance-scope-decisions.json](acceptance-scope-decisions.json)，不增加证据/截图回合。",'','NFR001测量/报告义务完整；**physical228.012MB > 建议200MB约28.012MB，预算未达**，不称整体性能通过。NFR003本机/Windows试用交付及范围披露完整，Windows前端/IME等未测不记通过；UI003 Windows125%/150%仍保partial。',f"额外536产品视觉：{vc.get('verified',0)}通过/{vc.get('not-applicable',0)}条件不适用（参考冲突，不计通过、不列待拍）/{vc.get('unverified',0)}未验。E15保9316真实fallback和历史原件，不补拍互斥条件；G01/E07各8仍需可比原生证。完整goal继续。",'','UI002功能完成不替代额外视觉门；既有39任务状态仍独立维护，未因范围解释静默改写。','<!-- CURRENT_ACCEPTANCE_SCOPE_END -->',''])
+if '<!-- CURRENT_ACCEPTANCE_SCOPE_START -->' in s: s=re.sub(r'<!-- CURRENT_ACCEPTANCE_SCOPE_START -->.*?<!-- CURRENT_ACCEPTANCE_SCOPE_END -->\n?',lambda _:scope_block,s,flags=re.S)
+else: s=s.replace('## 共用动作包',scope_block+'\n## 共用动作包',1)
+status={'verified':'完整','partial':'部分','failed':'失败','unverified':'未验','limited':'受限'}
+failed_now=[x['id'].replace('REQ-','') for x in m['requirements'] if x['status']=='failed']
+failure_summary='当前失败要求为 '+ '、'.join(failed_now)+'。' if failed_now else '当前无活动失败要求。'
+s=re.sub(r'当前失败(?:要求)?为[^。]*。|当前无活动失败要求。',failure_summary,s,count=1)
+for row in r['rows']:
+ short=row['id'].replace('REQ-','');line='| '+short+' · '+status[row['status']]+' | '+row['proven']+' | '+row['remaining']+' | '+row['owner']+' · '+row['action']+' |';s=re.sub(r'^\| '+re.escape(short)+r' · .*$',lambda _:line,s,flags=re.M)
+for key,b in r['actionBlocks'].items():
+ line='| '+key+' | '+b['owner']+' | '+b['action']+' |';s=re.sub(r'^\| '+re.escape(key)+r' \| .*$',lambda _:line,s,flags=re.M)
+p.write_text(s)
+assert len(r['rows'])==104 and all(prior[x['id']]['status']==x['status'] for x in m['requirements'])
+print(json.dumps({'records':len(e),'requirements':len(r['rows']),'counts':c},ensure_ascii=False))

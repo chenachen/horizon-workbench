@@ -1,0 +1,360 @@
+diff --git a/apps/desktop/src/features/agent/agent.css b/apps/desktop/src/features/agent/agent.css
+index 294a846..e619716 100644
+--- a/apps/desktop/src/features/agent/agent.css
++++ b/apps/desktop/src/features/agent/agent.css
+@@ -48,3 +48,6 @@
+ .agent-panel .filled,.agent-settings .filled,.agent-connection-modal .filled,.agent-permission-modal .filled,.agent-context-modal .filled,.agent-review-surface .filled{background:var(--h-accent);color:var(--h-on-accent);border:1px solid var(--h-accent)}
+ .agent-panel .tonal,.agent-review-surface .tonal{background:var(--h-tonal);color:var(--h-on-tonal);border:1px solid transparent}
+ .agent-error-card>div{min-width:0;flex:1}.agent-error-card strong{display:block;font-size:12px;font-weight:500}.agent-error-card p{margin:7px 0 10px;font-size:11px;line-height:1.8}.agent-error-card details{margin-top:12px;color:var(--h-muted);font-size:10px}.agent-error-card summary{cursor:pointer}.agent-error-card pre{margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font:10px/1.7 SFMono-Regular,Consolas,monospace;max-height:130px;overflow:auto}.agent-error-card .agent-button-row{flex-wrap:wrap;gap:6px}.agent-error-card .agent-button-row button{border-radius:999px;min-height:29px}.agent-error-dismiss{border:0;background:transparent;color:var(--h-muted);font-size:10px;min-height:22px;margin-top:7px;padding:2px 0}
++
++.modal.agent-context-modal,.modal.agent-connection-modal,.modal.agent-permission-modal{border-radius:calc(var(--h-radius,18px) + 8px)}
++.agent-context-modal>.modal-header h2,.agent-connection-modal>.modal-header h2,.agent-permission-modal>.modal-header h2{font-size:22px;font-weight:500}
+diff --git a/apps/desktop/src/features/editor/EditorWorkbench.tsx b/apps/desktop/src/features/editor/EditorWorkbench.tsx
+index e519d2b..d7007d6 100644
+--- a/apps/desktop/src/features/editor/EditorWorkbench.tsx
++++ b/apps/desktop/src/features/editor/EditorWorkbench.tsx
+@@ -10,6 +10,7 @@ import { editorStore, useEditor } from './store';
+ import { editorCommands } from './commands';
+ import { FileKindIcon } from './FileKindIcon';
+ import { RecoveryNotice } from './RecoveryNotice';
++import { Loading } from '../../components/Modal';
+ import { FileRecovery } from './FileRecovery';
+ import './editor.css';
+ const CodeSurface = lazy(() => import('./CodeSurface'));
+@@ -38,6 +39,9 @@ function LargeFile({ buffer }: { buffer: EditorBuffer }) {
+ const formatBytes = (bytes?: string) => { const size = Number(bytes ?? 0); return size >= 1048576 ? `${(size / 1048576).toFixed(1)} MiB` : `${(size / 1024).toFixed(1)} KiB`; };
+ export function EditorWorkbench({ projectId, projectEpoch, onQuickOpen, onToggleSidebar, previewEnabled = true, editorPreferences }: EditorWorkbenchProps) {
+   const snapshot = useEditor(), project = snapshot.projects.get(projectId), buffer = editorStore.getActive(projectId);
++  const loadState = editorStore.getProjectLoadState(projectId);
++  const documentLoading = !buffer?.accessError && (!!buffer?.evicted || (!buffer && loadState !== undefined));
++  const loadLabel = loadState === 'restoring' ? '正在恢复文件…' : '正在读取文件…';
+   const editorEnabled = usePluginEnabled('horizon.editor', projectId);
+   const { settings } = useSettings(projectId);
+   const effective = settings?.effective ?? {};
+@@ -73,7 +77,7 @@ export function EditorWorkbench({ projectId, projectEpoch, onQuickOpen, onToggle
+   const recovery = buffer?.accessError ? <FileRecovery key={buffer.key} buffer={buffer} onSaveCopy={buffer.meta && !buffer.evicted ? () => { setSaveAsName(buffer.path.split('/').pop() ?? '副本'); setSaveAs(true); } : undefined} /> : null;
+   const editorToolbar = buffer && !fileUnavailable ? <div className="editor-file-toolbar"><div className="editor-breadcrumb" title={buffer.path}>{buffer.path.split('/').map((part, i) => <span key={i}>{i > 0 && <ChevronRight size={11} />}{part}</span>)}</div><div><button title="查找与替换" aria-label="查找与替换" onClick={() => void editorCommands.find()} disabled={buffer.mode !== 'editor'}><Search size={14} /></button>{canPreview && previewEnabled && !image && <button title="切换预览" aria-label="切换预览" aria-pressed={preview} onClick={() => { setPreview(v => !v); setNarrowPreview(true); }}><Columns2 size={15} /></button>}<button title={buffer.meta?.readOnly ? '当前文件只读' : buffer.mode !== 'editor' ? '当前内容不支持编辑' : saveShortcut ? `保存 ${saveShortcut}` : '保存'} aria-label="保存文件" disabled={!buffer.dirty || buffer.saving || buffer.proposalPending || buffer.meta?.readOnly || buffer.mode !== 'editor'} onClick={() => void editorStore.save(buffer.fileId, projectId)}><ArrowDownToLine size={14} /><span>{buffer.saving ? '保存中' : '保存'}</span></button></div></div> : null;
+   return <section className="editor-workbench" aria-label="编辑工作台"><div className="document-tabs-row">{onToggleSidebar && <button className="editor-sidebar-toggle" title="切换文件侧栏" aria-label="切换文件侧栏" onClick={onToggleSidebar}><PanelLeft size={16} /></button>}<div ref={documentTabs} className="document-tabs" role="tablist" aria-label="打开的文件">{project?.tabs.map((fileId, index) => { const b = editorStore.getBuffer(projectId, fileId)!; const active = fileId === project.activeFileId; return <div className={`document-tab${active ? ' active' : ''}${b.preview ? ' preview-tab' : ''}`} key={fileId} onContextMenu={event => { event.preventDefault(); setTabMenu(fileId); }}><button ref={active ? activeTab : undefined} id={`tab-${fileId}`} role="tab" aria-selected={active} aria-controls="editor-document-panel" tabIndex={active ? 0 : -1} title={`${b.path}${b.dirty ? ' · 未保存' : ''}`} onClick={() => editorStore.activate(fileId, projectId)} onDoubleClick={() => editorStore.keep(fileId, projectId)} onKeyDown={e => { if (e.nativeEvent.isComposing) return; const tabs = project.tabs; const next = e.key === 'ArrowRight' ? (index + 1) % tabs.length : e.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null; if (next !== null) { e.preventDefault(); editorStore.activate(tabs[next], projectId); } }}><FileKindIcon path={b.path} /><span>{b.path.split('/').pop()}</span>{b.dirty && <span className="dirty-dot" aria-label="未保存">●</span>}</button><button className="tab-close" tabIndex={active ? 0 : -1} aria-label={`关闭 ${b.path}`} onClick={() => editorStore.requestClose(fileId, projectId)}><X size={12} /></button></div>; })}</div><button className="tab-menu-trigger" title="文件标签操作" aria-label="文件标签操作" disabled={!buffer} onClick={() => setTabMenu(tabMenu ? null : buffer?.fileId ?? null)}><MoreHorizontal size={15} /></button></div>
+-    {buffer?.mode !== 'editor' && buffer?.mode !== 'chunked' && editorToolbar}
++    {(documentLoading || (buffer?.mode !== 'editor' && buffer?.mode !== 'chunked')) && editorToolbar}
+     <RecoveryNotice projectId={projectId} projectEpoch={projectEpoch} />
+     {copyNotice && <div className="editor-notice" role="status">{copyNotice}<button onClick={() => setCopyNotice('')}>关闭</button></div>}
+     {snapshot.error && <div className="editor-error" role="alert">{snapshot.error}<button onClick={editorStore.clearError}>关闭</button></div>}
+@@ -84,13 +88,13 @@ export function EditorWorkbench({ projectId, projectEpoch, onQuickOpen, onToggle
+     {!fileUnavailable && buffer?.simplified && <div className="editor-notice">简化阅读 · {formatBytes(buffer.meta?.baseDiskRevision.byteLength)}：大文件或超长行，已关闭语法分析与折叠。{buffer.meta?.readOnly ? '当前只读。' : '可使用基础编辑。'}</div>}
+     {buffer?.checkpointError && <div className="editor-error" role="alert">恢复草稿写入失败：{buffer.checkpointError}。文本仍在当前编辑器，请保存文件。<button onClick={() => void editorStore.flushDrafts(projectId).catch(editorStore.reportError)}>重试恢复草稿</button></div>}
+     {!fileUnavailable && preview && canPreview && previewEnabled && !image && <div className="preview-mode-switch" aria-label="源码与预览"><button aria-pressed={!narrowPreview} onClick={() => setNarrowPreview(false)}>源码</button><button aria-pressed={narrowPreview} onClick={() => setNarrowPreview(true)}>预览</button><button className="preview-mode-close" onClick={() => setPreview(false)} aria-label="关闭预览"><X size={14} /></button></div>}
+-    <div id="editor-document-panel" className={`editor-document-panel${!fileUnavailable && preview && canPreview && previewEnabled && !image ? ` with-preview${narrowPreview ? ' preview-show-preview' : ''}` : ''}`} role="tabpanel" aria-labelledby={buffer ? `tab-${buffer.fileId}` : undefined}><div className="code-region" style={{ display: buffer?.mode === 'editor' && !fileUnavailable ? undefined : 'none' }}>{buffer?.mode === 'editor' && editorToolbar}<Suspense fallback={<p className="editor-empty">正在加载编辑器…</p>}><CodeSurface projectId={projectId} preferences={preferences} /></Suspense></div>
++    <div id="editor-document-panel" className={`editor-document-panel${!fileUnavailable && !documentLoading && preview && canPreview && previewEnabled && !image ? ` with-preview${narrowPreview ? ' preview-show-preview' : ''}` : ''}`} role="tabpanel" aria-labelledby={buffer ? `tab-${buffer.fileId}` : undefined}><div className="code-region" style={{ display: buffer?.mode === 'editor' && !fileUnavailable && !documentLoading ? undefined : 'none' }}>{buffer?.mode === 'editor' && editorToolbar}<Suspense fallback={<Loading variant="editor" label="正在加载编辑器…" />}><CodeSurface projectId={projectId} preferences={preferences} /></Suspense></div>
+       {fileUnavailable && recovery}
+-      {buffer?.evicted && !buffer.accessError && <p className="editor-empty" role="status">正在读取文件…</p>}
+-      {!buffer && <div className="editor-welcome"><div className="editor-welcome-icon"><Code2 size={42} strokeWidth={1.2} /></div><h2>从一个文件开始</h2><p>选择左侧文件，或快速打开项目中的内容。</p><button className="primary" onClick={onQuickOpen}><Search size={15} />快速打开 {openShortcut ? <kbd>{openShortcut}</kbd> : null}</button><div className="editor-shortcut-hints">{saveShortcut ? <span>保存 <kbd>{saveShortcut}</kbd></span> : null}<span>查找 <kbd>{findShortcut}</kbd></span>{commandShortcut ? <span>命令 <kbd>{commandShortcut}</kbd></span> : null}</div></div>}
++      {documentLoading && <Loading variant="editor" label={loadLabel} />}
++      {!buffer && !documentLoading && <div className="editor-welcome"><div className="editor-welcome-icon"><Code2 size={42} strokeWidth={1.2} /></div><h2>从一个文件开始</h2><p>选择左侧文件，或快速打开项目中的内容。</p><button className="primary" onClick={onQuickOpen}><Search size={15} />快速打开 {openShortcut ? <kbd>{openShortcut}</kbd> : null}</button><div className="editor-shortcut-hints">{saveShortcut ? <span>保存 <kbd>{saveShortcut}</kbd></span> : null}<span>查找 <kbd>{findShortcut}</kbd></span>{commandShortcut ? <span>命令 <kbd>{commandShortcut}</kbd></span> : null}</div></div>}
+       {!fileUnavailable && !buffer?.evicted && buffer?.mode === 'chunked' && <LargeFile buffer={buffer} />}
+       {!fileUnavailable && !buffer?.evicted && buffer?.mode === 'unsupported' && !(image && previewEnabled) && <div className="editor-welcome"><FileCode2 size={36} /><h2>{buffer.reason === 'encoding' ? '不支持此文件编码' : '二进制文件'}</h2><p>此内容不能作为文本保存。</p><button onClick={() => void call('file_open_external', { fileId: buffer.fileId }, projectId).catch(editorStore.reportError)}>用系统应用打开</button></div>}
+-      {buffer && !fileUnavailable && canPreview && previewEnabled && (preview || image) && <Suspense fallback={<p className="editor-empty">正在加载预览…</p>}><Preview buffer={buffer} onClose={image ? undefined : () => setPreview(false)} /></Suspense>}
++      {buffer && !fileUnavailable && !documentLoading && canPreview && previewEnabled && (preview || image) && <Suspense fallback={<p className="editor-empty">正在加载预览…</p>}><Preview buffer={buffer} onClose={image ? undefined : () => setPreview(false)} /></Suspense>}
+     </div>
+     {compare && buffer && compare.key === buffer.key && <section className="disk-compare" aria-label="外部修改比较"><header><strong>当前编辑与磁盘内容</strong><button onClick={() => setCompare(null)} aria-label="关闭比较"><X size={16} /></button></header><div><section><h3>当前未保存编辑</h3><pre>{buffer.getText()}</pre></section><section><h3>磁盘内容</h3><pre>{compare.text}</pre></section></div></section>}
+     {reloadConfirm && buffer && <div className="editor-modal-backdrop"><section className="editor-close-dialog" role="alertdialog" aria-modal="true" aria-label="放弃本次编辑"><h2>放弃本次编辑并重新载入？</h2><p>“{buffer.path}”将恢复为当前磁盘内容。</p><button autoFocus onClick={() => setReloadConfirm(false)}>取消</button><button onClick={() => { void editorStore.reload(buffer.fileId, true, projectId); setReloadConfirm(false); }}>放弃并重新载入</button></section></div>}
+diff --git a/apps/desktop/src/features/plugins/PluginCenter.tsx b/apps/desktop/src/features/plugins/PluginCenter.tsx
+index 7f4be5d..5eb601c 100644
+--- a/apps/desktop/src/features/plugins/PluginCenter.tsx
++++ b/apps/desktop/src/features/plugins/PluginCenter.tsx
+@@ -36,8 +36,8 @@ export function PluginCenter({ projectId, onError, onClose, onAppearance }: { pr
+   const [picker, setPicker] = useState<'install' | 'update' | null>(null);
+   const [selected, setSelected] = useState<string | null>(null); const [install, setInstall] = useState<InstallPlan | null>(null); const [grants, setGrants] = useState<string[]>([]);
+   const [stop, setStop] = useState<StopPlan | null>(null); const [deleteData, setDeleteData] = useState(false); const [busy, setBusy] = useState(''); const [error, setError] = useState(''); const [message, setMessage] = useState(''); const [logs, setLogs] = useState<string | null>(null);
+-  const busyRef = useRef(false); const cancelInstall = useRef<(() => Promise<unknown>) | null>(null); const [phase, setPhase] = useState('');
+-  const run = async (label: string, fn: () => Promise<void>) => { if (busyRef.current) return; busyRef.current = true; setBusy(label); setError(''); setMessage(''); setPhase(''); try { await fn(); await refreshPlugins(listProject); if (listProject !== projectId) await refreshPlugins(projectId); } catch (cause) { const message = errorMessage(cause); setError(message); onError?.(message); } finally { busyRef.current = false; cancelInstall.current = null; setBusy(''); setPhase(''); } };
++  const busyRef = useRef(false); const [installing, setInstalling] = useState(false); const [cancelInstall, setCancelInstall] = useState<(() => Promise<unknown>) | null>(null); const [phase, setPhase] = useState('');
++  const run = async (label: string, fn: () => Promise<void>) => { if (busyRef.current) return; busyRef.current = true; setBusy(label); setError(''); setMessage(''); setPhase(''); try { await fn(); await refreshPlugins(listProject); if (listProject !== projectId) await refreshPlugins(projectId); } catch (cause) { const message = errorMessage(cause); setError(message); onError?.(message); } finally { busyRef.current = false; setCancelInstall(null); setInstalling(false); setBusy(''); setPhase(''); } };
+   const choosePackage = (development = false) => run('检查扩展包', async () => { const selection = await call<{ packageSelectionToken: string | null }>(development ? 'extension_dev_pick' : 'extension_pick_package'); if (!selection.packageSelectionToken) return; const plan = await call<InstallPlan>('extension_install_prepare', selection); setPicker(null); setInstall(plan); setGrants([]); });
+   const beginStop = (state: ExtensionState, action: StopReason) => run('检查活动资源', async () => { const plan = await call<StopPlan>('extension_stop_prepare', { extensionId: state.id, action, scope: action === 'uninstall' ? 'global' : scope, projectId: scope === 'project' ? projectId : undefined }, projectId); setStop(plan); setDeleteData(false); });
+   const applyStop = () => stop && run('停止扩展并释放资源', async () => {
+@@ -85,9 +85,10 @@ export function PluginCenter({ projectId, onError, onClose, onAppearance }: { pr
+     {!nativeAvailable() ? <p className="plugin-notice">浏览器预览中不可安装或启动扩展。请在 Horizon 桌面窗口中管理本地包。</p> : null}
+     {presetsOpen ? <PluginPresets projectId={projectId} onClose={() => setPresetsOpen(false)} onApplied={async () => { await refreshPlugins(listProject); if (listProject !== projectId) await refreshPlugins(projectId); setMessage('能力预设已应用；终端与启动方案按需运行。'); }} /> : null}
+     {picker ? <PluginPackagePicker update={picker === 'update'} busy={!!busy} error={error} onClose={() => setPicker(null)} onChoose={() => void choosePackage()} /> : null}
+-    {install ? <PluginInstallDialog plan={install} grants={grants} busy={!!busy} phase={phase} error={error} cancellable={!!cancelInstall.current} onClose={() => setInstall(null)} onCancel={() => { void cancelInstall.current?.(); }} onGrant={(id, allowed) => setGrants(old => allowed ? [...old, id] : old.filter(grant => grant !== id))} onInstall={() => void run('安装扩展包', async () => {
++    {install ? <PluginInstallDialog plan={install} grants={grants} busy={!!busy} installing={installing} phase={phase} error={error} cancellable={!!cancelInstall} onClose={() => setInstall(null)} onCancel={() => { void cancelInstall?.(); }} onGrant={(id, allowed) => setGrants(old => allowed ? [...old, id] : old.filter(grant => grant !== id))} onInstall={() => void run('安装扩展包', async () => {
++      setInstalling(true);
+       const task = await start('extension_install_apply', { planId: install.planId, digest: install.digest, grantIds: grants }, event => { if (event.payload.type === 'progress') setPhase(String(event.payload.phase ?? '')); });
+-      cancelInstall.current = task.cancel; await task.result; setInstall(null); selectTab('installed'); setMessage('安装完成。可按需要启用并打开扩展提供的入口。');
++      setCancelInstall(() => task.cancel); await task.result; setInstall(null); selectTab('installed'); setMessage('安装完成。可按需要启用并打开扩展提供的入口。');
+     })} /> : null}
+     {stop ? <PluginDialog kind={stop.action === 'uninstall' ? 'uninstall' : 'stop'} title={`${stop.action === 'uninstall' ? '卸载' : stop.action === 'pause' ? '暂停' : stop.action === 'sleep' ? '休眠' : '停用'} ${states.find(state => state.id === stop.extensionId)?.manifest?.name ?? stop.extensionId}？`} busy={!!busy} onClose={() => setStop(null)}>
+       <p>范围：{stop.projectId ? '当前项目' : '所有项目'}。保存恢复草稿，停止所属服务，移除视图、命令与订阅。</p>
+diff --git a/apps/desktop/src/features/plugins/PluginInstallDialog.tsx b/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
+index d8eb1d6..ae8c728 100644
+--- a/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
++++ b/apps/desktop/src/features/plugins/PluginInstallDialog.tsx
+@@ -15,23 +15,23 @@ export function PluginPackagePicker({ update, busy, error, onClose, onChoose }:
+   </PluginDialog>;
+ }
+ 
+-export function PluginInstallDialog({ plan, grants, busy, phase, error, cancellable, onGrant, onClose, onCancel, onInstall }: {
+-  plan: InstallPlan; grants: string[]; busy: boolean; phase: string; error: string; cancellable: boolean;
++export function PluginInstallDialog({ plan, grants, busy, installing, phase, error, cancellable, onGrant, onClose, onCancel, onInstall }: {
++  plan: InstallPlan; grants: string[]; busy: boolean; installing: boolean; phase: string; error: string; cancellable: boolean;
+   onGrant(id: string, allowed: boolean): void; onClose(): void; onCancel(): void; onInstall(): void;
+ }) {
+   const hasNewPermissions = !!plan.previousVersion && !!plan.newPermissions?.length;
+-  const title = busy ? `正在安装 ${plan.manifest.name}` : hasNewPermissions ? '更新需要新的权限' : plan.previousVersion ? '检查扩展更新' : '确认扩展权限';
++  const title = installing ? `正在安装 ${plan.manifest.name}` : hasNewPermissions ? '更新需要新的权限' : plan.previousVersion ? '检查扩展更新' : '确认扩展权限';
+   return <PluginDialog title={title} busy={busy} onClose={onClose}>
+     <div className="plugin-package-info"><PluginGlyph manifest={plan.manifest} /><div><strong>{plan.manifest.name}</strong><small>{plan.previousVersion ? `v${plan.previousVersion} → ` : ''}v{plan.manifest.version} · {plan.manifest.author}</small></div><span className="plugin-state active">兼容</span></div>
+-    {busy ? <div className="plugin-install-progress" role="status"><p><Check size={16} />扩展包与兼容性已检查</p><p><Check size={16} />所需权限已确认</p><p className="plugin-install-current"><PackagePlus size={16} />{phase || '准备安装扩展文件'}</p><progress aria-label="扩展安装进度" /></div> : <>
++    {installing ? <div className="plugin-install-progress" role="status"><p><Check size={16} />扩展包与兼容性已检查</p><p><Check size={16} />所需权限已确认</p><p className="plugin-install-current"><PackagePlus size={16} />{phase || '准备安装扩展文件'}</p><progress aria-label="扩展安装进度" /></div> : <>
+       <dl className="plugin-package-meta"><dt>来源</dt><dd>{plan.source}</dd><dt>兼容版本</dt><dd>Horizon {plan.manifest.engines.horizon}</dd><dt>解包后大小</dt><dd>{Number(plan.downloadBytes).toLocaleString()} 字节</dd></dl>
+-      <fieldset className="plugin-install-permissions"><legend>所需权限</legend>{plan.permissions.length ? plan.permissions.map(permission => {
++      <fieldset className="plugin-install-permissions" disabled={busy}><legend>所需权限</legend>{plan.permissions.length ? plan.permissions.map(permission => {
+         const added = !!plan.previousVersion && !!plan.newPermissions?.includes(permission.capability);
+         return <label key={permission.id} className={added ? 'plugin-permission-new' : ''}><input type="checkbox" checked={grants.includes(permission.id)} onChange={event => onGrant(permission.id, event.target.checked)} /><ShieldCheck size={17} /><span>{capabilityLabel(permission.capability)}<small>{permission.capability}</small></span><span className={`plugin-state ${added ? 'plugin-state-new' : ''}`}>{added ? '新增' : '必需'}</span></label>;
+       }) : <p className="plugin-muted">此扩展无需额外权限。</p>}</fieldset>
+       <p className="plugin-muted">授权适用于此扩展，文件与 Git 调用限定在当前项目。{plan.previousVersion ? '更新保留现有配置与启用状态。' : '安装完成后，可选择启用范围。'}</p>
+     </>}
+     {error ? <p className="plugin-error" role="alert">{error}</p> : null}
+-    <div className="plugin-actions"><button autoFocus disabled={busy && !cancellable} onClick={busy ? onCancel : onClose}>{busy ? '取消安装' : plan.previousVersion ? '暂不更新' : '取消'}</button><button className="plugin-primary" disabled={busy || grants.length !== plan.permissions.length} onClick={onInstall}>{plan.previousVersion ? '允许并更新' : '授权并安装'}</button></div>
++    <div className="plugin-actions"><button autoFocus disabled={busy && (!installing || !cancellable)} onClick={installing ? onCancel : onClose}>{installing ? '取消安装' : plan.previousVersion ? '暂不更新' : '取消'}</button><button className="plugin-primary" disabled={busy || grants.length !== plan.permissions.length} onClick={onInstall}>{plan.previousVersion ? '允许并更新' : '授权并安装'}</button></div>
+   </PluginDialog>;
+ }
+diff --git a/apps/desktop/src/styles.css b/apps/desktop/src/styles.css
+index a0f248c..d65dfaa 100644
+--- a/apps/desktop/src/styles.css
++++ b/apps/desktop/src/styles.css
+@@ -455,6 +455,8 @@ legend { padding: 0 6px; font-size: 12px; font-weight: 500; }
+   .horizon-app.ai-open { grid-template-columns: var(--navigation-width) var(--sidebar-width) minmax(0,1fr) 0; }
+   .horizon-app.ai-open.sidebar-closed { grid-template-columns: var(--navigation-width) 0 minmax(0,1fr) 0; }
+   .auxiliary-panel { position: fixed; z-index: 30; top: var(--topbar-height); bottom: var(--status-height); right: 0; width: min(var(--auxiliary-width), calc(100vw - 60px)); margin: 6px 12px; border: 1px solid var(--border); box-shadow: -10px 6px 30px #10264024; border-radius: var(--radius); }
++  :root[data-layout='tabs'] .auxiliary-panel { top: calc(var(--topbar-height) + 45px); margin-top: 0; }
++  :root[data-layout='dock'] .auxiliary-panel { bottom: calc(var(--status-height) + 48px); margin-bottom: 0; }
+   :root[data-layout='unified'] .horizon-app.ai-open, :root[data-layout='drawer'] .horizon-app.ai-open { grid-template-columns: calc(var(--sidebar-width) + 16px) minmax(0,1fr) 0; }
+   :root[data-layout='tabs'] .horizon-app.ai-open, :root[data-layout='dock'] .horizon-app.ai-open { grid-template-columns: var(--sidebar-width) minmax(0,1fr) 0; }
+   :root[data-layout='compact'] .horizon-app.ai-open { grid-template-columns: var(--navigation-width) var(--sidebar-width) minmax(0,1fr) 0; }
+diff --git a/apps/picker-service/Picker.swift b/apps/picker-service/Picker.swift
+index 9222a51..875b3aa 100644
+--- a/apps/picker-service/Picker.swift
++++ b/apps/picker-service/Picker.swift
+@@ -48,7 +48,12 @@ private func reply(_ value: PickerReply) {
+         if let title = request.title { picker.title = title }
+         let extensions = request.filters.flatMap { $0.extensions }
+         if !extensions.isEmpty {
+-            picker.allowedContentTypes = extensions.compactMap { UTType(filenameExtension: $0, conformingTo: .data) }
++            let types = extensions.compactMap { UTType(filenameExtension: $0, conformingTo: .data) }
++            if types.count != extensions.count || types.contains(where: { $0.isDynamic }) {
++                picker.allowedFileTypes = extensions
++            } else {
++                picker.allowedContentTypes = types
++            }
+         }
+         panel = picker
+         let mainMenu = NSMenu()
+diff --git a/packages/editor/src/store.test.ts b/packages/editor/src/store.test.ts
+index 35f54e7..7ad8d8d 100644
+--- a/packages/editor/src/store.test.ts
++++ b/packages/editor/src/store.test.ts
+@@ -594,3 +594,153 @@ describe('versioned editor documents', () => {
+     expect(call.mock.calls.some(([method]) => method === 'document_save')).toBe(false);
+   });
+ });
++
++
++describe('G01 real editor operation loading', () => {
++  const session = (ids: string[]) => ({ schemaVersion: 1 as const, revision: 1, tabs: ids.map(fileId => ({ fileId, pinned: true, selection: { anchor: 1, head: 1 }, scrollTop: 10 })), activeFileId: ids.at(-1) ?? null, expandedEntryIds: [], searchDraft: '' });
++
++  it('G01 cold open publishes actual pending before bytes, deduplicates and clears on success', async () => {
++    const read = deferred<OpenDocument>();
++    const { store, call } = fixture({ document_open: () => read.promise });
++    const states: (string | undefined)[] = [];
++    const unsubscribe = store.subscribe(() => states.push(store.getProjectLoadState('a')));
++    const pending = store.openFile('one');
++    expect(store.getProjectLoadState('a')).toBe('opening');
++    expect(store.getActive()).toBeUndefined();
++    expect(store.getSnapshot().projects.get('a')?.tabs).toEqual([]);
++    const duplicate = store.openFile('one');
++    expect(call.mock.calls.filter(([method]) => method === 'document_open')).toHaveLength(1);
++    read.resolve(opened('a', 'one', 'real bytes'));
++    await Promise.all([pending, duplicate]);
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getActive()?.getText()).toBe('real bytes');
++    expect(states).toContain('opening');
++    expect(states.at(-1)).toBeUndefined();
++    expect(call.mock.calls.some(([method]) => method === 'document_save' || method === 'document_checkpoint')).toBe(false);
++    unsubscribe();
++  });
++
++  it.each(['plain rejection', 'file access rejection', 'synchronous transport throw'])('G01 failed cold open clears pending: %s', async kind => {
++    const read = deferred<OpenDocument>();
++    const { store, call } = fixture({ document_open: () => read.promise });
++    const failure = Object.assign(new Error('controlled read failure'), { code: 'NOT_FOUND', ...(kind === 'file access rejection' ? { details: { file: { projectId: 'a', fileId: 'one', displayPath: 'one.ts' } } } : {}) });
++    if (kind === 'synchronous transport throw') call.mockImplementationOnce(() => { throw failure; });
++    const pending = store.openFile('one');
++    if (kind !== 'synchronous transport throw') {
++      expect(store.getProjectLoadState('a')).toBe('opening');
++      read.reject(failure);
++    }
++    await pending;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    if (kind === 'file access rejection') expect(store.getActive()).toMatchObject({ mode: 'unavailable', accessError: { code: 'NOT_FOUND' }, loading: false });
++    else expect(store.getSnapshot().error).toBe('controlled read failure');
++  });
++
++  it('G01 concurrent reads keep pending after first settles and preserve ready active content', async () => {
++    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
++    const { store } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
++    const first = store.openFile('one'), second = store.openFile('two');
++    one.resolve(opened('a', 'one', 'keep ready content')); await first;
++    const active = store.getActive();
++    expect(active?.getText()).toBe('keep ready content');
++    expect(active?.evicted).not.toBe(true);
++    expect(store.getProjectLoadState('a')).toBe('opening');
++    expect(store.getActive()).toBe(active);
++    two.resolve(opened('a', 'two', 'second bytes')); await second;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getActive()?.fileId).toBe('two');
++  });
++
++  it('G01 old-epoch read completion cannot clear new same-file pending', async () => {
++    const oldRead = deferred<OpenDocument>(), newRead = deferred<OpenDocument>(); let reads = 0;
++    const { store } = fixture({ document_open: () => ++reads === 1 ? oldRead.promise : newRead.promise });
++    const oldOpen = store.openFile('one'); store.setProject('a', 2);
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    const newOpen = store.openFile('one');
++    oldRead.resolve(opened('a', 'one', 'obsolete')); await oldOpen;
++    expect(store.getProjectLoadState('a')).toBe('opening');
++    expect(store.getBuffer('a', 'one')).toBeUndefined();
++    newRead.resolve(opened('a', 'one', 'new epoch')); await newOpen;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getActive()?.getText()).toBe('new epoch');
++  });
++
++  it.each([false, true])('G01 A pending never becomes B loading or error (host stopped: %s)', async stop => {
++    const read = deferred<OpenDocument>();
++    const { store } = fixture({ document_open: (params, projectId) => projectId === 'a' ? read.promise : opened(projectId!, String(params.fileId)) });
++    const pending = store.openFile('late');
++    if (stop) store.hostClosedProject('a');
++    store.setProject('b', 1); await store.openFile('ready');
++    expect(store.getProjectLoadState('a')).toBe(stop ? undefined : 'opening');
++    expect(store.getProjectLoadState('b')).toBeUndefined();
++    store.reportError(new Error('B current error'));
++    read.reject(new Error('A late failure')); await pending;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getProjectLoadState('b')).toBeUndefined();
++    expect(store.getActive()).toMatchObject({ projectId: 'b', fileId: 'ready' });
++    expect(store.getSnapshot().error).toBe('B current error');
++  });
++
++  it('G01 actual multi-tab restoration publishes until all bytes settle without changing session writes', async () => {
++    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
++    const { store, call } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
++    store.setProject('a', 1, session(['one', 'two']));
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    const restoring = store.restoreProjectSession('a');
++    expect(store.getProjectLoadState('a')).toBe('restoring');
++    expect(store.getActive()).toBeUndefined();
++    one.resolve(opened('a', 'one')); await tick();
++    expect(store.getSnapshot().projects.get('a')?.tabs).toEqual(['one']);
++    expect(store.getProjectLoadState('a')).toBe('restoring');
++    expect(store.getActive()).toBeUndefined();
++    await store.flushSessions('a');
++    expect(call.mock.calls.filter(([method]) => method === 'session_update')).toHaveLength(0);
++    two.resolve(opened('a', 'two')); await restoring;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getSnapshot().projects.get('a')?.restored).toBe(true);
++    expect(store.getActive()?.fileId).toBe('two');
++    await store.flushSessions('a');
++    const writes = call.mock.calls.filter(([method]) => method === 'session_update');
++    expect(writes).toHaveLength(1);
++    expect(writes[0][1]).toMatchObject({ activeFileId: 'two', tabs: session(['one', 'two']).tabs, expandedEntryIds: [], searchDraft: '' });
++  });
++
++  it('G01 rejected restore clears both actual opening and restoring while retaining error', async () => {
++    const read = deferred<OpenDocument>();
++    const { store } = fixture({ document_open: () => read.promise });
++    store.setProject('a', 1, session(['one']));
++    const restoring = store.restoreProjectSession('a');
++    expect(store.getProjectLoadState('a')).toBe('restoring');
++    read.reject(new Error('restore read failed')); await restoring;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getSnapshot().error).toBe('restore read failed');
++    expect(store.getActive()).toBeUndefined();
++  });
++
++  it('G01 obsolete restore finalizer cannot clear fresh restore pending', async () => {
++    const oldRead = deferred<OpenDocument>(), newRead = deferred<OpenDocument>(); let reads = 0;
++    const { store } = fixture({ document_open: () => ++reads === 1 ? oldRead.promise : newRead.promise });
++    store.setProject('a', 1, session(['one']));
++    const oldRestore = store.restoreProjectSession('a');
++    store.hostClosedProject('a');
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    store.setProject('a', 2);
++    const newRestore = store.restoreProjectSession('a');
++    expect(store.getProjectLoadState('a')).toBe('restoring');
++    oldRead.resolve(opened('a', 'one', 'obsolete')); await oldRestore;
++    expect(store.getProjectLoadState('a')).toBe('restoring');
++    newRead.resolve(opened('a', 'one', 'fresh')); await newRestore;
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getActive()?.getText()).toBe('fresh');
++  });
++
++  it('G01 genuine empty project does not invent file I/O or retain loading', async () => {
++    const { store, call } = fixture();
++    store.setProject('a', 1, session([]));
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    await store.restoreProjectSession('a');
++    expect(store.getProjectLoadState('a')).toBeUndefined();
++    expect(store.getActive()).toBeUndefined();
++    expect(call.mock.calls.some(([method]) => method === 'document_open')).toBe(false);
++  });
++});
+diff --git a/packages/editor/src/store.ts b/packages/editor/src/store.ts
+index bc2bf87..b1554f8 100644
+--- a/packages/editor/src/store.ts
++++ b/packages/editor/src/store.ts
+@@ -34,6 +34,13 @@ export class EditorStore {
+   getSnapshot = () => this.snapshot;
+   getBuffer = (projectId: string, fileId: string) => this.buffers.get(bufferKey(projectId, fileId));
+   getActive = (projectId = this.snapshot.activeProjectId ?? '') => { const file = this.projects.get(projectId)?.activeFileId; return file ? this.getBuffer(projectId, file) : undefined; };
++  getProjectLoadState = (projectId: string): 'restoring' | 'opening' | undefined => {
++    const restoring = this.restoringSessions.get(projectId);
++    if (restoring && this.projectIsLive(projectId, restoring)) return 'restoring';
++    const prefix = bufferKey(projectId, '');
++    for (const [key, opening] of this.opens) if (key.startsWith(prefix) && this.projectIsLive(projectId, opening.ticket)) return 'opening';
++    return undefined;
++  };
+   private emit(error: string | null = this.snapshot.error) { this.snapshot = { ...this.snapshot, revision: this.snapshot.revision + 1, projects: this.projects, buffers: this.buffers, error }; this.listeners.forEach(fn => fn()); }
+   reportError = (error: unknown) => this.emit(errorMessage(error));
+   clearError = () => this.emit(null);
+@@ -67,12 +74,15 @@ export class EditorStore {
+       if (reattached && this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
+       return;
+     }
+-    this.restoringSessions.set(projectId, ticket); const activeAtStart = project.activeFileId;
++    this.restoringSessions.set(projectId, ticket); this.emit(); const activeAtStart = project.activeFileId;
+     try { for (const tab of session.tabs) { const buffer = await this.openFile(tab.fileId, { projectId, preview: !tab.pinned, activate: false }); if (!this.projectIsLive(projectId, ticket)) return; if (buffer) { buffer.selection = clampSelection(tab.selection, editorTextLength(buffer.getText())); buffer.scrollTop = tab.scrollTop; } }
+       if (!this.projectIsLive(projectId, ticket)) return;
+       if (project.activeFileId === activeAtStart && session.activeFileId && this.getBuffer(projectId, session.activeFileId)) this.activate(session.activeFileId, projectId);
+       project.restored = true; if (this.pendingSessions.get(projectId) === session) this.pendingSessions.delete(projectId);
+-    } finally { if (this.restoringSessions.get(projectId) === ticket) this.restoringSessions.delete(projectId); if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId); }
++    } finally {
++      if (this.restoringSessions.get(projectId) === ticket) { this.restoringSessions.delete(projectId); this.emit(); }
++      if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
++    }
+   };
+   openFile = async (fileId: string, options: { projectId?: string; preview?: boolean; line?: number; column?: number; activate?: boolean } = {}) => {
+     const projectId = options.projectId ?? this.snapshot.activeProjectId;
+@@ -129,9 +139,10 @@ export class EditorStore {
+         }
+         this.reportError(error); return undefined;
+       }
+-      finally { if (this.opens.get(key)?.ticket === ticket) this.opens.delete(key); }
+     })();
+-    this.opens.set(key, { ticket, promise: opening }); return opening;
++    this.opens.set(key, { ticket, promise: opening }); this.emit();
++    try { return await opening; }
++    finally { if (this.opens.get(key)?.ticket === ticket) { this.opens.delete(key); this.emit(); } }
+   };
+   prepareFileRelocation = async (fileId: string, projectId: string): Promise<FileRelocationPlan | null> => {
+     const buffer = this.getBuffer(projectId, fileId);

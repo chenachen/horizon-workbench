@@ -1,0 +1,1422 @@
+{
+  "kind": "owned-static-install-load-fixture",
+  "preparedAt": "2026-11-02T03:56:41.738481+00:00",
+  "archive": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/.work/plugin-install-load-fixture-20261102/read-only-install-load-16m.horizon-extension",
+    "bytes": 16804564,
+    "sha256": "560eb31c4457c4d5fdb30ff0612487b4c32140bb92683e23297ff3018e1fae32"
+  },
+  "sourceBase": {
+    "path": "/private/var/folders/9j/xnw538c934b2s559tl01cc800000gn/T/horizon-plugin-resume-20261101-xlaufons/read-only-base.horizon-extension",
+    "bytes": 2663,
+    "sha256": "659399c70faabfe14eb98658434d1134d85c4ad66af623f86ab6faff18530c6e",
+    "readAfterBuildSHA256": "659399c70faabfe14eb98658434d1134d85c4ad66af623f86ab6faff18530c6e",
+    "originalArchiveUnchanged": true
+  },
+  "extension": {
+    "id": "local.resume-read-only-changes",
+    "name": "插件验收 · 只读更改列表",
+    "version": "0.1.0",
+    "description": "隔离 JavaScript 扩展：通过授权代理读取当前项目的真实 Git 状态。",
+    "author": "Horizon verification fixture",
+    "apiVersion": 1,
+    "engines": {
+      "horizon": ">=0.1.0 <0.2.0"
+    },
+    "runtime": {
+      "kind": "quickjs",
+      "entry": "index.js"
+    },
+    "activation": [
+      "onCommand:local.resume-read-only-changes.refresh"
+    ],
+    "requires": {
+      "horizon.git": "^0.1.0"
+    },
+    "optional": {},
+    "capabilities": [
+      "git.read",
+      "storage"
+    ],
+    "contributes": {
+      "commands": [
+        {
+          "id": "local.resume-read-only-changes.refresh",
+          "title": "读取更改列表"
+        },
+        {
+          "id": "local.resume-read-only-changes.fail",
+          "title": "触发验收安全异常"
+        }
+      ],
+      "views": [
+        {
+          "id": "local.resume-read-only-changes.list",
+          "slot": "primarySidebar",
+          "renderer": "declarative"
+        }
+      ],
+      "settings": [
+        {
+          "key": "includeUntracked",
+          "label": "显示未跟踪文件",
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    }
+  },
+  "originalTwoMembersUncompressedBytesUnchanged": true,
+  "executableLogicOrPermissionsChanged": false,
+  "inputCondition": {
+    "label": "16MiB owned static test resources / same original executable logic",
+    "resourceFiles": 128,
+    "resourceBytesEach": 131072,
+    "resourceTotalBytes": 16777216,
+    "allUnpackedBytesIncludingOriginalTwo": 16779663,
+    "allMembers": 130,
+    "notOriginal2663BInput": true,
+    "notComparableSmallPackagePerformanceCondition": true
+  },
+  "compression": {
+    "method": "ZIP_DEFLATED",
+    "zipMethod": 8,
+    "level": 6,
+    "python": "3.14.3",
+    "zlibCompileVersion": "1.2.12",
+    "zlibRuntimeVersion": "1.2.12"
+  },
+  "determinism": {
+    "resourceAlgorithm": "SHAKE-256(seed | 4-byte big-endian resource index)",
+    "seedUTF8": "Horizon owned static install-load fixture v1",
+    "timestamps": "1980-01-01T00:00:00",
+    "memberOrder": "original manifest.json,index.js then resource-000..127",
+    "mode": "regular0644",
+    "archiveReproductionBoundary": "Same recorded Python/zlib compressor; fixed inputs/metadata and resource hashes. Only one archive generated, no repeated trial."
+  },
+  "nativeLimitSource": {
+    "path": "/Users/chenpengxiang/Desktop/Horizon/apps/desktop/src-tauri/src/extensions.rs",
+    "sha256": "8b127418f0b586dd4c395be33ca0907e6616060125e4db1d9f31f4098d74a7a7",
+    "function": "package_files",
+    "lines": "999–1058",
+    "archiveMaxBytes": 29360128,
+    "entryMaxCount": 256,
+    "memberMaxBytes": 4194304,
+    "allUnpackedMaxBytes": 20971520
+  },
+  "staticPackageReadback": {
+    "memberHashesMatch": true,
+    "regularRelativePathsOnly": true,
+    "noCaseFoldCollision": true,
+    "allSupportedSizeLimitsSatisfied": true
+  },
+  "members": [
+    {
+      "name": "manifest.json",
+      "bytes": 1204,
+      "sha256": "adc8fe8f2de4ba9a853cf281c92ebf157eaec1b6de5e6f151d5b05b71b9f30d4",
+      "role": "unchanged-original-manifest",
+      "compressedBytes": 602,
+      "crc32": "ab96829d",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "index.js",
+      "bytes": 1243,
+      "sha256": "5cd84b6a8cab0810e0f6464688f52f9e36d37ef141d0a1ee26384b8fd72c66ea",
+      "role": "unchanged-original-worker",
+      "compressedBytes": 587,
+      "crc32": "c60986c0",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-000.bin",
+      "bytes": 131072,
+      "sha256": "0d05a5ed3538392e89b0323752fe0aeb518df28839335e48c2389323acb134fe",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "7db4fd66",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-001.bin",
+      "bytes": 131072,
+      "sha256": "585804a70513b4af094673cb3602f6c6909acf924b304e67bd360e8b7947940b",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "3f8db340",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-002.bin",
+      "bytes": 131072,
+      "sha256": "d6794ec83b7d48c0484f708a0169688b463da1d4cd7a4af2934fc1c8f0f8ed66",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "80377ec4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-003.bin",
+      "bytes": 131072,
+      "sha256": "e3dd847e4d8a853c75ce60d310735e3a15e02a335c18f543a1e2509b6bf8ae5c",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "a13990d8",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-004.bin",
+      "bytes": 131072,
+      "sha256": "1ab86bbd0aaa15a06883b36a3c78d3477ce812accdb612db5c1876c10847d9af",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "147a4b08",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-005.bin",
+      "bytes": 131072,
+      "sha256": "e64b384962c1c611790b21649ecf382780a5af0520a5f187c0cab9155ac939b7",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "316490ec",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-006.bin",
+      "bytes": 131072,
+      "sha256": "ebbe984184e7efe021c72465acc4cae83beaea76effc735ee1b0c3ce3cbb84a0",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "8ef52bcf",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-007.bin",
+      "bytes": 131072,
+      "sha256": "1374e1c43f77ecab5f86a401d7c09e7c75a6300f4a54e6e36c84d2cd6e0b7d07",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "331a44c4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-008.bin",
+      "bytes": 131072,
+      "sha256": "e9a60282bdc855e35a7e078b7be4f37e43d2f67b296c19d31bf918557ab725c8",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "2aa05f37",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-009.bin",
+      "bytes": 131072,
+      "sha256": "57a03fc3dc452fe121fb3d583916f5930c6eb5245cf357b476db5932f8e7643a",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "ca9a8897",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-010.bin",
+      "bytes": 131072,
+      "sha256": "7265a3bd9d51a95c0bb47346475d00c3dc680032faaed177adc58cafa376a6c8",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "ba2eaf5a",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-011.bin",
+      "bytes": 131072,
+      "sha256": "55d54efa14f46e1eefc3520ec7f6aea6f4a0a6549444fab7546d115b198ccb3f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "1a36ba88",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-012.bin",
+      "bytes": 131072,
+      "sha256": "7518e124aadd494baa3f15c71961190cb83811273cd42c5f7b86917a58e18086",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "48b0e70d",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-013.bin",
+      "bytes": 131072,
+      "sha256": "d77bad520b1af34f3b3cf5d6aefc2fbb649147b47a61caeab527a628b526b325",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "0c1bcf88",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-014.bin",
+      "bytes": 131072,
+      "sha256": "2fe9b18c08c6f3aae9874b91752d10d857245923ef67c051040bb0aa2e334ad6",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5e691030",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-015.bin",
+      "bytes": 131072,
+      "sha256": "255c2f5125a4ef42e6f1fa23db9fedd2fc9fda5dfbd2f56d3a063b7c8c0d5ab7",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "9044f62c",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-016.bin",
+      "bytes": 131072,
+      "sha256": "909cbe80554b84d2a56b44a0d815956f8059ec197799560b9d7419140c4826e8",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "4b159392",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-017.bin",
+      "bytes": 131072,
+      "sha256": "88fc677d11a142f5e51de9a08268461c60ee62ca1c9222cca4303cc2b959ccbf",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "743a16b2",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-018.bin",
+      "bytes": 131072,
+      "sha256": "ffba506833bb55f37de09603c5907b43abbde61a341decf723d931ab4e26341d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "bb384373",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-019.bin",
+      "bytes": 131072,
+      "sha256": "23403139e522abf174731c5c6319658dfe9f92bc242a5d9010bcc4a6f147fc0f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "8de756e8",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-020.bin",
+      "bytes": 131072,
+      "sha256": "597ae784f98c9b62308ac383423ea367b7c88907bba58e01ece3c909e8e580da",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "050e8413",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-021.bin",
+      "bytes": 131072,
+      "sha256": "64137cfacb09d0c3c2ee1db777fec7aec0fcea2b25f9f730dd13c0fdb7a0850d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "a58899e5",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-022.bin",
+      "bytes": 131072,
+      "sha256": "bf27b8dc54160b85b80dd8e5ff74689f8974d429bf15dfdac773c86e273a80be",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "88edfcea",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-023.bin",
+      "bytes": 131072,
+      "sha256": "a733738f3804a4bc713eadeb3f902f6226412ab43b72cdd143dc3d1beaa90aed",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "16823f87",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-024.bin",
+      "bytes": 131072,
+      "sha256": "330237bc5c6acbf6563f82c7bea41575e814554e5514c92953158252bccd133b",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "65192f09",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-025.bin",
+      "bytes": 131072,
+      "sha256": "78a926d1bdde125aa6f16b7e00b33ddb99a0506e0387636cf2ff78fbbbd53c5b",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "81d824d9",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-026.bin",
+      "bytes": 131072,
+      "sha256": "3ac60e5e3bb0ddcf252c789afab7e616c7a215e7b0724c7f2256e4a11a09e5c4",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5e3f7a2a",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-027.bin",
+      "bytes": 131072,
+      "sha256": "b2c5c5e270eedcfad309dc8c16387b70dbaa491ec7640bf572dd9e24b8894c1a",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "a927ca34",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-028.bin",
+      "bytes": 131072,
+      "sha256": "1727cfdd6a293c7fad499bdc1e1cac138eda5142eb3ec9f8096c772296a70255",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "94d5098d",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-029.bin",
+      "bytes": 131072,
+      "sha256": "b7cbbf8c424b28b6bb7518147dc11e4add6d9bdc68da496a3ff56f9e8cb740f8",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "ebeb8d0b",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-030.bin",
+      "bytes": 131072,
+      "sha256": "fb11601132e38c8ed9af730e58fe3e91f3cf614f5b3c9408f5ef3da2313012c1",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "482e5b9f",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-031.bin",
+      "bytes": 131072,
+      "sha256": "ce3405914ef704d9d1a258ff1326cb8a98be94476c78d4fc9830ae5df878cb6d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "246629b4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-032.bin",
+      "bytes": 131072,
+      "sha256": "9a1842b71be79e20ed022acc9d1c47962c451c7d77c7c066fcec8018d088bf54",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "e897cba4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-033.bin",
+      "bytes": 131072,
+      "sha256": "5e2275666166b5a425f8702b52d1ceef8b50d003345b09c0f9a0d39b7c0bc9b2",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5a1a8547",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-034.bin",
+      "bytes": 131072,
+      "sha256": "2ccac020199f2349670fa2a3b4ec88da582adadc093643f935d6dc109809c57b",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "d1a0ae1f",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-035.bin",
+      "bytes": 131072,
+      "sha256": "1019b3db09bec8b2e0d54d8f2d5ba2a4d5973fd5c6e837cc3be042a4c9510192",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "9c227480",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-036.bin",
+      "bytes": 131072,
+      "sha256": "59cb5fac8dcdd8f07125cd935847ec1d100ca5e4200842f1d87bc08c2da57858",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "a9d47abe",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-037.bin",
+      "bytes": 131072,
+      "sha256": "547fcf072bdc77ccb38da8c2bf6ad88cbb342373c138f90800837780623dedc5",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5f6c35cb",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-038.bin",
+      "bytes": 131072,
+      "sha256": "fbaf81ed8f5359ab414be617f529d5ac377fd7776dd50b6aa8b7c651085d4143",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "f5bac138",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-039.bin",
+      "bytes": 131072,
+      "sha256": "5057b5a83eb218a585af8c8a73c933e4629e7887bed3d33091aa95fdb4da9de0",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "69b0e312",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-040.bin",
+      "bytes": 131072,
+      "sha256": "9b8c172af0bcb6448cbf7dd48049e105581742b112fd7527b86d9529b1410ad5",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "123fdb45",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-041.bin",
+      "bytes": 131072,
+      "sha256": "e1fb39b1e7187271013c5f9955d226b43b78593275d8ca8b6ff791c74b4fec84",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "7deac470",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-042.bin",
+      "bytes": 131072,
+      "sha256": "d0ab627edc363a49540fe184ec3389f2ecd7c88e0b7ea78afe9616f34cec9216",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "28120a65",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-043.bin",
+      "bytes": 131072,
+      "sha256": "b3459b99eb4e418e05752f2d6bee0478bfb4321c2f8538585bfc6eebcbc4713e",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "244d7e80",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-044.bin",
+      "bytes": 131072,
+      "sha256": "118c4b2f5765c95caf6db623e20275254032210b8a9517e305c8867ed6b4d5e8",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "e7091110",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-045.bin",
+      "bytes": 131072,
+      "sha256": "1f981fa394acb7cf7f63a25d94a639cb69b0dab2df7fd4c7ae670086a2330032",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "6c3cc9db",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-046.bin",
+      "bytes": 131072,
+      "sha256": "374cd6c65bac1856dac713371a3ba797134e262e95d263010429d9d44b27a7ec",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "679895c4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-047.bin",
+      "bytes": 131072,
+      "sha256": "4bbd7359c84cb5ab563e5bc83ef3a6ca23c7c2b72ab418e03809b48a8cf6c2d0",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "70992724",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-048.bin",
+      "bytes": 131072,
+      "sha256": "c990ed71e81afcd9f960d06429a62a09b5da33ff2197a34c8f44753b2db2e01c",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5946268e",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-049.bin",
+      "bytes": 131072,
+      "sha256": "9cace7523bb709dbfa163e0ec6f6597b7fad99eaea5486c97e79550e75cb444d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "2e62db04",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-050.bin",
+      "bytes": 131072,
+      "sha256": "6d093e0d9fcbd94ad665be5e2e36935ed9542e0a2b15d54f40a3b55ea33d38f0",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "a5222c7f",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-051.bin",
+      "bytes": 131072,
+      "sha256": "ceb51b16336de9c02b26b40269cfa6f2c40539d48da00dbc68f4353b55d1cef3",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "bfb0fdf5",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-052.bin",
+      "bytes": 131072,
+      "sha256": "19cc0ce3d6f08317ea2f4f7f29f9d0091151b807438db3f629af9047a3c337bf",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "049f8cbe",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-053.bin",
+      "bytes": 131072,
+      "sha256": "5e3ff2fe97df07c9537f9ff006e3cc766d2c0bd8897e4dda9156fd260700ad51",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "9c788799",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-054.bin",
+      "bytes": 131072,
+      "sha256": "a07610c61a27c3fbc9e19fa4717a0c90a4b64582d732eff5b413405487eca1a7",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "b33402af",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-055.bin",
+      "bytes": 131072,
+      "sha256": "c70607585c814bbb31e72611e87a5857992865111bef7ffd6ab1f7b7fbf8e822",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "160c001c",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-056.bin",
+      "bytes": 131072,
+      "sha256": "a2268feecf200cab2d5f751e4d755c3747393deab98c82fac04034bedfdaf2b3",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "b0643392",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-057.bin",
+      "bytes": 131072,
+      "sha256": "5b94e199e2f8f3e2903e4b1e58c52de69ce70942264e81a9f66fcae605deecec",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "02efe513",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-058.bin",
+      "bytes": 131072,
+      "sha256": "27e7d209167f2b75cd281808c760bea3b992b9dc46d86f5a10cf6ad4b5519d8a",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "aeee8c2c",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-059.bin",
+      "bytes": 131072,
+      "sha256": "98a8636a0f78e580f4c0bf7ff0bd520cb6fc732a4e85cd0eb942872993667aa5",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5fcc63b5",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-060.bin",
+      "bytes": 131072,
+      "sha256": "46bf0e0956073ae94d46d037b87673702703f1d490aacd55fc2aabc29dea2e61",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "f510f388",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-061.bin",
+      "bytes": 131072,
+      "sha256": "ea219db6dfc3dcbc804d34d4a9c2b57e7af16ff2d1bee4287b2575067d7427fa",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "d43e10ad",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-062.bin",
+      "bytes": 131072,
+      "sha256": "e7469d37a1f7fd82b20ac1f5d6698920482f7b0bf07cc368311077658402c6e5",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "ad4f110f",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-063.bin",
+      "bytes": 131072,
+      "sha256": "bbf0e4aca692b1681847cf67bb168a0fcf5380c11e572ca1e9addf263a74f1a7",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "fb9e42fe",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-064.bin",
+      "bytes": 131072,
+      "sha256": "d2fc1db567bb92e78926a2cdb714c6ecbedf2ceb0a28c9c7014b3da0b97f859f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "279e1e8b",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-065.bin",
+      "bytes": 131072,
+      "sha256": "1ffb0482438eb4e5ce56d91bffe8b60652dacf479c9cc9b0d760573cc95d71e1",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "eb914ad4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-066.bin",
+      "bytes": 131072,
+      "sha256": "a9a2c03c7deec8010229161f13d32e404792a4f0cb8d3262c655803a2aaacc86",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "1f302cba",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-067.bin",
+      "bytes": 131072,
+      "sha256": "086fc227e0c99c4aa25c2af0fdb09c14da4c8e53d52dfefcfd504a7594fbb6ec",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "cf2c1325",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-068.bin",
+      "bytes": 131072,
+      "sha256": "40065828944ca6ebd6c41c7c6281e84580bdd31543dc526d50d1ab0fdd1a0b09",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "609623b6",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-069.bin",
+      "bytes": 131072,
+      "sha256": "2ac5bd764fd2783fb21703579d1d627fb3314e58cc0137e2843aefc967344799",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "e31a4f33",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-070.bin",
+      "bytes": 131072,
+      "sha256": "13b09c965e33a235b6ae9b8c6baa79dfb6bd3588cd48e523f8286039e81c687f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "373390d8",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-071.bin",
+      "bytes": 131072,
+      "sha256": "77fa1930b8cf763dacf8a2b73b6f09722ad926368769e745683c5496bd1a1ec2",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "f1c75d32",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-072.bin",
+      "bytes": 131072,
+      "sha256": "ccd6932e8692be819a67097f349b27da4df57ab996e5b5275046b7da5ecdcf71",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "58f134da",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-073.bin",
+      "bytes": 131072,
+      "sha256": "61f3b1229f0b8d52241bad43addd33b6627ca90733d90947bb0bad5dc7a6d0b6",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "7963b4db",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-074.bin",
+      "bytes": 131072,
+      "sha256": "e1a61dd7e1113e92daa02f35681061a9990d2ad74cadad2884c0a557a791169d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "f4f9b503",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-075.bin",
+      "bytes": 131072,
+      "sha256": "beb7c9226b86e32f77a9c91b615e857e09816745d81471a56b47c19577531f06",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "63a88796",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-076.bin",
+      "bytes": 131072,
+      "sha256": "f5b456181034a92d9b2ebceea8658446b2b6b1985613afbfb0f27020a9b932de",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "78038626",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-077.bin",
+      "bytes": 131072,
+      "sha256": "753f698272e7c234e6ec74ef245adce99f98c26df26fce6bb496b8d4d80e106c",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "c9f27551",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-078.bin",
+      "bytes": 131072,
+      "sha256": "ba0a99f1fa00774f592e360fbba80a22c75d93b52f83d471984807b8e34b9fbd",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "7d93371e",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-079.bin",
+      "bytes": 131072,
+      "sha256": "8836b7a36a746c591a88ae272e5b34d92a2d418771cf61bf682c6759ff924126",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "e6e63d76",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-080.bin",
+      "bytes": 131072,
+      "sha256": "95d25d081e105e78ebc1afecd8963c100a5f2c766b0a4cabed87e028554c4632",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "9ebe1596",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-081.bin",
+      "bytes": 131072,
+      "sha256": "34c613e4f762dffc6ae8a1fdd55a70c3913ebffbdfb43ca1a1c2397f0e51599d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "b6227f4c",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-082.bin",
+      "bytes": 131072,
+      "sha256": "2166237c8bb61a7016de9db35249ce555fd51ac39bb5625056006a262566f242",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "6f8db0b0",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-083.bin",
+      "bytes": 131072,
+      "sha256": "2ebdb88122d75c87891145bf0dc8341b0c136c8833b4e0ca3582362fbbe42a70",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "66bca88a",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-084.bin",
+      "bytes": 131072,
+      "sha256": "d1bf3594c36e1ef94caeba37a474c20366d3e126d6b7710baab8aab72c44aa55",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "02310590",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-085.bin",
+      "bytes": 131072,
+      "sha256": "a57825934f65e4875e4ca1291c5c3271f63771ce4adba653cfe98f76cece5b7d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "127d7ec4",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-086.bin",
+      "bytes": 131072,
+      "sha256": "6069f9659509d51f4833675a30118d52330a248fba303e3fefc8eb4adf8ff7d7",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "5d3d96fb",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-087.bin",
+      "bytes": 131072,
+      "sha256": "b700bdb53e97ff879da85e61e491a5eec87fc431a75d738ee877453b199d15b2",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "dad0100e",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-088.bin",
+      "bytes": 131072,
+      "sha256": "96e1497527360e744393f22b9048b6c5efcf48577b80b5e437816a04e0a78c16",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "19332030",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-089.bin",
+      "bytes": 131072,
+      "sha256": "f912d3b56db60939f8199c4749b7396d9ee404295c404822859333e13703f991",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "1d0f0fd3",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-090.bin",
+      "bytes": 131072,
+      "sha256": "840b7d480cd5a85928d34947cdde6fdbe80b3ee3c8754fa375aa0bc52a3618c0",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "3f4f2fbd",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-091.bin",
+      "bytes": 131072,
+      "sha256": "d6c16c42ff2100c2824256118cb724ac47c01963158a11b4c0b11ab0d4640152",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "7eb645ad",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-092.bin",
+      "bytes": 131072,
+      "sha256": "a545564a02fa19eac64734f8ee866e45a5bc34c0effc2d044566598a8299f8cd",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "06f293f0",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-093.bin",
+      "bytes": 131072,
+      "sha256": "25ee773464b02b0d3914ef5769567cac101f937e2d185a13e74945cb51609d81",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "af735882",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-094.bin",
+      "bytes": 131072,
+      "sha256": "4c6f2b108b0bda4ab33d231978235e6e8532918aa16bfaee8dc2de1ba498be7e",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "7e842a51",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-095.bin",
+      "bytes": 131072,
+      "sha256": "ab0e4a3a96c0c5610e0e43001ef6c07edeb38b0a5f602a00e3ca6e1838929f0c",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "45da8962",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-096.bin",
+      "bytes": 131072,
+      "sha256": "a191bcec619efcbd857d221c2f189af0ffa59f37e4bee658fb5a5e83f9c0872f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "55e43738",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-097.bin",
+      "bytes": 131072,
+      "sha256": "fc709e262cd97dcd58d5b5bd20d809f917501b73d490ea440fe4fd0e42b1fd79",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "17038e53",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-098.bin",
+      "bytes": 131072,
+      "sha256": "a899235e52e1443e648aec79310e563d63042f79ebc24ca4c05ad390fd736983",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "f4c5b9d5",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-099.bin",
+      "bytes": 131072,
+      "sha256": "bdeec9104d5f0bd2cf119c46e1c965a9cc9f902a439c2111188079635a058281",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "c77d61e2",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-100.bin",
+      "bytes": 131072,
+      "sha256": "dafa8f3328937d6d9de93f2b89862d2c9bd46630f3afde92324147a8d590f9a5",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "1d904c87",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-101.bin",
+      "bytes": 131072,
+      "sha256": "6f427f8d7aa9fd5ac0a971dab7b2d9ff80c6d23e906d0e99fa1edcfc97f49efb",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "2815d2cf",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-102.bin",
+      "bytes": 131072,
+      "sha256": "15a42624326482d35232c8c59f044c80b1c9acc6b11ac805703076bb5c18ee99",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "ec75039c",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-103.bin",
+      "bytes": 131072,
+      "sha256": "b1d4914cbf57901c91d3633d0cf24699bb2a78c75693deac034452af8ff6f560",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "8050f936",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-104.bin",
+      "bytes": 131072,
+      "sha256": "1de4c46791c23291853b23da21faab8d1407400563241e3ff5fa17c69834e8e2",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "23c7e690",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-105.bin",
+      "bytes": 131072,
+      "sha256": "e280c9508a18d5aa367a846518e623854cd7a5fb32e271bece11c823ffac91fb",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "a1197691",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-106.bin",
+      "bytes": 131072,
+      "sha256": "0c44d1ec69c367dc5bc61e484af39d636f1fec97dacdea50afab2390a413ad68",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "1bd6aee5",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-107.bin",
+      "bytes": 131072,
+      "sha256": "5ac5a9d478a1fa7b935ecd00ddd45590c66f7c9d6e3fabce2dd5feb95cb270aa",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "c5aa001b",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-108.bin",
+      "bytes": 131072,
+      "sha256": "3472108d7aa91dcb85653563988b83ea3ced1d3096aec92a33a213fbbbe4736f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "12307b5b",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-109.bin",
+      "bytes": 131072,
+      "sha256": "85e64919d5bc80dcd28a847a9e41d9214bb1df8b179b69450d668368d15c7c26",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "836d15f1",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-110.bin",
+      "bytes": 131072,
+      "sha256": "c6fc303972d320e9805a446c809d6d0ea6be9f004da5f22ebbb39fcbb5e4d097",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "fd9416df",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-111.bin",
+      "bytes": 131072,
+      "sha256": "0ea2ab58b0d76233936d0685e38b9babfeb88ed40fc7d6d28317ea0b833bb297",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "e378c63d",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-112.bin",
+      "bytes": 131072,
+      "sha256": "54f04ea18ce997f22a79afe474df16db6e74f73e6c524274496277bc91a7ce69",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "99b7f9fa",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-113.bin",
+      "bytes": 131072,
+      "sha256": "416a8d2708c2cafacf9199fbf14aeaee60e7cf4ab5cb8196d582bf5060604404",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "6838ff48",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-114.bin",
+      "bytes": 131072,
+      "sha256": "1de50d24cefd5afdfcd5a33093bfdbe1dd300951ae063ec2244374ba25cc74f0",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "64315f82",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-115.bin",
+      "bytes": 131072,
+      "sha256": "8898e8e163d7ee3df41780411912741ae700b8c4f4e97e1ed74611533da00d10",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "986f6b1d",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-116.bin",
+      "bytes": 131072,
+      "sha256": "3ee400ae3d3bb4417dea871e16b3cb8f933f6709b7e3b95c25dc703eb70221b2",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "ac6a19d2",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-117.bin",
+      "bytes": 131072,
+      "sha256": "e41e625a47ccd0d9994c57c68b00ce7e92cdde95f8482b04bec7b3d65aa3d264",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "67bd387c",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-118.bin",
+      "bytes": 131072,
+      "sha256": "1e2c06882c32cc85bbfddccf0b44a9526d4ac83d93bbadaf4817ab37fc51f47d",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "be2f341f",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-119.bin",
+      "bytes": 131072,
+      "sha256": "3f7fe32210371df90cf03afd214894c4d845010306dab92a1232784b0c223ccc",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "cdbb5396",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-120.bin",
+      "bytes": 131072,
+      "sha256": "2153855e548d9ef7f048b830194ad86c6237cb972f798d87457c35f343bdceea",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "311f20fb",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-121.bin",
+      "bytes": 131072,
+      "sha256": "e750c4c3a7d1a0fccc05f571c255063254963634b46b7b547e8fa3165a38aff8",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "4f7603a6",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-122.bin",
+      "bytes": 131072,
+      "sha256": "3c926d965f152385eaad41fd72bce563c8580351f565fb077c99d91ef16b149f",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "d5dfd1c7",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-123.bin",
+      "bytes": 131072,
+      "sha256": "ccf54adbabf6f41ed7d900bcb73891098db6e4d66ab4c6548de8c7331181037b",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "bc5919fb",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-124.bin",
+      "bytes": 131072,
+      "sha256": "aa2913b8666350569a70fb1fcb075928f51c45e756145f3b866784c3e1130148",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "248f87e5",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-125.bin",
+      "bytes": 131072,
+      "sha256": "f016bbc7a7847934e2007ea1c33bed97d6661d2c3824f8ee4e106642e9968390",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "53b6f198",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-126.bin",
+      "bytes": 131072,
+      "sha256": "739a16a903cb176e00a96d858915e3816fda489e23de6a7c5589992a02fe6ea4",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "dca00c45",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    },
+    {
+      "name": "qa-static-install-load-16m/resource-127.bin",
+      "bytes": 131072,
+      "sha256": "47ff8d1581011c1c6598b07e1155ef6e1d6eb6098b654100998c4c0ce8151fc1",
+      "role": "unreferenced-non-executable-owned-static-test-resource",
+      "compressedBytes": 131112,
+      "crc32": "9a65a916",
+      "compressionMethod": 8,
+      "unixMode": "0o100644"
+    }
+  ],
+  "execution": {
+    "nativeLoaderInvoked": false,
+    "HorizonInstallation": false,
+    "ownerExecuted": false,
+    "GUIOrAppdataMutation": false,
+    "testsOrBuild": false
+  }
+}

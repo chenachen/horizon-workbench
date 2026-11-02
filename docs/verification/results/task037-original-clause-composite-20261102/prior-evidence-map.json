@@ -1,0 +1,185 @@
+{
+  "created_at_utc": "2026-11-02T04:25:49.135222+00:00",
+  "task": "TASK-037",
+  "original_clause": "docs/implementation/IMPLEMENTATION_PLAN.md:527-534",
+  "original_acceptance": "移动原文件后仍可显示；透明度与遮罩不影响文字；切项目保持全局背景，关闭或更换时释放旧图；清理保留被引用资产；超限/损坏维持旧背景。",
+  "reused_evidence": [
+    {
+      "id": "MAC-APPEARANCE-ASSET-PRESET-001",
+      "outcome": "pass",
+      "steps": [
+        "Import local 320x180 PNG, move original, close/reopen settings and observe retained preview",
+        "Save named appearance preset, export with asset, import without auto-apply, explicitly apply to project",
+        "Independently decode embedded PNG, verify SHA-256/assetId and compare every sRGB RGBA pixel with moved source"
+      ],
+      "observed": "Native source-move preview and named preset export/import/explicit apply succeed for this fixture. Export is 3,452 bytes; embedded asset sha256 613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690 matches assetId. Embedded and moved original are both 320x180 with identical pixels after import normalization.",
+      "artifacts": [
+        "docs/verification/APPEARANCE_GUI.md",
+        "docs/verification/results/appearance-candidate2/observation.json",
+        "docs/verification/results/appearance-candidate2/pixels.json",
+        "docs/verification/results/appearance-candidate2/appearance-with-background.json",
+        "docs/verification/screenshots/release-candidate/appearance-06-background-source-moved.png",
+        "docs/verification/screenshots/release-candidate/appearance-07-preset-import-apply.png"
+      ],
+      "scope_limit": [
+        "Actual editor background remains occluded; separate failure record retained",
+        "No app restart, complete display regions/fit combinations, asset decoding cleanup or missing-dependency case covered",
+        "Temporary exported filename normalized after native save; bytes unchanged"
+      ]
+    },
+    {
+      "id": "MAC-APPEARANCE-BACKGROUND-002",
+      "outcome": "pass",
+      "steps": [
+        "Apply prior imported image preset in candidate 3",
+        "Choose editor/sidebar/workbench regions and record original native PNGs",
+        "With confirmed number-field focus, rapidly enter visibility 30 and overlay 65, then position 25 and 75",
+        "Close and reopen settings: sidebar/cover/30/65/25/75 persist",
+        "Turn background off and observe solid workbench"
+      ],
+      "observed": "Original PNGs show imported image in each chosen region, with code text and gutter readable. Reliable native keyboard path retains all six changed settings after reopen; old occlusion and rapid-update rollback failures no longer reproduce.",
+      "artifacts": [
+        "docs/verification/APPEARANCE_GUI.md",
+        "docs/verification/APPEARANCE_VISUAL_REVIEW.md",
+        "docs/verification/screenshots/appearance-candidate3/09-background-editor.png",
+        "docs/verification/screenshots/appearance-candidate3/10-background-sidebar.png",
+        "docs/verification/screenshots/appearance-candidate3/11-background-workbench.png"
+      ],
+      "scope_limit": [
+        "Setting persistence/rapid input comes from native operator report; PNGs show rendered region outcomes",
+        "No process/resource measurement establishes decoded-image release",
+        "Controlled image fixture differs from G05 reference; no full visual pass"
+      ]
+    },
+    {
+      "id": "MAC-APPEARANCE-GLOBAL-FONTS-PROJECT-BEHAVIOR-NATIVE-001",
+      "outcome": "pass",
+      "steps": [
+        "InspectactualAuroraoverride4",
+        "InspectProjectBglobalfonts16/UI15/compact/260andindent2",
+        "ReturnAuroraandUseGlobalto2"
+      ],
+      "observed": "Aurora项目缩进覆盖4、ProjectB继承2同时存在，来源及使用全局设置可见，Aurora重置回2。UI15/紧凑、系统等宽16、Mist260在两项目共用。",
+      "artifacts": [
+        "docs/verification/results/appearance-functional-native-audit-20261101/additional-audit.json",
+        "docs/verification/results/appearance-functional-native-audit-20261101/owner-summary-final.json"
+      ],
+      "scope_limit": [
+        "Exactrequirement globalindent2to4 whileAoverride8 thenresetA4 remains untested; this4vs2sequence doesnot substitute.",
+        "Projectwrap override and everyautosave/IMEcondition are not claimed here."
+      ]
+    },
+    {
+      "id": "MAC-APPEARANCE-BACKGROUND-REGIONS-NATIVE-20261101-001",
+      "outcome": "pass",
+      "steps": [
+        "Inspect5originalregion/settingsframes",
+        "Checkretainedassetid matchesprevious320x180asset",
+        "Observeclosedbackground andretainedpresetassetmetadata"
+      ],
+      "observed": "已复制背景资产在编辑区contain40/40、侧栏cover30/65/x25/y75、整个工作台均可见，设置关闭重开保留；最终关闭背景。既有源移动与资产字节一致已在早期原生记录验证。",
+      "artifacts": [
+        "docs/verification/results/appearance-functional-native-audit-20261101/additional-audit.json",
+        "docs/verification/results/appearance-functional-native-audit-20261101/owner-summary-final.json"
+      ],
+      "scope_limit": [
+        "This batch reuses existing asset; no fresh imageimport claimed.",
+        "Decoded image memory release remains unverified; visualhide orBlobURLdereference alone does not establish it."
+      ]
+    },
+    {
+      "id": "MAC-BACKGROUND-OWNED-RESOURCE-CLEANUP-COMPOSITE-001",
+      "outcome": "pass",
+      "steps": [
+        "Verify complete actual harness, controlledTauri boundary and source hashes.",
+        "Inspect each raw state/URL/call/commit phase and exact first-attempt correction.",
+        "Combine only relevant previously accepted native behaviors and explicit source paths."
+      ],
+      "observed": "组合闭合当前macOS背景原句：既有真实导入/源移动/资产字节、三显示区域/适配/位置/可见度/遮罩/重开保值及关闭已审；新两真实effect在assetId null时两asset state与CSS均清空，2个实际BlobURL各revoke1次，迟到2read均不创建新URL。只关应用持有资源，不称WebKit物理缓存立即归零。",
+      "artifacts": [
+        "docs/verification/results/appearance-boundary-ui008-ui011-audit-20261101/audit.json",
+        "docs/verification/results/appearance-boundary-ui008-ui011-audit-20261101/component/run.mjs",
+        "docs/verification/results/appearance-boundary-ui008-ui011-audit-20261101/component/result.json",
+        "docs/verification/results/appearance-boundary-ui008-ui011-audit-20261101/component/execution-receipt.json",
+        "docs/verification/results/appearance-boundary-ui008-ui011-audit-20261101/component/manifest.json"
+      ],
+      "scope_limit": [
+        "Component CompositionEvents are synthetic; the separate physical native nihao→你好 observation is not relabeled as a native composition-held layout click.",
+        "UI008 proves application-owned resource release, not instant WebKit decoded-cache/texture physical memory zero.",
+        "Failure check rejects before successful apply; no postcommit partially-running rollback is invented. Static CSS-only/stable dependency source reasoning is labeled source review, not native request tracing."
+      ]
+    }
+  ],
+  "known_owned_asset": {
+    "assetId": "613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690",
+    "sha256": "613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690",
+    "width": 320,
+    "height": 180,
+    "normalized_png_bytes": 1684,
+    "source_export": "docs/verification/results/appearance-candidate2/appearance-with-background.json",
+    "source_export_sha256": "0938fd42426f9010c81efa50801ff7fb9ee2b08aaf37303a9c0623e0cf78bf4b",
+    "source_export_name": "外观验收 · 雾蓝背景",
+    "source_export_values": {
+      "background": {
+        "assetId": "613103d6e17e2e449cd5043665877a3b7192e48dc14b11a623acf4e6f64cc690",
+        "fit": "contain",
+        "opacity": 0.4,
+        "overlay": 0.4,
+        "position": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "region": "editor"
+      },
+      "colorsByTheme": {},
+      "geometryByLayout": {
+        "horizon.layout.mist": {
+          "auxiliaryWidth": 320,
+          "bottomHeight": 220,
+          "codeFontSize": 14,
+          "navigationWidth": 64,
+          "sidebarWidth": 240,
+          "statusHeight": 26,
+          "tabHeight": 40,
+          "tabMinWidth": 120,
+          "topbarHeight": 56,
+          "uiFontSize": 13
+        }
+      },
+      "layoutId": "horizon.layout.mist",
+      "mode": "system",
+      "themeId": "horizon.theme.mist"
+    },
+    "preset_entity_id": "Not present in portable export. Current matching QA preset ID must be observed, never invented from name.",
+    "known_previous_native_values": {
+      "region": "sidebar",
+      "fit": "cover",
+      "opacity": 0.3,
+      "overlay": 0.65,
+      "position": {
+        "x": 0.25,
+        "y": 0.75
+      }
+    }
+  },
+  "gaps": [
+    {
+      "clause": "清理保留被引用资产",
+      "existing_actual": "Native asset preset storage/export survives ordinary use; native cache-clear proved path-cache removal, not asset-reference removal. No accepted remove-while-referenced action/RESOURCE_BUSY outcome found.",
+      "source_only": "SettingsPanel484-488 first unsets active global reference; appearance_background_remove1000-1041 checks global/project/preset refs before file removal. Needs a saved preset reference to exercise this UI refusal."
+    },
+    {
+      "clause": "超限/损坏维持旧背景",
+      "existing_actual": "Valid native import, params/reopen and application-owned state/CSS/URL cleanup were accepted. No accepted oversized/corrupt replace refusal plus old background preservation observed.",
+      "source_only": "appearance.rs560-625 rejects >20MiB or failed PNG decoding before asset writes; SettingsPanel308-315 waits task.result before applying assetId."
+    }
+  ],
+  "new_native_minimum": "One same-project tour: owned active baseline+saved QA reference; oversized replacement once; corrupt replacement once; referenced removal once then same-preset reapply. No other function tour.",
+  "not_reopened": [
+    "WebKit physical decoded cache/texture zero",
+    "Dual-platform resource/process increment acceptance",
+    "New all-layout/parameter/URL/component reruns"
+  ],
+  "fixtures_generated": false,
+  "operations_performed": "Read repository evidence/source and write this .work card only; no GUI/OS probe/appdata/test/product write."
+}

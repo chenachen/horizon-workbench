@@ -1,0 +1,442 @@
+{
+  "recordedAt": "2026-11-02T01:01:04.922054+00:00",
+  "scope": "Newed7061 CI/release facts only; source-invariant reuse from075",
+  "baselineFunctionalRecords": 345,
+  "baselineVisualRecords": 829,
+  "frozenArchiveSHA256": "f94ef99e24a52b00035f1492d5d7a703cc161112d9be5a9012af1de1d15e125d",
+  "checks": {
+    "ExactEdArchiveSHA256": true,
+    "All12FrozenFilesSHA256BytesMatch": true,
+    "CommitRunJobSuccessIdentityExact": true,
+    "Raw211534Bytes2425CRLFPreserved": true,
+    "TenActualNonzeroNamedResultPairsEach1Pass0Fail0Ignored": true,
+    "ActualActivation172Managed424Seconds": true,
+    "ActualOneCPRFromRawAndConPTYCompletionNotWrongMetadataPointer": true,
+    "PreviouslyReviewedActivationAndObservationSourceSHAsUnchanged": true,
+    "OnlyAppDiffersWithinFrozen14FileSubsetNotWholeCommitClaim": true,
+    "OneBuiltMain5416OSWindow601EAFiveSecondsNoFrontendClaim": true,
+    "TwoProductionRoamingSchema1FilesValid7561msSampleOnly": true,
+    "SingleReadOnlyUIAExit0ButtonNotObserved2234ms": true,
+    "AllFiveActualDownloadsMatchFrozenAPIBytesDigest": true,
+    "BothActualInstallersMatchPublishedSums": true,
+    "ActualReleasePublishedAfterDeadlineNotBackfilled": true
+  },
+  "frozenFileBindings": [
+    {
+      "path": "README.md",
+      "sha256": "6e5b262d030c040fe805cd4988b17fcd8ac2f0b8e921fde536b21a5a2dd69336",
+      "bytes": 2355,
+      "matches": true
+    },
+    {
+      "path": "HANDOFF.json",
+      "sha256": "ad297e3e3e639b3fff6faff8f61da4c0976422e457a9538c1bbfa9acf255badb",
+      "bytes": 1443,
+      "matches": true
+    },
+    {
+      "path": "job.log",
+      "sha256": "cceed5464f56bf5ef17541b2aa8f358fdeff1ac8bf882a9bc0d55a7592b03d92",
+      "bytes": 211534,
+      "matches": true
+    },
+    {
+      "path": "final-jobs.json",
+      "sha256": "c9f8b23ae84b182d03b1e79237cd42d631fe1b448a69fdfd3be9beade2d3357f",
+      "bytes": 4576,
+      "matches": true
+    },
+    {
+      "path": "artifacts.json",
+      "sha256": "1b61d8ce8647a2eb2e9393f0532f003df6e4293c4f69f1ee5d61536ec028c3a4",
+      "bytes": 879,
+      "matches": true
+    },
+    {
+      "path": "release.json",
+      "sha256": "01c934de8646e0dc524b2a4f1c08fbf2d9db6253a29bfd4ba6ec297fe8a83aee",
+      "bytes": 12710,
+      "matches": true
+    },
+    {
+      "path": "result.json",
+      "sha256": "dfe903379d0d913a7cf0e4a70e61c4ba25c364529c03586d0aab77b5cf48f138",
+      "bytes": 14728,
+      "matches": true
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "e3f143a6dcb13bdd80cb8675a20b706ebd520b360bde3aebf63bf31be5fbc1a1",
+      "bytes": 2585,
+      "matches": true
+    },
+    {
+      "path": "download-verification.json",
+      "sha256": "2456ebc5d58b924111afd4125e781ef7d791584c99d60930e7cb62812bafde0d",
+      "bytes": 3028,
+      "matches": true
+    },
+    {
+      "path": "assets/build-identity.txt",
+      "sha256": "79c81239443473f53631146af4a3b8fa1b6bd9989d70b9cd0630b9a45c5ac5d5",
+      "bytes": 437,
+      "matches": true
+    },
+    {
+      "path": "assets/SHA256SUMS.txt",
+      "sha256": "474d17432fa3c641a441b0f8606901f896408e401b70a655a388657521da870f",
+      "bytes": 190,
+      "matches": true
+    },
+    {
+      "path": "assets/startup-smoke.json",
+      "sha256": "d591a5685b75788028d21ff4ecda98a58fc92a0929220ac498ad7534683ef0bb",
+      "bytes": 3107,
+      "matches": true
+    }
+  ],
+  "actualTests": [
+    {
+      "name": "async_broker_wait_does_not_spend_cpu_budget",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.19,
+      "test_log": "2026-11-02T00:47:22.2265092Z test async_broker_wait_does_not_spend_cpu_budget ... ok",
+      "result_log": "2026-11-02T00:47:22.2266449Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.19s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "windows_process::tests::owned_job_stops_descendants_and_preserves_external",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.04,
+      "test_log": "2026-11-02T00:50:19.3913749Z test windows_process::tests::owned_job_stops_descendants_and_preserves_external ... ok",
+      "result_log": "2026-11-02T00:50:19.3915172Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.04s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "processes::windows_tests::owned_conpty_chinese_resize_and_stop",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.38,
+      "test_log": "2026-11-02T00:50:20.3146209Z test processes::windows_tests::owned_conpty_chinese_resize_and_stop ... ok",
+      "result_log": "2026-11-02T00:50:20.3148960Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.38s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "files::tests::windows_storage_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.05,
+      "test_log": "2026-11-02T00:50:20.9147670Z test files::tests::windows_storage_roundtrip ... ok",
+      "result_log": "2026-11-02T00:50:20.9149138Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.05s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::windows_named_pipe_current_user_token_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.01,
+      "test_log": "2026-11-02T00:50:21.5360189Z test agent::tests::windows_named_pipe_current_user_token_roundtrip ... ok",
+      "result_log": "2026-11-02T00:50:21.5361550Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.01s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "settings::tests::windows_owned_credential_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.04,
+      "test_log": "2026-11-02T00:50:21.9148579Z test settings::tests::windows_owned_credential_roundtrip ... ok",
+      "result_log": "2026-11-02T00:50:21.9150950Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.04s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::platform::tests::windows_fixed_assets_paths_zip_and_environment",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.0,
+      "test_log": "2026-11-02T00:50:22.2483273Z test agent::platform::tests::windows_fixed_assets_paths_zip_and_environment ... ok",
+      "result_log": "2026-11-02T00:50:22.2486046Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.00s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 0.01,
+      "test_log": "2026-11-02T00:50:22.5858616Z test agent::tests::runtime_install_rejects_corrupt_archive_before_extract_or_execute ... ok",
+      "result_log": "2026-11-02T00:50:22.5860948Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 0.01s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_activation_retry_boundaries",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 1.72,
+      "test_log": "2026-11-02T00:50:24.8747707Z test agent::tests::windows_managed_pi_activation_retry_boundaries ... ok",
+      "result_log": "2026-11-02T00:50:24.8749577Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 1.72s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    },
+    {
+      "name": "agent::tests::windows_managed_pi_chat_roundtrip",
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 4.24,
+      "test_log": "2026-11-02T00:50:29.6799131Z test agent::tests::windows_managed_pi_chat_roundtrip ... ok",
+      "result_log": "2026-11-02T00:50:29.6800510Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 4.24s",
+      "literalTestRowInRaw": true,
+      "literalResultRowInRaw": true
+    }
+  ],
+  "immutableSourceSubsetComparisonTo075": [
+    {
+      "path": ".github/workflows/windows-release.yml",
+      "old075SHA256": "92ac8cf3b46d91a78ad2fb9dcb0fcf8cc4e0efc370c1c5c5870b3e3435f5b36d",
+      "newEdSHA256": "92ac8cf3b46d91a78ad2fb9dcb0fcf8cc4e0efc370c1c5c5870b3e3435f5b36d",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/agent.rs",
+      "old075SHA256": "77403366b1bb9e93f8b0f8e0616c382fb044298db05fd68e0b04ce6d9eecdb3b",
+      "newEdSHA256": "77403366b1bb9e93f8b0f8e0616c382fb044298db05fd68e0b04ce6d9eecdb3b",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/agent_platform.rs",
+      "old075SHA256": "b2d0fed3539a2c02bbfb0a0110cac2942332b3e819fa5bbd9b47933ea301e9a6",
+      "newEdSHA256": "b2d0fed3539a2c02bbfb0a0110cac2942332b3e819fa5bbd9b47933ea301e9a6",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/windows_process.rs",
+      "old075SHA256": "367bd78dcc122ea940902269d72a9e904a9dfc9f2021813344adaad16239b20e",
+      "newEdSHA256": "367bd78dcc122ea940902269d72a9e904a9dfc9f2021813344adaad16239b20e",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/processes.rs",
+      "old075SHA256": "8d77f3038014a29ee1a22cda53f23cca2a9926e7bae79749677a455b373ee9d2",
+      "newEdSHA256": "8d77f3038014a29ee1a22cda53f23cca2a9926e7bae79749677a455b373ee9d2",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/state.rs",
+      "old075SHA256": "c3f4b2cbb1aecc3dd60fcba6167bd5841837488f8d82cbd8431deae0f77cfe05",
+      "newEdSHA256": "c3f4b2cbb1aecc3dd60fcba6167bd5841837488f8d82cbd8431deae0f77cfe05",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/extensions.rs",
+      "old075SHA256": "8b127418f0b586dd4c395be33ca0907e6616060125e4db1d9f31f4098d74a7a7",
+      "newEdSHA256": "8b127418f0b586dd4c395be33ca0907e6616060125e4db1d9f31f4098d74a7a7",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/src/lib.rs",
+      "old075SHA256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4",
+      "newEdSHA256": "d824ab95a97bce8c732101fb4155e9680a4ef6cefd27a8ea789e889e3b584aa4",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src/App.tsx",
+      "old075SHA256": "ce7a0c3d82040a0eb91e800fcab2f6d54de245f838364adfd1894cc15b8507e6",
+      "newEdSHA256": "34ec96b6bf86cb8f35849cb58e36b090ad7b42293a1d0b2fb02eda76b35326bc",
+      "same": false
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.toml",
+      "old075SHA256": "3481ade772280f820b2ad447b56412985c998dab78285285181ed386da1edef7",
+      "newEdSHA256": "3481ade772280f820b2ad447b56412985c998dab78285285181ed386da1edef7",
+      "same": true
+    },
+    {
+      "path": "apps/desktop/src-tauri/Cargo.lock",
+      "old075SHA256": "81c687d99c52ffa962fbd0b4583cb47ca26b829be6b49c0a3c9c3442c232bbd3",
+      "newEdSHA256": "81c687d99c52ffa962fbd0b4583cb47ca26b829be6b49c0a3c9c3442c232bbd3",
+      "same": true
+    },
+    {
+      "path": "scripts/desktop/windows-test.manifest",
+      "old075SHA256": "4636f3ba46080315ac3277d473d433b79c00863c9cdca1c93c0c83554c6a3d43",
+      "newEdSHA256": "4636f3ba46080315ac3277d473d433b79c00863c9cdca1c93c0c83554c6a3d43",
+      "same": true
+    },
+    {
+      "path": "scripts/windows-startup-smoke.ps1",
+      "old075SHA256": "96834fef03deb349b7b4d2c9e6f3b4c04934438ae2c7b783b5d83fa476a4189d",
+      "newEdSHA256": "96834fef03deb349b7b4d2c9e6f3b4c04934438ae2c7b783b5d83fa476a4189d",
+      "same": true
+    },
+    {
+      "path": "scripts/windows-uia-ready.ps1",
+      "old075SHA256": "b6d891f19999341bdd1c396f9bf2a799cebde34d88d616b56a0f7fbbee6cc0a8",
+      "newEdSHA256": "b6d891f19999341bdd1c396f9bf2a799cebde34d88d616b56a0f7fbbee6cc0a8",
+      "same": true
+    }
+  ],
+  "originalConptyMetadata": {
+    "actual_reply_count": 1,
+    "actual_reply_log": "﻿2026-11-02T00:38:37.3784996Z Current runner version: '2.338.2'",
+    "actual_completion_log": "2026-11-02T00:50:20.3144234Z Windows ConPTY PID 2956: Chinese output, real size120x40, process exited and Job empty",
+    "seconds": 0.38,
+    "cleanup_TIMEOUT": false
+  },
+  "derivedReplyPointerCorrection": {
+    "originalMetadataPath": "result.json:conpty.actual_reply_log",
+    "originalValuePreserved": "﻿2026-11-02T00:38:37.3784996Z Current runner version: '2.338.2'",
+    "correctSource": "job.log same frozen bytes",
+    "correctReplyRows": [
+      {
+        "line": 1872,
+        "text": "2026-11-02T00:50:19.9920847Z Answered ConPTY initial cursor query at 1;1"
+      }
+    ],
+    "kind": "derived log-pointer correction only; originalcount/result unchanged",
+    "newExecution": false
+  },
+  "startup": {
+    "scope": "One compiled main EXE launch on an owned fresh Windows runner; no GUI interaction or performance acceptance.",
+    "commit": "ed7061eed588d239133f5c8ff3eb5f611ae58a43",
+    "executable": "D:\\a\\horizon-workbench\\horizon-workbench\\apps\\desktop\\src-tauri\\target\\release\\horizon-desktop.exe",
+    "executable_sha256": "ae569471e9dc90e6e1aafdfee501b6dcad59fc29bcd43fbbcf55869d4839cc93",
+    "session_id": 2,
+    "webview2": [
+      {
+        "key": "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}",
+        "version": "131.0.2903.86"
+      }
+    ],
+    "data_paths": [
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+    ],
+    "data_paths_existed_before": [],
+    "data_retention": "Only directories absent before this launch are owned; leave them to ephemeral runner disposal. No directory/registry deletion.",
+    "status": "process_alive_after_5s",
+    "pid": 5416,
+    "start_time_utc": "2026-11-02T00:50:30.0829978Z",
+    "observed_utc": "2026-11-02T00:50:35.0986930Z",
+    "alive_after_5s": true,
+    "window_handle": "601EA",
+    "window_title": "Horizon",
+    "os_window_exists": true,
+    "frontend_interactive": "not_evaluated",
+    "window_responding": true,
+    "host_readiness": {
+      "scope": "Read-only observation of the two files written by fresh production setup; not an interaction or performance check.",
+      "status": "required_setup_files_observed",
+      "roaming_path": "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "required_files": [
+        "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop\\registry.json",
+        "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop\\extensions\\registry.json"
+      ],
+      "deadline_process_age_seconds": 30,
+      "poll_interval_ms": 250,
+      "started_utc": "2026-11-02T00:50:35.1202162Z",
+      "host_file_exists": true,
+      "extensions_file_exists": true,
+      "first_files_observed_utc": "2026-11-02T00:50:37.6444796Z",
+      "first_files_observed_process_age_ms": 7561.9092,
+      "host_schema_version": 1,
+      "extensions_schema_version": 1,
+      "host_registry_valid": true,
+      "extensions_registry_valid": true,
+      "observed_utc": "2026-11-02T00:50:37.6578027Z"
+    },
+    "frontend_readiness": {
+      "scope": "One read-only UIA query in the owned main window; no Invoke, focus, input or interaction.",
+      "started_utc": "2026-11-02T00:50:37.888631Z",
+      "status": "button_not_observed",
+      "expected_pid": 5416,
+      "expected_start_utc_ticks": 639291774300829978,
+      "window_handle": "601EA",
+      "target_name": "打开本地项目",
+      "observed_utc": "2026-11-02T00:50:39.0817806Z",
+      "helper_exit_code": 0,
+      "observer_elapsed_ms": 2234
+    },
+    "cleanup": "Stopped only the exact spawned PID/start identity and its descendants via Process.Kill(true).",
+    "data_paths_created": [
+      "C:\\Users\\runneradmin\\AppData\\Roaming\\dev.horizon.desktop",
+      "C:\\Users\\runneradmin\\AppData\\Local\\dev.horizon.desktop"
+    ]
+  },
+  "actualDownloadBindings": [
+    {
+      "name": "build-identity.txt",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/windows/windows-ed7061eed588/build-identity.txt",
+      "sha256": "79c81239443473f53631146af4a3b8fa1b6bd9989d70b9cd0630b9a45c5ac5d5",
+      "bytes": 437,
+      "matchesReceiptAPI": true,
+      "matchesPublishedSum": null
+    },
+    {
+      "name": "Horizon_0.1.0_x64-setup.exe",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/windows/windows-ed7061eed588/Horizon_0.1.0_x64-setup.exe",
+      "sha256": "a39a1ac5344a39725e950fa4c740916fb51d820233b9f00e85916385d4e070ec",
+      "bytes": 9948029,
+      "matchesReceiptAPI": true,
+      "matchesPublishedSum": true
+    },
+    {
+      "name": "Horizon_0.1.0_x64_en-US.msi",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/windows/windows-ed7061eed588/Horizon_0.1.0_x64_en-US.msi",
+      "sha256": "31da770f89c09750594e4109df446fbe5daf5b6a1c5a43d38ff10807455c12c5",
+      "bytes": 14320098,
+      "matchesReceiptAPI": true,
+      "matchesPublishedSum": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/windows/windows-ed7061eed588/SHA256SUMS.txt",
+      "sha256": "474d17432fa3c641a441b0f8606901f896408e401b70a655a388657521da870f",
+      "bytes": 190,
+      "matchesReceiptAPI": true,
+      "matchesPublishedSum": null
+    },
+    {
+      "name": "startup-smoke.json",
+      "path": "/Users/chenpengxiang/Desktop/Horizon/artifacts/windows/windows-ed7061eed588/startup-smoke.json",
+      "sha256": "d591a5685b75788028d21ff4ecda98a58fc92a0929220ac498ad7534683ef0bb",
+      "bytes": 3107,
+      "matchesReceiptAPI": true,
+      "matchesPublishedSum": null
+    }
+  ],
+  "deadlineObservationPreserved": {
+    "at_utc": "2026-11-02T00:45:44.013Z",
+    "local_deadline": "2026-11-02 08:45 Asia/Shanghai",
+    "new_ci_status": "in_progress, Build native sidecars and installers",
+    "verified_trial_at_deadline": "windows-075ccd4685bd; five actual assets already downloaded and verified"
+  },
+  "actualPublishedAt": "2026-11-02T00:50:46Z",
+  "newSupersession": [],
+  "limitations": [
+    "Only newed7061 frozen12files/raw10actualresults/OS-host-UIA/fiveactualdownloads inspected. Previously audited075activationhelper/newlocktest and oldnine source bodies/raw are not reread or rerun; immutableSHA comparison reuses exact agent77403366 and observation scripts. OnlyApp differs within the14-file frozen subset, not a claim of no otherfrontend changes in the fullcommit.",
+    "Current ten named tests each1pass/0fail/0ignored; activation1.72s/managed4.24s and ConPTY0.38s are actual scoped results, not startupperformance or desktopUI proof. Original3545 and a721 failures/raw remain preserved, unknownoriginalholder unchanged;075 already supplied the precise currentfailure supersession, so this record adds none.",
+    "Frozen result.conpty.actual_reply_log mistakenly points to runner-version firstline. Same immutable rawlog line1872 is actual00:50:19.9920847 oneCPRreply and1873actualJobemptycompletion. Originalmetadata/archive staysunchanged; newaudit contains explicit derivedpointercorrection only, not a product/testfailure or extraCI.",
+    "Mainae569471/PID5416/session2/window601EA is directly launched builtEXE responding after5s with existingWebView2. Both freshproductionRoaming schema1files firstsampleprocessage7561.9092ms is an observation including polling/tool overhead, not exactsetupduration/rendererready/2sperformance. Cleanup is exactCIownedProcess.Kill(true), not productnativeQuit/upgrade.",
+    "Exactlyone readonlyUIAquery exit0/button_not_observed/2234ms; no timeout/error/faultdiagnosis, enabledvisiblebutton or frontendinteraction pass. No Invoke/input/focus/retry. NFR003andUI003platformlimits staypartial.",
+    "Five actual downloaded externalfiles match APIbytes/digest and twoinstallerpublishedSUMS. No installer execution/extraction or inner-main comparison; startupmainhash is separate artifact. edpublished00:50:46Z after08:45deadline; at00:45:44observation newCI stillbuilding whileverified075trialwasavailable. Do notretroactivelyclaimedwasavailablebydeadline.",
+    "No newpermission/GUI/source/build/test/CI/network/model/sampling/Git operation byverifier. No previoussuccessfulrelease or failure is rewritten, no MacAI/editor/plugin acceptance inferred from Windowsbuild. Fullgoal remainsactive."
+  ]
+}

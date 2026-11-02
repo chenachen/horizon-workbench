@@ -69,6 +69,28 @@ def apply_evidence(rows: list[dict], evidence: list[dict], kind: str) -> None:
             row["status"] = "limited"
 
 
+def apply_scope_decisions(rows: list[dict], evidence: list[dict], decisions: list[dict]) -> None:
+    """Interpret existing evidence within an explicitly recorded delivery scope; no new test credit."""
+    superseded = {old for record in evidence for old in record.get("supersedes", [])}
+    active_pass = {record["id"] for record in evidence if record["outcome"] == "pass" and record["id"] not in superseded}
+    by_id, seen = {row["id"]: row for row in rows}, set()
+    for decision in decisions:
+        key = decision["requirement"]
+        if key not in by_id or key in seen:
+            raise ValueError(f"Unknown or duplicate scope decision: {key}")
+        seen.add(key)
+        row = by_id[key]
+        if decision["originalAcceptance"] != row["acceptance"] or not decision["basisEvidence"]:
+            raise ValueError(f"Scope decision must retain the original clause and existing evidence: {key}")
+        if set(decision["basisEvidence"]) - active_pass or row["status"] == "failed":
+            raise ValueError(f"Scope decision cannot replace an active failure or missing evidence: {key}")
+        if decision["newExecution"] is not False or not decision["limitations"]:
+            raise ValueError(f"Scope decision must disclose its interpretation-only limits: {key}")
+        row["scope_decision"] = decision
+        row["limitations"].extend(decision["limitations"])
+        row["status"] = "verified"
+
+
 def validate_records(records: list[dict], ids: set[str]) -> None:
     seen = set()
     for record in records:
@@ -101,13 +123,19 @@ def validate_records(records: list[dict], ids: set[str]) -> None:
 
 
 def render(requirements: list[dict], tasks: list[dict], records: list[dict]) -> str:
-    lines = ["# macOS 首版验收矩阵", "", "范围：104 条首版需求、39 项首版任务。来源为产品 0.4.0；本次仅验收 macOS。",
-             "已有构建、单元测试、原型或静态审查不能替代真实行为证据；平台原文保留，未测平台不计通过。",
-             "", "状态：已证实＝该条全部条件有证据；部分证实＝仅覆盖子项；失败＝已有反例；受限＝有具体阻断；未证实＝未运行或无足够证据。",
+    lines = ["# macOS 首版验收矩阵", "", "范围：104 条首版需求、39 项首版任务。来源为产品 0.4.0；按本机 macOS 与已交付 Windows x64 试用事实验收，平台未测项单列。",
+             "已有构建、单元测试、原型或静态审查不能替代真实行为证据；未测平台不计通过。范围裁决只解释已有证据，不新增测试或截图回合。",
+             "", "状态：已证实＝原条款在明确的本次范围内已履行；不代表建议指标达标、未测平台通过或额外视觉门完成。部分证实＝仍有条款子项未验；失败＝已有反例；受限＝有具体阻断；未证实＝未运行或无足够证据。",
              "", "## 计数", ""]
     for label, rows in [("需求", requirements), ("任务", tasks)]:
         count = Counter(row["status"] for row in rows)
         lines.append(f"- {label} {len(rows)}：" + "；".join(f"{text} {count[status]}" for status, text in STATUSES.items()))
+    decisions = [row["scope_decision"] for row in requirements if "scope_decision" in row]
+    if decisions:
+        lines.extend(["", "## 本次范围裁决", "", "来源：[acceptance-scope-decisions.json](acceptance-scope-decisions.json)。原始证据及其 partial/full 标签不改；以下是既有事实的范围解释。", ""])
+        for decision in decisions:
+            lines.extend([f"- {decision['requirement']}：{decision['interpretation']}", "  限制：" + "；".join(decision["limitations"])])
+        lines.extend(["", "UI003 的 Windows 125%/150% 仍未测；额外536视觉门独立见[视觉矩阵](VISUAL_MATRIX.md)。", ""])
     lines.extend(["", "## 需求待办", "", "| 编号 / 需求 | 优先级 | 任务 | 实现位置 | 状态 / 证据 | 验收条件 |", "| --- | --- | --- | --- | --- | --- |"])
     escape = lambda text: str(text).replace("|", "\\|").replace("\n", " ")
     for row in requirements:
@@ -132,6 +160,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evidence", type=Path, default=ROOT / "docs/verification/evidence.json")
     parser.add_argument("--output", type=Path, default=ROOT / "docs/verification")
+    parser.add_argument("--scope-decisions", type=Path, default=ROOT / "docs/verification/acceptance-scope-decisions.json")
     parser.add_argument("--check", action="store_true", help="Verify exact generated matrix matches canonical source/evidence")
     args = parser.parse_args()
     requirements, tasks = canonical()
@@ -139,6 +168,8 @@ def main() -> None:
     validate_records(records, {row["id"] for row in requirements + tasks})
     apply_evidence(requirements, records, "requirements")
     apply_evidence(tasks, records, "tasks")
+    decisions = json.loads(args.scope_decisions.read_text()).get("decisions", []) if args.scope_decisions.exists() else []
+    apply_scope_decisions(requirements, records, decisions)
     data = {"schema_version": 1, "scope": "macOS", "requirements": requirements, "tasks": tasks}
     outputs = {"MACOS_ACCEPTANCE.md": render(requirements, tasks, records),
                "matrix.json": json.dumps(data, ensure_ascii=False, indent=2) + "\n"}

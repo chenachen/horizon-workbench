@@ -1,0 +1,54 @@
+{
+  "preparedAt": "2026-11-02T02:42:53.416387+00:00",
+  "status": "isolated candidate compiled; not launched; live source unchanged",
+  "baselineSourceSHA256": "a3948865cb106a70f009a7da60bb0b427153b8f0ecafe585ca36b4ca8d6ebceb",
+  "candidateSourceSHA256": "f6111f3dccee7732fa47fe5541a371324d1c8e37476b1c7d5f5470e9a7cf3f4d",
+  "candidateExecutableSHA256": "f67b9d0ecf37c70e1e9eed5714f370e38ac0b8512f8949785383ffc1e6fe7db9",
+  "candidateApp": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/HorizonPickerCandidate.app",
+  "steps": [
+    {
+      "argv": [
+        "xcrun",
+        "swiftc",
+        "-swift-version",
+        "5",
+        "-parse-as-library",
+        "-O",
+        "-target",
+        "arm64-apple-macosx12.0",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/Picker.swift",
+        "-o",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/HorizonPickerCandidate.app/Contents/MacOS/HorizonPicker"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/Picker.swift:53:24: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead [#DeprecatedDeclaration]\n 51 |             let types = extensions.compactMap { UTType(filenameExtension: $0, conformingTo: .data) }\n 52 |             if types.count != extensions.count || types.contains(where: { $0.isDynamic }) {\n 53 |                 picker.allowedFileTypes = extensions\n    |                        `- warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead [#DeprecatedDeclaration]\n 54 |             } else {\n 55 |                 picker.allowedContentTypes = types\n\n[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>\n"
+    },
+    {
+      "argv": [
+        "codesign",
+        "--force",
+        "--sign",
+        "-",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/HorizonPickerCandidate.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/HorizonPickerCandidate.app: replacing existing signature\n"
+    },
+    {
+      "argv": [
+        "codesign",
+        "--verify",
+        "--deep",
+        "--strict",
+        "/Users/chenpengxiang/Desktop/Horizon/.work/picker-customtype-candidate-20261102/HorizonPickerCandidate.app"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "scope": "Use literal extension filtering only for unresolved/dynamic custom types. Existing known UTType filters retain allowedContentTypes. Candidate has its own bundle identity solely for native comparison; no installer/backend/source mutation.",
+  "reference": "https://developer.apple.com/documentation/appkit/nssavepanel/allowedfiletypes"
+}
