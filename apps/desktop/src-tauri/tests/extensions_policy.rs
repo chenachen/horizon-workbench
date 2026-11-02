@@ -245,7 +245,7 @@ fn startup_syncs_installed_builtin_theme_declarations_and_preserves_user_state()
 }
 
 #[test]
-fn startup_syncs_builtin_descriptions_without_replacing_capabilities_or_user_policy() {
+fn startup_syncs_builtin_names_and_descriptions_without_replacing_capabilities_or_user_policy() {
     let fixture = Fixture::new();
     let original = fixture.registry();
     let ids: Vec<String> = original["records"].as_object().unwrap().keys().cloned().collect();
@@ -254,7 +254,7 @@ fn startup_syncs_builtin_descriptions_without_replacing_capabilities_or_user_pol
         for id in &ids {
             let record = &mut registry["records"][id];
             record["manifest"]["description"] = json!("旧内置说明");
-            record["manifest"]["name"] = json!("保留其他元数据");
+            record["manifest"]["name"] = json!("旧内置名称");
             record["manifest"]["capabilities"] = json!(["preserved-capability"]);
             record["enabledGlobal"] = json!(false);
             record["pausedGlobal"] = json!(true);
@@ -269,6 +269,9 @@ fn startup_syncs_builtin_descriptions_without_replacing_capabilities_or_user_pol
     let after = fixture.registry();
     for id in &ids {
         let mut expected_manifest = before["records"][id]["manifest"].clone();
+        // Names and descriptions are bundled presentation metadata, not user policy.
+        // Preserve the rest of the manifest, especially capabilities.
+        expected_manifest["name"] = original["records"][id]["manifest"]["name"].clone();
         expected_manifest["description"] = original["records"][id]["manifest"]["description"].clone();
         assert_eq!(after["records"][id]["manifest"], expected_manifest, "{id}");
         for field in ["enabledGlobal", "pausedGlobal", "projects", "config", "projectConfig", "grants", "installed", "builtin"] { assert_eq!(after["records"][id][field], before["records"][id][field], "{id} {field}"); }
@@ -289,6 +292,7 @@ fn theme_sync_skips_uninstalled_external_and_different_version_records() {
         for id in ["mist", "paper", "orbit", "graphite", "iris"] {
             registry["records"][format!("horizon.theme.{id}")]["manifest"]["contributes"]["themes"][0]["light"]["background"] = json!("#abcdef");
             registry["records"][format!("horizon.theme.{id}")]["manifest"]["description"] = json!("外部或已卸载描述应保留");
+            registry["records"][format!("horizon.theme.{id}")]["manifest"]["name"] = json!("外部或已卸载名称应保留");
         }
         registry["records"]["horizon.theme.mist"]["installed"] = json!(false);
         registry["records"]["horizon.theme.paper"]["source"] = json!("/chosen/local-update.horizon-extension");
