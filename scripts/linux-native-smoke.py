@@ -169,7 +169,8 @@ def main():
               'coverage': ['installed native launch and IPC', 'workspace cancel/create/persistence',
                            'settings theme click/persistence', 'modal close/reopen',
                            'relaunch of the installed application'],
-              'notCovered': ['native file picker', 'project editing/terminal/Git GUI',
+              'notCovered': ['AppImage runtime launch', 'Wayland session',
+                             'native file picker', 'project editing/terminal/Git GUI',
                              'AI runtime activation or paid API', 'system keyring integration',
                              'ARM64 or macOS/Windows native behavior']}
     wd = WebDriver(f'http://127.0.0.1:{args.port}')
@@ -201,7 +202,9 @@ def main():
         capture('01-native-welcome')
         workspace_name = 'Linux native smoke workspace'
         def workspace_flow():
-            wd.click('button[aria-label="项目总览"]')
+            # The welcome layout deliberately hides project-navigation (styles.css).
+            # Use the visible first-run entry, not the hidden navigation button.
+            wd.click('.welcome button.all-projects')
             wd.button_text('新建工作区')
             wd.wait(lambda: wd.js('return !!document.querySelector("dialog[open] input[placeholder=\"例如：个人项目\"]");'), 'workspace form')
             wd.type('dialog[open] input[placeholder="例如：个人项目"]', 'Cancelled fixture')
