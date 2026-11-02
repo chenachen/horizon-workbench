@@ -9,6 +9,18 @@ use tauri::ipc::Channel;
 pub fn id() -> String { uuid::Uuid::new_v4().to_string() }
 pub fn digest(bytes: impl AsRef<[u8]>) -> String { format!("{:x}", Sha256::digest(bytes)) }
 pub fn now() -> String { chrono::Utc::now().to_rfc3339() }
+/// Keep canonical paths for I/O, and hide Windows extended-length syntax in UI labels.
+pub fn display_path(path: &Path) -> String {
+    let display = path.to_string_lossy();
+    #[cfg(windows)]
+    {
+        if let Some(unc) = display.strip_prefix(r"\\?\UNC\") { return format!(r"\\{unc}"); }
+        if let Some(drive) = display.strip_prefix(r"\\?\") {
+            if drive.as_bytes().get(1) == Some(&b':') { return drive.to_owned(); }
+        }
+    }
+    display.into_owned()
+}
 pub fn native_encode(path: &Path) -> String {
     #[cfg(unix)] { use std::os::unix::ffi::OsStrExt; STANDARD.encode(path.as_os_str().as_bytes()) }
     #[cfg(not(unix))] { STANDARD.encode(path.to_string_lossy().as_bytes()) }
@@ -104,7 +116,17 @@ impl HostState {
         let registry_path=data_dir.join("registry.json");
         let mut registry:Registry=if registry_path.exists(){serde_json::from_slice(&fs::read(&registry_path)?)?}else{Registry::default()};
         if registry.schema_version!=1 {return Err(HostError::new("CONFIG_VERSION_UNSUPPORTED","项目配置版本不受支持"));}
-        for project in &mut registry.projects { project["state"]=json!("registered"); }
+        for project in &mut registry.projects {
+            project["state"]=json!("registered");
+            if let Some(path) = project["rootDisplayPath"].as_str().map(str::to_owned) {
+                let display = display_path(Path::new(&path));
+                // Repair the former Windows default name (the entire directory path).
+                if project["displayName"] == path || project["displayName"] == display {
+                    if let Some(name) = Path::new(&path).file_name() { project["displayName"] = json!(name.to_string_lossy()); }
+                }
+                project["rootDisplayPath"] = json!(display);
+            }
+        }
         atomic_json(&registry_path,&registry)?;
         let path_index=registry.paths.iter().map(|(id,record)|(record.clone(),id.clone())).collect();
         for d in ["recovery","cache","exports","assets"] { fs::create_dir_all(data_dir.join(d))?; }
@@ -178,7 +200,7 @@ impl HostState {
         if !reg.workspaces.iter().any(|w|w["id"]==workspace){return Err(HostError::new("NOT_FOUND","工作区不存在"));}
         let project_id=id();
         let name=display_name.map(str::to_owned).unwrap_or_else(||root.file_name().unwrap_or_default().to_string_lossy().into_owned());
-        let project=json!({"id":project_id,"workspaceId":workspace,"displayName":name,"rootDisplayPath":root.to_string_lossy(),"pinned":false,"revision":1,"state":"registered"});
+        let project=json!({"id":project_id,"workspaceId":workspace,"displayName":name,"rootDisplayPath":display_path(&root),"pinned":false,"revision":1,"state":"registered"});
         reg.projects.push(project.clone()); reg.roots.insert(project_id.clone(),encoded);
         for w in &mut reg.workspaces {if w["id"]==workspace {w["projectIds"].as_array_mut().unwrap().push(json!(project_id));w["revision"]=json!(w["revision"].as_u64().unwrap()+1);}}
         reg.revision+=1; drop(reg); self.persist()?;

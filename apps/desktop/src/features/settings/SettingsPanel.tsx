@@ -124,7 +124,7 @@ function DataExportDialog({ preview, busy, error, onClose, onConfirm }: { previe
   </dialog>;
 }
 
-export function SettingsPanel({ projectId, projectName, projects = [], resourceActivity, onSelectProject, onError, agentSettings, projectSettings, initialSection = 'appearance', onSectionChange, onManagePlugins, onManageRecovery, onDirtyChange, onClose }: { projectId?: string; projectName?: string; projects?: Project[]; resourceActivity?: ProjectActivitySnapshot; onSelectProject?: (id: string) => Promise<boolean | 'cancelled'>; onError?: (error: unknown) => void; agentSettings?: ReactNode; projectSettings?: ReactNode; initialSection?: SettingsSection; onSectionChange?: (section: SettingsSection) => void; onManagePlugins?: () => void; onManageRecovery?: () => void; onDirtyChange?: FormDirtyListener; onClose?: () => void }) {
+export function SettingsPanel({ formStatus, projectId, projectName, projects = [], resourceActivity, onSelectProject, onError, agentSettings, projectSettings, initialSection = 'appearance', onSectionChange, onManagePlugins, onManageRecovery, onDirtyChange, onClose }: { formStatus?: string; projectId?: string; projectName?: string; projects?: Project[]; resourceActivity?: ProjectActivitySnapshot; onSelectProject?: (id: string) => Promise<boolean | 'cancelled'>; onError?: (error: unknown) => void; agentSettings?: ReactNode; projectSettings?: ReactNode; initialSection?: SettingsSection; onSectionChange?: (section: SettingsSection) => void; onManagePlugins?: () => void; onManageRecovery?: () => void; onDirtyChange?: FormDirtyListener; onClose?: () => void }) {
   const appearance = useAppearance();
   const [section, setSection] = useState<Section>(() => initialSettingsSection(initialSection));
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -559,7 +559,7 @@ export function SettingsPanel({ projectId, projectName, projects = [], resourceA
       {visited.has('projects') ? <div className="settings-external settings-project-launcher" hidden={section !== 'projects'}>{projectId ? <p className="settings-group-label">当前项目 · {projectName ?? '启动方案'}</p> : null}{projectSettings}</div> : null}
       <div className="settings-save-status" role="status" aria-live="polite">{busy || message}{busy && cancelTask ? <button className="custom-reset" onClick={() => void cancelTask().catch(reportError)}>取消</button> : null}</div>
     </div>
-    <footer className="settings-footer"><span><Check size={15} aria-hidden="true" />偏好即时生效</span>{onClose ? <button disabled={!!busy} onClick={() => void persistChanges().then(onClose).catch(() => {})}>完成</button> : null}</footer>
+    <footer className="settings-footer"><span><Check size={15} aria-hidden="true" />{formStatus ?? '偏好即时生效'}</span>{onClose ? <button disabled={!!busy} onClick={() => void persistChanges().then(onClose).catch(() => {})}>完成</button> : null}</footer>
     {dataExportPreview ? <DataExportDialog key={dataExportPreview.planId} preview={dataExportPreview} busy={dataExportBusy} error={dataExportError} onClose={() => void closeDataExport()} onConfirm={() => void confirmDataExport()} /> : null}
   </div>;
 }
