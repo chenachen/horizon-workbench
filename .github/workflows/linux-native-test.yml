@@ -33,6 +33,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
+          cache-on-failure: true
           workspaces: |
             apps/desktop/src-tauri -> target
             apps/git-service -> target
@@ -67,9 +68,7 @@ jobs:
           cargo test --locked --manifest-path apps/extension-host/Cargo.toml -- --ignored 2>&1 | tee artifacts/linux/extension-deadline-test.log
       - name: Build actual Linux packages
         run: npm run desktop:release -- --bundles deb,appimage 2>&1 | tee artifacts/linux/build.log
-      - name: Test native desktop host
-        run: xvfb-run -a dbus-run-session -- cargo test --locked --manifest-path apps/desktop/src-tauri/Cargo.toml -- --test-threads=1 2>&1 | tee artifacts/linux/host-tests.log
-      - name: Collect and install built Debian package
+      - name: Preserve built Linux packages
         run: |
           shopt -s nullglob
           debs=(apps/desktop/src-tauri/target/release/bundle/deb/*.deb)
@@ -78,6 +77,13 @@ jobs:
           test "${#images[@]}" -eq 1
           cp "${debs[0]}" "${images[0]}" artifacts/linux/
           (cd artifacts/linux && sha256sum *.deb *.AppImage) | tee artifacts/linux/SHA256SUMS.txt
+      - name: Test native desktop host
+        run: xvfb-run -a dbus-run-session -- cargo test --locked --manifest-path apps/desktop/src-tauri/Cargo.toml -- --test-threads=1 2>&1 | tee artifacts/linux/host-tests.log
+      - name: Install built Debian package
+        run: |
+          shopt -s nullglob
+          debs=(artifacts/linux/*.deb)
+          test "${#debs[@]}" -eq 1
           sudo apt-get install -y "$(realpath "${debs[0]}")" 2>&1 | tee artifacts/linux/install.log
           dpkg -L "$(dpkg-deb -f "${debs[0]}" Package)" | tee artifacts/linux/installed-files.txt
           test -x /usr/bin/horizon-desktop

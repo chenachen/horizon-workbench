@@ -208,6 +208,73 @@ struct ProcessIdentity {
     activation_id: String,
     lease: Option<DirectLease>,
 }
+// Linux can leave a blocking master write asleep even after every slave closes.
+// All dup'd master FDs share O_NONBLOCK, so both directions handle readiness.
+#[cfg(target_os="linux")]
+struct LinuxPtyIo {
+    file: fs::File,
+    exited: Arc<std::sync::atomic::AtomicBool>,
+}
+#[cfg(target_os="linux")]
+impl LinuxPtyIo {
+    fn duplicate(fd: std::os::fd::RawFd, exited: Arc<std::sync::atomic::AtomicBool>) -> std::io::Result<Self> {
+        use std::os::fd::FromRawFd;
+        let duplicate = unsafe { libc::fcntl(fd, libc::F_DUPFD_CLOEXEC, 0) };
+        if duplicate < 0 { return Err(std::io::Error::last_os_error()); }
+        Ok(Self { file: unsafe { fs::File::from_raw_fd(duplicate) }, exited })
+    }
+    fn wait(&self, events: libc::c_short) -> std::io::Result<()> {
+        use std::os::fd::AsRawFd;
+        let mut descriptor = libc::pollfd { fd: self.file.as_raw_fd(), events, revents: 0 };
+        let result = unsafe { libc::poll(&mut descriptor, 1, 50) };
+        if result < 0 {
+            let error = std::io::Error::last_os_error();
+            if error.kind() != std::io::ErrorKind::Interrupted { return Err(error); }
+        }
+        Ok(())
+    }
+}
+#[cfg(target_os="linux")]
+impl Read for LinuxPtyIo {
+    fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
+        loop {
+            match self.file.read(bytes) {
+                Err(error) if error.kind() == std::io::ErrorKind::WouldBlock => {
+                    // Preserve draining semantics until the slave actually closes.
+                    self.wait(libc::POLLIN)?;
+                }
+                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => {},
+                result => return result,
+            }
+        }
+    }
+}
+#[cfg(target_os="linux")]
+impl Write for LinuxPtyIo {
+    fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
+        loop {
+            if self.exited.load(std::sync::atomic::Ordering::Acquire) {
+                return Err(std::io::Error::new(std::io::ErrorKind::BrokenPipe, "PTY process exited"));
+            }
+            match self.file.write(bytes) {
+                Err(error) if error.kind() == std::io::ErrorKind::WouldBlock => self.wait(libc::POLLOUT)?,
+                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => {},
+                result => return result,
+            }
+        }
+    }
+    fn flush(&mut self) -> std::io::Result<()> { Ok(()) }
+}
+#[cfg(target_os="linux")]
+fn linux_pty_io(fd: std::os::fd::RawFd, exited: Arc<std::sync::atomic::AtomicBool>) -> std::io::Result<(LinuxPtyIo, LinuxPtyIo)> {
+    let reader = LinuxPtyIo::duplicate(fd, exited.clone())?;
+    let writer = LinuxPtyIo::duplicate(fd, exited)?;
+    let flags = unsafe { libc::fcntl(fd, libc::F_GETFL) };
+    if flags < 0 || unsafe { libc::fcntl(fd, libc::F_SETFL, flags | libc::O_NONBLOCK) } < 0 {
+        return Err(std::io::Error::last_os_error());
+    }
+    Ok((reader, writer))
+}
 struct Process {
     id: String,
     project: String,
@@ -233,6 +300,8 @@ struct Process {
     job: Option<Arc<crate::windows_process::OwnedJob>>,
     master: Option<Box<dyn MasterPty + Send>>,
     writer: Option<Arc<Mutex<Box<dyn Write + Send>>>>,
+    #[cfg(target_os="linux")]
+    pty_exited: Arc<std::sync::atomic::AtomicBool>,
     killer: Option<Box<dyn ChildKiller + Send + Sync>>,
     output: Output,
 }
@@ -938,6 +1007,8 @@ fn process_exited(process: &Arc<Mutex<Process>>, code: i32, app: &Option<AppHand
         p.state = "exited".into();
         p.revision += 1;
         p.exit = Some(code);
+        #[cfg(target_os="linux")]
+        p.pty_exited.store(true, std::sync::atomic::Ordering::Release);
         p.writer = None;
         p.master = None;
         (p.run.clone(), p.step.clone())
@@ -1105,6 +1176,8 @@ fn spawn_process(
         job: None,
         master: None,
         writer: None,
+        #[cfg(target_os="linux")]
+        pty_exited: Arc::new(std::sync::atomic::AtomicBool::new(false)),
         killer: None,
         output: Output::new(),
     };
@@ -1126,6 +1199,13 @@ fn spawn_process(
         for (key, value) in &resolved.step.env {
             command.env(key, value);
         }
+        // Prepare fallible Linux I/O before spawning, so setup errors cannot orphan a child.
+        #[cfg(target_os="linux")]
+        let (reader, writer): (Box<dyn Read + Send>, Box<dyn Write + Send>) = {
+            let fd = pair.master.as_raw_fd().ok_or_else(|| err("IO_ERROR", "PTY master FD unavailable"))?;
+            let (reader, writer) = linux_pty_io(fd, process.pty_exited.clone()).map_err(io)?;
+            (Box::new(reader), Box::new(writer))
+        };
         #[cfg(windows)]
         command.set_creation_flags(crate::windows_process::SUSPENDED_CREATION_FLAGS);
         let mut child = pair.slave.spawn_command(command).map_err(io)?;
@@ -1145,8 +1225,9 @@ fn spawn_process(
                 Err(error) => return Err(retain_windows_spawn_failure(process, child, app.clone(), error)),
             }
         }
-        let reader = pair.master.try_clone_reader().map_err(io)?;
-        process.writer = Some(Arc::new(Mutex::new(pair.master.take_writer().map_err(io)?)));
+        #[cfg(not(target_os="linux"))]
+        let (reader, writer) = (pair.master.try_clone_reader().map_err(io)?, pair.master.take_writer().map_err(io)?);
+        process.writer = Some(Arc::new(Mutex::new(writer)));
         process.master = Some(pair.master);
         let p = Arc::new(Mutex::new(process));
         registry()
@@ -2913,6 +2994,44 @@ mod tests {
             .unwrap();
         assert_eq!(stop_process(&process, false, None).unwrap()["exited"], true);
         fs::remove_dir(root).unwrap();
+    }
+    #[cfg(target_os="linux")]
+    #[test]
+    fn linux_pty_nonblocking_output_and_cancelled_input() {
+        use std::os::fd::FromRawFd;
+        use std::sync::atomic::{AtomicBool, Ordering};
+        let (mut master, mut slave) = (-1, -1);
+        assert_eq!(unsafe { libc::openpty(&mut master, &mut slave, std::ptr::null_mut(), std::ptr::null(), std::ptr::null()) }, 0);
+        let _master = unsafe { fs::File::from_raw_fd(master) };
+        let mut slave_file = unsafe { fs::File::from_raw_fd(slave) };
+        let mut termios = std::mem::MaybeUninit::<libc::termios>::uninit();
+        assert_eq!(unsafe { libc::tcgetattr(slave, termios.as_mut_ptr()) }, 0);
+        let mut termios = unsafe { termios.assume_init() };
+        unsafe { libc::cfmakeraw(&mut termios); }
+        assert_eq!(unsafe { libc::tcsetattr(slave, libc::TCSANOW, &termios) }, 0);
+        let exited = Arc::new(AtomicBool::new(false));
+        let (mut reader, mut writer) = linux_pty_io(master, exited.clone()).unwrap();
+        let (read_tx, read_rx) = std::sync::mpsc::channel();
+        let read_thread = thread::spawn(move || {
+            let mut output = [0; 64];
+            let count = reader.read(&mut output).unwrap();
+            read_tx.send(output[..count].to_vec()).unwrap();
+        });
+        // Reader must survive EAGAIN on the shared nonblocking file description.
+        thread::sleep(Duration::from_millis(60));
+        slave_file.write_all("中文输出".as_bytes()).unwrap();
+        assert_eq!(read_rx.recv_timeout(Duration::from_secs(2)).unwrap(), "中文输出".as_bytes());
+        read_thread.join().unwrap();
+        let (tx, rx) = std::sync::mpsc::channel();
+        let write_thread = thread::spawn(move || {
+            tx.send(writer.write_all(&vec![b'x'; 1024 * 1024])).unwrap();
+        });
+        assert!(matches!(rx.recv_timeout(Duration::from_millis(60)), Err(std::sync::mpsc::RecvTimeoutError::Timeout)));
+        // Cancellation must work even while the slave remains open and unread.
+        exited.store(true, Ordering::Release);
+        assert_eq!(rx.recv_timeout(Duration::from_secs(2)).unwrap().unwrap_err().kind(), std::io::ErrorKind::BrokenPipe);
+        write_thread.join().unwrap();
+        drop(slave_file);
     }
     #[test]
     fn terminal_input_backpressure_does_not_block_stop() {
