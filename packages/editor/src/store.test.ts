@@ -594,3 +594,153 @@ describe('versioned editor documents', () => {
     expect(call.mock.calls.some(([method]) => method === 'document_save')).toBe(false);
   });
 });
+
+
+describe('G01 real editor operation loading', () => {
+  const session = (ids: string[]) => ({ schemaVersion: 1 as const, revision: 1, tabs: ids.map(fileId => ({ fileId, pinned: true, selection: { anchor: 1, head: 1 }, scrollTop: 10 })), activeFileId: ids.at(-1) ?? null, expandedEntryIds: [], searchDraft: '' });
+
+  it('G01 cold open publishes actual pending before bytes, deduplicates and clears on success', async () => {
+    const read = deferred<OpenDocument>();
+    const { store, call } = fixture({ document_open: () => read.promise });
+    const states: (string | undefined)[] = [];
+    const unsubscribe = store.subscribe(() => states.push(store.getProjectLoadState('a')));
+    const pending = store.openFile('one');
+    expect(store.getProjectLoadState('a')).toBe('opening');
+    expect(store.getActive()).toBeUndefined();
+    expect(store.getSnapshot().projects.get('a')?.tabs).toEqual([]);
+    const duplicate = store.openFile('one');
+    expect(call.mock.calls.filter(([method]) => method === 'document_open')).toHaveLength(1);
+    read.resolve(opened('a', 'one', 'real bytes'));
+    await Promise.all([pending, duplicate]);
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getActive()?.getText()).toBe('real bytes');
+    expect(states).toContain('opening');
+    expect(states.at(-1)).toBeUndefined();
+    expect(call.mock.calls.some(([method]) => method === 'document_save' || method === 'document_checkpoint')).toBe(false);
+    unsubscribe();
+  });
+
+  it.each(['plain rejection', 'file access rejection', 'synchronous transport throw'])('G01 failed cold open clears pending: %s', async kind => {
+    const read = deferred<OpenDocument>();
+    const { store, call } = fixture({ document_open: () => read.promise });
+    const failure = Object.assign(new Error('controlled read failure'), { code: 'NOT_FOUND', ...(kind === 'file access rejection' ? { details: { file: { projectId: 'a', fileId: 'one', displayPath: 'one.ts' } } } : {}) });
+    if (kind === 'synchronous transport throw') call.mockImplementationOnce(() => { throw failure; });
+    const pending = store.openFile('one');
+    if (kind !== 'synchronous transport throw') {
+      expect(store.getProjectLoadState('a')).toBe('opening');
+      read.reject(failure);
+    }
+    await pending;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    if (kind === 'file access rejection') expect(store.getActive()).toMatchObject({ mode: 'unavailable', accessError: { code: 'NOT_FOUND' }, loading: false });
+    else expect(store.getSnapshot().error).toBe('controlled read failure');
+  });
+
+  it('G01 concurrent reads keep pending after first settles and preserve ready active content', async () => {
+    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
+    const first = store.openFile('one'), second = store.openFile('two');
+    one.resolve(opened('a', 'one', 'keep ready content')); await first;
+    const active = store.getActive();
+    expect(active?.getText()).toBe('keep ready content');
+    expect(active?.evicted).not.toBe(true);
+    expect(store.getProjectLoadState('a')).toBe('opening');
+    expect(store.getActive()).toBe(active);
+    two.resolve(opened('a', 'two', 'second bytes')); await second;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getActive()?.fileId).toBe('two');
+  });
+
+  it('G01 old-epoch read completion cannot clear new same-file pending', async () => {
+    const oldRead = deferred<OpenDocument>(), newRead = deferred<OpenDocument>(); let reads = 0;
+    const { store } = fixture({ document_open: () => ++reads === 1 ? oldRead.promise : newRead.promise });
+    const oldOpen = store.openFile('one'); store.setProject('a', 2);
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    const newOpen = store.openFile('one');
+    oldRead.resolve(opened('a', 'one', 'obsolete')); await oldOpen;
+    expect(store.getProjectLoadState('a')).toBe('opening');
+    expect(store.getBuffer('a', 'one')).toBeUndefined();
+    newRead.resolve(opened('a', 'one', 'new epoch')); await newOpen;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getActive()?.getText()).toBe('new epoch');
+  });
+
+  it.each([false, true])('G01 A pending never becomes B loading or error (host stopped: %s)', async stop => {
+    const read = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: (params, projectId) => projectId === 'a' ? read.promise : opened(projectId!, String(params.fileId)) });
+    const pending = store.openFile('late');
+    if (stop) store.hostClosedProject('a');
+    store.setProject('b', 1); await store.openFile('ready');
+    expect(store.getProjectLoadState('a')).toBe(stop ? undefined : 'opening');
+    expect(store.getProjectLoadState('b')).toBeUndefined();
+    store.reportError(new Error('B current error'));
+    read.reject(new Error('A late failure')); await pending;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getProjectLoadState('b')).toBeUndefined();
+    expect(store.getActive()).toMatchObject({ projectId: 'b', fileId: 'ready' });
+    expect(store.getSnapshot().error).toBe('B current error');
+  });
+
+  it('G01 actual multi-tab restoration publishes until all bytes settle without changing session writes', async () => {
+    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
+    const { store, call } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
+    store.setProject('a', 1, session(['one', 'two']));
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    const restoring = store.restoreProjectSession('a');
+    expect(store.getProjectLoadState('a')).toBe('restoring');
+    expect(store.getActive()).toBeUndefined();
+    one.resolve(opened('a', 'one')); await tick();
+    expect(store.getSnapshot().projects.get('a')?.tabs).toEqual(['one']);
+    expect(store.getProjectLoadState('a')).toBe('restoring');
+    expect(store.getActive()).toBeUndefined();
+    await store.flushSessions('a');
+    expect(call.mock.calls.filter(([method]) => method === 'session_update')).toHaveLength(0);
+    two.resolve(opened('a', 'two')); await restoring;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getSnapshot().projects.get('a')?.restored).toBe(true);
+    expect(store.getActive()?.fileId).toBe('two');
+    await store.flushSessions('a');
+    const writes = call.mock.calls.filter(([method]) => method === 'session_update');
+    expect(writes).toHaveLength(1);
+    expect(writes[0][1]).toMatchObject({ activeFileId: 'two', tabs: session(['one', 'two']).tabs, expandedEntryIds: [], searchDraft: '' });
+  });
+
+  it('G01 rejected restore clears both actual opening and restoring while retaining error', async () => {
+    const read = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: () => read.promise });
+    store.setProject('a', 1, session(['one']));
+    const restoring = store.restoreProjectSession('a');
+    expect(store.getProjectLoadState('a')).toBe('restoring');
+    read.reject(new Error('restore read failed')); await restoring;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getSnapshot().error).toBe('restore read failed');
+    expect(store.getActive()).toBeUndefined();
+  });
+
+  it('G01 obsolete restore finalizer cannot clear fresh restore pending', async () => {
+    const oldRead = deferred<OpenDocument>(), newRead = deferred<OpenDocument>(); let reads = 0;
+    const { store } = fixture({ document_open: () => ++reads === 1 ? oldRead.promise : newRead.promise });
+    store.setProject('a', 1, session(['one']));
+    const oldRestore = store.restoreProjectSession('a');
+    store.hostClosedProject('a');
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    store.setProject('a', 2);
+    const newRestore = store.restoreProjectSession('a');
+    expect(store.getProjectLoadState('a')).toBe('restoring');
+    oldRead.resolve(opened('a', 'one', 'obsolete')); await oldRestore;
+    expect(store.getProjectLoadState('a')).toBe('restoring');
+    newRead.resolve(opened('a', 'one', 'fresh')); await newRestore;
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getActive()?.getText()).toBe('fresh');
+  });
+
+  it('G01 genuine empty project does not invent file I/O or retain loading', async () => {
+    const { store, call } = fixture();
+    store.setProject('a', 1, session([]));
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    await store.restoreProjectSession('a');
+    expect(store.getProjectLoadState('a')).toBeUndefined();
+    expect(store.getActive()).toBeUndefined();
+    expect(call.mock.calls.some(([method]) => method === 'document_open')).toBe(false);
+  });
+});

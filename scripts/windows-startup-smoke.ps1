@@ -37,6 +37,81 @@ $report = [ordered]@{
 function Write-Report {
   $report | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 (Join-Path $output 'startup-smoke.json')
 }
+function Observe-WindowScreenshot {
+  param([int]$ProcessId, [DateTime]$ProcessStart, [string]$WindowHex, [string]$PngPath)
+  $capture = [ordered]@{
+    scope = 'One screen-pixel copy of the owned window rectangle; occluding windows may appear. No focus, activation or input.'
+    status = 'not_captured'
+    expected_pid = $ProcessId
+    expected_start_utc_ticks = $ProcessStart.Ticks
+    window_handle = $WindowHex
+    started_utc = [DateTime]::UtcNow.ToString('O')
+  }
+  $bitmap = $null
+  $graphics = $null
+  $previousDpi = [IntPtr]::Zero
+  try {
+    $current = [Diagnostics.Process]::GetProcessById($ProcessId)
+    try {
+      if ($current.HasExited -or $current.StartTime.ToUniversalTime().Ticks -ne $ProcessStart.Ticks) { throw 'Owned main identity is no longer live.' }
+    } finally { $current.Dispose() }
+    Add-Type -AssemblyName System.Drawing
+    Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+public static class HorizonWindowCaptureNative {
+  [StructLayout(LayoutKind.Sequential)] public struct RECT { public int Left, Top, Right, Bottom; }
+  [DllImport("user32.dll", SetLastError=true)] public static extern uint GetWindowThreadProcessId(IntPtr window, out uint processId);
+  [DllImport("user32.dll", SetLastError=true)] [return: MarshalAs(UnmanagedType.Bool)] public static extern bool GetWindowRect(IntPtr window, out RECT rectangle);
+  [DllImport("user32.dll")] [return: MarshalAs(UnmanagedType.Bool)] public static extern bool IsWindowVisible(IntPtr window);
+  [DllImport("user32.dll")] [return: MarshalAs(UnmanagedType.Bool)] public static extern bool IsIconic(IntPtr window);
+  [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+  [DllImport("user32.dll")] public static extern int GetSystemMetrics(int index);
+  [DllImport("user32.dll", SetLastError=true)] public static extern IntPtr SetThreadDpiAwarenessContext(IntPtr context);
+}
+'@
+    $previousDpi = [HorizonWindowCaptureNative]::SetThreadDpiAwarenessContext([IntPtr]::new(-4))
+    if ($previousDpi -eq [IntPtr]::Zero) { throw 'Observer physical-pixel DPI context is unavailable.' }
+    $window = [IntPtr]::new([Convert]::ToInt64($WindowHex, 16))
+    [uint32]$owner = 0
+    $ownerThread = [HorizonWindowCaptureNative]::GetWindowThreadProcessId($window, [ref]$owner)
+    if ($ownerThread -eq 0 -or $owner -ne $ProcessId) { throw 'Window handle is not owned by the expected main process.' }
+    $capture.is_visible = [HorizonWindowCaptureNative]::IsWindowVisible($window)
+    $capture.is_minimized = [HorizonWindowCaptureNative]::IsIconic($window)
+    if (-not $capture.is_visible -or $capture.is_minimized) { throw 'Owned window is hidden or minimized; no screen copy taken.' }
+    $rectangle = [HorizonWindowCaptureNative+RECT]::new()
+    if (-not [HorizonWindowCaptureNative]::GetWindowRect($window, [ref]$rectangle)) { throw [ComponentModel.Win32Exception]::new([Runtime.InteropServices.Marshal]::GetLastWin32Error()) }
+    $bounds = [Drawing.Rectangle]::FromLTRB($rectangle.Left, $rectangle.Top, $rectangle.Right, $rectangle.Bottom)
+    $desktop = [Drawing.Rectangle]::new([HorizonWindowCaptureNative]::GetSystemMetrics(76), [HorizonWindowCaptureNative]::GetSystemMetrics(77), [HorizonWindowCaptureNative]::GetSystemMetrics(78), [HorizonWindowCaptureNative]::GetSystemMetrics(79))
+    $visible = [Drawing.Rectangle]::Intersect($bounds, $desktop)
+    if ($visible.Width -le 0 -or $visible.Height -le 0) { throw 'No visible window rectangle on the current desktop surface.' }
+    $capture.coordinate_space = 'Physical screen pixels; GetWindowRect includes outer frame/resize borders.'
+    $capture.window_rectangle = @{ x = $bounds.X; y = $bounds.Y; width = $bounds.Width; height = $bounds.Height }
+    $capture.copied_rectangle = @{ x = $visible.X; y = $visible.Y; width = $visible.Width; height = $visible.Height }
+    $capture.clipped_to_virtual_screen = -not $bounds.Equals($visible)
+    $foreground = [HorizonWindowCaptureNative]::GetForegroundWindow()
+    $capture.foreground_window_handle = $foreground.ToInt64().ToString('X')
+    $capture.target_is_foreground = $foreground -eq $window
+    $bitmap = [Drawing.Bitmap]::new($visible.Width, $visible.Height)
+    $graphics = [Drawing.Graphics]::FromImage($bitmap)
+    $graphics.CopyFromScreen($visible.X, $visible.Y, 0, 0, $visible.Size, [Drawing.CopyPixelOperation]::SourceCopy)
+    $capture.copied_utc = [DateTime]::UtcNow.ToString('O')
+    $bitmap.Save($PngPath, [Drawing.Imaging.ImageFormat]::Png)
+    $capture.status = 'captured'
+    $capture.artifact = [IO.Path]::GetFileName($PngPath)
+    $capture.bytes = (Get-Item -LiteralPath $PngPath).Length
+    $capture.sha256 = (Get-FileHash -LiteralPath $PngPath -Algorithm SHA256).Hash.ToLowerInvariant()
+  } catch {
+    $capture.status = 'capture_unavailable'
+    $capture.error = $_.Exception.Message
+  } finally {
+    if ($null -ne $graphics) { $graphics.Dispose() }
+    if ($null -ne $bitmap) { $bitmap.Dispose() }
+    if ($previousDpi -ne [IntPtr]::Zero) { $null = [HorizonWindowCaptureNative]::SetThreadDpiAwarenessContext($previousDpi) }
+    $capture.observed_utc = [DateTime]::UtcNow.ToString('O')
+  }
+  return $capture
+}
 function Observe-HostReady {
   param([int]$ProcessId, [DateTime]$ProcessStart, [string]$RoamingPath)
   $registryPath = Join-Path $RoamingPath 'registry.json'
@@ -159,6 +234,9 @@ try {
     }
     $report.frontend_readiness.observer_elapsed_ms = $uiaTimer.ElapsedMilliseconds
   }
+  try {
+    $report.window_screenshot = Observe-WindowScreenshot -ProcessId $launchPid -ProcessStart $launchStart -WindowHex $report.window_handle -PngPath (Join-Path $output 'main-window.png')
+  } catch { $report.window_screenshot = @{ status = 'capture_unavailable'; error = $_.Exception.Message } }
 } catch {
   $failed = $true
   $report.status = 'failed'

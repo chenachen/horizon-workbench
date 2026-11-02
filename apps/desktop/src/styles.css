@@ -162,6 +162,7 @@ h3 { font-size: 14px; font-weight: 550; }
 .loading-skeleton { width: 100%; min-width: 0; min-height: 0; align-self: stretch; }
 .loading-skeleton-editor { padding: 18px; }
 .loading-skeleton-tree { padding: 0 4px; }
+.loading-skeleton-tree > div[aria-hidden="true"] { display: flex; flex-direction: column; gap: 2px; }
 .loading-skeleton-bar { display: block; height: 11px; border-radius: 4px; background: var(--h-high); margin: 14px 12px; opacity: .8; }
 .loading-skeleton-editor .loading-skeleton-bar { margin-top: 21px; }
 .loading-skeleton-bar.long { width: 84%; }
@@ -455,6 +456,8 @@ legend { padding: 0 6px; font-size: 12px; font-weight: 500; }
   .horizon-app.ai-open { grid-template-columns: var(--navigation-width) var(--sidebar-width) minmax(0,1fr) 0; }
   .horizon-app.ai-open.sidebar-closed { grid-template-columns: var(--navigation-width) 0 minmax(0,1fr) 0; }
   .auxiliary-panel { position: fixed; z-index: 30; top: var(--topbar-height); bottom: var(--status-height); right: 0; width: min(var(--auxiliary-width), calc(100vw - 60px)); margin: 6px 12px; border: 1px solid var(--border); box-shadow: -10px 6px 30px #10264024; border-radius: var(--radius); }
+  :root[data-layout='tabs'] .auxiliary-panel { top: calc(var(--topbar-height) + 45px); margin-top: 0; }
+  :root[data-layout='dock'] .auxiliary-panel { bottom: calc(var(--status-height) + 48px); margin-bottom: 0; }
   :root[data-layout='unified'] .horizon-app.ai-open, :root[data-layout='drawer'] .horizon-app.ai-open { grid-template-columns: calc(var(--sidebar-width) + 16px) minmax(0,1fr) 0; }
   :root[data-layout='tabs'] .horizon-app.ai-open, :root[data-layout='dock'] .horizon-app.ai-open { grid-template-columns: var(--sidebar-width) minmax(0,1fr) 0; }
   :root[data-layout='compact'] .horizon-app.ai-open { grid-template-columns: var(--navigation-width) var(--sidebar-width) minmax(0,1fr) 0; }
