@@ -462,7 +462,11 @@ fn terminal_shell(reference: Option<&str>) -> Result<(String, Vec<String>)> {
     }
     #[cfg(unix)]
     {
-        let shell = match reference.unwrap_or("zsh") {
+        #[cfg(target_os="linux")]
+        let default = if Path::new("/bin/bash").is_file() { "bash" } else { "sh" };
+        #[cfg(not(target_os="linux"))]
+        let default = "zsh";
+        let shell = match reference.unwrap_or(default) {
             "zsh" => "/bin/zsh", "bash" => "/bin/bash", "sh" => "/bin/sh",
             _ => return Err(err("INVALID_ARGUMENT", "未知 shell")),
         };
@@ -1707,8 +1711,8 @@ fn open_ready_url_with(
     Ok(true)
 }
 fn open_system_url(url: &str) -> Result<()> {
-    #[cfg(windows)] { return tauri_plugin_opener::open_url(url, None::<&str>).map_err(io); }
-    #[cfg(not(windows))]
+    #[cfg(any(windows, target_os="linux"))] { return tauri_plugin_opener::open_url(url, None::<&str>).map_err(io); }
+    #[cfg(not(any(windows, target_os="linux")))]
     {
     let status = Command::new("/usr/bin/open")
         .arg(url)
@@ -1739,7 +1743,11 @@ fn port_belongs_to_run(port: u16, run_id: Option<&str>) -> bool {
 #[cfg(unix)]
 fn port_belongs_to_processes(port: u16, processes: Vec<u32>) -> bool {
     let groups: HashSet<_> = processes.into_iter().flat_map(owned_groups).collect();
-    let Ok(output) = Command::new("/usr/sbin/lsof")
+    #[cfg(target_os="linux")]
+    let lsof = "/usr/bin/lsof";
+    #[cfg(not(target_os="linux"))]
+    let lsof = "/usr/sbin/lsof";
+    let Ok(output) = Command::new(lsof)
         .args(["-nP", &format!("-iTCP:{port}"), "-sTCP:LISTEN", "-Fp"])
         .output()
     else {
@@ -2800,6 +2808,16 @@ fn handle(
 
 #[cfg(all(test, unix))]
 mod tests {
+    #[cfg(target_os="linux")]
+    #[test]
+    fn linux_default_terminal_does_not_require_zsh() {
+        let (shell, args) = super::terminal_shell(None).unwrap();
+        assert_eq!(shell, if std::path::Path::new("/bin/bash").is_file() { "/bin/bash" } else { "/bin/sh" });
+        assert_eq!(args, vec!["-l"]);
+        assert_eq!(super::terminal_shell(Some("sh")).unwrap().0, "/bin/sh");
+        assert!(super::terminal_shell(Some("unknown")).is_err());
+    }
+
     use super::*;
     #[test]
     fn tauri_app_handle_delivers_process_transport_events() {

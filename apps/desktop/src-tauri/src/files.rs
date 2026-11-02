@@ -48,7 +48,17 @@ fn rename_exclusive(from:&Path,to:&Path)->Result<(),HostError>{
         }
         Ok(())
     }
-    #[cfg(not(any(target_os="macos", windows)))]{if to.exists(){return Err(HostError::new("FILE_LOCKED","目标文件已存在"));}fs::rename(from,to)?;Ok(())}
+    #[cfg(target_os="linux")]
+    {
+        use std::os::unix::ffi::OsStrExt;
+        let from = std::ffi::CString::new(from.as_os_str().as_bytes()).map_err(|_| HostError::new("INVALID_ARGUMENT", "路径包含NUL"))?;
+        let to = std::ffi::CString::new(to.as_os_str().as_bytes()).map_err(|_| HostError::new("INVALID_ARGUMENT", "路径包含NUL"))?;
+        // Never fall back to exists() + rename(): a concurrent destination must not be overwritten.
+        let status = unsafe { libc::renameat2(libc::AT_FDCWD, from.as_ptr(), libc::AT_FDCWD, to.as_ptr(), libc::RENAME_NOREPLACE) };
+        if status != 0 { return Err(std::io::Error::last_os_error().into()); }
+        Ok(())
+    }
+    #[cfg(not(any(target_os="macos", target_os="linux", windows)))]{if to.exists(){return Err(HostError::new("FILE_LOCKED","目标文件已存在"));}fs::rename(from,to)?;Ok(())}
 }
 pub fn decode(bytes:&[u8])->Result<(String,&'static str),HostError>{
     if bytes.starts_with(&[0xff,0xfe]) || bytes.starts_with(&[0xfe,0xff]){
@@ -462,7 +472,7 @@ pub fn dispatch(state:Arc<HostState>,call:Call)->Result<Value,HostError>{
         }
         "file_reveal"|"file_open_external"=>{
             allowed(params,&["fileId"])?;let path=state.resolve_file(call.project_id()?,string(params,"fileId")?)?;
-            #[cfg(windows)] {
+            #[cfg(any(windows, target_os="linux"))] {
                 let result = if call.method == "file_reveal" {
                     tauri_plugin_opener::reveal_item_in_dir(&path)
                 } else {
@@ -470,7 +480,7 @@ pub fn dispatch(state:Arc<HostState>,call:Call)->Result<Value,HostError>{
                 };
                 result.map_err(|error| HostError::new("IO_ERROR", format!("系统打开操作失败：{error}")))?;
             }
-            #[cfg(not(windows))] {
+            #[cfg(not(any(windows, target_os="linux")))] {
                 let mut cmd=std::process::Command::new("/usr/bin/open");if call.method=="file_reveal"{cmd.arg("-R");}let status=cmd.arg(&path).status()?;if !status.success(){return Err(HostError::new("IO_ERROR","系统打开操作失败"));}
             }
             Ok(json!({"opened":true}))
@@ -509,6 +519,30 @@ fn read_chunk(state:&HostState,call:&Call)->Result<Value,HostError>{
 #[cfg(test)]
 mod tests{
     use super::*;
+    #[cfg(target_os="linux")]
+    #[test]
+    fn linux_rename_never_replaces_existing_entries() {
+        let directory = tempfile::tempdir().unwrap();
+        let source = directory.path().join("source");
+        let destination = directory.path().join("destination");
+        fs::write(&source, b"source").unwrap();
+        fs::write(&destination, b"keep").unwrap();
+        assert!(rename_exclusive(&source, &destination).is_err());
+        assert_eq!(fs::read(&destination).unwrap(), b"keep");
+        fs::remove_file(&destination).unwrap();
+        std::os::unix::fs::symlink("missing-target", &destination).unwrap();
+        assert!(rename_exclusive(&source, &destination).is_err());
+        assert!(fs::symlink_metadata(&destination).unwrap().is_symlink());
+        assert_eq!(fs::read(&source).unwrap(), b"source");
+        fs::remove_file(&destination).unwrap();
+        rename_exclusive(&source, &destination).unwrap();
+        assert_eq!(fs::read(&destination).unwrap(), b"source");
+        let folder = directory.path().join("folder");
+        let moved = directory.path().join("moved");
+        fs::create_dir(&folder).unwrap();
+        rename_exclusive(&folder, &moved).unwrap();
+        assert!(moved.is_dir());
+    }
     #[test]fn unicode_round_trips(){for encoding in ["utf8","utf8bom","utf16le","utf16be"]{let bytes=encode("你好 😀\nend\n",encoding,"crlf").unwrap();let(text,actual)=decode(&bytes).unwrap();assert_eq!(actual,encoding);assert_eq!(text,"你好 😀\r\nend\r\n");}}
     #[test]fn detect_mixed_lines(){assert_eq!(eol("a\r\nb\n"),"mixed");assert_eq!(eol("a\r\n"),"crlf");}
     #[test]fn revision_detects_same_size_change(){let d=tempfile::tempdir().unwrap();let p=d.path().join("a");fs::write(&p,"one").unwrap();let old=disk_revision(&p).unwrap();fs::write(&p,"two").unwrap();assert_eq!(check_revision(&p,&old).unwrap_err().code,"FILE_CHANGED");}

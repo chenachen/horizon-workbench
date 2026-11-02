@@ -1,0 +1,102 @@
+name: Linux native package and GUI test
+
+on:
+  push:
+    branches: [feature/linux-support-20261102]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: linux-native-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux-x64:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      CARGO_TERM_COLOR: always
+      GDK_BACKEND: x11
+      WEBKIT_DISABLE_DMABUF_RENDERER: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            apps/desktop/src-tauri -> target
+            apps/git-service -> target
+            apps/extension-host -> target
+      - name: Install Linux build and desktop test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev webkit2gtk-driver build-essential libssl-dev libgtk-3-dev libdbus-1-dev libayatana-appindicator3-dev librsvg2-dev patchelf pkg-config xvfb xauth dbus-x11 fonts-noto-cjk git xdg-utils lsof
+          mkdir -p artifacts/linux
+          { echo "commit=$GITHUB_SHA"; echo "run=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; uname -a; rustc -vV; node --version; npm --version; pkg-config --modversion webkit2gtk-4.1 gtk+-3.0 dbus-1; } | tee artifacts/linux/build-identity.txt
+      - name: Install locked JavaScript dependencies
+        run: npm ci 2>&1 | tee artifacts/linux/npm-ci.log
+      - name: Check frontend and platform regressions
+        run: |
+          node --test scripts/linux-packaging.test.mjs scripts/linux-platform.test.mjs apps/desktop/tests/windows-feedback.test.mjs 2>&1 | tee artifacts/linux/platform-tests.log
+          npm run desktop:check 2>&1 | tee artifacts/linux/typecheck.log
+          for root in apps/desktop/src packages/editor/src packages/appearance/src; do
+            npx --no-install vitest run --root "$root" --maxWorkers=1 --no-file-parallelism
+          done 2>&1 | tee artifacts/linux/vitest.log
+          node --import tsx --test packages/plugins/tests/runtime.test.ts 2>&1 | tee artifacts/linux/plugin-tests.log
+      - name: Archive licenses for actual Linux dependency graph
+        run: |
+          node scripts/prepare-ripgrep.mjs x86_64-unknown-linux-gnu
+          for manifest in apps/desktop/src-tauri/Cargo.toml apps/git-service/Cargo.toml apps/extension-host/Cargo.toml; do
+            cargo fetch --locked --target x86_64-unknown-linux-gnu --manifest-path "$manifest"
+          done
+          python3 scripts/archive-licenses.py --target x86_64-unknown-linux-gnu 2>&1 | tee artifacts/linux/notices.log
+      - name: Test native services
+        run: |
+          cargo test --locked --manifest-path apps/git-service/Cargo.toml 2>&1 | tee artifacts/linux/git-tests.log
+          cargo test --locked --manifest-path apps/extension-host/Cargo.toml 2>&1 | tee artifacts/linux/extension-tests.log
+          cargo test --locked --manifest-path apps/extension-host/Cargo.toml -- --ignored 2>&1 | tee artifacts/linux/extension-deadline-test.log
+      - name: Build actual Linux packages
+        run: npm run desktop:release -- --bundles deb,appimage 2>&1 | tee artifacts/linux/build.log
+      - name: Test native desktop host
+        run: xvfb-run -a dbus-run-session -- cargo test --locked --manifest-path apps/desktop/src-tauri/Cargo.toml -- --test-threads=1 2>&1 | tee artifacts/linux/host-tests.log
+      - name: Collect and install built Debian package
+        run: |
+          shopt -s nullglob
+          debs=(apps/desktop/src-tauri/target/release/bundle/deb/*.deb)
+          images=(apps/desktop/src-tauri/target/release/bundle/appimage/*.AppImage)
+          test "${#debs[@]}" -eq 1
+          test "${#images[@]}" -eq 1
+          cp "${debs[0]}" "${images[0]}" artifacts/linux/
+          (cd artifacts/linux && sha256sum *.deb *.AppImage) | tee artifacts/linux/SHA256SUMS.txt
+          sudo apt-get install -y "$(realpath "${debs[0]}")" 2>&1 | tee artifacts/linux/install.log
+          dpkg -L "$(dpkg-deb -f "${debs[0]}" Package)" | tee artifacts/linux/installed-files.txt
+          test -x /usr/bin/horizon-desktop
+          /usr/bin/horizon-rg --version | tee artifacts/linux/ripgrep-version.txt
+      - name: Install native WebDriver
+        run: |
+          cargo install tauri-driver --locked
+          cargo install --list | tee artifacts/linux/driver-version.txt
+          dpkg-query -W webkit2gtk-driver | tee -a artifacts/linux/driver-version.txt
+      - name: Exercise installed native application UI
+        run: |
+          mkdir -p "$RUNNER_TEMP/horizon-native-home" "$RUNNER_TEMP/horizon-native-data" "$RUNNER_TEMP/horizon-native-config" "$RUNNER_TEMP/horizon-native-cache"
+          export HOME="$RUNNER_TEMP/horizon-native-home" XDG_DATA_HOME="$RUNNER_TEMP/horizon-native-data" XDG_CONFIG_HOME="$RUNNER_TEMP/horizon-native-config" XDG_CACHE_HOME="$RUNNER_TEMP/horizon-native-cache"
+          xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/linux/gui 2>&1 | tee artifacts/linux/gui.log
+      - name: Upload packages and verification evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: Horizon-Linux-test-${{ github.sha }}
+          path: artifacts/linux
+          if-no-files-found: warn
+          retention-days: 7

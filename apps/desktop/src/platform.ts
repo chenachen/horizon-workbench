@@ -13,4 +13,4 @@ export function detectPlatform(
 
 export const platform = detectPlatform();
 export const platformLabel = { macos: 'macOS', windows: 'Windows', linux: 'Linux', unknown: '本机' }[platform];
-export const defaultLaunchShell = platform === 'windows' ? 'powershell.exe' : '/bin/zsh';
+export const defaultLaunchShell = platform === 'windows' ? 'powershell.exe' : platform === 'macos' ? '/bin/zsh' : '/bin/sh';

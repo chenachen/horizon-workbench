@@ -1,20 +1,33 @@
 //! Private platform details for the fixed Pi runtime and its local broker.
 use std::{fs, io, path::{Component, Path, PathBuf}, process::Command};
 
-pub(super) fn asset_for(windows: bool, arm64: bool) -> (&'static str, &'static str, u64) {
-    match (windows, arm64) {
-        (true, false) => ("pi-windows-x64.zip", "0f7256ea8bdac3af20012b94fdc1252a31cc6dc0d2f9b9eb539555d22e3e321b", 45_136_547),
-        (true, true) => ("pi-windows-arm64.zip", "17ab17ee0e9088545c7dfa56d29490c45bd915425610b0db0cd937632f2df714", 43_770_747),
-        (false, true) => ("pi-darwin-arm64.tar.gz", "79d9979d76a2a5adb7c28e27e9b44629928ccd0dc9fbb6ae7217860bd5e8be5d", 31_098_931),
-        (false, false) => ("pi-darwin-x64.tar.gz", "1bdefc9e1074c1de458ea9f2e43e6013ce49cd05326009b3de144037036585e2", 33_558_360),
+/// Pinned official v1.4.0 assets. Unknown platforms must never receive a Darwin fallback.
+pub(super) fn asset_for(os: &str, arch: &str) -> Option<(&'static str, &'static str, u64)> {
+    Some(match (os, arch) {
+        ("windows", "x86_64") => ("pi-windows-x64.zip", "0f7256ea8bdac3af20012b94fdc1252a31cc6dc0d2f9b9eb539555d22e3e321b", 45_136_547),
+        ("windows", "aarch64") => ("pi-windows-arm64.zip", "17ab17ee0e9088545c7dfa56d29490c45bd915425610b0db0cd937632f2df714", 43_770_747),
+        ("macos", "aarch64") => ("pi-darwin-arm64.tar.gz", "79d9979d76a2a5adb7c28e27e9b44629928ccd0dc9fbb6ae7217860bd5e8be5d", 31_098_931),
+        ("macos", "x86_64") => ("pi-darwin-x64.tar.gz", "1bdefc9e1074c1de458ea9f2e43e6013ce49cd05326009b3de144037036585e2", 33_558_360),
+        ("linux", "aarch64") => ("pi-linux-arm64.tar.gz", "fa5829c7ef83ffeaebba015715c8306220f89b2aa8a00154efbba98dd5440156", 42_745_801),
+        ("linux", "x86_64") => ("pi-linux-x64.tar.gz", "f2e4e4329603223d03260cdb8bd5033dbdc1f73ba58ab8939db2e56546e115d2", 42_645_744),
+        _ => return None,
+    })
+}
+
+pub(super) fn runtime_folder(os: &str, arch: &str) -> Option<&'static str> {
+    match (os, arch) {
+        ("windows", "aarch64") => Some("windows-arm64"),
+        ("windows", "x86_64") => Some("windows-x64"),
+        ("macos", "aarch64") => Some("darwin-arm64"),
+        ("macos", "x86_64") => Some("darwin-x64"),
+        ("linux", "aarch64") => Some("linux-arm64"),
+        ("linux", "x86_64") => Some("linux-x64"),
+        _ => None,
     }
 }
 
 pub(super) fn runtime_directory(data: &Path) -> PathBuf {
-    data.join("runtimes/pi/1.4.0").join(match (cfg!(windows), cfg!(target_arch = "aarch64")) {
-        (true, true) => "windows-arm64", (true, false) => "windows-x64",
-        (false, true) => "darwin-arm64", (false, false) => "darwin-x64",
-    })
+    data.join("runtimes/pi/1.4.0").join(runtime_folder(std::env::consts::OS, std::env::consts::ARCH).unwrap_or("unsupported"))
 }
 
 pub(super) fn runtime_relative_executable() -> &'static str {
@@ -128,9 +141,28 @@ mod tests {
     use std::io::Write;
 
     #[test]
+    fn fixed_assets_are_platform_specific_and_fail_closed() {
+        assert_eq!(asset_for("linux", "x86_64"), Some(("pi-linux-x64.tar.gz", "f2e4e4329603223d03260cdb8bd5033dbdc1f73ba58ab8939db2e56546e115d2", 42_645_744)));
+        assert_eq!(asset_for("linux", "aarch64").unwrap().0, "pi-linux-arm64.tar.gz");
+        assert_eq!(asset_for("macos", "x86_64").unwrap().0, "pi-darwin-x64.tar.gz");
+        for (os, arch) in [("linux", "x86_64"), ("linux", "aarch64"), ("macos", "x86_64"), ("macos", "aarch64"), ("windows", "x86_64"), ("windows", "aarch64")] {
+            let (_, digest, bytes) = asset_for(os, arch).unwrap();
+            assert_eq!(digest.len(), 64);
+            assert!(bytes > 0);
+            assert!(runtime_folder(os, arch).is_some());
+        }
+        for (os, arch) in [("linux", "riscv64"), ("linux", "x86"), ("freebsd", "x86_64")] {
+            assert!(asset_for(os, arch).is_none());
+            assert!(runtime_folder(os, arch).is_none());
+        }
+        assert_eq!(runtime_folder("linux", "x86_64"), Some("linux-x64"));
+        assert_eq!(runtime_folder("linux", "aarch64"), Some("linux-arm64"));
+    }
+
+    #[test]
     fn windows_fixed_assets_paths_zip_and_environment() {
-        assert_eq!(asset_for(true, false), ("pi-windows-x64.zip", "0f7256ea8bdac3af20012b94fdc1252a31cc6dc0d2f9b9eb539555d22e3e321b", 45_136_547));
-        assert_eq!(asset_for(true, true).2, 43_770_747);
+        assert_eq!(asset_for("windows", "x86_64").unwrap(), ("pi-windows-x64.zip", "0f7256ea8bdac3af20012b94fdc1252a31cc6dc0d2f9b9eb539555d22e3e321b", 45_136_547));
+        assert_eq!(asset_for("windows", "aarch64").unwrap().2, 43_770_747);
         for name in [".GIT/config", "x\\.Git\\config", "file:stream", "CON.txt", "LPT1", "folder./file", "file "] { assert!(windows_tool_path_forbidden(name), "{name}"); }
         assert!(!windows_tool_path_forbidden("src/中文.ts"));
         let command=auth_command(true,r"C:\Owned User's\auth",r"C:\Pi User\pi.exe");assert!(command.starts_with("$env:PI_CODING_AGENT_DIR='C:\\Owned User''s\\auth';"));assert!(command.contains("& 'C:\\Pi User\\pi.exe' --no-tools"));

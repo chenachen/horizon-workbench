@@ -104,11 +104,11 @@ fn persist(state: &HostState) -> Result<()> { let d = data(state)?; let m = memo
 fn connection(cid: &str) -> Result<Connection> { memory().lock().unwrap().store.connections.get(cid).cloned().ok_or_else(|| err("NOT_FOUND", "模型连接不存在")) }
 fn session(call: &Call) -> Result<Session> { let sid = field(&call.params, "sessionId")?; let s = memory().lock().unwrap().store.sessions.get(sid).cloned().ok_or_else(|| err("NOT_FOUND", "会话不存在"))?; if call.scope["projectId"].as_str() != Some(&s.project_id) { return Err(err("STALE_SCOPE", "会话不属于当前项目")); } Ok(s) }
 fn capabilities(profile: &str) -> Value { json!({"protocol":"pi-rpc","structuredMessages":true,"tools":if profile=="task" {"gated"} else {"none"},"permissions":if profile=="task" {"horizonBroker"} else {"none"},"sessionResume":true,"attach":false,"modelSelection":true,"auth":["horizonApiKey","runtimeOwned","external"],"input":["text","textSnippets"],"changes":if profile=="task" {"versionedReview"} else {"none"},"cancel":"protocol"}) }
-fn asset() -> (&'static str, &'static str, u64) { platform::asset_for(cfg!(windows),cfg!(target_arch="aarch64")) }
+fn asset() -> Result<(&'static str, &'static str, u64)> { platform::asset_for(std::env::consts::OS, std::env::consts::ARCH).ok_or_else(|| err("CAPABILITY_UNSUPPORTED", "Pi 运行时支持 macOS、Windows 与 Linux 的 x64/ARM64 平台")) }
 fn managed_executable(state: &HostState) -> PathBuf { platform::runtime_directory(state.data_dir()).join(platform::runtime_relative_executable()) }
 fn executable(state: &HostState, runtime: &Value) -> PathBuf { runtime["executablePath"].as_str().or(runtime["executableRef"].as_str()).map(PathBuf::from).unwrap_or_else(|| managed_executable(state)) }
 async fn detect(state: &HostState, runtime: &Value) -> Result<Value> {
-    let path = executable(state, runtime); let (name, digest, bytes) = asset();
+    let path = executable(state, runtime); let (name, digest, bytes) = asset()?;
     let mut result = json!({"adapterId":"pi","installed":path.is_file(),"supported":false,"path":path,"version":null,"requiredVersion":VERSION,"source":"https://github.com/earendil-works/pi/releases/tag/v1.4.0","ownership":if runtime["executablePath"].is_string()||runtime["executableRef"].is_string(){"userInstalled"}else{"managed"},"downloadBytes":bytes,"asset":name,"sha256":digest,"diagnostics":[]});
     if !path.is_file() { return Ok(result); }
     let mut probe=Command::new(&path);probe.arg("--version").env("PI_OFFLINE","1").env("PI_TELEMETRY","0").kill_on_drop(true);
@@ -118,7 +118,7 @@ async fn detect(state: &HostState, runtime: &Value) -> Result<Value> {
     if result["supported"] != true { result["diagnostics"] = json!(["此版本尚未通过 Horizon 适配验证；仅支持 Pi 1.4.0"]); } Ok(result)
 }
 async fn install(state: &HostState, request: &str) -> Result<Value> {
-    let (name, digest, _) = asset();
+    let (name, digest, _) = asset()?;
     install_from(state, request, &format!("https://github.com/earendil-works/pi/releases/download/v{VERSION}/{name}"), digest).await
 }
 #[cfg(windows)]
@@ -145,7 +145,7 @@ async fn activate_windows_runtime(staging: &Path, target: &Path) -> std::io::Res
     }
 }
 async fn install_from(state: &HostState, request: &str, url: &str, digest: &str) -> Result<Value> {
-    if !cfg!(any(target_os="macos",windows)) { return Err(err("CAPABILITY_UNSUPPORTED", "运行时安装支持 macOS 与 Windows")); }
+    asset()?; // Reject unsupported OS/architecture before creating files or downloading.
     macro_rules! install_context {
         ($stage:literal, $operation:expr) => {{
             #[cfg(all(test, windows))]
@@ -155,7 +155,7 @@ async fn install_from(state: &HostState, request: &str, url: &str, digest: &str)
         }};
     }
     let path = managed_executable(state); if path.exists() { return detect(state, &json!({})).await; }
-    #[cfg(not(windows))] let (name, _, _) = asset(); let target = platform::runtime_directory(state.data_dir()); let parent = target.parent().unwrap(); install_context!("prepare parent mkdir", private_dir(parent))?;
+    #[cfg(not(windows))] let (name, _, _) = asset()?; let target = platform::runtime_directory(state.data_dir()); let parent = target.parent().unwrap(); install_context!("prepare parent mkdir", private_dir(parent))?;
     let staging = parent.join(format!("download-{}",id())); install_context!("prepare staging mkdir", private_dir(&staging))?;
     let result = async { state.emit_task_data(request,"agent.install",json!({"phase":"downloading","version":VERSION}))?;
         let response = reqwest::Client::builder().timeout(Duration::from_secs(180)).build().map_err(|e| err("NETWORK_ERROR",e.to_string()))?.get(url).send().await.map_err(|e|err("NETWORK_ERROR",e.to_string()))?.error_for_status().map_err(|e|err("NETWORK_ERROR",e.to_string()))?;
@@ -730,7 +730,7 @@ mod tests {
         }
         task.abort();let _=task.await;assert!(ClientOptions::new().open(&endpoint).is_err());
     }
-    #[cfg(any(target_os="macos",windows))]
+    #[cfg(any(target_os="macos",target_os="linux",windows))]
     #[tokio::test]
     async fn runtime_install_rejects_corrupt_archive_before_extract_or_execute(){
         let tmp=tempfile::tempdir().unwrap();let state=HostState::new(tmp.path().join("data")).unwrap();

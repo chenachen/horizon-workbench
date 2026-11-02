@@ -65,7 +65,9 @@ pub async fn stop_resources(project:Option<&str>)->Result<(),HostError>{
 fn executable()->Result<std::path::PathBuf,HostError>{
     let current=std::env::current_exe()?;let sibling=current.parent().unwrap().join(format!("horizon-rg{}",std::env::consts::EXE_SUFFIX));if sibling.exists(){return Ok(sibling);}
     #[cfg(windows)] let target=if cfg!(target_arch="aarch64"){"aarch64-pc-windows-msvc"}else{"x86_64-pc-windows-msvc"};
-    #[cfg(not(windows))] let target=if cfg!(target_arch="aarch64"){"aarch64-apple-darwin"}else{"x86_64-apple-darwin"};
+    #[cfg(target_os="macos")] let target=if cfg!(target_arch="aarch64"){"aarch64-apple-darwin"}else{"x86_64-apple-darwin"};
+    #[cfg(target_os="linux")] let target=if cfg!(target_arch="aarch64"){"aarch64-unknown-linux-gnu"}else{"x86_64-unknown-linux-gnu"};
+    #[cfg(not(any(windows,target_os="macos",target_os="linux")))] let target="unsupported";
     let bundled=std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("binaries").join(format!("horizon-rg-{target}{}",std::env::consts::EXE_SUFFIX));
     if bundled.exists(){Ok(bundled)}else{Err(HostError::new("DEPENDENCY_UNAVAILABLE","搜索程序缺失，请修复Horizon安装"))}
 }

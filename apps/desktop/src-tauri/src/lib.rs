@@ -169,13 +169,13 @@ pub async fn dispatch(state:Arc<HostState>,app:AppHandle,call:Call,channel:Optio
             if call.scope["kind"]!="app" { return Err(HostError::new("PERMISSION_DENIED","表单确认需应用作用域")); }
             Ok(json!({"discard":confirm_form_discard(&app).await?}))
         }
-        "url_open_external"=>{allowed(&call.params,&["url"])?;let url=string(&call.params,"url")?;if url.len()>8192{return Err(HostError::new("INVALID_ARGUMENT","链接过长"));}let parsed=reqwest::Url::parse(url).map_err(|_|HostError::new("INVALID_ARGUMENT","链接无效"))?;if !["https","http","mailto"].contains(&parsed.scheme()){return Err(HostError::new("PERMISSION_DENIED","只允许HTTP、HTTPS或邮件链接"));}#[cfg(windows)] {
+        "url_open_external"=>{allowed(&call.params,&["url"])?;let url=string(&call.params,"url")?;if url.len()>8192{return Err(HostError::new("INVALID_ARGUMENT","链接过长"));}let parsed=reqwest::Url::parse(url).map_err(|_|HostError::new("INVALID_ARGUMENT","链接无效"))?;if !["https","http","mailto"].contains(&parsed.scheme()){return Err(HostError::new("PERMISSION_DENIED","只允许HTTP、HTTPS或邮件链接"));}#[cfg(any(windows, target_os="linux"))] {
                 let target = url.to_owned();
                 tauri::async_runtime::spawn_blocking(move || tauri_plugin_opener::open_url(target, None::<&str>))
                     .await.map_err(|error| HostError::new("IO_ERROR", error.to_string()))?
                     .map_err(|error| HostError::new("IO_ERROR", format!("系统打开链接失败：{error}")))?;
             }
-            #[cfg(not(windows))] {
+            #[cfg(not(any(windows, target_os="linux")))] {
                 let status=tokio::process::Command::new("/usr/bin/open").arg(url).status().await?;if !status.success(){return Err(HostError::new("IO_ERROR","系统打开链接失败"));}
             }
             Ok(json!({"opened":true}))}

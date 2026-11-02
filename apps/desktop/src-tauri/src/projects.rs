@@ -25,12 +25,12 @@ pub fn dispatch(state:Arc<HostState>,call:Call)->Result<Value,HostError>{
             allowed(p,&["projectId"])?;if call.scope["kind"]!="app"{return Err(HostError::new("PERMISSION_DENIED","显示项目目录需应用作用域"));}
             let root=state.project_root(string(p,"projectId")?)?;if !std::fs::metadata(&root)?.is_dir(){return Err(HostError::new("INVALID_ARGUMENT","项目路径不是目录，请重新定位"));}
             #[cfg(target_os="macos")]{let status=std::process::Command::new("/usr/bin/open").arg("-R").arg(&root).status()?;if !status.success(){return Err(HostError::new("IO_ERROR","在Finder中显示项目目录失败"));}Ok(json!({"opened":true}))}
-            #[cfg(windows)] {
+            #[cfg(any(windows, target_os="linux"))] {
                 tauri_plugin_opener::reveal_item_in_dir(&root)
-                    .map_err(|error| HostError::new("IO_ERROR", format!("在资源管理器中显示项目目录失败：{error}")))?;
+                    .map_err(|error| HostError::new("IO_ERROR", format!("在文件管理器中显示项目目录失败：{error}")))?;
                 Ok(json!({"opened":true}))
             }
-            #[cfg(not(any(target_os="macos", windows)))]{Err(HostError::new("PLATFORM_UNSUPPORTED","当前平台暂不支持显示项目目录"))}
+            #[cfg(not(any(target_os="macos", target_os="linux", windows)))]{Err(HostError::new("PLATFORM_UNSUPPORTED","当前平台暂不支持显示项目目录"))}
         }
         "app_bootstrap"=>{
             allowed(p,&["clientVersion","protocolVersion"])?;
