@@ -350,6 +350,10 @@ function DesktopShell(props: ShellProps) {
     try {
       await (await getEditor()).flushDrafts(action === 'exit' ? undefined : target!.id);
       const plan = await call<StopPlan>(action === 'exit' ? 'app_exit_plan' : 'project_close_plan', action === 'exit' ? {} : { projectId: target!.id, action });
+      if (action === 'exit' && !plan.dirtyDocuments.length && !plan.resources.length) {
+        await call('app_exit_apply', { planId: plan.planId, planDigest: plan.digest ?? plan.planDigest, decisions: [] });
+        return;
+      }
       setStopPlan({ plan, project: target, action }); setModal(null);
     } catch (reason) { reportError(reason); }
   }, [reportError, confirmLeavingSettings]);
