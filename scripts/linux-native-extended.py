@@ -10,6 +10,13 @@ import time
 ELEMENT = 'element-6066-11e4-a52e-4f735466cecf'
 
 
+def picker_open_point(width, height):
+    """Client-relative Open-button center from the captured GTK chooser layout."""
+    if width < 400 or height < 250:
+        raise ValueError('Unexpected GTK chooser geometry; refusing a speculative click')
+    return width - 49, height - 26
+
+
 def run(wd, check, capture, result, output, env):
     fixture = output / 'project-fixture'
     fixture.mkdir()
@@ -60,32 +67,60 @@ def run(wd, check, capture, result, output, env):
             return focused if focused and focused['window'] != main_window else None
         focused = wd.wait(picker_focus, 'native picker focus owned by installed app', timeout=15)
         result['nativePicker'] = {'mainWindow': main_window, 'focus': focused, 'inputPath': str(fixture)}
-        subprocess.run(['scrot', str(output / '05-system-picker.png')], env=env, check=True)
+        def native_capture(name):
+            subprocess.run(['scrot', str(output / f'{name}.png')], env=env, check=True)
+            process = subprocess.run(['xdotool', 'search', '--onlyvisible', '--pid', focused['pid']],
+                                     cwd=fixture, env=env, text=True, capture_output=True)
+            state = {'capture': name, 'focus': owned_focus(), 'visibleWindows': process.stdout.split(),
+                     'searchExitCode': process.returncode, 'searchError': process.stderr}
+            result['nativePicker'].setdefault('observations', []).append(state)
+            (output / 'native-picker-observations.json').write_text(json.dumps(result['nativePicker'], indent=2))
+        native_capture('05-system-picker')
         def require_picker_focus():
             current = picker_focus()
             if not current or current['window'] != focused['window']:
                 raise AssertionError('Refusing OS keyboard input: verified native picker is not focused')
-        require_picker_focus()
-        command('xdotool', 'key', '--clearmodifiers', 'ctrl+l')
-        require_picker_focus()
-        command('xdotool', 'type', '--clearmodifiers', '--delay', '2', str(fixture))
-        require_picker_focus()
-        command('xdotool', 'key', '--clearmodifiers', 'Return')
-        time.sleep(1)
-        # A first Return may navigate into the folder rather than accept it.
-        # Do not issue a WebDriver command while a GTK native modal is open:
-        # its nested event loop may block WebKit automation until dismissal.
-        if picker_focus():
-            require_picker_focus()
-            command('xdotool', 'key', '--clearmodifiers', 'Return')
         def picker_gone():
-            # Focus loss alone is not dismissal. The actual GTK window must be
-            # gone or unmapped before any WebDriver JS resumes.
+            # Focus loss alone is not dismissal. Require the actual GTK window
+            # to disappear before resuming WebDriver operations.
             process = subprocess.run(['xdotool', 'search', '--onlyvisible', '--pid', focused['pid']],
                                      cwd=fixture, env=env, text=True, capture_output=True)
             if process.returncode not in (0, 1):
                 raise AssertionError(f'Cannot verify GTK picker dismissal: {process.stderr}')
             return focused['window'] not in process.stdout.split()
+        require_picker_focus()
+        command('xdotool', 'key', '--clearmodifiers', 'ctrl+l')
+        require_picker_focus()
+        command('xdotool', 'type', '--clearmodifiers', '--delay', '2', str(fixture))
+        time.sleep(0.3)
+        native_capture('05b-system-picker-path-entered')
+        require_picker_focus()
+        command('xdotool', 'key', '--clearmodifiers', 'Return')
+        time.sleep(1)
+        native_capture('05c-system-picker-after-navigation')
+        # Return navigates into a folder in GTK SELECT_FOLDER mode. Explicitly
+        # activate Open rather than assuming a second Return accepts the folder.
+        if not picker_gone():
+            require_picker_focus()
+            command('xdotool', 'key', '--clearmodifiers', 'alt+o')
+            result['nativePicker'].setdefault('actions', []).append('Open keyboard mnemonic Alt+O')
+            time.sleep(1)
+            native_capture('05d-system-picker-after-open-key')
+        if not picker_gone():
+            require_picker_focus()
+            geometry = command('xdotool', 'getwindowgeometry', '--shell', focused['window'])
+            fields = dict(line.split('=', 1) for line in geometry.splitlines() if '=' in line)
+            x, y = picker_open_point(int(fields['WIDTH']), int(fields['HEIGHT']))
+            # Grounded in run2/05-system-picker.png: actual GTK Open button is
+            # bottom-right. Coordinates are client-relative, not desktop guesses.
+            result['nativePicker']['actions'].append({'action': 'click visible Open button',
+                                                      'window': focused['window'], 'x': x, 'y': y,
+                                                      'geometry': fields})
+            command('xdotool', 'mousemove', '--sync', '--window', focused['window'], str(x), str(y))
+            require_picker_focus()
+            command('xdotool', 'click', '1')
+            time.sleep(0.5)
+            native_capture('05e-system-picker-after-open-click')
         wd.wait(picker_gone, 'native folder picker dismissed', timeout=20)
         chosen = lambda: wd.js('return document.querySelector(arguments[0])?.value === arguments[1];', 'dialog[open] input[aria-label="项目目录"]', str(fixture))
         wd.wait(chosen, 'native picker returned exact fixture directory', timeout=20)

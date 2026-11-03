@@ -293,6 +293,11 @@ def main():
         result['status'], result['error'], result['traceback'] = 'failed', str(error), traceback.format_exc()
         if wd.session:
             result['failureCaptureErrors'] = wd.capture(output, 'failure')
+        if args.extended:
+            try:
+                subprocess.run(['scrot', str(output / 'failure-desktop.png')], env=env, check=True)
+            except Exception as capture_error:
+                result['failureDesktopCaptureError'] = str(capture_error)
         print(result['traceback'], file=sys.stderr, flush=True)
     finally:
         try:

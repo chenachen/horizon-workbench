@@ -100,6 +100,14 @@ class HarnessContract(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 smoke.executable_paths(str(launcher), str(native.parent / 'missing'))
 
+    def test_picker_open_point_is_inside_verified_client_geometry(self):
+        spec = importlib.util.spec_from_file_location('extended_smoke', Path(__file__).with_name('linux-native-extended.py'))
+        extended = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(extended)
+        self.assertEqual(extended.picker_open_point(1096, 820), (1047, 794))
+        with self.assertRaises(ValueError):
+            extended.picker_open_point(200, 100)
+
     def test_js_arguments_not_interpolated(self):
         body = 'return document.querySelector(arguments[0])?.value === arguments[1];'
         selector = 'dialog[open] select[aria-label="明暗模式"]'

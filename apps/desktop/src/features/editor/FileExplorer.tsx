@@ -1,14 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { ChevronDown, ChevronRight, CircleAlert, Copy, ExternalLink, FilePlus, Folder, FolderOpen, FolderPlus, ListTree, MoreHorizontal, Pencil, Plus, RefreshCw, TextCursorInput, Trash2, X } from 'lucide-react';
 import { call, subscribe } from '../../bridge';
-import { platform } from '../../platform';
+import { revealFileLabel as revealLabel, trashFileLabel as trashLabel } from '../../platform';
 import { Loading } from '../../components/Modal';
 import { editorStore, useEditor } from './store';
 import { errorMessage, type DirectoryEntry, type DirectoryPage, type DiskRevision } from '../../../../../packages/editor/src/types';
 import { FileKindIcon } from './FileKindIcon';
 import { OutlinePanel } from './OutlinePanel';
-const revealLabel = platform === 'windows' ? '在资源管理器中显示' : '在 Finder 中显示';
-const trashLabel = platform === 'windows' ? '移到回收站' : '移到废纸篓';
 type TreeState = { pages: Map<string, DirectoryPage>; errors: Map<string, string>; loading: Set<string>; expanded: Set<string>; selected: string | null; hidden: boolean; scrollTop: number; outline: boolean };
 const trees = new Map<string, TreeState>();
 type TreeAction = 'newFile' | 'newDirectory' | 'refresh' | 'hidden';
