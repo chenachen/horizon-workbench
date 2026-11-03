@@ -246,11 +246,16 @@ def run(wd, check, capture, result, output, env):
         wd.click('button[aria-label="新建终端"]')
         for attempt in range(2):
             wd.wait(lambda: has('.process-xterm textarea.xterm-helper-textarea'), 'real PTY input surface')
-            label = wd.js('return document.querySelector(arguments[0])?.selectedOptions[0]?.textContent || "";', 'select[aria-label="终端会话"]')
-            pid_match = re.search(r'·\s*(\d+)\s*·', label)
-            assert pid_match, f'Terminal UI did not expose its process identity: {label}'
-            pid = int(pid_match.group(1))
-            assert Path(f'/proc/{pid}').exists(), f'Terminal process {pid} missing before keyboard input'
+            def new_running_terminal():
+                label = wd.js('return document.querySelector(arguments[0])?.selectedOptions[0]?.textContent || "";', 'select[aria-label="终端会话"]')
+                match = re.search(r'·\s*(\d+)\s*·\s*运行中', label)
+                if not match:
+                    return None
+                pid = int(match.group(1))
+                if pid in {entry['pid'] for entry in result.get('terminalProcesses', [])} or not Path(f'/proc/{pid}').exists():
+                    return None
+                return label, pid
+            label, pid = wd.wait(new_running_terminal, 'new terminal selected with a distinct live native process')
             result.setdefault('terminalProcesses', []).append({'pid': pid, 'initialLabel': label})
             target = f'terminal-proof-{attempt}.txt'
             wd.click('.process-xterm .xterm-screen')
