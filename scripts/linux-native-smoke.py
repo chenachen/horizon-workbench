@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import base64
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -107,6 +108,11 @@ return style.display !== 'none' && style.visibility !== 'hidden' && style.visibi
         self.command('POST', f'/element/{element}/clear', {})
         self.command('POST', f'/element/{element}/value', {'text': value, 'value': list(value)})
 
+    def keys(self, selector: str, value: str):
+        """Send actual W3C keyboard input without clearing editor/terminal buffers."""
+        element = self.wait(lambda: self.find(selector), f'keyboard target {selector}')
+        self.command('POST', f'/element/{element}/value', {'text': value, 'value': list(value)})
+
     def capture(self, directory: Path, name: str):
         problems = []
         for kind in ('screenshot', 'source', 'text'):
@@ -156,6 +162,7 @@ def main():
     parser.add_argument('--artifacts', default='artifacts/linux/gui')
     parser.add_argument('--driver', default='tauri-driver')
     parser.add_argument('--port', type=int, default=4444)
+    parser.add_argument('--extended', action='store_true', help='Run native editor/file/search/Git/terminal/plugin scenarios with synthetic fixtures')
     args = parser.parse_args()
     application = Path(args.application).resolve(strict=True)
     if not os.access(application, os.X_OK):
@@ -259,6 +266,14 @@ def main():
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'final modal dismissal')
         check('workspace and theme survive native process restart', persisted)
         capture('04-native-restarted')
+        if args.extended:
+            spec = importlib.util.spec_from_file_location('linux_native_extended', Path(__file__).with_name('linux-native-extended.py'))
+            extended = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(extended)
+            extended.run(wd, check, capture, result, output, env)
+            result['notCovered'] = ['AppImage runtime launch', 'Wayland session',
+                                    'AI runtime activation or paid API', 'system keyring integration',
+                                    'remote Git authentication', 'ARM64 or macOS/Windows native behavior']
         result['status'] = 'passed'
     except Exception as error:
         result['status'], result['error'], result['traceback'] = 'failed', str(error), traceback.format_exc()

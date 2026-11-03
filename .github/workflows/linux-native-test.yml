@@ -126,7 +126,7 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/horizon-native-home" "$RUNNER_TEMP/horizon-native-data" "$RUNNER_TEMP/horizon-native-config" "$RUNNER_TEMP/horizon-native-cache"
           export HOME="$RUNNER_TEMP/horizon-native-home" XDG_DATA_HOME="$RUNNER_TEMP/horizon-native-data" XDG_CONFIG_HOME="$RUNNER_TEMP/horizon-native-config" XDG_CACHE_HOME="$RUNNER_TEMP/horizon-native-cache"
-          xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/linux/gui 2>&1 | tee artifacts/linux/gui.log
+          xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/linux/gui --extended 2>&1 | tee artifacts/linux/gui.log
       - name: Require all expanded native suites to pass
         if: always()
         run: |

@@ -75,6 +75,14 @@ class HarnessContract(unittest.TestCase):
             ('POST', '/session/test-session/element/test-element/clear', {}),
             ('POST', '/session/test-session/element/test-element/value', {'text': value, 'value': list(value)})])
 
+    def test_editor_terminal_keys_do_not_clear(self):
+        value = '\ue009a\ue000new contents\ue007'
+        self.wd.keys('.cm-content', value)
+        self.assertEqual(self.wd.calls[-2:], [
+            ('POST', '/session/test-session/element', {'using': 'css selector', 'value': '.cm-content'}),
+            ('POST', '/session/test-session/element/test-element/value', {'text': value, 'value': list(value)})])
+        self.assertFalse(any(call[1].endswith('/clear') for call in self.wd.calls))
+
     def test_js_arguments_not_interpolated(self):
         body = 'return document.querySelector(arguments[0])?.value === arguments[1];'
         selector = 'dialog[open] select[aria-label="明暗模式"]'
