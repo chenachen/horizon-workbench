@@ -40,6 +40,26 @@ def run(wd, check, capture, result, output, env):
     def git(*args):
         return command('git', *args)
 
+    def native_text_input(selector, value, select_all=False):
+        # WebKit element/value can report success without editing CodeMirror.
+        # Use real X11 key events, only after both DOM and process focus checks.
+        def require_target():
+            assert wd.js('return document.activeElement === document.querySelector(arguments[0]);', selector), f'Native keyboard target is not focused: {selector}'
+            window = command('xdotool', 'getwindowfocus')
+            pid = command('xdotool', 'getwindowpid', window)
+            app_pids = {str(p['pid']) for p in result['launches'][-1]['processes']}
+            assert pid in app_pids, f'Refusing keyboard input to unowned window PID {pid}'
+            return {'window': window, 'pid': pid, 'selector': selector}
+        evidence = require_target()
+        if select_all:
+            command('xdotool', 'key', '--clearmodifiers', 'ctrl+a')
+        require_target()
+        command('xdotool', 'type', '--clearmodifiers', '--delay', '2', '--', value)
+        require_target()
+        command('xdotool', 'key', '--clearmodifiers', 'Return')
+        evidence.update(selectAll=select_all, text=value, submitKey='Return', transport='X11 XTEST')
+        result.setdefault('nativeKeyboardActions', []).append(evidence)
+
     def open_project():
         # Two real cancel/reopen cycles, then the system chooser (not registry injection).
         for _ in range(2):
@@ -148,7 +168,7 @@ def run(wd, check, capture, result, output, env):
         wd.click('.file-tree-row[title="sample.txt"]')
         wd.wait(lambda: has('.cm-content[contenteditable="true"]'), 'CodeMirror editable surface')
         wd.click('.cm-content[contenteditable="true"]')
-        wd.keys('.cm-content[contenteditable="true"]', '\ue009a\ue000HORIZON_SEARCH_SAVED\n')
+        native_text_input('.cm-content[contenteditable="true"]', 'HORIZON_SEARCH_SAVED', select_all=True)
         wd.wait(lambda: has('.dirty-dot'), 'dirty document indicator')
         wd.click('button[aria-label="关闭 sample.txt"]')
         wd.wait(lambda: has('.document-close-dialog'), 'unsaved close dialog')
@@ -232,7 +252,8 @@ def run(wd, check, capture, result, output, env):
             assert Path(f'/proc/{pid}').exists(), f'Terminal process {pid} missing before keyboard input'
             result.setdefault('terminalProcesses', []).append({'pid': pid, 'initialLabel': label})
             target = f'terminal-proof-{attempt}.txt'
-            wd.keys('.process-xterm textarea.xterm-helper-textarea', f"printf 'HORIZON_TERMINAL_{attempt}\\n' | tee {target}\ue007")
+            wd.click('.process-xterm .xterm-screen')
+            native_text_input('.process-xterm textarea.xterm-helper-textarea', f"printf 'HORIZON_TERMINAL_{attempt}\\n' | tee {target}")
             wd.wait(lambda: (fixture / target).exists() and (fixture / target).read_text() == f'HORIZON_TERMINAL_{attempt}\n', 'terminal keyboard command executed in project cwd')
             capture(f'11-terminal-command-{attempt}')
             wd.click('button[aria-label="结束进程"]')

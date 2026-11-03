@@ -1,0 +1,77 @@
+# TEMPORARY harness debugging only. The full native workflow remains authoritative.
+name: Linux GUI debug with unchanged packaged binary
+on:
+  push:
+    branches: [feature/linux-support-20261102]
+permissions:
+  contents: read
+  actions: read
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: linux-gui-debug-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reused-deb-gui:
+    if: contains(github.event.head_commit.message, '[gui-debug]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GDK_BACKEND: x11
+      WEBKIT_DISABLE_DMABUF_RENDERER: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reject reuse when any product build input changed
+        run: python3 scripts/verify-linux-gui-reuse.py --output artifacts/gui-debug/identity.json
+      - uses: actions/download-artifact@v8
+        with:
+          github-token: ${{ github.token }}
+          repository: chenachen/horizon-workbench
+          run-id: '41566650728'
+          artifact-ids: '13199174245'
+          path: ${{ runner.temp }}/horizon-source-artifact
+          digest-mismatch: error
+      - name: Verify source identity and both package hashes
+        run: |
+          python3 scripts/verify-linux-gui-reuse.py --artifact "$RUNNER_TEMP/horizon-source-artifact" --output artifacts/gui-debug/identity.json
+          cp "$RUNNER_TEMP/horizon-source-artifact/SHA256SUMS.txt" artifacts/gui-debug/source-SHA256SUMS.txt
+          cp "$RUNNER_TEMP/horizon-source-artifact/build-identity.txt" artifacts/gui-debug/source-build-identity.txt
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install GUI runtime and driver build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-0 webkit2gtk-driver libgtk-3-0t64 libayatana-appindicator3-1 librsvg2-2 build-essential pkg-config libssl-dev xvfb xauth dbus-x11 dbus fonts-noto-cjk git xdg-utils lsof xdotool scrot openbox x11-utils python3-pyatspi at-spi2-core
+          cargo install tauri-driver --locked
+          { uname -a; cargo install --list; dpkg-query -W webkit2gtk-driver libgtk-3-0t64; } | tee artifacts/gui-debug/runtime.txt
+      - name: Install the verified Debian package
+        run: |
+          shopt -s nullglob
+          debs=("$RUNNER_TEMP/horizon-source-artifact/"*.deb)
+          test "${#debs[@]}" -eq 1
+          sudo apt-get install -y "${debs[0]}" 2>&1 | tee artifacts/gui-debug/install.log
+          test -x /usr/bin/horizon-desktop
+          sha256sum /usr/bin/horizon-desktop | tee artifacts/gui-debug/installed-executable.sha256
+      - name: Validate current harness contracts
+        run: |
+          python3 scripts/check-linux-smoke-js.py
+          python3 scripts/test-linux-smoke-contract.py
+          python3 scripts/test-linux-desktop-wrapper.py
+      - name: Debug current extended GUI against unchanged binary
+        run: |
+          mkdir -p "$RUNNER_TEMP/horizon-gui-debug-wm-home"
+          HOME="$RUNNER_TEMP/horizon-gui-debug-wm-home" HORIZON_WM_LOG_DIR=artifacts/gui-debug/window-manager xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- bash scripts/run-linux-desktop-test.sh python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/gui-debug/gui --extended 2>&1 | tee artifacts/gui-debug/gui.log
+      - name: Preserve debug evidence, never label it full acceptance
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: Horizon-GUI-debug-binary-313cf2b-harness-${{ github.sha }}
+          path: artifacts/gui-debug
+          retention-days: 7
+          if-no-files-found: warn
