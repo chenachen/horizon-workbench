@@ -169,6 +169,7 @@ def run(wd, check, capture, result, output, env):
         wd.wait(lambda: has('.cm-content[contenteditable="true"]'), 'CodeMirror editable surface')
         wd.click('.cm-content[contenteditable="true"]')
         native_text_input('.cm-content[contenteditable="true"]', 'HORIZON_SEARCH_SAVED', select_all=True)
+        wd.wait(lambda: wd.js('return Array.from(document.querySelectorAll(arguments[0])).map(e => e.textContent).join(String.fromCharCode(10)) === arguments[1];', '.cm-content .cm-line', 'HORIZON_SEARCH_SAVED\n'), 'all native editor keyboard events rendered before save workflow')
         wd.wait(lambda: has('.dirty-dot'), 'dirty document indicator')
         wd.click('button[aria-label="关闭 sample.txt"]')
         wd.wait(lambda: has('.document-close-dialog'), 'unsaved close dialog')
