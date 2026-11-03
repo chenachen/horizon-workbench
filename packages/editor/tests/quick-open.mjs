@@ -100,13 +100,16 @@ try {
   const searchInput = page.getByRole('textbox', { name: '搜索文本', exact: true });
   await searchInput.fill('no-matches'); await searchInput.press('Enter');
   await page.waitForFunction(() => window.quickHarness.searchStarts.length === 1);
-  await page.getByText('正在搜索…', { exact: true }).waitFor();
+  // The status is the leading text node; the summary also contains a dated snapshot.
+  await page.waitForFunction(() => document.querySelector('.search-summary')?.firstChild?.textContent.trim() === '正在搜索…');
+  assert.equal(await page.locator('.search-summary time').count(), 1);
   assert.equal(await page.getByRole('button', { name: '停止', exact: true }).count(), 0);
   await page.evaluate(() => window.quickHarness.resolveSearchHandle());
   // No match event or parent update follows this acknowledgement.
   await page.getByRole('button', { name: '停止', exact: true }).waitFor({ timeout: 1500 });
   await page.getByRole('button', { name: '停止', exact: true }).click();
-  await page.getByText('已取消，保留已有结果。', { exact: true }).waitFor();
+  await page.waitForFunction(() => document.querySelector('.search-summary')?.firstChild?.textContent.trim() === '已取消，保留已有结果。');
+  assert.equal(await page.locator('.search-summary time').count(), 1);
   assert.equal(await page.evaluate(() => window.quickHarness.searchCancelled), 1);
   assert.equal(await searchInput.inputValue(), 'no-matches');
   phase('delayed search handle with no matches renders Stop; cancellation reaches confirmed terminal state');

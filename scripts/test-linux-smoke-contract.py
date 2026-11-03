@@ -3,6 +3,7 @@
 import importlib.util
 from pathlib import Path
 import unittest
+import tempfile
 
 spec = importlib.util.spec_from_file_location('linux_smoke', Path(__file__).with_name('linux-native-smoke.py'))
 smoke = importlib.util.module_from_spec(spec)
@@ -82,6 +83,22 @@ class HarnessContract(unittest.TestCase):
             ('POST', '/session/test-session/element', {'using': 'css selector', 'value': '.cm-content'}),
             ('POST', '/session/test-session/element/test-element/value', {'text': value, 'value': list(value)})])
         self.assertFalse(any(call[1].endswith('/clear') for call in self.wd.calls))
+
+    def test_executable_identity_default_and_explicit_launcher(self):
+        with tempfile.TemporaryDirectory() as directory:
+            launcher = Path(directory) / 'AppRun'
+            native = Path(directory) / 'usr/bin/horizon-desktop'
+            native.parent.mkdir(parents=True)
+            for path in (launcher, native):
+                path.write_text('fixture executable; never executed')
+                path.chmod(0o700)
+            self.assertEqual(smoke.executable_paths(str(native)), (native, native))
+            self.assertEqual(smoke.executable_paths(str(launcher), str(native)), (launcher, native))
+            native.chmod(0o600)
+            with self.assertRaises(ValueError):
+                smoke.executable_paths(str(launcher), str(native))
+            with self.assertRaises(FileNotFoundError):
+                smoke.executable_paths(str(launcher), str(native.parent / 'missing'))
 
     def test_js_arguments_not_interpolated(self):
         body = 'return document.querySelector(arguments[0])?.value === arguments[1];'

@@ -41,32 +41,52 @@ def run(wd, check, capture, result, output, env):
             wd.button_text('取消', '//dialog[@open]//')
             wd.wait(lambda: not has('dialog[open]'), 'cancel add project')
         wd.button_text('打开本地项目')
-        main_window = command('xdotool', 'getwindowfocus')
-        wd.button_text('选择', '//dialog[@open]//')
-        # GTK owns a native modal outside WebDriver's DOM. Locate the actual focused
-        # window, verify its PID belongs to this installed app, then send real keys.
+        # Require an app-owned window before any OS-level input. The desktop
+        # wrapper runs a real WM; raw Xvfb can otherwise leave focus on root 0x1.
         app_pids = {str(p['pid']) for p in result['launches'][-1]['processes']}
-        def picker_focus():
+        def owned_focus():
             try:
                 win = command('xdotool', 'getwindowfocus')
                 pid = command('xdotool', 'getwindowpid', win)
                 name = command('xdotool', 'getwindowname', win)
             except subprocess.CalledProcessError:
                 return None
-            return {'window': win, 'pid': pid, 'name': name} if pid in app_pids and win != main_window else None
+            return {'window': win, 'pid': pid, 'name': name} if pid in app_pids else None
+        main = wd.wait(owned_focus, 'window manager focused the installed application', timeout=15)
+        main_window = main['window']
+        wd.button_text('选择', '//dialog[@open]//')
+        def picker_focus():
+            focused = owned_focus()
+            return focused if focused and focused['window'] != main_window else None
         focused = wd.wait(picker_focus, 'native picker focus owned by installed app', timeout=15)
         result['nativePicker'] = {'mainWindow': main_window, 'focus': focused, 'inputPath': str(fixture)}
         subprocess.run(['scrot', str(output / '05-system-picker.png')], env=env, check=True)
+        def require_picker_focus():
+            current = picker_focus()
+            if not current or current['window'] != focused['window']:
+                raise AssertionError('Refusing OS keyboard input: verified native picker is not focused')
+        require_picker_focus()
         command('xdotool', 'key', '--clearmodifiers', 'ctrl+l')
+        require_picker_focus()
         command('xdotool', 'type', '--clearmodifiers', '--delay', '2', str(fixture))
+        require_picker_focus()
         command('xdotool', 'key', '--clearmodifiers', 'Return')
         time.sleep(1)
         # A first Return may navigate into the folder rather than accept it.
         # Do not issue a WebDriver command while a GTK native modal is open:
         # its nested event loop may block WebKit automation until dismissal.
         if picker_focus():
+            require_picker_focus()
             command('xdotool', 'key', '--clearmodifiers', 'Return')
-        wd.wait(lambda: picker_focus() is None, 'native folder picker dismissed', timeout=20)
+        def picker_gone():
+            # Focus loss alone is not dismissal. The actual GTK window must be
+            # gone or unmapped before any WebDriver JS resumes.
+            process = subprocess.run(['xdotool', 'search', '--onlyvisible', '--pid', focused['pid']],
+                                     cwd=fixture, env=env, text=True, capture_output=True)
+            if process.returncode not in (0, 1):
+                raise AssertionError(f'Cannot verify GTK picker dismissal: {process.stderr}')
+            return focused['window'] not in process.stdout.split()
+        wd.wait(picker_gone, 'native folder picker dismissed', timeout=20)
         chosen = lambda: wd.js('return document.querySelector(arguments[0])?.value === arguments[1];', 'dialog[open] input[aria-label="项目目录"]', str(fixture))
         wd.wait(chosen, 'native picker returned exact fixture directory', timeout=20)
         wd.type('dialog[open] input[placeholder="项目名称"]', 'Linux extended fixture')

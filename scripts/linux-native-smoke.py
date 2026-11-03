@@ -156,17 +156,26 @@ def native_processes(application: Path):
     return matches
 
 
+def executable_paths(application_arg, expected_arg=None):
+    """Keep direct-executable identity strict; allow an explicitly named launcher."""
+    application = Path(application_arg).resolve(strict=True)
+    expected = Path(expected_arg).resolve(strict=True) if expected_arg else application
+    for role, path in (('Application launcher', application), ('Expected native executable', expected)):
+        if not path.is_file() or not os.access(path, os.X_OK):
+            raise ValueError(f'{role} is not an executable file: {path}')
+    return application, expected
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--application', default='/usr/bin/horizon-desktop')
+    parser.add_argument('--expected-executable', help='Explicit native executable behind a launcher, e.g. extracted AppDir/usr/bin/horizon-desktop; default exactly --application')
     parser.add_argument('--artifacts', default='artifacts/linux/gui')
     parser.add_argument('--driver', default='tauri-driver')
     parser.add_argument('--port', type=int, default=4444)
     parser.add_argument('--extended', action='store_true', help='Run native editor/file/search/Git/terminal/plugin scenarios with synthetic fixtures')
     args = parser.parse_args()
-    application = Path(args.application).resolve(strict=True)
-    if not os.access(application, os.X_OK):
-        raise SystemExit(f'Application is not executable: {application}')
+    application, expected_executable = executable_paths(args.application, args.expected_executable)
     driver_binary = shutil.which(args.driver)
     if driver_binary is None:
         raise SystemExit(f'Official tauri-driver missing: {args.driver}')
@@ -186,12 +195,15 @@ def main():
         Path(location).mkdir(parents=True, exist_ok=True)
     result = {'status': 'running', 'application': str(application),
               'applicationSha256': hashlib.sha256(application.read_bytes()).hexdigest(),
+              'expectedExecutable': str(expected_executable),
+              'expectedExecutableSha256': hashlib.sha256(expected_executable.read_bytes()).hexdigest(),
+              'launchMode': 'explicit-launcher' if args.expected_executable else 'direct-installed-executable',
               'driver': driver_binary, 'startedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
               'isolatedHome': str(home), 'checks': [], 'screenshots': [],
               'coverage': ['installed native launch and IPC', 'workspace cancel/create/persistence',
                            'settings theme click/persistence', 'modal close/reopen',
                            'relaunch of the installed application'],
-              'notCovered': ['AppImage runtime launch', 'Wayland session',
+              'notCovered': ['AppImage FUSE mounting' if args.expected_executable else 'AppImage runtime launch', 'Wayland session',
                              'native file picker', 'project editing/terminal/Git GUI',
                              'AI runtime activation or paid API', 'system keyring integration',
                              'ARM64 or macOS/Windows native behavior']}
@@ -210,9 +222,11 @@ def main():
         if errors:
             raise AssertionError(f'Evidence capture failed: {errors}')
     def boot():
+        if native_processes(expected_executable):
+            raise AssertionError('Expected executable was already running before this launch')
         wd.start(str(application))
         wd.wait(lambda: wd.js('return !!window.__TAURI_INTERNALS__ && !!document.querySelector(".welcome") && !document.querySelector(".boot-error");'), 'native welcome screen')
-        proof = {'processes': wd.wait(lambda: native_processes(application), 'installed native process'),
+        proof = {'processes': wd.wait(lambda: native_processes(expected_executable), 'exact expected native process'),
                  'document': wd.js('return {url: location.href, userAgent: navigator.userAgent, native: !!window.__TAURI_INTERNALS__};'),
                  'bootstrap': wd.bootstrap()}
         if not proof['document']['native'] or proof['document']['url'].startswith(('http://127.0.0.1:', 'http://localhost:')):
@@ -255,7 +269,7 @@ def main():
             wd.wait(lambda: wd.js('return !document.querySelector("dialog[open]");'), 'settings close')
         check('real settings theme selection and close/reopen', theme_flow)
         wd.close()
-        wd.wait(lambda: not native_processes(application), 'first native process exited', timeout=30)
+        wd.wait(lambda: not native_processes(expected_executable), 'first native process exited', timeout=30)
         check('second native application launch', boot)
         def persisted():
             assert any(w['name'] == workspace_name for w in wd.bootstrap()['workspaces'])

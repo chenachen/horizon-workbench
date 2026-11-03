@@ -41,8 +41,9 @@ jobs:
       - name: Install Linux build and desktop test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev webkit2gtk-driver build-essential libssl-dev libgtk-3-dev libdbus-1-dev libayatana-appindicator3-dev librsvg2-dev patchelf pkg-config xvfb xauth dbus-x11 fonts-noto-cjk git xdg-utils lsof xdotool scrot
+          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev webkit2gtk-driver build-essential libssl-dev libgtk-3-dev libdbus-1-dev libayatana-appindicator3-dev librsvg2-dev patchelf pkg-config xvfb xauth dbus-x11 fonts-noto-cjk git xdg-utils lsof xdotool scrot openbox x11-utils gnome-keyring dbus libglib2.0-bin
           mkdir -p artifacts/linux
+          cp docs/LINUX_TEST_MATRIX.md artifacts/linux/test-inventory.md
           { echo "commit=$GITHUB_SHA"; echo "run=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; uname -a; rustc -vV; node --version; npm --version; pkg-config --modversion webkit2gtk-4.1 gtk+-3.0 dbus-1; } | tee artifacts/linux/build-identity.txt
       - name: Install locked JavaScript dependencies
         run: npm ci 2>&1 | tee artifacts/linux/npm-ci.log
@@ -50,6 +51,7 @@ jobs:
         run: |
           python3 scripts/check-linux-smoke-js.py
           python3 scripts/test-linux-smoke-contract.py
+          python3 scripts/test-linux-desktop-wrapper.py
           node --test scripts/linux-packaging.test.mjs scripts/linux-platform.test.mjs apps/desktop/tests/windows-feedback.test.mjs 2>&1 | tee artifacts/linux/platform-tests.log
           npm run desktop:check 2>&1 | tee artifacts/linux/typecheck.log
           for root in apps/desktop/src packages/editor/src packages/appearance/src; do
@@ -108,7 +110,12 @@ jobs:
           done
           find research/verification -maxdepth 1 -type d -name 'pi-resource-*' -newer artifacts/linux/pi-suite-start -exec cp -r {} artifacts/linux/pi-evidence/ \;
           exit "$status"
+      - name: Real Secret Service with isolated D-Bus and synthetic credentials
+        id: secret_service
+        continue-on-error: true
+        run: bash scripts/test-linux-secret-service.sh 2>&1 | tee artifacts/linux/secret-service.log
       - name: Install built Debian package
+        id: install_deb
         run: |
           shopt -s nullglob
           debs=(artifacts/linux/*.deb)
@@ -118,21 +125,46 @@ jobs:
           test -x /usr/bin/horizon-desktop
           /usr/bin/horizon-rg --version | tee artifacts/linux/ripgrep-version.txt
       - name: Install native WebDriver
+        id: native_driver
         run: |
           cargo install tauri-driver --locked
           cargo install --list | tee artifacts/linux/driver-version.txt
           dpkg-query -W webkit2gtk-driver | tee -a artifacts/linux/driver-version.txt
       - name: Exercise installed native application UI
+        id: deb_gui
+        continue-on-error: true
         run: |
           mkdir -p "$RUNNER_TEMP/horizon-native-home" "$RUNNER_TEMP/horizon-native-data" "$RUNNER_TEMP/horizon-native-config" "$RUNNER_TEMP/horizon-native-cache"
           export HOME="$RUNNER_TEMP/horizon-native-home" XDG_DATA_HOME="$RUNNER_TEMP/horizon-native-data" XDG_CONFIG_HOME="$RUNNER_TEMP/horizon-native-config" XDG_CACHE_HOME="$RUNNER_TEMP/horizon-native-cache"
-          xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/linux/gui --extended 2>&1 | tee artifacts/linux/gui.log
+          HORIZON_WM_LOG_DIR=artifacts/linux/window-manager-deb xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- bash scripts/run-linux-desktop-test.sh python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/linux/gui --extended 2>&1 | tee artifacts/linux/gui.log
+      - name: Exercise extracted AppImage without installed Debian application
+        id: appimage_gui
+        if: ${{ !cancelled() && steps.native_driver.outcome == 'success' && steps.install_deb.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          image=$(realpath artifacts/linux/*.AppImage)
+          chmod +x "$image"
+          extraction=$(mktemp -d "$RUNNER_TEMP/horizon-appimage-XXXXXXXX")
+          (cd "$extraction" && "$image" --appimage-extract > "$GITHUB_WORKSPACE/artifacts/linux/appimage-extract.log")
+          appdir="$extraction/squashfs-root"
+          test -x "$appdir/AppRun"
+          test -x "$appdir/usr/bin/horizon-desktop"
+          grep -Fx 'Exec=horizon-desktop' "$appdir/Horizon.desktop"
+          sha256sum "$appdir/AppRun" "$appdir/usr/bin/horizon-desktop" | tee artifacts/linux/appimage-executables.sha256
+          sudo dpkg --remove horizon 2>&1 | tee artifacts/linux/deb-remove.log
+          test ! -e /usr/bin/horizon-desktop
+          test ! -e /usr/lib/Horizon
+          mkdir -p "$extraction/wm-home"
+          HOME="$extraction/wm-home" HORIZON_WM_LOG_DIR=artifacts/linux/window-manager-appimage xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- bash scripts/run-linux-desktop-test.sh python3 scripts/linux-native-smoke.py --application "$appdir/AppRun" --expected-executable "$appdir/usr/bin/horizon-desktop" --artifacts artifacts/linux/appimage-gui 2>&1 | tee artifacts/linux/appimage-gui.log
       - name: Require all expanded native suites to pass
         if: always()
         run: |
           test "${{ steps.native_extensions.outcome }}" = success
           test "${{ steps.git_pressure.outcome }}" = success
           test "${{ steps.pi_offline.outcome }}" = success
+          test "${{ steps.secret_service.outcome }}" = success
+          test "${{ steps.deb_gui.outcome }}" = success
+          test "${{ steps.appimage_gui.outcome }}" = success
       - name: Upload packages and verification evidence
         if: always()
         uses: actions/upload-artifact@v7

@@ -48,7 +48,7 @@ const assets = new Map(bundled.outputFiles.map(file => [path.basename(file.path)
 const server = createServer((request, response) => {
   const asset = assets.get(request.url.slice(1));
   response.setHeader('Content-Type', request.url.endsWith('.js') ? 'text/javascript' : request.url.endsWith('.css') ? 'text/css' : 'text/html');
-  response.end(asset ?? '<!doctype html><html><head><link rel="stylesheet" href="/editor-lifecycle.css"></head><body><div id="root" style="width:800px;height:500px"></div><div id="editor-status-slot"></div><script type="module" src="/editor-lifecycle.js"></script></body></html>');
+  response.end(asset ?? '<!doctype html><html><head><link rel="stylesheet" href="/editor-lifecycle.css"></head><body><div id="root" style="width:800px;height:500px;display:flex;flex-direction:column;min-height:0"></div><div id="editor-status-slot"></div><script type="module" src="/editor-lifecycle.js"></script></body></html>');
 });
 await new Promise(resolve => server.listen(1437, '127.0.0.1', resolve));
 const browser = await chromium.launch({ headless: true });
@@ -92,11 +92,20 @@ try {
     await page.waitForTimeout(80);
     await page.evaluate(() => window.editorHarness.store.openFile('long'));
     await observe(projectId + ' opened', projectId);
-    await page.locator('.cm-scroller').evaluate((scroller, top) => { scroller.scrollTop = top; }, [700, 1450, 2300][index]);
+    const requestedTop = [700, 1450, 2300][index];
+    // Match the real editor-document-panel flex parent, then require an actual
+    // bounded viewport before testing scroll retention (not a document-height div).
+    await page.waitForFunction(top => {
+      const scroller = document.querySelector('.cm-scroller');
+      return scroller && scroller.clientHeight > 0 && scroller.clientHeight <= 500
+        && scroller.scrollHeight - scroller.clientHeight >= top;
+    }, requestedTop);
+    await page.locator('.cm-scroller').evaluate((scroller, top) => { scroller.scrollTop = top; }, requestedTop);
+    await page.waitForFunction(top => Math.abs(document.querySelector('.cm-scroller').scrollTop - top) <= 1, requestedTop);
     await page.waitForTimeout(80);
     scrollBefore.push(await page.evaluate(() => {
       const h = window.editorHarness, buffer = h.store.getActive();
-      return { projectId: buffer.projectId, top: document.querySelector('.cm-scroller').scrollTop, savedTop: buffer.scrollTop, selection: buffer.selection };
+      return { projectId: buffer.projectId, top: document.querySelector('.cm-scroller').scrollTop, viewportHeight: document.querySelector('.cm-scroller').clientHeight, contentHeight: document.querySelector('.cm-scroller').scrollHeight, savedTop: buffer.scrollTop, selection: buffer.selection };
     }));
   }
   const scrollAfter = [];
@@ -107,7 +116,7 @@ try {
     await observe(before.projectId + ' restored', before.projectId);
     scrollAfter.push(await page.evaluate(() => {
       const h = window.editorHarness, buffer = h.store.getActive();
-      return { projectId: buffer.projectId, top: document.querySelector('.cm-scroller').scrollTop, savedTop: buffer.scrollTop, selection: buffer.selection };
+      return { projectId: buffer.projectId, top: document.querySelector('.cm-scroller').scrollTop, viewportHeight: document.querySelector('.cm-scroller').clientHeight, contentHeight: document.querySelector('.cm-scroller').scrollHeight, savedTop: buffer.scrollTop, selection: buffer.selection };
     }));
   }
   evidence.phases.push({ name: 'three project viewport restoration', before: scrollBefore, after: scrollAfter });

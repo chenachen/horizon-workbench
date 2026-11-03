@@ -856,10 +856,13 @@ async fn exercise(smoke: &mut Smoke, temp: &Path) -> Result<()> {
     );
 
     // Configure a controlled Git executable via the production settings API. It delays only
-    // status and delegates every command to real /usr/bin/git; no service or broker is mocked.
+    // status in project A and delegates every command to real /usr/bin/git; no service or
+    // broker is mocked. git.path is global, so project B must remain undelayed.
     let marker = temp.join("git-status-started");
     let wrapper = temp.join("slow-git");
-    let wrapper_source=format!("#!/bin/sh\nfor argument in \"$@\"; do\n if [ \"$argument\" = status ]; then\n  /bin/sleep 20 &\n  horizon_delay_pid=$!\n  printf '%s %s\\n' \"$$\" \"$horizon_delay_pid\" > '{}'\n  wait \"$horizon_delay_pid\"\n fi\ndone\nexec /usr/bin/git \"$@\"\n",marker.display());
+    let quoted_a = fs::canonicalize(&a_dir)?.to_string_lossy().replace('\'', "'\\''");
+    let quoted_marker = marker.to_string_lossy().replace('\'', "'\\''");
+    let wrapper_source=format!("#!/bin/sh\nfor argument in \"$@\"; do\n if [ \"$argument\" = status ] && [ \"$(pwd -P)\" = '{quoted_a}' ]; then\n  /bin/sleep 20 &\n  horizon_delay_pid=$!\n  printf '%s %s\\n' \"$$\" \"$horizon_delay_pid\" > '{}'\n  wait \"$horizon_delay_pid\"\n fi\ndone\nexec /usr/bin/git \"$@\"\n",quoted_marker);
     fs::write(&wrapper, wrapper_source)?;
     #[cfg(unix)]
     {
@@ -870,12 +873,23 @@ async fn exercise(smoke: &mut Smoke, temp: &Path) -> Result<()> {
         smoke.state.clone(),
         call("settings_get", json!({"projectId":a}), Some(&a)),
     )?;
+    check_error(
+        settings::dispatch(
+            smoke.state.clone(),
+            call(
+                "settings_patch",
+                json!({"scope":"project","projectId":a,"expectedRevision":configuration["revision"],"set":{"git.path":wrapper},"unset":[]}),
+                Some(&a),
+            ),
+        ).map_err(Into::into),
+        "INVALID_ARGUMENT",
+    )?;
     settings::dispatch(
         smoke.state.clone(),
         call(
             "settings_patch",
-            json!({"scope":"project","projectId":a,"expectedRevision":configuration["revision"],"set":{"git.path":wrapper},"unset":[]}),
-            Some(&a),
+            json!({"scope":"global","expectedRevision":configuration["revision"],"set":{"git.path":wrapper},"unset":[]}),
+            None,
         ),
     )?;
     let probe_manifest = json!({"id":CRASH,"name":"故障回收探针","version":"0.1.0","description":"Native integration fixture","author":"Horizon tests","apiVersion":1,"engines":{"horizon":">=0.1.0 <0.2.0"},"runtime":{"kind":"quickjs","entry":"index.js"},"activation":["onCommand:local.failure-probe.begin"],"requires":{"horizon.git":"^0.1.0"},"optional":{},"capabilities":["git.read"],"contributes":{"commands":[{"id":"local.failure-probe.begin","title":"开始真实 Git 请求"},{"id":"local.failure-probe.crash","title":"CPU 限额故障"},{"id":"local.failure-probe.echo","title":"检查隔离"}]}});
