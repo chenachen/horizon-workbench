@@ -52,7 +52,7 @@ try {
   assert.equal(metrics.unmounts, 1);
   assert.deepEqual(errors, []);
   const lock = JSON.parse(await readFile(new URL('package-lock.json', here), 'utf8'));
-  const result = { observedOn: '2026-10-31 Asia/Shanghai', platform: `${os.platform()} ${os.arch()}`, browser: browser.version(),
+  const result = { observedOn: new Date().toISOString(), platform: `${os.platform()} ${os.arch()}`, browser: browser.version(),
     status: 'passed', checks: ['browser_without_node_globals', 'dependency_wait_and_resume', 'provider_teardown_stops_consumer',
       'effect_timer_and_event_cleanup', 'theme_and_geometry_preserve_document_element', 'react_subscription_cleanup'],
     packages: Object.fromEntries(['cordis','react','react-dom','cosmokit','esbuild'].map(name => [name, lock.packages[`node_modules/${name}`]?.version])),

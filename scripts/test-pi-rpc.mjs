@@ -8,7 +8,10 @@ import { createHash } from 'node:crypto';
 const root = await mkdtemp(path.join(tmpdir(), 'horizon-pi-rpc-'));
 const binary = process.env.HORIZON_PI_BINARY || '/tmp/horizon-pi/pi/pi';
 const log = path.join(root, 'requests.jsonl');
-const fixture = spawn(process.execPath, ['scripts/test-pi-server.mjs'], { env: { ...process.env, HORIZON_TEST_LOG: log }, stdio: ['ignore', 'pipe', 'inherit'] });
+let fixture; const children = new Set();
+try {
+fixture = spawn(process.execPath, ['scripts/test-pi-server.mjs'], { env: { ...process.env, HORIZON_TEST_LOG: log }, stdio: ['ignore', 'pipe', 'inherit'] });
+fixture.on('error', error => console.error('Fixture startup failed:', error.message));
 const [serverLine] = await Promise.race([new Promise(resolve => fixture.stdout.once('data', b => resolve(b.toString().trim().split('\n')))), new Promise((_, reject) => setTimeout(() => reject(new Error('fixture timeout')), 10_000))]);
 const { port } = JSON.parse(serverLine);
 const config = path.join(root, 'agent'); await mkdir(config);
@@ -20,11 +23,13 @@ await writeFile(path.join(config, 'settings.json'), JSON.stringify({ retry: { en
 const flags = ['--mode','rpc','--provider','horizon','--model','horizon-fixture','--thinking','off','--no-tools','--no-extensions','--no-mcp','--no-skills','--no-prompt-templates','--no-themes','--no-context-files','--no-approve','--offline'];
 const results=[];
 async function run(label, prompt, session, cancel=false) {
-  const child=spawn(binary,[...flags,'--session',session],{cwd:root,env:{PATH:'/usr/bin:/bin',HOME:process.env.HOME,PI_CODING_AGENT_DIR:config,PI_OFFLINE:'1',PI_TELEMETRY:'0'},stdio:['pipe','pipe','pipe']});
+  const child=spawn(binary,[...flags,'--session',session],{cwd:root,env:{PATH:'/usr/bin:/bin',HOME:root,PI_CODING_AGENT_DIR:config,PI_OFFLINE:'1',PI_TELEMETRY:'0'},stdio:['pipe','pipe','pipe']});
+  children.add(child); child.once('exit', () => children.delete(child));
   const events=[];let errors='';child.stderr.on('data',b=>errors+=b);
   const start=Date.now();let settled=false;let aborted=false;
   const exit=new Promise(resolve=>child.once('exit',(code,signal)=>resolve({code,signal})));
   const finished = new Promise((resolve,reject)=>{
+    child.once('error', reject);
     const timer=setTimeout(()=>{child.kill('SIGKILL');reject(new Error(`${label}: timeout ${errors.slice(0,500)}`));},20_000);
     createInterface({input:child.stdout}).on('line',line=>{
       let v;try{v=JSON.parse(line);}catch{clearTimeout(timer);reject(new Error('invalid JSONL '+line));return;}events.push(v);
@@ -34,13 +39,12 @@ async function run(label, prompt, session, cancel=false) {
     });child.once('exit',code=>{if(!settled){clearTimeout(timer);reject(new Error(`${label}: early exit ${code} ${errors.slice(0,500)}`));}});
   });
   child.stdin.write(JSON.stringify({id:'ready',type:'get_state'})+'\n');
-  const terminal=await finished;const status=await exit;
+  const terminal=await finished;const status=await Promise.race([exit,new Promise((_,reject)=>{const timer=setTimeout(()=>{child.kill('SIGKILL');reject(new Error(`${label}: shutdown timeout`));},5000);exit.then(()=>clearTimeout(timer));})]);
   assert.equal(status.code,0);assert(events.some(v=>v.type==='response'&&v.id==='submission'&&v.data?.disposition==='started'));
   const final=events.filter(v=>v.type==='message_end'&&v.message?.role==='assistant').at(-1)?.message;
   results.push({label,eventTypes:[...new Set(events.map(v=>v.type))],terminal,stopReason:final?.stopReason,elapsedMs:Date.now()-start});
   return {events,final,terminal};
 }
-try{
  const session=path.join(root,'session.jsonl');
  const first=await run('chat no tools','HORIZON_TEST_WRITE: This is a fixture. Do not perform project actions.',session);
  assert.equal(first.final.stopReason,'stop');
@@ -64,4 +68,4 @@ try{
  await mkdir('research/verification',{recursive:true});
  await writeFile('research/verification/pi-rpc.json',JSON.stringify({date:new Date().toISOString(),platform:process.platform,arch:process.arch,binary,version:'1.4.0',modelService:'controlled local OpenAI protocol fixture; no real provider credentials',results},null,2)+'\n');
  console.log(JSON.stringify(results,null,2));
-}finally{fixture.kill();await rm(root,{recursive:true,force:true});}
+}finally{for(const child of children){child.kill('SIGKILL');} fixture?.kill('SIGKILL');await rm(root,{recursive:true,force:true});}

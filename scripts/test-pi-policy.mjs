@@ -1,5 +1,5 @@
 /** Tests the actual checked-in Pi policy transport; schema constructors are irrelevant stubs. */
-import { readFile, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { readFile, mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { createServer } from 'node:net';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -37,6 +37,7 @@ try {
   const broken = await oldTools.get('horizon_read').execute('test', { path: 'example.txt' });
   assert.notEqual(broken.content[0].text, expected);
   const result = { date: new Date().toISOString(), source: 'packages/pi-policy/horizon-policy.ts', checks: { actualPolicyTransport: true, oneByteUnicodeChunks: true, chineseAndSurrogatePairIntact: true, previousDecoderReproducesCorruption: true }, byteChunks: chunks, text: response.content[0].text };
+  await mkdir('research/verification', { recursive: true });
   await writeFile('research/verification/pi-policy-unicode.json', JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result));
 } finally {

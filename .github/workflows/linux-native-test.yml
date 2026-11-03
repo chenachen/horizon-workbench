@@ -41,7 +41,7 @@ jobs:
       - name: Install Linux build and desktop test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev webkit2gtk-driver build-essential libssl-dev libgtk-3-dev libdbus-1-dev libayatana-appindicator3-dev librsvg2-dev patchelf pkg-config xvfb xauth dbus-x11 fonts-noto-cjk git xdg-utils lsof
+          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev webkit2gtk-driver build-essential libssl-dev libgtk-3-dev libdbus-1-dev libayatana-appindicator3-dev librsvg2-dev patchelf pkg-config xvfb xauth dbus-x11 fonts-noto-cjk git xdg-utils lsof xdotool scrot
           mkdir -p artifacts/linux
           { echo "commit=$GITHUB_SHA"; echo "run=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; uname -a; rustc -vV; node --version; npm --version; pkg-config --modversion webkit2gtk-4.1 gtk+-3.0 dbus-1; } | tee artifacts/linux/build-identity.txt
       - name: Install locked JavaScript dependencies
@@ -81,6 +81,33 @@ jobs:
           (cd artifacts/linux && sha256sum *.deb *.AppImage) | tee artifacts/linux/SHA256SUMS.txt
       - name: Test native desktop host
         run: xvfb-run -a dbus-run-session -- cargo test --locked --manifest-path apps/desktop/src-tauri/Cargo.toml -- --test-threads=1 2>&1 | tee artifacts/linux/host-tests.log
+      - name: Native extension lifecycle integration (windowless, not GUI)
+        id: native_extensions
+        continue-on-error: true
+        run: |
+          timeout 10m xvfb-run -a dbus-run-session -- cargo run --locked --manifest-path apps/desktop/src-tauri/Cargo.toml --example extension_smoke -- "$PWD/artifacts/linux/extension-native.json" 2>&1 | tee artifacts/linux/extension-native.log
+      - name: Full Git sidecar pressure and cancellation probe
+        id: git_pressure
+        continue-on-error: true
+        run: |
+          timeout 10m python3 apps/git-service/tests/benchmark.py --binary apps/git-service/target/release/horizon-git --output "$PWD/artifacts/linux/git-pressure.json" 2>&1 | tee artifacts/linux/git-pressure.log
+      - name: Official Pi runtime with local deterministic model fixture only
+        id: pi_offline
+        continue-on-error: true
+        run: |
+          touch artifacts/linux/pi-suite-start
+          HORIZON_PI_BINARY="$(node scripts/prepare-pi-fixture.mjs)"
+          export HORIZON_PI_BINARY
+          status=0
+          for suite in rpc native resources; do
+            timeout 10m node "scripts/test-pi-$suite.mjs" 2>&1 | tee "artifacts/linux/pi-$suite.log" || status=1
+          done
+          mkdir -p artifacts/linux/pi-evidence
+          for report in research/verification/pi-{fixture-asset,rpc,native}.json; do
+            if test "$report" -nt artifacts/linux/pi-suite-start; then cp "$report" artifacts/linux/pi-evidence/; else echo "No fresh report: $report"; status=1; fi
+          done
+          find research/verification -maxdepth 1 -type d -name 'pi-resource-*' -newer artifacts/linux/pi-suite-start -exec cp -r {} artifacts/linux/pi-evidence/ \;
+          exit "$status"
       - name: Install built Debian package
         run: |
           shopt -s nullglob
@@ -100,6 +127,12 @@ jobs:
           mkdir -p "$RUNNER_TEMP/horizon-native-home" "$RUNNER_TEMP/horizon-native-data" "$RUNNER_TEMP/horizon-native-config" "$RUNNER_TEMP/horizon-native-cache"
           export HOME="$RUNNER_TEMP/horizon-native-home" XDG_DATA_HOME="$RUNNER_TEMP/horizon-native-data" XDG_CONFIG_HOME="$RUNNER_TEMP/horizon-native-config" XDG_CACHE_HOME="$RUNNER_TEMP/horizon-native-cache"
           xvfb-run -a -s '-screen 0 1440x1000x24' dbus-run-session -- python3 scripts/linux-native-smoke.py --application /usr/bin/horizon-desktop --artifacts artifacts/linux/gui 2>&1 | tee artifacts/linux/gui.log
+      - name: Require all expanded native suites to pass
+        if: always()
+        run: |
+          test "${{ steps.native_extensions.outcome }}" = success
+          test "${{ steps.git_pressure.outcome }}" = success
+          test "${{ steps.pi_offline.outcome }}" = success
       - name: Upload packages and verification evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -107,4 +140,76 @@ jobs:
           name: Horizon-Linux-test-${{ github.sha }}
           path: artifacts/linux
           if-no-files-found: warn
+          retention-days: 7
+
+  browser-and-contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked browser and policy dependencies
+        run: |
+          mkdir -p artifacts/expanded/browser
+          npm ci
+          npm ci --prefix packages/pi-policy
+          npx --no-install playwright install --with-deps chromium
+      - name: Typecheck Pi policy and test local transport
+        id: policy
+        continue-on-error: true
+        run: |
+          npm run check --prefix packages/pi-policy 2>&1 | tee artifacts/expanded/pi-policy-typecheck.log
+          node scripts/test-pi-policy.mjs 2>&1 | tee artifacts/expanded/pi-policy-transport.log
+      - name: Validate existing historical evidence indexes (not new platform acceptance)
+        id: indexes
+        continue-on-error: true
+        run: |
+          python3 scripts/desktop/acceptance_matrix.py --check | tee artifacts/expanded/acceptance-index.log
+          python3 scripts/desktop/visual_matrix.py --check | tee artifacts/expanded/visual-index.log
+          node scripts/desktop/check_visual_report.mjs 2>&1 | tee artifacts/expanded/visual-report-check.log
+      - name: Test design prototype rendering and interactions (not native application)
+        id: design
+        continue-on-error: true
+        run: |
+          npm run build 2>&1 | tee artifacts/expanded/design-build.log
+          status=0
+          for suite in check check:plugins check:customization; do
+            npm run "$suite" 2>&1 | tee "artifacts/expanded/design-${suite//:/-}.log" || status=1
+          done
+          find .work -maxdepth 1 -name "*report*.json" -exec cp {} artifacts/expanded/browser/ \;
+          exit "$status"
+      - name: Test real editor components with fixture RPC
+        id: editor
+        continue-on-error: true
+        run: |
+          status=0
+          for test in packages/editor/tests/*.mjs; do
+            name="$(basename "$test" .mjs)"
+            node "$test" "artifacts/expanded/browser/$name.json" 2>&1 | tee "artifacts/expanded/browser/$name.log" || status=1
+          done
+          exit "$status"
+      - name: Check research-only Cordis React experiment
+        id: research
+        continue-on-error: true
+        run: |
+          npm ci --prefix research/experiments/cordis-react
+          node research/experiments/cordis-react/check.mjs 2>&1 | tee artifacts/expanded/cordis-research.log
+          cp research/experiments/cordis-react/result.json artifacts/expanded/cordis-research.json
+      - name: Require all expanded suites to pass
+        if: always()
+        run: |
+          test "${{ steps.policy.outcome }}" = success
+          test "${{ steps.indexes.outcome }}" = success
+          test "${{ steps.design.outcome }}" = success
+          test "${{ steps.editor.outcome }}" = success
+          test "${{ steps.research.outcome }}" = success
+      - name: Upload expanded browser and contract evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: Horizon-expanded-browser-${{ github.sha }}
+          path: artifacts/expanded
           retention-days: 7
