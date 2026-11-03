@@ -80,7 +80,7 @@ class WebDriver:
     def find(self, selector: str, using='css selector'):
         return self.command('POST', '/element', {'using': using, 'value': selector})[ELEMENT]
 
-    def click(self, selector: str, using='css selector'):
+    def interactable(self, selector: str, using='css selector'):
         def ready():
             element = self.find(selector, using)
             if not self.command('GET', f'/element/{element}/enabled'):
@@ -96,7 +96,10 @@ const style = getComputedStyle(element);
 return style.display !== 'none' && style.visibility !== 'hidden' && style.visibility !== 'collapse';
 """, {ELEMENT: element})
             return element if visible else None
-        element = self.wait(ready, f'visible enabled element {selector}')
+        return self.wait(ready, f'visible enabled element {selector}')
+
+    def click(self, selector: str, using='css selector'):
+        element = self.interactable(selector, using)
         self.command('POST', f'/element/{element}/click', {})
 
     def button_text(self, text: str, prefix='//'):
@@ -104,7 +107,7 @@ return style.display !== 'none' && style.visibility !== 'hidden' && style.visibi
         self.click(f'{prefix}button[normalize-space(.)={json.dumps(text, ensure_ascii=False)}]', 'xpath')
 
     def type(self, selector: str, value: str):
-        element = self.find(selector)
+        element = self.interactable(selector)
         self.command('POST', f'/element/{element}/clear', {})
         self.command('POST', f'/element/{element}/value', {'text': value, 'value': list(value)})
 

@@ -71,10 +71,17 @@ class HarnessContract(unittest.TestCase):
     def test_unicode_input_clear_then_type(self):
         selector, value = 'dialog[open] input[placeholder="例如：个人项目"]', '工作区 test'
         self.wd.type(selector, value)
-        self.assertEqual(self.wd.calls[-3:], [
-            ('POST', '/session/test-session/element', {'using': 'css selector', 'value': selector}),
+        self.assertIn(('POST', '/session/test-session/element', {'using': 'css selector', 'value': selector}), self.wd.calls)
+        self.assertEqual(self.wd.calls[-2:], [
             ('POST', '/session/test-session/element/test-element/clear', {}),
             ('POST', '/session/test-session/element/test-element/value', {'text': value, 'value': list(value)})])
+
+    def test_type_waits_for_enabled_mounted_input(self):
+        self.wd.enabled = [False, True]
+        self.wd.type('input', 'ready')
+        self.assertEqual(len([call for call in self.wd.calls if call[1].endswith('/enabled')]), 2)
+        self.assertEqual(len([call for call in self.wd.calls if call[1].endswith('/clear')]), 1)
+        self.assertEqual(self.wd.calls[-1][2]['text'], 'ready')
 
     def test_editor_terminal_keys_do_not_clear(self):
         value = '\ue009a\ue000new contents\ue007'
