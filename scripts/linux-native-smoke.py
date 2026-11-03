@@ -186,6 +186,7 @@ def main():
     # explicit XAUTHORITY pointer, but never inherit arbitrary account/API secrets.
     env = {key: os.environ[key] for key in (
         'PATH', 'DISPLAY', 'XAUTHORITY', 'WAYLAND_DISPLAY', 'DBUS_SESSION_BUS_ADDRESS', 'XDG_RUNTIME_DIR',
+        'AT_SPI_BUS_ADDRESS', 'GTK_MODULES',
         'LANG', 'LC_ALL', 'LD_LIBRARY_PATH', 'LIBGL_ALWAYS_SOFTWARE', 'GDK_BACKEND',
         'WEBKIT_DISABLE_DMABUF_RENDERER', 'WEBKIT_DISABLE_COMPOSITING_MODE'
     ) if key in os.environ}

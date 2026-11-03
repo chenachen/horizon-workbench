@@ -100,13 +100,15 @@ class HarnessContract(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 smoke.executable_paths(str(launcher), str(native.parent / 'missing'))
 
-    def test_picker_open_point_is_inside_verified_client_geometry(self):
+    def test_gtk_completion_deletion_requires_exact_selected_suffix(self):
         spec = importlib.util.spec_from_file_location('extended_smoke', Path(__file__).with_name('linux-native-extended.py'))
         extended = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(extended)
-        self.assertEqual(extended.picker_open_point(1096, 820), (1047, 794))
-        with self.assertRaises(ValueError):
-            extended.picker_open_point(200, 100)
+        expected = '/fixture'
+        self.assertTrue(extended.selected_completion_only({'text': '/fixture/', 'selections': [[8, 9]]}, expected))
+        self.assertFalse(extended.selected_completion_only({'text': '/fixture/.git/', 'selections': [[9, 14]]}, expected))
+        self.assertFalse(extended.selected_completion_only({'text': '/fixture/', 'selections': []}, expected))
+        self.assertFalse(extended.selected_completion_only({'text': '/other/', 'selections': [[6, 7]]}, expected))
 
     def test_js_arguments_not_interpolated(self):
         body = 'return document.querySelector(arguments[0])?.value === arguments[1];'

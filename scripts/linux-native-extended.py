@@ -10,11 +10,11 @@ import time
 ELEMENT = 'element-6066-11e4-a52e-4f735466cecf'
 
 
-def picker_open_point(width, height):
-    """Client-relative Open-button center from the captured GTK chooser layout."""
-    if width < 400 or height < 250:
-        raise ValueError('Unexpected GTK chooser geometry; refusing a speculative click')
-    return width - 49, height - 26
+def selected_completion_only(entry, expected):
+    text = entry.get('text', '')
+    selections = entry.get('selections', [])
+    return (text.startswith(expected) and len(text) > len(expected)
+            and len(selections) == 1 and list(selections[0]) == [len(expected), len(text)])
 
 
 def run(wd, check, capture, result, output, env):
@@ -75,6 +75,14 @@ def run(wd, check, capture, result, output, env):
                      'searchExitCode': process.returncode, 'searchError': process.stderr}
             result['nativePicker'].setdefault('observations', []).append(state)
             (output / 'native-picker-observations.json').write_text(json.dumps(result['nativePicker'], indent=2))
+        def accessibility(name):
+            evidence = output / f'{name}-a11y.json'
+            completed = subprocess.run(['/usr/bin/python3', str(Path(__file__).with_name('inspect-linux-accessibility.py')),
+                                        '--pid', focused['pid'], '--output', str(evidence)],
+                                       env=env, text=True, capture_output=True, timeout=15)
+            if completed.returncode:
+                raise AssertionError(f'Native accessibility inspector failed: {completed.stderr}')
+            return json.loads(completed.stdout)
         native_capture('05-system-picker')
         def require_picker_focus():
             current = picker_focus()
@@ -88,39 +96,45 @@ def run(wd, check, capture, result, output, env):
             if process.returncode not in (0, 1):
                 raise AssertionError(f'Cannot verify GTK picker dismissal: {process.stderr}')
             return focused['window'] not in process.stdout.split()
+        # GTK's empty Recent view has no selectable folder and a disabled Open.
+        # Its SELECT_FOLDER entry does not auto-navigate on every edit. First use
+        # GTK's documented home-folder binding to establish a BROWSE directory.
+        # Source: gtkfilechooserwidget.c home_folder_handler / Alt+Home binding.
+        require_picker_focus()
+        command('xdotool', 'key', '--clearmodifiers', 'alt+Home')
+        def home_ready():
+            tree = accessibility('05a-home-state')
+            return any(n.get('role') == 'push button' and n.get('name') == 'Open'
+                       and n.get('enabled') and n.get('sensitive') and n.get('showing')
+                       for n in tree['nodes'])
+        wd.wait(home_ready, 'GTK Home/Browse has an enabled Open button', timeout=20)
+        native_capture('05a-system-picker-home')
         require_picker_focus()
         command('xdotool', 'key', '--clearmodifiers', 'ctrl+l')
-        require_picker_focus()
+        command('xdotool', 'key', '--clearmodifiers', 'ctrl+a')
         command('xdotool', 'type', '--clearmodifiers', '--delay', '2', str(fixture))
-        time.sleep(0.3)
+        # Inline completion appends a selected slash/suffix. BackSpace removes
+        # only that highlighted completion, keeping the exact typed folder path.
+        def entry_state():
+            tree = accessibility('05b-path-state')
+            entries = [n for n in tree['nodes'] if n.get('focused') and n.get('role') in ('text', 'entry')]
+            return entries[0] if len(entries) == 1 else None
+        entry = wd.wait(entry_state, 'focused native GTK location entry', timeout=15)
+        expected = str(fixture)
+        if entry.get('text') != expected:
+            if not selected_completion_only(entry, expected):
+                raise AssertionError(f'Unexpected GTK location entry/completion: {entry}')
+            require_picker_focus()
+            command('xdotool', 'key', '--clearmodifiers', 'BackSpace')
+        def exact_entry():
+            state = entry_state()
+            return state is not None and state.get('text') == expected
+        wd.wait(exact_entry, 'exact fixture path without completion suffix', timeout=10)
         native_capture('05b-system-picker-path-entered')
         require_picker_focus()
         command('xdotool', 'key', '--clearmodifiers', 'Return')
-        time.sleep(1)
-        native_capture('05c-system-picker-after-navigation')
-        # Return navigates into a folder in GTK SELECT_FOLDER mode. Explicitly
-        # activate Open rather than assuming a second Return accepts the folder.
-        if not picker_gone():
-            require_picker_focus()
-            command('xdotool', 'key', '--clearmodifiers', 'alt+o')
-            result['nativePicker'].setdefault('actions', []).append('Open keyboard mnemonic Alt+O')
-            time.sleep(1)
-            native_capture('05d-system-picker-after-open-key')
-        if not picker_gone():
-            require_picker_focus()
-            geometry = command('xdotool', 'getwindowgeometry', '--shell', focused['window'])
-            fields = dict(line.split('=', 1) for line in geometry.splitlines() if '=' in line)
-            x, y = picker_open_point(int(fields['WIDTH']), int(fields['HEIGHT']))
-            # Grounded in run2/05-system-picker.png: actual GTK Open button is
-            # bottom-right. Coordinates are client-relative, not desktop guesses.
-            result['nativePicker']['actions'].append({'action': 'click visible Open button',
-                                                      'window': focused['window'], 'x': x, 'y': y,
-                                                      'geometry': fields})
-            command('xdotool', 'mousemove', '--sync', '--window', focused['window'], str(x), str(y))
-            require_picker_focus()
-            command('xdotool', 'click', '1')
-            time.sleep(0.5)
-            native_capture('05e-system-picker-after-open-click')
+        time.sleep(0.5)
+        native_capture('05c-system-picker-after-accept')
         wd.wait(picker_gone, 'native folder picker dismissed', timeout=20)
         chosen = lambda: wd.js('return document.querySelector(arguments[0])?.value === arguments[1];', 'dialog[open] input[aria-label="项目目录"]', str(fixture))
         wd.wait(chosen, 'native picker returned exact fixture directory', timeout=20)
