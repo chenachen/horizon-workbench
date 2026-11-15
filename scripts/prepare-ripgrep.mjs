@@ -20,6 +20,17 @@ const defaultTarget = {
   'win32-x64': 'x86_64-pc-windows-msvc',
 }[`${process.platform}-${process.arch}`];
 
+export function extractRipgrepArchive(archive, directory, windows, run = spawnSync) {
+  const extract = windows
+    ? run('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command',
+      // Windows PowerShell runs on .NET Framework; avoid Archive modules inherited from pwsh.
+      "$ErrorActionPreference = 'Stop'; Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($env:HORIZON_RG_ARCHIVE, $env:HORIZON_RG_DESTINATION)"],
+    { stdio: 'inherit', env: { ...process.env, HORIZON_RG_ARCHIVE: archive, HORIZON_RG_DESTINATION: directory } })
+    : run('/usr/bin/tar', ['-xzf', archive, '-C', directory], { stdio: 'inherit' });
+  if (extract.error) throw extract.error;
+  if (extract.status !== 0) throw new Error('Ripgrep extraction failed');
+}
+
 export async function prepareRipgrep(target = defaultTarget) {
   if (!hashes[target]) throw new Error(`Unsupported Ripgrep packaging target: ${target ?? `${process.platform}-${process.arch}`}`);
   const windows = target.endsWith('-windows-msvc');
@@ -37,13 +48,7 @@ export async function prepareRipgrep(target = defaultTarget) {
     if (createHash('sha256').update(bytes).digest('hex') !== hashes[target]) throw new Error('Ripgrep checksum mismatch');
     const archive = join(directory, `ripgrep.${extension}`);
     await writeFile(archive, bytes);
-    const extract = windows
-      ? spawnSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command',
-        'Expand-Archive -LiteralPath $env:HORIZON_RG_ARCHIVE -DestinationPath $env:HORIZON_RG_DESTINATION -Force -ErrorAction Stop'],
-      { stdio: 'inherit', env: { ...process.env, HORIZON_RG_ARCHIVE: archive, HORIZON_RG_DESTINATION: directory } })
-      : spawnSync('/usr/bin/tar', ['-xzf', archive, '-C', directory], { stdio: 'inherit' });
-    if (extract.error) throw extract.error;
-    if (extract.status !== 0) throw new Error('Ripgrep extraction failed');
+    extractRipgrepArchive(archive, directory, windows);
     await mkdir(dirname(destination), { recursive: true });
     await copyFile(join(directory, name, `rg${suffix}`), destination);
     if (!windows) await chmod(destination, 0o755);
