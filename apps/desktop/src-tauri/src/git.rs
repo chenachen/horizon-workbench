@@ -494,6 +494,7 @@ fn validate_params(call: &Call) -> Result<(), HostError> {
             "parentOid",
             "originalPath",
             "expectedRepoToken",
+            "fullContext",
         ],
         "git_diff_page" => &["diffId", "cursor"],
         "git_history" => &["repoId", "cursor", "limit"],

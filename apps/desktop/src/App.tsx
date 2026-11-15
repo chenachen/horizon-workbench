@@ -183,13 +183,31 @@ function DesktopShell(props: ShellProps) {
   const [drawerExpanded, setDrawerExpanded] = useState(false);
   const activeProjectButton = useRef<HTMLButtonElement>(null);
   const lastProject = useRef<string | undefined>(undefined);
-  const [reviews, setReviews] = useState<Record<string, { projectId: string; selection: DiffSelection; snapshot: GitSnapshot; onToggleStage?: () => void }>>({});
+  const [reviews, setReviews] = useState<Record<string, { projectId: string; selection: DiffSelection; snapshot: GitSnapshot; onToggleStage?: () => void; onRefreshSnapshot?: (snapshot: GitSnapshot) => void }>>({});
   const [gitSnapshots, setGitSnapshots] = useState<Record<string, GitSnapshot>>({});
   const [conflicts, setConflicts] = useState<Record<string, boolean>>({});
   const conflictVisibility = useCallback((id: string, visible: boolean) => {
     setConflicts(items => { if (Boolean(items[id]) === visible) return items; const next = { ...items }; if (visible) next[id] = true; else delete next[id]; return next; });
     if (visible) setReviews(items => { if (!items[id]) return items; const next = { ...items }; delete next[id]; return next; });
   }, []);
+  const revealEditor = useCallback((id: string) => {
+    setMainPage(null);
+    setReviews(items => {
+      if (!items[id]) return items;
+      const next = { ...items };
+      delete next[id];
+      return next;
+    });
+    setConflicts(items => {
+      if (!items[id]) return items;
+      const next = { ...items };
+      delete next[id];
+      return next;
+    });
+  }, []);
+  const revealCurrentEditor = useCallback(() => {
+    if (projectId) revealEditor(projectId);
+  }, [projectId, revealEditor]);
   const appearance = useAppearance();
   const { settings } = useSettings(projectId);
   const projectActivity = useProjectActivity(), projectResources = projectActivity.resources;
@@ -273,16 +291,20 @@ function DesktopShell(props: ShellProps) {
   }, [projectId, projectEpoch, editorEnabled, filesEnabled, searchEnabled, gitEnabled, agentEnabled, terminalEnabled, launchEnabled, panels.sidebar, panels.tab, panels.ai, panels.terminal, reportError]);
   const openSettings = useCallback((tab = 'appearance') => { setSettingsTab(tab); setModal('settings'); }, []);
   const openFile = useCallback(async (file: { projectId: string; fileId: string; displayPath?: string }) => {
-    setMainPage(null);
-    setReviews(items => { const next = { ...items }; delete next[file.projectId]; return next; });
+    revealEditor(file.projectId);
     try { await (await getEditor()).openFile(file.fileId, { projectId: file.projectId }); } catch (reason) { reportError(reason); }
-  }, [reportError]);
-  const chooseSidebar = useCallback((tab: Panel) => { setMainPage(null); updatePanels({ sidebar: true, tab }); }, [updatePanels]);
+  }, [reportError, revealEditor]);
+  const [searchFocusRequest, setSearchFocusRequest] = useState(0);
+  const chooseSidebar = useCallback((tab: Panel) => {
+    setMainPage(null);
+    updatePanels({ sidebar: true, tab, focus: false });
+    if (tab === 'search') setSearchFocusRequest(request => request + 1);
+  }, [updatePanels]);
   const toggleAI = useCallback(() => { setMainPage(null); setWasAI(true); updatePanels({ ai: !panels.ai, ...(window.innerWidth < 960 ? { sidebar: false } : {}) }); }, [panels.ai, updatePanels]);
   const toggleTerminal = useCallback(() => { setMainPage(null); setWasTerminal(true); updatePanels({ terminal: !(panels.terminal && !panels.focus && !fullPageOpen), focus: false }); }, [panels.terminal, panels.focus, fullPageOpen, updatePanels]);
   const commandEnabled = useCallback((id: string) => {
     if (id === 'file.open') return Boolean(projectId && filesEnabled);
-    if (id.startsWith('file.')) return Boolean(projectId && editorEnabled);
+    if (id.startsWith('file.') || id.startsWith('editor.')) return Boolean(projectId && editorEnabled);
     const features: Record<string, boolean> = { 'view.files': filesEnabled, 'view.search': searchEnabled, 'view.git': gitEnabled, 'view.ai': agentEnabled, 'view.terminal': terminalEnabled, 'project.launch': launchEnabled };
     return id in features ? Boolean(projectId && features[id]) : true;
   }, [projectId, filesEnabled, editorEnabled, searchEnabled, gitEnabled, agentEnabled, terminalEnabled, launchEnabled]);
@@ -306,6 +328,7 @@ function DesktopShell(props: ShellProps) {
       case 'file.saveAll': void getEditor().then(s => s.saveAll()).catch(reportError); break;
       case 'file.close': void getEditor().then(s => s.requestClose()).catch(reportError); break;
       case 'file.open': openQuickFiles(); break;
+      case 'editor.definition': revealCurrentEditor(); void import('./features/editor/commands').then(module => module.editorCommands.definition()).catch(reportError); break;
       case 'view.search': chooseSidebar('search'); break;
       case 'view.files': chooseSidebar('files'); break;
       case 'view.git': chooseSidebar('git'); break;
@@ -320,7 +343,7 @@ function DesktopShell(props: ShellProps) {
       case 'project.overview': openOverview(); break;
       case 'project.launch': openSettings('launch'); break;
     }
-  }, [chooseSidebar, openSettings, openOverview, openPlugins, openRecovery, panels.sidebar, panels.focus, reportError, toggleAI, toggleTerminal, updatePanels, commandEnabled, openQuickFiles]);
+  }, [chooseSidebar, openSettings, openOverview, openPlugins, openRecovery, panels.sidebar, panels.focus, reportError, toggleAI, toggleTerminal, updatePanels, commandEnabled, openQuickFiles, revealCurrentEditor]);
   useEffect(() => {
     const keys = (event: KeyboardEvent) => {
       if (event.isComposing || event.defaultPrevented || document.querySelector('dialog[open],[aria-modal="true"],[role="menu"]')) return;
@@ -449,14 +472,14 @@ function DesktopShell(props: ShellProps) {
       <header className="sidebar-heading"><strong title={project?.rootDisplayPath}>{project?.displayName ?? '工作区'}</strong>{project ? <button className="icon-button" aria-label="项目操作" onClick={event => manageProject(project, event.currentTarget)}><MoreHorizontal size={17} /></button> : null}<button className="icon-button" aria-label="收起侧栏" onClick={() => updatePanels({ sidebar: false })}><X size={16} /></button></header>
       <div className="sidebar-tabs" role="tablist" aria-label="项目工具"><button role="tab" aria-selected={panels.tab === 'files'} onClick={() => chooseSidebar('files')}><Files size={13} />文件</button><button role="tab" aria-selected={panels.tab === 'git'} onClick={() => chooseSidebar('git')}><GitBranch size={13} />Git</button><button role="tab" aria-selected={panels.tab === 'search'} onClick={() => chooseSidebar('search')} aria-label="搜索"><Search size={14} /></button></div>
       <div className="sidebar-content">
-        {sleepingProject ? <div className="sleeping-project-sidebar"><Moon size={19} /><strong>项目已休眠</strong><p>文件与后台服务将在恢复后载入。</p><span>已保留 {sleepingSnapshot?.tabs.length ?? 0} 个文件标签</span></div> : !projectId ? <EmptyState title="尚未选择项目" action={<button onClick={() => setModal('add')}>添加本地项目</button>} /> : panels.tab === 'files' ? filesEnabled ? lazyPanel('文件树', <FileExplorer projectId={projectId} projectEpoch={projectEpoch} gitStatus={fileGitStatus} />, 'tree') : featureMissing('文件树') : panels.tab === 'search' ? searchEnabled ? lazyPanel('搜索', <SearchPanel projectId={projectId} projectEpoch={projectEpoch} />) : featureMissing('搜索') : gitEnabled ? lazyPanel('Git', <GitPanel projectId={projectId} conflictTargetId="git-conflict-slot" onConflictVisibilityChange={conflictVisibility} onSnapshot={refreshReview} onOpenFile={editorEnabled ? openFile : undefined} onOpenDiff={review => setReviews(items => ({ ...items, [review.projectId]: review }))} onError={reportError} />) : featureMissing('Git')}
+        {sleepingProject ? <div className="sleeping-project-sidebar"><Moon size={19} /><strong>项目已休眠</strong><p>文件与后台服务将在恢复后载入。</p><span>已保留 {sleepingSnapshot?.tabs.length ?? 0} 个文件标签</span></div> : !projectId ? <EmptyState title="尚未选择项目" action={<button onClick={() => setModal('add')}>添加本地项目</button>} /> : panels.tab === 'files' ? filesEnabled ? lazyPanel('文件树', <FileExplorer projectId={projectId} projectEpoch={projectEpoch} gitStatus={fileGitStatus} onRevealEditor={revealCurrentEditor} />, 'tree') : featureMissing('文件树') : panels.tab === 'search' ? searchEnabled ? lazyPanel('搜索', <SearchPanel projectId={projectId} projectEpoch={projectEpoch} focusRequest={searchFocusRequest} onRevealEditor={revealCurrentEditor} />) : featureMissing('搜索') : gitEnabled ? lazyPanel('Git', <GitPanel projectId={projectId} sharedSnapshot={gitSnapshot} conflictTargetId="git-conflict-slot" conflictVisible={Boolean(conflicts[projectId])} onConflictVisibilityChange={conflictVisibility} onSnapshot={refreshReview} onOpenFile={editorEnabled ? openFile : undefined} onOpenDiff={review => setReviews(items => ({ ...items, [review.projectId]: review }))} onError={reportError} />) : featureMissing('Git')}
       </div>
       <PluginSlot slot="primarySidebar" projectId={projectId} /><footer className="sidebar-footer"><FolderOpen size={15} /><span title={project?.rootDisplayPath}>{project ? pathName(project.rootDisplayPath) : '本地工作区'}</span><button className="icon-button" aria-label="快速打开文件" onClick={openQuickFiles}><Search size={14} /></button></footer>
       <ResizeHandle label="文件侧栏宽度" variable="--sidebar-width" currentValue={appearance.snapshot?.effectiveGeometry.sidebarWidth ?? 240} min={160} max={480} defaultValue={240} onCommit={v => saveGeometry('sidebarWidth', v)} />
     </aside>
 
     <main className="editor-region" aria-label={overviewOpen ? '项目总览' : pluginsOpen ? '插件中心' : '编辑区域'} data-focus-region="editor">
-      {booting ? <Loading variant="editor" label="正在打开 Horizon…" /> : bootError ? <div className="boot-error"><Orbit size={42} /><h1>Horizon · 地平线</h1><p>{bootError}</p>{nativeAvailable() ? <button onClick={() => void props.retryBoot()}><RefreshCw size={16} />重新连接</button> : <code>npm run desktop</code>}</div> : projectId ? <><div className="editor-content-host" hidden={fullPageOpen || conflictOpen || Boolean(gitEnabled && reviews[projectId])}>{editorEnabled ? lazyPanel('编辑器', <EditorWorkbench projectId={projectId} projectEpoch={projectEpoch} onQuickOpen={openQuickFiles} previewEnabled={previewEnabled} />, 'editor') : featureMissing('代码编辑器')}</div>{gitEnabled && reviews[projectId] ? <div className="review-content-host" hidden={fullPageOpen || conflictOpen}>{lazyPanel('Git 差异', <GitDiffSurface {...reviews[projectId]} onClose={() => setReviews(items => { const next = { ...items }; delete next[projectId]; return next; })} onOpenFile={editorEnabled ? openFile : undefined} />)}</div> : null}</> : sleepingProject && sleepingSnapshot && !fullPageOpen ? <SleepingProjectPage snapshot={sleepingSnapshot} busy={busyProject === sleepingProject.id} onResume={() => void activate(sleepingProject.id)} onPreferences={() => openSettings('projects')} /> : !fullPageOpen ? <Welcome {...{ orderedProjects, activate }} overview={openOverview} add={() => setModal('add')} clone={() => setModal('clone')} plugins={() => openPlugins()} settings={() => openSettings()} /> : null}
+      {booting ? <Loading variant="editor" label="正在打开 Horizon…" /> : bootError ? <div className="boot-error"><Orbit size={42} /><h1>Horizon · 地平线</h1><p>{bootError}</p>{nativeAvailable() ? <button onClick={() => void props.retryBoot()}><RefreshCw size={16} />重新连接</button> : <code>npm run desktop</code>}</div> : projectId ? <><div className="editor-content-host" hidden={fullPageOpen || conflictOpen || Boolean(gitEnabled && reviews[projectId])}>{editorEnabled ? lazyPanel('编辑器', <EditorWorkbench projectId={projectId} projectEpoch={projectEpoch} onQuickOpen={openQuickFiles} onRevealEditor={revealCurrentEditor} previewEnabled={previewEnabled} />, 'editor') : featureMissing('代码编辑器')}</div>{gitEnabled && reviews[projectId] ? <div className="review-content-host" hidden={fullPageOpen || conflictOpen}>{lazyPanel('Git 差异', <GitDiffSurface {...reviews[projectId]} onClose={() => setReviews(items => { const next = { ...items }; delete next[projectId]; return next; })} onOpenFile={editorEnabled ? openFile : undefined} />)}</div> : null}</> : sleepingProject && sleepingSnapshot && !fullPageOpen ? <SleepingProjectPage snapshot={sleepingSnapshot} busy={busyProject === sleepingProject.id} onResume={() => void activate(sleepingProject.id)} onPreferences={() => openSettings('projects')} /> : !fullPageOpen ? <Welcome {...{ orderedProjects, activate }} overview={openOverview} add={() => setModal('add')} clone={() => setModal('clone')} plugins={() => openPlugins()} settings={() => openSettings()} /> : null}
       <div id="git-conflict-slot" className="review-content-host" hidden={fullPageOpen || !conflictOpen} />
       <div id="agent-review-slot" className="agent-review-content-host" hidden={fullPageOpen || !projectId || !agentEnabled} />
       {overviewOpen ? <ProjectOverview {...{ workspaces, projects, workspaceId, projectId, gitSnapshots }} select={id => void activate(id)} add={() => setModal('add')} clone={() => setModal('clone')} manage={manageProject} editWorkspace={w => { setEditWorkspace(w); setModal('workspace'); }} newWorkspace={() => { setEditWorkspace(undefined); setModal('workspace'); }} onError={reportError} refresh={refresh} /> : null}
@@ -464,7 +487,7 @@ function DesktopShell(props: ShellProps) {
       {projectId && !fullPageOpen && !conflictOpen && !(gitEnabled && reviews[projectId]) ? <button className="editor-focus icon-button" aria-label={panels.focus ? '退出专注模式' : '进入专注模式'} title={panels.focus ? '退出专注模式' : '进入专注模式'} onClick={() => updatePanels({ focus: !panels.focus })}>{panels.focus ? <Minimize size={15} /> : <Maximize size={15} />}</button> : null}
     </main>
 
-    <aside className="auxiliary-panel" hidden={fullPageOpen || !projectId || !panels.ai || panels.focus} aria-label="AI 助手" data-focus-region="ai"><header className="panel-heading"><Sparkles size={16} /><strong>AI 助手</strong><span className="spacer" /><button className="icon-button" aria-label="AI 连接设置" onClick={() => openSettings('agent')}><Settings2 size={15} /></button><button className="icon-button" aria-label="隐藏 AI 面板" onClick={() => updatePanels({ ai: false })}><X size={16} /></button></header>{wasAI && projectId ? agentEnabled ? lazyPanel('AI 助手', <AgentPanel projectId={projectId} projectName={project?.displayName ?? '项目名称暂不可用'} onError={reportError} />) : featureMissing('Pi 助手') : <EmptyState title="先选择项目">对话与任务分别保留在各自项目中。</EmptyState>}<ResizeHandle label="AI 面板宽度" variable="--auxiliary-width" currentValue={appearance.snapshot?.effectiveGeometry.auxiliaryWidth ?? 320} min={240} max={560} defaultValue={320} reverse onCommit={v => saveGeometry('auxiliaryWidth', v)} /></aside>
+    <aside className="auxiliary-panel" hidden={fullPageOpen || !projectId || !panels.ai || panels.focus} aria-label="AI 助手" data-focus-region="ai"><header className="panel-heading"><Sparkles size={16} /><strong>AI 助手</strong><span className="spacer" /><button className="icon-button" aria-label="AI 连接设置" onClick={() => openSettings('agent')}><Settings2 size={15} /></button><button className="icon-button" aria-label="隐藏 AI 面板" onClick={() => updatePanels({ ai: false })}><X size={16} /></button></header>{wasAI && projectId ? agentEnabled ? lazyPanel('AI 助手', <AgentPanel projectId={projectId} projectName={project?.displayName ?? '项目名称暂不可用'} onError={reportError} onRevealEditor={revealCurrentEditor} />) : featureMissing('Pi 助手') : <EmptyState title="先选择项目">对话与任务分别保留在各自项目中。</EmptyState>}<ResizeHandle label="AI 面板宽度" variable="--auxiliary-width" currentValue={appearance.snapshot?.effectiveGeometry.auxiliaryWidth ?? 320} min={240} max={560} defaultValue={320} reverse onCommit={v => saveGeometry('auxiliaryWidth', v)} /></aside>
 
     <section className="bottom-panel" hidden={fullPageOpen || !projectId || !panels.terminal || panels.focus} aria-label="终端" data-focus-region="terminal"><ResizeHandle label="终端高度" variable="--bottom-height" currentValue={appearance.snapshot?.effectiveGeometry.bottomHeight ?? 220} direction="vertical" min={120} max={480} defaultValue={220} reverse onCommit={v => saveGeometry('bottomHeight', v)} />{!(wasTerminal && projectId && terminalEnabled) ? <header className="panel-heading"><Terminal size={15} /><strong>终端</strong><span className="panel-project">{project?.displayName}</span><span className="spacer" /><button className="text-button" onClick={() => openSettings('launch')}>启动方案</button><button className="icon-button" aria-label="隐藏终端面板" onClick={() => updatePanels({ terminal: false })}><X size={15} /></button></header> : null}{wasTerminal && projectId ? terminalEnabled ? lazyPanel('终端', <TerminalPanel projectId={projectId} onError={reportError} onOpenLauncher={() => openSettings('launch')} onClose={() => updatePanels({ terminal: false })} />) : featureMissing('终端', '在插件中心启用“集成终端”，或选择包含终端的“项目开发”能力预设。') : <EmptyState title="先选择项目" />}</section>
 
@@ -473,13 +496,13 @@ function DesktopShell(props: ShellProps) {
     {error ? <ErrorNotice message={error} onClose={props.clearError} /> : null}
     {inaccessibleProject && props.projectAccessError ? <ProjectAccessDialog project={inaccessibleProject} failure={props.projectAccessError} onClose={props.clearProjectAccessError} open={activate} refresh={refresh} /> : null}
     {modal === 'settings' ? <Modal title="设置" wide onClose={closeModal} className="settings-modal">{lazyPanel('设置', <SettingsPanel formStatus={launcherForm.busy ? '正在保存启动方案…' : launcherForm.dirty ? '启动方案尚未保存，请先点击“保存方案”' : connectionForm.dirty ? 'AI 连接尚未保存' : undefined} onClose={closeModal} onDirtyChange={settingsDirtyChanged} onManageRecovery={openRecovery} projectId={projectId} projectName={project?.displayName} projects={orderedProjects} resourceActivity={projectActivity} onSelectProject={selectSettingsProject} onManagePlugins={() => void openPlugins()} onError={reportError} initialSection={settingsTab === 'agent' ? 'ai' : settingsTab === 'launch' || settingsTab === 'projects' ? 'projects' : 'appearance'} agentSettings={lazyPanel('AI 设置', <AgentSettings projectId={projectId} onError={reportError} onDirtyChange={connectionDirtyChanged} />)} projectSettings={projectId ? launchEnabled ? lazyPanel('启动方案', <LauncherPanel key={projectId} projectId={projectId} onError={reportError} onDirtyChange={launcherDirtyChanged} />) : <EmptyState title="项目启动方案尚未启用" action={<button onClick={() => void openPlugins()}><Puzzle size={15} />打开插件中心</button>}>在插件中心启用“项目启动器”，或选择包含项目启动器的“项目开发”能力预设，再配置和保存方案。</EmptyState> : <EmptyState title="先选择项目">启动方案属于具体项目。</EmptyState>} />)}</Modal> : null}
-    {modal === 'recovery' ? <Modal title="恢复草稿" wide onClose={closeModal}>{lazyPanel('恢复草稿', <RecoveryPanel projects={projects} canRestore={id => projects.some(project => project.id === id) && pluginRuntime.isEnabled('horizon.editor', id)} onRestore={async (checkpointId, id) => { await activate(id); await activatePlugin('horizon.editor', id, 'view'); await (await getEditor()).restoreDraft(checkpointId, id); setModal(null); }} />)}</Modal> : null}
+    {modal === 'recovery' ? <Modal title="恢复草稿" wide onClose={closeModal}>{lazyPanel('恢复草稿', <RecoveryPanel projects={projects} canRestore={id => projects.some(project => project.id === id) && pluginRuntime.isEnabled('horizon.editor', id)} onRestore={async (checkpointId, id) => { await activate(id); await activatePlugin('horizon.editor', id, 'view'); revealEditor(id); await (await getEditor()).restoreDraft(checkpointId, id); setModal(null); }} />)}</Modal> : null}
     {modal === 'workspace' ? <Modal title={editWorkspace ? '管理工作区' : '创建工作区'} className="project-setup-modal" onClose={closeModal}><WorkspaceForm onCancel={closeModal} workspace={editWorkspace} defaultWorkspace={workspaces[0]} onSaved={async id => { await refresh(); await selectWorkspace(id); openOverview(); }} onError={reportError} /></Modal> : null}
     {modal === 'add' ? <Modal title="添加本地项目" className="project-setup-modal" onClose={closeModal}><AddProjectForm onCancel={closeModal} workspaces={workspaces} workspaceId={workspaceId} onAdded={addFinished} onError={reportError} /></Modal> : null}
     {modal === 'clone' ? <Modal title="克隆仓库" className="project-setup-modal project-clone-modal" onClose={closeModal}>{lazyPanel('克隆仓库', <CloneForm workspaceId={workspaceId} onClose={closeModal} onCloned={() => { void refresh().then(data => { const last = data.projects.at(-1); if (last) void addFinished(last.id); }); }} />)}</Modal> : null}
     {modal === 'project' && menuProject ? <Modal title="项目设置" className="project-setup-modal" onClose={closeModal}><ProjectForm project={menuProject} workspaces={workspaces} onSaved={async relocated => { const data = await refresh(); const active = data.projects.find(p => p.id === projectId); if (active) props.setWorkspaceId(active.workspaceId); if (relocated && menuProject.id === projectId) { await activate(menuProject.id); await (await getEditor()).externalChanged(menuProject.id); } setModal(null); }} onCloseProject={action => void prepareStop(action, menuProject)} onError={reportError} /></Modal> : null}
     {modal === 'commands' ? <Modal title="命令" onClose={closeModal}><CommandList items={commands} execute={id => { setModal(null); executeCommand(id); }} /></Modal> : null}
-    {quickOpen && projectId && filesEnabled ? lazyPanel('快速打开', <QuickOpen commands={commands} open={quickOpen} initialMode={quickOpenMode} projectId={projectId} projectEpoch={projectEpoch} onClose={() => setQuickOpen(false)} onCommand={executeCommand} />) : null}
+    {quickOpen && projectId && filesEnabled ? lazyPanel('快速打开', <QuickOpen commands={commands} onRevealEditor={revealCurrentEditor} open={quickOpen} initialMode={quickOpenMode} projectId={projectId} projectEpoch={projectEpoch} onClose={() => setQuickOpen(false)} onCommand={executeCommand} />) : null}
     {projectMenu ? <ProjectMenu {...projectMenu} onClose={() => setProjectMenu(undefined)} onSettings={() => projectSettings(projectMenu.project)} onPin={() => {
       const item = projectMenu.project; setProjectMenu(undefined);
       void call('project_update', { projectId: item.id, expectedRevision: item.revision, pinned: !item.pinned }).then(refresh).catch(reportError);
@@ -577,6 +600,7 @@ function ProjectOverview({ workspaces, projects, workspaceId, projectId, gitSnap
 const commandShortcutActions: Record<string, string> = { 'view.search': 'search.open', 'view.sidebar': 'sidebar.toggle', 'view.focus': 'focus.toggle', 'view.ai': 'agent.toggle', 'view.terminal': 'terminal.toggle', 'app.settings': 'settings.open' };
 const commandItems = [
   ['file.open', '快速打开文件', '⌘P'], ['file.save', '保存当前文件', '⌘S'], ['file.saveAll', '保存全部文件', '⌘⌥S'], ['file.close', '关闭当前文件', '⌘W'],
+  ['editor.definition', '跳转到定义', 'F12'],
   ['view.files', '显示文件树', ''], ['view.search', '项目内搜索', '⌘⇧F'], ['view.git', '查看 Git 更改', ''], ['view.sidebar', '切换侧栏', '⌘B'], ['view.focus', '切换专注模式', ''],
   ['view.ai', '切换 AI 助手', ''], ['view.terminal', '切换终端', ''], ['project.launch', '配置项目启动方案', ''], ['app.settings', '打开设置', '⌘,'], ['app.plugins', '打开插件中心', ''], ['app.recovery', '查看恢复草稿', ''], ['project.add', '添加本地项目', ''], ['project.overview', '项目与工作区', ''],
 ];

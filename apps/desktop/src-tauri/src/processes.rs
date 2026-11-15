@@ -312,7 +312,7 @@ fn cwd(root: &Path, relative: &str) -> Result<PathBuf> {
     Ok(path)
 }
 #[cfg(unix)]
-fn executable(value: &str) -> Result<PathBuf> {
+pub(crate) fn executable(value: &str) -> Result<PathBuf> {
     use std::os::unix::fs::PermissionsExt;
     if value.as_bytes().get(1) == Some(&b':') || value.starts_with("\\\\") {
         return Err(err(
@@ -348,6 +348,7 @@ fn executable(value: &str) -> Result<PathBuf> {
                 home_dir.join(".local/share/mise/shims"),
                 home_dir.join(".asdf/shims"),
                 home_dir.join(".local/bin"),
+                home_dir.join(".cargo/bin"),
             ];
             if ["node", "npm", "npx", "pnpm", "yarn", "corepack"].contains(&value) {
                 let versions = home_dir.join(".nvm/versions/node");
@@ -400,7 +401,7 @@ fn executable(value: &str) -> Result<PathBuf> {
 }
 
 #[cfg(windows)]
-fn executable(value: &str) -> Result<PathBuf> {
+pub(crate) fn executable(value: &str) -> Result<PathBuf> {
     if value.starts_with('/') {
         return Err(err("UNSUPPORTED_PLATFORM", "此方案使用 Unix 程序路径；请编辑为 Windows 可执行程序或 PowerShell"));
     }
@@ -2321,6 +2322,12 @@ pub async fn dispatch(
     call: Call,
     channel: Option<Channel<Value>>,
 ) -> Result<Value> {
+    if call.method == "process_stop" {
+        crate::protocol::allowed(&call.params,&["processInstanceId","mode"])?;
+        let mode = field(&call.params,"mode")?;
+        if !["graceful","force"].contains(&mode) { return Err(err("INVALID_ARGUMENT","停止模式无效")); }
+        if let Some(result) = crate::language_servers::stop_process(&state,field(&call.params,"processInstanceId")?,call.scope["projectId"].as_str(),mode == "force").await? { return Ok(result); }
+    }
     tauri::async_runtime::spawn_blocking(move || handle(&state, &app, call, channel))
         .await
         .map_err(io)?
@@ -2363,7 +2370,9 @@ fn handle(
             .get("projectId")
             .and_then(Value::as_str)
             .or_else(|| p.get("projectId").and_then(Value::as_str));
-        return Ok(process_snapshot(project, false));
+        let mut snapshot = process_snapshot(project, false);
+        snapshot["items"].as_array_mut().unwrap().extend(crate::language_servers::process_snapshot(project));
+        return Ok(snapshot);
     }
     if call.method == "process_stop" {
         if !["graceful", "force"].contains(&field(p, "mode")?) {

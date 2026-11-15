@@ -32,6 +32,12 @@ describe('diagnostic export', () => {
     expect(result.opens[0]).not.toHaveProperty('paintMs');
   });
 
+  it('preserves the built-in language IDs supplied by language plugins', () => {
+    const languages = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python', 'rust'];
+    const result = anonymizeEditorDiagnostics({ schemaVersion: 1, measurement: '', viewCount: 1, createdViews: 1, destroyedViews: 0, opens: languages.map((language, id) => ({ id, projectId: 'p', fileId: 'f', cache: 'warm', startedAt: '2026-11-15T00:00:00Z', language })) });
+    expect(result.opens.map(item => item.language)).toEqual(languages);
+  });
+
   it('omits malformed numeric values and arbitrary language strings instead of exporting them', () => {
     const result = anonymizeEditorDiagnostics({ schemaVersion: 1, measurement: '', viewCount: 1, createdViews: 1, destroyedViews: 0, opens: [{ id: 1, projectId: 'p', fileId: 'f', cache: 'cold', startedAt: '2026-10-31T00:00:00Z', durationMs: Infinity, languageReadyMs: -1, highlightReadyMs: NaN, language: '/private/file.ts', byteLength: '200000 with secret', editorRevision: 1.5, viewId: -1 }] });
     expect(result.opens).toEqual([{ id: 1, cache: 'cold', startedAtMs: Date.parse('2026-10-31T00:00:00Z') }]);

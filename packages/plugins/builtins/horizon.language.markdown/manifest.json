@@ -1,0 +1,56 @@
+{
+  "id": "horizon.language.markdown",
+  "name": "Markdown 语言支持",
+  "version": "0.1.0",
+  "description": "为 Markdown 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:markdown",
+    "onLanguage:mdx"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "markdown",
+        "aliases": [
+          "Markdown"
+        ],
+        "extensions": [
+          ".md",
+          ".markdown"
+        ]
+      },
+      {
+        "id": "mdx",
+        "aliases": [
+          "MDX"
+        ],
+        "extensions": [
+          ".mdx"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "markdown",
+        "scopeName": "text.html.markdown",
+        "path": "syntaxes/markdown.tmLanguage.json"
+      },
+      {
+        "language": "mdx",
+        "scopeName": "source.mdx",
+        "path": "syntaxes/mdx.tmLanguage.json"
+      }
+    ]
+  }
+}

@@ -3,13 +3,14 @@ import { call, errorMessage, start, type TaskEvent, type TaskHandle } from '../.
 import type { AgentConnection, AgentSession, Attachment, Message, PermissionRequest, Profile, RunResult } from './types';
 interface View { initialized: boolean; cancelRequested: boolean; revision: number; profile: Profile; session: AgentSession | null; sessions: AgentSession[]; connections: AgentConnection[]; connectionId: string; messages: Message[]; historyCursor: string | null; draft: string; attachments: Attachment[]; status: string; error: string | null; permission: PermissionRequest | null; tools: { id: string; name: string; state: string }[]; reviewId: string | null; task?: TaskHandle<RunResult>; loading: boolean }
 const views = new Map<string, View>(), listeners = new Set<() => void>();
+const draftVersions = new Map<string, number>();
 const loading = new Map<string, Promise<void>>();
 const sessionReads = new Map<string, symbol>();
 const visible = new Set<string>();
 const preview = (text: string) => text.length <= 32768 ? text : text.slice(0, /[\uD800-\uDBFF]/.test(text.charAt(32767)) ? 32767 : 32768);
 const initial = (): View => ({ initialized: false, cancelRequested: false, revision: 0, profile: 'chat', session: null, sessions: [], connections: [], connectionId: '', messages: [], historyCursor: null, draft: '', attachments: [], status: 'idle', error: null, permission: null, tools: [], reviewId: null, loading: false });
 const view = (p: string) => { let v = views.get(p); if (!v) { v = initial(); views.set(p, v); } return v; };
-const patch = (p: string, changes: Partial<View>) => { views.set(p, { ...view(p), ...changes, revision: view(p).revision + 1 }); listeners.forEach(fn => fn()); };
+const patch = (p: string, changes: Partial<View>) => { const current = view(p); if (changes.draft !== undefined && changes.draft !== current.draft) draftVersions.set(p, (draftVersions.get(p) ?? 0) + 1); views.set(p, { ...current, ...changes, revision: current.revision + 1 }); listeners.forEach(fn => fn()); };
 export const running = (status: string) => ['starting', 'running', 'waitingInput', 'stopping', 'finishing', 'retrying', 'compacting'].includes(status);
 export function useAgent(projectId: string) { return useSyncExternalStore(useCallback(fn => { listeners.add(fn); return () => { listeners.delete(fn); }; }, []), useCallback(() => view(projectId), [projectId])); }
 export const agentView = { get: view, patch };
@@ -88,7 +89,8 @@ function event(projectId: string, event: TaskEvent<RunResult>) {
  const events = queued.get(projectId) ?? []; events.push(event); queued.set(projectId, events); if (!timers.has(projectId)) timers.set(projectId, setTimeout(() => flush(projectId), 32)); }
 export async function sendAgent(projectId: string) {
   const current = view(projectId); if (running(current.status) || !current.draft.trim()) return;
-  const draft = current.draft; patch(projectId, { status: 'starting', cancelRequested: false, error: null, tools: [], permission: null });
+  const draft = current.draft, draftVersion = draftVersions.get(projectId) ?? 0; let clearedDraftVersion: number | undefined;
+  patch(projectId, { status: 'starting', cancelRequested: false, error: null, tools: [], permission: null });
   try {
     const session = await ensureSession(projectId);
     if (view(projectId).cancelRequested) { patch(projectId, { status: 'cancelled' }); return; }
@@ -97,11 +99,13 @@ export async function sendAgent(projectId: string) {
     if (view(projectId).cancelRequested) { patch(projectId, { status: 'cancelled' }); return; }
     const handle = await start<RunResult>('agent_submit', { sessionId: session.sessionId, text: draft, ...snapshot, submissionId: crypto.randomUUID() }, e => event(projectId, e), projectId);
     if (view(projectId).cancelRequested) await handle.cancel();
-    patch(projectId, { task: handle, draft: '', messages: [...view(projectId).messages, { messageId: crypto.randomUUID(), role: 'user', text: draft, state: 'sent' }] });
+    const clearDraft = (draftVersions.get(projectId) ?? 0) === draftVersion;
+    if (clearDraft) clearedDraftVersion = draftVersion + 1;
+    patch(projectId, { task: handle, ...(clearDraft ? { draft: '' } : {}), messages: [...view(projectId).messages, { messageId: crypto.randomUUID(), role: 'user', text: draft, state: 'sent' }] });
     const result = await handle.result; flush(projectId);
     patch(projectId, { task: undefined, status: result.state ?? 'handled', reviewId: result.reviewId ?? null, permission: null });
     await loadAgent(projectId); if (!visible.has(projectId)) patch(projectId, { messages: [], tools: [] });
-  } catch (error) { flush(projectId); patch(projectId, { status: (error as { code?: string }).code === 'CANCELLED' ? 'cancelled' : 'failed', task: undefined, permission: null, error: (error as { code?: string }).code === 'CANCELLED' ? null : errorMessage(error), draft: view(projectId).draft || draft }); await loadAgent(projectId); }
+  } catch (error) { flush(projectId); patch(projectId, { status: (error as { code?: string }).code === 'CANCELLED' ? 'cancelled' : 'failed', task: undefined, permission: null, error: (error as { code?: string }).code === 'CANCELLED' ? null : errorMessage(error), ...(clearedDraftVersion !== undefined && draftVersions.get(projectId) === clearedDraftVersion ? { draft } : {}) }); await loadAgent(projectId); }
 }
 export async function cancelAgent(projectId: string) { const current = view(projectId); patch(projectId, { status: 'stopping', cancelRequested: true }); try { await current.task?.cancel(); if (current.session) await call('agent_cancel', { sessionId: current.session.sessionId, runId: current.task?.requestId }, projectId); } catch (error) { patch(projectId, { error: errorMessage(error) }); } }
 

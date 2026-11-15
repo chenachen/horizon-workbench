@@ -591,12 +591,11 @@ fn diff(repo: &Repo, p: &Value) -> Result<Value> {
     let path = text(p, "path")?;
     safe_path(&repo.root, &path)?;
     let base = text(p, "base")?;
+    let full_context = flag(p, "fullContext");
     let mut args = vec![
         "diff".into(),
         "--no-ext-diff".into(),
         "--no-textconv".into(),
-        "--no-color".into(),
-        "--unified=3".into(),
     ];
     let mut old_oid = None;
     let mut new_oid = None;
@@ -634,7 +633,16 @@ fn diff(repo: &Repo, p: &Value) -> Result<Value> {
         }
         _ => return Err(Error::new("INVALID_ARGUMENT", "未知差异基线")),
     }
+    args.insert(1, "--no-color".into());
     args.insert(1, "--find-renames".into());
+    args.insert(
+        1,
+        if full_context {
+            "--unified=2147483647".into()
+        } else {
+            "--unified=3".into()
+        },
+    );
     args.extend(["--".into(), path.clone()]);
     let original = p["originalPath"].as_str().or_else(|| {
         snapshot["files"]
@@ -656,7 +664,7 @@ fn diff(repo: &Repo, p: &Value) -> Result<Value> {
             .unwrap()
             .iter()
             .any(|f| f["path"] == path && f["kind"] == "untracked");
-    let output = if untracked {
+    let mut output = if untracked {
         let disk = safe_path(&repo.root, &path)?;
         let mut bytes = Vec::new();
         if disk.is_symlink() {
@@ -675,22 +683,125 @@ fn diff(repo: &Repo, p: &Value) -> Result<Value> {
             }
         } else {
             let text = String::from_utf8_lossy(&bytes);
+            let mut patch = format!(
+                "--- /dev/null\n+++ b/{path}\n@@ -0,0 +1,{} @@\n",
+                text.split_inclusive('\n').count()
+            );
+            for line in text.split_inclusive('\n') {
+                patch.push('+');
+                patch.push_str(line);
+                if !line.ends_with('\n') {
+                    patch.push_str("\n\\ No newline at end of file\n");
+                }
+            }
             Output {
-                bytes: format!(
-                    "--- /dev/null\n+++ b/{path}\n@@ -0,0 +1,{} @@\n{}",
-                    text.lines().count(),
-                    text.lines().map(|l| format!("+{l}\n")).collect::<String>()
-                )
-                .into_bytes(),
+                bytes: patch.into_bytes(),
                 truncated,
             }
         }
     } else {
+        args.splice(0..0, ["-c".into(), "diff.suppressBlankEmpty=false".into()]);
         repo.command(&args, false)?
     };
+    let initial_patch = String::from_utf8_lossy(&output.bytes);
+    let has_hunks = initial_patch.lines().any(|line| line.starts_with("@@ "));
+    let binary = initial_patch.lines().any(|line| {
+        line.starts_with("Binary files ") || line == "GIT binary patch"
+    });
+    // Git omits text hunks for pure renames and mode-only changes.
+    if full_context && !output.truncated && !has_hunks && !binary {
+        let content = match base.as_str() {
+            "headToIndex" => {
+                let deleted = snapshot["files"]
+                    .as_array()
+                    .unwrap()
+                    .iter()
+                    .any(|file| file["path"] == path && file["index"] == "D");
+                let revision = if deleted {
+                    format!("HEAD:{}", original.unwrap_or(&path))
+                } else {
+                    format!(":0:{path}")
+                };
+                repo.run(&["cat-file", "blob", &revision])?
+            }
+            "indexToWorktree" => {
+                let disk = safe_path(&repo.root, &path)?;
+                match fs::symlink_metadata(&disk) {
+                    Ok(metadata) => {
+                        let mut bytes = Vec::new();
+                        if metadata.file_type().is_symlink() {
+                            bytes.extend_from_slice(fs::read_link(disk)?.as_os_str().as_encoded_bytes());
+                        } else {
+                            fs::File::open(disk)?
+                                .take(MAX_OUTPUT as u64 + 1)
+                                .read_to_end(&mut bytes)?;
+                        }
+                        let truncated = bytes.len() > MAX_OUTPUT;
+                        bytes.truncate(MAX_OUTPUT);
+                        Output { bytes, truncated }
+                    }
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                        repo.run(&["cat-file", "blob", &format!(":0:{path}")])?
+                    }
+                    Err(error) => return Err(error.into()),
+                }
+            }
+            "commitToParent" => {
+                let deleted = String::from_utf8_lossy(&output.bytes)
+                    .lines()
+                    .any(|line| line.starts_with("deleted file mode "));
+                let revision = if deleted {
+                    format!("{}:{}", old_oid.as_deref().unwrap_or("HEAD"), original.unwrap_or(&path))
+                } else {
+                    format!("{}:{path}", new_oid.as_deref().unwrap())
+                };
+                repo.run(&["cat-file", "blob", &revision])?
+            }
+            _ => unreachable!(),
+        };
+        if content.bytes.contains(&0) {
+            output.bytes = b"Binary files original and modified differ\n".to_vec();
+        } else {
+            let text = String::from_utf8_lossy(&content.bytes);
+            if output.bytes.is_empty() {
+                output.bytes.extend_from_slice(format!("--- a/{path}\n+++ b/{path}\n").as_bytes());
+            }
+            let count = text.split_inclusive('\n').count();
+            let first = usize::from(count > 0);
+            output.bytes.extend_from_slice(format!("@@ -{first},{count} +{first},{count} @@\n").as_bytes());
+            for line in text.split_inclusive('\n') {
+                output.bytes.push(b' ');
+                output.bytes.extend_from_slice(line.as_bytes());
+                if !line.ends_with('\n') {
+                    output.bytes.extend_from_slice(b"\n\\ No newline at end of file\n");
+                }
+            }
+        }
+        output.truncated |= content.truncated || output.bytes.len() > MAX_OUTPUT;
+        output.bytes.truncate(MAX_OUTPUT);
+    }
+    if full_context && output.bytes.len() > MAX_OUTPUT {
+        output.bytes.truncate(MAX_OUTPUT);
+        output.truncated = true;
+    }
     let patch = String::from_utf8_lossy(&output.bytes).into_owned();
-    let binary = patch.contains("Binary files ") || patch.contains("GIT binary patch");
-    let record = json!({"repoId":snapshot["repoId"],"repoToken":snapshot["repoToken"],"base":base,"path":path,"byteLength":patch.len().to_string(),"patch":patch,"binary":binary,"truncated":output.truncated,"oldOid":old_oid,"newOid":new_oid});
+    let binary = patch.lines().any(|line| {
+        line.starts_with("Binary files ") || line == "GIT binary patch"
+    });
+    let mut added = 0;
+    let mut removed = 0;
+    let mut in_hunk = false;
+    for line in patch.lines() {
+        if line.starts_with("@@ ") {
+            in_hunk = true;
+        } else if line.starts_with("diff --git ") {
+            in_hunk = false;
+        } else if in_hunk {
+            added += usize::from(line.starts_with('+'));
+            removed += usize::from(line.starts_with('-'));
+        }
+    }
+    let record = json!({"repoId":snapshot["repoId"],"repoToken":snapshot["repoToken"],"base":base,"path":path,"byteLength":patch.len().to_string(),"patch":patch,"binary":binary,"truncated":output.truncated,"oldOid":old_oid,"newOid":new_oid,"fullContext":full_context,"added":added,"removed":removed});
     let id = repo.cache_write("diff", &record)?;
     let (page, next) = utf8_page(record["patch"].as_str().unwrap(), 0, PAGE_BYTES)?;
     let mut result = record;
@@ -720,11 +831,13 @@ fn diff_page(repo: &Repo, p: &Value) -> Result<Value> {
 }
 fn patch_position(prefix: &str) -> (usize, usize) {
     let (mut old, mut new) = (0, 0);
+    let mut in_hunk = false;
     for line in prefix.split_inclusive('\n') {
         if !line.ends_with('\n') {
             break;
         }
         if line.starts_with("@@ ") {
+            in_hunk = true;
             let parts = line.split_whitespace().collect::<Vec<_>>();
             old = parts
                 .get(1)
@@ -736,7 +849,9 @@ fn patch_position(prefix: &str) -> (usize, usize) {
                 .and_then(|s| s.trim_start_matches('+').split(',').next())
                 .and_then(|s| s.parse().ok())
                 .unwrap_or(0);
-        } else if !line.starts_with("---") && !line.starts_with("+++") {
+        } else if line.starts_with("diff --git ") {
+            in_hunk = false;
+        } else if in_hunk {
             if line.starts_with('-') || line.starts_with(' ') {
                 old += 1;
             }

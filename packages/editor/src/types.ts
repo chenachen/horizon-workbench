@@ -1,3 +1,5 @@
+import type { ChangeSet } from '@codemirror/state';
+
 export type DiskRevision = { token: string; contentHash: string; byteLength: string; modifiedAt: string };
 export type FileRef = { projectId: string; fileId: string; displayPath: string };
 export type Selection = { anchor: number; head: number };
@@ -9,6 +11,8 @@ export type OpenDocument =
   | { mode: 'chunked'; file: FileRef; revision: DiskRevision; cursor: string }
   | { mode: 'unsupported'; file: FileRef; reason: 'binary' | 'encoding' };
 export type SaveResult = { savedEditorRevision: number; diskRevision: DiskRevision; recoveryCheckpointId: string | null };
+/** The displayed disk text and the exact file version a user may choose to replace. */
+export type DiskComparison = { projectId: string; fileId: string; documentId: string; text: string; revision: DiskRevision };
 export type ProjectSession = { schemaVersion: 1; revision: number; tabs: { fileId: string; pinned: boolean; selection: Selection; scrollTop: number }[]; activeFileId: string | null; expandedEntryIds: string[]; searchDraft: string; commitDraft?: string; layout?: unknown };
 export type SearchMatch = { file: FileRef; line: number; lineText?: string; ranges: ({ unit: 'utf16'; from: number; to: number } | { unit: 'byte'; from: string; to: string })[]; diskRevision?: DiskRevision };
 export type RecoveryItem = { checkpointId: string; documentId: string; projectId: string; file?: FileRef; editorRevision: number; updatedAt: string; byteCount: string };
@@ -29,6 +33,11 @@ export type EditorBuffer = {
   getText: () => string; cursor?: string | null; byteStart?: string; byteEnd?: string;
   contentIdentity?: unknown; savedContentIdentity?: unknown; contentEquals?: (left: unknown, right: unknown) => boolean;
   checkpointVersion: number; checkpointId?: string; checkpointError?: string; lastUsed: number; evicted?: boolean; recoveryPending?: boolean; composing?: boolean; proposalPending?: boolean; reveal?: { line: number; column: number; nonce: number };
+};
+/** An accepted edit; content identities and changes refer to this exact version. */
+export type EditorDocumentChange = {
+  buffer: EditorBuffer; key: string; version: number;
+  previousContentIdentity?: unknown; contentIdentity?: unknown; changes?: ChangeSet;
 };
 export type EditorProject = { id: string; epoch: number; tabs: string[]; activeFileId: string | null; expanded: Set<string>; searchDraft: string; restored: boolean };
 export type EditorSnapshot = { revision: number; activeProjectId: string | null; projects: ReadonlyMap<string, EditorProject>; buffers: ReadonlyMap<string, EditorBuffer>; pendingClose: { projectId: string; fileId: string } | null; error: string | null };

@@ -315,6 +315,320 @@ fn large_diff_pages_and_binary_are_explicit() {
     );
 }
 #[test]
+fn full_context_diff_includes_file_boundaries_and_preserves_staging() {
+    let d = repo();
+    let r = d.path();
+    git(r, &["config", "diff.suppressBlankEmpty", "true"]);
+    let mut lines = (0..200)
+        .map(|i| format!("line {i:03}\n"))
+        .collect::<Vec<_>>();
+    lines[50] = "\n".into();
+    fs::write(r.join("file.txt"), lines.concat()).unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "baseline"]);
+    lines[100] = "staged edit\n".into();
+    fs::write(r.join("file.txt"), lines.concat()).unwrap();
+    git(r, &["add", "file.txt"]);
+    lines[120] = "disk edit\n".into();
+    fs::write(r.join("file.txt"), lines.concat()).unwrap();
+
+    let compact = call(
+        r,
+        "git_diff",
+        json!({"path":"file.txt","base":"headToIndex"}),
+    )
+    .unwrap();
+    assert!(!compact["patch"].as_str().unwrap().contains("line 000"));
+    assert_eq!(compact["fullContext"], false);
+    for base in ["headToIndex", "indexToWorktree"] {
+        let full = call(
+            r,
+            "git_diff",
+            json!({"path":"file.txt","base":base,"fullContext":true}),
+        )
+        .unwrap();
+        let patch = full["patch"].as_str().unwrap();
+        assert!(patch.contains(" line 000\n"));
+        assert!(patch.contains(" line 049\n \n line 051\n"));
+        assert!(patch.contains(" line 199\n"));
+        assert_eq!(full["fullContext"], true);
+        assert_eq!(full["added"], 1);
+        assert_eq!(full["removed"], 1);
+        if base == "headToIndex" {
+            assert!(patch.contains("+staged edit\n"));
+            assert!(!patch.contains("disk edit"));
+        } else {
+            assert!(patch.contains(" staged edit\n"));
+            assert!(patch.contains("+disk edit\n"));
+        }
+    }
+}
+
+#[test]
+fn full_context_history_reads_the_selected_versions_and_root_commit() {
+    let d = repo();
+    let r = d.path();
+    git(r, &["config", "color.diff", "always"]);
+    fs::create_dir(r.join("src")).unwrap();
+    let baseline = (0..30)
+        .map(|i| format!("line {i:03}\n"))
+        .collect::<String>();
+    fs::write(r.join("src/file.txt"), &baseline).unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "initial"]);
+    let initial = git(r, &["rev-parse", "HEAD"]);
+    for full_context in [false, true] {
+        let initial_diff = call(r, "git_diff", json!({"path":"src/file.txt","base":"commitToParent","commitOid":initial,"fullContext":full_context})).unwrap();
+        let patch = initial_diff["patch"].as_str().unwrap();
+        assert!(!patch.contains('\u{1b}'));
+        assert!(patch.contains("+line 000\n"));
+        assert!(patch.contains("+line 029\n"));
+        assert_eq!(initial_diff["added"], 30);
+        assert_eq!(initial_diff["removed"], 0);
+    }
+
+    fs::write(
+        r.join("src/file.txt"),
+        baseline.replace("line 015", "historical edit"),
+    )
+    .unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "edit middle"]);
+    let selected = git(r, &["rev-parse", "HEAD"]);
+    fs::write(r.join("src/file.txt"), "unrelated disk contents\n").unwrap();
+    for full_context in [false, true] {
+        let historical = call(r, "git_diff", json!({"path":"src/file.txt","base":"commitToParent","commitOid":selected,"parentOid":initial,"fullContext":full_context})).unwrap();
+        let patch = historical["patch"].as_str().unwrap();
+        assert!(!patch.contains('\u{1b}'));
+        if full_context {
+            assert!(patch.contains(" line 000\n"));
+            assert!(patch.contains(" line 029\n"));
+        }
+        assert!(patch.contains("+historical edit\n"));
+        assert!(!patch.contains("unrelated disk contents"));
+        assert_eq!(historical["added"], 1);
+        assert_eq!(historical["removed"], 1);
+    }
+}
+
+#[test]
+fn full_context_reads_renamed_mode_only_and_unchanged_text() {
+    let d = repo();
+    let r = d.path();
+    let content = "first\r\nBinary files and GIT binary patch are ordinary text\r\nlast";
+    fs::write(r.join("before.txt"), content).unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "baseline"]);
+    git(r, &["mv", "before.txt", "after.txt"]);
+    let renamed = call(r, "git_diff", json!({"path":"after.txt","originalPath":"before.txt","base":"headToIndex","fullContext":true})).unwrap();
+    let patch = renamed["patch"].as_str().unwrap();
+    assert!(patch.contains("rename from before.txt"));
+    assert!(patch.contains(" first\r\n"));
+    assert!(patch.contains(" last\n\\ No newline at end of file\n"));
+    assert_eq!(renamed["binary"], false);
+    assert_eq!(renamed["added"], 0);
+    assert_eq!(renamed["removed"], 0);
+    git(r, &["commit", "-m", "rename"]);
+
+    let historical = call(r, "git_diff", json!({"path":"after.txt","originalPath":"before.txt","base":"commitToParent","commitOid":"HEAD","fullContext":true})).unwrap();
+    assert!(historical["patch"].as_str().unwrap().contains(" first\r\n"));
+    assert_eq!(historical["added"], 0);
+    assert_eq!(historical["removed"], 0);
+
+    let unchanged = call(
+        r,
+        "git_diff",
+        json!({"path":"after.txt","base":"indexToWorktree","fullContext":true}),
+    )
+    .unwrap();
+    assert!(unchanged["patch"].as_str().unwrap().contains(" last\n"));
+    assert_eq!(unchanged["added"], 0);
+    assert_eq!(unchanged["removed"], 0);
+    git(r, &["update-index", "--chmod=+x", "after.txt"]);
+    let mode_only = call(
+        r,
+        "git_diff",
+        json!({"path":"after.txt","base":"headToIndex","fullContext":true}),
+    )
+    .unwrap();
+    assert!(mode_only["patch"]
+        .as_str()
+        .unwrap()
+        .contains("new mode 100755"));
+    assert!(mode_only["patch"].as_str().unwrap().contains(" first\r\n"));
+    assert_eq!(mode_only["added"], 0);
+    assert_eq!(mode_only["removed"], 0);
+}
+
+#[test]
+#[cfg(unix)]
+fn full_context_index_paths_with_stage_prefixes_read_the_requested_file() {
+    let d = repo();
+    let r = d.path();
+    fs::write(r.join("file.txt"), "other file contents\n").unwrap();
+    fs::write(r.join("0:file.txt"), "requested file contents\n").unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "baseline"]);
+    git(r, &["update-index", "--chmod=+x", "0:file.txt"]);
+
+    let full = call(
+        r,
+        "git_diff",
+        json!({"path":"0:file.txt","base":"headToIndex","fullContext":true}),
+    )
+    .unwrap();
+    let patch = full["patch"].as_str().unwrap();
+    assert!(patch.contains(" requested file contents\n"));
+    assert!(!patch.contains("other file contents"));
+    assert_eq!(full["added"], 0);
+    assert_eq!(full["removed"], 0);
+}
+
+#[test]
+fn full_context_handles_added_deleted_binary_and_empty_files() {
+    let d = repo();
+    let r = d.path();
+    fs::write(r.join("deleted.txt"), "first\nmiddle\nlast\n").unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "baseline"]);
+    git(r, &["rm", "deleted.txt"]);
+    fs::write(r.join("new.txt"), "new first\r\nnew last").unwrap();
+    fs::write(r.join("empty.txt"), "").unwrap();
+    fs::write(r.join("binary"), [0, 1, 255]).unwrap();
+    let untracked = call(
+        r,
+        "git_diff",
+        json!({"path":"new.txt","base":"indexToWorktree","fullContext":true}),
+    )
+    .unwrap();
+    assert_eq!(untracked["added"], 2);
+    assert!(untracked["patch"]
+        .as_str()
+        .unwrap()
+        .contains("+new first\r\n"));
+    assert!(untracked["patch"]
+        .as_str()
+        .unwrap()
+        .contains("+new last\n\\ No newline at end of file\n"));
+    let binary = call(
+        r,
+        "git_diff",
+        json!({"path":"binary","base":"indexToWorktree","fullContext":true}),
+    )
+    .unwrap();
+    assert_eq!(binary["binary"], true);
+    git(r, &["add", "new.txt", "empty.txt", "binary"]);
+    let added = call(
+        r,
+        "git_diff",
+        json!({"path":"new.txt","base":"headToIndex","fullContext":true}),
+    )
+    .unwrap();
+    assert_eq!(added["added"], 2);
+    assert_eq!(added["removed"], 0);
+    let deleted = call(
+        r,
+        "git_diff",
+        json!({"path":"deleted.txt","base":"headToIndex","fullContext":true}),
+    )
+    .unwrap();
+    assert!(deleted["patch"]
+        .as_str()
+        .unwrap()
+        .contains("-first\n-middle\n-last\n"));
+    assert_eq!(deleted["removed"], 3);
+    let empty = call(
+        r,
+        "git_diff",
+        json!({"path":"empty.txt","base":"headToIndex","fullContext":true}),
+    )
+    .unwrap();
+    assert_eq!(empty["binary"], false);
+    assert_eq!(empty["added"], 0);
+    assert_eq!(empty["removed"], 0);
+}
+
+#[test]
+fn full_context_sparse_diff_pages_preserve_file_tail_and_change_counts() {
+    let d = repo();
+    let r = d.path();
+    let baseline = (0..20000)
+        .map(|i| format!("line {i:08}\n"))
+        .collect::<String>();
+    fs::write(r.join("large.txt"), &baseline).unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "baseline"]);
+    fs::write(
+        r.join("large.txt"),
+        baseline
+            .replace("line 00000010", "++ literal")
+            .replace("line 00010000", "changed middle"),
+    )
+    .unwrap();
+    let full = call(
+        r,
+        "git_diff",
+        json!({"path":"large.txt","base":"indexToWorktree","fullContext":true}),
+    )
+    .unwrap();
+    assert_eq!(full["added"], 2);
+    assert_eq!(full["removed"], 2);
+    assert!(full["nextCursor"].is_string());
+    let mut patch = full["patch"].as_str().unwrap().to_owned();
+    let mut cursor = full["nextCursor"].clone();
+    while cursor.is_string() {
+        let next = call(
+            r,
+            "git_diff_page",
+            json!({"diffId":full["diffId"],"cursor":cursor}),
+        )
+        .unwrap();
+        assert!(next["oldLine"].as_u64().unwrap() > 1);
+        let first_line = next["patch"].as_str().unwrap().lines().next().unwrap();
+        let index = first_line.trim_start_matches(" line ").parse::<u64>().unwrap();
+        assert_eq!(next["oldLine"], index + 1);
+        assert_eq!(next["newLine"], index + 1);
+        patch.push_str(next["patch"].as_str().unwrap());
+        cursor = next["nextCursor"].clone();
+    }
+    assert!(patch.contains(" line 00000000\n"));
+    assert!(patch.contains("+changed middle\n"));
+    assert!(patch.contains("+++ literal\n"));
+    assert!(patch.contains(" line 00019999\n"));
+    assert_eq!(
+        patch.len().to_string(),
+        full["byteLength"].as_str().unwrap()
+    );
+}
+
+#[test]
+fn full_context_metadata_preview_respects_the_existing_output_limit() {
+    let d = repo();
+    let r = d.path();
+    let content = "unchanged line\n".repeat(1_200_000);
+    fs::write(r.join("large.txt"), content).unwrap();
+    git(r, &["add", "."]);
+    git(r, &["commit", "-m", "baseline"]);
+    let full = call(
+        r,
+        "git_diff",
+        json!({"path":"large.txt","base":"indexToWorktree","fullContext":true}),
+    )
+    .unwrap();
+    assert_eq!(full["truncated"], true);
+    assert!(
+        full["byteLength"]
+            .as_str()
+            .unwrap()
+            .parse::<usize>()
+            .unwrap()
+            <= 16 * 1024 * 1024
+    );
+    assert_eq!(full["added"], 0);
+    assert_eq!(full["removed"], 0);
+}
+
+#[test]
 fn clone_never_overwrites_and_registers_only_after_success() {
     let source = repo();
     fs::write(source.path().join("a"), "A").unwrap();

@@ -1,0 +1,40 @@
+{
+  "id": "horizon.language.css",
+  "name": "CSS 语言支持",
+  "version": "0.1.0",
+  "description": "为 CSS 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:css"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "css",
+        "aliases": [
+          "CSS"
+        ],
+        "extensions": [
+          ".css"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "css",
+        "scopeName": "source.css",
+        "path": "syntaxes/css.tmLanguage.json"
+      }
+    ]
+  }
+}

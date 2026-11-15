@@ -1,0 +1,40 @@
+{
+  "id": "horizon.language.python",
+  "name": "Python 语言支持",
+  "version": "0.1.0",
+  "description": "为 Python 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:python"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "python",
+        "aliases": [
+          "Python"
+        ],
+        "extensions": [
+          ".py"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "python",
+        "scopeName": "source.python",
+        "path": "syntaxes/python.tmLanguage.json"
+      }
+    ]
+  }
+}

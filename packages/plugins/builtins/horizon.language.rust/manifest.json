@@ -1,0 +1,40 @@
+{
+  "id": "horizon.language.rust",
+  "name": "Rust 语言支持",
+  "version": "0.1.0",
+  "description": "为 Rust 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:rust"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "rust",
+        "aliases": [
+          "Rust"
+        ],
+        "extensions": [
+          ".rs"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rust",
+        "scopeName": "source.rust",
+        "path": "syntaxes/rust.tmLanguage.json"
+      }
+    ]
+  }
+}

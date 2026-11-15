@@ -11,7 +11,7 @@ const repository = fileURLToPath(new URL('../../../', import.meta.url));
 const evidence = { kind: 'React quick-open and search task regression', phases: [] }, output = process.argv[2];
 const bundled = await build({ bundle: true, format: 'esm', platform: 'browser', target: 'es2022', jsx: 'automatic', write: false, outfile: '/tmp/quick-open-regression.js', plugins: [{ name: 'quick-open-fixture', setup(builder) {
   builder.onResolve({ filter: /^\.\.\/\.\.\/bridge$|^\.\/store$|^\.\/commands$/ }, args => args.importer.endsWith('/SearchPanel.tsx') ? { path: args.path, namespace: 'fixture' } : undefined);
-  builder.onLoad({ filter: /.*/, namespace: 'fixture' }, args => ({ contents: args.path.endsWith('/bridge') ? `export const call = (method, params, projectId) => window.quickHarness.request(method, params, projectId); export const start = (...args) => window.quickHarness.startSearch(...args);` : args.path === './store' ? `export const editorStore = { getSnapshot: () => ({ projects: new Map() }), setSearchDraft: () => {}, openFile: async (fileId, options) => { window.quickHarness.opened.push({ fileId, options }); if (fileId === 'fail') throw new Error('OPEN_FAILED'); }, saveActive: async () => { window.quickHarness.saved++; }, reportError: error => window.quickHarness.errors.push(error.message) };` : `export const editorCommands = { find: async () => { window.quickHarness.found++; }, gotoLine: async () => { window.quickHarness.went++; }, focus: async () => {} };` }));
+  builder.onLoad({ filter: /.*/, namespace: 'fixture' }, args => ({ contents: args.path.endsWith('/bridge') ? `export const call = (method, params, projectId) => window.quickHarness.request(method, params, projectId); export const start = (...args) => window.quickHarness.startSearch(...args);` : args.path === './store' ? `export const editorStore = { getSnapshot: () => ({ projects: new Map() }), setSearchDraft: () => {}, openFile: async (fileId, options) => { window.quickHarness.opened.push({ fileId, options }); if (fileId === 'fail') throw new Error('OPEN_FAILED'); }, saveActive: async () => { window.quickHarness.saved++; }, reportError: error => window.quickHarness.errors.push(error.message) };` : `export const editorCommands = { find: async () => { window.quickHarness.found++; }, gotoLine: async () => { window.quickHarness.went++; }, definition: async () => { window.quickHarness.definitions++; }, focus: async () => {} };` }));
 } }], stdin: { resolveDir: repository, contents: `
   import React from 'react';
   import { createRoot } from 'react-dom/client';
@@ -19,7 +19,7 @@ const bundled = await build({ bundle: true, format: 'esm', platform: 'browser', 
   import './apps/desktop/src/features/editor/editor.css';
   const root = createRoot(document.getElementById('root'));
   let props = { projectId: 'a', projectEpoch: 1, initialMode: 'files', host: true, open: false };
-  const h = window.quickHarness = { pending: [], opened: [], commands: [], errors: [], saved: 0, found: 0, went: 0, closed: 0, searchStarts: [], searchCancelled: 0,
+  const h = window.quickHarness = { pending: [], opened: [], commands: [], errors: [], saved: 0, found: 0, went: 0, definitions: 0, closed: 0, searchStarts: [], searchCancelled: 0,
     request: (method, params, projectId) => new Promise((resolve, reject) => h.pending.push({ method, params, projectId, resolve, reject })),
     startSearch: (method, params) => new Promise(resolveHandle => h.searchStarts.push({ method, params, resolveHandle })),
     resolveSearchHandle: () => { let rejectResult; const result = new Promise((_, reject) => { rejectResult = reject; }); h.searchStarts.at(-1).resolveHandle({ result, cancel: async () => { h.searchCancelled++; rejectResult(Object.assign(new Error('cancelled'), { code: 'CANCELLED' })); } }); },
@@ -90,23 +90,25 @@ try {
   await show({ host: false, hostError: false, initialMode: 'commands' }); await input.fill('>查找'); await input.press('Enter');
   await page.waitForFunction(() => window.quickHarness.found === 1);
   await show({ initialMode: 'commands' }); await input.fill('>跳转'); await input.press('Enter'); await page.waitForFunction(() => window.quickHarness.went === 1);
+  await show({ initialMode: 'commands' }); await input.fill('>跳转到定义'); await input.press('Enter');
+  await page.waitForFunction(() => window.quickHarness.definitions === 1);
   await show({ host: true, initialMode: 'commands' }); await input.fill('>Unavailable');
   assert.equal(await options.first().isDisabled(), true); assert.ok((await options.first().textContent()).includes('Extension disabled'));
   const commandCount = await page.evaluate(() => window.quickHarness.commands.length); await input.press('Enter');
   assert.equal(await page.evaluate(() => window.quickHarness.commands.length), commandCount);
-  phase('standalone find/goto remain; disabled command cannot execute and explains why');
+  phase('standalone find/goto/definition execute; disabled command cannot execute and explains why');
 
   await page.evaluate(() => window.quickHarness.showSearch());
   const searchInput = page.getByRole('textbox', { name: '搜索文本', exact: true });
   await searchInput.fill('no-matches'); await searchInput.press('Enter');
   await page.waitForFunction(() => window.quickHarness.searchStarts.length === 1);
-  await page.getByText('正在搜索…', { exact: true }).waitFor();
+  await page.locator('.search-summary').filter({ hasText: '正在搜索…' }).waitFor();
   assert.equal(await page.getByRole('button', { name: '停止', exact: true }).count(), 0);
   await page.evaluate(() => window.quickHarness.resolveSearchHandle());
   // No match event or parent update follows this acknowledgement.
   await page.getByRole('button', { name: '停止', exact: true }).waitFor({ timeout: 1500 });
   await page.getByRole('button', { name: '停止', exact: true }).click();
-  await page.getByText('已取消，保留已有结果。', { exact: true }).waitFor();
+  await page.locator('.search-summary').filter({ hasText: '已取消，保留已有结果。' }).waitFor();
   assert.equal(await page.evaluate(() => window.quickHarness.searchCancelled), 1);
   assert.equal(await searchInput.inputValue(), 'no-matches');
   phase('delayed search handle with no matches renders Stop; cancellation reaches confirmed terminal state');

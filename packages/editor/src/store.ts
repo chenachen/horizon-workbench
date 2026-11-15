@@ -1,8 +1,11 @@
-import { bufferKey, errorMessage, type EditorBuffer, type EditorProject, type EditorSnapshot, type EditorTransport, type FileAccessError, type FileRef, type FileRelocationPlan, type FileRelocationResult, type OpenDocument, type ProjectSession, type RecoveryDraft, type SaveResult, type Selection } from './types';
+import type { ChangeSet } from '@codemirror/state';
+import { bufferKey, errorMessage, type DiskComparison, type DiskRevision, type EditorBuffer, type EditorDocumentChange, type EditorProject, type EditorSnapshot, type EditorTransport, type FileAccessError, type FileRef, type FileRelocationPlan, type FileRelocationResult, type OpenDocument, type ProjectSession, type RecoveryDraft, type SaveResult, type Selection } from './types';
 import { beginEditorOpen } from './metrics';
 import { clampSelection, editorTextLength } from './selection';
 
 export type RestoreTicket = { readonly epoch: number; readonly generation: number };
+type OpenIntent = { fileId: string; preview: boolean; line?: number; column?: number };
+type PendingOpen = { ticket: RestoreTicket; intent?: OpenIntent; promise: Promise<EditorBuffer | undefined> };
 const fileAccessError = (error: unknown): FileAccessError => ({ code: typeof error === 'object' && error && 'code' in error ? String(error.code) : 'IO_ERROR', message: errorMessage(error) });
 
 /** Text belongs to document models; snapshots publish metadata only, not each keystroke. */
@@ -15,10 +18,13 @@ export class EditorStore {
   private restoringSessions = new Map<string, RestoreTicket>();
   private listeners = new Set<() => void>();
   private editListeners = new Set<(key: string) => void>();
+  private documentChangeListeners = new Set<(event: EditorDocumentChange) => void>();
   private rekeyListeners = new Set<(previousKey: string, buffer: EditorBuffer, preserveHistory: boolean) => void>();
   private saves = new Map<string, Promise<boolean>>();
+  private diskComparisons = new WeakMap<DiskComparison, EditorBuffer>();
   private checkpoints = new Map<string, Promise<void>>();
-  private opens = new Map<string, { ticket: RestoreTicket; promise: Promise<EditorBuffer | undefined> }>();
+  private opens = new Map<string, PendingOpen>();
+  private navigation = new Map<string, OpenIntent>();
   private draftTimers = new Map<string, ReturnType<typeof setTimeout>>();
   private maxDraftTimers = new Map<string, ReturnType<typeof setTimeout>>();
   private marks = new Map<string, Promise<unknown>>();
@@ -30,6 +36,7 @@ export class EditorStore {
   constructor(private transport: EditorTransport, private cleanLimit = 20, private cleanBytesLimit = 64 * 1024 * 1024) {}
   subscribe = (listener: () => void) => { this.listeners.add(listener); return () => { this.listeners.delete(listener); }; };
   subscribeEdits = (listener: (key: string) => void) => { this.editListeners.add(listener); return () => { this.editListeners.delete(listener); }; };
+  subscribeDocumentChanges = (listener: (event: EditorDocumentChange) => void) => { this.documentChangeListeners.add(listener); return () => { this.documentChangeListeners.delete(listener); }; };
   subscribeRekeys = (listener: (previousKey: string, buffer: EditorBuffer, preserveHistory: boolean) => void) => { this.rekeyListeners.add(listener); return () => { this.rekeyListeners.delete(listener); }; };
   getSnapshot = () => this.snapshot;
   getBuffer = (projectId: string, fileId: string) => this.buffers.get(bufferKey(projectId, fileId));
@@ -57,7 +64,7 @@ export class EditorStore {
     if (old && old !== id) void this.flushDrafts(old).catch(this.reportError);
     let project = this.projects.get(id);
     if (!project) { project = { id, epoch, tabs: [], activeFileId: null, expanded: new Set(session?.expandedEntryIds ?? []), searchDraft: session?.searchDraft ?? '', restored: false }; this.projects.set(id, project); }
-    else if (project.epoch !== epoch) this.projectGenerations.set(id, (this.projectGenerations.get(id) ?? 0) + 1);
+    else if (project.epoch !== epoch) { this.projectGenerations.set(id, (this.projectGenerations.get(id) ?? 0) + 1); this.navigation.delete(id); }
     project.epoch = epoch; this.snapshot = { ...this.snapshot, activeProjectId: id }; this.emit();
     if (session && !project.restored) this.pendingSessions.set(id, session);
   };
@@ -84,30 +91,49 @@ export class EditorStore {
       if (this.projectIsLive(projectId, ticket)) this.persistSession(projectId);
     }
   };
-  openFile = async (fileId: string, options: { projectId?: string; preview?: boolean; line?: number; column?: number; activate?: boolean } = {}) => {
+  openFile = async (fileId: string, options: { projectId?: string; preview?: boolean; line?: number; column?: number; activate?: boolean } = {}): Promise<EditorBuffer | undefined> => {
     const projectId = options.projectId ?? this.snapshot.activeProjectId;
     if (!projectId || !this.projects.has(projectId) || this.detachedProjects.has(projectId)) return;
     const key = bufferKey(projectId, fileId), project = this.projects.get(projectId)!;
     const ticket = this.captureRestoreTicket(projectId, project.epoch)!;
+    const intent = options.activate === false ? undefined : { fileId, preview: !!options.preview, line: options.line, column: options.column };
+    if (intent) this.navigation.set(projectId, intent);
     let buffer = this.buffers.get(key);
     if (options.activate !== false) beginEditorOpen(projectId, fileId, buffer && !buffer.evicted && buffer.mode !== 'unavailable' ? 'warm' : 'cold');
     if (buffer && !buffer.evicted && buffer.mode !== 'unavailable') { if (!options.preview) buffer.preview = false; if (options.activate !== false) this.activate(fileId, projectId); if (options.line !== undefined) { buffer.reveal = { line: options.line, column: options.column ?? 0, nonce: Date.now() }; this.emit(); } return buffer; }
     const existing = this.opens.get(key);
-    if (existing && existing.ticket.epoch === ticket.epoch && existing.ticket.generation === ticket.generation) return existing.promise;
+    if (existing && existing.ticket.epoch === ticket.epoch && existing.ticket.generation === ticket.generation) { if (intent) existing.intent = intent; return existing.promise; }
     if (buffer?.accessError) { buffer.loading = true; this.emit(); }
-    const opening = (async () => {
+    let pending: PendingOpen | undefined;
+    const activation = () => {
+      const requested = pending?.intent ?? intent;
+      return requested && (this.navigation.get(projectId) === requested || !project.activeFileId) ? requested : undefined;
+    };
+    const opening: Promise<EditorBuffer | undefined> = (async () => {
       try {
         const draft = buffer?.evicted && buffer.recoveryPending && buffer.checkpointId ? await this.transport.call<RecoveryDraft>('recovery_read', { checkpointId: buffer.checkpointId }, projectId) : undefined;
         if (!this.projectIsLive(projectId, ticket)) return;
         const result = await this.transport.call<OpenDocument>('document_open', { fileId, mode: 'auto' }, projectId);
         if (!this.projectIsLive(projectId, ticket)) return;
-        if (options.preview) {
+        if (activation()?.preview) {
           const previous = project.tabs.map(f => this.getBuffer(projectId, f)).find(b => b?.preview && !b.dirty && !b.saving);
           if (previous) await this.close(previous.fileId, 'saved', projectId);
           if (!this.projectIsLive(projectId, ticket)) return;
         }
         const previous = buffer;
-        buffer = this.fromOpen(projectId, fileId, result, previous?.preview ?? !!options.preview);
+        const requested = pending?.intent ?? intent;
+        const preview = previous ? previous.preview && (requested?.preview ?? true) : requested?.preview ?? !!options.preview;
+        if (preview && !previous && requested && !activation() && project.activeFileId) {
+          if (result.mode === 'editor') await this.transport.call('document_close', { documentId: result.meta.documentId, expectedEditorRevision: result.meta.editorRevision, decision: 'saved' }, projectId);
+          if (!this.projectIsLive(projectId, ticket)) return;
+          const latest = pending?.intent;
+          if (latest && this.navigation.get(projectId) === latest) {
+            if (this.opens.get(key)?.ticket === ticket) this.opens.delete(key);
+            return this.openFile(fileId, { projectId, ...latest });
+          }
+          return;
+        }
+        buffer = this.fromOpen(projectId, fileId, result, preview);
         if (previous) { buffer.selection = clampSelection(previous.selection, editorTextLength(buffer.getText())); buffer.scrollTop = previous.scrollTop; buffer.contentVersion = previous.contentVersion + 1; }
         if (draft && buffer.meta && buffer.mode === 'editor') {
           buffer.conflict = buffer.meta.baseDiskRevision.token !== draft.baseDiskRevision.token;
@@ -120,9 +146,10 @@ export class EditorStore {
           if (draft.checkpointId !== buffer.checkpointId) await this.transport.call('recovery_resolve', { checkpointId: draft.checkpointId, replacementDocumentId: buffer.meta.documentId }, projectId);
           if (!this.projectIsLive(projectId, ticket)) return;
         }
-        if (options.line !== undefined) buffer.reveal = { line: options.line, column: options.column ?? 0, nonce: Date.now() };
+        const location = pending?.intent ?? options;
+        if (location.line !== undefined) buffer.reveal = { line: location.line, column: location.column ?? 0, nonce: Date.now() };
         this.buffers.set(key, buffer); if (!project.tabs.includes(fileId)) project.tabs.push(fileId);
-        if (options.activate !== false) project.activeFileId = fileId;
+        if (activation()) project.activeFileId = fileId;
         this.emit(null); this.persistSession(projectId); this.evictClean();
         return buffer;
       } catch (error) {
@@ -134,13 +161,14 @@ export class EditorStore {
         }
         if (buffer) {
           buffer.loading = false; buffer.accessError = fileAccessError(error);
-          if (options.activate !== false) project.activeFileId = fileId;
+          if (activation()) project.activeFileId = fileId;
           this.emit(null); this.persistSession(projectId); return buffer;
         }
         this.reportError(error); return undefined;
       }
     })();
-    this.opens.set(key, { ticket, promise: opening }); this.emit();
+    pending = { ticket, intent, promise: opening };
+    this.opens.set(key, pending); this.emit();
     try { return await opening; }
     finally { if (this.opens.get(key)?.ticket === ticket) { this.opens.delete(key); this.emit(); } }
   };
@@ -209,8 +237,8 @@ export class EditorStore {
       savedVersion: result.mode === 'editor' ? result.meta.editorRevision : 0, contentVersion: 0, selection: { anchor: 0, head: 0 }, scrollTop: 0,
       getText: () => text, cursor: result.mode === 'chunked' ? result.cursor : undefined, checkpointVersion: -1, lastUsed: Date.now() };
   }
-  activate = (fileId: string, projectId = this.snapshot.activeProjectId ?? '') => { const p = this.projects.get(projectId), b = this.getBuffer(projectId, fileId); if (!p || !b) return; if (b.evicted) { void this.openFile(fileId, { projectId, preview: b.preview }); return; } beginEditorOpen(projectId, fileId, 'warm'); p.activeFileId = fileId; b.lastUsed = Date.now(); this.evictClean(); this.emit(); this.persistSession(projectId); };
-  keep = (fileId: string, projectId = this.snapshot.activeProjectId ?? '') => { const b = this.getBuffer(projectId, fileId); if (b) { b.preview = false; this.emit(); this.persistSession(projectId); } };
+  activate = (fileId: string, projectId = this.snapshot.activeProjectId ?? '') => { const p = this.projects.get(projectId), b = this.getBuffer(projectId, fileId); if (!p || !b) return; if (b.evicted) { void this.openFile(fileId, { projectId, preview: b.preview }); return; } const intent = { fileId, preview: b.preview }; this.navigation.set(projectId, intent); const pending = this.opens.get(bufferKey(projectId, fileId)); if (pending) pending.intent = intent; beginEditorOpen(projectId, fileId, 'warm'); p.activeFileId = fileId; b.lastUsed = Date.now(); this.evictClean(); this.emit(); this.persistSession(projectId); };
+  keep = (fileId: string, projectId = this.snapshot.activeProjectId ?? '') => { const pending = this.opens.get(bufferKey(projectId, fileId)); if (pending?.intent) pending.intent.preview = false; const b = this.getBuffer(projectId, fileId); if (b) { b.preview = false; this.emit(); this.persistSession(projectId); } };
   nextTab = (direction: 1 | -1, projectId = this.snapshot.activeProjectId ?? '') => { const project = this.projects.get(projectId); if (!project?.tabs.length) return; const index = Math.max(0, project.tabs.indexOf(project.activeFileId ?? '')); this.activate(project.tabs[(index + direction + project.tabs.length) % project.tabs.length], projectId); };
   moveTab = (fileId: string, direction: 1 | -1, projectId = this.snapshot.activeProjectId ?? '') => { const project = this.projects.get(projectId); if (!project) return; const index = project.tabs.indexOf(fileId), target = index + direction; if (index < 0 || target < 0 || target >= project.tabs.length) return; [project.tabs[index], project.tabs[target]] = [project.tabs[target], project.tabs[index]]; this.emit(); this.persistSession(projectId); };
   private markDirty(buffer: EditorBuffer, dirty: boolean) {
@@ -220,10 +248,15 @@ export class EditorStore {
     const next = Promise.all([previous?.catch(() => {}), checkpoint?.catch(() => {})]).then(() => this.transport.call('document_mark_dirty', { documentId, editorRevision: version, dirty }, buffer.projectId)).then(result => { if (!dirty && buffer.version === version) { buffer.checkpointId = undefined; buffer.checkpointVersion = -1; buffer.checkpointError = undefined; this.emit(); } return result; }).catch(error => { if ((error as { code?: string })?.code !== 'STALE_VERSION' || buffer.version === version) this.reportError(error); }).finally(() => { if (this.marks.get(buffer.key) === next) this.marks.delete(buffer.key); });
     this.marks.set(buffer.key, next); return next;
   }
-  edited = (projectId: string, fileId: string, getText: () => string, selection: Selection, contentIdentity?: unknown) => {
+  edited = (projectId: string, fileId: string, getText: () => string, selection: Selection, contentIdentity?: unknown, changes?: ChangeSet) => {
     const b = this.getBuffer(projectId, fileId); if (!b || b.mode !== 'editor' || b.meta?.readOnly) return;
+    const previousContentIdentity = b.contentIdentity;
     b.getText = getText; b.contentIdentity = contentIdentity; b.selection = selection; b.version++; const wasDirty = b.dirty;
     b.dirty = b.conflict || !(contentIdentity !== undefined && b.savedContentIdentity !== undefined && b.contentEquals?.(contentIdentity, b.savedContentIdentity)); b.preview = false;
+    if (this.documentChangeListeners.size) {
+      const event: EditorDocumentChange = { buffer: b, key: b.key, version: b.version, previousContentIdentity, contentIdentity, changes };
+      this.documentChangeListeners.forEach(listener => listener(event));
+    }
     this.editListeners.forEach(listener => listener(b.key));
     if (wasDirty !== b.dirty) { this.emit(); void this.markDirty(b, b.dirty); }
     if (!b.dirty) { for (const timers of [this.draftTimers, this.maxDraftTimers]) { const timer = timers.get(b.key); if (timer) clearTimeout(timer); timers.delete(b.key); } b.checkpointError = undefined; return; }
@@ -240,12 +273,32 @@ export class EditorStore {
     this.checkpoints.set(b.key, pending); return pending;
   }
   flushDrafts = async (projectId?: string) => { const buffers = [...this.buffers.values()].filter(b => b.dirty && (!projectId || b.projectId === projectId)); await Promise.all([this.flushSessions(projectId), ...buffers.map(async b => { const timer = this.draftTimers.get(b.key); if (timer) clearTimeout(timer); this.draftTimers.delete(b.key); await this.marks.get(b.key); do { await this.checkpoint(b); } while (b.dirty && b.checkpointVersion !== b.version); })]); };
+  readDiskComparison = async (fileId: string, projectId = this.snapshot.activeProjectId ?? ''): Promise<DiskComparison | undefined> => {
+    const b = this.getBuffer(projectId, fileId), project = this.projects.get(projectId);
+    if (!b?.meta || !project || b.evicted) return;
+    const ticket = this.captureRestoreTicket(projectId, project.epoch)!, documentId = b.meta.documentId;
+    const result = await this.transport.call<{ text: string; revision: DiskRevision }>('document_disk_read', { documentId }, projectId);
+    if (!this.projectIsLive(projectId, ticket) || this.getBuffer(projectId, fileId) !== b || b.meta?.documentId !== documentId) return;
+    const comparison = { projectId, fileId, documentId, text: result.text, revision: result.revision };
+    this.diskComparisons.set(comparison, b);
+    return comparison;
+  };
+  /** Explicit confirmation replaces only the disk version shown in this comparison. */
+  saveComparedDisk = (comparison: DiskComparison): Promise<boolean> => {
+    const b = this.getBuffer(comparison.projectId, comparison.fileId);
+    if (!b?.meta || this.diskComparisons.get(comparison) !== b || b.meta.documentId !== comparison.documentId || this.detachedProjects.has(comparison.projectId)) return Promise.resolve(false);
+    return this.saveBuffer(b, comparison.revision);
+  };
   saveActive = () => { const b = this.getActive(); return b ? this.save(b.fileId, b.projectId) : Promise.resolve(true); };
   save = (fileId: string, projectId = this.snapshot.activeProjectId ?? ''): Promise<boolean> => {
-    const b = this.getBuffer(projectId, fileId); if (!b || !b.meta || b.mode !== 'editor' || b.meta.readOnly || b.meta.eol === 'mixed' || b.composing || b.proposalPending) return Promise.resolve(false);
+    const b = this.getBuffer(projectId, fileId);
+    return b ? this.saveBuffer(b) : Promise.resolve(false);
+  };
+  private saveBuffer(b: EditorBuffer, diskRevision?: DiskRevision): Promise<boolean> {
+    if (!b.meta || b.mode !== 'editor' || b.meta.readOnly || b.meta.eol === 'mixed' || b.composing || b.proposalPending) return Promise.resolve(false);
     if (this.saves.has(b.key)) return this.saves.get(b.key)!;
-    if (!b.dirty) return Promise.resolve(true);
-    const version = b.version, text = b.getText(), savedIdentity = b.contentIdentity, expectedDiskRevision = b.meta.baseDiskRevision;
+    if (!b.dirty && !diskRevision) return Promise.resolve(true);
+    const projectId = b.projectId, version = b.version, text = b.getText(), savedIdentity = b.contentIdentity, expectedDiskRevision = diskRevision ?? b.meta.baseDiskRevision;
     b.saving = true; b.error = undefined; this.emit();
     const pending = (async () => {
       try {
@@ -258,7 +311,7 @@ export class EditorStore {
       } catch (error) { b.error = errorMessage(error); if ((error as { code?: string })?.code === 'FILE_CHANGED') b.conflict = true; return false; }
       finally { b.saving = false; this.saves.delete(b.key); this.emit(); }
     })(); this.saves.set(b.key, pending); return pending;
-  };
+  }
   saveAll = async (projectId?: string) => { let ok = true; for (const b of this.buffers.values()) if (b.dirty && (!projectId || b.projectId === projectId)) ok = await this.save(b.fileId, b.projectId) && ok; return ok; };
   requestClose = (fileId?: string, projectId = this.snapshot.activeProjectId ?? '') => { this.closeQueue = []; const b = fileId ? this.getBuffer(projectId, fileId) : this.getActive(projectId); if (!b) return; if (b.dirty || b.saving) { this.snapshot = { ...this.snapshot, pendingClose: { projectId, fileId: b.fileId } }; this.emit(); } else void this.close(b.fileId, 'saved', projectId); };
   requestCloseMany = (fileIds: string[], projectId = this.snapshot.activeProjectId ?? '') => { this.closeQueue = [...new Set(fileIds)].map(fileId => ({ projectId, fileId })); void this.advanceCloseQueue(); };
@@ -367,6 +420,7 @@ export class EditorStore {
   hostClosedProject = (projectId?: string, decision: 'retainCheckpoint' | 'discard' = 'retainCheckpoint') => {
     for (const id of projectId ? [projectId] : this.projects.keys()) {
       this.projectGenerations.set(id, (this.projectGenerations.get(id) ?? 0) + 1);
+      this.navigation.delete(id);
       this.detachedProjects.add(id);
       const timer = this.sessionTimers.get(id); if (timer) clearTimeout(timer); this.sessionTimers.delete(id);
     }

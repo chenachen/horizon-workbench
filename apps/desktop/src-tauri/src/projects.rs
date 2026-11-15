@@ -129,7 +129,7 @@ pub fn resources(project:Option<&str>)->Vec<Value>{
     for group in [crate::processes::resources(project),crate::agent::resources(project)]{
         if let Some(items)=group.as_array(){values.extend(items.iter().cloned());}else if let Some(items)=group["items"].as_array(){values.extend(items.iter().cloned());}else if let Some(items)=group["resources"].as_array(){values.extend(items.iter().cloned());}
     }
-    values.extend(crate::git::resource_snapshot(project));values.extend(crate::search::resources(project));values.extend(crate::extension_host::resources(project));values.extend(crate::picker::resources(project));
+    values.extend(crate::git::resource_snapshot(project));values.extend(crate::search::resources(project));values.extend(crate::extension_host::resources(project));values.extend(crate::picker::resources(project));values.extend(crate::language_servers::resources(project));
     for resource in &mut values{if resource["resourceId"].is_null(){resource["resourceId"]=resource["id"].clone();}if resource["kind"].is_null(){resource["kind"]=resource["type"].clone();}if resource["actions"].is_null(){resource["actions"]=json!(["stop"]);}}
     values
 }

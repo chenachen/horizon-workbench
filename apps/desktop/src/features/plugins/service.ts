@@ -38,13 +38,14 @@ export async function initializePlugins(projectId?: string): Promise<() => void>
   entry.count++;
   return () => { const current = subscriptions.get(key); if (current && --current.count === 0) { void current.close.then(close => close()); subscriptions.delete(key); } };
 }
-export async function activatePlugin(id: string, projectId?: string, event = 'view') {
+export async function activatePlugin(id: string, projectId?: string, event: 'view' | 'command' | { kind: 'language'; id: string } = 'view') {
   if (!nativeAvailable()) return;
   await refreshPlugins(projectId, true);
   const state = pluginRuntime.getSnapshot(projectId).find(s => s.id === id);
   if (state?.runState === 'active' || state?.runState === 'activating' || !state?.effectiveEnabled || state.effectivePaused) return;
   const commandId = state?.manifest?.contributes.commands?.[0]?.id ?? `${id}.open`;
-  const handle = await start<ExtensionState>('extension_activate', { extensionId: id, reason: { kind: event === 'command' ? 'command' : 'view', id: event === 'command' ? commandId : `${id}.view` } }, undefined, projectId);
+  const reason = typeof event === 'object' ? event : { kind: event, id: event === 'command' ? commandId : `${id}.view` };
+  const handle = await start<ExtensionState>('extension_activate', { extensionId: id, reason }, undefined, projectId);
   await handle.result; await refreshPlugins(projectId, true);
 }
 export function usePlugins(projectId?: string) {

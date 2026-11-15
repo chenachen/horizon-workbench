@@ -1,0 +1,27 @@
+{
+  "id": "horizon.semantic.typescript",
+  "name": "JavaScript / TypeScript 代码导航",
+  "version": "0.1.0",
+  "description": "使用本机 TypeScript 7 语言服务器，为 JavaScript / TypeScript 提供定义跳转。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": { "horizon": ">=0.1.0 <0.2.0" },
+  "runtime": { "kind": "declarative" },
+  "activation": ["onLanguage:javascript", "onLanguage:javascriptreact", "onLanguage:typescript", "onLanguage:typescriptreact"],
+  "requires": { "horizon.editor": "^0.1.0", "horizon.language.javascript": "^0.1.0" },
+  "optional": {},
+  "capabilities": ["language.server"],
+  "contributes": {
+    "languageServers": [{
+      "id": "typescript",
+      "languageIds": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+      "rootMarkers": ["tsconfig.json", "jsconfig.json", "package.json"],
+      "command": "tsc",
+      "args": ["--lsp", "--stdio"]
+    }],
+    "settings": [
+      { "key": "server.typescript.command", "label": "TypeScript 语言服务器程序", "type": "path", "default": "tsc" },
+      { "key": "server.typescript.args", "label": "TypeScript 启动参数（JSON 数组）", "type": "string", "default": "[\"--lsp\",\"--stdio\"]" }
+    ]
+  }
+}

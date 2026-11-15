@@ -1,6 +1,6 @@
 # Locked third-party dependency inventory
 
-Target: `aarch64-apple-darwin`. 197 installed npm packages; 336 Rust crates.
+Target: `aarch64-apple-darwin`. 204 installed npm packages; 336 Rust crates.
 
 Installed npm dependency closure and target-filtered Cargo normal/build/root-dev graph. Conservative dependency inventory; not a symbol-level bundle census. Rust proc-macros/build dependencies are classified separately. Platform npm compiler bindings are build tools even when declared optional dependencies.
 
@@ -24,6 +24,7 @@ MPL-2.0 crates include their exact unmodified `.crate` source archive in `source
 | @codemirror/lang-sql | 6.10.0 | runtime | MIT | [LICENSE](npm/@codemirror__lang-sql-6.10.0/LICENSE) |
 | @codemirror/language | 6.13.1 | runtime | MIT | [LICENSE](npm/@codemirror__language-6.13.1/LICENSE) |
 | @codemirror/lint | 6.9.7 | runtime | MIT | [LICENSE](npm/@codemirror__lint-6.9.7/LICENSE) |
+| @codemirror/lsp-client | 6.3.0 | runtime | MIT | [LICENSE](npm/@codemirror__lsp-client-6.3.0/LICENSE) |
 | @codemirror/search | 6.7.2 | runtime | MIT | [LICENSE](npm/@codemirror__search-6.7.2/LICENSE) |
 | @codemirror/state | 6.7.6 | runtime | MIT | [LICENSE](npm/@codemirror__state-6.7.6/LICENSE) |
 | @codemirror/streamparser | 6.0.0 | runtime | MIT | [LICENSE](npm/@codemirror__streamparser-6.0.0/LICENSE) |
@@ -117,6 +118,7 @@ MPL-2.0 crates include their exact unmodified `.crate` source archive in `source
 | lucide | 0.468.0 | development | ISC | [LICENSE](npm/lucide-0.468.0/LICENSE) · [copyright.js.map](npm/lucide-0.468.0/dist/esm/icons/copyright.js.map) |
 | magic-string | 1.4.5 | development | MIT | [LICENSE](npm/magic-string-1.4.5/LICENSE) |
 | markdown-table | 3.0.4 | runtime | MIT | [license](npm/markdown-table-3.0.4/license) |
+| marked | 15.0.12 | runtime | MIT | [LICENSE.md](npm/marked-15.0.12/LICENSE.md) |
 | mdast-util-find-and-replace | 3.0.4 | runtime | MIT | [license](npm/mdast-util-find-and-replace-3.0.4/license) |
 | mdast-util-from-markdown | 2.1.0 | runtime | MIT | [license](npm/mdast-util-from-markdown-2.1.0/license) |
 | mdast-util-gfm-autolink-literal | 2.0.1 | runtime | MIT | [license](npm/mdast-util-gfm-autolink-literal-2.0.1/license) |
@@ -206,6 +208,11 @@ MPL-2.0 crates include their exact unmodified `.crate` source archive in `source
 | vite | 7.3.7 | development | MIT | [LICENSE.md](npm/vite-7.3.7/LICENSE.md) |
 | vite | 8.3.5 | development | MIT | [LICENSE.md](npm/vite-8.3.5/LICENSE.md) |
 | vitest | 5.0.5 | development | MIT | [LICENSE.md](npm/vitest-5.0.5/LICENSE.md) |
+| vscode-jsonrpc | 10.0.0 | runtime | MIT | [License.txt](npm/vscode-jsonrpc-10.0.0/License.txt) · [thirdpartynotices.txt](npm/vscode-jsonrpc-10.0.0/thirdpartynotices.txt) |
+| vscode-languageserver-protocol | 3.18.5 | runtime | MIT | [License.txt](npm/vscode-languageserver-protocol-3.18.5/License.txt) · [thirdpartynotices.txt](npm/vscode-languageserver-protocol-3.18.5/thirdpartynotices.txt) |
+| vscode-languageserver-types | 3.18.5 | runtime | MIT | [License.txt](npm/vscode-languageserver-types-3.18.5/License.txt) · [thirdpartynotices.txt](npm/vscode-languageserver-types-3.18.5/thirdpartynotices.txt) |
+| vscode-oniguruma | 2.0.1 | runtime | MIT | [LICENSE.txt](npm/vscode-oniguruma-2.0.1/LICENSE.txt) · [NOTICES.txt](npm/vscode-oniguruma-2.0.1/NOTICES.txt) |
+| vscode-textmate | 9.3.2 | runtime | MIT | [LICENSE.md](npm/vscode-textmate-9.3.2/LICENSE.md) |
 | w3c-keyname | 2.2.8 | runtime | MIT | [LICENSE](npm/w3c-keyname-2.2.8/LICENSE) |
 | why-is-node-running | 3.2.1 | development | MIT | [LICENSE](npm/why-is-node-running-3.2.1/LICENSE) |
 | zwitch | 2.0.4 | runtime | MIT | [license](npm/zwitch-2.0.4/license) |

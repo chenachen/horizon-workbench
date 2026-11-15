@@ -10,7 +10,7 @@ import { build } from 'esbuild';
 const repository = fileURLToPath(new URL('../../../', import.meta.url));
 const output = process.argv[2];
 const evidence = { kind: 'React + real CodeMirror browser regression', phases: [] };
-const bundled = await build({ bundle: true, format: 'esm', platform: 'browser', target: 'es2022', jsx: 'automatic', write: false, outfile: '/tmp/editor-lifecycle.js', stdin: { resolveDir: repository, contents: `
+const bundled = await build({ bundle: true, format: 'esm', platform: 'browser', target: 'es2022', jsx: 'automatic', loader: { '.wasm': 'file' }, write: false, outfile: '/tmp/editor-lifecycle.js', stdin: { resolveDir: repository, contents: `
       import React from 'react';
       import { createRoot } from 'react-dom/client';
       import CodeSurface, { editorCommands } from './apps/desktop/src/features/editor/CodeSurface.tsx';
@@ -48,7 +48,7 @@ const assets = new Map(bundled.outputFiles.map(file => [path.basename(file.path)
 const server = createServer((request, response) => {
   const asset = assets.get(request.url.slice(1));
   response.setHeader('Content-Type', request.url.endsWith('.js') ? 'text/javascript' : request.url.endsWith('.css') ? 'text/css' : 'text/html');
-  response.end(asset ?? '<!doctype html><html><head><link rel="stylesheet" href="/editor-lifecycle.css"></head><body><div id="root" style="width:800px;height:500px"></div><div id="editor-status-slot"></div><script type="module" src="/editor-lifecycle.js"></script></body></html>');
+  response.end(asset ?? '<!doctype html><html><head><link rel="stylesheet" href="/editor-lifecycle.css"></head><body><div id="root" style="display:flex;flex-direction:column;width:800px;height:500px"></div><div id="editor-status-slot"></div><script type="module" src="/editor-lifecycle.js"></script></body></html>');
 });
 await new Promise(resolve => server.listen(1437, '127.0.0.1', resolve));
 const browser = await chromium.launch({ headless: true });

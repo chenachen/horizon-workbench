@@ -1,0 +1,27 @@
+{
+  "id": "horizon.semantic.rust",
+  "name": "Rust 代码导航",
+  "version": "0.1.0",
+  "description": "使用本机 rust-analyzer，为 Rust 文件提供定义跳转。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": { "horizon": ">=0.1.0 <0.2.0" },
+  "runtime": { "kind": "declarative" },
+  "activation": ["onLanguage:rust"],
+  "requires": { "horizon.editor": "^0.1.0", "horizon.language.rust": "^0.1.0" },
+  "optional": {},
+  "capabilities": ["language.server"],
+  "contributes": {
+    "languageServers": [{
+      "id": "rust",
+      "languageIds": ["rust"],
+      "rootMarkers": ["Cargo.toml", "rust-project.json"],
+      "command": "rust-analyzer",
+      "args": []
+    }],
+    "settings": [
+      { "key": "server.rust.command", "label": "rust-analyzer 程序", "type": "path", "default": "rust-analyzer" },
+      { "key": "server.rust.args", "label": "rust-analyzer 启动参数（JSON 数组）", "type": "string", "default": "[]" }
+    ]
+  }
+}

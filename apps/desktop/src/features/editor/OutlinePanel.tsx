@@ -4,7 +4,7 @@ import { markdownHeadings } from '../../../../../packages/editor/src/outline';
 import type { EditorBuffer } from '../../../../../packages/editor/src/types';
 import { editorStore } from './store';
 
-export function OutlinePanel({ buffer }: { buffer?: EditorBuffer }) {
+export function OutlinePanel({ buffer, onRevealEditor }: { buffer?: EditorBuffer; onRevealEditor?: () => void }) {
   const [text, setText] = useState(''), [focused, setFocused] = useState(0);
   const tree = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -23,7 +23,10 @@ export function OutlinePanel({ buffer }: { buffer?: EditorBuffer }) {
     // Re-read the current buffer so a heading inserted before this one cannot leave a stale jump.
     const latest = markdownHeadings(buffer.getText()), selected = headings[index];
     const heading = latest.find(item => item.line === selected.line && item.title === selected.title) ?? latest.find(item => item.title === selected.title && item.level === selected.level);
-    if (heading) void editorStore.openFile(buffer.fileId, { projectId: buffer.projectId, line: heading.line });
+    if (heading) {
+      onRevealEditor?.();
+      void editorStore.openFile(buffer.fileId, { projectId: buffer.projectId, line: heading.line });
+    }
   };
   return <section className="file-outline" aria-label="当前文件结构"><header><ListTree size={14} /><strong>文件结构</strong></header>
     {buffer ? <p className="outline-filename" title={buffer.path}><FileText size={13} />{buffer.path.split('/').pop()}</p> : null}

@@ -11,6 +11,12 @@ use std::{
 };
 use tauri::{ipc::Channel, AppHandle, Emitter};
 mod presets;
+mod syntax;
+mod language_servers;
+pub use syntax::read_grammar;
+pub use language_servers::{language_server_for_file, language_id_for_file};
+pub(crate) use language_servers::language_server_for_file_at_revision;
+include!(concat!(env!("OUT_DIR"), "/builtin_languages.rs"));
 
 pub fn resource_profile(state: &HostState, project: Option<&str>) -> Result<Value, HostError> {
     presets::current(&read_registry(state)?, project)
@@ -46,7 +52,7 @@ impl Drop for SdkRequestGuard {
     }
 }
 fn builtin_manifests() -> Vec<Value> {
-    vec![
+    let mut manifests = vec![
         serde_json::from_str(include_str!(
             "../../../../packages/plugins/builtins/horizon.theme.graphite/manifest.json"
         ))
@@ -143,7 +149,11 @@ fn builtin_manifests() -> Vec<Value> {
             "../../../../packages/plugins/builtins/horizon.theme.iris/manifest.json"
         ))
         .expect("valid builtin manifest"),
-    ]
+    ];
+    manifests.extend(BUILTIN_LANGUAGE_FILES.iter().filter_map(|(_, path, bytes)| {
+        (*path == "manifest.json").then(|| serde_json::from_slice(bytes).expect("valid builtin language manifest"))
+    }));
+    manifests
 }
 fn registry_path(state: &HostState) -> PathBuf {
     state.data_dir().join("extensions/registry.json")
@@ -190,6 +200,16 @@ fn write_builtin_package(state: &HostState, manifest: &Value) -> Result<PathBuf,
         serde_json::to_vec_pretty(manifest).map_err(io)?,
     )
     .map_err(io)?;
+    for (id, relative, bytes) in BUILTIN_LANGUAGE_FILES {
+        if *id != str_param(manifest, "id")? || *relative == "manifest.json" {
+            continue;
+        }
+        let target = path.join(relative);
+        if let Some(parent) = target.parent() {
+            fs::create_dir_all(parent).map_err(io)?;
+        }
+        fs::write(target, bytes).map_err(io)?;
+    }
     Ok(path)
 }
 pub fn initialize(state: &HostState) -> Result<(), HostError> {
@@ -199,7 +219,13 @@ pub fn initialize(state: &HostState) -> Result<(), HostError> {
         let id = str_param(&embedded, "id")?;
         let version = str_param(&embedded, "version")?;
         let expected_dir = state.data_dir().join("extensions/packages").join(id).join(version);
-        let Some(record) = registry["records"].get_mut(id) else { continue; };
+        if registry["records"].get(id).is_none() {
+            let mut record = initial_record(embedded.clone(), true);
+            record["packageDir"] = json!(write_builtin_package(state, &embedded)?);
+            registry["records"][id] = record;
+            continue;
+        }
+        let record = registry["records"].get_mut(id).unwrap();
         if record["installed"] != true || record["builtin"] != true
             || record["manifest"]["version"] != embedded["version"]
             || record["source"].is_string() || record["development"] == true
@@ -211,16 +237,36 @@ pub fn initialize(state: &HostState) -> Result<(), HostError> {
         let description_changed = record["manifest"]["description"] != embedded["description"];
         let themes_changed = embedded["contributes"]["themes"].as_array().is_some_and(|themes| !themes.is_empty())
             && record["manifest"]["contributes"]["themes"] != embedded["contributes"]["themes"];
-        if !name_changed && !layouts_changed && !description_changed && !themes_changed { continue; }
+        let languages_changed = record["manifest"]["contributes"]["languages"] != embedded["contributes"]["languages"];
+        let grammars_changed = record["manifest"]["contributes"]["grammars"] != embedded["contributes"]["grammars"];
+        let servers_changed = record["manifest"]["contributes"]["languageServers"] != embedded["contributes"]["languageServers"];
+        let server_settings_changed = id.starts_with("horizon.semantic.")
+            && record["manifest"]["contributes"]["settings"] != embedded["contributes"]["settings"];
+        if id.starts_with("horizon.language.") {
+            write_builtin_package(state, &record["manifest"])?;
+            if record["packageDigest"].is_string() {
+                record["packageDigest"] = json!(package_digest(&package_files(&expected_dir)?));
+            }
+        }
+        if !name_changed && !layouts_changed && !description_changed && !themes_changed && !languages_changed && !grammars_changed && !servers_changed && !server_settings_changed { continue; }
         // Update presentation metadata only for the unchanged bundled package.
         // Policy, grants, settings and external package declarations stay intact.
         if name_changed { record["manifest"]["name"] = embedded["name"].clone(); }
         if layouts_changed { record["manifest"]["contributes"]["layouts"] = embedded["contributes"]["layouts"].clone(); }
         if description_changed { record["manifest"]["description"] = embedded["description"].clone(); }
         if themes_changed { record["manifest"]["contributes"]["themes"] = embedded["contributes"]["themes"].clone(); }
+        for (field, changed) in [("languages", languages_changed), ("grammars", grammars_changed), ("languageServers", servers_changed), ("settings", server_settings_changed)] {
+            if changed {
+                if let Some(value) = embedded["contributes"].get(field) {
+                    record["manifest"]["contributes"][field] = value.clone();
+                } else {
+                    record["manifest"]["contributes"].as_object_mut().unwrap().remove(field);
+                }
+            }
+        }
         write_builtin_package(state, &record["manifest"])?;
         if record["packageDigest"].is_string() { record["packageDigest"] = json!(package_digest(&package_files(&expected_dir)?)); }
-        append_log(record, "随应用更新同步内置扩展说明与主题声明");
+        append_log(record, "随应用更新同步内置扩展说明与资源声明");
         bump(record);
     }
     for (id, r) in registry["records"].as_object_mut().unwrap() {
@@ -234,6 +280,7 @@ pub fn initialize(state: &HostState) -> Result<(), HostError> {
     write_registry(state, &registry)
 }
 pub async fn sleep_project(state: &HostState, project: &str) -> Result<(), HostError> {
+    crate::language_servers::stop_resources(Some(project)).await?;
     crate::extension_host::stop_project(project).await?;
     let _guard = lock().lock().unwrap();
     let mut registry = read_registry(state)?;
@@ -251,6 +298,9 @@ pub async fn sleep_project(state: &HostState, project: &str) -> Result<(), HostE
             state.release_extension_resources(id, Some(project));
             append_log(r, "项目空闲，实例已休眠");
             bump(r);
+            if r["manifest"]["contributes"]["languageServers"].as_array().is_some_and(|servers| !servers.is_empty()) {
+                r["languageServerLifecycleRevision"] = r["revision"].clone();
+            }
         }
     }
     write_registry(state, &registry)
@@ -325,7 +375,9 @@ fn state_value(registry: &Value, id: &str, project: Option<&str>) -> Result<Valu
     } else {
         r["activations"].as_object().map(|a| a.len()).unwrap_or(0)
     };
-    let instances:Vec<Value>=r["activations"].as_object().into_iter().flatten().map(|(project,activation)|json!({"projectId":if project=="@app"{None}else{Some(project)},"activationId":activation,"runState":"active"})).collect();
+    let has_language_servers = r["manifest"]["contributes"]["languageServers"].as_array().is_some_and(|servers| !servers.is_empty());
+    let language_resources = crate::language_servers::resource_count(id, project);
+    let instances:Vec<Value>=r["activations"].as_object().into_iter().flatten().map(|(project,activation)|json!({"projectId":if project=="@app"{None}else{Some(project)},"activationId":activation,"runState":if has_language_servers && crate::language_servers::resource_count(id, (project != "@app").then_some(project.as_str())) == 0 { "stopped" } else { "active" }})).collect();
     let run_state = if cleanup_error(r, project).is_some() {
         "cleanupFailed"
     } else if stopping {
@@ -339,15 +391,15 @@ fn state_value(registry: &Value, id: &str, project: Option<&str>) -> Result<Valu
         && crate::extension_host::ready_count(id, project) == 0
     {
         "activating"
-    } else if active_count > 0 {
+    } else if active_count > 0 && (!has_language_servers || language_resources > 0) {
         "active"
-    } else if r["sleeping"][key(project)] == true {
+    } else if r["sleeping"][key(project)].as_bool().unwrap_or(r["sleeping"]["@app"] == true) {
         "sleeping"
     } else {
         "stopped"
     };
     Ok(
-        json!({"id":id,"revision":r["revision"],"installedVersion":if installed {r["manifest"]["version"].clone()} else {Value::Null},"installState":if installed {"installed"} else {"absent"},"pausedGlobal":paused_global,"pausedProject":paused_project,"effectivePaused":paused_global||paused_project,"enabledGlobal":r["enabledGlobal"],"projectOverride":policy,"effectiveEnabled":enabled && installed,"runState":run_state,"activationId":activation,"dependents":dependents,"ownedResourceCount":if r["manifest"]["runtime"]["kind"]=="quickjs"{crate::extension_host::resource_count(id,project)}else{active_count},"instances":instances,"uiReclaim":if installed && r["manifest"]["runtime"]["kind"]=="trusted-main" {"retainedModule"} else {"released"},"manifest":r["manifest"],"error":runtime_error,"source":r["source"],"development":r["development"],"previousVersion":r["previous"]["manifest"]["version"]}),
+        json!({"id":id,"revision":r["revision"],"installedVersion":if installed {r["manifest"]["version"].clone()} else {Value::Null},"installState":if installed {"installed"} else {"absent"},"pausedGlobal":paused_global,"pausedProject":paused_project,"effectivePaused":paused_global||paused_project,"enabledGlobal":r["enabledGlobal"],"projectOverride":policy,"effectiveEnabled":enabled && installed,"runState":run_state,"activationId":activation,"dependents":dependents,"ownedResourceCount":if has_language_servers { language_resources } else if r["manifest"]["runtime"]["kind"]=="quickjs" { crate::extension_host::resource_count(id,project) } else { active_count },"instances":instances,"uiReclaim":if installed && r["manifest"]["runtime"]["kind"]=="trusted-main" {"retainedModule"} else {"released"},"manifest":r["manifest"],"error":runtime_error,"source":r["source"],"development":r["development"],"previousVersion":r["previous"]["manifest"]["version"]}),
     )
 }
 pub fn manifest(state: &HostState, extension_id: &str) -> Result<Value, HostError> {
@@ -359,7 +411,7 @@ pub fn manifest(state: &HostState, extension_id: &str) -> Result<Value, HostErro
     Ok(r["manifest"].clone())
 }
 pub fn contribution_owner(state: &HostState, kind: &str, id: &str) -> Result<String, HostError> {
-    if !["layouts", "themes", "views", "commands"].contains(&kind) {
+    if !["layouts", "themes", "views", "commands", "languages", "grammars", "languageServers"].contains(&kind) {
         return Err(err("INVALID_ARGUMENT", "未知贡献类型"));
     }
     let registry = read_registry(state)?;
@@ -367,7 +419,7 @@ pub fn contribution_owner(state: &HostState, kind: &str, id: &str) -> Result<Str
         if record["installed"] == true
             && record["manifest"]["contributes"][kind]
                 .as_array()
-                .is_some_and(|items| items.iter().any(|item| item["id"] == id))
+                .is_some_and(|items| items.iter().any(|item| item[if kind == "grammars" { "scopeName" } else { "id" }] == id))
         {
             return Ok(owner.clone());
         }
@@ -720,8 +772,10 @@ fn validate_manifest(m: &Value, trusted: bool) -> Result<(), HostError> {
     crate::protocol::allowed(&m["runtime"], &["kind", "entry"])?;
     crate::protocol::allowed(
         &m["contributes"],
-        &["commands", "views", "layouts", "themes", "settings"],
+        &["commands", "views", "layouts", "themes", "settings", "languages", "grammars", "languageServers"],
     )?;
+    syntax::validate_contributions(&m["contributes"])?;
+    language_servers::validate_contributions(m)?;
     if !["declarative", "quickjs", "trusted-main"].contains(&kind)
         || (!trusted && kind == "trusted-main")
     {
@@ -738,7 +792,7 @@ fn validate_manifest(m: &Value, trusted: bool) -> Result<(), HostError> {
         .ok_or_else(|| err("INVALID_ARGUMENT", "capabilities 必须是数组"))?
     {
         if !trusted
-            && !["project.read", "git.read", "storage"].contains(&cap.as_str().unwrap_or(""))
+            && !["project.read", "git.read", "storage", "language.server"].contains(&cap.as_str().unwrap_or(""))
         {
             return Err(err("PERMISSION_DENIED", format!("第三方 SDK 不提供 {cap}")));
         }
@@ -951,8 +1005,10 @@ fn validate_theme(theme: &Value) -> Result<(), HostError> {
             "radius",
             "density",
             "rowHeight",
+            "tokenColors",
         ],
     )?;
+    syntax::validate_token_colors(theme.get("tokenColors"))?;
     if theme["apiVersion"] != 1
         || !theme["radius"]
             .as_f64()
@@ -1296,6 +1352,14 @@ fn dependency_check(registry: &Value, m: &Value) -> Result<(), HostError> {
                     ));
                 }
             }
+            for (kind, field) in [("languages", "id"), ("grammars", "scopeName"), ("languageServers", "id")] {
+                let names: BTreeSet<&str> = m["contributes"][kind].as_array().into_iter().flatten()
+                    .filter_map(|item| item[field].as_str()).collect();
+                if record["manifest"]["contributes"][kind].as_array().into_iter().flatten()
+                    .filter_map(|item| item[field].as_str()).any(|name| names.contains(name)) {
+                    return Err(err("INVALID_ARGUMENT", format!("{kind} 声明与已安装扩展 {other} 冲突")));
+                }
+            }
         }
     }
     fn visit(reg: &Value, m: &Value, stack: &mut BTreeSet<String>) -> Result<(), HostError> {
@@ -1324,6 +1388,7 @@ fn dependency_check(registry: &Value, m: &Value) -> Result<(), HostError> {
     visit(registry, m, &mut BTreeSet::new())
 }
 async fn stop_resources(id: &str, project: Option<&str>) -> Result<(), HostError> {
+    crate::language_servers::stop_extension(id, project).await?;
     let requests: Vec<String> = sdk_requests()
         .lock()
         .unwrap()
@@ -1415,6 +1480,11 @@ fn begin_stop_targets<R: tauri::Runtime>(state: &HostState, app: &AppHandle<R>, 
         let record = record_mut(&mut registry, id)?;
         if !record["stopping"].is_object() { record["stopping"] = json!({}); }
         record["stopping"][key(project)] = json!(true);
+        if record["manifest"]["contributes"]["languageServers"].as_array().is_some_and(|servers| !servers.is_empty()) {
+            // Captured prewarm requests queued behind this lifecycle operation
+            // must not reactivate the just-stopped server when the lock opens.
+            record["languageServerLifecycleRevision"] = json!(record["revision"].as_u64().unwrap_or(0) + 1);
+        }
     }
     write_registry(state, &registry)?;
     for id in ids { changed(app, id); }
@@ -1498,6 +1568,7 @@ pub async fn dispatch(
             "stopDependents",
         ],
         "extension_entry" => &["extensionId", "activationId"],
+        "extension_read_grammar" => &["extensionId", "scopeName"],
         "extension_sdk_call" => &["extensionId", "activationId", "method", "params"],
         "extension_report_error" => &["extensionId", "activationId", "message"],
         "extension_config_set" => &["extensionId", "expectedRevision", "key", "value", "scope"],
@@ -1565,6 +1636,7 @@ pub async fn dispatch(
                 .ok_or_else(|| err("INVALID_ARGUMENT", "目录内缺少 manifest.json"))?;
             let m: Value = serde_json::from_slice(&bytes.1).map_err(io)?;
             validate_manifest(&m, false)?;
+            syntax::validate_package_grammars(&m, &files)?;
             let registry = read_registry(&state)?;
             dependency_check(&registry, &m)?;
             if m["runtime"]["kind"] == "quickjs"
@@ -1574,7 +1646,7 @@ pub async fn dispatch(
             {
                 return Err(err("INVALID_ARGUMENT", "缺少扩展入口文件"));
             }
-            let permissions:Vec<_>=m["capabilities"].as_array().unwrap().iter().map(|cap|json!({"id":cap,"capability":cap,"description":match cap.as_str(){Some("git.read")=>"读取当前项目的 Git 更改",Some("project.read")=>"读取当前项目内文件",Some("storage")=>"写入此扩展的私有设置",_=>""}})).collect();
+            let permissions:Vec<_>=m["capabilities"].as_array().unwrap().iter().map(|cap|json!({"id":cap,"capability":cap,"description":match cap.as_str(){Some("git.read")=>"读取当前项目的 Git 更改",Some("project.read")=>"读取当前项目内文件",Some("storage")=>"写入此扩展的私有设置",Some("language.server")=>"运行本地语言服务器，读取工作区及依赖以提供代码导航",_=>""}})).collect();
             let old = registry["records"].get(str_param(&m, "id")?);
             let old_grants = old
                 .and_then(|r| r["grants"].as_array())
@@ -1951,7 +2023,9 @@ pub async fn dispatch(
                         r["enabledGlobal"] = json!(false);
                     }
                 }
-                if !r["sleeping"].is_object() {
+                if target_project.is_none() {
+                    r["sleeping"] = json!({"@app":plan["action"] == "sleep"});
+                } else if !r["sleeping"].is_object() {
                     r["sleeping"] = json!({});
                 }
                 r["sleeping"][key(target_project)] = json!(plan["action"] == "sleep");
@@ -2026,6 +2100,7 @@ pub async fn dispatch(
                 .unwrap_or_else(|| digest(source.as_bytes()));
             Ok(json!({"source":source,"manifest":r["manifest"],"packageDigest":package_digest}))
         }
+        "extension_read_grammar" => read_grammar(&state, id, str_param(p, "scopeName")?, project),
         "extension_dev_reload_prepare" => {
             let registry = read_registry(&state)?;
             let r = record(&registry, id)?;
@@ -2043,11 +2118,12 @@ pub async fn dispatch(
                 .ok_or_else(|| err("INVALID_ARGUMENT", "缺少 manifest.json"))?;
             let m: Value = serde_json::from_slice(&bytes.1).map_err(io)?;
             validate_manifest(&m, false)?;
+            syntax::validate_package_grammars(&m, &files)?;
             if m["id"] != id {
                 return Err(err("INVALID_ARGUMENT", "开发清单 ID 已变化，请重新安装"));
             }
             dependency_check(&registry, &m)?;
-            let permissions:Vec<_>=m["capabilities"].as_array().unwrap().iter().map(|cap|json!({"id":cap,"capability":cap,"description":format!("使用 {} 能力",cap.as_str().unwrap_or(""))})).collect();
+            let permissions:Vec<_>=m["capabilities"].as_array().unwrap().iter().map(|cap|json!({"id":cap,"capability":cap,"description":if cap == "language.server" { "运行本地语言服务器，读取工作区及依赖以提供代码导航".to_owned() } else { format!("使用 {} 能力",cap.as_str().unwrap_or("")) }})).collect();
             Ok(save_plan(
                 json!({"kind":"install","development":true,"source":source,"packageDigest":package_digest(&files),"manifest":m,"permissions":permissions,"previousVersion":r["manifest"]["version"],"previousRevision":r["revision"],"downloadBytes":files.iter().map(|(_,b)|b.len()).sum::<usize>().to_string()}),
             ))
@@ -2110,44 +2186,53 @@ pub async fn dispatch(
             )
         }
         "extension_config_set" => {
-            let _guard = lock().lock().unwrap();
-            let mut registry = read_registry(&state)?;
-            let r = record_mut(&mut registry, id)?;
-            expected(r, p)?;
-            let config_key = str_param(p, "key")?;
-            let def = r["manifest"]["contributes"]["settings"]
-                .as_array()
-                .and_then(|defs| defs.iter().find(|d| d["key"] == config_key))
-                .ok_or_else(|| err("INVALID_ARGUMENT", "未知扩展设置"))?;
-            let value = &p["value"];
-            let valid = match def["type"].as_str() {
-                Some("boolean") => value.is_boolean(),
-                Some("string" | "path") => value.is_string(),
-                Some("select") => def["options"]
+            let target_project = {
+                let _guard = lock().lock().unwrap();
+                let mut registry = read_registry(&state)?;
+                let r = record_mut(&mut registry, id)?;
+                expected(r, p)?;
+                let config_key = str_param(p, "key")?;
+                let def = r["manifest"]["contributes"]["settings"]
                     .as_array()
-                    .map(|o| o.contains(value))
-                    .unwrap_or(false),
-                _ => false,
-            };
-            if !value.is_null() && !valid {
-                return Err(err("INVALID_ARGUMENT", "设置值类型无效"));
-            }
-            let target = if p["scope"] == "project" {
-                let project = project.ok_or_else(|| err("INVALID_ARGUMENT", "未选择项目"))?;
-                if r["projectConfig"].get(project).is_none() {
-                    r["projectConfig"][project] = json!({});
+                    .and_then(|defs| defs.iter().find(|d| d["key"] == config_key))
+                    .ok_or_else(|| err("INVALID_ARGUMENT", "未知扩展设置"))?;
+                let value = &p["value"];
+                let valid = match def["type"].as_str() {
+                    Some("boolean") => value.is_boolean(),
+                    Some("string" | "path") => value.is_string(),
+                    Some("select") => def["options"]
+                        .as_array()
+                        .map(|o| o.contains(value))
+                        .unwrap_or(false),
+                    _ => false,
+                };
+                if !value.is_null() && !valid {
+                    return Err(err("INVALID_ARGUMENT", "设置值类型无效"));
                 }
-                &mut r["projectConfig"][project]
-            } else {
-                &mut r["config"]
+                language_servers::validate_setting(&r["manifest"], config_key, value)?;
+                let target = if p["scope"] == "project" {
+                    let project = project.ok_or_else(|| err("INVALID_ARGUMENT", "未选择项目"))?;
+                    if r["projectConfig"].get(project).is_none() {
+                        r["projectConfig"][project] = json!({});
+                    }
+                    &mut r["projectConfig"][project]
+                } else {
+                    &mut r["config"]
+                };
+                if value.is_null() {
+                    target.as_object_mut().unwrap().remove(config_key);
+                } else {
+                    target[config_key] = value.clone();
+                }
+                bump(r);
+                if r["manifest"]["contributes"]["languageServers"].as_array().is_some_and(|servers| !servers.is_empty()) {
+                    r["languageServerLifecycleRevision"] = r["revision"].clone();
+                }
+                write_registry(&state, &registry)?;
+                (p["scope"] == "project").then(|| project.unwrap().to_owned())
             };
-            if value.is_null() {
-                target.as_object_mut().unwrap().remove(config_key);
-            } else {
-                target[config_key] = value.clone();
-            }
-            bump(r);
-            write_registry(&state, &registry)?;
+            crate::language_servers::stop_extension(id, target_project.as_deref()).await?;
+            changed(&app, id);
             Ok(json!({"saved":true}))
         }
         "extension_logs" => {

@@ -12,7 +12,7 @@ type AnonymousEditorOpen = {
   editorRevision?: number;
   viewId?: number;
 };
-const diagnosticLanguages = new Set(['plain', 'ts', 'tsx', 'js', 'mjs', 'cjs', 'jsx', 'json', 'jsonc', 'md', 'mdx', 'markdown', 'css', 'html', 'htm', 'svg', 'xml', 'py', 'rs', 'sql']);
+const diagnosticLanguages = new Set(['plain', 'ts', 'tsx', 'js', 'mjs', 'cjs', 'jsx', 'json', 'jsonc', 'md', 'mdx', 'markdown', 'css', 'html', 'htm', 'svg', 'xml', 'py', 'rs', 'sql', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python', 'rust']);
 const finiteMetric = (value: unknown): value is number => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= Number.MAX_SAFE_INTEGER;
 const integerMetric = (value: unknown): value is number => finiteMetric(value) && Number.isInteger(value);
 

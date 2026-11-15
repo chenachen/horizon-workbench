@@ -1,0 +1,57 @@
+{
+  "id": "horizon.language.html",
+  "name": "HTML / XML 语言支持",
+  "version": "0.1.0",
+  "description": "为 HTML / XML 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:html",
+    "onLanguage:xml"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "html",
+        "aliases": [
+          "HTML"
+        ],
+        "extensions": [
+          ".html",
+          ".htm"
+        ]
+      },
+      {
+        "id": "xml",
+        "aliases": [
+          "XML"
+        ],
+        "extensions": [
+          ".xml",
+          ".svg"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "html",
+        "scopeName": "text.html.basic",
+        "path": "syntaxes/html.tmLanguage.json"
+      },
+      {
+        "language": "xml",
+        "scopeName": "text.xml",
+        "path": "syntaxes/xml.tmLanguage.json"
+      }
+    ]
+  }
+}

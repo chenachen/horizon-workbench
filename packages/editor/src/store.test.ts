@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { EditorStore } from './store';
 import type { DiskRevision, EditorTransport, FileRelocationPlan, OpenDocument } from './types';
 import { EditorState, Text, type Transaction } from '@codemirror/state';
-import { history, undo } from '@codemirror/commands';
+import { history, redo, undo } from '@codemirror/commands';
 
 const revision = (token: string, byteLength = '5'): DiskRevision => ({ token, contentHash: token, byteLength, modifiedAt: '2026-10-31T00:00:00Z' });
 const opened = (projectId: string, fileId: string, text = 'hello'): OpenDocument => ({ mode: 'editor', meta: { documentId: `doc-${projectId}-${fileId}`, file: { projectId, fileId, displayPath: `${fileId}.ts` }, editorRevision: 0, baseDiskRevision: revision('disk-0'), encoding: 'utf8bom', eol: 'crlf', state: 'clean', readOnly: false }, text, simplified: false });
@@ -26,6 +26,177 @@ async function tick() { await vi.advanceTimersByTimeAsync(0); }
 
 beforeEach(() => vi.useFakeTimers());
 afterEach(() => { vi.clearAllTimers(); vi.useRealTimers(); });
+
+describe('incremental document subscriptions', () => {
+  it('publishes exact changes and version identities without materializing text or publishing every edit', async () => {
+    const initial = EditorState.create({ doc: 'const 猫 = "🧭";\n猫();' });
+    const { store } = fixture({ document_open: () => opened('a', 'one', initial.doc.toString()) });
+    await store.openFile('one');
+    const buffer = store.getActive()!;
+    buffer.contentIdentity = buffer.savedContentIdentity = initial.doc;
+    buffer.contentEquals = (left, right) => left instanceof Text && right instanceof Text && left.eq(right);
+    const changed = vi.fn(); store.subscribeDocumentChanges(changed);
+    const first = initial.update({ changes: [{ from: 6, to: 7, insert: '方向' }, { from: initial.doc.length, insert: '\n方向();' }] });
+    const getFirst = vi.fn(() => first.state.doc.toString());
+    store.edited('a', 'one', getFirst, { anchor: 0, head: 0 }, first.state.doc, first.changes);
+    const firstEvent = changed.mock.calls[0][0];
+    expect(firstEvent).toMatchObject({ buffer, key: buffer.key, version: 1 });
+    expect(firstEvent.changes).toBe(first.changes);
+    expect(firstEvent.previousContentIdentity).toBe(initial.doc);
+    expect(firstEvent.contentIdentity).toBe(first.state.doc);
+    expect(firstEvent.changes.apply(firstEvent.previousContentIdentity).eq(firstEvent.contentIdentity)).toBe(true);
+    expect(getFirst).not.toHaveBeenCalled();
+
+    const metadata = store.getSnapshot();
+    const second = first.state.update({ changes: { from: 0, to: 5, insert: 'let' } });
+    const getSecond = vi.fn(() => second.state.doc.toString());
+    store.edited('a', 'one', getSecond, { anchor: 0, head: 0 }, second.state.doc, second.changes);
+    expect(changed).toHaveBeenCalledTimes(2);
+    expect(changed.mock.calls[1][0]).toMatchObject({ version: 2, previousContentIdentity: first.state.doc, contentIdentity: second.state.doc });
+    expect(firstEvent.version).toBe(1);
+    expect(firstEvent.contentIdentity).toBe(first.state.doc);
+    expect(store.getSnapshot()).toBe(metadata);
+    expect(getSecond).not.toHaveBeenCalled();
+  });
+
+  it('includes background edits without deltas and supports unsubscribing independently of legacy listeners', async () => {
+    const { store } = fixture();
+    await store.openFile('one'); await store.openFile('two');
+    const buffer = store.getBuffer('a', 'one')!;
+    const changed = vi.fn(), legacy = vi.fn();
+    const unsubscribe = store.subscribeDocumentChanges(changed);
+    store.subscribeEdits(legacy);
+    const getText = vi.fn(() => 'background change');
+    store.edited('a', 'one', getText, { anchor: 0, head: 0 });
+    expect(store.getActive()!.fileId).toBe('two');
+    expect(changed).toHaveBeenCalledTimes(1);
+    expect(changed.mock.calls[0][0]).toMatchObject({ buffer, key: buffer.key, version: 1, changes: undefined });
+    expect(getText).not.toHaveBeenCalled();
+    expect(legacy).toHaveBeenCalledWith(buffer.key);
+    unsubscribe();
+    store.edited('a', 'one', () => 'later background change', { anchor: 0, head: 0 });
+    expect(changed).toHaveBeenCalledTimes(1);
+    expect(legacy).toHaveBeenCalledTimes(2);
+  });
+
+  it('does not publish rejected edits to missing or read-only buffers', async () => {
+    const { store } = fixture();
+    await store.openFile('one');
+    store.getActive()!.meta!.readOnly = true;
+    const changed = vi.fn(); store.subscribeDocumentChanges(changed);
+    store.edited('a', 'one', () => 'readonly', { anchor: 0, head: 0 });
+    store.edited('a', 'missing', () => 'missing', { anchor: 0, head: 0 });
+    expect(changed).not.toHaveBeenCalled();
+    expect(store.getActive()!.version).toBe(0);
+  });
+});
+
+describe('compared disk saves', () => {
+  it('writes the chosen current text even when undo returned it to the original saved content', async () => {
+    const comparedRevision = revision('disk-external');
+    const { store, call } = fixture({ document_disk_read: () => ({ text: 'external edit', revision: comparedRevision }) });
+    await store.openFile('one'); const buffer = store.getActive()!;
+    let state = EditorState.create({ doc: 'hello', extensions: [history()] });
+    buffer.contentIdentity = buffer.savedContentIdentity = state.doc;
+    buffer.contentEquals = (left, right) => left instanceof Text && right instanceof Text && left.eq(right);
+    const dispatch = (transaction: Transaction) => { state = transaction.state; const text = state.doc; store.edited('a', 'one', () => text.toString(), { anchor: 0, head: 0 }, text); };
+    dispatch(state.update({ changes: { from: 5, insert: ' local' } }));
+    const comparison = (await store.readDiskComparison('one', 'a'))!;
+    expect(undo({ state, dispatch })).toBe(true); expect(buffer.dirty).toBe(false);
+    expect(await store.saveActive()).toBe(true);
+    expect(call.mock.calls.some(([method]) => method === 'document_save')).toBe(false);
+    expect(await store.saveComparedDisk(comparison)).toBe(true);
+    expect(call.mock.calls.find(([method]) => method === 'document_save')![1]).toMatchObject({ text: 'hello', expectedDiskRevision: comparedRevision, editorRevision: 2 });
+  });
+
+  it('writes a manual merge against the compared disk revision and preserves undo history', async () => {
+    const comparedRevision = revision('disk-external');
+    const { store, call } = fixture({
+      file_stat: () => ({ revision: comparedRevision }),
+      document_disk_read: () => ({ text: 'external edit', revision: comparedRevision }),
+      document_save: params => {
+        if ((params.expectedDiskRevision as DiskRevision).token !== comparedRevision.token) throw Object.assign(new Error('磁盘文件已变化'), { code: 'FILE_CHANGED' });
+        return { savedEditorRevision: params.editorRevision, diskRevision: revision('disk-merged'), recoveryCheckpointId: null };
+      },
+    });
+    await store.openFile('one'); const buffer = store.getActive()!;
+    let state = EditorState.create({ doc: 'hello', extensions: [history()] });
+    buffer.contentIdentity = buffer.savedContentIdentity = state.doc;
+    buffer.contentEquals = (left, right) => left instanceof Text && right instanceof Text && left.eq(right);
+    const dispatch = (transaction: Transaction) => { state = transaction.state; const text = state.doc; store.edited('a', 'one', () => text.toString(), { anchor: 0, head: 0 }, text); };
+    dispatch(state.update({ changes: { from: 0, to: state.doc.length, insert: 'local edit' } }));
+    await store.externalChanged('a', 'one');
+    const comparison = (await store.readDiskComparison('one', 'a'))!;
+    expect(comparison).toMatchObject({ projectId: 'a', fileId: 'one', documentId: 'doc-a-one', text: 'external edit', revision: comparedRevision });
+    expect(buffer.meta!.baseDiskRevision.token).toBe('disk-0');
+    expect(buffer).toMatchObject({ dirty: true, conflict: true });
+    expect(call.mock.calls.some(([method]) => method === 'document_save')).toBe(false);
+    expect(await store.saveActive()).toBe(false);
+    expect(call.mock.calls.find(([method]) => method === 'document_save')![1]?.expectedDiskRevision).toEqual(revision('disk-0'));
+    dispatch(state.update({ changes: { from: 0, to: state.doc.length, insert: 'local edit + external edit' } }));
+    expect(await store.saveComparedDisk(comparison)).toBe(true);
+    expect(call.mock.calls.filter(([method]) => method === 'document_save').at(-1)?.[1]).toMatchObject({ expectedDiskRevision: comparedRevision, editorRevision: 2, text: 'local edit + external edit' });
+    expect(store.getActive()).toBe(buffer);
+    expect(buffer).toMatchObject({ dirty: false, conflict: false, contentVersion: 0 });
+    expect(buffer.meta!.baseDiskRevision.token).toBe('disk-merged');
+    expect(undo({ state, dispatch })).toBe(true); expect(buffer.dirty).toBe(true);
+    expect(redo({ state, dispatch })).toBe(true); expect(buffer.dirty).toBe(false);
+    expect(buffer.getText()).toBe('local edit + external edit');
+  });
+
+  it('refuses a compared save after a second disk change without advancing the baseline', async () => {
+    const comparedRevision = revision('disk-external'); let disk = comparedRevision;
+    const { store, edit, call } = fixture({
+      file_stat: () => ({ revision: disk }),
+      document_disk_read: () => ({ text: 'external edit', revision: disk }),
+      document_save: params => {
+        if ((params.expectedDiskRevision as DiskRevision).token !== disk.token) throw Object.assign(new Error('磁盘内容已变化，请比较或重新加载'), { code: 'FILE_CHANGED' });
+        throw new Error('A stale comparison must never reach a write');
+      },
+    });
+    await store.openFile('one'); edit('one', 'manual merge'); await store.externalChanged('a', 'one');
+    const buffer = store.getActive()!, comparison = (await store.readDiskComparison('one', 'a'))!;
+    disk = revision('disk-external-again');
+    expect(await store.saveComparedDisk(comparison)).toBe(false);
+    expect(buffer).toMatchObject({ dirty: true, conflict: true, version: 1, savedVersion: 0 });
+    expect(buffer.meta!.baseDiskRevision.token).toBe('disk-0');
+    expect(buffer.getText()).toBe('manual merge');
+    expect(call.mock.calls.find(([method]) => method === 'document_save')![1]?.expectedDiskRevision).toEqual(comparedRevision);
+  });
+
+  it('keeps input made during a compared save dirty and checkpoints it against the saved disk revision', async () => {
+    const saved = deferred<unknown>(), comparedRevision = revision('disk-external');
+    const { store, edit, call } = fixture({
+      file_stat: () => ({ revision: comparedRevision }),
+      document_disk_read: () => ({ text: 'external edit', revision: comparedRevision }),
+      document_save: () => saved.promise,
+    });
+    await store.openFile('one'); edit('one', 'manual merge'); await store.externalChanged('a', 'one');
+    const buffer = store.getActive()!, comparison = (await store.readDiskComparison('one', 'a'))!;
+    const saving = store.saveComparedDisk(comparison);
+    expect(store.saveComparedDisk(comparison)).toBe(saving);
+    edit('one', 'manual merge + continued input'); await tick();
+    expect(call.mock.calls.find(([method]) => method === 'document_save')![1]).toMatchObject({ editorRevision: 1, text: 'manual merge', expectedDiskRevision: comparedRevision });
+    saved.resolve({ savedEditorRevision: 1, diskRevision: revision('disk-merged'), recoveryCheckpointId: null });
+    expect(await saving).toBe(false);
+    expect(buffer).toMatchObject({ dirty: true, conflict: false, version: 2, savedVersion: 1, checkpointVersion: 2 });
+    expect(buffer.getText()).toBe('manual merge + continued input');
+    expect(call.mock.calls.filter(([method]) => method === 'document_checkpoint').at(-1)?.[1]).toMatchObject({ text: 'manual merge + continued input', baseDiskRevision: revision('disk-merged') });
+  });
+
+  it('cannot reuse a comparison after reloading replaces its buffer', async () => {
+    const { store, edit, call } = fixture({
+      document_disk_read: () => ({ text: 'external edit', revision: revision('disk-external') }),
+      document_reload: () => opened('a', 'one', 'reloaded'),
+    });
+    await store.openFile('one'); edit('one', 'local edit');
+    const comparison = (await store.readDiskComparison('one', 'a'))!;
+    await store.reload('one', true, 'a'); edit('one', 'new draft');
+    expect(await store.saveComparedDisk(comparison)).toBe(false);
+    expect(call.mock.calls.some(([method]) => method === 'document_save')).toBe(false);
+    expect(store.getActive()?.getText()).toBe('new draft');
+  });
+});
 
 describe('versioned editor documents', () => {
   it.each(['NOT_FOUND', 'PERMISSION_DENIED'])('keeps a failed %s file in its own retryable tab without replacing another draft', async code => {
@@ -649,6 +820,126 @@ describe('G01 real editor operation loading', () => {
     two.resolve(opened('a', 'two', 'second bytes')); await second;
     expect(store.getProjectLoadState('a')).toBeUndefined();
     expect(store.getActive()?.fileId).toBe('two');
+  });
+
+  it('keeps the latest preview when an earlier cold read finishes last', async () => {
+    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
+    const { store, call } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
+    const first = store.openFile('one', { preview: true });
+    const second = store.openFile('two', { preview: true });
+    two.resolve(opened('a', 'two')); await second;
+    one.resolve(opened('a', 'one')); await first;
+    expect(store.getActive()?.fileId).toBe('two');
+    expect(store.getSnapshot().projects.get('a')!.tabs).toEqual(['two']);
+    expect(store.getBuffer('a', 'one')).toBeUndefined();
+    expect(call.mock.calls.filter(([method]) => method === 'document_close').map(([, params]) => params?.documentId)).toEqual(['doc-a-one']);
+  });
+
+  it('keeps an earlier pinned read in its own tab without activating it', async () => {
+    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
+    const first = store.openFile('one');
+    const second = store.openFile('two');
+    two.resolve(opened('a', 'two')); await second;
+    one.resolve(opened('a', 'one')); await first;
+    expect(store.getActive()?.fileId).toBe('two');
+    expect(store.getSnapshot().projects.get('a')!.tabs).toEqual(['two', 'one']);
+    expect(store.getBuffer('a', 'one')?.preview).toBe(false);
+  });
+
+  it.each(['open', 'activate'])('preserves a later warm-file %s while a cold read finishes', async action => {
+    const read = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: (params, projectId) => params.fileId === 'cold' ? read.promise : opened(projectId!, String(params.fileId)) });
+    await store.openFile('warm');
+    const opening = store.openFile('cold', { preview: true });
+    if (action === 'open') await store.openFile('warm');
+    else store.activate('warm');
+    read.resolve(opened('a', 'cold')); await opening;
+    expect(store.getActive()?.fileId).toBe('warm');
+    expect(store.getSnapshot().projects.get('a')!.tabs).toEqual(['warm']);
+  });
+
+  it('lets a foreground open take over a deduplicated background read', async () => {
+    const read = deferred<OpenDocument>();
+    const { store, call } = fixture({ document_open: () => read.promise });
+    const background = store.openFile('one', { activate: false });
+    const foreground = store.openFile('one', { preview: true, line: 7, column: 3 });
+    read.resolve(opened('a', 'one')); await Promise.all([background, foreground]);
+    expect(call.mock.calls.filter(([method]) => method === 'document_open')).toHaveLength(1);
+    expect(store.getActive()).toMatchObject({ fileId: 'one', preview: true, reveal: { line: 7, column: 3 } });
+  });
+
+  it('pins a cold preview when keep is requested before the read completes', async () => {
+    const read = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: () => read.promise });
+    const opening = store.openFile('one', { preview: true });
+    store.keep('one');
+    read.resolve(opened('a', 'one')); await opening;
+    expect(store.getActive()).toMatchObject({ fileId: 'one', preview: false });
+  });
+
+  it('keeps a background preview read without replacing or closing the active file', async () => {
+    const { store, call } = fixture();
+    await store.openFile('current', { preview: true });
+    const background = await store.openFile('restored', { activate: false, preview: true });
+    expect(background).toMatchObject({ fileId: 'restored', preview: true });
+    expect(store.getActive()?.fileId).toBe('current');
+    expect(store.getSnapshot().projects.get('a')!.tabs).toEqual(['current', 'restored']);
+    expect(call.mock.calls.filter(([method]) => method === 'document_close')).toHaveLength(0);
+  });
+
+  it.each([false, true])('uses the latest preview and location when a pending file is selected again (%s)', async preview => {
+    const one = deferred<OpenDocument>(), two = deferred<OpenDocument>();
+    const { store, call } = fixture({ document_open: params => params.fileId === 'one' ? one.promise : two.promise });
+    const first = store.openFile('one', { preview: true, line: 2, column: 1 });
+    const second = store.openFile('two', { preview: true });
+    const latest = store.openFile('one', { preview, line: 9, column: 4 });
+    two.resolve(opened('a', 'two')); await second;
+    one.resolve(opened('a', 'one')); await Promise.all([first, latest]);
+    expect(call.mock.calls.filter(([method, params]) => method === 'document_open' && params?.fileId === 'one')).toHaveLength(1);
+    expect(store.getActive()).toMatchObject({ fileId: 'one', preview, reveal: { line: 9, column: 4 } });
+    expect(store.getBuffer('a', 'two') !== undefined).toBe(!preview);
+  });
+
+  it('keeps a late unavailable-file response from replacing a newer active file', async () => {
+    const read = deferred<OpenDocument>();
+    const { store } = fixture({ document_open: (params, projectId) => params.fileId === 'missing' ? read.promise : opened(projectId!, String(params.fileId)) });
+    const first = store.openFile('missing', { preview: true });
+    await store.openFile('current', { preview: true });
+    read.reject(Object.assign(new Error('missing'), { code: 'NOT_FOUND', details: { file: { projectId: 'a', fileId: 'missing', displayPath: 'missing.ts' } } }));
+    await first;
+    expect(store.getActive()?.fileId).toBe('current');
+    expect(store.getBuffer('a', 'missing')).toMatchObject({ mode: 'unavailable', accessError: { code: 'NOT_FOUND' } });
+  });
+
+  it('rechecks navigation after awaiting the previous preview close', async () => {
+    const closing = deferred<unknown>();
+    const { store } = fixture({ document_close: params => params.documentId === 'doc-a-previous' ? closing.promise : {} });
+    await store.openFile('warm');
+    await store.openFile('previous', { preview: true });
+    const opening = store.openFile('cold', { preview: true });
+    await tick();
+    store.activate('warm');
+    closing.resolve({}); await opening;
+    expect(store.getActive()?.fileId).toBe('warm');
+    expect(store.getBuffer('a', 'cold')).toBeUndefined();
+  });
+
+  it('reopens a superseded preview if it is selected again while its stale document closes', async () => {
+    const firstRead = deferred<OpenDocument>(), closing = deferred<unknown>();
+    let reads = 0;
+    const { store, call } = fixture({
+      document_open: (params, projectId) => params.fileId === 'one' && ++reads === 1 ? firstRead.promise : opened(projectId!, String(params.fileId)),
+      document_close: params => params.documentId === 'doc-a-one' ? closing.promise : {},
+    });
+    const first = store.openFile('one', { preview: true });
+    await store.openFile('two', { preview: true });
+    firstRead.resolve(opened('a', 'one')); await tick();
+    const latest = store.openFile('one', { preview: true, line: 6, column: 2 });
+    closing.resolve({}); await Promise.all([first, latest]);
+    expect(store.getActive()).toMatchObject({ fileId: 'one', preview: true, reveal: { line: 6, column: 2 } });
+    expect(store.getSnapshot().projects.get('a')!.tabs).toEqual(['one']);
+    expect(call.mock.calls.filter(([method, params]) => method === 'document_open' && params?.fileId === 'one')).toHaveLength(2);
   });
 
   it('G01 old-epoch read completion cannot clear new same-file pending', async () => {

@@ -28,6 +28,23 @@ impl Fixture{
     let recovered=f.command("recovery_read",json!({"checkpointId":checkpoint["checkpointId"]})).unwrap();assert_eq!(recovered["text"],"newer\n");
 }
 
+#[test]fn compared_disk_revision_allows_merged_save_and_rejects_another_external_change(){
+    let f=Fixture::new();let file=f.file("merge.txt","base\n");let opened=f.open(&file);let meta=&opened["meta"];let path=f.project_dir.path().join("merge.txt");
+    f.command("document_mark_dirty",json!({"documentId":meta["documentId"],"editorRevision":1,"dirty":true})).unwrap();
+    fs::write(&path,"external first\n").unwrap();
+    let compared=f.command("document_disk_read",json!({"documentId":meta["documentId"]})).unwrap();
+    assert_eq!(compared["text"],"external first\n");assert_eq!(compared["revision"],files::disk_revision(&path).unwrap());
+    assert_ne!(compared["revision"],meta["baseDiskRevision"]);assert_eq!(f.state.document_meta(meta["documentId"].as_str().unwrap()).unwrap()["baseDiskRevision"],meta["baseDiskRevision"]);
+    let saved=f.command("document_save",json!({"documentId":meta["documentId"],"editorRevision":1,"expectedDiskRevision":compared["revision"],"text":"local + external first\n","encoding":"utf8","eol":"lf"})).unwrap();
+    assert_eq!(fs::read_to_string(&path).unwrap(),"local + external first\n");assert_eq!(f.state.document_meta(meta["documentId"].as_str().unwrap()).unwrap()["baseDiskRevision"],saved["diskRevision"]);
+    f.command("document_mark_dirty",json!({"documentId":meta["documentId"],"editorRevision":2,"dirty":true})).unwrap();
+    fs::write(&path,"external second\n").unwrap();
+    let compared=f.command("document_disk_read",json!({"documentId":meta["documentId"]})).unwrap();
+    fs::write(&path,"external third\n").unwrap();
+    let rejected=f.command("document_save",json!({"documentId":meta["documentId"],"editorRevision":2,"expectedDiskRevision":compared["revision"],"text":"must not replace external third\n","encoding":"utf8","eol":"lf"})).unwrap_err();
+    assert_eq!(rejected.code,"FILE_CHANGED");assert_eq!(fs::read_to_string(&path).unwrap(),"external third\n");let current=f.state.document_meta(meta["documentId"].as_str().unwrap()).unwrap();assert_eq!(current["baseDiskRevision"],saved["diskRevision"]);assert_eq!(current["editorRevision"],2);assert_ne!(current["state"],"clean");
+}
+
 #[test]fn save_as_exports_copy_without_replacing_original_document(){
     let f=Fixture::new();let file=f.file("source.txt","base");let opened=f.open(&file);let meta=&opened["meta"];
     f.command("document_mark_dirty",json!({"documentId":meta["documentId"],"editorRevision":1,"dirty":true})).unwrap();

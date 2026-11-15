@@ -1,0 +1,55 @@
+{
+  "id": "horizon.language.json",
+  "name": "JSON 语言支持",
+  "version": "0.1.0",
+  "description": "为 JSON 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "json",
+        "aliases": [
+          "JSON"
+        ],
+        "extensions": [
+          ".json"
+        ]
+      },
+      {
+        "id": "jsonc",
+        "aliases": [
+          "JSON with Comments"
+        ],
+        "extensions": [
+          ".jsonc"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "json",
+        "scopeName": "source.json",
+        "path": "syntaxes/json.tmLanguage.json"
+      },
+      {
+        "language": "jsonc",
+        "scopeName": "source.json.comments",
+        "path": "syntaxes/jsonc.tmLanguage.json"
+      }
+    ]
+  }
+}

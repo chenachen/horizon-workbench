@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, ChevronRight, Command, Search, SearchX, X } from 'lucide-react';
 import { call, start, type TaskHandle } from '../../bridge';
 import { errorMessage, type FileRef, type SearchMatch } from '../../../../../packages/editor/src/types';
@@ -10,10 +10,15 @@ const searchParameters = (state: SearchParameters): SearchParameters => ({ query
 type SearchState = SearchParameters & { resultSnapshot?: { startedAt: number; parameters: SearchParameters }; matches: SearchMatch[]; status: 'idle' | 'loading' | 'cancelling' | 'ready' | 'cancelled' | 'error'; error: string; truncated: boolean; task?: TaskHandle<unknown>; generation: number; lastUsed: number; scrollTop: number; collapsed: Set<string>; focused: number };
 const searches = new Map<string, SearchState>();
 export async function disposeSearches(projectId?: string) { for (const [id, state] of searches) if (!projectId || id === projectId) { state.generation++; await state.task?.cancel().catch(() => {}); state.task = undefined; searches.delete(id); } }
-export function SearchPanel({ projectId, projectEpoch, onOpenFile }: { projectId: string; projectEpoch: number; onOpenFile?: (fileId: string) => void }) {
+export function SearchPanel({ projectId, projectEpoch, focusRequest = 0, onOpenFile, onRevealEditor }: { projectId: string; projectEpoch: number; focusRequest?: number; onOpenFile?: (fileId: string) => void; onRevealEditor?: () => void }) {
   const [revision, render] = useState(0); const [, renderViewport] = useState(0); let cached = searches.get(projectId);
   if (!cached) { cached = { query: editorStore.getSnapshot().projects.get(projectId)?.searchDraft ?? '', regex: false, caseSensitive: false, wholeWord: false, include: '', exclude: '', includeIgnored: false, matches: [], status: 'idle', error: '', truncated: false, generation: 0, lastUsed: Date.now(), scrollTop: 0, collapsed: new Set(), focused: 0 }; searches.set(projectId, cached); }
   const state = cached, alive = useRef(true), results = useRef<HTMLDivElement>(null), queryInput = useRef<HTMLInputElement>(null), queryTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useLayoutEffect(() => {
+    if (!focusRequest) return;
+    queryInput.current?.focus();
+    queryInput.current?.select();
+  }, [focusRequest]);
   useEffect(() => { alive.current = true; state.lastUsed = Date.now(); const inactive = [...searches].filter(([id, value]) => id !== projectId && value.matches.length).sort((left, right) => right[1].lastUsed - left[1].lastUsed); for (const [, old] of inactive.slice(4)) { old.generation++; old.matches = []; old.resultSnapshot = undefined; old.status = 'idle'; if (old.task) void old.task.cancel().catch(() => {}); old.task = undefined; } if (results.current) results.current.scrollTop = state.scrollTop; return () => { alive.current = false; if (queryTimer.current) clearTimeout(queryTimer.current); state.generation++; if (state.task) void state.task.cancel().catch(() => {}); state.task = undefined; if (state.status === 'loading' || state.status === 'cancelling') state.status = 'cancelled'; }; }, [projectId, projectEpoch, state]);
   const update = () => { if (alive.current) render(n => n + 1); };
   const parametersChanged = () => { state.generation++; const task = state.task; state.task = undefined; if (task) void task.cancel().catch(() => {}); if (state.status === 'loading' || state.status === 'cancelling') state.status = 'idle'; update(); };
@@ -42,7 +47,14 @@ export function SearchPanel({ projectId, projectEpoch, onOpenFile }: { projectId
   }, [state, revision]);
   const rowHeight = 28, from = Math.max(0, Math.floor(state.scrollTop / rowHeight) - 8), to = Math.min(visible.length, from + Math.ceil((results.current?.clientHeight ?? 600) / rowHeight) + 16);
   const focusResult = (index: number) => { state.focused = Math.max(0, Math.min(visible.length - 1, index)); const y = state.focused * rowHeight; if (results.current && (y < results.current.scrollTop || y > results.current.scrollTop + results.current.clientHeight - rowHeight)) results.current.scrollTop = Math.max(0, y - results.current.clientHeight / 2); state.scrollTop = results.current?.scrollTop ?? 0; update(); requestAnimationFrame(() => results.current?.querySelector<HTMLButtonElement>(`[data-result-index="${state.focused}"]`)?.focus()); };
-  const openResult = (item: (typeof visible)[number]) => { if (!item.match && onOpenFile) onOpenFile(item.file.fileId); else { const range = item.match?.ranges.find(r => r.unit === 'utf16'); void editorStore.openFile(item.file.fileId, { projectId, preview: true, line: item.match?.line, column: range?.unit === 'utf16' ? range.from : 0 }); } };
+  const openResult = (item: (typeof visible)[number]) => {
+    onRevealEditor?.();
+    if (!item.match && onOpenFile) onOpenFile(item.file.fileId);
+    else {
+      const range = item.match?.ranges.find(r => r.unit === 'utf16');
+      void editorStore.openFile(item.file.fileId, { projectId, preview: true, line: item.match?.line, column: range?.unit === 'utf16' ? range.from : 0 });
+    }
+  };
   const clearRange = () => { state.include = ''; state.exclude = ''; state.includeIgnored = false; update(); queryInput.current?.focus(); void search(); };
   const resultsOutdated = !!state.resultSnapshot && Object.entries(state.resultSnapshot.parameters).some(([key, value]) => state[key as keyof SearchParameters] !== value);
   return <section className="project-search" aria-label="项目文本搜索"><header className="editor-panel-heading"><span>搜索</span><span className="muted">磁盘内容</span></header><form className="search-form" onSubmit={e => { e.preventDefault(); if (queryTimer.current) clearTimeout(queryTimer.current); void search(); }}><div className="search-input-wrap"><Search size={15} /><input ref={queryInput} aria-label="搜索文本" placeholder="搜索项目内容" value={state.query} onChange={e => { state.query = e.target.value; editorStore.setSearchDraft(projectId, state.query); state.generation++; if (state.task) void state.task.cancel().catch(() => {}); state.task = undefined; state.status = 'idle'; state.matches = []; state.resultSnapshot = undefined; state.error = ''; if (queryTimer.current) clearTimeout(queryTimer.current); if (!(e.nativeEvent as InputEvent).isComposing) queryTimer.current = setTimeout(() => void search(), 150); update(); }} onKeyDown={e => { if (e.nativeEvent.isComposing && e.key === 'Enter') e.preventDefault(); }} /></div><div className="search-options"><label title="区分大小写"><input type="checkbox" checked={state.caseSensitive} onChange={e => { state.caseSensitive = e.target.checked; parametersChanged(); }} />Aa</label><label title="全词匹配"><input type="checkbox" checked={state.wholeWord} onChange={e => { state.wholeWord = e.target.checked; parametersChanged(); }} />全词</label><label title="正则表达式"><input type="checkbox" checked={state.regex} onChange={e => { state.regex = e.target.checked; parametersChanged(); }} />.*</label></div><details><summary>范围{state.include || state.exclude || state.includeIgnored ? ' · 已应用' : ''}</summary><label>包含路径<input value={state.include} placeholder="src/**, *.md" onChange={e => { state.include = e.target.value; parametersChanged(); }} /></label><label>排除路径<input value={state.exclude} placeholder="dist/**" onChange={e => { state.exclude = e.target.value; parametersChanged(); }} /></label><label className="search-check"><input type="checkbox" checked={state.includeIgnored} onChange={e => { state.includeIgnored = e.target.checked; parametersChanged(); }} />包含忽略项</label></details><div className="search-actions"><button type="submit" disabled={!state.query.trim()}>搜索</button>{state.task && <button type="button" disabled={state.status === 'cancelling'} onClick={() => { state.status = 'cancelling'; update(); void state.task?.cancel().catch(e => { state.error = errorMessage(e); update(); }); }}>{state.status === 'cancelling' ? '正在停止…' : '停止'}</button>}</div></form>
@@ -60,8 +72,8 @@ function MatchText({ match }: { match: SearchMatch }) {
   parts.push(match.lineText.slice(at)); return <>{parts}</>;
 }
 export type QuickOpenMode = 'files' | 'commands';
-export type QuickOpenProps = { open: boolean; projectId: string; projectEpoch: number; initialMode?: QuickOpenMode; onClose: () => void; onCommand?: (commandId: string) => void | Promise<unknown>; commands?: { id: string; title: string; shortcut?: string; disabled?: boolean; disabledReason?: string }[] };
-const defaultCommands = [{ id: 'file.save', title: '保存当前文件', shortcut: '⌘S' }, { id: 'editor.find', title: '当前文件查找 / 替换', shortcut: '⌘F' }, { id: 'editor.gotoLine', title: '跳转到行', shortcut: '⌃G' }, { id: 'app.settings', title: '打开设置', shortcut: '⌘,' }];
+export type QuickOpenProps = { open: boolean; projectId: string; projectEpoch: number; initialMode?: QuickOpenMode; onClose: () => void; onRevealEditor?: () => void; onCommand?: (commandId: string) => void | Promise<unknown>; commands?: { id: string; title: string; shortcut?: string; disabled?: boolean; disabledReason?: string }[] };
+const defaultCommands = [{ id: 'file.save', title: '保存当前文件', shortcut: '⌘S' }, { id: 'editor.find', title: '当前文件查找 / 替换', shortcut: '⌘F' }, { id: 'editor.gotoLine', title: '跳转到行', shortcut: '⌃G' }, { id: 'editor.definition', title: '跳转到定义', shortcut: 'F12' }, { id: 'app.settings', title: '打开设置', shortcut: '⌘,' }];
 const quickQueries = new Map<string, { files: string; commands: string }>();
 export function QuickOpen({ open, initialMode = 'files', ...props }: QuickOpenProps) {
   const wasOpen = useRef(false), focusOrigin = useRef<HTMLElement | null>(null);
@@ -69,7 +81,7 @@ export function QuickOpen({ open, initialMode = 'files', ...props }: QuickOpenPr
   wasOpen.current = open;
   return open ? <QuickOpenDialog key={`${props.projectId}:${props.projectEpoch}:${initialMode}`} {...props} initialMode={initialMode} focusOrigin={focusOrigin.current} /> : null;
 }
-function QuickOpenDialog({ projectId, projectEpoch, initialMode, focusOrigin, onClose, onCommand, commands = defaultCommands }: Omit<QuickOpenProps, 'open'> & { initialMode: QuickOpenMode; focusOrigin: HTMLElement | null }) {
+function QuickOpenDialog({ projectId, projectEpoch, initialMode, focusOrigin, onClose, onRevealEditor, onCommand, commands = defaultCommands }: Omit<QuickOpenProps, 'open'> & { initialMode: QuickOpenMode; focusOrigin: HTMLElement | null }) {
   const [query, setQuery] = useState(() => { const remembered = quickQueries.get(projectId)?.[initialMode] ?? ''; return initialMode === 'commands' ? `>${remembered}` : remembered; });
   const [items, setItems] = useState<{ file: FileRef; score: number }[]>([]), [selected, setSelected] = useState(0), [status, setStatus] = useState(''), [loading, setLoading] = useState(false), [composing, setComposing] = useState(false);
   const input = useRef<HTMLInputElement>(null), generation = useRef(0), composingRef = useRef(false), returnFocus = useRef(focusOrigin), restoreFocus = useRef(true);
@@ -103,6 +115,7 @@ function QuickOpenDialog({ projectId, projectEpoch, initialMode, focusOrigin, on
     if (id === 'file.save') await editorStore.saveActive();
     else if (id === 'editor.find') await editorCommands.find();
     else if (id === 'editor.gotoLine') await editorCommands.gotoLine();
+    else if (id === 'editor.definition') await editorCommands.definition();
     else throw new Error('此命令需要由工作台执行。');
   };
   const execute = (index = activeIndex) => {
@@ -110,6 +123,7 @@ function QuickOpenDialog({ projectId, projectEpoch, initialMode, focusOrigin, on
     const command = commandMode ? commandItems[index] : undefined, file = !commandMode && !loading ? items[index]?.file : undefined;
     if (commandMode ? !command || command.disabled : !file) return;
     restoreFocus.current = false; onClose();
+    if (file) onRevealEditor?.();
     void (command ? runCommand(command.id) : editorStore.openFile(file!.fileId, { projectId, preview: false })).catch(editorStore.reportError);
   };
   return <div className="editor-modal-backdrop quick-open-backdrop" onMouseDown={event => { if (event.target === event.currentTarget) onClose(); }}><div className="quick-open" role="dialog" aria-modal="true" aria-label="快速打开" onKeyDown={event => {

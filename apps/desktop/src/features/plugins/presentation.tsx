@@ -1,12 +1,13 @@
 import { BookOpen, Braces, FolderTree, GitBranch, LayoutTemplate, Palette, Puzzle, Rocket, Search, Sparkles, Terminal } from 'lucide-react';
 import type { ExtensionState, LayoutDefinition, PluginManifest, UiSlotId } from '../../../../../packages/plugins/src/types';
 
-export const pluginCategories = ['全部', '阅读', '工具', 'Git', 'AI', '布局', '主题'] as const;
+export const pluginCategories = ['全部', '阅读', '语言', '工具', 'Git', 'AI', '布局', '主题'] as const;
 export type PluginCategory = typeof pluginCategories[number];
 
 export function pluginCategory(manifest?: PluginManifest): PluginCategory {
   if (manifest?.contributes.layouts?.length) return '布局';
   if (manifest?.contributes.themes?.length) return '主题';
+  if (manifest?.contributes.languages?.length || manifest?.contributes.grammars?.length || manifest?.contributes.languageServers?.length) return '语言';
   if (manifest?.id === 'horizon.git') return 'Git';
   if (manifest?.id === 'horizon.agent') return 'AI';
   if (['horizon.files', 'horizon.editor', 'horizon.search', 'horizon.markdown'].includes(manifest?.id ?? '')) return '阅读';
@@ -14,8 +15,9 @@ export function pluginCategory(manifest?: PluginManifest): PluginCategory {
 }
 
 const glyphs = { 'horizon.files': FolderTree, 'horizon.editor': Braces, 'horizon.search': Search, 'horizon.git': GitBranch, 'horizon.terminal': Terminal, 'horizon.launch': Rocket, 'horizon.agent': Sparkles, 'horizon.markdown': BookOpen };
+const categoryGlyphs: Partial<Record<PluginCategory, typeof Puzzle>> = { 布局: LayoutTemplate, 主题: Palette, 语言: Braces };
 export function PluginGlyph({ manifest, size = 21 }: { manifest?: PluginManifest; size?: number }) {
-  const Icon = glyphs[manifest?.id as keyof typeof glyphs] ?? (manifest?.contributes.layouts?.length ? LayoutTemplate : manifest?.contributes.themes?.length ? Palette : Puzzle);
+  const Icon = glyphs[manifest?.id as keyof typeof glyphs] ?? categoryGlyphs[pluginCategory(manifest)] ?? Puzzle;
   return <span className="plugin-glyph" aria-hidden="true"><Icon size={size} /></span>;
 }
 
@@ -34,6 +36,7 @@ export function pluginTrigger(manifest?: PluginManifest): string {
   if (manifest.contributes.layouts?.length) return '选择此布局时';
   if (manifest.contributes.themes?.length) return '选择此主题时';
   if (triggers[manifest.id]) return triggers[manifest.id];
+  if (manifest.activation.some(event => event.startsWith('onLanguage:')) || manifest.contributes.languages?.length || manifest.contributes.grammars?.length || manifest.contributes.languageServers?.length) return '打开支持的语言文件时';
   if (manifest.activation.some(event => event.startsWith('onView:'))) return '打开扩展视图时';
   const command = manifest.contributes.commands?.find(command => manifest.activation.includes(`onCommand:${command.id}`));
   return command ? `执行「${command.title}」时` : '使用扩展提供的命令或视图时';
@@ -46,6 +49,8 @@ const capabilityLabels: Record<string, string> = {
   'project.read': '读取当前项目文件', 'project.write.reviewed': '写入经确认的项目更改', 'process.git': '执行 Git 操作',
   'git.read': '读取当前项目的 Git 更改', 'process.terminal': '运行项目终端', 'process.launch': '运行项目启动方案',
   'process.agent': '运行 Pi Agent', network: '访问网络服务', storage: '保存扩展私有数据',
+  'language.server': '运行本地语言服务器并分析项目代码',
 };
+export const pluginUsesProcess = (manifest?: PluginManifest) => !!manifest && (manifest.runtime.kind !== 'declarative' || !!manifest.contributes.languageServers?.length);
 export const capabilityLabel = (capability: string) => capabilityLabels[capability] ?? capability;
 export const pluginScope = (state: ExtensionState) => state.projectOverride && state.projectOverride !== 'inherit' ? '项目覆盖' : '全局默认';

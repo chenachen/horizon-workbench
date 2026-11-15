@@ -1,0 +1,89 @@
+{
+  "id": "horizon.language.javascript",
+  "name": "JavaScript / TypeScript 语言支持",
+  "version": "0.1.0",
+  "description": "为 JavaScript / TypeScript 文件提供语法高亮。",
+  "author": "Horizon",
+  "apiVersion": 1,
+  "engines": {
+    "horizon": ">=0.1.0 <0.2.0"
+  },
+  "runtime": {
+    "kind": "declarative"
+  },
+  "activation": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
+  ],
+  "requires": {},
+  "optional": {},
+  "capabilities": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "javascript",
+        "aliases": [
+          "JavaScript"
+        ],
+        "extensions": [
+          ".js",
+          ".mjs",
+          ".cjs"
+        ]
+      },
+      {
+        "id": "javascriptreact",
+        "aliases": [
+          "JavaScript JSX"
+        ],
+        "extensions": [
+          ".jsx"
+        ]
+      },
+      {
+        "id": "typescript",
+        "aliases": [
+          "TypeScript"
+        ],
+        "extensions": [
+          ".ts",
+          ".mts",
+          ".cts"
+        ]
+      },
+      {
+        "id": "typescriptreact",
+        "aliases": [
+          "TypeScript JSX"
+        ],
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "javascript",
+        "scopeName": "source.js",
+        "path": "syntaxes/javascript.tmLanguage.json"
+      },
+      {
+        "language": "javascriptreact",
+        "scopeName": "source.js.jsx",
+        "path": "syntaxes/jsx.tmLanguage.json"
+      },
+      {
+        "language": "typescript",
+        "scopeName": "source.ts",
+        "path": "syntaxes/typescript.tmLanguage.json"
+      },
+      {
+        "language": "typescriptreact",
+        "scopeName": "source.tsx",
+        "path": "syntaxes/tsx.tmLanguage.json"
+      }
+    ]
+  }
+}

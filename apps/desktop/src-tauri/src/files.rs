@@ -443,7 +443,13 @@ pub fn dispatch(state:Arc<HostState>,call:Call)->Result<Value,HostError>{
             state.documents.lock().unwrap().remove(&doc_id);if decision=="discard"{let path=checkpoint_path(&state,&doc_id)?;if path.exists(){fs::remove_file(path)?;}}Ok(json!({"closed":true}))
         }
         "file_read_chunk"=>read_chunk(&state,&call),
-        "document_disk_read"=>{allowed(params,&["documentId"])?;let(_,_,path)=document(&state,&call)?;if fs::metadata(&path)?.len()>CHECKPOINT_LIMIT as u64{return Err(HostError::new("RESOURCE_LIMIT","磁盘内容超过可比较大小"));}let(text,encoding)=decode(&fs::read(&path)?)?;Ok(json!({"text":text,"revision":disk_revision(&path)?,"encoding":encoding,"eol":eol(&text)}))}
+        "document_disk_read"=>{
+            allowed(params,&["documentId"])?;let(_,_,path)=document(&state,&call)?;
+            if fs::metadata(&path)?.len()>CHECKPOINT_LIMIT as u64{return Err(HostError::new("RESOURCE_LIMIT","磁盘内容超过可比较大小"));}
+            let before=disk_revision(&path)?;let bytes=fs::read(&path)?;let current=check_revision(&path,&before)?;
+            if digest(&bytes)!=current["contentHash"]{return Err(HostError::new("FILE_CHANGED","读取比较内容时磁盘文件已变化，请重新比较"));}
+            let(text,encoding)=decode(&bytes)?;Ok(json!({"text":text,"revision":current,"encoding":encoding,"eol":eol(&text)}))
+        }
         "document_versions"=>{allowed(params,&["documentId"])?;let(document_id,_,_)=document(&state,&call)?;let directory=state.data_dir().join("save-backups");let mut items=Vec::new();if directory.exists(){for entry in fs::read_dir(directory)?{let path=entry?.path();if path.extension().is_some_and(|s|s=="json"){let meta:Value=serde_json::from_slice(&fs::read(path)?)?;if meta["documentId"]==document_id{items.push(meta);}}}}Ok(json!({"items":items}))}
         "document_version_read"=>{allowed(params,&["documentId","versionId"])?;let(document_id,_,_)=document(&state,&call)?;let version=string(params,"versionId")?;if uuid::Uuid::parse_str(version).is_err(){return Err(HostError::new("INVALID_ARGUMENT","无效保存版本"));}let directory=state.data_dir().join("save-backups");let meta:Value=serde_json::from_slice(&fs::read(directory.join(format!("{version}.json")))?)?;if meta["documentId"]!=document_id{return Err(HostError::new("PERMISSION_DENIED","保存版本不属于此文档"));}let(text,encoding)=decode(&fs::read(directory.join(format!("{version}.bin")))?)?;Ok(json!({"text":text,"encoding":encoding,"eol":eol(&text),"diskRevision":meta["diskRevision"]}))}
         "document_proposal_get"=>{allowed(params,&["proposalId"])?;let proposal=state.plans.lock().unwrap().get(string(params,"proposalId")?).cloned().ok_or_else(||HostError::new("NOT_FOUND","修改提案已过期"))?;let meta=state.document_meta(string(&proposal,"documentId")?)?;if meta["file"]["projectId"]!=call.project_id()?{return Err(HostError::new("PERMISSION_DENIED","提案属于其他项目"));}Ok(proposal)}

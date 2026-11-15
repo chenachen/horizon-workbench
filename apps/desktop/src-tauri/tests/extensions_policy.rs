@@ -249,7 +249,7 @@ fn startup_syncs_builtin_descriptions_without_replacing_capabilities_or_user_pol
     let fixture = Fixture::new();
     let original = fixture.registry();
     let ids: Vec<String> = original["records"].as_object().unwrap().keys().cloned().collect();
-    assert_eq!(ids.len(), 24);
+    assert_eq!(ids.len(), 34);
     fixture.edit(|registry| {
         for id in &ids {
             let record = &mut registry["records"][id];
@@ -270,6 +270,7 @@ fn startup_syncs_builtin_descriptions_without_replacing_capabilities_or_user_pol
     for id in &ids {
         let mut expected_manifest = before["records"][id]["manifest"].clone();
         expected_manifest["description"] = original["records"][id]["manifest"]["description"].clone();
+        expected_manifest["name"] = original["records"][id]["manifest"]["name"].clone();
         assert_eq!(after["records"][id]["manifest"], expected_manifest, "{id}");
         for field in ["enabledGlobal", "pausedGlobal", "projects", "config", "projectConfig", "grants", "installed", "builtin"] { assert_eq!(after["records"][id][field], before["records"][id][field], "{id} {field}"); }
         let installed: Value = serde_json::from_slice(&fs::read(std::path::Path::new(after["records"][id]["packageDir"].as_str().unwrap()).join("manifest.json")).unwrap()).unwrap();

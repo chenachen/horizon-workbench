@@ -1900,13 +1900,25 @@ function ProcessLog({
 }) {
   const [text, setText] = useState("");
   const [gap, setGap] = useState(false);
+  const [readError, setReadError] = useState<string | null>(null);
+  const retry = useRef<(() => void) | null>(null);
+  const reportRef = useRef(report);
+  reportRef.current = report;
   useEffect(() => {
     let disposed = false;
-    let timer: ReturnType<typeof setTimeout>;
+    let loading = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
     let offset = "0";
     let characters = 0;
     const decoder = new TextDecoder();
+    setText("");
+    setGap(false);
+    setReadError(null);
     const load = async () => {
+      if (disposed || loading) return;
+      loading = true;
+      timer = undefined;
+      setReadError(null);
       try {
         const output = await call<{
           data: string;
@@ -1930,17 +1942,30 @@ function ProcessLog({
           offset === output.bufferEnd ? 800 : 0,
         );
       } catch (e) {
-        if (!disposed) report(e);
+        if (!disposed) {
+          setReadError(errorMessage(e));
+          reportRef.current(e);
+        }
+      } finally {
+        loading = false;
       }
     };
+    retry.current = () => void load();
     void load();
     return () => {
       disposed = true;
       clearTimeout(timer);
+      retry.current = null;
     };
-  }, [projectId, processId, report]);
+  }, [projectId, processId]);
   return (
     <>
+      {readError !== null ? (
+        <div className="process-toolbar" role="alert">
+          <span className="process-error">日志读取已中断：{readError}</span>
+          <button type="button" onClick={() => retry.current?.()}>重试读取</button>
+        </div>
+      ) : null}
       {gap ? (
         <p className="process-meta">较早日志已截断，当前显示最近输出。</p>
       ) : null}

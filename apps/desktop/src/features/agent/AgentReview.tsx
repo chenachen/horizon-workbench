@@ -10,7 +10,7 @@ type ApplyResult = { results: { fileId: string; state: string; error?: { message
 const EMPTY: FilePreview = { text: '', binary: false, truncated: false };
 const PAGE_ROWS = 300;
 
-export function AgentReview({ projectId, reviewId, onClose, onDiscard }: { projectId: string; reviewId: string; onClose: () => void; onDiscard: () => void }) {
+export function AgentReview({ projectId, reviewId, onClose, onDiscard, onRevealEditor }: { projectId: string; reviewId: string; onClose: () => void; onDiscard: () => void; onRevealEditor?: () => void }) {
   const [review, setReview] = useState<Review | null>(null), [selected, setSelected] = useState<ReviewFile | null>(null), [baseline, setBaseline] = useState(EMPTY), [after, setAfter] = useState(EMPTY), [busy, setBusy] = useState(false), [loading, setLoading] = useState(false), [error, setError] = useState(''), [notice, setNotice] = useState(''), [confirmDiscard, setConfirmDiscard] = useState(false), [page, setPage] = useState(0);
   const live = useRef(true), epoch = useRef(getProjectEpoch(projectId));
   const current = () => live.current && epoch.current === getProjectEpoch(projectId);
@@ -46,6 +46,7 @@ export function AgentReview({ projectId, reviewId, onClose, onDiscard }: { proje
           if (current()) {
             const { applyReviewedEdit, editorStore } = await import('../editor');
             if (current()) {
+              onRevealEditor?.();
               await editorStore.openFile(file.fileId, { projectId, preview: false });
               if (current()) success = await applyReviewedEdit({ projectId, fileId: file.fileId, expectedEditorRevision: file.detail.expectedEditorRevision, text: file.detail.text, proposalId: file.detail.proposalId });
             }

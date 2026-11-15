@@ -9,14 +9,59 @@ export interface LayoutDefinition {
   narrow: { breakpoint: number; collapse: UiSlotId[]; minimumEditorWidth: number };
 }
 export type ThemeToken = 'background' | 'surface' | 'text' | 'muted' | 'border' | 'accent' | 'onAccent' | 'selection' | 'success' | 'warning' | 'error';
-export interface ThemeDefinition { id: string; apiVersion: 1; label: string; light: Record<ThemeToken, string>; dark: Record<ThemeToken, string>; radius: number; density: 'compact' | 'standard' | 'comfortable' | 'spacious'; rowHeight?: number }
+export interface TokenColorRule {
+  name?: string;
+  scope: string | string[];
+  settings: { foreground?: string; fontStyle?: string };
+}
+export interface ThemeDefinition {
+  id: string;
+  apiVersion: 1;
+  label: string;
+  light: Record<ThemeToken, string>;
+  dark: Record<ThemeToken, string>;
+  radius: number;
+  density: 'compact' | 'standard' | 'comfortable' | 'spacious';
+  rowHeight?: number;
+  tokenColors?: { light?: TokenColorRule[]; dark?: TokenColorRule[] };
+}
+export interface LanguageDefinition {
+  id: string;
+  aliases?: string[];
+  extensions?: string[];
+  filenames?: string[];
+}
+export interface GrammarDefinition {
+  language?: string;
+  scopeName: string;
+  path: string;
+  injectTo?: string[];
+}
+export interface LanguageServerDefinition {
+  id: string;
+  languageIds: string[];
+  rootMarkers?: string[];
+  command: string;
+  args?: string[];
+  initializationOptions?: Record<string, unknown>;
+  settings?: Record<string, unknown>;
+}
 export interface DeclarativeView { kind: 'tree' | 'list' | 'text'; title: string; items: { id: string; label: string; description?: string; commandId?: string }[] }
 export interface PluginManifest {
   id: string; name: string; version: string; description: string; author: string;
   apiVersion: 1; engines: { horizon: string };
   runtime: { kind: 'declarative' | 'trusted-main' | 'quickjs'; entry?: string };
   activation: string[]; requires: Record<string, string>; optional: Record<string, string>; capabilities: string[];
-  contributes: { commands?: { id: string; title: string }[]; views?: { id: string; slot: UiSlotId; renderer: 'trusted' | 'declarative' }[]; layouts?: LayoutDefinition[]; themes?: ThemeDefinition[]; settings?: SettingDefinition[] };
+  contributes: {
+    commands?: { id: string; title: string }[];
+    views?: { id: string; slot: UiSlotId; renderer: 'trusted' | 'declarative' }[];
+    layouts?: LayoutDefinition[];
+    themes?: ThemeDefinition[];
+    languages?: LanguageDefinition[];
+    grammars?: GrammarDefinition[];
+    languageServers?: LanguageServerDefinition[];
+    settings?: SettingDefinition[];
+  };
 }
 export interface SettingDefinition { key: string; label: string; type: 'boolean' | 'string' | 'select' | 'path'; default?: unknown; options?: string[] }
 export interface ExtensionState {

@@ -4,6 +4,7 @@ pub mod extensions;
 pub mod extension_host;
 pub mod files;
 pub mod git;
+pub mod language_servers;
 mod macos;
 pub mod picker;
 pub mod processes;
@@ -59,7 +60,7 @@ fn is_write(method:&str)->bool{
         || method.starts_with("appearance_")&&["patch","apply","import","remove","save","delete","export"].iter().any(|suffix|method.ends_with(suffix))
         || method.starts_with("launch_")&&["save","delete","start","stop","restart"].iter().any(|suffix|method.ends_with(suffix))
         || method.starts_with("agent_")&&["save","create","submit","close","install","uninstall"].iter().any(|suffix|method.ends_with(suffix))
-        || ["workspace_activate","project_activate","session_update","project_session_patch","data_export_discard","review_apply","review_editor_result","review_discard","agent_connection_remove","agent_interaction_answer","git_conflict_resolve","git_clone_cleanup","document_proposal_result","recovery_resolve","project_relocate","terminal_create","terminal_stop","process_stop","launch_profile_export"].contains(&method)
+        || ["workspace_activate","project_activate","session_update","project_session_patch","data_export_discard","review_apply","review_editor_result","review_discard","agent_connection_remove","agent_interaction_answer","git_conflict_resolve","git_clone_cleanup","document_proposal_result","recovery_resolve","project_relocate","terminal_create","terminal_stop","process_stop","launch_profile_export","extension_config_set"].contains(&method)
 }
 fn gate(state:&HostState,call:&Call)->Result<(),HostError>{
     let extension=if call.method.starts_with("git_"){Some("horizon.git")}
@@ -188,6 +189,7 @@ pub async fn dispatch(state:Arc<HostState>,app:AppHandle,call:Call,channel:Optio
         "settings_pick_git"=>{allowed(&call.params,&[])?;let selected=picker::pick(&app,&call,picker::Request::file().title("选择 Git 可执行文件")).await?;let path=selected.map(|path|path.to_string_lossy().into_owned());Ok(json!({"path":path}))}
         "document_relocate_prepare"=>files::relocate_prepare(state,app,call).await,
         "app_exit_apply"|"project_close_apply"=>close_apply(state,app,call).await,
+        method if method.starts_with("language_server_")=>language_servers::dispatch_with_app(state,app,call,channel).await,
         method if method.starts_with("extension_runtime_")=>extension_host::dispatch(state,app,call,channel).await,
         method if method.starts_with("extension_")=>extensions::dispatch(state,app,call,channel).await,
         method if method.starts_with("appearance_")=>appearance::dispatch(state,app,call,channel).await,
@@ -218,6 +220,7 @@ async fn close_apply(state:Arc<HostState>,app:AppHandle,call:Call)->Result<Value
     crate::agent::stop_extension("horizon.agent",project).await?;
     crate::git::stop_resources(project).await?;
     crate::search::stop_resources(project).await?;
+    crate::language_servers::stop_resources(project).await?;
     if exit{crate::extension_host::stop_all().await?;}else if let Some(project)=project{crate::extension_host::stop_project(project).await?;}
     let project_owned=project.map(str::to_owned);tauri::async_runtime::spawn_blocking(move||->Result<(),HostError>{crate::processes::stop_extension("horizon.terminal",project_owned.as_deref())?;crate::processes::stop_extension("horizon.launch",project_owned.as_deref())?;Ok(())}).await.map_err(|e|HostError::new("IO_ERROR",e.to_string()))??;
     let deadline=std::time::Instant::now()+std::time::Duration::from_secs(3);loop{let pending=state.tasks.lock().unwrap().values().any(|task|task.terminal.is_none()&&project.is_none_or(|project|task.call.scope["projectId"]==project));if !pending{break;}if std::time::Instant::now()>=deadline{return Err(HostError::new("RESOURCE_BUSY","仍有任务正在结束，请稍后重试"));}tokio::time::sleep(std::time::Duration::from_millis(20)).await;}

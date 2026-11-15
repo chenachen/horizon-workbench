@@ -1,13 +1,13 @@
 import { Zap } from 'lucide-react';
 import type { ExtensionState } from '../../../../../packages/plugins/src/types';
-import { PluginGlyph, pluginCategory, pluginScope, pluginTrigger } from './presentation';
+import { PluginGlyph, pluginCategory, pluginScope, pluginTrigger, pluginUsesProcess } from './presentation';
 
 export function PluginCard({ state, status, busy, onDetails, onToggle, onPause, onResume, onRestore }: {
   state: ExtensionState; status: string; busy: boolean;
   onDetails(): void; onToggle(): void; onPause(): void; onResume(): void; onRestore(): void;
 }) {
   const installed = state.installState !== 'absent';
-  const active = state.effectiveEnabled && !state.effectivePaused && state.runState === 'active' && state.manifest?.runtime.kind !== 'declarative';
+  const active = state.effectiveEnabled && !state.effectivePaused && state.runState === 'active' && pluginUsesProcess(state.manifest);
   return <article className="plugin-card">
     <div className="plugin-card-top"><PluginGlyph manifest={state.manifest} /><div><h3>{state.manifest?.name ?? state.id}</h3><small>{state.manifest?.author ?? '本地扩展'} · {pluginCategory(state.manifest)}</small></div><span className={`plugin-state ${active ? 'active' : state.effectivePaused ? 'paused' : ''}`}>{status}</span></div>
     <p>{state.manifest?.description}</p>

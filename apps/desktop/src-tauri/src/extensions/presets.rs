@@ -4,7 +4,11 @@ const READING: &[&str] = &["horizon.files", "horizon.editor", "horizon.search"];
 const DEVELOPMENT: &[&str] = &["horizon.terminal", "horizon.launch"];
 
 fn feature(record: &Value) -> bool {
-    !["layouts", "themes"].iter().any(|kind| record["manifest"]["contributes"][kind].as_array().is_some_and(|items| !items.is_empty()))
+    let contributes = &record["manifest"]["contributes"];
+    let has = |kind: &str| contributes[kind].as_array().is_some_and(|items| !items.is_empty());
+    if ["layouts", "themes"].iter().any(|kind| has(kind)) { return false; }
+    !["languages", "grammars", "languageServers"].iter().any(|kind| has(kind))
+        || ["commands", "views"].iter().any(|kind| has(kind))
 }
 fn enabled_ids(registry: &Value, project: Option<&str>) -> Result<Vec<String>, HostError> {
     let mut ids = Vec::new();
@@ -55,7 +59,7 @@ fn desired_ids(registry: &Value, profile: &str, selected: &[Value]) -> Result<(B
         "custom" => {
             for id in selected {
                 let id = id.as_str().ok_or_else(|| err("INVALID_ARGUMENT", "扩展 ID 必须为字符串"))?;
-                if let Some(record) = registry["records"].get(id) { if !feature(record) { return Err(err("INVALID_ARGUMENT", "布局和主题通过外观设置选择")); } }
+                if let Some(record) = registry["records"].get(id) { if !feature(record) { return Err(err("INVALID_ARGUMENT", "资源扩展通过外观设置或插件中心管理")); } }
                 desired.insert(id.to_string());
             }
         }
@@ -222,6 +226,20 @@ mod tests {
         write_registry(&state, &registry).unwrap();
         assert_eq!(resource_profile(&state, None).unwrap()["profile"], "custom");
         assert_eq!(crate::settings::effective_for(&state, None).unwrap()["resources.profile"], "custom");
+    }
+    #[test]
+    fn language_resources_are_managed_independently_of_capability_presets() {
+        let (_dir, state) = fixture();
+        let mut registry = read_registry(&state).unwrap();
+        registry["records"]["local.language"] = initial_record(json!({"id":"local.language","version":"1.0.0","name":"Language","requires":{},"capabilities":[],"contributes":{"languages":[{"id":"example","extensions":[".example"]}],"grammars":[{"scopeName":"source.example","path":"syntax.json"}]},"runtime":{"kind":"declarative"}}), false);
+        write_registry(&state, &registry).unwrap();
+        assert_eq!(resource_profile(&state, None).unwrap()["profile"], "review");
+        for profile in ["minimal", "review", "development"] {
+            let plan = prepare(&state, &request(profile, json!([]))).unwrap();
+            for field in ["stopIds", "policyIds", "enableIds"] {
+                assert!(!plan[field].as_array().unwrap().contains(&json!("local.language")));
+            }
+        }
     }
     #[test]
     fn settings_patch_cannot_bypass_preset_confirmation() {
