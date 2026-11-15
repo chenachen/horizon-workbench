@@ -94,7 +94,7 @@ jobs:
         run: |
           cargo test --locked --release --manifest-path apps/desktop/src-tauri/Cargo.toml --lib --no-run 2>&1 | Tee-Object artifacts/windows/windows-host-test-build.log
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release/deps/horizon_host-*.exe' -File)
+          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release' -Recurse -Filter 'horizon_host-*.exe' -File)
           if ($binaries.Count -eq 0) { throw 'No host unit-test executable was built.' }
           foreach ($binary in $binaries) {
             Copy-Item -LiteralPath 'scripts/desktop/windows-test.manifest' -Destination "$($binary.FullName).manifest"
@@ -112,7 +112,7 @@ jobs:
           Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' |
             Select-Object ProductName, DisplayVersion, CurrentBuildNumber, UBR, BuildLabEx |
             ConvertTo-Json | Set-Content "$output/os-build.json"
-          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release/deps/horizon_host-*.exe' -File -ErrorAction SilentlyContinue)
+          $binaries = @(Get-ChildItem 'apps/desktop/src-tauri/target/release' -Recurse -Filter 'horizon_host-*.exe' -File -ErrorAction SilentlyContinue)
           @($binaries | ForEach-Object {
             @{ path = $_.FullName; bytes = $_.Length; sha256 = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
           }) | ConvertTo-Json -Depth 4 | Set-Content "$output/test-executables.json"
